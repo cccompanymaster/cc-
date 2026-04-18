@@ -117,6 +117,25 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-stars" aria-hidden="true"></div>
+
+      <!-- Constellation / compass decoration -->
+      <div class="hero-compass" aria-hidden="true">
+        <svg viewBox="0 0 400 400" fill="none">
+          <circle cx="200" cy="200" r="198" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="200" cy="200" r="160" stroke="currentColor" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 4"/>
+          <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" opacity="0.25"/>
+          <g class="compass-needle">
+            <path d="M200 60 L208 200 L200 210 L192 200 Z" fill="currentColor" opacity="0.5"/>
+            <path d="M200 340 L192 200 L200 190 L208 200 Z" fill="currentColor" opacity="0.2"/>
+          </g>
+          <circle cx="200" cy="200" r="4" fill="currentColor"/>
+          <text x="200" y="30" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6" letter-spacing="2">N</text>
+          <text x="200" y="385" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.4" letter-spacing="2">S</text>
+          <text x="20" y="204" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.4" letter-spacing="2">W</text>
+          <text x="380" y="204" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.4" letter-spacing="2">E</text>
+        </svg>
+      </div>
+
       <div class="hero-wrap">
         <p class="hero-eyebrow">
           <span class="dot" aria-hidden="true"></span>
@@ -136,6 +155,103 @@
           <a href="#contact" class="btn btn-ghost">프로젝트 문의</a>
         </div>
       </div>
+
+      <!-- Ark illustration -->
+      <div class="hero-ark" aria-hidden="true">
+        <svg viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYEnd meet">
+          <defs>
+            <linearGradient id="arkHull" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8a6441"/>
+              <stop offset="100%" stop-color="#5a3f27"/>
+            </linearGradient>
+            <linearGradient id="arkDeck" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d4a574"/>
+              <stop offset="100%" stop-color="#a57b50"/>
+            </linearGradient>
+            <linearGradient id="sailGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fefaf4"/>
+              <stop offset="100%" stop-color="#e8d9bf"/>
+            </linearGradient>
+          </defs>
+
+          <g class="ark-body">
+            <!-- Hull bottom curve -->
+            <path d="M120 200 Q160 240 300 240 Q440 240 480 200 L460 180 L140 180 Z" fill="url(#arkHull)"/>
+            <!-- Hull planks -->
+            <path d="M140 190 L460 190" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
+            <path d="M150 200 L450 200" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
+            <path d="M160 210 L440 210" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
+            <path d="M175 220 L425 220" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
+
+            <!-- Deck / cabin structure -->
+            <rect x="180" y="140" width="240" height="40" fill="url(#arkDeck)"/>
+            <rect x="200" y="100" width="200" height="40" fill="#b88a5f"/>
+            <rect x="220" y="70" width="160" height="30" fill="#a07649"/>
+
+            <!-- Windows -->
+            <circle cx="220" cy="160" r="5" fill="#d4a574"/>
+            <circle cx="250" cy="160" r="5" fill="#d4a574"/>
+            <circle cx="280" cy="160" r="5" fill="#d4a574"/>
+            <circle cx="320" cy="160" r="5" fill="#d4a574"/>
+            <circle cx="350" cy="160" r="5" fill="#d4a574"/>
+            <circle cx="380" cy="160" r="5" fill="#d4a574"/>
+
+            <!-- Cabin door -->
+            <rect x="290" y="115" width="20" height="25" fill="#3d2a1b"/>
+
+            <!-- Cabin windows -->
+            <rect x="220" y="115" width="14" height="14" fill="#d4a574"/>
+            <rect x="244" y="115" width="14" height="14" fill="#d4a574"/>
+            <rect x="342" y="115" width="14" height="14" fill="#d4a574"/>
+            <rect x="366" y="115" width="14" height="14" fill="#d4a574"/>
+
+            <!-- Roof line -->
+            <path d="M200 100 L210 85 L390 85 L400 100 Z" fill="#704e2f"/>
+          </g>
+
+          <!-- Masts & sails -->
+          <g class="ark-sail">
+            <!-- Main mast -->
+            <line x1="300" y1="70" x2="300" y2="0" stroke="#3d2a1b" stroke-width="3"/>
+            <!-- Main sail -->
+            <path d="M300 10 Q340 40 300 75 Q260 40 300 10 Z" fill="url(#sailGrad)" stroke="#c9b089" stroke-width="1"/>
+            <!-- Second sail -->
+            <path d="M300 20 L360 50 L300 65 Z" fill="url(#sailGrad)" opacity="0.9" stroke="#c9b089" stroke-width="0.5"/>
+            <!-- Pennant -->
+            <path d="M300 0 L320 5 L302 12 Z" fill="#D4A574"/>
+          </g>
+
+          <!-- Bird (dove) -->
+          <g class="ark-bird">
+            <path d="M500 50 Q508 46 514 50 Q520 46 528 50 Q522 54 514 54 Q506 54 500 50 Z" fill="#fff"/>
+            <circle cx="526" cy="50" r="1" fill="#0B1A33"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Waves -->
+      <div class="hero-waves" aria-hidden="true">
+        <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wave1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a3358" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#0B1A33" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="wave2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#0B1A33" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="wave3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D4A574" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#D4A574" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="wave wave-back" d="M0,100 C240,60 480,140 720,100 C960,60 1200,140 1440,100 L1440,200 L0,200 Z" fill="url(#wave1)"/>
+          <path class="wave wave-mid" d="M0,120 C240,80 480,160 720,120 C960,80 1200,160 1440,120 L1440,200 L0,200 Z" fill="url(#wave2)"/>
+          <path class="wave wave-front" d="M0,140 C240,110 480,170 720,140 C960,110 1200,170 1440,140 L1440,200 L0,200 Z" fill="url(#wave3)"/>
+        </svg>
+      </div>
+
       <a href="#about" class="scroll-down" aria-label="아래로 스크롤"><span aria-hidden="true"></span><p>SCROLL</p></a>
     </section>
 
