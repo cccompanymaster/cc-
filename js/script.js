@@ -70,12 +70,11 @@ if (introSeen) {
     currentX += (targetX - currentX) * 0.06;
     currentY += (targetY - currentY) * 0.06;
 
-    needle.style.transform = `rotate(${currentAngle}deg)`;
-    needle.style.transformOrigin = '250px 250px';
-    needle.style.transition = 'none';
+    // SVG-native rotation: rotate(angle cx cy) — works reliably cross-browser
+    needle.setAttribute('transform', `rotate(${currentAngle.toFixed(2)} 250 250)`);
 
-    ark.style.setProperty('--ark-x', currentX + 'px');
-    ark.style.setProperty('--ark-y', currentY + 'px');
+    ark.style.setProperty('--ark-x', currentX.toFixed(1) + 'px');
+    ark.style.setProperty('--ark-y', currentY.toFixed(1) + 'px');
 
     requestAnimationFrame(tick);
   };
