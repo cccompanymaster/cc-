@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>시월기획 - 종합광고대행사</title>
-  <meta name="description" content="브랜드의 경험을 기획하고 디자인하는 크리에이티브 광고대행사">
+  <title>노아마케팅그룹 | Noah Marketing Group</title>
+  <meta name="description" content="노아마케팅랩, CC컴퍼니, 노아데이터베이스 3개 계열사가 만드는 통합 마케팅 솔루션">
+  <meta property="og:title" content="노아마케팅그룹 | Noah Marketing Group">
+  <meta property="og:description" content="전문직 광고부터 바이럴, 데이터베이스 마케팅까지 — 성장을 지키는 파트너">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,38 +18,51 @@
 
   <div class="cursor"></div>
 
+  <!-- Intro -->
   <div id="intro" class="intro">
-    <div class="intro-logo">
-      <span class="intro-letter">시</span>
-      <span class="intro-letter">월</span>
-      <span class="intro-dot"></span>
+    <div class="intro-inner">
+      <div class="intro-ship">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+          <path d="M30 70 Q60 50 90 70 L85 80 L35 80 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M60 70 L60 35" stroke="currentColor" stroke-width="2"/>
+          <path d="M60 35 L75 55 L60 55 Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="intro-text">
+        <span>N</span><span>O</span><span>A</span><span>H</span>
+      </div>
     </div>
   </div>
 
+  <!-- Header -->
   <header id="header">
     <div class="header-inner">
       <a href="#" class="logo">
-        <span class="logo-mark">10</span>
-        <span class="logo-text">시월기획</span>
+        <span class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="currentColor"/></svg>
+        </span>
+        <span class="logo-text">
+          <b>NOAH</b>
+          <em>MARKETING GROUP</em>
+        </span>
       </a>
       <nav class="gnb">
         <ul>
-          <li><a href="#company">회사소개</a></li>
-          <li><a href="#service">상품소개</a></li>
-          <li><a href="#network">네트워크</a></li>
-          <li><a href="#client">클라이언트</a></li>
-          <li><a href="#news">시월소식</a></li>
-          <li><a href="#recruit">인재채용</a></li>
+          <li><a href="#about">GROUP</a></li>
+          <li><a href="#companies">COMPANIES</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#clients">CLIENTS</a></li>
+          <li><a href="#news">INSIGHTS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
       <div class="header-right">
         <ul class="lang">
-          <li class="active"><a href="#">KOR</a></li>
-          <li><a href="#">ENG</a></li>
+          <li class="active"><a href="#">KR</a></li>
+          <li><a href="#">EN</a></li>
         </ul>
-        <button type="button" class="ham" aria-label="menu">
-          <span></span><span></span>
-        </button>
+        <button type="button" class="ham" aria-label="menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
@@ -54,343 +70,438 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-gradient"></div>
-      </div>
+      <div class="hero-bg"></div>
+      <div class="hero-stars"></div>
       <div class="hero-wrap">
+        <p class="hero-eyebrow">
+          <span class="dot"></span>
+          Noah Marketing Group · Since 2020
+        </p>
         <h1 class="hero-title">
-          <span class="line"><b>Success Requires</b></span>
-          <span class="line">Advertising</span>
+          <span class="line"><em>Grow</em> Safely,</span>
+          <span class="line"><em>Scale</em> Boldly.</span>
         </h1>
-        <p class="hero-sub">성공적인 광고의 시작과 끝에는 시월기획이 있습니다.</p>
+        <p class="hero-sub">
+          전문직 광고 · 바이럴 미디어 · 데이터베이스까지<br>
+          <b>3개 전문 계열사</b>가 만드는 통합 마케팅 솔루션
+        </p>
+        <div class="hero-actions">
+          <a href="#companies" class="btn btn-primary">계열사 살펴보기 <span>→</span></a>
+          <a href="#contact" class="btn btn-ghost">프로젝트 문의</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>3</b><span>Companies</span></div>
+          <div><b>500+</b><span>Clients</span></div>
+          <div><b>10K+</b><span>Campaigns</span></div>
+          <div><b>98%</b><span>Retention</span></div>
+        </div>
       </div>
-      <div class="scroll-down">
-        <span></span>
-        <p>SCROLL</p>
+      <div class="scroll-down"><span></span><p>SCROLL</p></div>
+    </section>
+
+    <!-- About Group -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-left">
+            <p class="sub-label"><em></em>WE ARE NOAH</p>
+            <h2 class="h2">
+              흔들리지 않는 성장,<br>
+              그 항해의 <em>나침반</em>이 됩니다.
+            </h2>
+          </div>
+          <div class="about-right">
+            <p class="about-lead">
+              노아마케팅그룹은 각 분야에 특화된 3개의 전문 계열사를 통해
+              <b>전문직 광고부터 바이럴 확산, 퍼포먼스 DB 마케팅까지</b>
+              클라이언트의 비즈니스 전 영역을 커버합니다.
+            </p>
+            <ul class="about-points">
+              <li>
+                <span class="num">01</span>
+                <div>
+                  <h4>Vertical Expertise</h4>
+                  <p>업종별 전문 계열사 운영 — 얕고 넓게가 아닌, 깊고 정확하게.</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">02</span>
+                <div>
+                  <h4>Integrated Solution</h4>
+                  <p>광고 · 콘텐츠 · DB를 한 곳에서 — 단일 파트너, 통합 성과.</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">03</span>
+                <div>
+                  <h4>Data-Driven</h4>
+                  <p>감이 아닌 데이터로 판단 — 측정 가능한 ROI만이 답입니다.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Service -->
-    <section id="service" class="service">
+    <!-- Companies -->
+    <section id="companies" class="companies">
       <div class="container">
-        <div class="sec-title">
-          <p class="sub">we believe</p>
-          <h2>
-            시월기획은<br>
-            타 대행사와는 차원이 다른<br>
-            서비스를 제공합니다.
+        <div class="sec-head center">
+          <p class="sub-label"><em></em>OUR COMPANIES</p>
+          <h2 class="h2">각자의 영역에서, <em>각자의 정상</em>으로.</h2>
+          <p class="sec-desc">3개 계열사가 서로 다른 전문성으로 클라이언트의 성장을 설계합니다.</p>
+        </div>
+
+        <div class="company-list">
+          <!-- Company 1 -->
+          <article class="company company-lab">
+            <div class="company-number">01</div>
+            <div class="company-visual">
+              <div class="visual-glow"></div>
+              <svg class="visual-icon" viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                <circle cx="100" cy="100" r="50" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="100" cy="100" r="20" fill="currentColor"/>
+                <path d="M100 20 L100 50 M100 150 L100 180 M20 100 L50 100 M150 100 L180 100" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="company-body">
+              <p class="company-tag">Professional Advertising</p>
+              <h3 class="company-name">노아마케팅랩<em>Noah Marketing Lab</em></h3>
+              <p class="company-desc">
+                병원 · 법률 · 세무 · 금융 — 전문직 업종의 특수성을 이해하고,
+                규제 환경 안에서 최대 성과를 만드는 전문직 광고 전담 조직.
+              </p>
+              <ul class="company-items">
+                <li>의료 · 병원 마케팅</li>
+                <li>법무법인 · 변호사 마케팅</li>
+                <li>세무 · 회계 · 금융 광고</li>
+                <li>의료광고 사전심의 · 법률자문</li>
+              </ul>
+              <a href="#" class="company-link">자세히 보기 <span>→</span></a>
+            </div>
+          </article>
+
+          <!-- Company 2 -->
+          <article class="company company-cc">
+            <div class="company-number">02</div>
+            <div class="company-visual">
+              <div class="visual-glow"></div>
+              <svg class="visual-icon" viewBox="0 0 200 200" fill="none">
+                <circle cx="60" cy="70" r="30" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="140" cy="70" r="30" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="100" cy="140" r="30" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M75 95 L95 125 M125 95 L105 125 M90 70 L110 70" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="60" cy="70" r="8" fill="currentColor"/>
+                <circle cx="140" cy="70" r="8" fill="currentColor"/>
+                <circle cx="100" cy="140" r="8" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="company-body">
+              <p class="company-tag">Viral Media Specialist</p>
+              <h3 class="company-name">CC컴퍼니<em>CC Company</em></h3>
+              <p class="company-desc">
+                블로그 · 카페 · 지식인 — 대한민국 바이럴 생태계를 가장 깊이 이해하는
+                매체 전문 조직. 콘텐츠 확산의 설계부터 관리까지.
+              </p>
+              <ul class="company-items">
+                <li>블로그 마케팅 · 체험단 · 기자단</li>
+                <li>네이버 카페 · 맘카페 바이럴</li>
+                <li>지식iN · Q&A 콘텐츠 운영</li>
+                <li>실제 후기 기반 리얼 바이럴</li>
+              </ul>
+              <a href="#" class="company-link">자세히 보기 <span>→</span></a>
+            </div>
+          </article>
+
+          <!-- Company 3 -->
+          <article class="company company-db">
+            <div class="company-number">03</div>
+            <div class="company-visual">
+              <div class="visual-glow"></div>
+              <svg class="visual-icon" viewBox="0 0 200 200" fill="none">
+                <ellipse cx="100" cy="55" rx="60" ry="18" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M40 55 L40 100 Q40 118 100 118 Q160 118 160 100 L160 55" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M40 100 L40 145 Q40 163 100 163 Q160 163 160 145 L160 100" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="100" cy="100" rx="60" ry="18" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="company-body">
+              <p class="company-tag">Database & Performance</p>
+              <h3 class="company-name">노아데이터베이스<em>Noah Database</em></h3>
+              <p class="company-desc">
+                CPA · CPS 기반 퍼포먼스 마케팅과 DB 가공 · 판매 · 파트너십.
+                광고비는 성과로만 — 숫자로 증명하는 데이터 전문 조직.
+              </p>
+              <ul class="company-items">
+                <li>CPA 기반 신규 고객 DB</li>
+                <li>DB 가공 · 정제 · 세그멘테이션</li>
+                <li>CPS 제휴 · 파트너십 네트워크</li>
+                <li>콜 · 앱 · 웹 전환 트래킹</li>
+              </ul>
+              <a href="#" class="company-link">자세히 보기 <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI / Metrics -->
+    <section class="kpi">
+      <div class="container">
+        <div class="kpi-wrap">
+          <p class="kpi-label">BY THE NUMBERS</p>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <b data-count="500">0</b><span>+</span>
+              <p>누적 클라이언트</p>
+            </div>
+            <div class="kpi-item">
+              <b data-count="10000">0</b><span>+</span>
+              <p>운영 캠페인 수</p>
+            </div>
+            <div class="kpi-item">
+              <b data-count="98">0</b><span>%</span>
+              <p>재계약률</p>
+            </div>
+            <div class="kpi-item">
+              <b data-count="3">0</b>
+              <p>전문 계열사</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Roadmap -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="sec-head">
+          <p class="sub-label"><em></em>HOW WE WORK</p>
+          <h2 class="h2">
+            한 곳에서 풀리지 않던 문제를<br>
+            <em>3개 전문 조직</em>이 나눠서 풉니다.
           </h2>
         </div>
-        <div class="service-grid">
-          <div class="service-card">
-            <div class="card-top">
-              <span class="card-num">01</span>
-              <div class="card-bar"></div>
-            </div>
-            <h3>CHANNEL</h3>
-            <ul>
-              <li>블로그 최적화 3등급 관리 및 증여</li>
-              <li>인스타 최적화 계정 관리</li>
-              <li>스레드(Threads) 마케팅</li>
-              <li>해외마케팅 채널관리</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="card-top">
-              <span class="card-num">02</span>
-              <div class="card-bar"></div>
-            </div>
-            <h3>AD</h3>
-            <ul>
-              <li>리얼모델 모집</li>
-              <li>체험단 모집</li>
-              <li>해외 마케팅</li>
-              <li>바이럴 광고</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="card-top">
-              <span class="card-num">03</span>
-              <div class="card-bar"></div>
-            </div>
-            <h3>MEDIA</h3>
-            <ul>
-              <li>브랜드 유튜브 관리</li>
-              <li>기획 및 촬영, 편집</li>
-              <li>쇼츠, 릴스, 틱톡</li>
-              <li>채널아트, 썸네일 디자인</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="card-top">
-              <span class="card-num">04</span>
-              <div class="card-bar"></div>
-            </div>
-            <h3>SEO</h3>
-            <ul>
-              <li>플레이스 최적화</li>
-              <li>플레이스 SEO 최적화</li>
-              <li>플레이스 리뷰</li>
-              <li>SEO 웹사이트 최적화</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="card-top">
-              <span class="card-num">05</span>
-              <div class="card-bar"></div>
-            </div>
-            <h3>SEARCH ADS</h3>
-            <ul>
-              <li>네이버 SA · DA 광고</li>
-              <li>구글 SA · DA 광고</li>
-              <li>카카오 SA · DA 광고</li>
-              <li>언론보도</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Real Story -->
-    <section id="company" class="story">
-      <div class="container">
-        <div class="sec-title">
-          <p class="sub">real story</p>
-          <h2>
-            새로운 가치를 향한 최적의 맞춤 플랜으로<br>
-            자랑할 수 있는 성과를 선사해드리는 것이<br>
-            시월기획의 목표입니다.
-          </h2>
-          <a href="#" class="btn-outline">시월기획은?</a>
+        <div class="roadmap">
+          <div class="roadmap-line"></div>
+          <div class="roadmap-steps">
+            <div class="step">
+              <div class="step-dot"></div>
+              <span class="step-num">01</span>
+              <h4>진단 · 전략 수립</h4>
+              <p>브랜드 · 업종 · 현재 상태 종합 분석 후 그룹 통합 전략 제안</p>
+            </div>
+            <div class="step">
+              <div class="step-dot"></div>
+              <span class="step-num">02</span>
+              <h4>계열사 배정</h4>
+              <p>목적에 맞는 계열사가 주도 — 필요 시 다계열사 협업</p>
+            </div>
+            <div class="step">
+              <div class="step-dot"></div>
+              <span class="step-num">03</span>
+              <h4>실행 · 최적화</h4>
+              <p>데이터 수집 · 주간 리포트 · 지속적인 A/B 테스트</p>
+            </div>
+            <div class="step">
+              <div class="step-dot"></div>
+              <span class="step-num">04</span>
+              <h4>성과 · 확장</h4>
+              <p>KPI 리뷰 → 인접 채널로 확장 → 지속 성장 파트너십</p>
+            </div>
+          </div>
         </div>
-        <div class="story-banner">
-          <p class="story-text-1">시월기획은 브랜드의 특성을 이해하고 광고주의 니즈를 먼저 파악한 후</p>
-          <p class="story-text-2">브랜드 인지도와 매출 상승을 도와드립니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Graph -->
-    <section class="graph-sec">
-      <div class="container">
-        <div class="graph-wrap">
-          <ul class="graph-list">
-            <li><div class="bar" style="--h:5%"></div><span>JUN</span></li>
-            <li><div class="bar" style="--h:12%"></div><span>JUL</span></li>
-            <li><div class="bar" style="--h:20%"></div><span>AUG</span></li>
-            <li><div class="bar" style="--h:28%"></div><span>SEP</span></li>
-            <li><div class="bar" style="--h:40%"></div><span>OCT</span></li>
-            <li><div class="bar" style="--h:62%"></div><span>NOV</span></li>
-            <li class="highlight">
-              <div class="bar" style="--h:100%">
-                <div class="badge">약 200업체와<br>협업 중</div>
-              </div>
-              <span>DEC</span>
-            </li>
-          </ul>
-        </div>
-        <div class="graph-text">
-          <p>성공은 숫자로 말합니다.</p>
-          <p>우리와 함께 하고 있는</p>
-          <p><b>약 200개의 파트너십</b>이 증명합니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section class="process">
-      <div class="container">
-        <div class="sec-title">
-          <h2>
-            전문가는 데이터로 <em>판단</em>하며 성과로 <em>증명</em>합니다.<br>
-            이것이 <em>시월기획의 방식</em>입니다.
-          </h2>
-        </div>
-        <ul class="process-list">
-          <li>
-            <span class="step">STEP 01</span>
-            <p>해당 업체 입지 분석 및<br>마케팅 기획</p>
-          </li>
-          <li>
-            <span class="step">STEP 02</span>
-            <p>각 분야별<br>전문가 배정</p>
-          </li>
-          <li>
-            <span class="step">STEP 03</span>
-            <p>초기 기획 기반<br>전문가 마케팅 집행</p>
-          </li>
-          <li>
-            <span class="step">STEP 04</span>
-            <p>경과를 지켜보며<br>수정 및 피드백</p>
-          </li>
-        </ul>
-        <div class="process-arrows">
-          <span></span><span></span><span></span>
-        </div>
-        <h4 class="process-result">신규 고객 상승, 매출 상승!</h4>
-        <a href="#contact" class="btn-primary">
-          <span>1:1 맞춤 마케팅 문의하기</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/>
-          </svg>
-        </a>
       </div>
     </section>
 
     <!-- Clients -->
-    <section id="client" class="clients">
+    <section id="clients" class="clients">
       <div class="container">
-        <div class="sec-title center">
-          <p class="sub">clients</p>
-          <h2>다양한 산업 분야의 고객사들이 함께합니다.</h2>
+        <div class="sec-head center">
+          <p class="sub-label"><em></em>OUR CLIENTS</p>
+          <h2 class="h2">다양한 업종의 파트너들과 함께합니다.</h2>
+        </div>
+        <div class="client-filters">
+          <button class="cf active" data-filter="all">ALL</button>
+          <button class="cf" data-filter="medical">MEDICAL</button>
+          <button class="cf" data-filter="legal">LEGAL</button>
+          <button class="cf" data-filter="finance">FINANCE</button>
+          <button class="cf" data-filter="commerce">COMMERCE</button>
         </div>
         <div class="client-grid">
-          <div class="client-item">SAMSUNG</div>
-          <div class="client-item">LG</div>
-          <div class="client-item">NAVER</div>
-          <div class="client-item">KAKAO</div>
-          <div class="client-item">CJ</div>
-          <div class="client-item">HYUNDAI</div>
-          <div class="client-item">LOTTE</div>
-          <div class="client-item">SK</div>
-          <div class="client-item">GS</div>
-          <div class="client-item">POSCO</div>
-          <div class="client-item">KB</div>
-          <div class="client-item">SHINHAN</div>
+          <div class="client-item" data-cat="medical">SEOUL CLINIC</div>
+          <div class="client-item" data-cat="medical">DERMA+</div>
+          <div class="client-item" data-cat="legal">LAW FIRM K</div>
+          <div class="client-item" data-cat="legal">JUSTICE</div>
+          <div class="client-item" data-cat="finance">CAPITAL.</div>
+          <div class="client-item" data-cat="finance">INSUR-X</div>
+          <div class="client-item" data-cat="commerce">D2C BRAND</div>
+          <div class="client-item" data-cat="commerce">BEAUTY CO</div>
+          <div class="client-item" data-cat="medical">DENTAL HUB</div>
+          <div class="client-item" data-cat="legal">TAX PARTNERS</div>
+          <div class="client-item" data-cat="commerce">LIVING LAB</div>
+          <div class="client-item" data-cat="finance">LOAN FAST</div>
         </div>
       </div>
     </section>
 
-    <!-- News -->
+    <!-- News / Insights -->
     <section id="news" class="news-sec">
-      <div class="container news-container">
-        <div class="news-left">
-          <div class="sec-title">
-            <p class="sub">siwol</p>
-            <h2>시월소식을<br>만나보세요.</h2>
-          </div>
-          <div class="news-tabs">
-            <button class="tab active" data-tab="all">ALL</button>
-            <button class="tab" data-tab="youtube">YOUTUBE</button>
-            <button class="tab" data-tab="event">EVENT</button>
+      <div class="container">
+        <div class="news-head">
+          <div>
+            <p class="sub-label"><em></em>INSIGHTS</p>
+            <h2 class="h2">업계를 읽는 시선, <em>노아의 인사이트</em>.</h2>
           </div>
           <div class="news-arrows">
             <button class="news-prev" aria-label="prev">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
             <button class="news-next" aria-label="next">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
             </button>
           </div>
         </div>
-        <div class="news-right">
-          <div class="swiper news-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide news-card" data-type="event">
-                <div class="thumb thumb-1"></div>
-                <div class="info">
-                  <h4>4~5월 프로모션</h4>
-                  <div class="meta"><span class="cat">EVENT</span><span>2026.04.14</span></div>
-                </div>
+        <div class="swiper news-swiper">
+          <div class="swiper-wrapper">
+            <article class="swiper-slide news-card">
+              <div class="thumb th-1"><span class="tag tag-lab">LAB</span></div>
+              <div class="info">
+                <h4>의료광고 심의 2026 개정안, 실무자가 꼭 알아야 할 5가지</h4>
+                <div class="meta"><span>REPORT</span><span>2026.04.10</span></div>
               </div>
-              <div class="swiper-slide news-card" data-type="youtube">
-                <div class="thumb thumb-2"></div>
-                <div class="info">
-                  <h4>이 순서를 모르면 계속 제자리입니다 | 지방 병원 마케팅 공식</h4>
-                  <div class="meta"><span class="cat">YOUTUBE</span><span>2026.01.26</span></div>
-                </div>
+            </article>
+            <article class="swiper-slide news-card">
+              <div class="thumb th-2"><span class="tag tag-cc">CC</span></div>
+              <div class="info">
+                <h4>블로그 상위노출 로직 변화 — 2026 네이버 검색 업데이트 분석</h4>
+                <div class="meta"><span>INSIGHT</span><span>2026.03.28</span></div>
               </div>
-              <div class="swiper-slide news-card" data-type="youtube">
-                <div class="thumb thumb-3"></div>
-                <div class="info">
-                  <h4>병원마케팅 단골은 많아요, 그런데 신규가 없어요...</h4>
-                  <div class="meta"><span class="cat">YOUTUBE</span><span>2026.01.26</span></div>
-                </div>
+            </article>
+            <article class="swiper-slide news-card">
+              <div class="thumb th-3"><span class="tag tag-db">DB</span></div>
+              <div class="info">
+                <h4>CPA vs CPS, 우리 비즈니스에 맞는 성과형 광고 고르는 법</h4>
+                <div class="meta"><span>GUIDE</span><span>2026.03.15</span></div>
               </div>
-              <div class="swiper-slide news-card" data-type="youtube">
-                <div class="thumb thumb-4"></div>
-                <div class="info">
-                  <h4>고객이 스스로 홍보자가 되는 마케팅? | 바이럴 성공 사례</h4>
-                  <div class="meta"><span class="cat">YOUTUBE</span><span>2026.01.21</span></div>
-                </div>
+            </article>
+            <article class="swiper-slide news-card">
+              <div class="thumb th-4"><span class="tag tag-group">GROUP</span></div>
+              <div class="info">
+                <h4>노아마케팅그룹, 2025 마케팅어워드 대상 수상</h4>
+                <div class="meta"><span>NEWS</span><span>2026.02.20</span></div>
               </div>
-              <div class="swiper-slide news-card" data-type="event">
-                <div class="thumb thumb-5"></div>
-                <div class="info">
-                  <h4>2026년 1월 프로모션</h4>
-                  <div class="meta"><span class="cat">EVENT</span><span>2026.01.13</span></div>
-                </div>
+            </article>
+            <article class="swiper-slide news-card">
+              <div class="thumb th-5"><span class="tag tag-lab">LAB</span></div>
+              <div class="info">
+                <h4>병원 신규 개원 마케팅, 오픈 D-90일 전부터 해야 하는 이유</h4>
+                <div class="meta"><span>CASE</span><span>2026.02.05</span></div>
               </div>
-            </div>
+            </article>
+            <article class="swiper-slide news-card">
+              <div class="thumb th-6"><span class="tag tag-cc">CC</span></div>
+              <div class="info">
+                <h4>맘카페 바이럴, 진짜 효과 있는 집행 방식은?</h4>
+                <div class="meta"><span>INSIGHT</span><span>2026.01.18</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <p class="sub-label center"><em></em>START WITH NOAH</p>
+          <h2 class="contact-title">
+            어느 계열사가 맞을지 모르겠다면,<br>
+            <em>그룹에 한 번 문의</em>하세요.
+          </h2>
+          <p class="contact-desc">첫 상담에서 최적의 계열사와 전략을 제안해드립니다. 무료입니다.</p>
+          <div class="contact-actions">
+            <a href="#" class="btn btn-primary lg">프로젝트 문의하기 <span>→</span></a>
+            <a href="tel:02-0000-0000" class="btn btn-ghost lg">02-0000-0000</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer id="footer">
     <div class="container">
       <div class="foot-top">
         <div class="foot-brand">
-          <div class="foot-logo"><span>10</span>시월기획</div>
-          <div class="foot-addr">
-            <p><b>본사 (06132)</b><span>서울특별시 강남구 테헤란로 141 역삼KR타워 6층</span></p>
-            <p><b>지사 (30130)</b><span>세종특별자치시 한누리대로 169 세종행복타워 801호, 803호</span></p>
+          <div class="foot-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="currentColor"/></svg>
+            <div><b>NOAH</b><span>MARKETING GROUP</span></div>
           </div>
-          <ul class="foot-info">
-            <li><b>대표자</b><span>안동현</span></li>
-            <li><b>사업자번호</b><span>199-87-02411</span></li>
-            <li><b>고객센터</b><span>044-868-7622</span></li>
+          <p class="foot-slogan">Grow Safely, Scale Boldly.</p>
+          <ul class="foot-sns">
+            <li><a href="#" aria-label="instagram">IG</a></li>
+            <li><a href="#" aria-label="youtube">YT</a></li>
+            <li><a href="#" aria-label="blog">BLOG</a></li>
+            <li><a href="#" aria-label="linkedin">IN</a></li>
           </ul>
         </div>
-        <div class="foot-menu">
-          <div class="foot-col">
-            <h5>회사소개</h5>
-          </div>
-          <div class="foot-col">
-            <h5>클라이언트</h5>
-            <ul>
-              <li><a href="#">병의원</a></li>
-              <li><a href="#">법률</a></li>
-              <li><a href="#">제품</a></li>
-              <li><a href="#">요식업</a></li>
-              <li><a href="#">관공서</a></li>
-            </ul>
-          </div>
-          <div class="foot-col">
-            <h5>시월소식</h5>
-            <ul>
-              <li><a href="#">Youtube</a></li>
-              <li><a href="#">News</a></li>
-            </ul>
-          </div>
-          <div class="foot-col">
-            <h5>인재채용</h5>
-            <ul>
-              <li><a href="#">인사제도</a></li>
-              <li><a href="#">채용공고</a></li>
-            </ul>
-          </div>
+
+        <div class="foot-companies">
+          <h5>COMPANIES</h5>
+          <ul>
+            <li>
+              <span class="ci ci-lab"></span>
+              <div>
+                <b>노아마케팅랩</b>
+                <em>전문직 광고 전문</em>
+              </div>
+            </li>
+            <li>
+              <span class="ci ci-cc"></span>
+              <div>
+                <b>CC컴퍼니</b>
+                <em>바이럴 매체 전문</em>
+              </div>
+            </li>
+            <li>
+              <span class="ci ci-db"></span>
+              <div>
+                <b>노아데이터베이스</b>
+                <em>CPA · CPS · DB 전문</em>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="foot-info">
+          <h5>CONTACT</h5>
+          <ul>
+            <li><b>Address</b><span>서울특별시 강남구 테헤란로 — 00층</span></li>
+            <li><b>Tel</b><span>02-0000-0000</span></li>
+            <li><b>Email</b><span>hello@noahmkt.group</span></li>
+            <li><b>Hours</b><span>평일 10:00 – 19:00</span></li>
+          </ul>
         </div>
       </div>
+
       <div class="foot-btm">
         <div class="foot-links">
           <a href="#">개인정보처리방침</a>
           <a href="#">이용약관</a>
-          <a href="#">이메일정보수집거부</a>
+          <a href="#">인재채용</a>
         </div>
-        <div class="foot-sns">
-          <a href="#" aria-label="blog">B</a>
-          <a href="#" aria-label="instagram">IG</a>
-          <a href="#" aria-label="youtube">YT</a>
-        </div>
+        <p class="copyright">© 2026 Noah Marketing Group. All rights reserved.</p>
       </div>
-      <p class="copyright">COPYRIGHT 시월기획. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
 
   <button class="btn-top" aria-label="top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

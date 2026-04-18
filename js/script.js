@@ -2,122 +2,117 @@
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('intro').classList.add('hide');
-  }, 1600);
+  }, 1800);
 });
 
 // ===== Custom cursor =====
 const cursor = document.querySelector('.cursor');
 if (cursor && matchMedia('(hover: hover)').matches) {
   let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX; my = e.clientY;
-  });
-  const render = () => {
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  const tick = () => {
     cx += (mx - cx) * 0.18;
     cy += (my - cy) * 0.18;
     cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
-    requestAnimationFrame(render);
+    requestAnimationFrame(tick);
   };
-  render();
-  document.querySelectorAll('a, button, .service-card, .news-card, .client-item').forEach(el => {
+  tick();
+  document.querySelectorAll('a, button, .company, .news-card, .client-item, .step').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
 }
 
-// ===== Header scroll =====
+// ===== Header scroll state =====
 const header = document.getElementById('header');
+const topBtn = document.querySelector('.btn-top');
 const onScroll = () => {
-  if (window.scrollY > 50) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-
-  const topBtn = document.querySelector('.btn-top');
-  if (window.scrollY > 400) topBtn.classList.add('show');
-  else topBtn.classList.remove('show');
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 50);
+  topBtn.classList.toggle('show', y > 400);
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 
 // ===== Top button =====
-document.querySelector('.btn-top').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ===== Hamburger (simple toggle for mobile - shows/hides gnb) =====
+// ===== Hamburger =====
 const ham = document.querySelector('.ham');
 const gnb = document.querySelector('.gnb');
-ham.addEventListener('click', () => {
-  gnb.classList.toggle('open');
-});
+ham?.addEventListener('click', () => gnb.classList.toggle('open'));
 
 // ===== Reveal on scroll =====
-const revealEls = document.querySelectorAll('.sec-title, .service-card, .process-list li, .story-banner, .graph-wrap, .graph-text, .client-item, .news-card');
-revealEls.forEach(el => el.classList.add('reveal'));
-
+const revealSelector = '.sec-head, .about-points li, .company, .step, .client-item, .news-card, .kpi-item, .contact-wrap';
+document.querySelectorAll(revealSelector).forEach(el => el.classList.add('reveal'));
 const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
       io.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
-revealEls.forEach(el => io.observe(el));
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ===== Graph animation =====
-const graphList = document.querySelector('.graph-list');
-if (graphList) {
-  const graphIO = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        graphList.classList.add('animate');
-        graphIO.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  graphIO.observe(graphList);
-}
+// ===== Counter animation =====
+const counters = document.querySelectorAll('.kpi-item b[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    const duration = 1800;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = Math.floor(target * ease);
+      el.textContent = val.toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString();
+    };
+    requestAnimationFrame(step);
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterIO.observe(c));
 
 // ===== News Swiper =====
 const newsSwiper = new Swiper('.news-swiper', {
   slidesPerView: 'auto',
   spaceBetween: 24,
-  navigation: {
-    prevEl: '.news-prev',
-    nextEl: '.news-next',
-  },
+  navigation: { prevEl: '.news-prev', nextEl: '.news-next' },
   breakpoints: {
-    0: { slidesPerView: 1.1, spaceBetween: 16 },
+    0: { slidesPerView: 1.08, spaceBetween: 14 },
     600: { slidesPerView: 2, spaceBetween: 20 },
     900: { slidesPerView: 'auto', spaceBetween: 24 },
   }
 });
 
-// ===== News tabs =====
-const tabs = document.querySelectorAll('.news-tabs .tab');
-const cards = document.querySelectorAll('.news-card');
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const type = tab.dataset.tab;
-    cards.forEach(card => {
-      const show = type === 'all' || card.dataset.type === type;
-      card.style.display = show ? '' : 'none';
+// ===== Client filters =====
+const filterBtns = document.querySelectorAll('.cf');
+const clientItems = document.querySelectorAll('.client-item');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    clientItems.forEach(item => {
+      const match = filter === 'all' || item.dataset.cat === filter;
+      item.classList.toggle('hide', !match);
     });
-    newsSwiper.update();
-    newsSwiper.slideTo(0);
   });
 });
 
-// ===== Smooth anchor scroll with header offset =====
+// ===== Smooth anchor scroll =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
-    if (href === '#') return;
+    if (href === '#' || href.length < 2) return;
     const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
-    const y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - 70;
     window.scrollTo({ top: y, behavior: 'smooth' });
   });
 });
