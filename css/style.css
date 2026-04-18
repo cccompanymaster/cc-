@@ -383,16 +383,65 @@ em { font-style: normal; }
   100% { transform: translateX(0) scaleY(1); }
 }
 
+/* ====== Hero Mobile Optimization ====== */
 @media (max-width: 900px) {
-  .hero-compass { width: 360px; height: 360px; right: -18%; top: 4%; }
-  .hero-ark { bottom: 40px; width: 95vw; }
-  .hero-waves { height: 160px; }
-  .hero-wrap { padding-bottom: 220px; }
+  .hero { min-height: auto; padding-top: 100px; }
+  .hero-wrap {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+  .hero-eyebrow { justify-content: center; }
+  .hero-title { font-size: clamp(36px, 9vw, 72px); }
+  .hero-sub-break { display: block; height: 6px; }
+  .hero-sub { margin-left: auto; margin-right: auto; max-width: 480px; }
+  .hero-actions { justify-content: center; }
+
+  /* Compass: smaller, fades behind text, non-overlapping */
+  .hero-compass {
+    width: min(520px, 90vw);
+    top: auto; bottom: 380px;
+    opacity: 0.25;
+    animation: compassFadeInMobile 1.2s 0.4s ease forwards;
+  }
+  @keyframes compassFadeInMobile {
+    from { opacity: 0; }
+    to { opacity: 0.25; }
+  }
+
+  /* Ark: lift below text, fixed bottom */
+  .hero-ark {
+    position: relative;
+    top: auto; left: auto;
+    margin: 30px auto 0;
+    width: 100%;
+    max-width: 640px;
+    transform: none !important;
+    animation: arkEnterMobile 1.4s 0.6s var(--easing) backwards;
+  }
+  @keyframes arkEnterMobile {
+    from { opacity: 0; transform: translateY(20px); }
+  }
+
+  .hero-waves { height: 120px; }
+  .scroll-down { display: none; }
 }
+
 @media (max-width: 560px) {
-  .hero-compass { opacity: 0.25; width: 280px; height: 280px; }
-  .hero-wrap { padding-bottom: 180px; }
-  .hero-ark { bottom: 30px; }
+  .hero-wrap { padding-top: 20px; padding-bottom: 40px; }
+  .hero-compass {
+    width: 360px;
+    bottom: 320px;
+    opacity: 0.18;
+  }
+  .hero-ark { max-width: 96vw; margin-top: 20px; }
+  .hero-waves { height: 90px; }
+  .hero-title { font-size: clamp(32px, 10vw, 56px); }
+  .hero-sub { font-size: 14px; }
+}
+
+@media (max-width: 400px) {
+  .hero-compass { width: 300px; opacity: 0.15; bottom: 280px; }
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
