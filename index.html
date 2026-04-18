@@ -118,21 +118,300 @@
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-stars" aria-hidden="true"></div>
 
-      <!-- Constellation / compass decoration -->
-      <div class="hero-compass" aria-hidden="true">
-        <svg viewBox="0 0 400 400" fill="none">
-          <circle cx="200" cy="200" r="198" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-          <circle cx="200" cy="200" r="160" stroke="currentColor" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 4"/>
-          <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" opacity="0.25"/>
-          <g class="compass-needle">
-            <path d="M200 60 L208 200 L200 210 L192 200 Z" fill="currentColor" opacity="0.5"/>
-            <path d="M200 340 L192 200 L200 190 L208 200 Z" fill="currentColor" opacity="0.2"/>
+      <!-- Centered compass - follows mouse -->
+      <div class="hero-compass" id="heroCompass" aria-hidden="true">
+        <svg class="compass-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="compassGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#D4A574" stop-opacity="0.3"/>
+              <stop offset="70%" stop-color="#D4A574" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="needleNorth" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f4d5a8"/>
+              <stop offset="100%" stop-color="#D4A574"/>
+            </linearGradient>
+            <linearGradient id="needleSouth" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3a2d1c"/>
+              <stop offset="100%" stop-color="#5a3f27"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Glow -->
+          <circle cx="250" cy="250" r="240" fill="url(#compassGlow)"/>
+
+          <!-- Outer ring with degree ticks -->
+          <g class="compass-base">
+            <circle cx="250" cy="250" r="240" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <circle cx="250" cy="250" r="220" stroke="currentColor" stroke-width="0.5" opacity="0.25"/>
+            <circle cx="250" cy="250" r="180" stroke="currentColor" stroke-width="0.5" opacity="0.15" stroke-dasharray="1 3"/>
+            <circle cx="250" cy="250" r="140" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+
+            <!-- Major degree ticks (every 30°) -->
+            <g stroke="currentColor" stroke-width="1" opacity="0.5">
+              <line x1="250" y1="10" x2="250" y2="30"/>
+              <line x1="250" y1="470" x2="250" y2="490"/>
+              <line x1="10" y1="250" x2="30" y2="250"/>
+              <line x1="470" y1="250" x2="490" y2="250"/>
+              <line x1="83" y1="83" x2="97" y2="97"/>
+              <line x1="403" y1="83" x2="417" y2="97"/>
+              <line x1="83" y1="417" x2="97" y2="403"/>
+              <line x1="403" y1="417" x2="417" y2="403"/>
+            </g>
+
+            <!-- Minor ticks (every 10°) -->
+            <g stroke="currentColor" stroke-width="0.5" opacity="0.3">
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(10 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(20 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(40 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(50 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(70 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(80 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(100 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(110 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(130 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(140 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(160 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(170 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(190 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(200 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(220 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(230 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(250 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(260 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(280 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(290 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(310 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(320 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(340 250 250)"/>
+              <line x1="250" y1="10" x2="250" y2="22" transform="rotate(350 250 250)"/>
+            </g>
+
+            <!-- Cardinal letters -->
+            <g font-family="Inter, sans-serif" font-weight="800" fill="currentColor" text-anchor="middle">
+              <text x="250" y="58" font-size="22" letter-spacing="2">N</text>
+              <text x="250" y="455" font-size="16" opacity="0.5" letter-spacing="2">S</text>
+              <text x="45" y="258" font-size="16" opacity="0.5" letter-spacing="2">W</text>
+              <text x="455" y="258" font-size="16" opacity="0.5" letter-spacing="2">E</text>
+            </g>
+
+            <!-- Ordinal marks -->
+            <g font-family="Inter, sans-serif" font-weight="600" fill="currentColor" text-anchor="middle" font-size="10" opacity="0.4" letter-spacing="1.5">
+              <text x="365" y="142">NE</text>
+              <text x="365" y="368">SE</text>
+              <text x="135" y="142">NW</text>
+              <text x="135" y="368">SW</text>
+            </g>
+
+            <!-- Compass rose -->
+            <g class="compass-rose" opacity="0.25">
+              <path d="M250 70 L262 250 L250 262 L238 250 Z" fill="currentColor"/>
+              <path d="M250 430 L238 250 L250 238 L262 250 Z" fill="currentColor"/>
+              <path d="M70 250 L250 238 L262 250 L250 262 Z" fill="currentColor"/>
+              <path d="M430 250 L250 262 L238 250 L250 238 Z" fill="currentColor"/>
+              <path d="M127 127 L245 245 L255 255 L245 255 Z" fill="currentColor" opacity="0.5"/>
+              <path d="M373 127 L255 245 L245 255 L255 255 Z" fill="currentColor" opacity="0.5"/>
+              <path d="M127 373 L245 255 L255 245 L245 245 Z" fill="currentColor" opacity="0.5"/>
+              <path d="M373 373 L255 255 L245 245 L255 245 Z" fill="currentColor" opacity="0.5"/>
+            </g>
           </g>
-          <circle cx="200" cy="200" r="4" fill="currentColor"/>
-          <text x="200" y="30" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6" letter-spacing="2">N</text>
-          <text x="200" y="385" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.4" letter-spacing="2">S</text>
-          <text x="20" y="204" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.4" letter-spacing="2">W</text>
-          <text x="380" y="204" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.4" letter-spacing="2">E</text>
+
+          <!-- Rotating needle (points at mouse) -->
+          <g class="compass-needle" id="compassNeedle">
+            <path d="M250 85 L263 245 L250 252 L237 245 Z" fill="url(#needleNorth)"/>
+            <path d="M250 415 L237 255 L250 248 L263 255 Z" fill="url(#needleSouth)"/>
+            <circle cx="250" cy="250" r="8" fill="#D4A574"/>
+            <circle cx="250" cy="250" r="4" fill="#0B1A33"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Majestic Ark -->
+      <div class="hero-ark" id="heroArk" aria-hidden="true">
+        <svg viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="hullDark" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7a5636"/>
+              <stop offset="60%" stop-color="#4a3320"/>
+              <stop offset="100%" stop-color="#2a1d13"/>
+            </linearGradient>
+            <linearGradient id="hullMid" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#a57b50"/>
+              <stop offset="100%" stop-color="#6a4a30"/>
+            </linearGradient>
+            <linearGradient id="sailMain" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fefaf4"/>
+              <stop offset="60%" stop-color="#f0e0c4"/>
+              <stop offset="100%" stop-color="#d9bf94"/>
+            </linearGradient>
+            <linearGradient id="sailShadow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#000" stop-opacity="0.3"/>
+            </linearGradient>
+            <filter id="arkGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Reflection glow under ship -->
+          <ellipse cx="450" cy="395" rx="320" ry="14" fill="#D4A574" opacity="0.15" filter="url(#arkGlow)"/>
+
+          <!-- Stern curve (back of ship, right side, raised) -->
+          <g class="ark-stern">
+            <path d="M680 220 Q770 200 790 260 L760 310 L680 310 Z" fill="url(#hullDark)"/>
+            <path d="M720 230 L760 240 L750 280 L710 275 Z" fill="#3a2819" opacity="0.6"/>
+            <!-- Stern window -->
+            <rect x="725" y="245" width="14" height="18" fill="#D4A574" opacity="0.8"/>
+            <!-- Gold trim -->
+            <path d="M680 220 Q770 200 790 260" stroke="#D4A574" stroke-width="2" fill="none" opacity="0.7"/>
+          </g>
+
+          <!-- Bow (front of ship, left side) -->
+          <g class="ark-bow">
+            <path d="M220 230 Q140 215 110 260 L150 310 L220 310 Z" fill="url(#hullDark)"/>
+            <!-- Figurehead -->
+            <path d="M110 255 Q90 245 80 260 Q90 272 110 268 Z" fill="#D4A574" opacity="0.8"/>
+            <path d="M110 260 Q95 258 88 268" stroke="#8a6441" stroke-width="1.5" fill="none"/>
+          </g>
+
+          <!-- Main hull -->
+          <g class="ark-hull">
+            <path d="M150 310 L750 310 Q760 365 680 385 Q450 410 220 385 Q140 365 150 310 Z" fill="url(#hullDark)"/>
+            <path d="M175 320 L725 320" stroke="#D4A574" stroke-width="1.5" opacity="0.6"/>
+            <path d="M160 340 L740 340" stroke="#3a2819" stroke-width="1" opacity="0.6"/>
+            <path d="M165 360 L735 360" stroke="#3a2819" stroke-width="1" opacity="0.5"/>
+            <path d="M175 378 L725 378" stroke="#3a2819" stroke-width="1" opacity="0.4"/>
+
+            <!-- Hull decorative gold band -->
+            <rect x="150" y="305" width="600" height="4" fill="#D4A574" opacity="0.8"/>
+
+            <!-- Porthole windows (row 1) -->
+            <g fill="#D4A574" opacity="0.85">
+              <circle cx="230" cy="345" r="6"/>
+              <circle cx="280" cy="345" r="6"/>
+              <circle cx="330" cy="345" r="6"/>
+              <circle cx="380" cy="345" r="6"/>
+              <circle cx="430" cy="345" r="6"/>
+              <circle cx="480" cy="345" r="6"/>
+              <circle cx="530" cy="345" r="6"/>
+              <circle cx="580" cy="345" r="6"/>
+              <circle cx="630" cy="345" r="6"/>
+              <circle cx="680" cy="345" r="6"/>
+            </g>
+            <g fill="none" stroke="#D4A574" stroke-width="1.5" opacity="0.6">
+              <circle cx="230" cy="345" r="8"/>
+              <circle cx="280" cy="345" r="8"/>
+              <circle cx="330" cy="345" r="8"/>
+              <circle cx="380" cy="345" r="8"/>
+              <circle cx="430" cy="345" r="8"/>
+              <circle cx="480" cy="345" r="8"/>
+              <circle cx="530" cy="345" r="8"/>
+              <circle cx="580" cy="345" r="8"/>
+              <circle cx="630" cy="345" r="8"/>
+              <circle cx="680" cy="345" r="8"/>
+            </g>
+          </g>
+
+          <!-- Deck structures (cabins) -->
+          <g class="ark-deck">
+            <!-- Main cabin -->
+            <rect x="280" y="230" width="340" height="80" fill="url(#hullMid)"/>
+            <!-- Roof -->
+            <path d="M275 230 L285 215 L615 215 L625 230 Z" fill="#5a3f27"/>
+            <!-- Roof tiles -->
+            <path d="M285 222 L615 222" stroke="#3a2819" stroke-width="1" opacity="0.6"/>
+            <!-- Cabin windows row -->
+            <g>
+              <rect x="300" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="340" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="380" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="420" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="482" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="522" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="562" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+              <rect x="602" y="250" width="18" height="22" fill="#f4d5a8" opacity="0.9"/>
+            </g>
+            <!-- Central door -->
+            <rect x="445" y="250" width="30" height="60" fill="#3a2819"/>
+            <rect x="450" y="260" width="20" height="40" fill="#5a3f27"/>
+            <circle cx="468" cy="282" r="2" fill="#D4A574"/>
+
+            <!-- Gold trim lines -->
+            <line x1="280" y1="230" x2="620" y2="230" stroke="#D4A574" stroke-width="1.5" opacity="0.7"/>
+            <line x1="280" y1="308" x2="620" y2="308" stroke="#D4A574" stroke-width="1" opacity="0.5"/>
+          </g>
+
+          <!-- Masts & Sails -->
+          <g class="ark-rigging">
+            <!-- Rigging lines (ropes) -->
+            <g stroke="#3a2819" stroke-width="0.8" opacity="0.6">
+              <line x1="320" y1="215" x2="250" y2="290"/>
+              <line x1="320" y1="215" x2="280" y2="290"/>
+              <line x1="320" y1="215" x2="360" y2="290"/>
+              <line x1="580" y1="215" x2="540" y2="290"/>
+              <line x1="580" y1="215" x2="620" y2="290"/>
+              <line x1="580" y1="215" x2="660" y2="290"/>
+            </g>
+          </g>
+
+          <!-- Foremast (front mast) -->
+          <g class="ark-sail-front sail-group">
+            <line x1="320" y1="215" x2="320" y2="20" stroke="#3a2819" stroke-width="4"/>
+            <!-- Crow's nest -->
+            <rect x="310" y="55" width="20" height="8" fill="#5a3f27"/>
+            <!-- Sail 1 (top) -->
+            <path d="M320 30 Q370 55 320 80 Q270 55 320 30 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <!-- Sail 2 (mid) -->
+            <path d="M320 90 Q395 125 320 160 Q245 125 320 90 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M320 90 Q395 125 320 160" stroke="url(#sailShadow)" fill="none" stroke-width="6" opacity="0.3"/>
+            <!-- Sail 3 (bottom large) -->
+            <path d="M320 170 Q420 210 320 255 Q220 210 320 170 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M320 170 Q420 210 320 255" stroke="url(#sailShadow)" fill="none" stroke-width="8" opacity="0.3"/>
+            <!-- Pennant -->
+            <path d="M320 20 L355 28 L322 36 Z" fill="#D4A574"/>
+            <circle cx="320" cy="20" r="2" fill="#D4A574"/>
+          </g>
+
+          <!-- Mainmast (center taller mast) -->
+          <g class="ark-sail-main sail-group">
+            <line x1="450" y1="215" x2="450" y2="0" stroke="#3a2819" stroke-width="5"/>
+            <rect x="438" y="35" width="24" height="10" fill="#5a3f27"/>
+            <!-- Sail 1 (very top) -->
+            <path d="M450 10 Q495 35 450 60 Q405 35 450 10 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <!-- Sail 2 -->
+            <path d="M450 70 Q515 105 450 140 Q385 105 450 70 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M450 70 Q515 105 450 140" stroke="url(#sailShadow)" fill="none" stroke-width="6" opacity="0.3"/>
+            <!-- Sail 3 biggest -->
+            <path d="M450 150 Q540 195 450 248 Q360 195 450 150 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M450 150 Q540 195 450 248" stroke="url(#sailShadow)" fill="none" stroke-width="10" opacity="0.3"/>
+            <!-- Gold cross on sail -->
+            <line x1="450" y1="170" x2="450" y2="230" stroke="#D4A574" stroke-width="1.2" opacity="0.6"/>
+            <line x1="430" y1="200" x2="470" y2="200" stroke="#D4A574" stroke-width="1.2" opacity="0.6"/>
+            <!-- Pennant (gold with NOAH) -->
+            <path d="M450 0 L495 12 L452 24 Z" fill="#D4A574"/>
+            <circle cx="450" cy="0" r="2" fill="#D4A574"/>
+          </g>
+
+          <!-- Mizzen (rear mast) -->
+          <g class="ark-sail-rear sail-group">
+            <line x1="580" y1="215" x2="580" y2="30" stroke="#3a2819" stroke-width="4"/>
+            <rect x="570" y="60" width="20" height="8" fill="#5a3f27"/>
+            <path d="M580 40 Q625 65 580 90 Q535 65 580 40 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M580 100 Q650 135 580 170 Q510 135 580 100 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M580 180 Q670 220 580 260 Q490 220 580 180 Z" fill="url(#sailMain)" stroke="#c9b089" stroke-width="0.8"/>
+            <path d="M580 180 Q670 220 580 260" stroke="url(#sailShadow)" fill="none" stroke-width="8" opacity="0.3"/>
+            <path d="M580 30 L615 38 L582 46 Z" fill="#D4A574"/>
+          </g>
+
+          <!-- Dove with olive branch -->
+          <g class="ark-bird">
+            <path d="M760 80 Q772 72 786 78 Q794 70 806 78 Q800 86 786 84 Q772 86 760 80 Z" fill="#fff"/>
+            <path d="M786 84 L782 90 L790 87 Z" fill="#7a9448"/>
+            <circle cx="800" cy="79" r="1" fill="#0B1A33"/>
+          </g>
         </svg>
       </div>
 
@@ -154,79 +433,6 @@
           <a href="#companies" class="btn btn-primary">계열사 살펴보기 <span aria-hidden="true">→</span></a>
           <a href="#contact" class="btn btn-ghost">프로젝트 문의</a>
         </div>
-      </div>
-
-      <!-- Ark illustration -->
-      <div class="hero-ark" aria-hidden="true">
-        <svg viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYEnd meet">
-          <defs>
-            <linearGradient id="arkHull" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#8a6441"/>
-              <stop offset="100%" stop-color="#5a3f27"/>
-            </linearGradient>
-            <linearGradient id="arkDeck" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#d4a574"/>
-              <stop offset="100%" stop-color="#a57b50"/>
-            </linearGradient>
-            <linearGradient id="sailGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#fefaf4"/>
-              <stop offset="100%" stop-color="#e8d9bf"/>
-            </linearGradient>
-          </defs>
-
-          <g class="ark-body">
-            <!-- Hull bottom curve -->
-            <path d="M120 200 Q160 240 300 240 Q440 240 480 200 L460 180 L140 180 Z" fill="url(#arkHull)"/>
-            <!-- Hull planks -->
-            <path d="M140 190 L460 190" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
-            <path d="M150 200 L450 200" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
-            <path d="M160 210 L440 210" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
-            <path d="M175 220 L425 220" stroke="#3d2a1b" stroke-width="1" opacity="0.4"/>
-
-            <!-- Deck / cabin structure -->
-            <rect x="180" y="140" width="240" height="40" fill="url(#arkDeck)"/>
-            <rect x="200" y="100" width="200" height="40" fill="#b88a5f"/>
-            <rect x="220" y="70" width="160" height="30" fill="#a07649"/>
-
-            <!-- Windows -->
-            <circle cx="220" cy="160" r="5" fill="#d4a574"/>
-            <circle cx="250" cy="160" r="5" fill="#d4a574"/>
-            <circle cx="280" cy="160" r="5" fill="#d4a574"/>
-            <circle cx="320" cy="160" r="5" fill="#d4a574"/>
-            <circle cx="350" cy="160" r="5" fill="#d4a574"/>
-            <circle cx="380" cy="160" r="5" fill="#d4a574"/>
-
-            <!-- Cabin door -->
-            <rect x="290" y="115" width="20" height="25" fill="#3d2a1b"/>
-
-            <!-- Cabin windows -->
-            <rect x="220" y="115" width="14" height="14" fill="#d4a574"/>
-            <rect x="244" y="115" width="14" height="14" fill="#d4a574"/>
-            <rect x="342" y="115" width="14" height="14" fill="#d4a574"/>
-            <rect x="366" y="115" width="14" height="14" fill="#d4a574"/>
-
-            <!-- Roof line -->
-            <path d="M200 100 L210 85 L390 85 L400 100 Z" fill="#704e2f"/>
-          </g>
-
-          <!-- Masts & sails -->
-          <g class="ark-sail">
-            <!-- Main mast -->
-            <line x1="300" y1="70" x2="300" y2="0" stroke="#3d2a1b" stroke-width="3"/>
-            <!-- Main sail -->
-            <path d="M300 10 Q340 40 300 75 Q260 40 300 10 Z" fill="url(#sailGrad)" stroke="#c9b089" stroke-width="1"/>
-            <!-- Second sail -->
-            <path d="M300 20 L360 50 L300 65 Z" fill="url(#sailGrad)" opacity="0.9" stroke="#c9b089" stroke-width="0.5"/>
-            <!-- Pennant -->
-            <path d="M300 0 L320 5 L302 12 Z" fill="#D4A574"/>
-          </g>
-
-          <!-- Bird (dove) -->
-          <g class="ark-bird">
-            <path d="M500 50 Q508 46 514 50 Q520 46 528 50 Q522 54 514 54 Q506 54 500 50 Z" fill="#fff"/>
-            <circle cx="526" cy="50" r="1" fill="#0B1A33"/>
-          </g>
-        </svg>
       </div>
 
       <!-- Waves -->
@@ -663,6 +869,44 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating CTA banner (right side) -->
+  <aside class="float-cta" aria-label="빠른 문의">
+    <a href="https://pf.kakao.com/" target="_blank" rel="noopener" class="fc fc-kakao" aria-label="카카오톡 상담">
+      <span class="fc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6C10.8 6 5 10.6 5 16.3c0 3.6 2.4 6.8 6 8.6l-1.3 4.8c-.1.4.3.7.7.5l5.7-3.8c.6.1 1.3.1 1.9.1 7.2 0 13-4.6 13-10.3C31 10.6 25.2 6 18 6z" fill="#3C1E1E"/>
+        </svg>
+      </span>
+      <span class="fc-label">카카오톡<br>상담</span>
+    </a>
+    <a href="https://talk.naver.com/" target="_blank" rel="noopener" class="fc fc-naver" aria-label="네이버 톡톡">
+      <span class="fc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6C10.3 6 4 11.3 4 17.8c0 4.3 2.8 8 7 10-.3 1.1-1.1 3.8-1.3 4.4-.2.7.3 1 .8.7.4-.2 3.9-2.6 5.4-3.6.9.1 1.9.2 2.9.2 7.7 0 14-5.3 14-11.8S25.7 6 18 6zm-5.5 9h2v4.3L18 15h2.2l-3.5 3.7L20.5 24h-2.3l-2.8-4-1 1.1V24h-2V15zm10 0h2v9h-2v-9z" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="fc-label">네이버<br>톡톡</span>
+    </a>
+    <a href="https://blog.naver.com/" target="_blank" rel="noopener" class="fc fc-blog" aria-label="공식 블로그">
+      <span class="fc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="7" width="26" height="22" rx="4" fill="#fff"/>
+          <path d="M12 14h5a3 3 0 013 3v0a3 3 0 01-3 3h-5v-6zm0 8h5a3 3 0 013 3v0a3 3 0 01-3 3h-5v-6z" fill="#03C75A"/>
+          <path d="M23 17.5a1.5 1.5 0 013 0v6a1.5 1.5 0 01-3 0v-6z" fill="#03C75A"/>
+        </svg>
+      </span>
+      <span class="fc-label">공식<br>블로그</span>
+    </a>
+    <a href="tel:0200000000" class="fc fc-phone" aria-label="전화 문의">
+      <span class="fc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M29 23.5v4a2 2 0 01-2.2 2 22 22 0 01-9.6-3.4 21.7 21.7 0 01-6.7-6.7A22 22 0 017.1 9.8 2 2 0 019 7.5h4a2 2 0 012 1.7c.1 1 .3 1.9.6 2.8a2 2 0 01-.5 2.1l-1.7 1.7a17.6 17.6 0 006.7 6.7l1.7-1.7a2 2 0 012.1-.5c.9.3 1.8.5 2.8.6a2 2 0 011.7 2.1z"/>
+        </svg>
+      </span>
+      <span class="fc-label">02-0000<br>-0000</span>
+    </a>
+  </aside>
 
   <button class="btn-top" type="button" aria-label="맨 위로">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>

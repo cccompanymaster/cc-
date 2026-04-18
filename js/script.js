@@ -17,6 +17,71 @@ if (introSeen) {
   });
 }
 
+// ===== Hero: Compass follows mouse + Ark parallax =====
+(() => {
+  const hero = document.querySelector('.hero');
+  const compass = document.getElementById('heroCompass');
+  const needle = document.getElementById('compassNeedle');
+  const ark = document.getElementById('heroArk');
+  if (!hero || !compass || !needle || !ark) return;
+  if (!matchMedia('(hover: hover)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let targetAngle = 0;
+  let currentAngle = 0;
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
+  let mouseInHero = false;
+
+  const onMove = (e) => {
+    const rect = hero.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+
+    // Needle points toward mouse (north = up). atan2 returns from +X axis, we need from -Y.
+    targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+
+    // Ark parallax: moves slightly opposite to mouse for depth
+    const maxOffset = 30;
+    targetX = -(dx / rect.width) * maxOffset;
+    targetY = -(dy / rect.height) * maxOffset * 0.6;
+    mouseInHero = true;
+  };
+
+  const onLeave = () => {
+    mouseInHero = false;
+    targetAngle = 0;
+    targetX = 0; targetY = 0;
+  };
+
+  window.addEventListener('mousemove', onMove, { passive: true });
+  hero.addEventListener('mouseleave', onLeave);
+
+  // Shortest angle interpolation
+  const shortAngle = (from, to) => {
+    let diff = ((to - from + 540) % 360) - 180;
+    return from + diff;
+  };
+
+  const tick = () => {
+    currentAngle += (shortAngle(currentAngle, targetAngle) - currentAngle) * 0.08;
+    currentX += (targetX - currentX) * 0.06;
+    currentY += (targetY - currentY) * 0.06;
+
+    needle.style.transform = `rotate(${currentAngle}deg)`;
+    needle.style.transformOrigin = '250px 250px';
+    needle.style.transition = 'none';
+
+    ark.style.setProperty('--ark-x', currentX + 'px');
+    ark.style.setProperty('--ark-y', currentY + 'px');
+
+    requestAnimationFrame(tick);
+  };
+  tick();
+})();
+
 // ===== Custom cursor =====
 const cursor = document.querySelector('.cursor');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;

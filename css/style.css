@@ -262,64 +262,100 @@ em { font-style: normal; }
   padding-bottom: 260px;
 }
 
-/* Compass decoration (top right) */
+/* Compass centered, follows mouse */
 .hero-compass {
   position: absolute;
-  top: 8%; right: -8%;
-  width: 560px; height: 560px;
+  top: 50%; left: 50%;
+  width: min(720px, 85vw);
+  aspect-ratio: 1;
   color: var(--gold);
-  opacity: 0.45;
-  z-index: 0;
-  pointer-events: none;
-  animation: fadeIn 2s 0.8s both;
-}
-.hero-compass .compass-needle {
-  transform-origin: 200px 200px;
-  animation: compassSpin 30s linear infinite;
-}
-@keyframes compassSpin {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(18deg); }
-  50% { transform: rotate(-12deg); }
-  75% { transform: rotate(22deg); }
-  100% { transform: rotate(360deg); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; } to { opacity: 0.45; }
-}
-
-/* Ark */
-.hero-ark {
-  position: absolute;
-  left: 50%; bottom: 60px;
-  width: min(720px, 90vw);
-  transform: translateX(-50%);
+  opacity: 0;
   z-index: 1;
   pointer-events: none;
-  animation: arkFloat 5s ease-in-out infinite;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+  transform: translate(-50%, -50%);
+  animation: compassFadeIn 1.6s 0.6s var(--easing) forwards;
+  transition: transform 0.6s var(--easing);
+  filter: drop-shadow(0 0 40px rgba(212,165,116,0.2));
 }
-@keyframes arkFloat {
-  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-0.6deg); }
-  50% { transform: translateX(-50%) translateY(-10px) rotate(0.6deg); }
+.hero-compass .compass-svg {
+  width: 100%; height: 100%;
+  display: block;
 }
-.ark-sail {
-  transform-origin: 300px 75px;
-  animation: sailSway 4s ease-in-out infinite;
+.hero-compass .compass-needle {
+  transform-origin: 250px 250px;
+  transition: transform 0.8s cubic-bezier(.2,.7,.3,1);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
-@keyframes sailSway {
+.hero-compass .compass-base {
+  animation: compassBreath 8s ease-in-out infinite;
+  transform-origin: 250px 250px;
+}
+@keyframes compassFadeIn {
+  to { opacity: 0.55; }
+}
+@keyframes compassBreath {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.015); opacity: 0.85; }
+}
+
+/* Ark — parallax ride around compass */
+.hero-ark {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: min(900px, 95vw);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -35%);
+  animation: arkEnter 1.8s 0.8s var(--easing) forwards;
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5));
+}
+@keyframes arkEnter {
+  to { opacity: 1; }
+}
+.hero-ark-inner {
+  animation: arkRock 6s ease-in-out infinite;
+  transform-origin: center 80%;
+}
+.hero-ark svg {
+  animation: arkRock 6s ease-in-out infinite;
+  transform-origin: center 80%;
+}
+@keyframes arkRock {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+.sail-group { transform-box: fill-box; transform-origin: center bottom; }
+.ark-sail-main { animation: sailBreathMain 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+.ark-sail-front { animation: sailBreathFront 4.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+.ark-sail-rear { animation: sailBreathRear 4.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+@keyframes sailBreathMain {
+  0%, 100% { transform: skewX(-1.5deg) scaleX(1); }
+  50% { transform: skewX(1.8deg) scaleX(1.02); }
+}
+@keyframes sailBreathFront {
   0%, 100% { transform: skewX(-1deg); }
-  50% { transform: skewX(1.5deg); }
+  50% { transform: skewX(2deg); }
+}
+@keyframes sailBreathRear {
+  0%, 100% { transform: skewX(-1.2deg); }
+  50% { transform: skewX(1.6deg); }
 }
 .ark-bird {
-  animation: birdFly 8s ease-in-out infinite;
+  animation: birdFly 10s ease-in-out infinite;
 }
 @keyframes birdFly {
   0% { transform: translate(0, 0); opacity: 0; }
-  10% { opacity: 1; }
-  50% { transform: translate(-80px, -20px); opacity: 1; }
+  15% { opacity: 1; }
+  50% { transform: translate(-120px, -30px); opacity: 1; }
   90% { opacity: 0; }
-  100% { transform: translate(-160px, -8px); opacity: 0; }
+  100% { transform: translate(-240px, -10px); opacity: 0; }
+}
+
+/* Mouse tilt transform overrides (set by JS via CSS variables) */
+.hero-compass { transform: translate(-50%, -50%) rotate(var(--compass-tilt, 0deg)); }
+.hero-ark {
+  transform: translate(calc(-50% + var(--ark-x, 0px)), calc(-35% + var(--ark-y, 0px)));
 }
 
 /* Waves */
@@ -1062,6 +1098,93 @@ em { font-style: normal; }
 }
 .btn-top.show { opacity: 1; visibility: visible; }
 .btn-top:hover { background: var(--gold); color: var(--bg-dark); }
+
+/* ====== Floating CTA ====== */
+.float-cta {
+  position: fixed;
+  right: 20px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: flex; flex-direction: column; gap: 10px;
+  opacity: 0;
+  animation: floatCtaIn 0.8s 1.5s ease forwards;
+}
+@keyframes floatCtaIn {
+  from { opacity: 0; transform: translateY(-50%) translateX(30px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+.fc {
+  position: relative;
+  width: 66px; height: 66px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2px;
+  border-radius: 16px;
+  color: #fff;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.15;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.2);
+  transition: all 0.3s var(--easing);
+  overflow: hidden;
+}
+.fc::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), transparent 40%);
+  pointer-events: none;
+}
+.fc:hover {
+  transform: translateX(-4px) scale(1.05);
+  box-shadow: 0 14px 30px -8px rgba(0,0,0,0.3);
+}
+.fc-icon {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+.fc-icon svg { width: 100%; height: 100%; }
+.fc-label {
+  font-size: 9px; font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Brand colors */
+.fc-kakao { background: #FEE500; color: #3C1E1E; }
+.fc-kakao .fc-label { color: #3C1E1E; }
+.fc-naver { background: #03C75A; color: #fff; }
+.fc-blog { background: #03C75A; color: #fff; }
+.fc-blog .fc-icon { background: #fff; border-radius: 8px; padding: 4px; }
+.fc-phone {
+  background: linear-gradient(135deg, #0B1A33, #1a2947);
+  color: #fff;
+}
+.fc-phone .fc-icon { color: var(--gold); }
+
+/* Mobile - smaller, bottom right */
+@media (max-width: 768px) {
+  .float-cta {
+    right: 14px; bottom: 14px; top: auto;
+    transform: none;
+    flex-direction: column;
+    gap: 8px;
+    animation: floatCtaInMobile 0.6s 1.2s ease forwards;
+  }
+  @keyframes floatCtaInMobile {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .fc {
+    width: 54px; height: 54px;
+    border-radius: 14px;
+    font-size: 0;
+  }
+  .fc-icon { width: 26px; height: 26px; margin: 0; }
+  .fc-label { display: none; }
+  .btn-top { bottom: auto; top: 120px; right: 14px; width: 40px; height: 40px; }
+}
 
 /* ====== Reveal ====== */
 .reveal {
