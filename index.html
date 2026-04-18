@@ -520,48 +520,59 @@
         </div>
         <div class="swiper news-swiper">
           <div class="swiper-wrapper">
-            <article class="swiper-slide news-card">
+            <article class="swiper-slide news-card" data-article="1">
               <div class="thumb th-1" aria-hidden="true"><span class="tag tag-lab">LAB</span></div>
               <div class="info">
                 <h4>의료광고 심의 2026 개정안, 실무자가 꼭 알아야 할 5가지</h4>
                 <div class="meta"><span>REPORT</span><time datetime="2026-04-10">2026.04.10</time></div>
               </div>
             </article>
-            <article class="swiper-slide news-card">
+            <article class="swiper-slide news-card" data-article="2">
               <div class="thumb th-2" aria-hidden="true"><span class="tag tag-cc">CC</span></div>
               <div class="info">
                 <h4>블로그 상위노출 로직 변화 — 2026 네이버 검색 업데이트 분석</h4>
                 <div class="meta"><span>INSIGHT</span><time datetime="2026-03-28">2026.03.28</time></div>
               </div>
             </article>
-            <article class="swiper-slide news-card">
+            <article class="swiper-slide news-card" data-article="3">
               <div class="thumb th-3" aria-hidden="true"><span class="tag tag-db">DB</span></div>
               <div class="info">
                 <h4>CPA vs CPS, 우리 비즈니스에 맞는 성과형 광고 고르는 법</h4>
                 <div class="meta"><span>GUIDE</span><time datetime="2026-03-15">2026.03.15</time></div>
               </div>
             </article>
-            <article class="swiper-slide news-card">
+            <article class="swiper-slide news-card" data-article="4">
               <div class="thumb th-4" aria-hidden="true"><span class="tag tag-group">GROUP</span></div>
               <div class="info">
                 <h4>노아마케팅그룹, 2025 마케팅어워드 대상 수상</h4>
                 <div class="meta"><span>NEWS</span><time datetime="2026-02-20">2026.02.20</time></div>
               </div>
             </article>
-            <article class="swiper-slide news-card">
+            <article class="swiper-slide news-card" data-article="5">
               <div class="thumb th-5" aria-hidden="true"><span class="tag tag-lab">LAB</span></div>
               <div class="info">
                 <h4>병원 신규 개원 마케팅, 오픈 D-90일 전부터 해야 하는 이유</h4>
                 <div class="meta"><span>CASE</span><time datetime="2026-02-05">2026.02.05</time></div>
               </div>
             </article>
-            <article class="swiper-slide news-card">
+            <article class="swiper-slide news-card" data-article="6">
               <div class="thumb th-6" aria-hidden="true"><span class="tag tag-cc">CC</span></div>
               <div class="info">
                 <h4>맘카페 바이럴, 진짜 효과 있는 집행 방식은?</h4>
                 <div class="meta"><span>INSIGHT</span><time datetime="2026-01-18">2026.01.18</time></div>
               </div>
             </article>
+          </div>
+        </div>
+
+        <!-- Article Modal -->
+        <div class="article-modal" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="article-modal-title" aria-hidden="true">
+          <div class="article-modal-backdrop"></div>
+          <div class="article-modal-panel">
+            <button class="article-modal-close" type="button" aria-label="닫기">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 L6 18 M6 6 L18 18"/></svg>
+            </button>
+            <div class="article-modal-body" id="articleModalBody"></div>
           </div>
         </div>
       </div>
