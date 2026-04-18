@@ -64,46 +64,101 @@ em { font-style: normal; }
 @media (hover: hover) { .cursor { display: block; } }
 .cursor.hover { width: 44px; height: 44px; background: transparent; border: 1.5px solid var(--gold); }
 
-/* ====== Intro ====== */
+/* ====== Intro / Loading Page ====== */
 .intro {
   position: fixed; inset: 0;
-  background: var(--bg-dark);
+  background: radial-gradient(ellipse at center, #0d1e3e 0%, #070d1c 70%);
   color: #fff;
   z-index: 10000;
   display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.8s ease, visibility 0.8s;
+  transition: opacity 0.8s var(--easing), visibility 0.8s;
 }
-.intro.hide { opacity: 0; visibility: hidden; }
+.intro.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.intro::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.5), transparent 50%),
+    radial-gradient(1px 1px at 30% 80%, rgba(212,165,116,0.4), transparent 50%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.5), transparent 50%),
+    radial-gradient(2px 2px at 85% 70%, rgba(212,165,116,0.5), transparent 50%),
+    radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.4), transparent 50%);
+  animation: twinkle 5s ease-in-out infinite;
+}
 .intro-inner {
-  display: flex; flex-direction: column; align-items: center; gap: 20px;
-  color: var(--gold);
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 24px;
 }
-.intro-ship {
-  width: 72px; height: 72px;
+.intro-compass {
+  width: 88px; height: 88px;
   opacity: 0;
-  animation: introShip 0.8s ease 0.1s forwards;
+  animation: introCompassIn 0.9s 0.1s var(--easing) forwards;
+  filter: drop-shadow(0 0 20px rgba(212,165,116,0.3));
+}
+.intro-compass svg { width: 100%; height: 100%; }
+.intro-needle {
+  transform-origin: 60px 60px;
+  animation: introNeedleSpin 2.2s 0.6s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes introCompassIn {
+  0% { opacity: 0; transform: scale(0.6) rotate(-20deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes introNeedleSpin {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(540deg); }
+  100% { transform: rotate(720deg); }
 }
 .intro-text {
-  display: flex; gap: 6px;
+  display: flex; gap: 8px;
   font-family: 'Inter', sans-serif;
-  font-size: 36px; font-weight: 900;
-  letter-spacing: 0.3em;
+  font-size: 42px; font-weight: 900;
+  letter-spacing: 0.4em;
+  padding-left: 0.4em;
   color: #fff;
+  margin-top: 8px;
 }
 .intro-text span {
-  opacity: 0; transform: translateY(20px);
-  animation: introLetter 0.5s ease forwards;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: introLetter 0.6s var(--easing) forwards;
 }
-.intro-text span:nth-child(1) { animation-delay: 0.3s; }
-.intro-text span:nth-child(2) { animation-delay: 0.45s; }
-.intro-text span:nth-child(3) { animation-delay: 0.6s; }
-.intro-text span:nth-child(4) { animation-delay: 0.75s; }
-@keyframes introShip {
-  0% { opacity: 0; transform: translateY(10px) scale(0.9); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
+.intro-text span:nth-child(1) { animation-delay: 0.8s; }
+.intro-text span:nth-child(2) { animation-delay: 0.95s; }
+.intro-text span:nth-child(3) { animation-delay: 1.10s; }
+.intro-text span:nth-child(4) { animation-delay: 1.25s; }
 @keyframes introLetter {
   to { opacity: 1; transform: translateY(0); }
+}
+.intro-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 0.8s 1.5s forwards;
+}
+@keyframes fadeIn { to { opacity: 0.9; } }
+.intro-progress {
+  width: 160px; height: 1.5px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.intro-progress span {
+  display: block;
+  width: 0; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: introProgress 2.8s 0.3s ease-in-out forwards;
+}
+@keyframes introProgress {
+  0% { width: 0; }
+  100% { width: 100%; }
 }
 
 /* ====== Header ====== */
@@ -262,11 +317,11 @@ em { font-style: normal; }
   padding-bottom: 260px;
 }
 
-/* Compass centered, follows mouse */
+/* Compass — positioned right side on desktop (behind ark) */
 .hero-compass {
   position: absolute;
-  top: 50%; left: 50%;
-  width: min(720px, 85vw);
+  top: 50%; left: 70%;
+  width: min(620px, 55vw);
   aspect-ratio: 1;
   color: var(--gold);
   opacity: 0;
@@ -298,15 +353,15 @@ em { font-style: normal; }
   50% { transform: scale(1.015); opacity: 0.85; }
 }
 
-/* Ark — parallax ride around compass */
+/* Ark — positioned right side on desktop (next to compass) */
 .hero-ark {
   position: absolute;
-  left: 50%; top: 50%;
-  width: min(900px, 95vw);
+  left: 70%; top: 50%;
+  width: min(780px, 58vw);
   z-index: 2;
   pointer-events: none;
   opacity: 0;
-  transform: translate(-50%, -35%);
+  transform: translate(-50%, -42%);
   animation: arkEnter 1.8s 0.8s var(--easing) forwards;
   filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5));
 }
@@ -355,7 +410,25 @@ em { font-style: normal; }
 /* Mouse tilt transform overrides (set by JS via CSS variables) */
 .hero-compass { transform: translate(-50%, -50%) rotate(var(--compass-tilt, 0deg)); }
 .hero-ark {
-  transform: translate(calc(-50% + var(--ark-x, 0px)), calc(-35% + var(--ark-y, 0px)));
+  transform: translate(calc(-50% + var(--ark-x, 0px)), calc(-42% + var(--ark-y, 0px)));
+}
+
+/* Hero wrap — on desktop, limit text width so ark doesn't overlap */
+@media (min-width: 901px) {
+  .hero-wrap {
+    max-width: 1360px;
+  }
+  .hero-wrap .hero-eyebrow,
+  .hero-wrap .hero-title,
+  .hero-wrap .hero-sub,
+  .hero-wrap .hero-actions {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-compass { left: 72%; }
+  .hero-ark { left: 72%; }
 }
 
 /* Waves */

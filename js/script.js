@@ -1,21 +1,27 @@
-// ===== Intro (skip on repeat visits) =====
+// ===== Intro / Loading (always on) =====
 const introEl = document.getElementById('intro');
-const introSeen = sessionStorage.getItem('noah_intro');
 document.body.classList.add('no-scroll');
 
-if (introSeen) {
+const hideIntro = () => {
   introEl.classList.add('hide');
-  document.body.classList.remove('no-scroll');
   introEl.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+};
+
+// Show intro for 2.8s total (matches animation duration)
+const introDuration = 2800;
+const startIntroExit = () => setTimeout(hideIntro, introDuration);
+
+if (document.readyState === 'complete') {
+  startIntroExit();
 } else {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      introEl.classList.add('hide');
-      document.body.classList.remove('no-scroll');
-      sessionStorage.setItem('noah_intro', '1');
-    }, 1600);
-  });
+  window.addEventListener('load', startIntroExit);
+  // Safety fallback: if 'load' never fires (slow 3rd-party), hide anyway after 5s
+  setTimeout(hideIntro, 5000);
 }
+
+// Click anywhere on intro to skip
+introEl?.addEventListener('click', hideIntro);
 
 // ===== Hero: Compass follows mouse + Ark parallax =====
 (() => {
