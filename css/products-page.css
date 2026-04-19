@@ -200,11 +200,20 @@ body.products-page { background: #fafbfd; }
 @media (max-width: 1100px) {
   .products-page-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 760px) {
+  .page-hero { padding: calc(var(--sec-y-sm) + 50px) 0 var(--sec-y-sm); }
+  .page-title { font-size: clamp(32px, 8vw, 52px); margin-bottom: 22px; }
+  .page-lead { font-size: 15px; margin-bottom: 32px; }
+  .page-nav { gap: 6px; }
+  .cat-filter { padding: 9px 16px; font-size: 12px; }
+}
 @media (max-width: 640px) {
-  .page-hero { padding-top: calc(var(--sec-y-sm) + 60px); }
   .products-page-grid { grid-template-columns: 1fr; gap: 16px; }
   .pc-body { padding: 22px 22px 20px; }
-  .page-cta-actions { flex-direction: column; }
+  .pc-body h3 { font-size: 19px; }
+  .pc-thumb { aspect-ratio: 16/9; padding: 16px; }
+  .page-cta-actions { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; gap: 10px; }
   .page-cta-actions .btn { width: 100%; justify-content: center; }
-  .cat-filter { padding: 9px 16px; font-size: 13px; }
+  .page-cta-inner .h2 { font-size: clamp(24px, 7vw, 34px); padding: 0 12px; }
+  body.products-page { padding-bottom: 72px; }
 }
