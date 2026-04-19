@@ -23,66 +23,66 @@ if (document.readyState === 'complete') {
 // Click anywhere on intro to skip
 introEl?.addEventListener('click', hideIntro);
 
-// ===== Hero: Compass follows mouse + Ark parallax =====
+// ===== Hero: Compass continuous rotation (direction by cursor) + Ark parallax =====
 (() => {
   const hero = document.querySelector('.hero');
   const compass = document.getElementById('heroCompass');
   const needle = document.getElementById('compassNeedle');
   const ark = document.getElementById('heroArk');
   if (!hero || !compass || !needle || !ark) return;
-  if (!matchMedia('(hover: hover)').matches) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  let targetAngle = 0;
-  let currentAngle = 0;
+  let currentAngle = 0;            // current needle angle
+  let targetSpeed = 0.3;           // target degrees per frame (default slow drift)
+  let currentSpeed = 0.3;          // eased speed
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
-  let mouseInHero = false;
+
+  const hasHover = matchMedia('(hover: hover)').matches;
 
   const onMove = (e) => {
-    // Needle pivots from the COMPASS's actual center (not hero center)
-    const compassRect = compass.getBoundingClientRect();
-    const ncx = compassRect.left + compassRect.width / 2;
-    const ncy = compassRect.top + compassRect.height / 2;
-    const ndx = e.clientX - ncx;
-    const ndy = e.clientY - ncy;
-
-    // Needle points toward mouse (north = up). atan2 returns from +X axis, offset +90 so up = 0.
-    targetAngle = Math.atan2(ndy, ndx) * (180 / Math.PI) + 90;
-
-    // Ark parallax uses hero rect so motion is smooth across the whole section
     const heroRect = hero.getBoundingClientRect();
-    const ax = e.clientX - (heroRect.left + heroRect.width / 2);
-    const ay = e.clientY - (heroRect.top + heroRect.height / 2);
-    const maxOffset = 30;
-    targetX = -(ax / heroRect.width) * maxOffset;
-    targetY = -(ay / heroRect.height) * maxOffset * 0.6;
-    mouseInHero = true;
+    const cx = heroRect.left + heroRect.width / 2;
+    const cy = heroRect.top + heroRect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+
+    // Cursor X → rotation speed. Far right = fast CW, far left = fast CCW.
+    const normX = dx / (heroRect.width / 2);    // -1 ~ 1
+    const clampedX = Math.max(-1, Math.min(1, normX));
+    // Max 2.5 deg/frame (~150°/sec). Small deadzone so center is near-still.
+    const sign = Math.sign(clampedX);
+    const magnitude = Math.max(0, Math.abs(clampedX) - 0.08) / 0.92;
+    targetSpeed = sign * magnitude * 2.5 + (sign * 0.1 || 0.15);
+
+    // Ark parallax based on cursor
+    const maxOffset = 26;
+    targetX = -(dx / heroRect.width) * maxOffset;
+    targetY = -(dy / heroRect.height) * maxOffset * 0.5;
   };
 
   const onLeave = () => {
-    mouseInHero = false;
-    targetAngle = 0;
+    targetSpeed = 0.3;              // back to idle drift
     targetX = 0; targetY = 0;
   };
 
-  window.addEventListener('mousemove', onMove, { passive: true });
-  hero.addEventListener('mouseleave', onLeave);
-
-  // Shortest angle interpolation
-  const shortAngle = (from, to) => {
-    let diff = ((to - from + 540) % 360) - 180;
-    return from + diff;
-  };
+  if (hasHover) {
+    window.addEventListener('mousemove', onMove, { passive: true });
+    hero.addEventListener('mouseleave', onLeave);
+  }
 
   const tick = () => {
-    currentAngle += (shortAngle(currentAngle, targetAngle) - currentAngle) * 0.08;
+    // Ease speed toward target for smooth acceleration/deceleration
+    currentSpeed += (targetSpeed - currentSpeed) * 0.04;
+
+    // Continuous rotation
+    currentAngle = (currentAngle + currentSpeed) % 360;
+
+    // Ease ark offset
     currentX += (targetX - currentX) * 0.06;
     currentY += (targetY - currentY) * 0.06;
 
-    // SVG-native rotation: rotate(angle cx cy) — works reliably cross-browser
     needle.setAttribute('transform', `rotate(${currentAngle.toFixed(2)} 250 250)`);
-
     ark.style.setProperty('--ark-x', currentX.toFixed(1) + 'px');
     ark.style.setProperty('--ark-y', currentY.toFixed(1) + 'px');
 
