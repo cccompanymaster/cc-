@@ -37,32 +37,37 @@ introEl?.addEventListener('click', hideIntro);
   let currentSpeed = 0.3;          // eased speed
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
+  let heroVisible = true;
+  let heroRectCache = hero.getBoundingClientRect();
+  let rafId = 0;
+  let running = false;
 
   const hasHover = matchMedia('(hover: hover)').matches;
 
+  const refreshRect = () => { heroRectCache = hero.getBoundingClientRect(); };
+  window.addEventListener('resize', refreshRect, { passive: true });
+  window.addEventListener('scroll', refreshRect, { passive: true });
+
   const onMove = (e) => {
-    const heroRect = hero.getBoundingClientRect();
+    const heroRect = heroRectCache;
     const cx = heroRect.left + heroRect.width / 2;
     const cy = heroRect.top + heroRect.height / 2;
     const dx = e.clientX - cx;
     const dy = e.clientY - cy;
 
-    // Cursor X → rotation speed. Far right = fast CW, far left = fast CCW.
-    const normX = dx / (heroRect.width / 2);    // -1 ~ 1
+    const normX = dx / (heroRect.width / 2);
     const clampedX = Math.max(-1, Math.min(1, normX));
-    // Max 2.5 deg/frame (~150°/sec). Small deadzone so center is near-still.
     const sign = Math.sign(clampedX);
     const magnitude = Math.max(0, Math.abs(clampedX) - 0.08) / 0.92;
     targetSpeed = sign * magnitude * 2.5 + (sign * 0.1 || 0.15);
 
-    // Ark parallax based on cursor
     const maxOffset = 26;
     targetX = -(dx / heroRect.width) * maxOffset;
     targetY = -(dy / heroRect.height) * maxOffset * 0.5;
   };
 
   const onLeave = () => {
-    targetSpeed = 0.3;              // back to idle drift
+    targetSpeed = 0.3;
     targetX = 0; targetY = 0;
   };
 
@@ -72,13 +77,8 @@ introEl?.addEventListener('click', hideIntro);
   }
 
   const tick = () => {
-    // Ease speed toward target for smooth acceleration/deceleration
     currentSpeed += (targetSpeed - currentSpeed) * 0.04;
-
-    // Continuous rotation
     currentAngle = (currentAngle + currentSpeed) % 360;
-
-    // Ease ark offset
     currentX += (targetX - currentX) * 0.06;
     currentY += (targetY - currentY) * 0.06;
 
@@ -86,9 +86,30 @@ introEl?.addEventListener('click', hideIntro);
     ark.style.setProperty('--ark-x', currentX.toFixed(1) + 'px');
     ark.style.setProperty('--ark-y', currentY.toFixed(1) + 'px');
 
-    requestAnimationFrame(tick);
+    if (running) rafId = requestAnimationFrame(tick);
   };
-  tick();
+
+  const start = () => {
+    if (running) return;
+    running = true;
+    rafId = requestAnimationFrame(tick);
+  };
+  const stop = () => {
+    running = false;
+    if (rafId) cancelAnimationFrame(rafId);
+  };
+
+  const visIO = new IntersectionObserver((entries) => {
+    heroVisible = entries[0].isIntersecting;
+    if (heroVisible && document.visibilityState === 'visible') start(); else stop();
+  }, { threshold: 0 });
+  visIO.observe(hero);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && heroVisible) start(); else stop();
+  });
+
+  start();
 })();
 
 // ===== Custom cursor =====
@@ -96,14 +117,26 @@ const cursor = document.querySelector('.cursor');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (cursor && matchMedia('(hover: hover)').matches && !reducedMotion) {
   let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  let moved = false;
+  let running = false;
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY; moved = true;
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }, { passive: true });
   const tick = () => {
     cx += (mx - cx) * 0.18;
     cy += (my - cy) * 0.18;
-    cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+    cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+    // Stop when effectively converged to avoid idle rAF work
+    if (Math.abs(mx - cx) < 0.1 && Math.abs(my - cy) < 0.1) {
+      running = false;
+      return;
+    }
     requestAnimationFrame(tick);
   };
-  tick();
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') running = false;
+  });
   document.querySelectorAll('a, button, .company, .news-card, .client-item, .step').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -117,17 +150,27 @@ const header = document.getElementById('header');
 const topBtn = document.querySelector('.btn-top');
 const scrollProgress = document.getElementById('scrollProgress');
 const getHeaderHeight = () => header?.offsetHeight ?? 70;
-const onScroll = () => {
+let scrollScheduled = false;
+let lastScrolled = false;
+let lastShow = false;
+const runScroll = () => {
+  scrollScheduled = false;
   const y = window.scrollY;
-  header.classList.toggle('scrolled', y > 50);
-  topBtn.classList.toggle('show', y > 400);
+  const scrolled = y > 50;
+  if (scrolled !== lastScrolled) { header?.classList.toggle('scrolled', scrolled); lastScrolled = scrolled; }
+  const show = y > 400;
+  if (show !== lastShow) { topBtn?.classList.toggle('show', show); lastShow = show; }
   if (scrollProgress) {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const p = max > 0 ? (y / max) * 100 : 0;
     scrollProgress.style.setProperty('--progress', p + '%');
   }
 };
-window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('scroll', () => {
+  if (scrollScheduled) return;
+  scrollScheduled = true;
+  requestAnimationFrame(runScroll);
+}, { passive: true });
 
 // ===== Button ripple position tracking =====
 document.querySelectorAll('.btn').forEach(btn => {
@@ -154,6 +197,8 @@ document.querySelectorAll('.sub-label:not(.center)').forEach(el => subLabelIO.ob
   const hero = document.querySelector('.hero');
   if (!hero) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let timer = 0;
+  let heroVisible = false;
   const spawn = () => {
     const s = document.createElement('span');
     s.className = 'sparkle';
@@ -168,12 +213,27 @@ document.querySelectorAll('.sub-label:not(.center)').forEach(el => subLabelIO.ob
     requestAnimationFrame(() => s.classList.add('animate'));
     setTimeout(() => s.remove(), 2400);
   };
-  setInterval(spawn, 700);
-  for (let i = 0; i < 3; i++) setTimeout(spawn, i * 300);
+  const canRun = () => heroVisible && document.visibilityState === 'visible';
+  const start = () => {
+    if (timer) return;
+    timer = setInterval(() => { if (canRun()) spawn(); }, 900);
+  };
+  const stop = () => { if (timer) { clearInterval(timer); timer = 0; } };
+
+  const io = new IntersectionObserver((entries) => {
+    heroVisible = entries[0].isIntersecting;
+    if (heroVisible) { start(); for (let i = 0; i < 3; i++) setTimeout(spawn, i * 300); }
+    else stop();
+  }, { threshold: 0 });
+  io.observe(hero);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') stop();
+    else if (heroVisible) start();
+  });
 })();
 
 // ===== Top button =====
-topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ===== Mobile Nav (hamburger + backdrop) =====
 const ham = document.querySelector('.ham');
@@ -235,24 +295,52 @@ const counterIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 counters.forEach(c => counterIO.observe(c));
 
-// ===== News Swiper =====
-if (typeof Swiper !== 'undefined') {
-  new Swiper('.news-swiper', {
-    slidesPerView: 'auto',
-    spaceBetween: 24,
-    navigation: { prevEl: '.news-prev', nextEl: '.news-next' },
-    keyboard: { enabled: true },
-    a11y: {
-      prevSlideMessage: '이전 슬라이드',
-      nextSlideMessage: '다음 슬라이드',
-    },
-    breakpoints: {
-      0: { slidesPerView: 1.08, spaceBetween: 14 },
-      600: { slidesPerView: 2, spaceBetween: 20 },
-      900: { slidesPerView: 'auto', spaceBetween: 24 },
-    }
+// ===== News Swiper (lazy-loaded on viewport entry) =====
+(() => {
+  const newsEl = document.querySelector('.news-swiper');
+  if (!newsEl) return;
+
+  const SWIPER_CSS = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+  const SWIPER_JS  = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+
+  const loadCss = (href) => new Promise((resolve) => {
+    if (document.querySelector(`link[href="${href}"]`)) return resolve();
+    const l = document.createElement('link');
+    l.rel = 'stylesheet'; l.href = href; l.onload = resolve; l.onerror = resolve;
+    document.head.appendChild(l);
   });
-}
+  const loadJs = (src) => new Promise((resolve) => {
+    if (window.Swiper) return resolve();
+    const s = document.createElement('script');
+    s.src = src; s.async = true; s.onload = resolve; s.onerror = resolve;
+    document.head.appendChild(s);
+  });
+
+  let initialized = false;
+  const init = async () => {
+    if (initialized) return;
+    initialized = true;
+    await Promise.all([loadCss(SWIPER_CSS), loadJs(SWIPER_JS)]);
+    if (typeof Swiper === 'undefined') return;
+    new Swiper('.news-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      navigation: { prevEl: '.news-prev', nextEl: '.news-next' },
+      keyboard: { enabled: true },
+      a11y: { prevSlideMessage: '이전 슬라이드', nextSlideMessage: '다음 슬라이드' },
+      breakpoints: {
+        0: { slidesPerView: 1.08, spaceBetween: 14 },
+        600: { slidesPerView: 2, spaceBetween: 20 },
+        900: { slidesPerView: 'auto', spaceBetween: 24 },
+      }
+    });
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) { init(); io.disconnect(); }
+  }, { rootMargin: '300px 0px' });
+  io.observe(newsEl);
+})();
 
 // ===== Client filters =====
 const filterBtns = document.querySelectorAll('.cf');

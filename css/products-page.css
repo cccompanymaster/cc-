@@ -122,6 +122,7 @@ body.products-page { background: #fafbfd; }
   opacity: 0.95;
   transition: transform 0.5s var(--easing);
   z-index: 1;
+  will-change: transform;
 }
 .product-card:hover .pc-art {
   transform: scale(1.1) rotate(-3deg);

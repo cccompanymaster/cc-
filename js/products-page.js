@@ -26,9 +26,16 @@ document.querySelectorAll('.sub-label').forEach(el => subLabelIO.observe(el));
 
 // ===== Top button & scroll =====
 const topBtn = document.querySelector('.btn-top');
+let scrollScheduled = false;
+let lastShow = false;
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) topBtn.classList.add('show');
-  else topBtn.classList.remove('show');
+  if (scrollScheduled) return;
+  scrollScheduled = true;
+  requestAnimationFrame(() => {
+    scrollScheduled = false;
+    const show = window.scrollY > 400;
+    if (show !== lastShow) { topBtn?.classList.toggle('show', show); lastShow = show; }
+  });
 }, { passive: true });
 topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
