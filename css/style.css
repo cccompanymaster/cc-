@@ -291,9 +291,12 @@ em { font-style: normal; }
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
-  display: flex; align-items: center;
+  display: flex; flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   color: #fff;
   overflow: hidden;
+  padding-top: 90px;
 }
 .hero-bg {
   position: absolute; inset: 0;
@@ -335,10 +338,11 @@ em { font-style: normal; }
   50% { opacity: 0.3; }
 }
 .hero-wrap {
-  max-width: 1720px; margin: 0 auto; padding: 0 40px;
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
   width: 100%; position: relative; z-index: 2;
-  padding-top: 100px;
+  padding-top: 120px;
   padding-bottom: 120px;
+  text-align: center;
 }
 
 /* Compass — positioned right side on desktop (behind ark) */
@@ -437,46 +441,60 @@ em { font-style: normal; }
   transform: translate(calc(-50% + var(--ark-x, 0px)), calc(-42% + var(--ark-y, 0px)));
 }
 
-/* Hero wrap — desktop: 2-column layout using full viewport width */
+/* Hero wrap — desktop: centered layout, text on top, ark below */
 @media (min-width: 901px) {
   .hero-wrap {
-    max-width: 1720px;
-    display: grid;
-    grid-template-columns: minmax(520px, 1fr) minmax(480px, 0.9fr);
-    gap: 40px;
-    align-items: center;
-    padding-left: clamp(40px, 5vw, 88px);
-    padding-right: clamp(40px, 5vw, 88px);
-    padding-top: 120px;
-    padding-bottom: 120px;
+    max-width: 1200px;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    flex: 0 0 auto;
   }
-  .hero-wrap > * { grid-column: 1; }
-  .hero-wrap .hero-title { font-size: clamp(52px, 6.6vw, 120px); }
-  .hero-wrap .hero-eyebrow,
-  .hero-wrap .hero-sub,
-  .hero-wrap .hero-actions { max-width: 640px; }
-  /* Ark & compass occupy right column instead of overlapping */
-  .hero-compass,
-  .hero-ark {
-    position: absolute;
-    top: 50%;
+  .hero-wrap .hero-eyebrow {
+    display: inline-flex;
+    margin-left: auto; margin-right: auto;
+    justify-content: center;
   }
+  .hero-wrap .hero-title {
+    font-size: clamp(52px, 7vw, 120px);
+    max-width: none;
+    margin-left: auto; margin-right: auto;
+  }
+  .hero-wrap .hero-sub {
+    max-width: 620px;
+    margin-left: auto; margin-right: auto;
+  }
+  .hero-wrap .hero-actions {
+    justify-content: center;
+    max-width: none;
+  }
+  /* Compass: centered behind everything, ambient */
   .hero-compass {
-    left: auto;
-    right: clamp(40px, 5vw, 88px);
-    width: min(560px, 38vw);
-    transform: translate(0, -50%) rotate(var(--compass-tilt, 0deg));
+    left: 50%; right: auto; top: 48%;
+    width: min(760px, 68vw);
+    opacity: 0.28;
+    transform: translate(-50%, -50%) rotate(var(--compass-tilt, 0deg));
+    z-index: 0;
   }
+  /* Ark: centered, flows below text in flex column */
   .hero-ark {
-    left: auto;
-    right: clamp(40px, 5vw, 88px);
-    width: min(680px, 42vw);
-    transform: translate(calc(var(--ark-x, 0px)), calc(-42% + var(--ark-y, 0px)));
+    position: relative;
+    left: auto; top: auto; bottom: auto;
+    margin: 0 auto;
+    width: min(780px, 70vw);
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(var(--ark-x, 0px), var(--ark-y, 0px));
   }
+  .hero-ark svg { width: 100%; height: auto; max-height: 380px; }
 }
 
 @media (min-width: 1600px) {
-  .hero-wrap { grid-template-columns: 1fr 1fr; }
+  .hero-wrap { max-width: 1280px; }
+  .hero-ark { width: min(840px, 60vw); }
+  .hero-ark svg { max-height: 420px; }
 }
 
 /* Waves */
