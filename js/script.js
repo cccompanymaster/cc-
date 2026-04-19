@@ -112,16 +112,65 @@ if (cursor && matchMedia('(hover: hover)').matches && !reducedMotion) {
   cursor.style.display = 'none';
 }
 
-// ===== Header scroll state + dynamic offset =====
+// ===== Header scroll state + dynamic offset + scroll progress =====
 const header = document.getElementById('header');
 const topBtn = document.querySelector('.btn-top');
+const scrollProgress = document.getElementById('scrollProgress');
 const getHeaderHeight = () => header?.offsetHeight ?? 70;
 const onScroll = () => {
   const y = window.scrollY;
   header.classList.toggle('scrolled', y > 50);
   topBtn.classList.toggle('show', y > 400);
+  if (scrollProgress) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? (y / max) * 100 : 0;
+    scrollProgress.style.setProperty('--progress', p + '%');
+  }
 };
 window.addEventListener('scroll', onScroll, { passive: true });
+
+// ===== Button ripple position tracking =====
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    btn.style.setProperty('--rx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+    btn.style.setProperty('--ry', ((e.clientY - rect.top) / rect.height * 100) + '%');
+  });
+});
+
+// ===== Sub-label underline draw on view =====
+const subLabelIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('drawn');
+      subLabelIO.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.sub-label:not(.center)').forEach(el => subLabelIO.observe(el));
+
+// ===== Hero sparkle particles =====
+(() => {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const spawn = () => {
+    const s = document.createElement('span');
+    s.className = 'sparkle';
+    const size = 2 + Math.random() * 4;
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.left = (10 + Math.random() * 80) + '%';
+    s.style.top = (30 + Math.random() * 55) + '%';
+    s.style.setProperty('--sx', ((Math.random() - 0.5) * 80) + 'px');
+    s.style.setProperty('--sy', (-30 - Math.random() * 40) + 'px');
+    hero.appendChild(s);
+    requestAnimationFrame(() => s.classList.add('animate'));
+    setTimeout(() => s.remove(), 2400);
+  };
+  setInterval(spawn, 700);
+  for (let i = 0; i < 3; i++) setTimeout(spawn, i * 300);
+})();
 
 // ===== Top button =====
 topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
