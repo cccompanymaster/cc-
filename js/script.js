@@ -439,6 +439,61 @@ modalBody?.addEventListener('click', (e) => {
   if (link) closeArticle();
 });
 
+// ===== Inquiry Form Modal =====
+const inqModal = document.getElementById('inquiryModal');
+const inqBackdrop = inqModal?.querySelector('.inquiry-modal-backdrop');
+const inqClose = inqModal?.querySelector('.inquiry-modal-close');
+const inqForm = document.getElementById('inquiryForm');
+const inqSuccess = document.getElementById('inquirySuccess');
+
+const openInquiry = () => {
+  if (!inqModal) return;
+  inqModal.classList.add('open');
+  inqModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+  setTimeout(() => document.getElementById('inq-name')?.focus(), 250);
+};
+const closeInquiry = () => {
+  if (!inqModal) return;
+  inqModal.classList.remove('open');
+  inqModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+};
+
+document.getElementById('openInquiry')?.addEventListener('click', openInquiry);
+inqClose?.addEventListener('click', closeInquiry);
+inqBackdrop?.addEventListener('click', closeInquiry);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && inqModal?.classList.contains('open')) closeInquiry();
+});
+
+inqForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = new FormData(inqForm);
+  const interests = data.getAll('interest');
+  const payload = {
+    name: data.get('name'),
+    company: data.get('company'),
+    phone: data.get('phone'),
+    email: data.get('email'),
+    interests,
+    message: data.get('message'),
+    at: new Date().toISOString(),
+  };
+  // In production: send to server. For now: show success + reset.
+  console.log('[Inquiry]', payload);
+  inqForm.style.display = 'none';
+  inqSuccess.hidden = false;
+  setTimeout(() => {
+    closeInquiry();
+    setTimeout(() => {
+      inqForm.reset();
+      inqForm.style.display = '';
+      inqSuccess.hidden = true;
+    }, 400);
+  }, 2400);
+});
+
 // ===== Smooth anchor scroll (dynamic header offset) =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {

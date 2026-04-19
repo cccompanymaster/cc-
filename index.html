@@ -45,9 +45,16 @@
       { "@type": "Organization", "name": "CC컴퍼니", "description": "바이럴 매체 전문" },
       { "@type": "Organization", "name": "노아데이터베이스", "description": "CPA·CPS·DB 퍼포먼스 마케팅 전문" }
     ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "인천타워대로 301 A동 16층",
+      "addressLocality": "연수구",
+      "addressRegion": "인천광역시",
+      "addressCountry": "KR"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+82-2-0000-0000",
+      "telephone": "+82-10-6658-6482",
       "contactType": "sales",
       "areaServed": "KR",
       "availableLanguage": ["Korean", "English"]
@@ -911,6 +918,66 @@
             <div class="article-modal-body" id="articleModalBody"></div>
           </div>
         </div>
+
+        <!-- Inquiry Form Modal -->
+        <div class="inquiry-modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiry-modal-title" aria-hidden="true">
+          <div class="inquiry-modal-backdrop"></div>
+          <div class="inquiry-modal-panel">
+            <button class="inquiry-modal-close" type="button" aria-label="닫기">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 L6 18 M6 6 L18 18"/></svg>
+            </button>
+            <div class="inquiry-modal-header">
+              <p class="inquiry-eyebrow">PROJECT INQUIRY</p>
+              <h2 id="inquiry-modal-title">프로젝트 문의</h2>
+              <p class="inquiry-sub">상담 접수 후 영업일 기준 24시간 이내 연락드립니다.</p>
+            </div>
+            <form class="inquiry-form" id="inquiryForm" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="inq-name">이름 <span>*</span></label>
+                  <input type="text" id="inq-name" name="name" required placeholder="홍길동">
+                </div>
+                <div class="form-field">
+                  <label for="inq-company">회사명 / 브랜드명</label>
+                  <input type="text" id="inq-company" name="company" placeholder="예: 노아클리닉">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="inq-phone">연락처 <span>*</span></label>
+                  <input type="tel" id="inq-phone" name="phone" required placeholder="010-0000-0000" inputmode="numeric">
+                </div>
+                <div class="form-field">
+                  <label for="inq-email">이메일</label>
+                  <input type="email" id="inq-email" name="email" placeholder="you@example.com">
+                </div>
+              </div>
+              <div class="form-field">
+                <label>관심 영역 <span>*</span></label>
+                <div class="checkbox-row">
+                  <label class="chip"><input type="checkbox" name="interest" value="전문직 광고"><span>전문직 광고</span></label>
+                  <label class="chip"><input type="checkbox" name="interest" value="바이럴 마케팅"><span>바이럴 마케팅</span></label>
+                  <label class="chip"><input type="checkbox" name="interest" value="DB·CPA·CPS"><span>DB·CPA·CPS</span></label>
+                  <label class="chip"><input type="checkbox" name="interest" value="통합 컨설팅"><span>통합 컨설팅</span></label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="inq-message">문의 내용 <span>*</span></label>
+                <textarea id="inq-message" name="message" required rows="5" placeholder="업종, 현재 마케팅 상황, 목표 등을 자유롭게 작성해주세요."></textarea>
+              </div>
+              <label class="privacy-check">
+                <input type="checkbox" id="inq-privacy" required>
+                <span>개인정보 수집 및 이용에 동의합니다. <a href="#" target="_blank">자세히 보기</a></span>
+              </label>
+              <button type="submit" class="btn btn-primary lg inquiry-submit">
+                문의 접수하기 <span aria-hidden="true">→</span>
+              </button>
+              <p class="inquiry-success" id="inquirySuccess" hidden>
+                ✓ 문의가 정상 접수됐습니다. 영업일 기준 24시간 이내 연락드립니다.
+              </p>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -925,8 +992,8 @@
           </h2>
           <p class="contact-desc">첫 상담에서 최적의 계열사와 전략을 제안해드립니다. 무료입니다.</p>
           <div class="contact-actions">
-            <a href="mailto:hello@noahmkt.group" class="btn btn-primary lg">프로젝트 문의하기 <span aria-hidden="true">→</span></a>
-            <a href="tel:0200000000" class="btn btn-ghost lg">02-0000-0000</a>
+            <button type="button" class="btn btn-primary lg" id="openInquiry">프로젝트 문의하기 <span aria-hidden="true">→</span></button>
+            <a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener" class="btn btn-ghost lg">카카오채널 상담</a>
           </div>
         </div>
       </div>
@@ -1014,9 +1081,9 @@
         <div class="foot-info">
           <h5>CONTACT</h5>
           <ul>
-            <li><b>Address</b><span>서울특별시 강남구 테헤란로 — 00층</span></li>
-            <li><b>Tel</b><span><a href="tel:0200000000">02-0000-0000</a></span></li>
-            <li><b>Email</b><span><a href="mailto:hello@noahmkt.group">hello@noahmkt.group</a></span></li>
+            <li><b>Address</b><span>인천광역시 연수구 인천타워대로 301 A동 16층</span></li>
+            <li><b>Tel</b><span><a href="tel:01066586482">010-6658-6482</a></span></li>
+            <li><b>Kakao</b><span><a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener">카카오채널 상담</a></span></li>
             <li><b>Hours</b><span>평일 10:00 – 19:00</span></li>
           </ul>
         </div>
@@ -1035,7 +1102,7 @@
 
   <!-- Floating CTA banner (right side) -->
   <aside class="float-cta" aria-label="빠른 문의">
-    <a href="https://pf.kakao.com/" target="_blank" rel="noopener" class="fc fc-kakao" aria-label="카카오톡 상담">
+    <a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener" class="fc fc-kakao" aria-label="카카오톡 상담">
       <span class="fc-icon" aria-hidden="true">
         <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 6C10.8 6 5 10.6 5 16.3c0 3.6 2.4 6.8 6 8.6l-1.3 4.8c-.1.4.3.7.7.5l5.7-3.8c.6.1 1.3.1 1.9.1 7.2 0 13-4.6 13-10.3C31 10.6 25.2 6 18 6z" fill="#3C1E1E"/>
@@ -1061,13 +1128,13 @@
       </span>
       <span class="fc-label">공식<br>블로그</span>
     </a>
-    <a href="tel:0200000000" class="fc fc-phone" aria-label="전화 문의">
+    <a href="tel:01066586482" class="fc fc-phone" aria-label="전화 문의">
       <span class="fc-icon" aria-hidden="true">
         <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M29 23.5v4a2 2 0 01-2.2 2 22 22 0 01-9.6-3.4 21.7 21.7 0 01-6.7-6.7A22 22 0 017.1 9.8 2 2 0 019 7.5h4a2 2 0 012 1.7c.1 1 .3 1.9.6 2.8a2 2 0 01-.5 2.1l-1.7 1.7a17.6 17.6 0 006.7 6.7l1.7-1.7a2 2 0 012.1-.5c.9.3 1.8.5 2.8.6a2 2 0 011.7 2.1z"/>
         </svg>
       </span>
-      <span class="fc-label">02-0000<br>-0000</span>
+      <span class="fc-label">010-6658<br>-6482</span>
     </a>
   </aside>
 

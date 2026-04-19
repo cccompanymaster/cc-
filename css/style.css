@@ -1631,6 +1631,136 @@ body.nav-open .ham span:nth-child(3) { transform: translateY(-6px) rotate(-45deg
   .article-content .lead { padding: 16px 18px; font-size: 15px; }
 }
 
+/* ====== Inquiry Form Modal ====== */
+.inquiry-modal {
+  position: fixed; inset: 0;
+  z-index: 10002;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 40px 20px;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  overflow-y: auto;
+}
+.inquiry-modal.open { opacity: 1; visibility: visible; }
+.inquiry-modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(7, 13, 28, 0.88);
+  backdrop-filter: blur(10px);
+}
+.inquiry-modal-panel {
+  position: relative;
+  width: 100%; max-width: 680px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 50px 50px 40px;
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);
+  transform: translateY(30px) scale(0.98);
+  transition: transform 0.4s var(--easing);
+}
+.inquiry-modal.open .inquiry-modal-panel { transform: translateY(0) scale(1); }
+.inquiry-modal-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--soft); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.inquiry-modal-close:hover { background: var(--ink); color: #fff; }
+.inquiry-modal-header { margin-bottom: 28px; }
+.inquiry-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.inquiry-modal-header h2 {
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.inquiry-sub { color: var(--muted); font-size: 14px; }
+.inquiry-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field label {
+  display: block;
+  font-size: 13px; font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.form-field label span { color: var(--cc); }
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14.5px;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,165,116,0.15);
+}
+.form-field textarea { resize: vertical; min-height: 110px; }
+.checkbox-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+.chip input {
+  position: absolute; opacity: 0;
+  width: 0; height: 0;
+}
+.chip span {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600;
+  color: var(--muted);
+  background: #fff;
+  transition: all 0.2s;
+}
+.chip:hover span { border-color: var(--ink); color: var(--ink); }
+.chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.privacy-check {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 0;
+}
+.privacy-check input { width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.privacy-check a { color: var(--ink); text-decoration: underline; }
+.inquiry-submit { justify-content: center; margin-top: 8px; }
+.inquiry-success {
+  text-align: center;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04));
+  color: var(--db-2);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid rgba(16,185,129,0.3);
+}
+@media (max-width: 680px) {
+  .inquiry-modal { padding: 20px 12px; }
+  .inquiry-modal-panel { padding: 40px 24px 30px; border-radius: 18px; }
+  .form-row { grid-template-columns: 1fr; }
+  .inquiry-modal-header h2 { font-size: 22px; }
+}
+
 /* ====== Prefers Reduced Motion ====== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
