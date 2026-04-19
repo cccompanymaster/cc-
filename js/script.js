@@ -40,19 +40,23 @@ introEl?.addEventListener('click', hideIntro);
   let mouseInHero = false;
 
   const onMove = (e) => {
-    const rect = hero.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
+    // Needle pivots from the COMPASS's actual center (not hero center)
+    const compassRect = compass.getBoundingClientRect();
+    const ncx = compassRect.left + compassRect.width / 2;
+    const ncy = compassRect.top + compassRect.height / 2;
+    const ndx = e.clientX - ncx;
+    const ndy = e.clientY - ncy;
 
-    // Needle points toward mouse (north = up). atan2 returns from +X axis, we need from -Y.
-    targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+    // Needle points toward mouse (north = up). atan2 returns from +X axis, offset +90 so up = 0.
+    targetAngle = Math.atan2(ndy, ndx) * (180 / Math.PI) + 90;
 
-    // Ark parallax: moves slightly opposite to mouse for depth
+    // Ark parallax uses hero rect so motion is smooth across the whole section
+    const heroRect = hero.getBoundingClientRect();
+    const ax = e.clientX - (heroRect.left + heroRect.width / 2);
+    const ay = e.clientY - (heroRect.top + heroRect.height / 2);
     const maxOffset = 30;
-    targetX = -(dx / rect.width) * maxOffset;
-    targetY = -(dy / rect.height) * maxOffset * 0.6;
+    targetX = -(ax / heroRect.width) * maxOffset;
+    targetY = -(ay / heroRect.height) * maxOffset * 0.6;
     mouseInHero = true;
   };
 
