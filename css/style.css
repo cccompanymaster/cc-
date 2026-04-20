@@ -1677,17 +1677,18 @@ em { font-style: normal; }
 /* ====== Floating CTA (bottom-right cluster) ====== */
 .float-cta {
   position: fixed;
-  right: 18px; bottom: 24px; top: auto;
-  transform: none;
+  right: 18px; top: 50%; bottom: auto;
+  transform: translateY(-50%);
   z-index: 60;
   display: flex; flex-direction: column; gap: 10px;
   animation: floatCtaIn 0.7s 1s var(--easing) backwards;
 }
 @media (min-width: 1500px) {
-  .float-cta { right: 24px; bottom: 28px; }
+  .float-cta { right: 24px; }
 }
 @keyframes floatCtaIn {
-  from { opacity: 0; transform: translateX(30px); }
+  from { opacity: 0; transform: translate(30px, -50%); }
+  to { opacity: 1; transform: translate(0, -50%); }
 }
 @keyframes floatCtaInMobile {
   from { opacity: 0; transform: translateX(30px); }
@@ -1781,6 +1782,143 @@ em { font-style: normal; }
   .fc { height: 48px; max-width: 76px; font-size: 9.5px; }
   .fc-icon { width: 20px; height: 20px; }
   .fc-label { font-size: 9.5px; }
+}
+
+/* ====== Bottom Sticky Inquiry Banner ====== */
+.bottom-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 80;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(.2,.7,.3,1);
+  background: linear-gradient(180deg, rgba(11,26,51,0.98), #0B1A33 80%);
+  border-top: 1px solid rgba(212,165,116,0.35);
+  box-shadow: 0 -12px 40px -10px rgba(0,0,0,0.45);
+  color: #fff;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.bottom-banner[hidden] { display: block; } /* override native hidden so animation can play */
+.bottom-banner.visible { transform: translateY(0); }
+.bottom-banner.dismissed { display: none !important; }
+
+.bb-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 14px 56px 14px 28px;
+  display: flex; align-items: center; gap: 28px;
+  position: relative;
+  min-height: 68px;
+}
+.bb-pulse {
+  position: absolute; left: 20px; top: 50%;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 0 rgba(212,165,116,0.6);
+  animation: bbPulse 2s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes bbPulse {
+  0% { box-shadow: 0 0 0 0 rgba(212,165,116,0.5); }
+  70% { box-shadow: 0 0 0 14px rgba(212,165,116,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,165,116,0); }
+}
+
+.bb-content {
+  display: flex; align-items: center; gap: 16px;
+  flex: 1 1 auto;
+  padding-left: 18px; /* space for pulse dot */
+}
+.bb-badge {
+  background: var(--gold);
+  color: var(--bg-dark);
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-family: 'Inter', 'Pretendard', sans-serif;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.bb-text { display: flex; flex-direction: column; gap: 2px; line-height: 1.5; }
+.bb-text b {
+  font-size: 15px; font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.005em;
+}
+.bb-text .bb-sub {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+}
+
+.bb-actions {
+  display: flex; align-items: center; gap: 14px;
+  flex-shrink: 0;
+}
+.bb-tel {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--gold);
+  font-family: 'Inter', 'Pretendard', sans-serif;
+  font-size: 14.5px; font-weight: 700;
+  text-decoration: none;
+  padding: 8px 4px;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.bb-tel:hover { color: #F1C78F; }
+.bb-tel svg { color: var(--gold); }
+
+.bb-cta {
+  padding: 12px 22px !important;
+  font-size: 14px !important;
+  min-height: 44px;
+}
+
+.bb-close {
+  position: absolute; right: 14px; top: 50%;
+  transform: translateY(-50%);
+  width: 32px; height: 32px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+.bb-close:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* 배너 노출 시 body 하단 여백 + btn-top 밀어올리기(겹침 방지) */
+body.bb-active { padding-bottom: 72px; }
+body.bb-active .btn-top { bottom: 92px; }
+
+/* 반응형: 태블릿 이하 — 구조 재정렬 */
+@media (max-width: 1024px) {
+  .bb-inner { padding: 12px 48px 12px 22px; gap: 18px; }
+  .bb-content { gap: 12px; padding-left: 16px; }
+  .bb-text b { font-size: 14px; }
+  .bb-text .bb-sub { font-size: 11.5px; }
+  .bb-tel span { display: none; }
+  .bb-tel { padding: 10px; border-radius: 10px; background: rgba(212,165,116,0.1); }
+}
+
+/* 모바일 — 하단에 이미 4-icon 바가 있으므로 숨김 (기존 body padding-bottom: 72px 유지) */
+@media (max-width: 768px) {
+  .bottom-banner { display: none !important; }
+}
+
+/* 초과 높이 창/prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .bottom-banner { transition: none; }
+  .bb-pulse { animation: none; }
 }
 
 /* ====== Reveal (enhanced) ====== */

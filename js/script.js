@@ -126,6 +126,43 @@ const header = document.getElementById('header');
 const topBtn = document.querySelector('.btn-top');
 const scrollProgress = document.getElementById('scrollProgress');
 const getHeaderHeight = () => header?.offsetHeight ?? 70;
+
+// ===== Bottom Sticky Banner (show after scroll past hero, session-dismissible) =====
+const bottomBanner = document.getElementById('bottomBanner');
+const BB_DISMISSED_KEY = 'noah_bb_dismissed_v1';
+const bbDismissed = (() => {
+  try { return sessionStorage.getItem(BB_DISMISSED_KEY) === '1'; } catch { return false; }
+})();
+if (bottomBanner) {
+  bottomBanner.removeAttribute('hidden');
+  if (bbDismissed) bottomBanner.classList.add('dismissed');
+}
+const BB_SHOW_THRESHOLD = 600; // px — hero 통과 이후
+let bbShown = false;
+const updateBottomBanner = (y) => {
+  if (!bottomBanner || bbDismissed) return;
+  // 모바일(max-width:768px)에서는 CSS로 display:none 처리되므로 JS 로직은 그대로 둠
+  const shouldShow = y > BB_SHOW_THRESHOLD;
+  if (shouldShow && !bbShown) {
+    bottomBanner.classList.add('visible');
+    document.body.classList.add('bb-active');
+    bbShown = true;
+  } else if (!shouldShow && bbShown) {
+    bottomBanner.classList.remove('visible');
+    document.body.classList.remove('bb-active');
+    bbShown = false;
+  }
+};
+document.getElementById('bbClose')?.addEventListener('click', () => {
+  bottomBanner?.classList.remove('visible');
+  document.body.classList.remove('bb-active');
+  setTimeout(() => bottomBanner?.classList.add('dismissed'), 500);
+  try { sessionStorage.setItem(BB_DISMISSED_KEY, '1'); } catch {}
+});
+document.getElementById('bbOpenInquiry')?.addEventListener('click', () => {
+  if (typeof openInquiry === 'function') openInquiry();
+});
+
 const onScroll = () => {
   const y = window.scrollY;
   header?.classList.toggle('scrolled', y > 50);
@@ -135,6 +172,7 @@ const onScroll = () => {
     const p = max > 0 ? (y / max) * 100 : 0;
     scrollProgress.style.setProperty('--progress', p + '%');
   }
+  updateBottomBanner(y);
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 
