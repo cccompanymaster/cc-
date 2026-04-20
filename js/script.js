@@ -516,31 +516,90 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && inqModal?.classList.contains('open')) closeInquiry();
 });
 
-inqForm?.addEventListener('submit', (e) => {
+// Google Apps Script Web App URL — 배포 후 생성되는 URL을 여기에 붙여넣으세요.
+// 예: 'https://script.google.com/macros/s/AKfycb.../exec'
+const INQUIRY_WEBHOOK_URL = '';
+
+inqForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
+  const submitBtn = inqForm.querySelector('button[type="submit"]');
+  const originalHTML = submitBtn?.innerHTML;
+
+  // Manual validation (form has novalidate)
+  const required = [
+    { id: 'inq-name', label: '이름' },
+    { id: 'inq-phone', label: '연락처' },
+    { id: 'inq-message', label: '문의 내용' },
+  ];
+  for (const { id, label } of required) {
+    const el = document.getElementById(id);
+    if (!el?.value.trim()) {
+      el?.focus();
+      alert(`${label}을(를) 입력해주세요.`);
+      return;
+    }
+  }
+  const privacy = document.getElementById('inq-privacy');
+  if (!privacy?.checked) {
+    privacy?.focus();
+    alert('개인정보 수집 및 이용에 동의해주세요.');
+    return;
+  }
+
   const data = new FormData(inqForm);
-  const interests = data.getAll('interest');
   const payload = {
-    name: data.get('name'),
-    company: data.get('company'),
-    phone: data.get('phone'),
-    email: data.get('email'),
-    interests,
-    message: data.get('message'),
-    at: new Date().toISOString(),
+    name: (data.get('name') || '').toString().trim(),
+    company: (data.get('company') || '').toString().trim(),
+    phone: (data.get('phone') || '').toString().trim(),
+    email: (data.get('email') || '').toString().trim(),
+    interests: data.getAll('interest').join(', '),
+    message: (data.get('message') || '').toString().trim(),
+    referrer: document.referrer || '(direct)',
+    userAgent: navigator.userAgent,
+    submittedAt: new Date().toISOString(),
   };
-  // In production: send to server. For now: show success + reset.
-  console.log('[Inquiry]', payload);
-  inqForm.style.display = 'none';
-  inqSuccess.hidden = false;
-  setTimeout(() => {
-    closeInquiry();
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '전송 중…';
+  }
+
+  try {
+    if (!INQUIRY_WEBHOOK_URL) {
+      console.warn('[Inquiry] Webhook URL이 설정되지 않았습니다. js/script.js의 INQUIRY_WEBHOOK_URL을 설정하세요.', payload);
+      throw new Error('Webhook URL not configured');
+    }
+    const res = await fetch(INQUIRY_WEBHOOK_URL, {
+      method: 'POST',
+      // text/plain → CORS preflight(OPTIONS) 회피. Apps Script는 OPTIONS를 기본 처리하지 않음.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      redirect: 'follow',
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    inqForm.style.display = 'none';
+    inqSuccess.hidden = false;
     setTimeout(() => {
-      inqForm.reset();
-      inqForm.style.display = '';
-      inqSuccess.hidden = true;
-    }, 400);
-  }, 2400);
+      closeInquiry();
+      setTimeout(() => {
+        inqForm.reset();
+        inqForm.style.display = '';
+        inqSuccess.hidden = true;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+        }
+      }, 400);
+    }, 2400);
+  } catch (err) {
+    console.error('[Inquiry] 전송 실패:', err);
+    alert('문의 전송 중 오류가 발생했습니다.\n잠시 후 다시 시도해주시거나 010-6658-6482로 연락 부탁드립니다.');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHTML;
+    }
+  }
 });
 
 // ===== Smooth anchor scroll (dynamic header offset) =====
