@@ -1,3 +1,41 @@
+// ===== Custom cursor — 골드 도트 + 딜레이 링 + 트레일 =====
+(() => {
+  const cursor = document.querySelector('.cursor');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePtr = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!cursor || !finePtr || reduced) { if (cursor) cursor.style.display = 'none'; return; }
+  const ring = document.createElement('div');
+  ring.className = 'cursor-ring';
+  document.body.appendChild(ring);
+  let mx = 0, my = 0, dx = 0, dy = 0, rx = 0, ry = 0, lastTrail = 0;
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    const now = performance.now();
+    if (now - lastTrail > 55) {
+      lastTrail = now;
+      const t = document.createElement('span');
+      t.className = 'cursor-trail';
+      t.style.left = mx + 'px'; t.style.top = my + 'px';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 820);
+    }
+  });
+  const tick = () => {
+    dx += (mx - dx) * 0.32; dy += (my - dy) * 0.32;
+    cursor.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) translate(-50%, -50%)`;
+    rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+    ring.style.transform = `translate(${rx.toFixed(1)}px, ${ry.toFixed(1)}px) translate(-50%, -50%)`;
+    requestAnimationFrame(tick);
+  };
+  tick();
+  document.querySelectorAll('a, button, .product-card, .cat-filter').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+  });
+  document.addEventListener('mousedown', () => ring.classList.add('click'));
+  document.addEventListener('mouseup', () => ring.classList.remove('click'));
+})();
+
 // ===== Category filter =====
 const filters = document.querySelectorAll('.cat-filter');
 const cards = document.querySelectorAll('.product-card');

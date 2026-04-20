@@ -99,22 +99,75 @@ if (introSeen) {
   tick();
 })();
 
-// ===== Custom cursor =====
+// ===== Custom cursor — 골드 도트 + 딜레이 링 + 트레일 (방주/나침반 브랜드) =====
 const cursor = document.querySelector('.cursor');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (cursor && matchMedia('(hover: hover)').matches && !reducedMotion) {
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+const hasFinePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+if (cursor && hasFinePointer && !reducedMotion) {
+  // Ring element (lazy create)
+  let ring = document.querySelector('.cursor-ring');
+  if (!ring) {
+    ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.appendChild(ring);
+  }
+
+  let mx = 0, my = 0;
+  let dotX = 0, dotY = 0;        // 즉시 따라감
+  let ringX = 0, ringY = 0;      // 느리게 따라감 (lag 효과)
+  let lastTrailTime = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+
+    // 트레일 스폰 — 너무 자주 찍히지 않게 throttle(50ms)
+    const now = performance.now();
+    if (now - lastTrailTime > 55) {
+      lastTrailTime = now;
+      const t = document.createElement('span');
+      t.className = 'cursor-trail';
+      t.style.left = mx + 'px';
+      t.style.top = my + 'px';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 820);
+    }
+  });
+
   const tick = () => {
-    cx += (mx - cx) * 0.18;
-    cy += (my - cy) * 0.18;
-    cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+    // 도트: 빠른 추종
+    dotX += (mx - dotX) * 0.32;
+    dotY += (my - dotY) * 0.32;
+    cursor.style.transform = `translate(${dotX.toFixed(1)}px, ${dotY.toFixed(1)}px) translate(-50%, -50%)`;
+    // 링: 느린 추종 — 나침반 링처럼 지연
+    ringX += (mx - ringX) * 0.13;
+    ringY += (my - ringY) * 0.13;
+    ring.style.transform = `translate(${ringX.toFixed(1)}px, ${ringY.toFixed(1)}px) translate(-50%, -50%)`;
     requestAnimationFrame(tick);
   };
   tick();
-  document.querySelectorAll('a, button, .company, .news-card, .client-item, .step').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+
+  // 호버·클릭 인터랙션
+  document.querySelectorAll('a, button, .company, .news-card, .client-item, .step, .product-card, .faq-item summary').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hover');
+      ring.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+      ring.classList.remove('hover');
+    });
+  });
+  document.addEventListener('mousedown', () => ring.classList.add('click'));
+  document.addEventListener('mouseup', () => ring.classList.remove('click'));
+
+  // 창 이탈 시 숨김
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    ring.style.opacity = '1';
   });
 } else if (cursor) {
   cursor.style.display = 'none';

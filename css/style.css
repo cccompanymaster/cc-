@@ -28,6 +28,38 @@ img, svg { max-width: 100%; display: block; }
 button { background: none; border: none; cursor: pointer; font-family: inherit; color: inherit; }
 em { font-style: normal; }
 
+/* ====== Brand selection & scrollbar ====== */
+::selection { background: rgba(212,165,116,0.35); color: #0B1A33; }
+::-moz-selection { background: rgba(212,165,116,0.35); color: #0B1A33; }
+
+html {
+  scrollbar-color: #D4A574 #0B1A33;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0B1A33; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E8BE8B, #B5874F);
+  border-radius: 10px;
+  border: 2px solid #0B1A33;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #F2CA9A, #D4A574); }
+
+/* ====== Brand Wave Divider (section 간 장식) ====== */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: 40px;
+  color: var(--gold);
+  opacity: 0.35;
+  margin: 0 auto;
+  pointer-events: none;
+}
+.wave-divider svg { width: 100%; height: 100%; }
+@media (max-width: 640px) {
+  .wave-divider { height: 28px; }
+}
+
 /* ====== Tokens ====== */
 :root {
   --bg: #ffffff;
@@ -60,21 +92,50 @@ em { font-style: normal; }
 
 .container { max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 3vw, 40px); }
 
-/* ====== Cursor ====== */
+/* ====== Cursor — Brand (gold compass dot + halo ring + trailing stars) ====== */
 .cursor {
   position: fixed; top: 0; left: 0;
-  width: 10px; height: 10px;
+  width: 8px; height: 8px;
   background: var(--gold);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.2s, width 0.25s, height 0.25s, background 0.25s;
-  mix-blend-mode: difference;
+  box-shadow: 0 0 12px rgba(212,165,116,0.7), 0 0 24px rgba(212,165,116,0.3);
+  transition: width 0.3s var(--easing), height 0.3s var(--easing), background 0.3s, box-shadow 0.3s;
   display: none;
 }
-@media (hover: hover) { .cursor { display: block; } }
-.cursor.hover { width: 44px; height: 44px; background: transparent; border: 1.5px solid var(--gold); }
+.cursor-ring {
+  position: fixed; top: 0; left: 0;
+  width: 36px; height: 36px;
+  border: 1.2px solid rgba(212,165,116,0.55);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  display: none;
+  transition: width 0.25s var(--easing), height 0.25s var(--easing), border-color 0.25s, opacity 0.25s;
+}
+.cursor-trail {
+  position: fixed;
+  width: 5px; height: 5px;
+  background: radial-gradient(circle, rgba(212,165,116,0.9), rgba(212,165,116,0) 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9997;
+  animation: cursorTrailFade 0.8s ease-out forwards;
+}
+@keyframes cursorTrailFade {
+  0% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .cursor, .cursor-ring { display: block; }
+}
+.cursor.hover { width: 14px; height: 14px; background: var(--gold); }
+.cursor-ring.hover { width: 56px; height: 56px; border-color: var(--gold); border-width: 1.5px; }
+.cursor-ring.click { width: 20px; height: 20px; border-width: 2px; }
 
 /* ====== Intro / Loading Page ====== */
 .intro {
@@ -263,15 +324,17 @@ em { font-style: normal; }
 .lang {
   display: flex; gap: 2px;
   font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em;
+  background: rgba(212,165,116,0.1);
+  border: 1px solid rgba(212,165,116,0.35);
+  padding: 3px;
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
-.lang li { position: relative; padding: 0 6px; }
-.lang li + li::before {
-  content: ''; position: absolute; left: -1px; top: 50%;
-  width: 1px; height: 10px; background: currentColor; opacity: 0.3;
-  transform: translateY(-50%);
-}
+.lang li { position: relative; padding: 0; }
+.lang li + li::before { display: none; }
 .lang li.active a { color: var(--gold); }
 .ham { display: none; flex-direction: column; gap: 4px; width: 24px; }
 .ham span { height: 2px; background: currentColor; width: 100%; }
@@ -2404,29 +2467,51 @@ body.bb-active .btn-top { bottom: 92px; }
   .foot-biz .biz-info { flex-direction: column; gap: 6px; font-size: 12px; }
 }
 
-/* Language switch */
+/* Language switch — 다크·라이트 헤더 모두에서 명확히 보이도록 필 배경 */
 .lang a {
-  color: rgba(255,255,255,0.72);
-  text-decoration: none;
-  padding: 6px 10px;
   display: inline-block;
-  transition: color 0.2s;
+  padding: 7px 13px;
+  min-width: 36px;
+  text-align: center;
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.25s, color 0.25s;
+  line-height: 1;
 }
-.lang a:hover { color: var(--gold); }
-.lang li.active a { color: var(--gold); font-weight: 700; }
+.lang a:hover { background: rgba(212,165,116,0.2); color: var(--gold); }
+.lang li.active a {
+  background: var(--gold);
+  color: var(--bg-dark);
+  font-weight: 800;
+  box-shadow: 0 4px 12px -4px rgba(212,165,116,0.5);
+}
 
-/* 모바일에서 언어 스위처 더 또렷하게 */
+/* 헤더 스크롤 상태(라이트 배경) — 필 배경 어둡게 전환 */
+#header.scrolled .lang,
+#header.always-scrolled .lang {
+  background: rgba(11,26,51,0.05);
+  border-color: rgba(11,26,51,0.15);
+}
+#header.scrolled .lang a,
+#header.always-scrolled .lang a {
+  color: var(--ink);
+}
+#header.scrolled .lang a:hover,
+#header.always-scrolled .lang a:hover {
+  background: rgba(11,26,51,0.08);
+  color: var(--gold);
+}
+#header.scrolled .lang li.active a,
+#header.always-scrolled .lang li.active a {
+  background: var(--ink);
+  color: var(--gold);
+}
+
+/* 모바일 폰트만 살짝 키움 */
 @media (max-width: 900px) {
-  .lang {
-    font-size: 13px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 999px;
-    padding: 2px 4px;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .lang li { padding: 0 4px; }
-  .lang a { padding: 6px 10px; min-width: 34px; text-align: center; }
-  .lang li + li::before { display: none; }
+  .lang { font-size: 11.5px; }
+  .lang a { padding: 7px 11px; min-width: 34px; }
 }
 
 /* ====== Language suggestion toast ====== */
