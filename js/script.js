@@ -1,35 +1,24 @@
-// ===== Intro / Loading (show once per session, reduced-motion은 짧게) =====
+// ===== Intro / Loading (매 방문마다 노출, reduced-motion은 짧게) =====
 const introEl = document.getElementById('intro');
-const INTRO_SEEN_KEY = 'noah_intro_v1';
-const introSeen = (() => {
-  try { return sessionStorage.getItem(INTRO_SEEN_KEY) === '1'; } catch { return false; }
-})();
 const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const hideIntro = () => {
   introEl?.classList.add('hide');
   introEl?.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
-  try { sessionStorage.setItem(INTRO_SEEN_KEY, '1'); } catch {}
 };
 
-if (introSeen) {
-  // 같은 세션 재방문: 즉시 제거
-  introEl?.classList.add('hide');
-  introEl?.setAttribute('aria-hidden', 'true');
+document.body.classList.add('no-scroll');
+// reduced-motion은 짧게(0.8s), 일반은 2.2s
+const introDuration = prefersReducedMotion ? 800 : 2200;
+const startIntroExit = () => setTimeout(hideIntro, introDuration);
+if (document.readyState === 'complete') {
+  startIntroExit();
 } else {
-  document.body.classList.add('no-scroll');
-  // reduced-motion은 짧게(0.8s), 일반은 2.2s
-  const introDuration = prefersReducedMotion ? 800 : 2200;
-  const startIntroExit = () => setTimeout(hideIntro, introDuration);
-  if (document.readyState === 'complete') {
-    startIntroExit();
-  } else {
-    window.addEventListener('load', startIntroExit);
-    setTimeout(hideIntro, 4000); // safety fallback
-  }
-  introEl?.addEventListener('click', hideIntro);
+  window.addEventListener('load', startIntroExit);
+  setTimeout(hideIntro, 4000); // safety fallback
 }
+introEl?.addEventListener('click', hideIntro);
 
 // ===== Hero: Compass continuous rotation (direction by cursor) + Ark parallax =====
 (() => {

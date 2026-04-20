@@ -2218,10 +2218,21 @@ body.bb-active .btn-top { bottom: 92px; }
 .scroll-progress {
   position: fixed; top: 0; left: 0;
   width: var(--progress, 0%); height: 3px;
-  background: linear-gradient(90deg, var(--gold), #f4d9a8);
+  background: linear-gradient(90deg, #B5874F, #E8BE8B 40%, #F4D9A8 70%, #E8BE8B);
   z-index: 101;
   transition: width 0.1s linear;
   pointer-events: none;
+  box-shadow: 0 0 10px rgba(212,165,116,0.5), 0 0 20px rgba(212,165,116,0.25);
+}
+.scroll-progress::after {
+  content: '';
+  position: absolute; right: 0; top: 50%;
+  width: 8px; height: 8px;
+  background: #F4D9A8;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  box-shadow: 0 0 12px rgba(212,165,116,0.8);
+  opacity: 0.9;
 }
 
 /* Company card hover enhancement */
