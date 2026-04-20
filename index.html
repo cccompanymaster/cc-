@@ -212,6 +212,14 @@
               <stop offset="0%" stop-color="#3a2d1c"/>
               <stop offset="100%" stop-color="#5a3f27"/>
             </linearGradient>
+            <linearGradient id="needleEast" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#4a3a24"/>
+              <stop offset="100%" stop-color="#6b4e30"/>
+            </linearGradient>
+            <linearGradient id="needleWest" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#6b4e30"/>
+              <stop offset="100%" stop-color="#4a3a24"/>
+            </linearGradient>
           </defs>
 
           <!-- Glow -->
@@ -295,10 +303,16 @@
 
           <!-- Rotating needle (points at mouse) -->
           <g class="compass-needle" id="compassNeedle">
+            <!-- 가로(E-W) 보조 바늘 — 십자 구성 -->
+            <path d="M105 250 L245 258 L252 250 L245 242 Z" fill="url(#needleWest)"/>
+            <path d="M395 250 L255 242 L248 250 L255 258 Z" fill="url(#needleEast)"/>
+            <!-- 세로(N-S) 주 바늘 -->
             <path d="M250 85 L263 245 L250 252 L237 245 Z" fill="url(#needleNorth)"/>
             <path d="M250 415 L237 255 L250 248 L263 255 Z" fill="url(#needleSouth)"/>
-            <circle cx="250" cy="250" r="8" fill="#D4A574"/>
-            <circle cx="250" cy="250" r="4" fill="#0B1A33"/>
+            <!-- 중심 피벗 -->
+            <circle cx="250" cy="250" r="10" fill="#D4A574"/>
+            <circle cx="250" cy="250" r="5" fill="#0B1A33"/>
+            <circle cx="250" cy="250" r="1.5" fill="#D4A574"/>
           </g>
         </svg>
       </div>

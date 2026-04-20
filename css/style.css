@@ -465,8 +465,10 @@ html {
 }
 .hero-compass .compass-needle {
   transform-origin: 250px 250px;
-  transition: transform 0.8s cubic-bezier(.2,.7,.3,1);
+  /* transition 제거 — JS requestAnimationFrame이 매 프레임 회전을 담당하므로
+     CSS transition과 충돌해 끊겨 보이는 문제 해결 */
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  will-change: transform;
 }
 .hero-compass .compass-base {
   animation: compassBreath 8s ease-in-out infinite;
