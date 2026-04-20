@@ -1,27 +1,36 @@
-// ===== Intro / Loading (always on) =====
+// ===== Intro / Loading (show once per session, skip if reduced-motion) =====
 const introEl = document.getElementById('intro');
-document.body.classList.add('no-scroll');
+const INTRO_SEEN_KEY = 'noah_intro_v1';
+const introSeen = (() => {
+  try { return sessionStorage.getItem(INTRO_SEEN_KEY) === '1'; } catch { return false; }
+})();
+const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const skipIntro = introSeen || prefersReducedMotion;
 
 const hideIntro = () => {
-  introEl.classList.add('hide');
-  introEl.setAttribute('aria-hidden', 'true');
+  introEl?.classList.add('hide');
+  introEl?.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
+  try { sessionStorage.setItem(INTRO_SEEN_KEY, '1'); } catch {}
 };
 
-// Show intro for 2.8s total (matches animation duration)
-const introDuration = 2800;
-const startIntroExit = () => setTimeout(hideIntro, introDuration);
-
-if (document.readyState === 'complete') {
-  startIntroExit();
+if (skipIntro) {
+  // 즉시 제거 — LCP 측정 방해 방지 + 재방문 UX
+  introEl?.classList.add('hide');
+  introEl?.setAttribute('aria-hidden', 'true');
+  try { sessionStorage.setItem(INTRO_SEEN_KEY, '1'); } catch {}
 } else {
-  window.addEventListener('load', startIntroExit);
-  // Safety fallback: if 'load' never fires (slow 3rd-party), hide anyway after 5s
-  setTimeout(hideIntro, 5000);
+  document.body.classList.add('no-scroll');
+  const introDuration = 2200; // 단축(기존 2800 → 2200)
+  const startIntroExit = () => setTimeout(hideIntro, introDuration);
+  if (document.readyState === 'complete') {
+    startIntroExit();
+  } else {
+    window.addEventListener('load', startIntroExit);
+    setTimeout(hideIntro, 4000); // safety fallback 단축
+  }
+  introEl?.addEventListener('click', hideIntro);
 }
-
-// Click anywhere on intro to skip
-introEl?.addEventListener('click', hideIntro);
 
 // ===== Hero: Compass continuous rotation (direction by cursor) + Ark parallax =====
 (() => {
@@ -119,8 +128,8 @@ const scrollProgress = document.getElementById('scrollProgress');
 const getHeaderHeight = () => header?.offsetHeight ?? 70;
 const onScroll = () => {
   const y = window.scrollY;
-  header.classList.toggle('scrolled', y > 50);
-  topBtn.classList.toggle('show', y > 400);
+  header?.classList.toggle('scrolled', y > 50);
+  topBtn?.classList.toggle('show', y > 400);
   if (scrollProgress) {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const p = max > 0 ? (y / max) * 100 : 0;
@@ -173,19 +182,37 @@ document.querySelectorAll('.sub-label:not(.center)').forEach(el => subLabelIO.ob
 })();
 
 // ===== Top button =====
-topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ===== Mobile Nav (hamburger + backdrop) =====
 const ham = document.querySelector('.ham');
 const backdrop = document.querySelector('.nav-backdrop');
 const gnb = document.querySelector('.gnb');
+const gnbLinks = gnb ? Array.from(gnb.querySelectorAll('a')) : [];
 
 function setNav(open) {
   document.body.classList.toggle('nav-open', open);
-  ham.setAttribute('aria-expanded', String(open));
-  ham.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  ham?.setAttribute('aria-expanded', String(open));
+  ham?.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
   document.body.classList.toggle('no-scroll', open);
+  // 모바일 네비 링크 포커스 관리 — 닫힘 상태에서 Tab으로 숨은 링크 접근 방지
+  if (window.matchMedia('(max-width: 900px)').matches) {
+    gnbLinks.forEach(a => a.setAttribute('tabindex', open ? '0' : '-1'));
+  } else {
+    gnbLinks.forEach(a => a.removeAttribute('tabindex'));
+  }
 }
+// 초기 상태 셋팅
+if (gnbLinks.length && window.matchMedia('(max-width: 900px)').matches) {
+  gnbLinks.forEach(a => a.setAttribute('tabindex', '-1'));
+}
+window.addEventListener('resize', () => {
+  if (!window.matchMedia('(max-width: 900px)').matches) {
+    gnbLinks.forEach(a => a.removeAttribute('tabindex'));
+  } else if (!document.body.classList.contains('nav-open')) {
+    gnbLinks.forEach(a => a.setAttribute('tabindex', '-1'));
+  }
+});
 ham?.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
 backdrop?.addEventListener('click', () => setNav(false));
 gnb?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
@@ -448,9 +475,11 @@ const modalBody = document.getElementById('articleModalBody');
 const modalClose = modal?.querySelector('.article-modal-close');
 const modalBackdrop = modal?.querySelector('.article-modal-backdrop');
 
+let _prevFocusedArticle = null;
 function openArticle(id) {
   const data = articles[id];
   if (!data || !modal) return;
+  _prevFocusedArticle = document.activeElement;
   modalBody.innerHTML = `
     <div class="article-header">
       <span class="article-tag">${data.tag}</span>
@@ -462,13 +491,16 @@ function openArticle(id) {
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
-  modalClose.focus();
+  lockBackground(true);
+  modalClose?.focus();
 }
 function closeArticle() {
   if (!modal) return;
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
+  lockBackground(false);
+  _prevFocusedArticle?.focus?.();
 }
 document.querySelectorAll('.news-card[data-article]').forEach(card => {
   card.addEventListener('click', () => openArticle(card.dataset.article));
@@ -481,12 +513,36 @@ document.querySelectorAll('.news-card[data-article]').forEach(card => {
 modalClose?.addEventListener('click', closeArticle);
 modalBackdrop?.addEventListener('click', closeArticle);
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal?.classList.contains('open')) closeArticle();
+  if (modal?.classList.contains('open')) {
+    if (e.key === 'Escape') { closeArticle(); return; }
+    trapFocus(modal, e);
+  }
 });
 modalBody?.addEventListener('click', (e) => {
   const link = e.target.closest('a[href^="#"]');
   if (link) closeArticle();
 });
+
+// ===== Modal focus trap utility =====
+const FOCUSABLE = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const bgLayers = () => [document.getElementById('header'), document.getElementById('main-content'), document.getElementById('footer')].filter(Boolean);
+let _prevFocused = null;
+
+function trapFocus(modalEl, e) {
+  if (e.key !== 'Tab') return;
+  const focusables = Array.from(modalEl.querySelectorAll(FOCUSABLE)).filter(el => el.offsetParent !== null);
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+function lockBackground(locked) {
+  bgLayers().forEach(el => {
+    if (locked) el.setAttribute('inert', '');
+    else el.removeAttribute('inert');
+  });
+}
 
 // ===== Inquiry Form Modal =====
 const inqModal = document.getElementById('inquiryModal');
@@ -497,9 +553,11 @@ const inqSuccess = document.getElementById('inquirySuccess');
 
 const openInquiry = () => {
   if (!inqModal) return;
+  _prevFocused = document.activeElement;
   inqModal.classList.add('open');
   inqModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
+  lockBackground(true);
   setTimeout(() => document.getElementById('inq-name')?.focus(), 250);
 };
 const closeInquiry = () => {
@@ -507,13 +565,18 @@ const closeInquiry = () => {
   inqModal.classList.remove('open');
   inqModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
+  lockBackground(false);
+  _prevFocused?.focus?.();
 };
 
 document.getElementById('openInquiry')?.addEventListener('click', openInquiry);
 inqClose?.addEventListener('click', closeInquiry);
 inqBackdrop?.addEventListener('click', closeInquiry);
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && inqModal?.classList.contains('open')) closeInquiry();
+  if (inqModal?.classList.contains('open')) {
+    if (e.key === 'Escape') { closeInquiry(); return; }
+    trapFocus(inqModal, e);
+  }
 });
 
 // Google Apps Script Web App URL — 배포 후 생성되는 URL을 여기에 붙여넣으세요.
@@ -602,13 +665,17 @@ inqForm?.addEventListener('submit', async (e) => {
   }
 });
 
+// ===== FAQ 섹션 CTA → 문의 모달 열기 =====
+document.getElementById('faqOpenInquiry')?.addEventListener('click', () => openInquiry());
+
 // ===== Smooth anchor scroll (dynamic header offset) =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
-    if (href === '#' || href.length < 2) return;
+    // 빈/placeholder 앵커는 페이지 점프 방지
+    if (href === '#' || href.length < 2) { e.preventDefault(); return; }
     const target = document.querySelector(href);
-    if (!target) return;
+    if (!target) { e.preventDefault(); return; }
     e.preventDefault();
     const offset = getHeaderHeight() + 16;
     const y = target.getBoundingClientRect().top + window.pageYOffset - offset;

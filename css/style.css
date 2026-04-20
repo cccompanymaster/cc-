@@ -180,6 +180,7 @@ em { font-style: normal; }
   padding: 20px 0;
   transition: all 0.35s ease;
   color: #fff;
+  -webkit-backdrop-filter: blur(0);
   backdrop-filter: blur(0);
 }
 #header.scrolled {
@@ -187,6 +188,7 @@ em { font-style: normal; }
   color: var(--ink);
   padding: 14px 0;
   box-shadow: 0 1px 0 var(--line), 0 8px 24px -12px rgba(11,26,51,0.1);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 .header-inner {
@@ -1472,6 +1474,7 @@ em { font-style: normal; }
   color: #fff;
   padding: 6px 12px;
   background: rgba(0,0,0,0.3);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.2);
@@ -1749,6 +1752,7 @@ em { font-style: normal; }
     gap: 0;
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
     background: rgba(11, 26, 51, 0.92);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     border-top: 1px solid rgba(255,255,255,0.08);
     animation: floatCtaInMobile 0.5s 0.6s var(--easing) backwards;
@@ -2082,6 +2086,208 @@ em { font-style: normal; }
   .contact-actions .btn { width: 100%; justify-content: center; }
 }
 
+/* ====== Final Review Polish — v2.1 ====== */
+
+/* Hero 한국어 리드 + 마이크로 신뢰 카피 */
+.hero-ko-lead {
+  font-family: 'Pretendard', sans-serif;
+  font-size: clamp(17px, 1.8vw, 23px);
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.92);
+  margin: 0 auto 14px;
+  max-width: 720px;
+  letter-spacing: -0.01em;
+  opacity: 0; animation: fadeUp 1s 0.9s both;
+}
+.hero-ko-lead b {
+  color: var(--gold);
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 72%, rgba(212,165,116,0.2) 72%);
+  padding: 0 2px;
+}
+.hero-micro {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.58);
+  margin: 22px auto 0;
+  letter-spacing: 0.02em;
+  opacity: 0; animation: fadeUp 1s 1.6s both;
+}
+.hero-micro span { color: var(--gold); font-weight: 700; margin-right: 2px; }
+@media (max-width: 560px) {
+  .hero-ko-lead { font-size: 15px; margin-bottom: 12px; }
+  .hero-micro { font-size: 12px; margin-top: 16px; }
+}
+
+/* KPI footnote */
+.kpi-footnote {
+  text-align: center;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.48);
+  margin: 32px 0 0;
+  letter-spacing: 0.01em;
+  font-family: 'Pretendard', sans-serif;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+.kpi-footnote span { color: var(--gold); font-weight: 700; margin-right: 3px; }
+
+/* 폼 선택 힌트 · privacy 인라인 요약 */
+.optional-hint {
+  color: var(--muted, #8a94a8);
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+.privacy-hint {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--muted, #7a8497);
+  margin-top: 4px;
+  line-height: 1.55;
+}
+
+/* Contact SLA 리스트 */
+.contact-sla {
+  list-style: none; padding: 0;
+  margin: 22px 0 30px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px;
+  font-size: 14px; color: rgba(255,255,255,0.78);
+}
+.contact-sla li { display: inline-flex; align-items: center; gap: 8px; }
+.contact-sla span { color: var(--gold); font-weight: 800; }
+
+/* Footer 사업자정보 */
+.foot-biz {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.foot-biz .biz-info {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 8px 20px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Pretendard', sans-serif;
+}
+.foot-biz .biz-info li b {
+  color: rgba(255,255,255,0.75);
+  font-weight: 700;
+  margin-right: 4px;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+.foot-biz .biz-info a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 640px) {
+  .foot-biz .biz-info { flex-direction: column; gap: 6px; font-size: 12px; }
+}
+
+/* Language switch disabled state */
+.lang .lang-disabled {
+  color: rgba(255,255,255,0.3);
+  cursor: not-allowed;
+  padding: 6px 10px;
+  display: inline-block;
+}
+.lang li:first-child span { padding: 6px 10px; display: inline-block; }
+.lang li.active span { color: var(--gold); font-weight: 700; }
+
+/* 햄버거: 44x44 터치 타깃 (WCAG 2.5.5) — 기존 display/color 유지, 히트 에어리어만 확장 */
+@media (max-width: 900px) {
+  .ham {
+    width: 44px; height: 44px;
+    padding: 12px 10px;
+    align-items: center; justify-content: center;
+    gap: 5px;
+    background: transparent; border: none;
+  }
+  .ham span { width: 22px; height: 2px; }
+}
+
+/* ====== FAQ 섹션 ====== */
+.faq { padding: var(--sec-y) 0; background: var(--soft, #f5f7fb); }
+.faq-list {
+  max-width: 820px;
+  margin: 48px auto 0;
+  display: flex; flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+  padding: 0;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.faq-item[open] {
+  border-color: var(--gold);
+  box-shadow: 0 10px 30px -10px rgba(11,26,51,0.12);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 56px 22px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink, #0B1A33);
+  position: relative;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '';
+  position: absolute;
+  right: 24px; top: 50%;
+  width: 12px; height: 12px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.25s var(--easing);
+}
+.faq-item[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+.faq-item div[itemprop="acceptedAnswer"] {
+  padding: 0 28px 24px;
+  animation: faqReveal 0.3s var(--easing);
+}
+.faq-item div[itemprop="acceptedAnswer"] p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--muted, #5a6a85);
+  word-break: keep-all;
+}
+@keyframes faqReveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.faq-cta {
+  text-align: center;
+  margin-top: 48px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e9f0;
+}
+.faq-cta p {
+  font-size: 15px;
+  color: var(--muted, #5a6a85);
+  margin: 0 0 16px;
+}
+@media (max-width: 640px) {
+  .faq-item summary { font-size: 15px; padding: 18px 48px 18px 22px; }
+  .faq-item summary::after { right: 18px; width: 10px; height: 10px; }
+  .faq-item div[itemprop="acceptedAnswer"] { padding: 0 22px 20px; }
+  .faq-item div[itemprop="acceptedAnswer"] p { font-size: 14px; }
+  .faq-cta { padding: 24px 20px; }
+}
+
 /* ====== A11y: Skip Link ====== */
 .skip-link {
   position: absolute;
@@ -2113,6 +2319,7 @@ body.no-scroll { overflow: hidden; }
 .nav-backdrop {
   position: fixed; inset: 0;
   background: rgba(11, 26, 51, 0.5);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   opacity: 0; visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
@@ -2180,6 +2387,7 @@ body.nav-open .ham span:nth-child(3) { transform: translateY(-6px) rotate(-45deg
 .article-modal-backdrop {
   position: fixed; inset: 0;
   background: rgba(11, 26, 51, 0.85);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 0;
 }
@@ -2324,6 +2532,7 @@ body.nav-open .ham span:nth-child(3) { transform: translateY(-6px) rotate(-45deg
 .inquiry-modal-backdrop {
   position: fixed; inset: 0;
   background: rgba(7, 13, 28, 0.88);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 .inquiry-modal-panel {

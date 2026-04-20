@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cccompanymaster.github.io/cc-/sitemap.xml
