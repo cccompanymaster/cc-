@@ -51,10 +51,10 @@
 
   <!-- Badges -->
   <g transform="translate(96,540)">
-    <rect width="170" height="48" rx="24" fill="#D4A574"/>
-    <text x="85" y="31" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#0B1A33">첫 상담 무료</text>
-    <rect x="184" width="220" height="48" rx="24" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="294" y="31" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="15" font-weight="600" fill="#ffffff">영업일 24시간 내 회신</text>
+    <rect width="190" height="48" rx="24" fill="#D4A574"/>
+    <text x="95" y="31" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="15" font-weight="700" fill="#0B1A33">영업일 24h 내 회신</text>
+    <rect x="204" width="220" height="48" rx="24" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="314" y="31" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="15" font-weight="600" fill="#ffffff">업종 맞춤 통합 솔루션</text>
   </g>
 
   <!-- Compass decoration right -->
