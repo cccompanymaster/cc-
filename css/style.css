@@ -1856,13 +1856,13 @@ html {
 }
 .fc-phone .fc-icon { color: var(--gold); }
 
-/* Mobile — 우측 세로 스택(PC와 동일 구조, 사이즈만 축소) */
+/* Mobile — 우측 세로 스택(PC와 동일 구조, 축소) */
 @media (max-width: 768px) {
   .float-cta {
-    right: 10px; top: 50%; bottom: auto; left: auto;
+    right: 8px; top: 50%; bottom: auto; left: auto;
     transform: translateY(-50%);
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
     padding: 0;
     background: transparent;
     border: none;
@@ -1874,26 +1874,29 @@ html {
   .fc {
     flex: initial;
     max-width: none;
-    width: 48px; height: 48px;
-    border-radius: 14px;
-    font-size: 0; /* label 숨김 */
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    font-size: 0;
     flex-direction: column;
     gap: 0;
-    box-shadow: 0 6px 16px -4px rgba(0,0,0,0.35);
+    box-shadow: 0 4px 12px -2px rgba(0,0,0,0.35);
   }
-  .fc-icon { width: 24px; height: 24px; margin: 0; }
+  .fc-icon { width: 20px; height: 20px; margin: 0; }
   .fc-label { display: none; }
   .fc:hover { transform: translateX(-2px) scale(1.04); }
   .fc-kakao { animation: none; }
 
-  /* 기존 body padding-bottom 제거 — 하단 배너가 담당 */
   body { padding-bottom: 0; }
-  .btn-top { bottom: 20px; right: 14px; width: 40px; height: 40px; }
+  .btn-top { bottom: 18px; right: 12px; width: 38px; height: 38px; }
 }
 @media (max-width: 420px) {
-  .float-cta { right: 8px; gap: 7px; }
-  .fc { width: 44px; height: 44px; border-radius: 12px; }
-  .fc-icon { width: 22px; height: 22px; }
+  .float-cta { right: 6px; gap: 6px; }
+  .fc { width: 38px; height: 38px; border-radius: 10px; }
+  .fc-icon { width: 18px; height: 18px; }
+}
+@media (max-height: 600px) and (max-width: 768px) {
+  /* 짧은 모바일 가로보기: 3개만 노출 */
+  .float-cta .fc:nth-child(3) { display: none; }
 }
 
 /* ====== Bottom Sticky Inquiry Banner ====== */
@@ -2011,6 +2014,10 @@ html {
 /* 배너 노출 시 body 하단 여백 + btn-top 밀어올리기(겹침 방지) */
 body.bb-active { padding-bottom: 72px; }
 body.bb-active .btn-top { bottom: 92px; }
+@media (max-width: 768px) {
+  body.bb-active { padding-bottom: 58px; }
+  body.bb-active .btn-top { bottom: 76px; }
+}
 
 /* 반응형: 태블릿 이하 — 구조 재정렬 */
 @media (max-width: 1024px) {
@@ -2022,40 +2029,68 @@ body.bb-active .btn-top { bottom: 92px; }
   .bb-tel { padding: 10px; border-radius: 10px; background: rgba(212,165,116,0.1); }
 }
 
-/* 모바일 — 컴팩트 레이아웃 (메시지 숨김, 배지+전화+CTA+닫기만) */
+/* 모바일 — 한 줄 컴팩트 배너 (메시지/전화 숨김, CTA 중심) */
 @media (max-width: 768px) {
-  .bb-inner {
-    padding: 10px 44px 10px 14px;
-    gap: 10px;
-    min-height: 60px;
+  .bottom-banner {
+    border-top-width: 1px;
+    padding-bottom: env(safe-area-inset-bottom); /* iPhone 홈 인디케이터 대응 */
   }
-  .bb-pulse { left: 14px; width: 7px; height: 7px; }
-  .bb-content { padding-left: 14px; gap: 10px; min-width: 0; flex: 1; }
-  .bb-badge { padding: 4px 9px; font-size: 10px; }
-  .bb-text b { font-size: 13px; line-height: 1.3; }
-  .bb-text .bb-sub { display: none; } /* 서브 카피 숨김 */
-  .bb-actions { gap: 8px; }
-  .bb-tel { padding: 8px; background: rgba(212,165,116,0.12); border-radius: 10px; }
-  .bb-tel span { display: none; }
-  .bb-cta { padding: 10px 14px !important; font-size: 13px !important; min-height: 40px; }
-  .bb-cta span { display: none; } /* 화살표 제외 숨김 */
-  .bb-close { right: 8px; width: 26px; height: 26px; }
+  .bb-inner {
+    padding: 9px 44px 9px 14px;
+    gap: 10px;
+    min-height: 54px;
+    align-items: center;
+  }
+  .bb-pulse { left: 14px; width: 6px; height: 6px; }
+  .bb-content {
+    padding-left: 14px;
+    gap: 8px;
+    flex: 0 0 auto;
+  }
+  .bb-content .bb-text { display: none; }
+  .bb-badge {
+    padding: 4px 9px;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .bb-tel { display: none; }
+  .bb-actions {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 6px;
+    min-width: 0;
+  }
+  .bb-cta {
+    flex: 1;
+    max-width: 240px;
+    padding: 11px 14px !important;
+    font-size: 13px !important;
+    min-height: 40px;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+  }
+  .bb-cta span { display: inline !important; margin-left: 4px; }
+  .bb-close {
+    right: 10px;
+    width: 28px; height: 28px;
+  }
   .bb-close svg { width: 14px; height: 14px; }
 }
 @media (max-width: 480px) {
-  .bb-inner { padding: 10px 40px 10px 12px; gap: 8px; min-height: 56px; }
-  .bb-content { padding-left: 12px; gap: 8px; }
-  .bb-badge { padding: 3px 8px; font-size: 9.5px; letter-spacing: 0.02em; }
-  .bb-text b { font-size: 12px; }
-  .bb-tel { padding: 6px 8px; }
-  .bb-tel svg { width: 16px; height: 16px; }
-  .bb-cta { padding: 9px 12px !important; font-size: 12.5px !important; min-height: 36px; }
+  .bb-inner { padding: 8px 40px 8px 12px; gap: 8px; min-height: 52px; }
+  .bb-pulse { left: 12px; }
+  .bb-content { padding-left: 12px; }
+  .bb-badge { padding: 3px 8px; font-size: 9.5px; }
+  .bb-cta { padding: 10px 12px !important; font-size: 12.5px !important; min-height: 38px; }
 }
 @media (max-width: 360px) {
-  /* 매우 좁은 화면: 배지/펄스 숨김 */
   .bb-pulse { display: none; }
   .bb-badge { display: none; }
-  .bb-content { padding-left: 0; }
+  .bb-content { display: none; }
+  .bb-cta { max-width: none; }
+  .bb-inner { padding: 8px 40px 8px 14px; }
 }
 
 /* 초과 높이 창/prefers-reduced-motion */
@@ -2610,7 +2645,13 @@ body.bb-active .btn-top { bottom: 92px; }
 .lt-close:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
 @media (max-width: 640px) {
-  .lang-toast { top: 76px; max-width: calc(100vw - 24px); }
+  .lang-toast {
+    top: 72px;
+    left: 12px; right: 12px;
+    max-width: none;
+    transform: translateY(-140%);
+  }
+  .lang-toast.visible { transform: translateY(0); }
   .lt-inner { padding: 12px; gap: 10px; flex-wrap: wrap; }
   .lt-flag { font-size: 20px; }
   .lt-msg { flex-basis: calc(100% - 40px); }
