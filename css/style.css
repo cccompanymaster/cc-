@@ -5,6 +5,8 @@ html {
   word-break: keep-all;
   overflow-wrap: break-word;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip; /* iOS Safari 포함 가로 스크롤 차단 */
+  max-width: 100vw;
 }
 :lang(en), .en-txt { word-break: normal; }
 .nowrap { white-space: nowrap; }
@@ -17,9 +19,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100vw;
   word-break: keep-all;
   overflow-wrap: break-word;
+  position: relative; /* 내부 absolute 요소 기준점 고정 — 뷰포트 초과 방지 */
 }
 h1, h2, h3, h4, h5, p { word-break: keep-all; overflow-wrap: break-word; }
 a { color: inherit; text-decoration: none; }
@@ -2267,20 +2271,22 @@ body.bb-active .btn-top { bottom: 92px; }
 .scroll-progress {
   position: fixed; top: 0; left: 0;
   width: var(--progress, 0%); height: 3px;
+  max-width: 100vw;
   background: linear-gradient(90deg, #B5874F, #E8BE8B 40%, #F4D9A8 70%, #E8BE8B);
   z-index: 101;
   transition: width 0.1s linear;
   pointer-events: none;
   box-shadow: 0 0 10px rgba(212,165,116,0.5), 0 0 20px rgba(212,165,116,0.25);
+  overflow: visible;
 }
 .scroll-progress::after {
   content: '';
-  position: absolute; right: 0; top: 50%;
-  width: 8px; height: 8px;
+  position: absolute; right: 2px; top: 50%;
+  width: 6px; height: 6px;
   background: #F4D9A8;
   border-radius: 50%;
-  transform: translate(50%, -50%);
-  box-shadow: 0 0 12px rgba(212,165,116,0.8);
+  transform: translateY(-50%); /* 가로 translate 제거 — 뷰포트 우측 overflow 방지 */
+  box-shadow: 0 0 10px rgba(212,165,116,0.7);
   opacity: 0.9;
 }
 
