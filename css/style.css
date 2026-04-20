@@ -17,13 +17,6 @@ html {
   will-change: transform;
 }
 .scroll-progress { will-change: width; }
-
-/* Skip rendering cost for sections far below the fold until scrolled near */
-#services, #clients, #news, #faq, #contact, #footer,
-.products-list, .page-cta {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
-}
 :lang(en), .en-txt { word-break: normal; }
 .nowrap { white-space: nowrap; }
 .tnum { font-variant-numeric: tabular-nums; }
