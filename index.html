@@ -179,8 +179,8 @@
       </nav>
       <div class="header-right">
         <ul class="lang" role="group" aria-label="언어 선택">
-          <li class="active"><span aria-current="true">KR</span></li>
-          <li><span class="lang-disabled" aria-disabled="true">EN</span></li>
+          <li class="active"><a href="./" aria-current="true">KR</a></li>
+          <li><a href="https://cccompanymaster-github-io.translate.goog/cc-/?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=en" target="_blank" rel="noopener" hreflang="en" data-lang="en">EN</a></li>
         </ul>
         <button type="button" class="ham" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
           <span></span><span></span><span></span>
@@ -532,11 +532,11 @@
           <span class="line"><i>Scale</i> Boldly.</span>
         </h1>
         <p class="hero-ko-lead">
-          규제 안에서 <b>매출을 만드는 법</b> — <br class="hero-sub-break">
-          의료·법률·전문직 마케팅, 단일 파트너가 책임집니다.
+          광고비 써도 매출이 안 늘 때 — <br class="hero-sub-break">
+          <b>3개 전문팀</b>이 전략부터 실행까지 책임집니다.
         </p>
         <p class="hero-sub">
-          전문직 광고 · 바이럴 미디어 · 데이터베이스 —
+          퍼포먼스 광고 · 바이럴 미디어 · 데이터베이스 —
           <span class="hero-sub-break"></span>
           <b>3개 전문 계열사</b>가 만드는 통합 마케팅 솔루션
         </p>
@@ -545,7 +545,7 @@
           <a href="#companies" class="btn btn-ghost">계열사 살펴보기</a>
         </div>
         <p class="hero-micro">
-          <span aria-hidden="true">✓</span> 첫 상담 무료 · 영업일 24시간 내 회신 · NDA 선제공 가능
+          <span aria-hidden="true">✓</span> 첫 상담 무료 · 영업일 24시간 내 회신 · 맞춤 제안서 발송
         </p>
       </div>
 
@@ -1180,7 +1180,7 @@
           <ul class="contact-sla" aria-label="상담 안내">
             <li><span aria-hidden="true">✓</span> 첫 상담 무료 · 60분 진단 포함</li>
             <li><span aria-hidden="true">✓</span> 영업일 기준 24시간 내 회신</li>
-            <li><span aria-hidden="true">✓</span> NDA 선제공 가능 · 상담 내용 기밀 유지</li>
+            <li><span aria-hidden="true">✓</span> 업종 맞춤 제안서 · 상담 내용 기밀 유지</li>
           </ul>
           <div class="contact-actions">
             <button type="button" class="btn btn-primary lg" id="openInquiry">무료 상담 받기 <span aria-hidden="true">→</span></button>
@@ -1339,6 +1339,21 @@
     </a>
   </aside>
 
+  <!-- Language suggestion toast (non-Korean browsers) -->
+  <div class="lang-toast" id="langToast" role="dialog" aria-live="polite" hidden>
+    <div class="lt-inner">
+      <span class="lt-flag" aria-hidden="true">🌐</span>
+      <p class="lt-msg">
+        <b>View this site in English?</b>
+        <span>This page is in Korean. A machine-translated English version is available.</span>
+      </p>
+      <div class="lt-actions">
+        <a href="https://cccompanymaster-github-io.translate.goog/cc-/?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=en" target="_blank" rel="noopener" class="lt-cta">View in English →</a>
+        <button type="button" class="lt-close" id="langToastClose" aria-label="Dismiss">×</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom sticky inquiry banner -->
   <div class="bottom-banner" id="bottomBanner" role="region" aria-label="빠른 문의 배너" hidden>
     <div class="bb-inner">
@@ -1347,7 +1362,7 @@
         <span class="bb-badge">무료 상담</span>
         <div class="bb-text">
           <b>지금 문의하면 영업일 24시간 내 회신드립니다.</b>
-          <span class="bb-sub">첫 상담 무료 · NDA 선제공 · 맞춤 제안서 즉시 발송</span>
+          <span class="bb-sub">첫 상담 무료 · 60분 진단 · 맞춤 제안서 즉시 발송</span>
         </div>
       </div>
       <div class="bb-actions">

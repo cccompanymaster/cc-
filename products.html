@@ -80,8 +80,8 @@
       </nav>
       <div class="header-right">
         <ul class="lang" role="group" aria-label="언어 선택">
-          <li class="active"><span aria-current="true">KR</span></li>
-          <li><span class="lang-disabled" aria-disabled="true">EN</span></li>
+          <li class="active"><a href="products.html" aria-current="true">KR</a></li>
+          <li><a href="https://cccompanymaster-github-io.translate.goog/cc-/products.html?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=en" target="_blank" rel="noopener" hreflang="en" data-lang="en">EN</a></li>
         </ul>
         <button type="button" class="ham" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
           <span></span><span></span><span></span>
@@ -348,6 +348,21 @@
     </a>
   </aside>
 
+  <!-- Language suggestion toast (non-Korean browsers) -->
+  <div class="lang-toast" id="langToast" role="dialog" aria-live="polite" hidden>
+    <div class="lt-inner">
+      <span class="lt-flag" aria-hidden="true">🌐</span>
+      <p class="lt-msg">
+        <b>View this site in English?</b>
+        <span>This page is in Korean. A machine-translated English version is available.</span>
+      </p>
+      <div class="lt-actions">
+        <a href="https://cccompanymaster-github-io.translate.goog/cc-/products.html?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=en" target="_blank" rel="noopener" class="lt-cta">View in English →</a>
+        <button type="button" class="lt-close" id="langToastClose" aria-label="Dismiss">×</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom sticky inquiry banner -->
   <div class="bottom-banner" id="bottomBanner" role="region" aria-label="빠른 문의 배너" hidden>
     <div class="bb-inner">
@@ -356,7 +371,7 @@
         <span class="bb-badge">무료 상담</span>
         <div class="bb-text">
           <b>어떤 상품이 맞을지 모르겠다면 30분 진단 받아보세요.</b>
-          <span class="bb-sub">영업일 24시간 내 회신 · NDA 선제공 · 맞춤 제안</span>
+          <span class="bb-sub">영업일 24시간 내 회신 · 업종 맞춤 제안 · 기밀 유지</span>
         </div>
       </div>
       <div class="bb-actions">

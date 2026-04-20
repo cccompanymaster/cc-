@@ -1,11 +1,10 @@
-// ===== Intro / Loading (show once per session, skip if reduced-motion) =====
+// ===== Intro / Loading (show once per session, reduced-motion은 짧게) =====
 const introEl = document.getElementById('intro');
 const INTRO_SEEN_KEY = 'noah_intro_v1';
 const introSeen = (() => {
   try { return sessionStorage.getItem(INTRO_SEEN_KEY) === '1'; } catch { return false; }
 })();
 const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const skipIntro = introSeen || prefersReducedMotion;
 
 const hideIntro = () => {
   introEl?.classList.add('hide');
@@ -14,20 +13,20 @@ const hideIntro = () => {
   try { sessionStorage.setItem(INTRO_SEEN_KEY, '1'); } catch {}
 };
 
-if (skipIntro) {
-  // 즉시 제거 — LCP 측정 방해 방지 + 재방문 UX
+if (introSeen) {
+  // 같은 세션 재방문: 즉시 제거
   introEl?.classList.add('hide');
   introEl?.setAttribute('aria-hidden', 'true');
-  try { sessionStorage.setItem(INTRO_SEEN_KEY, '1'); } catch {}
 } else {
   document.body.classList.add('no-scroll');
-  const introDuration = 2200; // 단축(기존 2800 → 2200)
+  // reduced-motion은 짧게(0.8s), 일반은 2.2s
+  const introDuration = prefersReducedMotion ? 800 : 2200;
   const startIntroExit = () => setTimeout(hideIntro, introDuration);
   if (document.readyState === 'complete') {
     startIntroExit();
   } else {
     window.addEventListener('load', startIntroExit);
-    setTimeout(hideIntro, 4000); // safety fallback 단축
+    setTimeout(hideIntro, 4000); // safety fallback
   }
   introEl?.addEventListener('click', hideIntro);
 }
@@ -128,6 +127,42 @@ const scrollProgress = document.getElementById('scrollProgress');
 const getHeaderHeight = () => header?.offsetHeight ?? 70;
 
 // ===== Bottom Sticky Banner (show after scroll past hero, session-dismissible) =====
+// ===== Language detection toast (non-Korean browsers) =====
+(() => {
+  const toast = document.getElementById('langToast');
+  const LT_KEY = 'noah_lang_toast_v1';
+  if (!toast) return;
+  let dismissed = false;
+  try { dismissed = sessionStorage.getItem(LT_KEY) === '1'; } catch {}
+  if (dismissed) return;
+
+  // navigator.languages[0] 또는 navigator.language 체크
+  const langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+  const firstLang = (langs[0] || '').toLowerCase();
+  const isKorean = firstLang.startsWith('ko') || langs.some(l => l.toLowerCase().startsWith('ko'));
+  if (isKorean) return;
+
+  // URL 파라미터로 강제 한국어(?lang=ko) 접근 시 토스트 띄우지 않음
+  try {
+    const params = new URLSearchParams(location.search);
+    if (params.get('lang') === 'ko') return;
+  } catch {}
+
+  toast.removeAttribute('hidden');
+  // 살짝 지연 후 노출 (페이지 초기 렌더링 방해 X)
+  setTimeout(() => toast.classList.add('visible'), 1200);
+
+  document.getElementById('langToastClose')?.addEventListener('click', () => {
+    toast.classList.remove('visible');
+    setTimeout(() => toast.classList.add('dismissed'), 500);
+    try { sessionStorage.setItem(LT_KEY, '1'); } catch {}
+  });
+  // CTA 클릭 후에도 dismiss로 마킹
+  toast.querySelector('.lt-cta')?.addEventListener('click', () => {
+    try { sessionStorage.setItem(LT_KEY, '1'); } catch {}
+  });
+})();
+
 const bottomBanner = document.getElementById('bottomBanner');
 const BB_DISMISSED_KEY = 'noah_bb_dismissed_v1';
 const bbDismissed = (() => {

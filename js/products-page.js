@@ -24,6 +24,33 @@ const subLabelIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.sub-label').forEach(el => subLabelIO.observe(el));
 
+// ===== Language detection toast (non-Korean browsers) =====
+(() => {
+  const toast = document.getElementById('langToast');
+  const LT_KEY = 'noah_lang_toast_v1';
+  if (!toast) return;
+  let dismissed = false;
+  try { dismissed = sessionStorage.getItem(LT_KEY) === '1'; } catch {}
+  if (dismissed) return;
+  const langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+  const isKorean = (langs[0] || '').toLowerCase().startsWith('ko') || langs.some(l => l.toLowerCase().startsWith('ko'));
+  if (isKorean) return;
+  try {
+    const params = new URLSearchParams(location.search);
+    if (params.get('lang') === 'ko') return;
+  } catch {}
+  toast.removeAttribute('hidden');
+  setTimeout(() => toast.classList.add('visible'), 1200);
+  document.getElementById('langToastClose')?.addEventListener('click', () => {
+    toast.classList.remove('visible');
+    setTimeout(() => toast.classList.add('dismissed'), 500);
+    try { sessionStorage.setItem(LT_KEY, '1'); } catch {}
+  });
+  toast.querySelector('.lt-cta')?.addEventListener('click', () => {
+    try { sessionStorage.setItem(LT_KEY, '1'); } catch {}
+  });
+})();
+
 // ===== Top button & scroll + Bottom banner =====
 const topBtn = document.querySelector('.btn-top');
 const bottomBanner = document.getElementById('bottomBanner');
