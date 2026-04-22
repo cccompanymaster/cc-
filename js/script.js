@@ -1,14 +1,24 @@
 // ===== Intro / Loading (매 방문마다 노출, reduced-motion은 짧게) =====
+// 새로고침 시 브라우저 스크롤 복원 기능 끄고 최상단으로 고정
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+// 페이지 진입 즉시 최상단으로 (스크롤 복원되기 전에)
+window.scrollTo(0, 0);
+
 const introEl = document.getElementById('intro');
 const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const hideIntro = () => {
+  // 인트로 끝날 때 한 번 더 최상단 보장 (브라우저가 복원한 경우 대비)
+  window.scrollTo(0, 0);
   introEl?.classList.add('hide');
   introEl?.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
 };
 
 document.body.classList.add('no-scroll');
+// 브라우저가 load 이후 스크롤 복원 시도하는 것까지 차단
+window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
 // reduced-motion은 짧게(0.8s), 일반은 2.2s
 const introDuration = prefersReducedMotion ? 800 : 2200;
 const startIntroExit = () => setTimeout(hideIntro, introDuration);

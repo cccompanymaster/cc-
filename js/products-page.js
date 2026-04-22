@@ -1,3 +1,8 @@
+// 새로고침 시 최상단 고정 (브라우저 스크롤 복원 차단)
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
 // ===== Custom cursor — 골드 도트 + 딜레이 링 + 트레일 =====
 (() => {
   const cursor = document.querySelector('.cursor');
