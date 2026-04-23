@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#0B1A33">
   <meta name="robots" content="index, follow">
   <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.portone.io https://www.google.com https://www.gstatic.com; connect-src 'self' https://api.portone.io https://script.google.com https://script.googleusercontent.com https://api.ipify.org https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://www.google.com; frame-src https://*.portone.io https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
   <title>노아마케팅그룹 | 전문직·바이럴·DB 통합 마케팅 에이전시</title>
   <meta name="description" content="노아마케팅랩·CC컴퍼니·노아데이터베이스 3개 전문 계열사가 만드는 통합 마케팅 솔루션. 퍼포먼스 광고부터 바이럴·데이터베이스까지 — 영업일 24시간 내 회신.">
@@ -1069,6 +1072,10 @@
               <p class="inquiry-sub">상담 접수 후 영업일 기준 24시간 이내 연락드립니다.</p>
             </div>
             <form class="inquiry-form" id="inquiryForm" novalidate>
+              <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0;overflow:hidden">
+                <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              </div>
+              <input type="hidden" name="formOpenedAt" class="form-opened-at">
               <div class="form-row">
                 <div class="form-field">
                   <label for="inq-name">이름 <span>*</span></label>
@@ -1223,6 +1230,10 @@
           <p class="inquiry-sub">포트원(PortOne) 안전 결제 · 카드·계좌이체·간편결제 지원</p>
         </div>
         <form class="payment-form" id="paymentForm" novalidate>
+          <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0;overflow:hidden">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <input type="hidden" name="formOpenedAt" class="form-opened-at">
           <div class="form-field">
             <label>상품 선택</label>
             <div class="pay-options">

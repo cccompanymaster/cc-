@@ -708,6 +708,35 @@ document.addEventListener('keydown', (e) => {
 // 예: 'https://script.google.com/macros/s/AKfycb.../exec'
 const INQUIRY_WEBHOOK_URL = '';
 
+// ===== 공용 보안 유틸: formOpenedAt 주입 · IP 조회 · UUID 생성 · 허니팟 읽기 =====
+document.querySelectorAll('input.form-opened-at').forEach(el => {
+  el.value = new Date().toISOString();
+});
+let _cachedClientIp = null;
+async function fetchClientIp_() {
+  if (_cachedClientIp !== null) return _cachedClientIp;
+  try {
+    const r = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+    if (r.ok) { const j = await r.json(); _cachedClientIp = String(j.ip || '').slice(0, 45); return _cachedClientIp; }
+  } catch(_) {}
+  _cachedClientIp = '';
+  return '';
+}
+function makeUUID_() {
+  if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+  // fallback (RFC4122 v4)
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = (Math.random() * 16) | 0;
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
+function readHoneypot_(form) {
+  return (form?.querySelector('input[name="website"]')?.value || '').trim();
+}
+function readFormOpenedAt_(form) {
+  return form?.querySelector('input.form-opened-at')?.value || '';
+}
+
 inqForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const submitBtn = inqForm.querySelector('button[type="submit"]');
@@ -734,16 +763,24 @@ inqForm?.addEventListener('submit', async (e) => {
     return;
   }
 
+  // 허니팟 — 값 있으면 봇으로 간주(조용히 차단)
+  if (readHoneypot_(inqForm)) { return; }
+
+  const clientIp = await fetchClientIp_();
   const data = new FormData(inqForm);
   const payload = {
+    type: 'inquiry',
     name: (data.get('name') || '').toString().trim(),
     company: (data.get('company') || '').toString().trim(),
     phone: (data.get('phone') || '').toString().trim(),
     email: (data.get('email') || '').toString().trim(),
     interests: data.getAll('interest').join(', '),
     message: (data.get('message') || '').toString().trim(),
-    referrer: document.referrer || '(direct)',
-    userAgent: navigator.userAgent,
+    referrer: (document.referrer || '(direct)').slice(0, 200),
+    userAgent: (navigator.userAgent || '').slice(0, 200),
+    clientIp,
+    origin: location.origin,
+    formOpenedAt: readFormOpenedAt_(inqForm),
     submittedAt: new Date().toISOString(),
   };
 
@@ -910,8 +947,12 @@ payForm?.addEventListener('submit', async (e) => {
     return;
   }
 
-  // 주문 ID (중복 방지)
-  const paymentId = `noah_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  // 허니팟 체크
+  if (readHoneypot_(payForm)) { return; }
+
+  // 서버에서 paymentId 포맷 검증에 쓸 UUID 생성 (brute-force 저항)
+  const paymentId = 'noah_' + makeUUID_();
+  const clientIp = await fetchClientIp_();
 
   paySubmitBtn.disabled = true;
   const originalLabel = paySubmitLabel.textContent;
@@ -931,7 +972,7 @@ payForm?.addEventListener('submit', async (e) => {
         phoneNumber: phone.replace(/-/g, ''),
         email,
       },
-      customData: { memo },
+      customData: { memo: (memo || '').slice(0, 500) },
     });
 
     if (rsp?.code !== undefined) {
@@ -939,21 +980,30 @@ payForm?.addEventListener('submit', async (e) => {
       throw new Error(rsp.message || '결제가 취소됐습니다.');
     }
 
-    // 서버 검증 요청 (Apps Script)
-    if (PAYMENT_VERIFY_URL) {
-      const verifyRes = await fetch(PAYMENT_VERIFY_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({
-          type: 'payment',
-          paymentId,
-          expectedAmount: amount,
-          orderName: itemName,
-          customer: { name, phone, email, memo },
-          submittedAt: new Date().toISOString(),
-        }),
-      });
-      if (!verifyRes.ok) console.warn('[Payment] 서버 검증 응답 오류 — 이메일로 수동 확인');
+    // 서버 검증 — 응답이 {ok:true}일 때만 성공 처리 (F17 수정)
+    if (!PAYMENT_VERIFY_URL) {
+      throw new Error('서버 검증이 구성되지 않았습니다. 관리자에게 문의해주세요.');
+    }
+    const verifyRes = await fetch(PAYMENT_VERIFY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        type: 'payment',
+        paymentId,
+        expectedAmount: amount,
+        orderName: itemName,
+        customer: { name, phone, email, memo: (memo || '').slice(0, 500) },
+        clientIp,
+        origin: location.origin,
+        userAgent: (navigator.userAgent || '').slice(0, 200),
+        formOpenedAt: readFormOpenedAt_(payForm),
+        submittedAt: new Date().toISOString(),
+      }),
+    });
+    let verifyJson = {};
+    try { verifyJson = await verifyRes.json(); } catch(_) {}
+    if (!verifyRes.ok || !verifyJson.ok) {
+      throw new Error('결제 검증에 실패했습니다. 결제는 진행됐을 수 있으니 영수증 확인 후 010-6658-6482로 연락주세요.');
     }
 
     // 성공 UI
