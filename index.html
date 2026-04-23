@@ -1203,9 +1203,78 @@
             <button type="button" class="btn btn-primary lg" id="openInquiry">상담 신청하기 <span aria-hidden="true">→</span></button>
             <a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener" class="btn btn-ghost lg">카카오채널 상담</a>
           </div>
+          <p class="contact-pay-hint">
+            이미 견적이 나왔다면 <button type="button" class="link-btn" id="openPayment">온라인 결제</button>를 이용해 주세요 — 안전 결제·즉시 영수증 발송.
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title" aria-hidden="true">
+      <div class="payment-modal-backdrop"></div>
+      <div class="payment-modal-panel">
+        <button class="payment-modal-close" type="button" aria-label="닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 L6 18 M6 6 L18 18"/></svg>
+        </button>
+        <div class="payment-modal-header">
+          <p class="inquiry-eyebrow">SECURE PAYMENT</p>
+          <h2 id="payment-modal-title">온라인 결제</h2>
+          <p class="inquiry-sub">포트원(PortOne) 안전 결제 · 카드·계좌이체·간편결제 지원</p>
+        </div>
+        <form class="payment-form" id="paymentForm" novalidate>
+          <div class="form-field">
+            <label>상품 선택</label>
+            <div class="pay-options">
+              <label class="pay-opt"><input type="radio" name="pay-preset" value="50000" data-name="상담 예약금" checked><div><b>상담 예약금</b><em>50,000원</em></div></label>
+              <label class="pay-opt"><input type="radio" name="pay-preset" value="300000" data-name="기본 진단 패키지"><div><b>기본 진단 패키지</b><em>300,000원</em></div></label>
+              <label class="pay-opt"><input type="radio" name="pay-preset" value="1500000" data-name="표준 월간 패키지"><div><b>표준 월간 패키지</b><em>1,500,000원</em></div></label>
+              <label class="pay-opt"><input type="radio" name="pay-preset" value="custom" data-name="맞춤 견적 결제"><div><b>맞춤 견적</b><em>직접 입력</em></div></label>
+            </div>
+          </div>
+          <div class="form-field" id="payCustomWrap" hidden>
+            <label for="pay-custom-amount">결제 금액 (원)</label>
+            <input type="number" id="pay-custom-amount" name="customAmount" min="10000" step="1000" placeholder="예: 500000" inputmode="numeric">
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="pay-name">이름 <span>*</span></label>
+              <input type="text" id="pay-name" name="name" required placeholder="홍길동">
+            </div>
+            <div class="form-field">
+              <label for="pay-phone">연락처 <span>*</span></label>
+              <input type="tel" id="pay-phone" name="phone" required placeholder="010-0000-0000" inputmode="numeric">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="pay-email">이메일 <span>*</span><em class="optional-hint">(영수증 발송)</em></label>
+            <input type="email" id="pay-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-field">
+            <label for="pay-memo">메모 <span class="optional-hint">(선택)</span></label>
+            <input type="text" id="pay-memo" name="memo" placeholder="요청사항 · 프로젝트명 등">
+          </div>
+          <label class="privacy-check">
+            <input type="checkbox" id="pay-privacy" required>
+            <span>전자상거래 약관·개인정보 수집에 동의합니다. <a href="terms.html" target="_blank" rel="noopener">약관</a> · <a href="privacy.html#collect" target="_blank" rel="noopener">개인정보처리방침</a></span>
+          </label>
+          <div class="payment-summary" aria-live="polite">
+            <span>결제 예정 금액</span>
+            <b id="paySummaryAmount">50,000 원</b>
+          </div>
+          <button type="submit" class="btn btn-primary lg inquiry-submit" id="paySubmitBtn">
+            <span id="paySubmitLabel">결제하기</span> <span aria-hidden="true">→</span>
+          </button>
+          <p class="inquiry-success" id="paymentSuccess" hidden>
+            ✓ 결제가 완료됐습니다. 영수증은 입력하신 이메일로 발송되며, 영업일 내 담당자가 연락드립니다.
+          </p>
+          <p class="pay-secure">
+            <span aria-hidden="true">🔒</span>
+            모든 결제는 SSL 암호화로 보호되며, 카드정보는 PG사에서 직접 처리됩니다.
+          </p>
+        </form>
+      </div>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -1406,6 +1475,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://cdn.portone.io/v2/browser-sdk.js" defer></script>
   <script src="js/script.js" defer></script>
 </body>
 </html>

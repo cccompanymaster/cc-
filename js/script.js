@@ -807,3 +807,173 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     window.scrollTo({ top: y, behavior: 'smooth' });
   });
 });
+
+// ============================================================
+// ===== PortOne (포트원) 결제 연동 =====
+// ============================================================
+// ⚠️ 배포 전 아래 3개 상수를 실제 PortOne 계정에서 발급받은 값으로 교체하세요.
+// 발급 방법: apps-script/Code.gs 상단 주석 참조
+const PORTONE_STORE_ID = '';                // 예: 'store-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+const PORTONE_CHANNEL_KEY = '';             // 결제 채널 키 (PG사별로 발급)
+const PAYMENT_VERIFY_URL = '';              // Apps Script 웹앱 URL (INQUIRY_WEBHOOK_URL과 같은 배포면 동일 URL)
+
+const payModal = document.getElementById('paymentModal');
+const payForm = document.getElementById('paymentForm');
+const payClose = payModal?.querySelector('.payment-modal-close');
+const payBackdrop = payModal?.querySelector('.payment-modal-backdrop');
+const paySuccess = document.getElementById('paymentSuccess');
+const paySummaryAmount = document.getElementById('paySummaryAmount');
+const paySubmitBtn = document.getElementById('paySubmitBtn');
+const paySubmitLabel = document.getElementById('paySubmitLabel');
+const payCustomWrap = document.getElementById('payCustomWrap');
+const payCustomInput = document.getElementById('pay-custom-amount');
+
+const formatWon = (n) => new Intl.NumberFormat('ko-KR').format(Math.max(0, Math.floor(Number(n) || 0))) + ' 원';
+
+const getSelectedAmount = () => {
+  const sel = payForm?.querySelector('input[name="pay-preset"]:checked');
+  if (!sel) return { amount: 0, name: '' };
+  const name = sel.getAttribute('data-name') || '결제';
+  if (sel.value === 'custom') {
+    const custom = parseInt(payCustomInput?.value || '0', 10) || 0;
+    return { amount: custom, name };
+  }
+  return { amount: parseInt(sel.value, 10), name };
+};
+const refreshPaySummary = () => {
+  const { amount } = getSelectedAmount();
+  if (paySummaryAmount) paySummaryAmount.textContent = formatWon(amount);
+};
+
+payForm?.querySelectorAll('input[name="pay-preset"]').forEach(el => {
+  el.addEventListener('change', () => {
+    const isCustom = el.value === 'custom' && el.checked;
+    if (payCustomWrap) payCustomWrap.hidden = !isCustom;
+    refreshPaySummary();
+    if (isCustom) payCustomInput?.focus();
+  });
+});
+payCustomInput?.addEventListener('input', refreshPaySummary);
+
+let _prevFocusedPay = null;
+const openPayment = () => {
+  if (!payModal) return;
+  _prevFocusedPay = document.activeElement;
+  payModal.classList.add('open');
+  payModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+  lockBackground(true);
+  refreshPaySummary();
+  setTimeout(() => document.getElementById('pay-name')?.focus(), 250);
+};
+const closePayment = () => {
+  if (!payModal) return;
+  payModal.classList.remove('open');
+  payModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  lockBackground(false);
+  _prevFocusedPay?.focus?.();
+};
+document.getElementById('openPayment')?.addEventListener('click', openPayment);
+payClose?.addEventListener('click', closePayment);
+payBackdrop?.addEventListener('click', closePayment);
+document.addEventListener('keydown', (e) => {
+  if (payModal?.classList.contains('open')) {
+    if (e.key === 'Escape') { closePayment(); return; }
+    trapFocus(payModal, e);
+  }
+});
+
+payForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // 필수 필드 검증
+  const name = document.getElementById('pay-name')?.value.trim();
+  const phone = document.getElementById('pay-phone')?.value.trim();
+  const email = document.getElementById('pay-email')?.value.trim();
+  const memo = document.getElementById('pay-memo')?.value.trim();
+  const privacy = document.getElementById('pay-privacy')?.checked;
+  if (!name) { alert('이름을 입력해주세요.'); return; }
+  if (!phone) { alert('연락처를 입력해주세요.'); return; }
+  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) { alert('유효한 이메일을 입력해주세요.'); return; }
+  if (!privacy) { alert('약관·개인정보 수집에 동의해주세요.'); return; }
+
+  const { amount, name: itemName } = getSelectedAmount();
+  if (!amount || amount < 100) { alert('결제 금액을 확인해주세요.'); return; }
+
+  if (!PORTONE_STORE_ID || !PORTONE_CHANNEL_KEY) {
+    alert('결제 시스템이 아직 활성화되지 않았습니다. 관리자에게 문의하거나 카카오채널/전화로 연락 주세요.');
+    return;
+  }
+  if (!window.PortOne) {
+    alert('결제 모듈을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.');
+    return;
+  }
+
+  // 주문 ID (중복 방지)
+  const paymentId = `noah_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+
+  paySubmitBtn.disabled = true;
+  const originalLabel = paySubmitLabel.textContent;
+  paySubmitLabel.textContent = '결제창 여는 중…';
+
+  try {
+    const rsp = await window.PortOne.requestPayment({
+      storeId: PORTONE_STORE_ID,
+      channelKey: PORTONE_CHANNEL_KEY,
+      paymentId,
+      orderName: itemName,
+      totalAmount: amount,
+      currency: 'CURRENCY_KRW',
+      payMethod: 'CARD',
+      customer: {
+        fullName: name,
+        phoneNumber: phone.replace(/-/g, ''),
+        email,
+      },
+      customData: { memo },
+    });
+
+    if (rsp?.code !== undefined) {
+      // 사용자 취소 또는 오류
+      throw new Error(rsp.message || '결제가 취소됐습니다.');
+    }
+
+    // 서버 검증 요청 (Apps Script)
+    if (PAYMENT_VERIFY_URL) {
+      const verifyRes = await fetch(PAYMENT_VERIFY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          type: 'payment',
+          paymentId,
+          expectedAmount: amount,
+          orderName: itemName,
+          customer: { name, phone, email, memo },
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+      if (!verifyRes.ok) console.warn('[Payment] 서버 검증 응답 오류 — 이메일로 수동 확인');
+    }
+
+    // 성공 UI
+    payForm.style.display = 'none';
+    paySuccess.hidden = false;
+    setTimeout(() => {
+      closePayment();
+      setTimeout(() => {
+        payForm.reset();
+        payForm.style.display = '';
+        paySuccess.hidden = true;
+        paySubmitBtn.disabled = false;
+        paySubmitLabel.textContent = originalLabel;
+        refreshPaySummary();
+      }, 400);
+    }, 3000);
+  } catch (err) {
+    console.error('[Payment] 결제 실패:', err);
+    alert(`결제 중 오류가 발생했습니다.\n${err.message || ''}\n\n문제가 계속되면 010-6658-6482로 연락 부탁드립니다.`);
+    paySubmitBtn.disabled = false;
+    paySubmitLabel.textContent = originalLabel;
+  }
+});
