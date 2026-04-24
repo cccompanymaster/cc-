@@ -51,6 +51,23 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/products-zh.html"/>
   </url>
   <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/blog-top-ranking-2026.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/medical-ad-review-2026.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cccompanymaster.github.io/cc-/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
