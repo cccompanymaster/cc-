@@ -602,7 +602,168 @@ const articlesByLang = {
     `
   }
   },
-  // en: {...} — Step 2에서 주입
+  en: {
+    '1': {
+      tag: 'LAB · REPORT',
+      date: '2026.04.10',
+      title: 'Medical Ad Review 2026 — 5 Essentials for Practitioners',
+      body: `
+      <p class="lead">Korea's amended Medical Act Enforcement Decree, effective Feb 2026, expanded the scope and tightened the criteria for medical advertising review. Here are the 5 must-know points for hospital marketers.</p>
+      <h3>1. Wider media coverage</h3>
+      <p>Review used to focus on websites and blogs. Now Instagram, TikTok, and Shorts are also in scope. Accounts averaging over 100k monthly views are subject to mandatory review.</p>
+      <h3>2. Total ban on comparative / superlative expressions</h3>
+      <p>Unsubstantiated phrases such as "the best", "only in Korea", or "No.1" can result in up to a 1-year advertising suspension. Even with numbers and sources, review is required.</p>
+      <h3>3. New standards for before/after photos</h3>
+      <p>In addition to patient consent, conditions of the shoot (lighting, angle, retouching) must now be disclosed. Essential for cosmetic surgery and dermatology clinics.</p>
+      <h3>4. YouTube sponsored content labelling</h3>
+      <p>Sponsored videos featuring doctors or clinics must display "Sponsored" or "Ad" within the first 3 seconds. Omission is treated as false advertising.</p>
+      <h3>5. Review expanded to experiential content</h3>
+      <p>Reviews on mom-cafés and blog review programs are now strongly recommended for pre-review. Verification of actual experience and compensation disclosure has been strengthened.</p>
+      <div class="article-cta">
+        <p>Noah Marketing Lab offers one-stop medical advertising including pre-review and legal counsel.</p>
+        <a href="#contact" class="btn btn-primary">Request consultation →</a>
+      </div>
+    `
+    },
+    '2': {
+      tag: 'CC · INSIGHT',
+      date: '2026.03.28',
+      title: 'Blog Top-Ranking Logic Shift — 2026 Naver Search Update Analysis',
+      body: `
+      <p class="lead">In Q1 2026, Naver overhauled its VIEW tab search logic. We analyse the "SMART BLOCK" semantic-search engine that evolved beyond the prior C-RANK · D.I.A. model.</p>
+      <h3>1. Keyword matching → intent matching</h3>
+      <p>Pure keyword repetition no longer wins. Posts that truly match the searcher's intent rank first. Even a single clinic keyword now has different exposure logic for "recommendation", "pricing", and "reviews".</p>
+      <h3>2. Dwell time matters dramatically more</h3>
+      <p>60+ seconds of on-page time is now a minimum threshold for top ranking. Placement of images/videos and paragraph length are decisive factors.</p>
+      <h3>3. Recent activity outweighs optimization score</h3>
+      <p>No matter how high your blog's optimization index, missing activity in the last 30 days means exclusion from results. Consistent posting is absolute.</p>
+      <h3>4. AI-generated content penalties</h3>
+      <p>When ChatGPT-style generation patterns are detected, ranking drops sharply. Posts with personal experience and emotional expression win.</p>
+      <h3>5. Cross-exposure with Cafés and Knowledge-iN</h3>
+      <p>Credibility rises when the same keyword is cross-exposed on blogs, cafés, and Knowledge-iN — not blog alone.</p>
+      <div class="article-cta">
+        <p>CC Company runs integrated blog + café + Knowledge-iN operation optimized for 2026 logic.</p>
+        <a href="#contact" class="btn btn-primary">Request consultation →</a>
+      </div>
+    `
+    },
+    '3': {
+      tag: 'DB · GUIDE',
+      date: '2026.03.15',
+      title: 'CPA vs CPS — Choosing the Right Performance Model for Your Business',
+      body: `
+      <p class="lead">CPA (Cost Per Action) and CPS (Cost Per Sale) both charge by outcome, but fit different situations. Here's how to pick the right one.</p>
+      <h3>What is CPA?</h3>
+      <p>Charged per user action (signup, quote request, app install). Optimized for acquiring new-customer DB. Widely used in insurance, loans, medical, and legal sectors.</p>
+      <h3>What is CPS?</h3>
+      <p>Charged only when an actual purchase / payment occurs. Lowest risk for the advertiser, but media-side enthusiasm (and thus volume) can be limited.</p>
+      <h3>When to choose CPA</h3>
+      <ul>
+        <li>Sales conversion runs through humans (call center / consultants)</li>
+        <li>High LTV — a single acquired customer is valuable</li>
+        <li>High-involvement products where immediate purchase is unlikely</li>
+      </ul>
+      <h3>When to choose CPS</h3>
+      <ul>
+        <li>Commerce, subscription, or app purchase — conversion completes online</li>
+        <li>Clear AOV and a margin that can be shared</li>
+        <li>Partners have a transparent revenue share</li>
+      </ul>
+      <h3>Hybrid structure</h3>
+      <p>Modern deals typically mix CPA + CPS: first-touch acquisition (CPA) + second-stage conversion (CPS) to distribute risk.</p>
+      <div class="article-cta">
+        <p>Noah Database handles pricing design, DB QA, and conversion tracking across industries.</p>
+        <a href="#contact" class="btn btn-primary">Request consultation →</a>
+      </div>
+    `
+    },
+    '4': {
+      tag: 'GROUP · NEWS',
+      date: '2026.02.20',
+      title: 'Noah Marketing Group Wins the 2025 Marketing Awards Grand Prize',
+      body: `
+      <p class="lead">Noah Marketing Group has been awarded the Grand Prize in the Full-Service Agency category at the "2025 Marketing Awards" hosted jointly by the Korean Marketing Association and the Korean Advertising Society.</p>
+      <h3>Why we won</h3>
+      <p>The award recognises the integrated campaigns run across our three companies in 2025, acclaimed for "combining vertical expertise with data-driven execution".</p>
+      <h3>Featured cases</h3>
+      <ul>
+        <li>Gangnam dermatology network integrated marketing — new patient acquisition +318% YoY</li>
+        <li>Law-firm brand campaign — 98% top-ranking on target keywords</li>
+        <li>D2C beauty brand CPS partnership — KRW 1.2B monthly GMV achieved</li>
+      </ul>
+      <h3>Executive comment</h3>
+      <blockquote>"Our three-company structure isn't just division of labour. It protects the depth of each domain while moving as one when needed. We'll keep playing the role of an ark so our clients can grow without being shaken."</blockquote>
+      <p>With this award, Noah Marketing Group becomes the only agency group to have received a top-tier award three years in a row at major Korean marketing ceremonies.</p>
+      <div class="article-cta">
+        <p>Experience the proven services behind our awards.</p>
+        <a href="#contact" class="btn btn-primary">Project inquiry →</a>
+      </div>
+    `
+    },
+    '5': {
+      tag: 'LAB · CASE',
+      date: '2026.02.05',
+      title: 'New Clinic Marketing — Why You Must Start D-90 Days Before Launch',
+      body: `
+      <p class="lead">90% of "why aren't appointments filling?" complaints come from clinics that start marketing right before opening. Here's the timetable behind successful launches.</p>
+      <h3>D-90 ~ D-60 : Foundation</h3>
+      <ul>
+        <li>Website build complete + baseline Naver / Google SEO</li>
+        <li>Blog set up + index management (needs at least 60 days lead time)</li>
+        <li>Naver Place registered and optimized</li>
+      </ul>
+      <h3>D-60 ~ D-30 : Awareness</h3>
+      <ul>
+        <li>20~30 blog posts accumulated across keywords</li>
+        <li>Instagram / YouTube channels opened with preview content</li>
+        <li>Early penetration into local mom-cafés and communities</li>
+      </ul>
+      <h3>D-30 ~ D-Day : Demand conversion</h3>
+      <ul>
+        <li>Naver SA / Google SA campaigns live</li>
+        <li>Reviewer recruitment + real-experience content published</li>
+        <li>Event and launch promotion across all channels</li>
+      </ul>
+      <h3>Real example</h3>
+      <p>Orthopaedic Clinic A in Gangnam started at D-120 → 100% appointment fill in the first week, top-3 local ranking within 3 months.<br>Dermatology B started at D-14 and averaged 6 patients per day for 3 months after opening. The difference was time, not budget.</p>
+      <div class="article-cta">
+        <p>Noah Marketing Lab supports stage-by-stage marketing design starting 90 days before launch.</p>
+        <a href="#contact" class="btn btn-primary">Launch consultation →</a>
+      </div>
+    `
+    },
+    '6': {
+      tag: 'CC · INSIGHT',
+      date: '2026.01.18',
+      title: 'Viral of a Different Class — Why "Conversion" Beats "Impressions"',
+      body: `
+      <p class="lead">Even with 100 top-ranked blog posts, revenue doesn't follow if the viral strategy only shows off. That's the gap CC Company's "marketing of a different class" closes.</p>
+      <h3>The limit of "display" viral</h3>
+      <p>Most viral agencies guarantee output metrics — "X blog posts on top". The problem: those posts <b>don't lead to purchase</b>. Low CTR, high bounce, no return.</p>
+      <h3>Three principles of conversion-centric viral</h3>
+      <ul>
+        <li><b>Reverse-engineered searcher intent</b>: start from near-purchase keywords — "price comparison", "reviews", "recommendation"</li>
+        <li><b>Cross-channel operation</b>: blog alone ✗ → blog + café + Knowledge-iN + news + YouTube for amplified trust</li>
+        <li><b>Conversion tracking</b>: UTM + GA4 + call tracking to measure viral → inquiry → contract rate</li>
+      </ul>
+      <h3>Case — Capital-area Dermatology A</h3>
+      <p>After ending the prior top-ranking-only agency, they switched to CC Company.</p>
+      <ul>
+        <li>Month 1: blog post count <b>cut 30%</b> (removed noise)</li>
+        <li>Expanded into <b>Q&amp;A series</b> on Cafés and Knowledge-iN</li>
+        <li>Cross-placed 7 YouTube Shorts + 1 Naver News article</li>
+        <li>Result: 3 months later, <b>+218% new bookings</b> at the same spend</li>
+      </ul>
+      <h3>What "a different class" means</h3>
+      <p>CC Company is not a posting vendor. One system runs industry analysis → keyword design → content planning → multi-channel execution → conversion measurement. If results aren't proved by numbers, it isn't marketing.</p>
+      <blockquote>"Our goal isn't top ranking — it's revenue. If revenue didn't grow, we failed."</blockquote>
+      <div class="article-cta">
+        <p>Browse more real cases on CC Company's official blog.</p>
+        <a href="https://blog.naver.com/cccompanyad" target="_blank" rel="noopener" class="btn btn-primary">Visit blog →</a>
+      </div>
+    `
+    },
+  },
   // zh: {...} — Step 3에서 주입
 };
 // 편의 조회: 현재 페이지 언어에 해당하는 사전 반환 (없으면 ko 폴백)
