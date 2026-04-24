@@ -179,7 +179,7 @@ const scrollProgress = document.getElementById('scrollProgress');
 const getHeaderHeight = () => header?.offsetHeight ?? 70;
 
 // ===== Bottom Sticky Banner (show after scroll past hero, session-dismissible) =====
-// ===== Language detection toast (non-Korean browsers) =====
+// ===== Language detection toast (non-Korean browsers — EN / ZH suggestion) =====
 (() => {
   const toast = document.getElementById('langToast');
   const LT_KEY = 'noah_lang_toast_v1';
@@ -193,6 +193,18 @@ const getHeaderHeight = () => header?.offsetHeight ?? 70;
   const firstLang = (langs[0] || '').toLowerCase();
   const isKorean = firstLang.startsWith('ko') || langs.some(l => l.toLowerCase().startsWith('ko'));
   if (isKorean) return;
+
+  // 중문 감지 → 토스트 카피/CTA 교체
+  const isChinese = firstLang.startsWith('zh') || langs.some(l => l.toLowerCase().startsWith('zh'));
+  const currentPath = location.pathname.toLowerCase();
+  const isProducts = currentPath.includes('products');
+  if (isChinese) {
+    const zhHref = isProducts ? 'products-zh.html' : 'index-zh.html';
+    const msg = toast.querySelector('.lt-msg');
+    const cta = toast.querySelector('.lt-cta');
+    if (msg) msg.innerHTML = '<b>查看中文版本?</b><span>本页面有中文版本可供浏览。</span>';
+    if (cta) { cta.textContent = '查看中文版本 →'; cta.setAttribute('href', zhHref); }
+  }
 
   // URL 파라미터로 강제 한국어(?lang=ko) 접근 시 토스트 띄우지 않음
   try {
