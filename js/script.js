@@ -425,8 +425,16 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ===== Article Modal (Insights) =====
-const articles = {
+// ===== Article Modal (Insights) — 다국어 지원 =====
+// 언어 감지: <html lang> 값으로 ko/en/zh 선택 (fallback: ko)
+function getArticleLang_() {
+  const l = (document.documentElement.lang || 'ko').toLowerCase();
+  if (l.startsWith('zh')) return 'zh';
+  if (l.startsWith('en')) return 'en';
+  return 'ko';
+}
+const articlesByLang = {
+  ko: {
   '1': {
     tag: 'LAB · REPORT',
     date: '2026.04.10',
@@ -593,7 +601,14 @@ const articles = {
       </div>
     `
   }
+  },
+  // en: {...} — Step 2에서 주입
+  // zh: {...} — Step 3에서 주입
 };
+// 편의 조회: 현재 페이지 언어에 해당하는 사전 반환 (없으면 ko 폴백)
+function getArticles_() {
+  return articlesByLang[getArticleLang_()] || articlesByLang.ko;
+}
 
 const modal = document.getElementById('articleModal');
 const modalBody = document.getElementById('articleModalBody');
@@ -602,7 +617,7 @@ const modalBackdrop = modal?.querySelector('.article-modal-backdrop');
 
 let _prevFocusedArticle = null;
 function openArticle(id) {
-  const data = articles[id];
+  const data = getArticles_()[id];
   if (!data || !modal) return;
   _prevFocusedArticle = document.activeElement;
   modalBody.innerHTML = `
