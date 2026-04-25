@@ -1,0 +1,30 @@
+/* 본문 내 인라인 SVG 일러스트 */
+.section-illust {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 24px auto 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fafaf7 0%, #f0ebe1 100%);
+  padding: 28px 24px;
+  box-sizing: border-box;
+  border: 1px solid rgba(212, 165, 116, 0.18);
+}
+.section-illust svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+.section-illust-caption {
+  display: block;
+  text-align: center;
+  font-size: 12.5px;
+  color: rgba(0,0,0,0.55);
+  margin-top: 12px;
+  font-style: italic;
+}
+@media (max-width: 640px) {
+  .section-illust { padding: 18px 14px; margin: 16px auto 24px; }
+  .section-illust svg { max-height: 160px; }
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1A33"/><stop offset="1" stop-color="#0a1428"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D4A574"/><stop offset="1" stop-color="#b8895c"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.07" stroke="#D4A574" stroke-width="2" fill="none">
+    <circle cx="980" cy="120" r="220"/>
+    <circle cx="980" cy="120" r="160"/>
+    <circle cx="980" cy="120" r="100"/>
+    <path d="M860 320 L1100 320 M980 200 L980 440" stroke-dasharray="4 6"/>
+  </g>
+  <g transform="translate(80,80)">
+    <svg viewBox="0 0 32 32" width="64" height="64"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#gold)"/></svg>
+  </g>
+  <text x="80" y="220" font-family="Inter,sans-serif" font-size="30" font-weight="700" fill="#D4A574" letter-spacing="6">FOR US BRANDS · KOREAN MARKETING</text>
+  <text x="80" y="320" font-family="Inter,sans-serif" font-size="76" font-weight="900" fill="#fff" letter-spacing="-2">Enter Korea</text>
+  <text x="80" y="410" font-family="Inter,sans-serif" font-size="76" font-weight="900" fill="#fff" letter-spacing="-2">with Local Experts</text>
+  <line x1="80" y1="455" x2="180" y2="455" stroke="url(#gold)" stroke-width="6"/>
+  <text x="80" y="510" font-family="Inter,sans-serif" font-size="26" font-weight="600" fill="rgba(255,255,255,0.7)">noahmarketing.kr · Seoul · 2026</text>
+  <text x="1120" y="565" font-family="Inter,sans-serif" font-size="22" font-weight="800" fill="#D4A574" text-anchor="end" letter-spacing="2">NOAH MARKETING GROUP</text>
+</svg>
