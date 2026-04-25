@@ -298,6 +298,17 @@ body.articles-page { background: #fafbfd; }
 }
 .article-related .articles-grid { margin-top: 0; }
 
+.aa-profile-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--gold, #D4A574);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.aa-profile-link:hover { text-decoration: underline; }
+
 /* 본문 내 클러스터 카드 (ar-grid) */
 .article-body .article-related {
   padding: 40px 0 0;
