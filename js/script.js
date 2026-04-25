@@ -977,11 +977,17 @@ function closeArticle() {
   _prevFocusedArticle?.focus?.();
 }
 document.querySelectorAll('.news-card[data-article]').forEach(card => {
-  card.addEventListener('click', () => openArticle(card.dataset.article));
+  const url = card.dataset.articleUrl;
+  const handler = () => {
+    if (url) { window.location.href = url; }
+    else { openArticle(card.dataset.article); }
+  };
+  card.addEventListener('click', handler);
   card.setAttribute('tabindex', '0');
-  card.setAttribute('role', 'button');
+  card.setAttribute('role', url ? 'link' : 'button');
+  if (url) { card.setAttribute('aria-label', card.querySelector('h4')?.textContent || ''); }
   card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArticle(card.dataset.article); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
   });
 });
 modalClose?.addEventListener('click', closeArticle);
