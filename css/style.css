@@ -264,6 +264,7 @@ html {
   .intro-text span { opacity: 1; transform: none; }
   .intro-sub { opacity: 0.9; }
   .intro-progress span { width: 100%; background: var(--gold); }
+  .hero-compass .compass-needle animateTransform { display: none; }
   .hero-compass .compass-needle { animation: none !important; }
 }
 
@@ -465,16 +466,8 @@ html {
   display: block;
 }
 .hero-compass .compass-needle {
-  transform-box: view-box;
-  transform-origin: 50% 50%;
+  /* Rotation handled by inline SVG <animateTransform> in index.html — guarantees pivot at (250,250) */
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-  will-change: transform;
-  animation: heroNeedleSpin 4.4s cubic-bezier(.4,0,.2,1) infinite;
-}
-@keyframes heroNeedleSpin {
-  0% { transform: rotate(0deg); }
-  40% { transform: rotate(540deg); }
-  100% { transform: rotate(720deg); }
 }
 .hero-compass .compass-base {
   animation: compassBreath 8s ease-in-out infinite;

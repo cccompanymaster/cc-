@@ -372,8 +372,14 @@
             </g>
           </g>
 
-          <!-- Rotating needle (points at mouse) -->
+          <!-- Rotating needle — SVG SMIL animateTransform pivots at viewBox center (250,250) -->
           <g class="compass-needle" id="compassNeedle">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+              values="0 250 250; 540 250 250; 720 250 250"
+              keyTimes="0; 0.4; 1"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+              calcMode="spline"
+              dur="4.4s" repeatCount="indefinite"/>
             <!-- 가로(E-W) 보조 바늘 — 십자 구성 -->
             <path d="M105 250 L245 258 L252 250 L245 242 Z" fill="url(#needleWest)"/>
             <path d="M395 250 L255 242 L248 250 L255 258 Z" fill="url(#needleEast)"/>
