@@ -227,6 +227,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/authors/editorial-team.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <url>
     <loc>https://cccompanymaster.github.io/cc-/privacy.html</loc>
