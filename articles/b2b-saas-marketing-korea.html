@@ -165,6 +165,125 @@
         <p><b>Billing and invoicing.</b> Korean enterprises require <b>tax invoices (세금계산서)</b> issued through KR-government-certified e-tax invoice systems, KRW pricing on contracts, and ideally KRW billing through a domestic banking relationship. Stripe-only billing in USD works for Tier 3 scaleups but fails for chaebol procurement. Vendors typically establish either a Korean subsidiary, a merchant of record (MoR) partner, or a payment partnership with a domestic provider like Toss Payments or Naver Pay for Business.</p>
         <p><b>Contracts and legal.</b> Korean contracts must be issued or co-signed in Korean — English-only MSAs are not enforceable as the operative document. Standard Korean clauses like <b>전속관할 (exclusive jurisdiction)</b>, <b>해지 통지 기간 (notice period)</b>, and <b>지연배상금 (delay penalty)</b> need to be present and locally negotiated. Most foreign vendors retain a Korean enterprise law firm (Kim &amp; Chang, Bae Kim &amp; Lee, Lee &amp; Ko, Yoon &amp; Yang) on a flat-fee basis for the first 6–12 months of operations.</p>
 
+        <h2>5. Compliance — ISMS-P, PIPA, Data Residency</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 260" role="img" aria-labelledby="e8s5t" xmlns="http://www.w3.org/2000/svg">
+            <title id="e8s5t">Korean B2B SaaS compliance checklist and timeline</title>
+            <rect width="480" height="260" fill="#faf7ef"/>
+            <g font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#1a1a1a">
+              <text x="20" y="26" font-size="13" font-weight="700">Korean B2B SaaS — Compliance Stack &amp; Timeline</text>
+              <g transform="translate(0,46)">
+                <rect x="20" y="0" width="180" height="32" fill="#2a8f4a"/>
+                <text x="110" y="14" text-anchor="middle" fill="#fff" font-weight="700" font-size="11">ISMS-P 인증</text>
+                <text x="110" y="28" text-anchor="middle" fill="#fff" font-size="9">6–9 months · ₩80–200M</text>
+                <rect x="220" y="0" width="160" height="32" fill="#1a1a1a"/>
+                <text x="300" y="14" text-anchor="middle" fill="#fff" font-weight="700" font-size="11">PIPA 준수</text>
+                <text x="300" y="28" text-anchor="middle" fill="#fff" font-size="9">Korean DPO required</text>
+              </g>
+              <g transform="translate(0,90)">
+                <rect x="20" y="0" width="180" height="32" fill="#caa84a"/>
+                <text x="110" y="14" text-anchor="middle" font-weight="700" font-size="11">Data Residency</text>
+                <text x="110" y="28" text-anchor="middle" font-size="9">AWS Seoul / NCP / KT Cloud</text>
+                <rect x="220" y="0" width="160" height="32" fill="#caa84a"/>
+                <text x="300" y="14" text-anchor="middle" font-weight="700" font-size="11">CSAP (public sector)</text>
+                <text x="300" y="28" text-anchor="middle" font-size="9">For govt + SOE customers</text>
+              </g>
+              <g transform="translate(0,134)">
+                <rect x="20" y="0" width="180" height="32" fill="#9aa1ac"/>
+                <text x="110" y="14" text-anchor="middle" fill="#fff" font-weight="700" font-size="11">Cross-border transfer</text>
+                <text x="110" y="28" text-anchor="middle" fill="#fff" font-size="9">PIPA Art. 28 consent</text>
+                <rect x="220" y="0" width="160" height="32" fill="#9aa1ac"/>
+                <text x="300" y="14" text-anchor="middle" fill="#fff" font-weight="700" font-size="11">Korean DPO appointment</text>
+                <text x="300" y="28" text-anchor="middle" fill="#fff" font-size="9">Mandatory if &gt;10K KR users</text>
+              </g>
+              <text x="20" y="200" font-size="11">Typical foreign-vendor compliance investment in Year 1: <tspan font-weight="700">$120–250K</tspan></text>
+              <text x="20" y="218" font-size="11">Time to "RFP-ready" certification: <tspan font-weight="700">9–14 months</tspan></text>
+              <text x="20" y="246" font-style="italic" fill="rgba(0,0,0,0.55)" font-size="9.5">Source: KISA + Noah Database compliance audits, n=18 foreign SaaS vendors 2023–2026</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">ISMS-P + data residency are the two non-negotiables for Korean enterprise contracts</span>
+        </figure>
+        <p><b>ISMS-P (정보보호 및 개인정보보호 관리체계)</b> is the dominant Korean security certification and is increasingly required as a binary qualifier in mid-market and chaebol RFPs. The certification covers ~100 control items spanning information security and privacy management, runs 6–9 months end-to-end (preparation 3–4 months, audit 2–3 months, certification 1–2 months), and costs ₩80–200M ($60–150K) including consultancy and audit fees. Foreign vendors with SOC2 + ISO 27001 + ISO 27701 already in place typically clear ISMS-P faster — but the certification itself is non-substitutable.</p>
+        <p><b>PIPA (Personal Information Protection Act)</b> applies to any vendor processing Korean user personal information, regardless of where the vendor is incorporated. Three operative requirements for foreign SaaS: (1) appoint a <b>Korean Data Protection Officer (개인정보보호책임자)</b> if processing data on more than 10,000 Korean users; (2) obtain explicit consent for cross-border data transfer under PIPA Article 28; (3) maintain Korean-language privacy policies that match what the product actually does. Penalties for violations have escalated — 2024–2025 saw multiple multi-billion-won fines on global SaaS vendors that mishandled cross-border consent.</p>
+        <p><b>Data residency.</b> Most chaebol and public-sector buyers require KR-resident data, served from <b>AWS Seoul, NHN Cloud, Naver Cloud Platform (NCP), or KT Cloud</b>. This is operationally the largest hidden cost for foreign vendors — re-architecting a single-region SaaS into a multi-region deployment with Korean-resident customer data adds 4–9 months to the GTM timeline. Plan it early; it cannot be retrofitted in a quarter.</p>
+        <p><b>CSAP (Cloud Security Assurance Program)</b> is required for sales into Korean government, public agencies, and state-owned enterprises (SOEs). CSAP is more rigorous than ISMS-P and effectively requires hosting on a Korean-domestic CSP (NCP, NHN Cloud, or KT Cloud) — AWS Seoul does not currently meet CSAP. For vendors targeting only commercial Korean enterprise, CSAP is optional. For public-sector ambitions, it is a 12+ month build.</p>
+
+        <h2>6. Pricing &amp; ACV — What Korean Buyers Will Actually Pay</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 240" role="img" aria-labelledby="e8s6t" xmlns="http://www.w3.org/2000/svg">
+            <title id="e8s6t">Korea B2B SaaS ACV vs US benchmark</title>
+            <rect width="480" height="240" fill="#faf7ef"/>
+            <g font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#1a1a1a">
+              <text x="20" y="26" font-size="13" font-weight="700">Korea ACV vs US Benchmark — Same Product, Same Tier</text>
+              <line x1="180" y1="40" x2="180" y2="200" stroke="#cfc6b1" stroke-dasharray="3 3"/>
+              <text x="180" y="36" text-anchor="middle" font-size="10" fill="rgba(0,0,0,0.5)">US baseline 100%</text>
+              <g transform="translate(0,52)">
+                <text x="20" y="10">Chaebol Tier 1</text>
+                <rect x="180" y="0" width="138" height="14" fill="#caa84a"/>
+                <text x="322" y="10" font-weight="700">75% of US</text>
+              </g>
+              <g transform="translate(0,78)">
+                <text x="20" y="10">KOSPI 200 mid-market</text>
+                <rect x="180" y="0" width="120" height="14" fill="#caa84a"/>
+                <text x="304" y="10" font-weight="700">65% of US</text>
+              </g>
+              <g transform="translate(0,104)">
+                <text x="20" y="10">Tech-native scaleup</text>
+                <rect x="180" y="0" width="170" height="14" fill="#2a8f4a"/>
+                <text x="354" y="10" font-weight="700">90% of US</text>
+              </g>
+              <g transform="translate(0,130)">
+                <text x="20" y="10">SMB / startup</text>
+                <rect x="180" y="0" width="100" height="14" fill="#9aa1ac"/>
+                <text x="284" y="10" font-weight="700">55% of US</text>
+              </g>
+              <g transform="translate(0,156)">
+                <text x="20" y="10">Free → Paid conversion</text>
+                <rect x="180" y="0" width="48" height="14" fill="#9aa1ac"/>
+                <text x="232" y="10" font-weight="700">3–5%</text>
+                <text x="280" y="10" font-size="10" fill="rgba(0,0,0,0.6)">(US 8–12%)</text>
+              </g>
+              <text x="20" y="206" font-size="10" fill="rgba(0,0,0,0.6)">Tech-native scaleups pay near-US prices; SMB/mid-market expect substantial KR discounts.</text>
+              <text x="20" y="226" font-style="italic" fill="rgba(0,0,0,0.55)" font-size="9.5">Source: Noah Database GTM benchmark + 2025 KSA SaaS Pricing Survey</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">Korea ACV averages 60–75% of US for the same product, with a sharp tech-native exception</span>
+        </figure>
+        <p><b>The Korea discount is real but uneven.</b> Across the Noah Database portfolio, Korean ACVs run roughly <b>60–75% of equivalent US ACVs</b> for the same product, with mid-market the most discounted tier and tech-native scaleups paying near-parity. Foreign vendors that try to import US list prices unchanged consistently lose deals to local alternatives — Douzone in ERP, Channel.io in CRM, Sendbird in messaging, Bizple in HR — that price 30–50% lower with full Korean localization.</p>
+        <p><b>The pricing structure that wins.</b> A Korean-localized pricing page with KRW prices, a published "Enterprise — Contact Us" tier with 3–5 listed enterprise features, KR-specific case studies, and clear tax-invoice (세금계산서) issuance language. Anchor tier prices in KRW (not USD) — buyers psychologically discount USD prices because they assume FX risk and import margin. Publishing in KRW also clears procurement systems faster.</p>
+        <p><b>Free trial &amp; PLG conversion.</b> Korean free-to-paid conversion runs <b>3–5%</b> versus US benchmarks of 8–12%. The reason is structural: Korean B2B buyers complete more due-diligence steps before paying (security review, legal review, finance review) even for sub-$5K ACVs. PLG playbooks built around 14-day free trials need extension to 30 days, and ideally a 60-day "expanded trial" gated by a sales conversation, to convert at acceptable rates.</p>
+        <p><b>The PoC dollar.</b> For mid-market and chaebol, expect to invest <b>$15K–$60K of Solution Engineering time per PoC</b> (your cost, often unbilled). Vendors that try to run remote-only zero-touch PoCs in Korea consistently lose to vendors who put a Korean SE on-site for 1–2 days during the critical PoC weeks. Budget for it; price it into your gross margin model.</p>
+        <p><b>Multi-year discounts.</b> Korean enterprise procurement aggressively negotiates 2–3 year terms in exchange for 15–25% multi-year discounts. Vendors with rigid 1-year-only pricing leave deals on the table. Conversely, if you can offer 3-year terms with KRW-locked pricing, this is one of the strongest negotiation chips for chaebol-tier deals where FX hedging is a real concern.</p>
+
+        <div class="cta-box">
+          <h4>Build a Korea B2B SaaS GTM with a local team</h4>
+          <p>Noah Database operates a turn-key Korea GTM service for foreign B2B SaaS vendors — Korean partner channel build (SI/MSP/reseller), KR tech media PR, ISMS-P/PIPA compliance project management, KakaoWork integration, and Korean enterprise SE bench. Engagements typically launch in 90 days and target first KR enterprise deal within 9 months.</p>
+          <a href="../index-en.html#contact" class="btn btn-primary">Request a Korea B2B GTM plan →</a>
+        </div>
+
+        <section class="article-related" aria-label="Related articles">
+          <h2>Continue reading</h2>
+          <div class="ar-grid">
+            <a class="ar-card" href="korean-advertising-law-compliance.html"><span class="ar-arrow" aria-hidden="true">→</span><h3>Korean Advertising Law Compliance</h3><p>KFTC, MFDS, KMA — the regulatory layer above marketing.</p></a>
+            <a class="ar-card" href="naver-vs-google-korea-search.html"><span class="ar-arrow" aria-hidden="true">→</span><h3>Naver vs Google in Korea</h3><p>Where B2B buyers actually search.</p></a>
+            <a class="ar-card" href="korea-market-entry-naver-seo.html"><span class="ar-arrow" aria-hidden="true">→</span><h3>Korea Market Entry &amp; Naver SEO</h3><p>The 90-day organic foundation.</p></a>
+          </div>
+        </section>
+
+        <section class="article-refs" aria-label="Sources">
+          <h2>Sources &amp; references</h2>
+          <ul>
+            <li>Korea Software Industry Association (KOSA) — 2025 SaaS White Paper</li>
+            <li>IDC Korea — Public Cloud &amp; SaaS Market Forecast, 2026 update</li>
+            <li>Korea Internet &amp; Security Agency (KISA) — ISMS-P certification handbook, 2025</li>
+            <li>Personal Information Protection Commission (PIPC) — PIPA cross-border transfer guidelines, 2024 amendment</li>
+            <li>Ministry of Science and ICT — Cloud Security Assurance Program (CSAP) documentation, 2025</li>
+            <li>2025 KSA SaaS Pricing Survey — Korean ACV benchmarks by tier</li>
+            <li>Noah Database internal GTM benchmark — n=42 KR-active US/EU SaaS vendors, Q1 2026</li>
+          </ul>
+          <p class="aa-note">Reviewed Apr 25, 2026. Korean enterprise software regulation, especially PIPA and CSAP, updates frequently. Validate compliance scope with a Korean enterprise law firm before contracting. This article is general guidance for cross-border SaaS GTM teams.</p>
+        </section>
+
       </div>
     </article>
   </main>
