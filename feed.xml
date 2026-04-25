@@ -9,8 +9,8 @@
     <copyright>© 2026 Noah Marketing Group. All rights reserved.</copyright>
     <managingEditor>noreply@cccompanymaster.github.io (노아마케팅그룹 편집팀)</managingEditor>
     <webMaster>noreply@cccompanymaster.github.io (노아마케팅그룹)</webMaster>
-    <pubDate>Fri, 24 Apr 2026 09:00:00 +0900</pubDate>
-    <lastBuildDate>Sat, 25 Apr 2026 05:55:27 +0900</lastBuildDate>
+    <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+    <lastBuildDate>Sat, 25 Apr 2026 06:57:16 +0900</lastBuildDate>
     <generator>Noah Marketing Group RSS Builder</generator>
     <ttl>1440</ttl>
     <image>
@@ -18,6 +18,69 @@
       <title>노아마케팅그룹 아티클</title>
       <link>https://cccompanymaster.github.io/cc-/articles/</link>
     </image>
+    <item>
+      <title>마케팅 대행사 선택·부정클릭·광고 컴플라이언스 가이드 2026</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/agency-selection-compliance.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/agency-selection-compliance.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>마케팅 대행사 비교 2026. 대행사 선택 7체크·부정클릭 방지·개인정보·광고 컴플라이언스(공정위·의료법) 종합.</description>
+      <category>마케팅 운영</category>
+      <author>noreply@cccompanymaster.github.io (박서진)</author>
+    </item>
+    <item>
+      <title>B2B 마케팅·리드젠 가이드 2026 — 기업 대상 콘텐츠·세일즈 퍼널</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/b2b-leadgen-marketing.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/b2b-leadgen-marketing.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>B2B 마케팅·리드젠 2026. 기업 고객 대상 콘텐츠·웨비나·이메일·세일즈 퍼널 설계와 SQL/MQL 측정 실전.</description>
+      <category>B2B 마케팅</category>
+      <author>noreply@cccompanymaster.github.io (이재경)</author>
+    </item>
+    <item>
+      <title>콘텐츠 마케팅 2026 — 블로그 제목·썸네일·롱테일 키워드·상세페이지</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/content-marketing-titles-thumbnails.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/content-marketing-titles-thumbnails.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>콘텐츠 마케팅 전략 2026. 블로그 제목 잘 짓는 법·유튜브 썸네일·롱테일 키워드 찾기·상세페이지 디자인 실전 가이드.</description>
+      <category>콘텐츠 마케팅</category>
+      <author>noreply@cccompanymaster.github.io (김시우)</author>
+    </item>
+    <item>
+      <title>카카오 비즈니스·이메일·푸시 마케팅 2026 — CRM 채널 통합 가이드</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/kakao-email-push-marketing.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/kakao-email-push-marketing.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>카카오 비즈니스 광고·이메일 마케팅·푸시 마케팅·카카오톡 채널 운영 2026. CRM 3중 채널 통합과 ROI 측정.</description>
+      <category>CRM 마케팅</category>
+      <author>noreply@cccompanymaster.github.io (박정훈)</author>
+    </item>
+    <item>
+      <title>인스타·틱톡·쓰레드 신규 SNS 마케팅 2026 — 알고리즘·예산·콘텐츠 비교</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/new-sns-platforms-2026.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/new-sns-platforms-2026.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>인스타 마케팅·틱톡 마케팅·쓰레드 마케팅 2026. 플랫폼별 알고리즘·체험단·예산 배분·콘텐츠 포맷 실전 가이드.</description>
+      <category>SNS 마케팅</category>
+      <author>noreply@cccompanymaster.github.io (김시우)</author>
+    </item>
+    <item>
+      <title>퍼포먼스 측정 2026 — GA4·UTM·ROAS·구글 SGE 대응 종합 가이드</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/performance-measurement-ga4.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/performance-measurement-ga4.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>GA4·UTM 활용·ROAS 측정·전환 추적·구글 SGE 대응 2026. 광고비 ROI 측정과 데이터 기반 최적화 실전 가이드.</description>
+      <category>퍼포먼스 측정</category>
+      <author>noreply@cccompanymaster.github.io (박정훈)</author>
+    </item>
+    <item>
+      <title>창업·오픈 마케팅 D-90 종합 가이드 2026 — 신규 매장·런칭 90일 플랜</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/startup-launch-marketing-d90.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/startup-launch-marketing-d90.html</guid>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
+      <description>창업 마케팅·오픈 마케팅·런칭 마케팅 2026. 카페·매장·서비스 신규 오픈 90일 D-90 로드맵과 예산 배분 실전.</description>
+      <category>창업 마케팅</category>
+      <author>noreply@cccompanymaster.github.io (김시우)</author>
+    </item>
     <item>
       <title>AI 검색 SEO 2026 — GEO·AEO·LLM 최적화 완전 가이드</title>
       <link>https://cccompanymaster.github.io/cc-/articles/ai-search-geo-2026.html</link>

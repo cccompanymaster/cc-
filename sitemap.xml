@@ -68,7 +68,49 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Articles (20 total) -->
+  <!-- Articles (27 total) -->
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/new-sns-platforms-2026.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/kakao-email-push-marketing.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/startup-launch-marketing-d90.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/b2b-leadgen-marketing.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/performance-measurement-ga4.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/content-marketing-titles-thumbnails.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/agency-selection-compliance.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://cccompanymaster.github.io/cc-/articles/cafe-top-ranking.html</loc>
     <lastmod>2026-04-24</lastmod>
