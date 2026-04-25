@@ -80,6 +80,91 @@
         <p><b>Where the spend goes.</b> Roughly 38% of Korean B2B SaaS spend goes to security/identity (driven by ISMS-P and PIPA), 22% to ERP/finance/HR (Workday, SAP, local players like Douzone and Kakao Work), 18% to dev/devops tools, 12% to CRM/marketing/sales tooling (Salesforce holds the lead but is being challenged by KR-native Channel.io and Bizple), and 10% to data/analytics. The fastest-growing slice is <b>AI infrastructure and AI-app SaaS</b>, up 4× year-over-year on a small base.</p>
         <p>For US vendors, the strategic read is: Korean B2B SaaS is large enough to matter, growing fast, and structurally favorable for foreign products that can clear the localization and compliance bar. The bar is real, but the prize on the other side justifies the build.</p>
 
+        <h2>2. Korean Enterprise Buyer Behavior — RFP Cycles, Decision Committees, Risk Posture</h2>
+        <p>Korean B2B buying is structurally <b>more committee-driven, more risk-averse, and more reference-dependent</b> than US B2B. The unit of decision is rarely a single VP — it is a 5–8 person committee spanning the requesting business unit, IT/security, finance, legal, and (for any vendor handling customer data) the privacy officer. US sales playbooks built around single-threaded executive sponsorship consistently underperform in Korea because they fail to map the full committee.</p>
+        <p><b>RFP cycles run 6–9 months for mid-market and 12–18 months for chaebol.</b> The typical phases: informal market scan (Naver + analyst reports), analyst/peer reference checks, RFI to 4–6 vendors, formal RFP to 2–3 finalists, on-site PoC of 4–8 weeks, security and ISMS-P review, legal redlines, procurement negotiation, and finally contract signature. Foreign vendors used to 60–90 day enterprise cycles often abandon Korea at month 4 because they misread the silence between phases as disinterest — when in reality the buying committee is doing internal alignment work that simply takes longer than US norms.</p>
+        <p><b>Reference is the single most powerful sales asset.</b> A "logo" reference matters less than a <b>named-individual peer reference</b> at a comparable Korean company. Korean buyers ask: "Which Korean enterprise of similar size is using this in production today, and can I speak to a peer who runs it?" Vendors with zero KR enterprise references sit in a pre-credibility state and need to invest in 1–2 anchor accounts (often discounted heavily) before commercial scale becomes possible.</p>
+        <p><b>Risk posture is asymmetric.</b> The career penalty for a Korean buyer who chose a vendor that had a security or stability incident is severe — public criticism, sometimes job loss. The reward for choosing the "best" vendor is modest. This asymmetry pushes Korean buyers toward proven, locally-installed vendors and away from new-to-market foreign products. The counter-strategy: heavy investment in security certifications (ISMS-P, SOC2, ISO 27001), Korean-language SLAs with explicit financial penalties, and on-shore data residency.</p>
+        <p><b>The PoC is non-negotiable.</b> Mid-market and chaebol deals nearly always require a 4–8 week paid or zero-cost proof of concept against the buyer's actual data. US-style "free trial → self-serve onboarding" is treated as inadequate. Plan for a Korean solution engineer or partner SE to be on-site or remote-on-call during the PoC window.</p>
+
+        <h2>3. GTM Channels That Work in Korea — KakaoWork, Naver, Tech Media, Channel Partners</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 280" role="img" aria-labelledby="e8s3t" xmlns="http://www.w3.org/2000/svg">
+            <title id="e8s3t">B2B SaaS channel mix — US vs Korea</title>
+            <rect width="480" height="280" fill="#faf7ef"/>
+            <g font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#1a1a1a">
+              <text x="20" y="26" font-size="13" font-weight="700">B2B SaaS Pipeline Source — US vs Korea (% of pipeline)</text>
+              <g transform="translate(0,46)">
+                <text x="60" y="14" text-anchor="middle" font-weight="700">USA</text>
+                <text x="370" y="14" text-anchor="middle" font-weight="700">KOREA</text>
+              </g>
+              <g transform="translate(0,72)">
+                <text x="20" y="10">LinkedIn / Outbound email</text>
+                <rect x="170" y="0" width="100" height="14" fill="#9aa1ac"/>
+                <text x="278" y="10" font-size="10" font-weight="700">~32%</text>
+                <text x="320" y="10" font-size="10">↓</text>
+                <rect x="340" y="0" width="36" height="14" fill="#9aa1ac"/>
+                <text x="384" y="10" font-size="10" font-weight="700">~9%</text>
+              </g>
+              <g transform="translate(0,98)">
+                <text x="20" y="10">Channel partners / SI</text>
+                <rect x="170" y="0" width="46" height="14" fill="#caa84a"/>
+                <text x="222" y="10" font-size="10" font-weight="700">~12%</text>
+                <text x="320" y="10" font-size="10">↑</text>
+                <rect x="340" y="0" width="120" height="14" fill="#caa84a"/>
+                <text x="466" y="10" font-size="10" font-weight="700" text-anchor="end">~38%</text>
+              </g>
+              <g transform="translate(0,124)">
+                <text x="20" y="10">Korean tech media (Platum/etc)</text>
+                <rect x="170" y="0" width="20" height="14" fill="#9aa1ac"/>
+                <text x="196" y="10" font-size="10" font-weight="700">~3%</text>
+                <text x="320" y="10" font-size="10">↑</text>
+                <rect x="340" y="0" width="68" height="14" fill="#caa84a"/>
+                <text x="412" y="10" font-size="10" font-weight="700">~16%</text>
+              </g>
+              <g transform="translate(0,150)">
+                <text x="20" y="10">Naver Search Ads / SEO</text>
+                <rect x="170" y="0" width="14" height="14" fill="#9aa1ac"/>
+                <text x="190" y="10" font-size="10" font-weight="700">~2%</text>
+                <text x="320" y="10" font-size="10">↑</text>
+                <rect x="340" y="0" width="60" height="14" fill="#caa84a"/>
+                <text x="404" y="10" font-size="10" font-weight="700">~14%</text>
+              </g>
+              <g transform="translate(0,176)">
+                <text x="20" y="10">Webinars / Events</text>
+                <rect x="170" y="0" width="56" height="14" fill="#caa84a"/>
+                <text x="232" y="10" font-size="10" font-weight="700">~14%</text>
+                <text x="320" y="10" font-size="10">→</text>
+                <rect x="340" y="0" width="64" height="14" fill="#caa84a"/>
+                <text x="408" y="10" font-size="10" font-weight="700">~15%</text>
+              </g>
+              <g transform="translate(0,202)">
+                <text x="20" y="10">Inbound content / SEO (EN)</text>
+                <rect x="170" y="0" width="120" height="14" fill="#caa84a"/>
+                <text x="296" y="10" font-size="10" font-weight="700">~37%</text>
+                <text x="320" y="10" font-size="10">↓</text>
+                <rect x="340" y="0" width="32" height="14" fill="#9aa1ac"/>
+                <text x="380" y="10" font-size="10" font-weight="700">~8%</text>
+              </g>
+              <text x="20" y="248" font-size="10" fill="rgba(0,0,0,0.6)">Korean B2B pipeline is dominated by partners + KR media + Naver — not LinkedIn or English content.</text>
+              <text x="20" y="266" font-style="italic" fill="rgba(0,0,0,0.55)" font-size="9.5">Source: Noah Database GTM benchmark, n=42 KR-active US/EU SaaS vendors, Q1 2026</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">Foreign vendors that copy US channel mix into Korea generate 60–70% less pipeline</span>
+        </figure>
+        <p><b>Channel partners and SIs are the largest single source of pipeline</b> for foreign B2B SaaS in Korea, accounting for roughly 38% of qualified opportunities. The top SI partners — Samsung SDS, LG CNS, SK C&amp;C, Hyundai AutoEver, POSCO ICT, plus mid-tier specialists like Bespin Global, Megazone, and Open SE — control standing relationships with 80%+ of Korean enterprise IT departments. A US vendor with no SI partnership is structurally locked out of the largest deal flow in Korea. Building a partner program (typically 25–35% margin to the partner) is not optional.</p>
+        <p><b>Korean tech media drives ~16% of pipeline</b> and is wildly underused by foreign vendors. The high-value outlets are <b>Platum</b> (startup + SaaS focus), <b>BloterMedia</b>, <b>ZDNet Korea</b>, <b>The Bell</b>, and <b>Maeil Business Newspaper IT desk</b>. A well-placed Korean-language launch story plus a follow-up case study reads as third-party validation in a market where buyers heavily weight independent press. PR retainers run $4,000–$8,000 per month in Korea — significantly cheaper than US enterprise PR — and the ROI for cross-border SaaS is consistently strong.</p>
+        <p><b>Naver Search and Naver Power Link Ads</b> drive ~14% of pipeline. Korean buyers researching B2B categories ("CRM 추천," "데이터분석 SaaS," "보안 솔루션 비교") start on Naver and click a mix of Power Link sponsored results and Naver Blog reviews. Foreign vendors with zero Naver presence are simply absent from this discovery surface.</p>
+        <p><b>KakaoWork and KakaoTalk Channel</b> have become serious B2B inside-sales surfaces. KakaoWork (the enterprise messaging platform) is now installed at ~30% of mid-market and chaebol companies. Lightweight KakaoWork integrations (notifications, alerts, simple chatbots) are increasingly listed as RFP requirements — and a vendor with native KakaoWork support clears bars that English-only competitors cannot.</p>
+        <p><b>LinkedIn in Korea is real but limited.</b> KR LinkedIn has roughly 4M users, concentrated heavily in tech, finance, and global-facing roles. It works for sourcing senior individual contributors and for warm intro paths into chaebol IT, but it is <b>not</b> a primary lead-gen channel — pipeline contribution is closer to 9% versus 32% in the US.</p>
+
+        <h2>4. Localization — Beyond Translation</h2>
+        <p>Korean B2B localization is not a translation project. It is a product, support, billing, and contract project with translation as one component. The vendors that win in Korea treat localization as a P&amp;L line item with a Korean GM-level owner.</p>
+        <p><b>Product localization minimums.</b> Full Korean UI (not partial), Korean-language documentation, Korean error messages, Korean number/date formatting (₩, KST timezone, 만/억 unit conventions), and Korean-language admin and audit logs. Partial translation reads as low-effort and is a frequent disqualifier in mid-market RFPs.</p>
+        <p><b>Support and CS.</b> Korean-language support during KST business hours (9am–6pm Mon–Fri) is the floor; chaebol contracts often require 24/7 Korean-speaking support with a sub-1-hour response SLA. The default support channels Korean buyers expect are: <b>KakaoTalk Channel</b> (number one), email (Korean), in-product chat (Korean), and a dedicated Korean phone line. English-only Slack-style support is treated as not-real support.</p>
+        <p><b>Billing and invoicing.</b> Korean enterprises require <b>tax invoices (세금계산서)</b> issued through KR-government-certified e-tax invoice systems, KRW pricing on contracts, and ideally KRW billing through a domestic banking relationship. Stripe-only billing in USD works for Tier 3 scaleups but fails for chaebol procurement. Vendors typically establish either a Korean subsidiary, a merchant of record (MoR) partner, or a payment partnership with a domestic provider like Toss Payments or Naver Pay for Business.</p>
+        <p><b>Contracts and legal.</b> Korean contracts must be issued or co-signed in Korean — English-only MSAs are not enforceable as the operative document. Standard Korean clauses like <b>전속관할 (exclusive jurisdiction)</b>, <b>해지 통지 기간 (notice period)</b>, and <b>지연배상금 (delay penalty)</b> need to be present and locally negotiated. Most foreign vendors retain a Korean enterprise law firm (Kim &amp; Chang, Bae Kim &amp; Lee, Lee &amp; Ko, Yoon &amp; Yang) on a flat-fee basis for the first 6–12 months of operations.</p>
+
       </div>
     </article>
   </main>
