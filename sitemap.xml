@@ -286,4 +286,94 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <!-- EN cross-border articles (Phase M) -->
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/index-en.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cccompanymaster.github.io/cc-/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/index-en.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/korea-market-entry-naver-seo.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/korea-market-entry-naver-seo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/korea-market-entry-naver-seo.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/korean-influencer-kbeauty-marketing.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/korean-influencer-kbeauty-marketing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/korean-influencer-kbeauty-marketing.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/naver-coupang-ecommerce-playbook.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/naver-coupang-ecommerce-playbook.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/naver-coupang-ecommerce-playbook.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/medical-tourism-korea-marketing.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/medical-tourism-korea-marketing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/medical-tourism-korea-marketing.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/korean-advertising-law-compliance.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/korean-advertising-law-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/korean-advertising-law-compliance.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/korean-facebook-google-ads.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/korean-facebook-google-ads.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/korean-facebook-google-ads.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/naver-vs-google-korea-search.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/naver-vs-google-korea-search.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/naver-vs-google-korea-search.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/b2b-saas-marketing-korea.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/b2b-saas-marketing-korea.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/b2b-saas-marketing-korea.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/how-to-advertise-in-korea-2026.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/how-to-advertise-in-korea-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/how-to-advertise-in-korea-2026.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/korean-consumer-behavior-cultural.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/korean-consumer-behavior-cultural.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/korean-consumer-behavior-cultural.html"/>
+  </url>
 </urlset>
