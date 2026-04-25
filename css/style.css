@@ -465,7 +465,8 @@ html {
   display: block;
 }
 .hero-compass .compass-needle {
-  transform-origin: 250px 250px;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
   will-change: transform;
   animation: heroNeedleSpin 4.4s cubic-bezier(.4,0,.2,1) infinite;
