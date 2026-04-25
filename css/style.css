@@ -264,8 +264,6 @@ html {
   .intro-text span { opacity: 1; transform: none; }
   .intro-sub { opacity: 0.9; }
   .intro-progress span { width: 100%; background: var(--gold); }
-  .hero-compass .compass-needle animateTransform { display: none; }
-  .hero-compass .compass-needle { animation: none !important; }
 }
 
 /* ====== Header ====== */
@@ -447,45 +445,11 @@ html {
 }
 
 /* Compass — positioned right side on desktop (behind ark) */
-.hero-compass {
-  position: absolute;
-  top: 50%; left: 70%;
-  width: min(620px, 55vw);
-  aspect-ratio: 1;
-  color: var(--gold);
-  opacity: 0;
-  z-index: 1;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  animation: compassFadeIn 1.6s 0.6s var(--easing) forwards;
-  transition: transform 0.6s var(--easing);
-  filter: drop-shadow(0 0 40px rgba(212,165,116,0.2));
-}
-.hero-compass .compass-svg {
-  width: 100%; height: 100%;
-  display: block;
-}
-.hero-compass .compass-needle {
-  /* Rotation handled by inline SVG <animateTransform> in index.html — guarantees pivot at (250,250) */
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-}
-.hero-compass .compass-base {
-  animation: compassBreath 8s ease-in-out infinite;
-  transform-origin: 250px 250px;
-}
-@keyframes compassFadeIn {
-  to { opacity: 0.55; }
-}
-@keyframes compassBreath {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.015); opacity: 0.85; }
-}
-
-/* Ark — positioned right side on desktop (next to compass) */
+/* Ark — Noah's Ark motif, hero centerpiece */
 .hero-ark {
   position: absolute;
-  left: 70%; top: 50%;
-  width: min(780px, 58vw);
+  left: 50%; top: 50%;
+  width: min(820px, 70vw);
   z-index: 2;
   pointer-events: none;
   opacity: 0;
@@ -508,21 +472,22 @@ html {
   0%, 100% { transform: translateY(0) rotate(-1deg); }
   50% { transform: translateY(-8px) rotate(1deg); }
 }
-.sail-group { transform-box: fill-box; transform-origin: center bottom; }
-.ark-sail-main { animation: sailBreathMain 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
-.ark-sail-front { animation: sailBreathFront 4.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
-.ark-sail-rear { animation: sailBreathRear 4.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
-@keyframes sailBreathMain {
-  0%, 100% { transform: skewX(-1.5deg) scaleX(1); }
-  50% { transform: skewX(1.8deg) scaleX(1.02); }
+/* Noah's Ark sub-element animations */
+.ark-animals { transform-box: fill-box; transform-origin: center bottom; animation: arkAnimalsBreath 4.8s ease-in-out infinite; }
+.ark-elephant { transform-box: fill-box; transform-origin: center; animation: arkPeek 5.5s ease-in-out infinite; }
+.ark-lion { transform-box: fill-box; transform-origin: center; animation: arkPeek 6.2s ease-in-out infinite reverse; }
+.ark-peak { transform-box: fill-box; transform-origin: center; animation: arkPeakGlow 4s ease-in-out infinite; }
+@keyframes arkAnimalsBreath {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2.5px); }
 }
-@keyframes sailBreathFront {
-  0%, 100% { transform: skewX(-1deg); }
-  50% { transform: skewX(2deg); }
+@keyframes arkPeek {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
-@keyframes sailBreathRear {
-  0%, 100% { transform: skewX(-1.2deg); }
-  50% { transform: skewX(1.6deg); }
+@keyframes arkPeakGlow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(212,165,116,0.6)); }
+  50% { filter: drop-shadow(0 0 8px rgba(244,217,168,0.95)); }
 }
 .ark-bird {
   animation: birdFly 10s ease-in-out infinite;
@@ -535,8 +500,7 @@ html {
   100% { transform: translate(-240px, -10px); opacity: 0; }
 }
 
-/* Mouse tilt transform overrides (set by JS via CSS variables) */
-.hero-compass { transform: translate(-50%, -50%) rotate(var(--compass-tilt, 0deg)); }
+/* Mouse parallax override (set by JS via CSS variables) */
 .hero-ark {
   transform: translate(calc(-50% + var(--ark-x, 0px)), calc(-42% + var(--ark-y, 0px)));
 }
@@ -569,14 +533,6 @@ html {
   .hero-wrap .hero-actions {
     justify-content: center;
     max-width: none;
-  }
-  /* Compass: centered behind everything, ambient */
-  .hero-compass {
-    left: 50%; right: auto; top: 48%;
-    width: min(760px, 62vw);
-    opacity: 0.28;
-    transform: translate(-50%, -50%) rotate(var(--compass-tilt, 0deg));
-    z-index: 0;
   }
   /* Ark: centered, flows below text in flex column; 높이에 비례 크기 제한 */
   .hero-ark {
@@ -715,22 +671,6 @@ html {
     from { opacity: 0; transform: translateY(30px) !important; }
   }
 
-  /* Compass: sits BEHIND the ark at hero bottom, very subtle */
-  .hero-compass {
-    position: absolute !important;
-    top: auto !important;
-    bottom: 60px;
-    left: 50%;
-    width: min(380px, 75vw) !important;
-    height: min(380px, 75vw);
-    aspect-ratio: 1;
-    opacity: 0.12 !important;
-    z-index: 1;
-    transform: translate(-50%, 0) !important;
-    animation: none !important;
-  }
-  .hero-compass .compass-base { animation: none; }
-
   .hero-waves {
     position: relative;
     height: 80px;
@@ -747,7 +687,6 @@ html {
   .hero-sub { font-size: 13.5px; }
   .hero-actions { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; gap: 10px; }
   .hero-actions .btn { width: 100%; justify-content: center; padding: 14px 22px; font-size: 14px; }
-  .hero-compass { bottom: 50px; width: min(280px, 68vw) !important; height: min(280px, 68vw); opacity: 0.1 !important; }
   .hero-ark { padding: 0 10px; max-height: 220px; margin-top: 16px; }
   .hero-ark svg { max-height: 220px; }
   .hero-waves { height: 50px; }
@@ -790,7 +729,6 @@ html {
 }
 
 @media (max-width: 380px) {
-  .hero-compass { width: min(240px, 66vw) !important; height: min(240px, 66vw); opacity: 0.08 !important; }
   .hero-title { font-size: clamp(26px, 10vw, 42px); }
   .hero-ark { max-height: 190px; }
   .hero-ark svg { max-height: 190px; }
@@ -810,7 +748,6 @@ html {
   .hero-actions { gap: 8px; }
   .hero-ark { max-width: 420px; max-height: 200px; }
   .hero-ark svg { max-height: 200px; }
-  .hero-compass { bottom: 30px !important; width: min(260px, 40vw) !important; height: min(260px, 40vw); }
   .hero-waves { height: 50px; }
 }
 .hero-eyebrow {
