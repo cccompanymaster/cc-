@@ -97,6 +97,7 @@
       </section>
 
       <div class="article-body">
+        <nav class="article-toc" aria-label="목차" hidden><div class="atoc-title">목차</div><ol class="atoc-list"></ol></nav>
         <p class="lead">"블로그 광고, 얼마쯤 잡아야 하나요?" 가장 많이 받는 질문입니다. 대행사별로 10배 이상 차이 나는 시세를 정리하고, <b>같은 돈으로 전환을 극대화</b>하는 계약 구조까지 공개합니다.</p>
 
         <h2>1. 블로그 광고 과금 3가지 방식</h2>
@@ -173,6 +174,26 @@
   </div></footer>
 
   <button class="btn-top" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <script>
+(function(){
+  var toc=document.querySelector('.article-toc');
+  if(!toc) return;
+  var list=toc.querySelector('.atoc-list');
+  var heads=document.querySelectorAll('.article-body h2');
+  if(heads.length<3){return;}
+  heads.forEach(function(h,i){
+    var id=h.id||'sec-'+(i+1);
+    h.id=id;
+    var a=document.createElement('a');
+    a.href='#'+id;
+    a.textContent=h.textContent.trim();
+    var li=document.createElement('li');
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  toc.hidden=false;
+})();
+</script>
   <script>const h=document.querySelector('.ham');h?.addEventListener('click',()=>{const o=document.body.classList.toggle('nav-open');h.setAttribute('aria-expanded',String(o));});const t=document.querySelector('.btn-top');window.addEventListener('scroll',()=>t?.classList.toggle('show',window.scrollY>400),{passive:true});t?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));</script>
 </body>
 </html>

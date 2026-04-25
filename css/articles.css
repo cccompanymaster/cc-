@@ -309,6 +309,62 @@ body.articles-page { background: #fafbfd; }
 }
 .aa-profile-link:hover { text-decoration: underline; }
 
+/* 자동 생성 목차 */
+.article-toc {
+  margin: 32px 0 36px;
+  padding: 22px 26px 20px;
+  background: #fafaf7;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-left: 3px solid #D4A574;
+  border-radius: 8px;
+}
+.atoc-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a6a45;
+  margin-bottom: 10px;
+}
+.atoc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: toc;
+}
+.atoc-list li {
+  position: relative;
+  padding: 5px 0 5px 28px;
+  counter-increment: toc;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.atoc-list li::before {
+  content: counter(toc, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #D4A574;
+  letter-spacing: 0.02em;
+}
+.atoc-list a {
+  color: rgba(0,0,0,0.78);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color .15s, border-color .15s;
+}
+.atoc-list a:hover {
+  color: #0B1A33;
+  border-bottom-color: #D4A574;
+}
+@media (max-width: 640px) {
+  .article-toc { padding: 18px 18px 14px; }
+  .atoc-list li { font-size: 13.5px; }
+}
+
 /* 본문 내 클러스터 카드 (ar-grid) */
 .article-body .article-related {
   padding: 40px 0 0;

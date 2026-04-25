@@ -42,6 +42,7 @@
       </section>
 
       <div class="article-body">
+        <nav class="article-toc" aria-label="목차" hidden><div class="atoc-title">목차</div><ol class="atoc-list"></ol></nav>
         <p class="lead">변호사·세무사·법무사·회계사 등 전문직은 광고 규제가 가장 엄격한 업종입니다. <b>자격 제한·과장광고 금지·품위 유지</b>라는 3중 제약 속에서 블로그 마케팅으로 성과를 내는 2026년 전략을 정리합니다.</p>
         <h2>1. 전문직 블로그의 규제 프레임</h2>
         <p>변호사법 제23조·변호사 업무광고 규정, 세무사법 제12조의3, 법무사법 제23조 등은 과장·비교광고·수임료 고정 유도를 금지합니다. 이를 지키면서 트래픽을 만드는 3대 원칙이 있습니다.</p>
@@ -97,6 +98,26 @@
   </main>
   <footer id="footer"><div class="container"><div class="foot-top"><div class="foot-brand"><div class="foot-logo"><svg viewBox="0 0 32 32" fill="none" width="28" height="28"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="currentColor"/></svg><div><b>NOAH</b><span>MARKETING GROUP</span></div></div><p class="foot-slogan">Grow Safely, Scale Boldly.</p></div><div class="foot-info"><h5>CONTACT</h5><ul><li><b>Tel</b><span><a href="tel:01066586482">010-6658-6482</a></span></li><li><b>Kakao</b><span><a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener">카카오채널 상담</a></span></li></ul></div></div><div class="foot-btm"><div class="foot-links"><a href="../privacy.html"><strong>개인정보처리방침</strong></a><a href="../terms.html">이용약관</a></div><p class="copyright">© 2026 Noah Marketing Group.</p></div></div></footer>
   <button class="btn-top" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <script>
+(function(){
+  var toc=document.querySelector('.article-toc');
+  if(!toc) return;
+  var list=toc.querySelector('.atoc-list');
+  var heads=document.querySelectorAll('.article-body h2');
+  if(heads.length<3){return;}
+  heads.forEach(function(h,i){
+    var id=h.id||'sec-'+(i+1);
+    h.id=id;
+    var a=document.createElement('a');
+    a.href='#'+id;
+    a.textContent=h.textContent.trim();
+    var li=document.createElement('li');
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  toc.hidden=false;
+})();
+</script>
   <script>const h=document.querySelector('.ham');h?.addEventListener('click',()=>{const o=document.body.classList.toggle('nav-open');h.setAttribute('aria-expanded',String(o));});const t=document.querySelector('.btn-top');window.addEventListener('scroll',()=>t?.classList.toggle('show',window.scrollY>400),{passive:true});t?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));</script>
 </body>
 </html>
