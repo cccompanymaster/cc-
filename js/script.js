@@ -30,21 +30,15 @@ if (document.readyState === 'complete') {
 }
 introEl?.addEventListener('click', hideIntro);
 
-// ===== Hero: Compass continuous rotation (direction by cursor) + Ark parallax =====
+// ===== Hero: Ark parallax (compass needle now spins via CSS like the loading compass) =====
 (() => {
   const hero = document.querySelector('.hero');
-  const compass = document.getElementById('heroCompass');
-  const needle = document.getElementById('compassNeedle');
   const ark = document.getElementById('heroArk');
-  if (!hero || !compass || !needle || !ark) return;
+  if (!hero || !ark) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  let currentAngle = 0;            // current needle angle
-  let targetSpeed = 0.3;           // target degrees per frame (default slow drift)
-  let currentSpeed = 0.3;          // eased speed
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
-
   const hasHover = matchMedia('(hover: hover)').matches;
 
   const onMove = (e) => {
@@ -53,25 +47,12 @@ introEl?.addEventListener('click', hideIntro);
     const cy = heroRect.top + heroRect.height / 2;
     const dx = e.clientX - cx;
     const dy = e.clientY - cy;
-
-    // Cursor X → rotation speed. Far right = fast CW, far left = fast CCW.
-    const normX = dx / (heroRect.width / 2);    // -1 ~ 1
-    const clampedX = Math.max(-1, Math.min(1, normX));
-    // Max 2.5 deg/frame (~150°/sec). Small deadzone so center is near-still.
-    const sign = Math.sign(clampedX);
-    const magnitude = Math.max(0, Math.abs(clampedX) - 0.08) / 0.92;
-    targetSpeed = sign * magnitude * 2.5 + (sign * 0.1 || 0.15);
-
-    // Ark parallax based on cursor
     const maxOffset = 26;
     targetX = -(dx / heroRect.width) * maxOffset;
     targetY = -(dy / heroRect.height) * maxOffset * 0.5;
   };
 
-  const onLeave = () => {
-    targetSpeed = 0.3;              // back to idle drift
-    targetX = 0; targetY = 0;
-  };
+  const onLeave = () => { targetX = 0; targetY = 0; };
 
   if (hasHover) {
     window.addEventListener('mousemove', onMove, { passive: true });
@@ -79,20 +60,10 @@ introEl?.addEventListener('click', hideIntro);
   }
 
   const tick = () => {
-    // Ease speed toward target for smooth acceleration/deceleration
-    currentSpeed += (targetSpeed - currentSpeed) * 0.04;
-
-    // Continuous rotation
-    currentAngle = (currentAngle + currentSpeed) % 360;
-
-    // Ease ark offset
     currentX += (targetX - currentX) * 0.06;
     currentY += (targetY - currentY) * 0.06;
-
-    needle.setAttribute('transform', `rotate(${currentAngle.toFixed(2)} 250 250)`);
     ark.style.setProperty('--ark-x', currentX.toFixed(1) + 'px');
     ark.style.setProperty('--ark-y', currentY.toFixed(1) + 'px');
-
     requestAnimationFrame(tick);
   };
   tick();

@@ -264,6 +264,7 @@ html {
   .intro-text span { opacity: 1; transform: none; }
   .intro-sub { opacity: 0.9; }
   .intro-progress span { width: 100%; background: var(--gold); }
+  .hero-compass .compass-needle { animation: none !important; }
 }
 
 /* ====== Header ====== */
@@ -465,10 +466,14 @@ html {
 }
 .hero-compass .compass-needle {
   transform-origin: 250px 250px;
-  /* transition 제거 — JS requestAnimationFrame이 매 프레임 회전을 담당하므로
-     CSS transition과 충돌해 끊겨 보이는 문제 해결 */
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
   will-change: transform;
+  animation: heroNeedleSpin 4.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes heroNeedleSpin {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(540deg); }
+  100% { transform: rotate(720deg); }
 }
 .hero-compass .compass-base {
   animation: compassBreath 8s ease-in-out infinite;
