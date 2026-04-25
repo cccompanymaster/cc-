@@ -266,6 +266,42 @@ html {
   .intro-progress span { width: 100%; background: var(--gold); }
 }
 
+/* ===== Hero mini compass (small ambient element, identical pattern to loading compass) ===== */
+.hero-mini-compass {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 140px; height: 140px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  animation: heroMiniCompassIn 1.2s 0.6s var(--easing) forwards;
+  filter: drop-shadow(0 0 24px rgba(212,165,116,0.18));
+}
+.hero-mini-compass svg { width: 100%; height: 100%; display: block; }
+.hero-mini-needle {
+  transform-origin: 60px 60px;
+  animation: heroMiniNeedleSpin 4.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes heroMiniCompassIn {
+  to { opacity: 0.7; }
+}
+@keyframes heroMiniNeedleSpin {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(540deg); }
+  100% { transform: rotate(720deg); }
+}
+@media (max-width: 900px) {
+  .hero-mini-compass { width: 110px; height: 110px; top: 46%; opacity: 0.55; }
+}
+@media (max-width: 560px) {
+  .hero-mini-compass { width: 90px; height: 90px; opacity: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mini-needle { animation: none !important; }
+  .hero-mini-compass { animation: none !important; opacity: 0.55; }
+}
+
 /* ====== Header ====== */
 #header {
   position: fixed; top: 0; left: 0; right: 0;
@@ -444,68 +480,7 @@ html {
   text-align: center;
 }
 
-/* Compass — positioned right side on desktop (behind ark) */
-/* Ark — Noah's Ark motif, hero centerpiece */
-.hero-ark {
-  position: absolute;
-  left: 50%; top: 50%;
-  width: min(820px, 70vw);
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(-50%, -42%);
-  animation: arkEnter 1.8s 0.8s var(--easing) forwards;
-  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5));
-}
-@keyframes arkEnter {
-  to { opacity: 1; }
-}
-.hero-ark-inner {
-  animation: arkRock 6s ease-in-out infinite;
-  transform-origin: center 80%;
-}
-.hero-ark svg {
-  animation: arkRock 6s ease-in-out infinite;
-  transform-origin: center 80%;
-}
-@keyframes arkRock {
-  0%, 100% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-8px) rotate(1deg); }
-}
-/* Noah's Ark sub-element animations */
-.ark-animals { transform-box: fill-box; transform-origin: center bottom; animation: arkAnimalsBreath 4.8s ease-in-out infinite; }
-.ark-elephant { transform-box: fill-box; transform-origin: center; animation: arkPeek 5.5s ease-in-out infinite; }
-.ark-lion { transform-box: fill-box; transform-origin: center; animation: arkPeek 6.2s ease-in-out infinite reverse; }
-.ark-peak { transform-box: fill-box; transform-origin: center; animation: arkPeakGlow 4s ease-in-out infinite; }
-@keyframes arkAnimalsBreath {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2.5px); }
-}
-@keyframes arkPeek {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-@keyframes arkPeakGlow {
-  0%, 100% { filter: drop-shadow(0 0 3px rgba(212,165,116,0.6)); }
-  50% { filter: drop-shadow(0 0 8px rgba(244,217,168,0.95)); }
-}
-.ark-bird {
-  animation: birdFly 10s ease-in-out infinite;
-}
-@keyframes birdFly {
-  0% { transform: translate(0, 0); opacity: 0; }
-  15% { opacity: 1; }
-  50% { transform: translate(-120px, -30px); opacity: 1; }
-  90% { opacity: 0; }
-  100% { transform: translate(-240px, -10px); opacity: 0; }
-}
-
-/* Mouse parallax override (set by JS via CSS variables) */
-.hero-ark {
-  transform: translate(calc(-50% + var(--ark-x, 0px)), calc(-42% + var(--ark-y, 0px)));
-}
-
-/* Hero wrap — desktop: centered layout, text on top, ark below */
+/* Hero wrap — desktop: centered layout */
 @media (min-width: 901px) {
   .hero-wrap {
     max-width: min(1440px, 92vw);
@@ -535,19 +510,6 @@ html {
     max-width: none;
   }
   /* Ark: centered, flows below text in flex column; 높이에 비례 크기 제한 */
-  .hero-ark {
-    position: relative;
-    left: auto; top: auto; bottom: auto;
-    margin: 0 auto;
-    width: min(780px, 65vw);
-    max-height: min(44vh, 420px);
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(var(--ark-x, 0px), var(--ark-y, 0px));
-  }
-  .hero-ark svg { width: 100%; height: auto; max-height: min(44vh, 420px); }
 }
 
 /* 1100-1440: 중형 노트북/모니터에서도 과하지 않게 */
@@ -562,8 +524,6 @@ html {
   .hero-wrap .hero-title { font-size: clamp(44px, 6.4vw, 92px); }
   .hero-title { margin-bottom: 20px; }
   .hero-sub { margin-bottom: 24px; }
-  .hero-ark { max-height: min(38vh, 320px); }
-  .hero-ark svg { max-height: min(38vh, 320px); }
   .scroll-down { bottom: 20px; }
 }
 
@@ -575,15 +535,11 @@ html {
     padding-bottom: 40px;
   }
   .hero-wrap .hero-title { font-size: clamp(40px, 5.8vw, 80px); }
-  .hero-ark { max-height: 220px; }
-  .hero-ark svg { max-height: 220px; }
   .scroll-down { display: none; }
 }
 
 @media (min-width: 1600px) {
   .hero-wrap { max-width: min(1500px, 90vw); }
-  .hero-ark { width: min(860px, 56vw); max-height: min(46vh, 460px); }
-  .hero-ark svg { max-height: min(46vh, 460px); }
 }
 
 /* Waves */
@@ -648,29 +604,6 @@ html {
   /* Products teaser 1 col on tablet too */
   .product-grid.teaser { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
 
-  /* Ark: 콘텐츠 아래 고정 크기 — 텍스트 영역을 침범하지 않음 */
-  .hero-ark {
-    position: relative !important;
-    top: auto !important; left: auto !important;
-    width: 100%;
-    max-width: 560px;
-    height: auto;
-    max-height: 260px;
-    margin: 20px auto 0;
-    padding: 0 16px;
-    transform: none !important;
-    z-index: 3;
-    flex: 0 0 auto; /* 늘어나지 않음 — 텍스트에 공간 양보 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: arkEnterMobile 1.2s 0.3s var(--easing) backwards;
-  }
-  .hero-ark svg { width: 100%; height: auto; max-height: 260px; }
-  @keyframes arkEnterMobile {
-    from { opacity: 0; transform: translateY(30px) !important; }
-  }
-
   .hero-waves {
     position: relative;
     height: 80px;
@@ -687,8 +620,6 @@ html {
   .hero-sub { font-size: 13.5px; }
   .hero-actions { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; gap: 10px; }
   .hero-actions .btn { width: 100%; justify-content: center; padding: 14px 22px; font-size: 14px; }
-  .hero-ark { padding: 0 10px; max-height: 220px; margin-top: 16px; }
-  .hero-ark svg { max-height: 220px; }
   .hero-waves { height: 50px; }
   .hero { padding-bottom: 50px; }
 
@@ -730,8 +661,6 @@ html {
 
 @media (max-width: 380px) {
   .hero-title { font-size: clamp(26px, 10vw, 42px); }
-  .hero-ark { max-height: 190px; }
-  .hero-ark svg { max-height: 190px; }
   .hero-wrap { padding: 8px 16px 18px; }
   .hero { padding-bottom: 44px; }
 }
@@ -746,8 +675,6 @@ html {
   .hero-title { font-size: clamp(28px, 5.5vw, 42px); margin-bottom: 14px; }
   .hero-sub { margin-bottom: 18px; font-size: 13px; }
   .hero-actions { gap: 8px; }
-  .hero-ark { max-width: 420px; max-height: 200px; }
-  .hero-ark svg { max-height: 200px; }
   .hero-waves { height: 50px; }
 }
 .hero-eyebrow {

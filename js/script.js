@@ -30,44 +30,7 @@ if (document.readyState === 'complete') {
 }
 introEl?.addEventListener('click', hideIntro);
 
-// ===== Hero: Ark parallax (compass needle now spins via CSS like the loading compass) =====
-(() => {
-  const hero = document.querySelector('.hero');
-  const ark = document.getElementById('heroArk');
-  if (!hero || !ark) return;
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  let targetX = 0, targetY = 0;
-  let currentX = 0, currentY = 0;
-  const hasHover = matchMedia('(hover: hover)').matches;
-
-  const onMove = (e) => {
-    const heroRect = hero.getBoundingClientRect();
-    const cx = heroRect.left + heroRect.width / 2;
-    const cy = heroRect.top + heroRect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const maxOffset = 26;
-    targetX = -(dx / heroRect.width) * maxOffset;
-    targetY = -(dy / heroRect.height) * maxOffset * 0.5;
-  };
-
-  const onLeave = () => { targetX = 0; targetY = 0; };
-
-  if (hasHover) {
-    window.addEventListener('mousemove', onMove, { passive: true });
-    hero.addEventListener('mouseleave', onLeave);
-  }
-
-  const tick = () => {
-    currentX += (targetX - currentX) * 0.06;
-    currentY += (targetY - currentY) * 0.06;
-    ark.style.setProperty('--ark-x', currentX.toFixed(1) + 'px');
-    ark.style.setProperty('--ark-y', currentY.toFixed(1) + 'px');
-    requestAnimationFrame(tick);
-  };
-  tick();
-})();
+// ===== Hero: Ark parallax removed (small compass spins via CSS only) =====
 
 // ===== Custom cursor — 골드 도트 + 딜레이 링 + 트레일 (방주/나침반 브랜드) =====
 const cursor = document.querySelector('.cursor');
