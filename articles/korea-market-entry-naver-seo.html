@@ -45,7 +45,150 @@
         <nav class="article-toc" aria-label="Table of contents" hidden><div class="atoc-title">Contents</div><ol class="atoc-list"></ol></nav>
         <p class="lead">If you are bringing a US brand into Korea, the playbook you used in Google, Meta and Amazon does not transfer one-to-one. Korea runs on <b>Naver, Kakao and Coupang</b>, and the local algorithm rewards entirely different signals. This article maps the real <b>Naver vs Google share</b>, the <b>.kr domain choices</b>, and a step-by-step <b>90-day Korean launch checklist</b> we use with US clients.</p>
 
-        <!-- Body content placeholder - filled in M2b -->
+        <h2>1. Why Korea Is Different — Naver vs Google Share</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" aria-label="Korean search engine market share">
+            <text x="240" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Korean Search Market Share (2025)</text>
+            <g transform="translate(40,40)">
+              <rect x="0" y="20" width="220" height="28" fill="#D4A574"/>
+              <text x="230" y="40" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Naver 55%</text>
+              <rect x="0" y="60" width="140" height="28" fill="#0B1A33"/>
+              <text x="150" y="80" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Google 35%</text>
+              <rect x="0" y="100" width="22" height="28" fill="#9aa4b3"/>
+              <text x="32" y="120" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Daum 5%</text>
+              <rect x="0" y="140" width="18" height="28" fill="#cfd5de"/>
+              <text x="28" y="160" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Other 5%</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">Source: Internetlivestats &amp; KISA, 2025</span>
+        </figure>
+        <p>Korean search behavior splits across three engines, and the share has shifted in the past two years. Naver still leads on intent-heavy queries (<b>~55%</b> in 2025), Google has grown to roughly <b>35%</b> driven by mobile, and Daum holds the remaining slice. The implication for foreign brands: you cannot win Korean SEO with English-only Google tactics. You also cannot ignore Google — it is now mandatory for under-35 audiences.</p>
+        <p>Beyond search, KakaoTalk is the messenger of record (used by ~98% of Koreans), and Coupang dominates ecommerce. A serious Korea entry plan therefore covers <b>Naver SEO + Google SEO + KakaoTalk channel + Coupang or Smartstore listing</b>, all in fluent Korean. Brands that try to enter with only one of these usually plateau within six months.</p>
+
+        <h2>2. Step 1 — Local Entity, Domain, and Hosting</h2>
+        <p>The first decision is whether you need a <b>local entity</b>. Regulated sectors (medical, financial, telecom) require it; for most consumer brands you can launch with the US entity plus a <b>.kr or co.kr domain</b>. Naver gives a small ranking preference to .kr over .com when the page targets Korean users. Hosting in Korea (or AWS Seoul region) cuts page load by roughly <b>40%</b>, which is a measurable Naver ranking signal.</p>
+        <p>If you plan to sell directly, register for <b>통신판매업</b> (e-commerce permit) and integrate a Korean payment gateway such as NICE, KG INICIS, or Toss Payments. KakaoPay and Naver Pay together cover about <b>70%</b> of Korean checkouts; missing them is a 20~30% conversion penalty.</p>
+
+        <h2>3. Step 2 — Naver SEO Basics for Foreign Brands</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" aria-label="Naver SmartBlock structure">
+            <text x="240" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Naver SmartBlock — Result Structure</text>
+            <g transform="translate(40,40)">
+              <rect x="0" y="0" width="400" height="32" rx="6" fill="#0B1A33"/>
+              <text x="200" y="20" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff">Search query (Korean intent)</text>
+              <rect x="0" y="44" width="125" height="28" rx="4" fill="#D4A574"/>
+              <text x="62.5" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0B1A33" font-weight="700">VIEW (Blog)</text>
+              <rect x="138" y="44" width="125" height="28" rx="4" fill="#D4A574"/>
+              <text x="200" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0B1A33" font-weight="700">Place (Local)</text>
+              <rect x="276" y="44" width="125" height="28" rx="4" fill="#D4A574"/>
+              <text x="338" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0B1A33" font-weight="700">Shopping</text>
+              <rect x="0" y="84" width="195" height="28" rx="4" fill="rgba(11,26,51,0.12)"/>
+              <text x="97" y="102" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0B1A33" font-weight="700">Knowledge iN</text>
+              <rect x="206" y="84" width="195" height="28" rx="4" fill="rgba(11,26,51,0.12)"/>
+              <text x="304" y="102" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0B1A33" font-weight="700">Image / Video</text>
+              <rect x="0" y="124" width="400" height="28" rx="4" fill="rgba(212,165,116,0.25)"/>
+              <text x="200" y="142" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0B1A33" font-weight="700">Sponsored / Web (Google-style)</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">SmartBlock surfaces multiple intents — winning one block ≠ winning the SERP</span>
+        </figure>
+        <p>Naver's organic surface is structured around <b>SmartBlock</b>, which groups results by intent (place, product, blog, knowledge, image). Three rules separate winning Korean pages from invisible ones:</p>
+        <ul>
+          <li><b>Long-form Korean content</b> on a verified blog (preferably Naver Blog), over 1,500 characters with 15+ original images per post.</li>
+          <li><b>Brand entity signals</b> — a Naver Place listing, a Korean Wikipedia or Namu page, and a verified Naver Blog channel.</li>
+          <li><b>Backlinks from Korean .kr/.co.kr sites</b>, especially university (.ac.kr), government (.go.kr) and major news domains.</li>
+        </ul>
+        <p>Foreign brands often get stuck because their global site sits on .com and English. Adding a Korean subfolder (/ko/) with translated content, plus a verified Naver Search Advisor account, restores at least basic indexing within four to six weeks.</p>
+
+        <h2>4. Step 3 — Localization Beyond Translation</h2>
+        <p>Word-for-word translation is the most common Korea launch mistake. Korean buyers expect <b>brand stories told in their own cultural references</b>: seasonal greetings (Chuseok, Lunar New Year), family contexts, and visual cues familiar to local audiences. We rebuild landing pages with Korean models, KRW pricing, and a KakaoTalk channel as the primary CTA — replacing the typical "Email us" button. Conversion lifts of <b>2.4× to 5×</b> are normal after this rework.</p>
+        <p>Reviews matter more than ads. A new Korean buyer typically reads <b>9 to 14 reviews</b> before purchasing, and treats reviewer quantity as a trust signal in itself. Plan for a structured Korean reviewer (체험단) campaign in the first 90 days; without it, even a great product struggles to break the trust threshold.</p>
+
+        <h2>5. Step 4 — Channel Mix for a Korean Launch</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" aria-label="Korean launch funnel">
+            <text x="240" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Korean Launch Funnel</text>
+            <g transform="translate(60,40)">
+              <polygon points="0,0 360,0 320,40 40,40" fill="#D4A574" opacity="0.85"/>
+              <text x="180" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Awareness — Naver DA + YouTube KR</text>
+              <polygon points="40,46 320,46 280,86 80,86" fill="#D4A574"/>
+              <text x="180" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">Consideration — Naver Blog + Reviewers</text>
+              <polygon points="80,92 280,92 240,132 120,132" fill="#0B1A33"/>
+              <text x="180" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#fff">Conversion — Coupang / Smartstore</text>
+              <polygon points="120,138 240,138 220,170 140,170" fill="#0B1A33" opacity="0.78"/>
+              <text x="180" y="158" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#fff">Retention — KakaoTalk</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">Standard launch funnel — every stage is Korea-native</span>
+        </figure>
+        <p>Our standard launch funnel for a US consumer brand:</p>
+        <table>
+          <thead><tr><th>Stage</th><th>Primary channel</th><th>KPI</th></tr></thead>
+          <tbody>
+            <tr><td>Awareness</td><td>Naver Display + YouTube Korea</td><td>Reach, brand search lift</td></tr>
+            <tr><td>Consideration</td><td>Naver Blog + Korean reviewers</td><td>Click → Save → Mention</td></tr>
+            <tr><td>Conversion</td><td>Coupang / Smartstore + Naver Pay</td><td>Purchase, ROAS</td></tr>
+            <tr><td>Retention</td><td>KakaoTalk channel + Email</td><td>Repeat purchase, LTV</td></tr>
+          </tbody>
+        </table>
+
+        <h2>6. Common Mistakes &amp; 90-Day Launch Checklist</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" aria-label="90-day timeline">
+            <text x="240" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#0B1A33">90-Day Korea Launch Timeline</text>
+            <line x1="40" y1="80" x2="440" y2="80" stroke="#0B1A33" stroke-width="2"/>
+            <g font-family="Inter,sans-serif" font-size="11" fill="#0B1A33">
+              <circle cx="80" cy="80" r="10" fill="#D4A574"/>
+              <text x="80" y="55" text-anchor="middle" font-weight="700">Day 1</text>
+              <text x="80" y="110" text-anchor="middle">Legal + Domain</text>
+              <circle cx="200" cy="80" r="10" fill="#D4A574"/>
+              <text x="200" y="55" text-anchor="middle" font-weight="700">Day 30</text>
+              <text x="200" y="110" text-anchor="middle">Korean Assets Live</text>
+              <circle cx="320" cy="80" r="10" fill="#D4A574"/>
+              <text x="320" y="55" text-anchor="middle" font-weight="700">Day 60</text>
+              <text x="320" y="110" text-anchor="middle">Naver Indexed + Reviewers</text>
+              <circle cx="440" cy="80" r="10" fill="#0B1A33"/>
+              <text x="440" y="55" text-anchor="middle" font-weight="700">Day 90</text>
+              <text x="440" y="110" text-anchor="middle">Paid + Coupang</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">Compressed 90-day plan — every block is non-negotiable</span>
+        </figure>
+        <p>The five most expensive mistakes we see from US brands entering Korea:</p>
+        <ol>
+          <li>Launching with English-only assets and expecting Korean SEO to follow.</li>
+          <li>Skipping a Naver Place listing — even online-only brands benefit from a Korean office address.</li>
+          <li>Using global influencers instead of <b>Korean micro-creators</b> (10k–80k followers).</li>
+          <li>Ignoring the legal compliance layer (FTC disclosures, medical advertising review).</li>
+          <li>No Korean phone number or KakaoTalk channel — kills conversion at the last step.</li>
+        </ol>
+        <p>Our 90-day checklist condenses these into weekly milestones. Days 1~30 cover legal setup, .kr domain, Korean copy and a verified Naver Blog. Days 31~60 focus on indexing, the first reviewer cohort, and KakaoTalk channel growth. Days 61~90 unlock paid amplification and the Coupang or Smartstore listing.</p>
+
+        <div class="cta-box">
+          <h4>Korea launch consultation for US brands</h4>
+          <p>Noah Marketing Group has supported 12+ cross-border launches into Korea. We deliver a 90-day execution plan, Korean asset production, and Naver/Coupang setup as a single team.</p>
+          <a href="../index-en.html#contact" class="btn btn-primary">Book a free 60-min consult →</a>
+        </div>
+
+        <section class="article-related" aria-label="Related articles">
+          <h2>Continue reading</h2>
+          <div class="ar-grid">
+            <a class="ar-card" href="ai-search-geo-2026.html"><span class="ar-arrow" aria-hidden="true">→</span><h3>AI Search SEO 2026 (GEO·AEO)</h3><p>How ChatGPT, Perplexity and Naver Cue: cite content.</p></a>
+            <a class="ar-card" href="medical-ad-review-2026.html"><span class="ar-arrow" aria-hidden="true">→</span><h3>Korean medical ad review 2026</h3><p>Compliance for clinics &amp; medical tourism brands.</p></a>
+            <a class="ar-card" href="performance-measurement-ga4.html"><span class="ar-arrow" aria-hidden="true">→</span><h3>GA4 · UTM · ROAS measurement</h3><p>Cross-channel performance setup including SGE.</p></a>
+          </div>
+        </section>
+
+        <section class="article-refs" aria-label="Sources">
+          <h2>Sources &amp; references</h2>
+          <ul>
+            <li>Internetlivestats &amp; KISA — Korean search engine market share, 2025</li>
+            <li>Naver Search Advisor &amp; Webmaster Guidelines, 2025–2026</li>
+            <li>Korea Communications Commission — e-commerce permit (통신판매업) procedure</li>
+            <li>Noah Marketing Group internal data — 12 cross-border launch projects, 2023–2026</li>
+          </ul>
+          <p class="aa-note">Reviewed Apr 25, 2026. Korean payment, advertising and tax rules change frequently — verify with local counsel before launch.</p>
+        </section>
 
       </div>
     </article>
