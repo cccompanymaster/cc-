@@ -73,6 +73,21 @@
         <p>The three most expensive mistakes we see from US brands repeat across nearly every first launch. The first is <b>importing US creative</b> — even when translated, US-shot creatives perform 30–50% below baseline because the casting, pacing, and on-screen text feel foreign. The second is <b>underestimating iOS measurement loss</b>: Korea's iOS share is roughly <b>58%</b>, slightly higher than the US, so any campaign relying on Meta Pixel without server-side CAPI loses more than half of its conversion signal in Korea. The third is <b>treating Naver and Google as the same channel</b> — they aren't. Naver dominates intent-driven query categories (cosmetics, F&amp;B, services), while Google captures global brand searches and most under-30 mobile sessions outside chat apps.</p>
         <p>The pragmatic 2026 default is a tri-channel split: <b>Naver SEO + Google paid + Meta paid</b>, with budget weighted toward whichever channel best matches your category's purchase intent. We expand the channel mix and ROAS benchmarks in §6.</p>
 
+        <h2>2. Meta Ads in Korea — Targeting Quirks &amp; 2026 Updates</h2>
+        <p>Korean Meta ad spend reached approximately <b>$1.2B in 2024</b>, dominated by Instagram (~70% of Meta's Korean revenue). The single most important number for US ad teams to internalise is Korea's <b>iOS share of ~58%</b> — slightly higher than the United States. iOS 14.5+ App Tracking Transparency (ATT) is a much bigger deal in Korea than US benchmarks suggest, because Korean iOS users opt into tracking at single-digit rates.</p>
+        <p>The downstream effect on Meta Pixel is severe: Korean campaigns relying on Pixel-only conversion measurement see <b>40–60% signal loss</b>. Meta Conversions API (CAPI) is therefore not optional for Korea — it's the baseline. We treat any Korean Meta launch without server-side CAPI as a measurement failure, regardless of how the front-end Pixel looks. Budget for a backend engineer or a managed CAPI partner inside the launch timeline.</p>
+        <p>Cost benchmarks from our portfolio (Q1 2026, mid-market brands):</p>
+        <table>
+          <thead><tr><th>Placement</th><th>CPM</th><th>CTR</th><th>CPC</th></tr></thead>
+          <tbody>
+            <tr><td>Instagram Feed</td><td>$5–9</td><td>0.9–1.6%</td><td>$0.45–$0.85</td></tr>
+            <tr><td>Instagram Reels</td><td>$4–7</td><td>1.4–2.4%</td><td>$0.25–$0.50</td></tr>
+            <tr><td>Facebook Feed</td><td>$2–6</td><td>0.7–1.2%</td><td>$0.30–$0.65</td></tr>
+            <tr><td>Audience Network</td><td>$1–3</td><td>0.5–0.9%</td><td>$0.20–$0.40</td></tr>
+          </tbody>
+        </table>
+        <p>Two 2026-specific updates affect Korean Meta campaigns. First, <b>Advantage+ Shopping Campaigns</b> consistently outperform manual ABO setups in our Korean tests by roughly <b>15–25% on ROAS</b>, but require strong CAPI signal to feed the algorithm — without CAPI, Advantage+ degrades quickly. Second, Meta now requires <b>Korean-language ad disclaimers</b> for regulated categories (cosmetics, supplements, financial services) at the campaign level, which interacts with the KFTC compliance framework covered in our advertising-law guide.</p>
+
       </div>
     </article>
   </main>
