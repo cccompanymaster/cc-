@@ -1448,6 +1448,55 @@
     </div>
   </div>
 
+  <!-- Anti-Impersonation Warning Modal (24시간 1회 노출) -->
+  <div class="warn-modal" id="warnModal" role="alertdialog" aria-modal="true" aria-labelledby="warn-title" aria-hidden="true">
+    <div class="warn-backdrop"></div>
+    <div class="warn-panel">
+      <div class="warn-header">
+        <div class="warn-siren" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="56" height="56" fill="none">
+            <circle cx="32" cy="32" r="22" fill="#e35454" opacity="0.18"/>
+            <circle cx="32" cy="32" r="14" fill="#e35454" opacity="0.32"/>
+            <circle cx="32" cy="32" r="7" fill="#e35454"/>
+            <path d="M32 6 v6 M32 52 v6 M6 32 h6 M52 32 h6 M14 14 l4 4 M46 46 l4 4 M50 14 l-4 4 M14 50 l4 -4" stroke="#e35454" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="warn-brand">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none" aria-hidden="true"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#D4A574"/></svg>
+          <span>NOAH MARKETING GROUP</span>
+        </div>
+      </div>
+
+      <h2 class="warn-title" id="warn-title"><span class="warn-red">사칭 사기</span> 주의 안내</h2>
+
+      <div class="warn-body">
+        <p>
+          최근 <b>노아마케팅그룹·CC컴퍼니·노아데이터베이스·노아마케팅랩</b>을 사칭한<br>
+          <b>불법 영업·사기 행위</b>가 보고되고 있습니다.
+        </p>
+        <p>
+          체험단 모집·CPA 광고비 환급·세금계산서 선결제·계약금 입금 안내 등을<br>
+          비공식 채널로 받으셨다면, 반드시 노아마케팅그룹 <b>공식 번호</b><br>
+          <a href="tel:01066586482" class="warn-tel">010-6658-6482</a> 또는<br>
+          <b>공식 카카오채널</b> <a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener" class="warn-tel">@노아마케팅그룹</a>으로<br>
+          담당자 본인 여부를 확인해 주시기 바랍니다.
+        </p>
+
+        <div class="warn-rule warn-rule-1">
+          공식 번호로 확인하기 전에는 <b>어떤 입금·계약 요청에도 응하지 마세요.</b>
+        </div>
+        <div class="warn-rule warn-rule-2">
+          의심되는 연락은 즉시 <a href="https://pf.kakao.com/_RjRSxj" target="_blank" rel="noopener">노아 고객센터</a>로 신고해 주세요.
+        </div>
+      </div>
+
+      <div class="warn-footer">
+        <span class="warn-hide-info">24시간 동안 다시 표시되지 않습니다.</span>
+        <button type="button" class="warn-close" id="warnClose">닫기 <span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom sticky inquiry banner -->
   <div class="bottom-banner" id="bottomBanner" role="region" aria-label="빠른 문의 배너">
     <div class="bb-inner">

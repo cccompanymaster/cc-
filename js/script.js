@@ -1847,3 +1847,34 @@ payForm?.addEventListener('submit', async (e) => {
     entries.forEach(e => { if (e.isIntersecting && !started) { started = true; startAuto(); } });
   }, { threshold: 0.3 }).observe(demoSec);
 })();
+
+// ===== 사칭 사기 주의 안내 모달 — 24시간에 1회 표시 =====
+(() => {
+  const modal = document.getElementById('warnModal');
+  if (!modal) return;
+  const KEY = 'noah_warn_dismissed_until';
+  const closeBtn = document.getElementById('warnClose');
+  const backdrop = modal.querySelector('.warn-backdrop');
+
+  // 24시간 이내 dismiss 기록 있으면 안 보여줌
+  const now = Date.now();
+  const until = (() => { try { return parseInt(localStorage.getItem(KEY) || '0', 10); } catch { return 0; } })();
+  if (now < until) return;
+
+  // 페이지 로드 약 1.2초 후 등장
+  setTimeout(() => {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }, 1200);
+
+  const close = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    try { localStorage.setItem(KEY, String(Date.now() + 24 * 60 * 60 * 1000)); } catch {}
+  };
+  closeBtn?.addEventListener('click', close);
+  backdrop?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('open') && e.key === 'Escape') close();
+  });
+})();
