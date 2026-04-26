@@ -201,29 +201,15 @@ const getHeaderHeight = () => header?.offsetHeight ?? 70;
   });
 })();
 
-// 하단 상담 배너 — 진입 시점부터 고정 노출 (스크롤 임계값 제거)
+// 하단 상담 배너 — 진입 즉시 영구 고정 노출 (X 닫기 버튼 제거, 세션 dismiss 로직 삭제)
 const bottomBanner = document.getElementById('bottomBanner');
-const BB_DISMISSED_KEY = 'noah_bb_dismissed_v1';
-const bbDismissed = (() => {
-  try { return sessionStorage.getItem(BB_DISMISSED_KEY) === '1'; } catch { return false; }
-})();
 if (bottomBanner) {
-  bottomBanner.removeAttribute('hidden');
-  if (bbDismissed) {
-    bottomBanner.classList.add('dismissed');
-  } else {
-    bottomBanner.classList.add('visible');
-    document.body.classList.add('bb-active');
-  }
+  bottomBanner.classList.add('visible');
+  document.body.classList.add('bb-active');
+  // 과거 dismissed 세션 스토리지 잔재 정리
+  try { sessionStorage.removeItem('noah_bb_dismissed_v1'); } catch {}
 }
-// 스크롤에 따른 노출 토글 제거 — 고정값 처리
-const updateBottomBanner = () => {};
-document.getElementById('bbClose')?.addEventListener('click', () => {
-  bottomBanner?.classList.remove('visible');
-  document.body.classList.remove('bb-active');
-  setTimeout(() => bottomBanner?.classList.add('dismissed'), 500);
-  try { sessionStorage.setItem(BB_DISMISSED_KEY, '1'); } catch {}
-});
+const updateBottomBanner = () => {}; // legacy stub
 document.getElementById('bbOpenInquiry')?.addEventListener('click', () => {
   if (typeof openInquiry === 'function') openInquiry();
 });
@@ -1841,6 +1827,8 @@ payForm?.addEventListener('submit', async (e) => {
       const i = parseInt(g.dataset.idx || '0', 10);
       setActive(i);
       startAuto(); // 사용자 클릭 후 자동 순환 타이머 리셋
+      // 클릭 attention 펄스 정지
+      navItems.forEach(n => n.classList.add('user-clicked'));
     });
     // 키보드 접근성
     g.setAttribute('tabindex', '0');
