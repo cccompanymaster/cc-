@@ -1686,18 +1686,21 @@ payForm?.addEventListener('submit', async (e) => {
   const yLabel3 = document.getElementById('demo-y-3');
   const avgRoasLabel = document.getElementById('demo-avg-roas');
 
-  // 매끄러운 step path (계단의 코너에 작은 곡선) — step-after with rounded corners
-  const stepPath = (xs, ys, r=6) => {
+  // Hybrid step path — 60% horizontal + 40% diagonal slope (계단식이지만 우상향 유기적 느낌)
+  // 코너 라운드 처리로 인위적 90도 각도 제거
+  const stepPath = (xs, ys, slopePortion=0.4) => {
     let d = `M ${xs[0]} ${ys[0]}`;
     for (let i = 1; i < xs.length; i++) {
-      const dy = ys[i] - ys[i-1];
-      const dir = Math.sign(dy);
-      const cornerR = Math.min(r, Math.abs(dy)/2);
-      d += ` L ${xs[i] - cornerR} ${ys[i-1]}`;
-      if (cornerR > 0) {
-        d += ` Q ${xs[i]} ${ys[i-1]} ${xs[i]} ${ys[i-1] + dir*cornerR}`;
-      }
-      d += ` L ${xs[i]} ${ys[i]}`;
+      const segWidth = xs[i] - xs[i-1];
+      const slopeWidth = segWidth * slopePortion;
+      const flatEnd = xs[i] - slopeWidth;       // 평탄 구간 끝
+      // 평탄 구간(60%) — 약간 위로 살짝 기울인 horizontal (전체 기울기의 약 15%만 분산)
+      const flatY = ys[i-1] + (ys[i] - ys[i-1]) * 0.15;
+      d += ` L ${flatEnd} ${flatY}`;
+      // 슬로프 구간(40%) — 부드러운 곡선으로 대각선 상승
+      const cpX = flatEnd + slopeWidth * 0.4;
+      const cpY = flatY;
+      d += ` Q ${cpX} ${cpY} ${xs[i]} ${ys[i]}`;
     }
     return d;
   };
