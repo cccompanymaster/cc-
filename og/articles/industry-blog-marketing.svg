@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1A33"/>
+      <stop offset="60%" stop-color="#0d2246"/>
+      <stop offset="100%" stop-color="#162a4f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4d9a8"/>
+      <stop offset="100%" stop-color="#D4A574"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.18">
+    <circle cx="1080" cy="120" r="88" stroke="#D4A574" stroke-width="1.2" fill="none"/>
+    <circle cx="1080" cy="120" r="64" stroke="#D4A574" stroke-width="0.6" fill="none" stroke-dasharray="2 4"/>
+    <path d="M1080 60 L1086 120 L1080 124 L1074 120 Z" fill="#D4A574"/>
+    <path d="M1080 180 L1074 120 L1080 116 L1086 120 Z" fill="#5a3f27"/>
+    <circle cx="1080" cy="120" r="3" fill="#D4A574"/>
+  </g>
+  <text x="80" y="160" font-family="'Inter',sans-serif" font-weight="800" font-size="22" fill="url(#gold)" letter-spacing="6">NOAH MARKETING GROUP</text>
+  <rect x="80" y="180" width="60" height="3" fill="url(#gold)"/>
+  <text x="80" y="220" font-family="'Inter',sans-serif" font-weight="700" font-size="18" fill="#caa84a" letter-spacing="2">업종별 블로그</text>
+  <text x="80" y="290" font-family="'Pretendard',sans-serif" font-weight="800" font-size="56" fill="#fefbf5" letter-spacing="-1.2">업종별 블로그 마케팅 — 헬스장·학원·음식점·인테리어·맛집</text>
+  <text x="80" y="358" font-family="'Pretendard',sans-serif" font-weight="800" font-size="56" fill="#fefbf5" letter-spacing="-1.2">완전 가이드 2026</text>
+  
+  <text x="80" y="560" font-family="'Inter',sans-serif" font-weight="600" font-size="16" fill="rgba(255,255,255,0.5)" letter-spacing="1">cccompanymaster.github.io/cc-</text>
+</svg>
