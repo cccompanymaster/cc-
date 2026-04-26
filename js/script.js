@@ -1362,21 +1362,25 @@ payForm?.addEventListener('submit', async (e) => {
   const ctaBtn = document.getElementById('roiOpenInquiry');
   if (!indSel || !budRange) return;
 
-  // 업종별 평균 데이터(자사 374건 기반): leadsPerMillion = 100만원당 월 신규문의수, roasMin/roasMax(%), aov(평균 객단가)
+  // 업종별 데이터 (자사 374건 운영 평균 기준)
+  // leadsPerMillion: 100만원당 월간 핵심 지표 수, roas(월 평균 ROAS%), sixMonthMin/Max(6개월 누적 매출 = 월 예산 × 배수)
+  // 업계 통상 8~15배 범위 — 의료/B2B는 다소 낮고 D2C/뷰티는 높은 편
   const data = {
-    medical:    { leadsPerMillion: 0.6, roasMin: 280, roasMax: 480, aov: 800000 },
-    legal:      { leadsPerMillion: 0.4, roasMin: 320, roasMax: 580, aov: 2200000 },
-    commerce:   { leadsPerMillion: 1.2, roasMin: 250, roasMax: 420, aov: 95000 },
-    restaurant: { leadsPerMillion: 2.4, roasMin: 380, roasMax: 620, aov: 38000 },
-    b2b:        { leadsPerMillion: 0.3, roasMin: 240, roasMax: 450, aov: 6500000 },
-    education:  { leadsPerMillion: 0.9, roasMin: 220, roasMax: 380, aov: 480000 },
-    beauty:     { leadsPerMillion: 1.6, roasMin: 290, roasMax: 510, aov: 78000 },
+    medical:    { leadsPerMillion: 0.6,  roasMin: 220, roasMax: 320, sixMonthMin: 8,  sixMonthMax: 12, leadLabel: '월 신규 문의 (예상)' },
+    legal:      { leadsPerMillion: 0.4,  roasMin: 240, roasMax: 360, sixMonthMin: 8,  sixMonthMax: 13, leadLabel: '월 신규 상담 (예상)' },
+    commerce:   { leadsPerMillion: 8.0,  roasMin: 200, roasMax: 290, sixMonthMin: 10, sixMonthMax: 15, leadLabel: '월 신규 주문 (예상)' },
+    restaurant: { leadsPerMillion: 28,   roasMin: 220, roasMax: 320, sixMonthMin: 9,  sixMonthMax: 14, leadLabel: '월 신규 방문 (예상)' },
+    b2b:        { leadsPerMillion: 0.6,  roasMin: 180, roasMax: 260, sixMonthMin: 6,  sixMonthMax: 10, leadLabel: '월 신규 리드 (예상)' },
+    education:  { leadsPerMillion: 1.4,  roasMin: 200, roasMax: 290, sixMonthMin: 8,  sixMonthMax: 12, leadLabel: '월 신규 문의 (예상)' },
+    beauty:     { leadsPerMillion: 6.5,  roasMin: 220, roasMax: 320, sixMonthMin: 10, sixMonthMax: 14, leadLabel: '월 신규 주문 (예상)' },
   };
 
   const fmtWon = (n) => {
-    if (n >= 100000000) return (n/100000000).toFixed(1).replace(/\.0$/,'') + '억';
-    if (n >= 10000000) return Math.round(n/10000000) + '천만';
-    if (n >= 10000) return Math.round(n/10000) + '만';
+    if (n >= 100000000) {
+      const eok = n / 100000000;
+      return eok.toFixed(eok >= 10 ? 0 : 1).replace(/\.0$/,'') + '억';
+    }
+    if (n >= 10000) return Math.round(n/10000).toLocaleString('ko-KR') + '만';
     return new Intl.NumberFormat('ko-KR').format(n);
   };
 
@@ -1385,10 +1389,9 @@ payForm?.addEventListener('submit', async (e) => {
     const budManwon = parseInt(budRange.value, 10); // 단위: 만원
     const budgetWon = budManwon * 10000;
     const leads = Math.round(ind.leadsPerMillion * (budManwon / 1));
-    const monthlyRevenueLow = Math.round(budgetWon * ind.roasMin / 100);
-    const monthlyRevenueHigh = Math.round(budgetWon * ind.roasMax / 100);
-    const sixMonthLow = monthlyRevenueLow * 6;
-    const sixMonthHigh = monthlyRevenueHigh * 6;
+    // 6개월 누적 매출 = 월 예산 × 8~15배 (업종별 sixMonthMin/Max)
+    const sixMonthLow = budgetWon * ind.sixMonthMin;
+    const sixMonthHigh = budgetWon * ind.sixMonthMax;
 
     budDisplay.textContent = '₩' + budManwon.toLocaleString('ko-KR') + '만';
     // slider gradient
@@ -1398,6 +1401,10 @@ payForm?.addEventListener('submit', async (e) => {
     leadsEl.textContent = leads.toLocaleString('ko-KR');
     roasEl.textContent = ind.roasMin + '~' + ind.roasMax;
     revEl.textContent = fmtWon(sixMonthLow) + '~' + fmtWon(sixMonthHigh);
+
+    // 업종별 lead 라벨 동적 변경 (식당/이커머스/뷰티 등)
+    const leadLabelEl = document.querySelector('#roi-leads')?.parentElement?.querySelector('.roi-stat-label');
+    if (leadLabelEl) leadLabelEl.textContent = ind.leadLabel;
   };
 
   indSel.addEventListener('change', update);
@@ -1569,21 +1576,22 @@ payForm?.addEventListener('submit', async (e) => {
   if (!demoSec) return;
 
   // 6개 고객사 사례 데이터 — KPI/그래프/활동피드 모두 변경
+  // 업계 평균 매출 수준에 맞춘 현실적 수치 (월 단위, 단위: 만원)
   const cases = [
     {
-      name: '강남 피부과 A · 14개월차 운영', icon: '🏥',
-      kpis: { leads: 284, roas: 412, revenue: 14.2 },
-      growth: '+218%',
+      name: '강남 피부과 A · 14개월차 운영',
+      kpis: { leads: 142, leadsLabel: '월 신규 문의', roas: 312, revenue: 6800, revenueLabel: '월 매출' },
+      growth: '+128%',
       feed: [
         '⚡ Naver Smart Block 진입 — "강남 피부과 추천" 키워드 <tspan fill="#f4d9a8" font-weight="700">3위</tspan>',
         '💬 KakaoTalk 채널 친구 추가 <tspan fill="#f4d9a8" font-weight="700">+147명</tspan> (지난 24시간)',
-        '🛒 Coupang 신규 주문 <tspan fill="#f4d9a8" font-weight="700">+28건</tspan> · ROAS <tspan fill="#f4d9a8" font-weight="700">380%</tspan>'
+        '📋 신규 내원 예약 <tspan fill="#f4d9a8" font-weight="700">+38건</tspan> · ROAS <tspan fill="#f4d9a8" font-weight="700">312%</tspan>'
       ]
     },
     {
-      name: '건강기능식품 D2C B · 8개월차 운영', icon: '💊',
-      kpis: { leads: 1842, roas: 386, revenue: 8.7 },
-      growth: '+312%',
+      name: '건강기능식품 D2C B · 8개월차 운영',
+      kpis: { leads: 642, leadsLabel: '월 신규 주문', roas: 286, revenue: 3200, revenueLabel: '월 매출' },
+      growth: '+186%',
       feed: [
         '🔥 스마트스토어 "유산균 추천" 카테고리 <tspan fill="#f4d9a8" font-weight="700">1페이지 2위</tspan>',
         '📝 체험단 30건 발행 완료 — 평점 평균 <tspan fill="#f4d9a8" font-weight="700">4.8/5</tspan>',
@@ -1591,39 +1599,39 @@ payForm?.addEventListener('submit', async (e) => {
       ]
     },
     {
-      name: '송파 한의원 C · 6개월차 운영', icon: '🌿',
-      kpis: { leads: 168, roas: 358, revenue: 5.4 },
-      growth: '+184%',
+      name: '송파 한의원 C · 6개월차 운영',
+      kpis: { leads: 92, leadsLabel: '월 신규 내원 예약', roas: 268, revenue: 3400, revenueLabel: '월 매출' },
+      growth: '+94%',
       feed: [
         '🌸 환절기 비염 시즌 콘텐츠 <tspan fill="#f4d9a8" font-weight="700">+12건</tspan> 선제 발행',
         '📍 네이버 플레이스 "송파 한의원" <tspan fill="#f4d9a8" font-weight="700">TOP 3 진입</tspan>',
-        '📞 신규 내원 예약 <tspan fill="#f4d9a8" font-weight="700">+38건</tspan> (이번 주)'
+        '📞 신규 예약 <tspan fill="#f4d9a8" font-weight="700">+38건</tspan> (이번 주)'
       ]
     },
     {
-      name: '강남 법무법인 D · 18개월차 운영', icon: '⚖',
-      kpis: { leads: 92, roas: 484, revenue: 18.6 },
-      growth: '+156%',
+      name: '강남 법무법인 D · 18개월차 운영',
+      kpis: { leads: 48, leadsLabel: '월 신규 상담', roas: 348, revenue: 14200, revenueLabel: '월 매출' },
+      growth: '+76%',
       feed: [
         '📚 "이혼 소송 절차" 블로그 시리즈 <tspan fill="#f4d9a8" font-weight="700">9개 상위 진입</tspan>',
         '🔎 Naver 파워링크 CPC <tspan fill="#f4d9a8" font-weight="700">-22%</tspan> 최적화',
-        '📋 신규 수임 <tspan fill="#f4d9a8" font-weight="700">+41건/월</tspan> 달성'
+        '📋 신규 수임 <tspan fill="#f4d9a8" font-weight="700">+18건/월</tspan>'
       ]
     },
     {
-      name: '부산 디저트 카페 · 4개월차 운영', icon: '🍰',
-      kpis: { leads: 624, roas: 542, revenue: 2.8 },
-      growth: '+428%',
+      name: '부산 디저트 카페 · 4개월차 운영',
+      kpis: { leads: 318, leadsLabel: '월 신규 방문 (테이블)', roas: 240, revenue: 2200, revenueLabel: '월 매출' },
+      growth: '+162%',
       feed: [
         '📸 인스타 릴스 <tspan fill="#f4d9a8" font-weight="700">조회수 124만</tspan> 달성 (시그니처 메뉴)',
         '🗺 Naver 플레이스 "부산 디저트" <tspan fill="#f4d9a8" font-weight="700">1페이지 1위</tspan>',
-        '☕ 주말 대기 <tspan fill="#f4d9a8" font-weight="700">평균 32팀</tspan> · 월 매출 +2.4배'
+        '☕ 주말 평균 대기 <tspan fill="#f4d9a8" font-weight="700">22팀</tspan> · 월 매출 +1.6배'
       ]
     },
     {
-      name: 'D2C 뷰티 브랜드 E · 10개월차 운영', icon: '💄',
-      kpis: { leads: 2104, roas: 396, revenue: 12.4 },
-      growth: '+274%',
+      name: 'D2C 뷰티 브랜드 E · 10개월차 운영',
+      kpis: { leads: 1240, leadsLabel: '월 신규 주문', roas: 296, revenue: 18000, revenueLabel: '월 매출' },
+      growth: '+148%',
       feed: [
         '🛒 스마트스토어 신규 SKU 5개 <tspan fill="#f4d9a8" font-weight="700">동시 1페이지</tspan>',
         '⭐ 누적 리뷰 <tspan fill="#f4d9a8" font-weight="700">8,420건</tspan> · 평점 4.7',
@@ -1635,36 +1643,47 @@ payForm?.addEventListener('submit', async (e) => {
   let idx = 0;
   const headerEl = demoSec.querySelector('svg text[fill="#f4d9a8"][font-size="13"]');
   const counters = demoSec.querySelectorAll('.demo-counter');
-  const navItems = demoSec.querySelectorAll('.demo-nav-items text');
   const activeRect = demoSec.querySelector('.demo-nav-active');
   const feed = demoSec.querySelector('.demo-feed');
   const dotsTextGrowth = demoSec.querySelector('.demo-dots text');
+  const navItems = demoSec.querySelectorAll('.demo-nav-item');
+  // KPI 라벨 — SVG 내 text 셀렉터로 잡기 (1번째: leads label, 3번째: revenue label)
+  const allKpiLabels = demoSec.querySelectorAll('.demo-kpis text[font-size="9.5"]');
 
-  // 사이드바 active 위치(rect Y) — 6개 항목 (각 60px 간격)
-  const navYPositions = [64, 110, 156, 202, 248, 294];
+  // 사이드바 active rect Y — HTML의 wrapper rect 위치와 동일
+  const navYPositions = [64, 108, 150, 192, 234, 276];
 
-  const swapCase = () => {
-    idx = (idx + 1) % cases.length;
+  const setActive = (newIdx) => {
+    idx = ((newIdx % cases.length) + cases.length) % cases.length;
     const c = cases[idx];
 
     // header 텍스트
     if (headerEl) headerEl.textContent = c.name;
 
     // sidebar active 위치 이동
-    if (activeRect) {
-      activeRect.setAttribute('y', navYPositions[idx]);
-    }
-    // sidebar 강조 색 변경
-    navItems.forEach((t, i) => {
-      const isActive = Math.floor(i/2) === idx;
-      t.setAttribute('fill', isActive ? (i % 2 === 0 ? '#f4d9a8' : 'rgba(244,217,168,0.65)') : (i % 2 === 0 ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.4)'));
-      t.setAttribute('font-weight', isActive && i % 2 === 0 ? '700' : '600');
+    if (activeRect) activeRect.setAttribute('y', navYPositions[idx]);
+
+    // sidebar 강조 색 변경 (각 .demo-nav-item 내의 .dni-title / .dni-sub)
+    navItems.forEach((g, i) => {
+      const title = g.querySelector('.dni-title');
+      const sub = g.querySelector('.dni-sub');
+      if (i === idx) {
+        title?.setAttribute('fill', '#f4d9a8'); title?.setAttribute('font-weight', '700');
+        sub?.setAttribute('fill', 'rgba(244,217,168,0.65)');
+      } else {
+        title?.setAttribute('fill', 'rgba(255,255,255,0.7)'); title?.setAttribute('font-weight', '600');
+        sub?.setAttribute('fill', 'rgba(255,255,255,0.4)');
+      }
     });
 
-    // KPI 카운터 새 target 적용 + 재실행
-    if (counters[0]) { counters[0].dataset.target = c.kpis.leads; counters[0].textContent = '0'; }
+    // KPI 라벨 업데이트
+    if (allKpiLabels[0]) allKpiLabels[0].textContent = c.kpis.leadsLabel;
+    if (allKpiLabels[2]) allKpiLabels[2].textContent = c.kpis.revenueLabel;
+
+    // KPI 카운터 새 target 적용
+    if (counters[0]) { counters[0].dataset.target = c.kpis.leads; counters[0].dataset.suffix = ''; counters[0].textContent = '0'; }
     if (counters[1]) { counters[1].dataset.target = c.kpis.roas; counters[1].textContent = '0'; }
-    if (counters[2]) { counters[2].dataset.target = c.kpis.revenue; counters[2].textContent = '0.0'; }
+    if (counters[2]) { counters[2].dataset.target = c.kpis.revenue; counters[2].dataset.decimals = '0'; counters[2].textContent = '0'; }
 
     // 그래프 endpoint 라벨
     if (dotsTextGrowth) dotsTextGrowth.textContent = c.growth;
@@ -1675,11 +1694,13 @@ payForm?.addEventListener('submit', async (e) => {
       c.feed.forEach((html, i) => { if (texts[i]) texts[i].innerHTML = html; });
     }
 
-    // 카운터 재애니메이션 트리거 (window의 기존 animate 함수 재사용 위해 수동 호출)
+    // 카운터 재애니메이션
     counters.forEach(el => {
       const target = parseFloat(el.dataset.target || '0');
       const decimals = parseInt(el.dataset.decimals || '0', 10);
-      const duration = 1400;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1300;
       const start = performance.now();
       const step = (now) => {
         const t = Math.min(1, (now - start) / duration);
@@ -1693,9 +1714,6 @@ payForm?.addEventListener('submit', async (e) => {
         } else {
           val = Math.floor(raw).toLocaleString('ko-KR');
         }
-        // 기존 prefix/suffix 보존
-        const prefix = el.dataset.prefix || '';
-        const suffix = el.dataset.suffix || '';
         el.textContent = prefix + val + suffix;
         if (t < 1) requestAnimationFrame(step);
       };
@@ -1703,14 +1721,29 @@ payForm?.addEventListener('submit', async (e) => {
     });
   };
 
-  // viewport 진입 시 30초마다 swap
+  // 클릭 인터랙션 — 6개 사이드바 항목
+  let autoTimer = null;
+  const startAuto = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(() => setActive(idx + 1), 30000);
+  };
+  navItems.forEach(g => {
+    g.addEventListener('click', () => {
+      const i = parseInt(g.dataset.idx || '0', 10);
+      setActive(i);
+      startAuto(); // 사용자 클릭 후 자동 순환 타이머 리셋
+    });
+    // 키보드 접근성
+    g.setAttribute('tabindex', '0');
+    g.setAttribute('role', 'button');
+    g.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.dispatchEvent(new Event('click')); }
+    });
+  });
+
+  // viewport 진입 시 자동 순환 시작
   let started = false;
   new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting && !started) {
-        started = true;
-        setInterval(swapCase, 30000);
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting && !started) { started = true; startAuto(); } });
   }, { threshold: 0.3 }).observe(demoSec);
 })();

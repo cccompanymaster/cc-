@@ -3538,3 +3538,15 @@ body.nav-open .ham span:nth-child(3) { transform: translateY(-6px) rotate(-45deg
   .demo-feed text, .demo-dots circle, .demo-dots text { opacity: 1; animation: none; transform: none; }
   .demo-nav-active { animation: none; }
 }
+
+/* Demo sidebar hover effect (clickable cases) */
+.demo-nav-item rect {
+  transition: fill 0.2s;
+}
+.demo-nav-item:hover rect {
+  fill: rgba(212,165,116,0.1) !important;
+}
+.demo-nav-item:focus { outline: none; }
+.demo-nav-item:focus rect {
+  fill: rgba(212,165,116,0.15) !important;
+}
