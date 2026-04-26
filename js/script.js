@@ -1583,9 +1583,10 @@ payForm?.addEventListener('submit', async (e) => {
       name: '강남 피부과 A · 14개월차 운영',
       kpis: { leads: 96, leadsLabel: '월 신규 문의 (전화·카톡)', roas: 490, revenue: 14000, revenueLabel: '월 매출' },
       // 객단가 ≈ 145만원/명 (시술 평균) × 96건 + 재방문 → ≈ ₩1.4억/월
-      revenueSeries: [80, 92, 88, 110, 120, 142],
-      costSeries:    [18, 18, 19, 22,  24,  28],
-      growth: '+78%',
+      // 시술 비수기(12월) 살짝 dip → 신년 피부관리 수요 → 봄철 가속
+      revenueSeries: [78, 95, 82, 108, 124, 142],
+      costSeries:    [16, 19, 17, 22,  25,  28],
+      growth: '+82%',
       feed: [
         '⚡ Naver Smart Block 진입 — "강남 피부과 추천" 키워드 <tspan fill="#f4d9a8" font-weight="700">3위</tspan>',
         '💬 KakaoTalk 채널 친구 추가 <tspan fill="#f4d9a8" font-weight="700">+147명</tspan> (지난 24시간)',
@@ -1596,9 +1597,10 @@ payForm?.addEventListener('submit', async (e) => {
       name: '건강기능식품 D2C B · 8개월차 운영',
       kpis: { leads: 1020, leadsLabel: '월 신규 주문', roas: 460, revenue: 6800, revenueLabel: '월 매출' },
       // 객단가 약 6.7만원 × 1,020건 = ₩6,800만/월
-      revenueSeries: [38, 42, 40, 52, 58, 68],
-      costSeries:    [8,  9,  9,  11, 12, 14],
-      growth: '+79%',
+      // 12월 연말 건강선물 시즌 큰 점프 → 1월 dip → 꾸준 우상향
+      revenueSeries: [32, 52, 46, 54, 60, 68],
+      costSeries:    [7,  11, 10, 11, 13, 14],
+      growth: '+113%',
       feed: [
         '🔥 스마트스토어 "유산균 추천" 카테고리 <tspan fill="#f4d9a8" font-weight="700">1페이지 2위</tspan>',
         '📝 체험단 30건 발행 완료 — 평점 평균 <tspan fill="#f4d9a8" font-weight="700">4.8/5</tspan>',
@@ -1609,9 +1611,10 @@ payForm?.addEventListener('submit', async (e) => {
       name: '송파 한의원 C · 6개월차 운영',
       kpis: { leads: 108, leadsLabel: '월 신규 내원 예약', roas: 470, revenue: 4200, revenueLabel: '월 매출' },
       // 객단가 ≈ 39만원/명 × 108건 = ₩4,200만/월
-      revenueSeries: [24, 28, 26, 32, 36, 42],
-      costSeries:    [5,  6,  6,  7,  8,  9],
-      growth: '+75%',
+      // 시즌성 매우 큼 — 환절기(3월) 비염·면역 수요 폭증, 11월 시작 후 꾸준 상승 → 봄철 큰 점프
+      revenueSeries: [20, 24, 23, 28, 38, 42],
+      costSeries:    [4,  5,  5,  6,  8,  9],
+      growth: '+110%',
       feed: [
         '🌸 환절기 비염 시즌 콘텐츠 <tspan fill="#f4d9a8" font-weight="700">+12건</tspan> 선제 발행',
         '📍 네이버 플레이스 "송파 한의원" <tspan fill="#f4d9a8" font-weight="700">TOP 3 진입</tspan>',
@@ -1622,9 +1625,10 @@ payForm?.addEventListener('submit', async (e) => {
       name: '강남 법무법인 D · 18개월차 운영',
       kpis: { leads: 14, leadsLabel: '월 신규 수임', roas: 500, revenue: 24000, revenueLabel: '월 매출' },
       // 객단가 ≈ 1,700만원/건(이혼·상속 평균) × 14건 = ₩2.4억/월
-      revenueSeries: [140, 160, 155, 195, 215, 240],
-      costSeries:    [28,  32,  32,  38,  42,  48],
-      growth: '+71%',
+      // 18개월차 안정 운영 — 점진적·꾸준한 우상향 (큰 dip 없음)
+      revenueSeries: [148, 168, 175, 195, 218, 240],
+      costSeries:    [30,  34,  35,  39,  43,  48],
+      growth: '+62%',
       feed: [
         '📚 "이혼 소송 절차" 블로그 시리즈 <tspan fill="#f4d9a8" font-weight="700">9개 상위 진입</tspan>',
         '🔎 Naver 파워링크 CPC <tspan fill="#f4d9a8" font-weight="700">-22%</tspan> 최적화',
@@ -1635,9 +1639,10 @@ payForm?.addEventListener('submit', async (e) => {
       name: '부산 디저트 카페 · 4개월차 운영',
       kpis: { leads: 2160, leadsLabel: '월 신규 방문 (테이블)', roas: 490, revenue: 5400, revenueLabel: '월 매출' },
       // 객단가 ≈ 2.5만원 × 2,160건 = ₩5,400만/월
-      revenueSeries: [30, 36, 34, 42, 48, 54],
-      costSeries:    [7,  8,  8,  9,  10, 11],
-      growth: '+80%',
+      // 신규 오픈 직후 폭발적 상승 — 1월 한파 비수기 dip → 봄철 회복 후 가파른 상승
+      revenueSeries: [22, 36, 28, 40, 48, 54],
+      costSeries:    [5,  8,  6,  8,  10, 11],
+      growth: '+145%',
       feed: [
         '📸 인스타 릴스 <tspan fill="#f4d9a8" font-weight="700">조회수 124만</tspan> 달성 (시그니처 메뉴)',
         '🗺 Naver 플레이스 "부산 디저트" <tspan fill="#f4d9a8" font-weight="700">1페이지 1위</tspan>',
@@ -1648,9 +1653,10 @@ payForm?.addEventListener('submit', async (e) => {
       name: 'D2C 뷰티 브랜드 E · 10개월차 운영',
       kpis: { leads: 2000, leadsLabel: '월 신규 주문', roas: 500, revenue: 16000, revenueLabel: '월 매출' },
       // 객단가 ≈ 8만원 × 2,000건 = ₩1.6억/월
-      revenueSeries: [92, 105, 102, 130, 145, 160],
-      costSeries:    [19, 22,  22,  27,  30,  32],
-      growth: '+74%',
+      // 12월 연말 시즌 큰 점프 → 1월 dip → 봄 신제품 런칭 가속
+      revenueSeries: [82, 124, 105, 132, 148, 160],
+      costSeries:    [17, 25,  21,  26,  29,  32],
+      growth: '+95%',
       feed: [
         '🛒 스마트스토어 신규 SKU 5개 <tspan fill="#f4d9a8" font-weight="700">동시 1페이지</tspan>',
         '⭐ 누적 리뷰 <tspan fill="#f4d9a8" font-weight="700">8,420건</tspan> · 평점 4.7',
