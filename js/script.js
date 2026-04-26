@@ -1418,3 +1418,103 @@ payForm?.addEventListener('submit', async (e) => {
 
   update(); // 초기 계산
 })();
+
+// ===== Sound FX (Web Audio synthesis, no audio files) =====
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const SOUND_KEY = 'noah_sound_v1';
+  const stored = (() => { try { return localStorage.getItem(SOUND_KEY); } catch { return null; } })();
+  let enabled = stored === '1';   // 기본 OFF — 사용자가 켤 때만 활성
+
+  let ctx = null;
+  const ensureCtx = () => {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  };
+
+  const play = (freq, dur, type='sine', gain=0.05, sweep=null) => {
+    if (!enabled) return;
+    try {
+      const c = ensureCtx();
+      const o = c.createOscillator();
+      const g = c.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(freq, c.currentTime);
+      if (sweep) o.frequency.exponentialRampToValueAtTime(sweep, c.currentTime + dur/1000);
+      g.gain.setValueAtTime(gain, c.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + dur/1000);
+      o.connect(g); g.connect(c.destination);
+      o.start();
+      o.stop(c.currentTime + dur/1000);
+    } catch {}
+  };
+
+  // 사운드 프리셋
+  const sfx = {
+    click:    () => play(720, 40, 'square', 0.04),
+    hover:    () => play(1400, 18, 'sine', 0.025),
+    open:     () => { play(420, 90, 'sine', 0.05, 880); },
+    close:    () => { play(880, 90, 'sine', 0.04, 420); },
+    success:  () => { play(660, 60, 'sine', 0.05); setTimeout(()=>play(990, 80, 'sine', 0.05), 80); },
+    toggle:   () => play(540, 50, 'triangle', 0.04),
+  };
+  window.__noahSfx = sfx;
+
+  // 토글 버튼 생성
+  const tBtn = document.createElement('button');
+  tBtn.type = 'button';
+  tBtn.className = 'sound-toggle ' + (enabled ? 'on' : 'off');
+  tBtn.setAttribute('aria-label', enabled ? '사운드 끄기' : '사운드 켜기');
+  tBtn.title = enabled ? '사운드 ON (클릭해서 끄기)' : '사운드 OFF (클릭해서 켜기)';
+  const renderIcon = () => {
+    tBtn.innerHTML = enabled
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+  };
+  renderIcon();
+  document.body.appendChild(tBtn);
+  tBtn.addEventListener('click', () => {
+    enabled = !enabled;
+    try { localStorage.setItem(SOUND_KEY, enabled ? '1' : '0'); } catch {}
+    tBtn.className = 'sound-toggle ' + (enabled ? 'on' : 'off');
+    tBtn.setAttribute('aria-label', enabled ? '사운드 끄기' : '사운드 켜기');
+    tBtn.title = enabled ? '사운드 ON (클릭해서 끄기)' : '사운드 OFF (클릭해서 켜기)';
+    renderIcon();
+    if (enabled) sfx.toggle();
+  });
+
+  // 핵심 인터랙션에 사운드 바인딩 (이미 enabled 체크는 play() 내부에서 함)
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('button, .btn, a.btn, .news-card, .product, .company, .ar-card, .article-card');
+    if (t) sfx.click();
+  });
+  // 모달 open/close hooks
+  const _openInq = window.openInquiry; const _closeInq = window.closeInquiry;
+  // openInquiry/closeInquiry는 const라 직접 wrap 어려움 — 대신 modal 클래스 변경 감지로 대응
+  const obs = new MutationObserver((muts) => {
+    muts.forEach(m => {
+      if (m.attributeName === 'class') {
+        const el = m.target;
+        if (el.classList.contains('open') && !el.dataset.sfxPlayed) {
+          el.dataset.sfxPlayed = '1';
+          sfx.open();
+        } else if (!el.classList.contains('open') && el.dataset.sfxPlayed === '1') {
+          el.dataset.sfxPlayed = '0';
+          sfx.close();
+        }
+      }
+    });
+  });
+  ['inquiryModal','paymentModal','articleModal'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el, { attributes: true, attributeFilter: ['class'] });
+  });
+  // 폼 제출 성공 시 success 사운드
+  document.querySelectorAll('#inquiryForm, #paymentForm').forEach(f => {
+    f.addEventListener('submit', () => {
+      // 성공은 비동기 — 추정으로 1.5초 후 재생
+      setTimeout(() => sfx.success(), 1400);
+    });
+  });
+})();
