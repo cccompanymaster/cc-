@@ -420,4 +420,10 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/kakaotalk-xiaohongshu-bridge-marketing.html"/>
   </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/impact-2026.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
