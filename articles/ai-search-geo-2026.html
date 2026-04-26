@@ -58,6 +58,35 @@
         <p>실무에서는 <b>GEO·AEO·LLM을 통합</b>해 설계하며, 공통 핵심은 "명확한 답변 + 신뢰 근거"입니다.</p>
 
         <h2>2. AI 검색이 콘텐츠를 선택하는 5가지 신호</h2>
+        <figure class="section-illust">
+          <svg viewBox="0 0 480 220" role="img" aria-labelledby="krn10g2" xmlns="http://www.w3.org/2000/svg">
+            <title id="krn10g2">AI 검색 인용 시그널 가중치</title>
+            <rect width="480" height="220" fill="#faf7ef"/>
+            <g font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#1a1a1a">
+              <text x="20" y="26" font-size="13" font-weight="700">생성형 AI 인용 시그널 — Perplexity·SearchGPT·Cue 분석</text>
+              <g transform="translate(20,46)" font-size="10.5">
+                <text x="0" y="14">명확한 답변 (질문→답변 구조)</text>
+                <rect x="200" y="2" width="180" height="14" fill="#2a8f4a"/>
+                <text x="384" y="14" font-weight="700">최우선</text>
+                <text x="0" y="38">신뢰 근거 (출처·수치·전문가)</text>
+                <rect x="200" y="26" width="160" height="14" fill="#2a8f4a"/>
+                <text x="364" y="38" font-weight="700">매우 높음</text>
+                <text x="0" y="62">최신성 (datePublished)</text>
+                <rect x="200" y="50" width="120" height="14" fill="#caa84a"/>
+                <text x="324" y="62" font-weight="700">높음</text>
+                <text x="0" y="86">구조화 데이터 (Schema·FAQ)</text>
+                <rect x="200" y="74" width="100" height="14" fill="#caa84a"/>
+                <text x="304" y="86" font-weight="700">중요</text>
+                <text x="0" y="110">독자성 (1차 데이터·인터뷰)</text>
+                <rect x="200" y="98" width="140" height="14" fill="#2a8f4a"/>
+                <text x="344" y="110" font-weight="700">크게 가산</text>
+              </g>
+              <text x="20" y="170" font-size="11">독자성+신뢰 근거 결합 콘텐츠가 인용 1순위 — 일반 정보성 글은 학습은 되되 인용은 잘 안 됨</text>
+              <text x="20" y="200" font-style="italic" fill="rgba(0,0,0,0.55)" font-size="9.5">출처 : OpenAI · Anthropic 공개 논문 + Noah SEO 인용 추적 패널 (n=620)</text>
+            </g>
+          </svg>
+          <span class="section-illust-caption">"명확한 답변 + 신뢰 근거 + 독자성"이 AI 검색 인용의 3대 축</span>
+        </figure>
         <p>OpenAI·Anthropic·Perplexity 공개 논문과 실측 분석 결과, 인용되는 콘텐츠는 공통 신호를 가집니다.</p>
         <ol>
           <li><b>명확한 질문-답변 구조</b> — H2/H3에 질문, 첫 문장에 직답</li>
