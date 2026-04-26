@@ -376,4 +376,48 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://cccompanymaster.github.io/cc-/articles/korean-consumer-behavior-cultural.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/korean-consumer-behavior-cultural.html"/>
   </url>
+  <!-- ZH cross-border articles (Phase T) -->
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/index-zh.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/index-zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cccompanymaster.github.io/cc-/articles/index-zh.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/china-brand-korea-entry.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/china-brand-korea-entry.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/naver-seo-chinese-sellers.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/naver-seo-chinese-sellers.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/coupang-smartstore-china-cross-border.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/coupang-smartstore-china-cross-border.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/korea-ad-compliance-chinese-sellers.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/korea-ad-compliance-chinese-sellers.html"/>
+  </url>
+  <url>
+    <loc>https://cccompanymaster.github.io/cc-/articles/kakaotalk-xiaohongshu-bridge-marketing.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cccompanymaster.github.io/cc-/articles/kakaotalk-xiaohongshu-bridge-marketing.html"/>
+  </url>
 </urlset>

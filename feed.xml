@@ -362,5 +362,51 @@
       <dc:language>en</dc:language>
       <author>noreply@cccompanymaster.github.io (Han Jiyoon)</author>
     </item>
+    <!-- ZH cross-border articles (Phase T) -->
+    <item>
+      <title>中国品牌进入韩国市场指南 2026 — Naver·KakaoTalk·韩国消费者全攻略</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/china-brand-korea-entry.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/china-brand-korea-entry.html</guid>
+      <pubDate>Sun, 26 Apr 2026 09:00:00 +0900</pubDate>
+      <description>韩国市场基本盘、消费者画像、5种法律结构、Naver+KakaoTalk双引擎、电商平台选择、90天进入路线图。</description>
+      <category>ZH China-Korea</category>
+      <dc:language>zh-CN</dc:language>
+    </item>
+    <item>
+      <title>韩国Naver SEO中文卖家实操指南 2026 — Smart Block·Cafe·Knowledge iN</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/naver-seo-chinese-sellers.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/naver-seo-chinese-sellers.html</guid>
+      <pubDate>Sun, 26 Apr 2026 09:00:00 +0900</pubDate>
+      <description>Smart Block占位逻辑、5个常见SEO坑、3层关键词结构、Cafe 4周渗透法则、90天执行表。</description>
+      <category>ZH China-Korea</category>
+      <dc:language>zh-CN</dc:language>
+    </item>
+    <item>
+      <title>韩国Coupang·SmartStore跨境电商指南 2026 — 物流·结算·税务实操</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/coupang-smartstore-china-cross-border.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/coupang-smartstore-china-cross-border.html</guid>
+      <pubDate>Sun, 26 Apr 2026 09:00:00 +0900</pubDate>
+      <description>4大平台对比、Coupang Global入驻、海关与VAT、汇率管理、90天进入路径。</description>
+      <category>ZH China-Korea</category>
+      <dc:language>zh-CN</dc:language>
+    </item>
+    <item>
+      <title>韩国广告法合规指南 2026 — 中国卖家必读 KFTC·MFDS·医疗法</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/korea-ad-compliance-chinese-sellers.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/korea-ad-compliance-chinese-sellers.html</guid>
+      <pubDate>Sun, 26 Apr 2026 09:00:00 +0900</pubDate>
+      <description>6大监管机构、KFTC 6条核心规则、MFDS化妆品认证、违规罚款实例、8步合规流程。</description>
+      <category>ZH China-Korea</category>
+      <dc:language>zh-CN</dc:language>
+    </item>
+    <item>
+      <title>韩国KakaoTalk·小红书联动营销 2026 — 中韩双向流量打通指南</title>
+      <link>https://cccompanymaster.github.io/cc-/articles/kakaotalk-xiaohongshu-bridge-marketing.html</link>
+      <guid isPermaLink="true">https://cccompanymaster.github.io/cc-/articles/kakaotalk-xiaohongshu-bridge-marketing.html</guid>
+      <pubDate>Sun, 26 Apr 2026 09:00:00 +0900</pubDate>
+      <description>小红书韩国趋势利用、KakaoTalk Channel转化、双语创作者矩阵、跨平台KPI看板。</description>
+      <category>ZH China-Korea</category>
+      <dc:language>zh-CN</dc:language>
+    </item>
   </channel>
 </rss>
