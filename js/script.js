@@ -1350,3 +1350,71 @@ payForm?.addEventListener('submit', async (e) => {
     paySubmitLabel.textContent = originalLabel;
   }
 });
+
+// ===== ROI Calculator =====
+(() => {
+  const indSel = document.getElementById('roi-industry');
+  const budRange = document.getElementById('roi-budget');
+  const budDisplay = document.getElementById('roi-budget-display');
+  const leadsEl = document.getElementById('roi-leads');
+  const roasEl = document.getElementById('roi-roas');
+  const revEl = document.getElementById('roi-revenue');
+  const ctaBtn = document.getElementById('roiOpenInquiry');
+  if (!indSel || !budRange) return;
+
+  // 업종별 평균 데이터(자사 374건 기반): leadsPerMillion = 100만원당 월 신규문의수, roasMin/roasMax(%), aov(평균 객단가)
+  const data = {
+    medical:    { leadsPerMillion: 0.6, roasMin: 280, roasMax: 480, aov: 800000 },
+    legal:      { leadsPerMillion: 0.4, roasMin: 320, roasMax: 580, aov: 2200000 },
+    commerce:   { leadsPerMillion: 1.2, roasMin: 250, roasMax: 420, aov: 95000 },
+    restaurant: { leadsPerMillion: 2.4, roasMin: 380, roasMax: 620, aov: 38000 },
+    b2b:        { leadsPerMillion: 0.3, roasMin: 240, roasMax: 450, aov: 6500000 },
+    education:  { leadsPerMillion: 0.9, roasMin: 220, roasMax: 380, aov: 480000 },
+    beauty:     { leadsPerMillion: 1.6, roasMin: 290, roasMax: 510, aov: 78000 },
+  };
+
+  const fmtWon = (n) => {
+    if (n >= 100000000) return (n/100000000).toFixed(1).replace(/\.0$/,'') + '억';
+    if (n >= 10000000) return Math.round(n/10000000) + '천만';
+    if (n >= 10000) return Math.round(n/10000) + '만';
+    return new Intl.NumberFormat('ko-KR').format(n);
+  };
+
+  const update = () => {
+    const ind = data[indSel.value] || data.medical;
+    const budManwon = parseInt(budRange.value, 10); // 단위: 만원
+    const budgetWon = budManwon * 10000;
+    const leads = Math.round(ind.leadsPerMillion * (budManwon / 1));
+    const monthlyRevenueLow = Math.round(budgetWon * ind.roasMin / 100);
+    const monthlyRevenueHigh = Math.round(budgetWon * ind.roasMax / 100);
+    const sixMonthLow = monthlyRevenueLow * 6;
+    const sixMonthHigh = monthlyRevenueHigh * 6;
+
+    budDisplay.textContent = '₩' + budManwon.toLocaleString('ko-KR') + '만';
+    // slider gradient
+    const pct = ((budManwon - 100) / (5000 - 100)) * 100;
+    budRange.style.setProperty('--val', pct + '%');
+
+    leadsEl.textContent = leads.toLocaleString('ko-KR');
+    roasEl.textContent = ind.roasMin + '~' + ind.roasMax;
+    revEl.textContent = fmtWon(sixMonthLow) + '~' + fmtWon(sixMonthHigh);
+  };
+
+  indSel.addEventListener('change', update);
+  budRange.addEventListener('input', update);
+  ctaBtn?.addEventListener('click', () => {
+    if (typeof openInquiry === 'function') {
+      openInquiry();
+      // 메모란에 ROI 시뮬 결과 자동 입력
+      setTimeout(() => {
+        const memo = document.getElementById('inq-message') || document.getElementById('inq-memo');
+        if (memo) {
+          const ind = indSel.options[indSel.selectedIndex].text;
+          memo.value = `[ROI 시뮬레이션] 업종: ${ind} / 월 예산: ₩${budRange.value}만원 / 예상 ROAS: ${roasEl.textContent}% / 6개월 누적: ${revEl.textContent}원\n\n맞춤 견적 요청드립니다.`;
+        }
+      }, 300);
+    }
+  });
+
+  update(); // 초기 계산
+})();
