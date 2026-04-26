@@ -694,22 +694,22 @@
                 </g>
               </g>
 
-              <!-- Line chart — 부드러운 곡선 + 데이터 포인트 + 그리드 + Y라벨 + X라벨 -->
+              <!-- Line chart — 계단식 상승 + 매출/광고비 듀얼 라인 -->
               <g transform="translate(190,144)">
                 <rect width="574" height="186" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
-                <text x="18" y="22" font-family="'Pretendard',sans-serif" font-size="11" fill="#fff" font-weight="700">6개월 누적 매출 추이</text>
-                <text x="18" y="36" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">단위 : 백만원 (₩1,000,000)</text>
+                <text x="18" y="22" font-family="'Pretendard',sans-serif" font-size="11" fill="#fff" font-weight="700" id="demo-chart-title">6개월 매출·광고비 추이</text>
+                <text x="18" y="36" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">단위 : 백만원 (₩1,000,000) · 평균 ROAS <tspan id="demo-avg-roas" font-weight="700" fill="#f4d9a8">490%</tspan></text>
 
-                <!-- Y축 그리드 + 라벨 -->
+                <!-- Y축 그리드 + 동적 라벨 -->
                 <g font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">
-                  <line x1="56" y1="56" x2="556" y2="56" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
-                  <text x="48" y="60" text-anchor="end">200</text>
-                  <line x1="56" y1="92" x2="556" y2="92" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
-                  <text x="48" y="96" text-anchor="end">150</text>
-                  <line x1="56" y1="128" x2="556" y2="128" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
-                  <text x="48" y="132" text-anchor="end">100</text>
-                  <line x1="56" y1="148" x2="556" y2="148" stroke="rgba(255,255,255,0.08)"/>
-                  <text x="48" y="152" text-anchor="end">0</text>
+                  <line x1="60" y1="56" x2="556" y2="56" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
+                  <text x="52" y="60" text-anchor="end" id="demo-y-3">200</text>
+                  <line x1="60" y1="92" x2="556" y2="92" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
+                  <text x="52" y="96" text-anchor="end" id="demo-y-2">100</text>
+                  <line x1="60" y1="128" x2="556" y2="128" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
+                  <text x="52" y="132" text-anchor="end" id="demo-y-1">50</text>
+                  <line x1="60" y1="148" x2="556" y2="148" stroke="rgba(255,255,255,0.08)"/>
+                  <text x="52" y="152" text-anchor="end">0</text>
                 </g>
 
                 <!-- X축 월 라벨 -->
@@ -722,36 +722,19 @@
                   <text x="480" y="170">4월</text>
                 </g>
 
-                <!-- Naver SEO area + 부드러운 곡선 (아래쪽 채움) -->
-                <path class="demo-line demo-line-1" fill="url(#demoArea1)" stroke="none"
-                  d="M 80 138 C 100 132, 140 124, 160 122 S 220 108, 240 102 S 300 86, 320 80 S 380 64, 400 58 S 460 46, 480 42 L 480 148 L 80 148 Z"/>
-                <path class="demo-line demo-line-1-stroke" fill="none" stroke="#2a8f4a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
-                  d="M 80 138 C 100 132, 140 124, 160 122 S 220 108, 240 102 S 300 86, 320 80 S 380 64, 400 58 S 460 46, 480 42"/>
+                <!-- 매출 area + step line + 광고비 step line + 데이터 포인트 — 모두 JS에서 d 속성 채움 -->
+                <path id="demo-revenue-area" fill="url(#demoArea1)" stroke="none" d=""/>
+                <path id="demo-revenue-line" fill="none" stroke="#2a8f4a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d=""/>
+                <path id="demo-cost-line" fill="none" stroke="#f4d9a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0" d=""/>
 
-                <!-- Kakao Channel — 부드러운 곡선 -->
-                <path class="demo-line demo-line-2" fill="none" stroke="#f4d9a8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
-                  d="M 80 142 C 100 138, 140 130, 160 128 S 220 116, 240 110 S 300 96, 320 90 S 380 76, 400 70 S 460 58, 480 54"/>
-
-                <!-- Coupang — 부드러운 곡선 (점선) -->
-                <path class="demo-line demo-line-3" fill="none" stroke="#caa84a" stroke-width="1.8" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round"
-                  d="M 80 144 C 100 142, 140 138, 160 134 S 220 124, 240 118 S 300 106, 320 100 S 380 86, 400 80 S 460 70, 480 66"/>
-
-                <!-- 데이터 포인트 dots -->
-                <g class="demo-dots">
-                  <circle cx="80" cy="138" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
-                  <circle cx="160" cy="122" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
-                  <circle cx="240" cy="102" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
-                  <circle cx="320" cy="80" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
-                  <circle cx="400" cy="58" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
-                  <circle cx="480" cy="42" r="4.5" fill="#fff" stroke="#2a8f4a" stroke-width="2.5"/>
-                  <text x="496" y="38" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#f4d9a8">+218%</text>
-                </g>
+                <g id="demo-revenue-dots" class="demo-dots"></g>
+                <text id="demo-growth-label" x="500" y="40" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#f4d9a8">+78%</text>
 
                 <!-- Legend -->
                 <g transform="translate(80,196)" font-family="'Pretendard',sans-serif" font-size="10" fill="rgba(255,255,255,0.78)">
-                  <circle r="3.5" fill="#2a8f4a" cx="0" cy="-2"/><text x="10" y="2">Naver SEO</text>
-                  <circle r="3.5" fill="#f4d9a8" cx="100" cy="-2"/><text x="110" y="2">KakaoTalk Channel</text>
-                  <line x1="225" y1="-3" x2="240" y2="-3" stroke="#caa84a" stroke-width="1.8" stroke-dasharray="3 2"/><text x="246" y="2">Coupang</text>
+                  <rect x="-4" y="-7" width="10" height="3" fill="#2a8f4a" rx="1"/><text x="12" y="2">매출</text>
+                  <rect x="76" y="-7" width="10" height="3" fill="#f4d9a8" rx="1"/><text x="92" y="2">광고비</text>
+                  <text x="180" y="2" fill="rgba(255,255,255,0.5)" font-size="9.5">계단식 = 월별 실측치 그대로 표시 (보정 없음)</text>
                 </g>
               </g>
 

@@ -1576,22 +1576,29 @@ payForm?.addEventListener('submit', async (e) => {
   if (!demoSec) return;
 
   // 6개 고객사 사례 데이터 — KPI/그래프/활동피드 모두 변경
-  // 업계 평균 매출 수준에 맞춘 현실적 수치 (월 단위, 단위: 만원)
+  // 업계 평균 + 객단가 정합성 + 지역 특성 반영 (단위 — leads:건/주문/방문, revenue:만원, ROAS 400~600% 광고비 환산)
+  // 6개월 매출/광고비 시리즈는 계단식(전월 대비 약간의 dip 포함) — 단위 백만원
   const cases = [
     {
       name: '강남 피부과 A · 14개월차 운영',
-      kpis: { leads: 142, leadsLabel: '월 신규 문의', roas: 312, revenue: 6800, revenueLabel: '월 매출' },
-      growth: '+128%',
+      kpis: { leads: 96, leadsLabel: '월 신규 문의 (전화·카톡)', roas: 490, revenue: 14000, revenueLabel: '월 매출' },
+      // 객단가 ≈ 145만원/명 (시술 평균) × 96건 + 재방문 → ≈ ₩1.4억/월
+      revenueSeries: [80, 92, 88, 110, 120, 142],
+      costSeries:    [18, 18, 19, 22,  24,  28],
+      growth: '+78%',
       feed: [
         '⚡ Naver Smart Block 진입 — "강남 피부과 추천" 키워드 <tspan fill="#f4d9a8" font-weight="700">3위</tspan>',
         '💬 KakaoTalk 채널 친구 추가 <tspan fill="#f4d9a8" font-weight="700">+147명</tspan> (지난 24시간)',
-        '📋 신규 내원 예약 <tspan fill="#f4d9a8" font-weight="700">+38건</tspan> · ROAS <tspan fill="#f4d9a8" font-weight="700">312%</tspan>'
+        '📋 신규 내원 예약 <tspan fill="#f4d9a8" font-weight="700">+38건</tspan> · ROAS <tspan fill="#f4d9a8" font-weight="700">507%</tspan>'
       ]
     },
     {
       name: '건강기능식품 D2C B · 8개월차 운영',
-      kpis: { leads: 642, leadsLabel: '월 신규 주문', roas: 286, revenue: 3200, revenueLabel: '월 매출' },
-      growth: '+186%',
+      kpis: { leads: 1020, leadsLabel: '월 신규 주문', roas: 460, revenue: 6800, revenueLabel: '월 매출' },
+      // 객단가 약 6.7만원 × 1,020건 = ₩6,800만/월
+      revenueSeries: [38, 42, 40, 52, 58, 68],
+      costSeries:    [8,  9,  9,  11, 12, 14],
+      growth: '+79%',
       feed: [
         '🔥 스마트스토어 "유산균 추천" 카테고리 <tspan fill="#f4d9a8" font-weight="700">1페이지 2위</tspan>',
         '📝 체험단 30건 발행 완료 — 평점 평균 <tspan fill="#f4d9a8" font-weight="700">4.8/5</tspan>',
@@ -1600,8 +1607,11 @@ payForm?.addEventListener('submit', async (e) => {
     },
     {
       name: '송파 한의원 C · 6개월차 운영',
-      kpis: { leads: 92, leadsLabel: '월 신규 내원 예약', roas: 268, revenue: 3400, revenueLabel: '월 매출' },
-      growth: '+94%',
+      kpis: { leads: 108, leadsLabel: '월 신규 내원 예약', roas: 470, revenue: 4200, revenueLabel: '월 매출' },
+      // 객단가 ≈ 39만원/명 × 108건 = ₩4,200만/월
+      revenueSeries: [24, 28, 26, 32, 36, 42],
+      costSeries:    [5,  6,  6,  7,  8,  9],
+      growth: '+75%',
       feed: [
         '🌸 환절기 비염 시즌 콘텐츠 <tspan fill="#f4d9a8" font-weight="700">+12건</tspan> 선제 발행',
         '📍 네이버 플레이스 "송파 한의원" <tspan fill="#f4d9a8" font-weight="700">TOP 3 진입</tspan>',
@@ -1610,18 +1620,24 @@ payForm?.addEventListener('submit', async (e) => {
     },
     {
       name: '강남 법무법인 D · 18개월차 운영',
-      kpis: { leads: 48, leadsLabel: '월 신규 상담', roas: 348, revenue: 14200, revenueLabel: '월 매출' },
-      growth: '+76%',
+      kpis: { leads: 14, leadsLabel: '월 신규 수임', roas: 500, revenue: 24000, revenueLabel: '월 매출' },
+      // 객단가 ≈ 1,700만원/건(이혼·상속 평균) × 14건 = ₩2.4억/월
+      revenueSeries: [140, 160, 155, 195, 215, 240],
+      costSeries:    [28,  32,  32,  38,  42,  48],
+      growth: '+71%',
       feed: [
         '📚 "이혼 소송 절차" 블로그 시리즈 <tspan fill="#f4d9a8" font-weight="700">9개 상위 진입</tspan>',
         '🔎 Naver 파워링크 CPC <tspan fill="#f4d9a8" font-weight="700">-22%</tspan> 최적화',
-        '📋 신규 수임 <tspan fill="#f4d9a8" font-weight="700">+18건/월</tspan>'
+        '📋 신규 수임 <tspan fill="#f4d9a8" font-weight="700">+14건/월</tspan>'
       ]
     },
     {
       name: '부산 디저트 카페 · 4개월차 운영',
-      kpis: { leads: 318, leadsLabel: '월 신규 방문 (테이블)', roas: 240, revenue: 2200, revenueLabel: '월 매출' },
-      growth: '+162%',
+      kpis: { leads: 2160, leadsLabel: '월 신규 방문 (테이블)', roas: 490, revenue: 5400, revenueLabel: '월 매출' },
+      // 객단가 ≈ 2.5만원 × 2,160건 = ₩5,400만/월
+      revenueSeries: [30, 36, 34, 42, 48, 54],
+      costSeries:    [7,  8,  8,  9,  10, 11],
+      growth: '+80%',
       feed: [
         '📸 인스타 릴스 <tspan fill="#f4d9a8" font-weight="700">조회수 124만</tspan> 달성 (시그니처 메뉴)',
         '🗺 Naver 플레이스 "부산 디저트" <tspan fill="#f4d9a8" font-weight="700">1페이지 1위</tspan>',
@@ -1630,8 +1646,11 @@ payForm?.addEventListener('submit', async (e) => {
     },
     {
       name: 'D2C 뷰티 브랜드 E · 10개월차 운영',
-      kpis: { leads: 1240, leadsLabel: '월 신규 주문', roas: 296, revenue: 18000, revenueLabel: '월 매출' },
-      growth: '+148%',
+      kpis: { leads: 2000, leadsLabel: '월 신규 주문', roas: 500, revenue: 16000, revenueLabel: '월 매출' },
+      // 객단가 ≈ 8만원 × 2,000건 = ₩1.6억/월
+      revenueSeries: [92, 105, 102, 130, 145, 160],
+      costSeries:    [19, 22,  22,  27,  30,  32],
+      growth: '+74%',
       feed: [
         '🛒 스마트스토어 신규 SKU 5개 <tspan fill="#f4d9a8" font-weight="700">동시 1페이지</tspan>',
         '⭐ 누적 리뷰 <tspan fill="#f4d9a8" font-weight="700">8,420건</tspan> · 평점 4.7',
@@ -1645,10 +1664,90 @@ payForm?.addEventListener('submit', async (e) => {
   const counters = demoSec.querySelectorAll('.demo-counter');
   const activeRect = demoSec.querySelector('.demo-nav-active');
   const feed = demoSec.querySelector('.demo-feed');
-  const dotsTextGrowth = demoSec.querySelector('.demo-dots text');
   const navItems = demoSec.querySelectorAll('.demo-nav-item');
   // KPI 라벨 — SVG 내 text 셀렉터로 잡기 (1번째: leads label, 3번째: revenue label)
   const allKpiLabels = demoSec.querySelectorAll('.demo-kpis text[font-size="9.5"]');
+  // 차트 요소
+  const chartArea = { x: 80, y: 32, width: 400, height: 116 };  // SVG 좌표 (g translate 기준)
+  const xs = [0,1,2,3,4,5].map(i => chartArea.x + (chartArea.width / 5) * i);
+  const revenueAreaEl = document.getElementById('demo-revenue-area');
+  const revenueLineEl = document.getElementById('demo-revenue-line');
+  const costLineEl = document.getElementById('demo-cost-line');
+  const dotsGroup = document.getElementById('demo-revenue-dots');
+  const growthLabel = document.getElementById('demo-growth-label');
+  const yLabel1 = document.getElementById('demo-y-1');
+  const yLabel2 = document.getElementById('demo-y-2');
+  const yLabel3 = document.getElementById('demo-y-3');
+  const avgRoasLabel = document.getElementById('demo-avg-roas');
+
+  // 매끄러운 step path (계단의 코너에 작은 곡선) — step-after with rounded corners
+  const stepPath = (xs, ys, r=6) => {
+    let d = `M ${xs[0]} ${ys[0]}`;
+    for (let i = 1; i < xs.length; i++) {
+      const dy = ys[i] - ys[i-1];
+      const dir = Math.sign(dy);
+      const cornerR = Math.min(r, Math.abs(dy)/2);
+      d += ` L ${xs[i] - cornerR} ${ys[i-1]}`;
+      if (cornerR > 0) {
+        d += ` Q ${xs[i]} ${ys[i-1]} ${xs[i]} ${ys[i-1] + dir*cornerR}`;
+      }
+      d += ` L ${xs[i]} ${ys[i]}`;
+    }
+    return d;
+  };
+
+  const renderChart = (revenue, cost) => {
+    if (!revenueLineEl) return;
+    // Y축 max를 사례 max 매출 기준 동적 산출 (max + 20% 헤드룸)
+    const yMax = Math.ceil(Math.max(...revenue) * 1.15 / 10) * 10;
+    const yScale = (v) => chartArea.y + chartArea.height - (v / yMax) * chartArea.height;
+
+    const ysRev = revenue.map(yScale);
+    const ysCost = cost.map(yScale);
+
+    // 매출 라인 (step)
+    revenueLineEl.setAttribute('d', stepPath(xs, ysRev));
+    // 매출 area (선 아래 채움)
+    const baseY = chartArea.y + chartArea.height;
+    const areaD = stepPath(xs, ysRev) + ` L ${xs[xs.length-1]} ${baseY} L ${xs[0]} ${baseY} Z`;
+    revenueAreaEl.setAttribute('d', areaD);
+    // 광고비 라인 (step)
+    costLineEl.setAttribute('d', stepPath(xs, ysCost));
+
+    // 데이터 포인트 dots (매출만)
+    if (dotsGroup) {
+      dotsGroup.innerHTML = '';
+      revenue.forEach((v, i) => {
+        const isLast = i === revenue.length - 1;
+        const cx = xs[i], cy = ysRev[i];
+        const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', cx);
+        c.setAttribute('cy', cy);
+        c.setAttribute('r', isLast ? 4.5 : 3.5);
+        c.setAttribute('fill', isLast ? '#fff' : '#2a8f4a');
+        c.setAttribute('stroke', isLast ? '#2a8f4a' : '#0a1628');
+        c.setAttribute('stroke-width', isLast ? 2.5 : 2);
+        dotsGroup.appendChild(c);
+      });
+    }
+
+    // Y축 라벨 동적
+    if (yLabel1) yLabel1.textContent = Math.round(yMax * 0.25);
+    if (yLabel2) yLabel2.textContent = Math.round(yMax * 0.5);
+    if (yLabel3) yLabel3.textContent = Math.round(yMax * 0.75);
+
+    // 평균 ROAS = sum(매출) / sum(광고비) × 100
+    const sumRev = revenue.reduce((a,b)=>a+b, 0);
+    const sumCost = cost.reduce((a,b)=>a+b, 0);
+    const avgRoas = sumCost > 0 ? Math.round(sumRev / sumCost * 100) : 0;
+    if (avgRoasLabel) avgRoasLabel.textContent = avgRoas + '%';
+
+    // growth 라벨 위치를 마지막 dot 옆으로 갱신
+    if (growthLabel) {
+      growthLabel.setAttribute('x', xs[xs.length-1] + 14);
+      growthLabel.setAttribute('y', ysRev[ysRev.length-1] + 4);
+    }
+  };
 
   // 사이드바 active rect Y — HTML의 wrapper rect 위치와 동일
   const navYPositions = [64, 108, 150, 192, 234, 276];
@@ -1685,8 +1784,9 @@ payForm?.addEventListener('submit', async (e) => {
     if (counters[1]) { counters[1].dataset.target = c.kpis.roas; counters[1].textContent = '0'; }
     if (counters[2]) { counters[2].dataset.target = c.kpis.revenue; counters[2].dataset.decimals = '0'; counters[2].textContent = '0'; }
 
-    // 그래프 endpoint 라벨
-    if (dotsTextGrowth) dotsTextGrowth.textContent = c.growth;
+    // 그래프 동적 렌더링 (매출·광고비 step path)
+    renderChart(c.revenueSeries, c.costSeries);
+    if (growthLabel) growthLabel.textContent = c.growth;
 
     // 활동 피드
     if (feed) {
@@ -1740,6 +1840,9 @@ payForm?.addEventListener('submit', async (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.dispatchEvent(new Event('click')); }
     });
   });
+
+  // 초기 렌더 — 기본 활성 0번 (강남 피부과)
+  setActive(0);
 
   // viewport 진입 시 자동 순환 시작
   let started = false;
