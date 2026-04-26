@@ -992,7 +992,9 @@ function trapFocus(modalEl, e) {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
 function lockBackground(locked) {
-  bgLayers().forEach(el => {
+  // 헤더/푸터에만 inert를 적용 — main-content는 모달의 부모이므로 inert를 걸면 모달 자체가 비활성화됨
+  // (결제/문의 모달의 X 버튼이 안 눌리던 버그 원인)
+  [document.getElementById('header'), document.getElementById('footer')].filter(Boolean).forEach(el => {
     if (locked) el.setAttribute('inert', '');
     else el.removeAttribute('inert');
   });
