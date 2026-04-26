@@ -266,25 +266,30 @@ html {
   .intro-progress span { width: 100%; background: var(--gold); }
 }
 
-/* ===== Hero mini compass (small ambient element, identical pattern to loading compass) ===== */
+/* ===== Hero mini compass (matches loading compass markup; needle pivot is reliable) ===== */
 .hero-mini-compass {
   position: absolute;
   top: 50%; left: 50%;
-  width: 140px; height: 140px;
+  width: 220px; height: 220px;
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none;
   opacity: 0;
   animation: heroMiniCompassIn 1.2s 0.6s var(--easing) forwards;
-  filter: drop-shadow(0 0 24px rgba(212,165,116,0.18));
+  filter: drop-shadow(0 0 32px rgba(212,165,116,0.22));
 }
 .hero-mini-compass svg { width: 100%; height: 100%; display: block; }
 .hero-mini-needle {
   transform-origin: 60px 60px;
-  animation: heroMiniNeedleSpin 4.4s cubic-bezier(.4,0,.2,1) infinite;
+  /* Initial wind-up spin once; after animationend the JS takes over and rotates by cursor */
+  animation: heroMiniNeedleSpin 4.4s cubic-bezier(.4,0,.2,1) forwards;
+}
+.hero-mini-needle.js-controlled {
+  /* When JS takes over, animation is removed and transform is set inline */
+  animation: none;
 }
 @keyframes heroMiniCompassIn {
-  to { opacity: 0.7; }
+  to { opacity: 0.85; }
 }
 @keyframes heroMiniNeedleSpin {
   0% { transform: rotate(0deg); }
@@ -292,14 +297,14 @@ html {
   100% { transform: rotate(720deg); }
 }
 @media (max-width: 900px) {
-  .hero-mini-compass { width: 110px; height: 110px; top: 46%; opacity: 0.55; }
+  .hero-mini-compass { width: 170px; height: 170px; top: 46%; opacity: 0.7; }
 }
 @media (max-width: 560px) {
-  .hero-mini-compass { width: 90px; height: 90px; opacity: 0.5; }
+  .hero-mini-compass { width: 130px; height: 130px; opacity: 0.6; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-mini-needle { animation: none !important; }
-  .hero-mini-compass { animation: none !important; opacity: 0.55; }
+  .hero-mini-compass { animation: none !important; opacity: 0.7; }
 }
 
 /* ====== Header ====== */

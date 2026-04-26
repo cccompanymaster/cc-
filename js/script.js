@@ -30,7 +30,47 @@ if (document.readyState === 'complete') {
 }
 introEl?.addEventListener('click', hideIntro);
 
-// ===== Hero: Ark parallax removed (small compass spins via CSS only) =====
+// ===== Hero mini compass: initial CSS wind-up spin → after animationend, cursor controls rotation direction =====
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const hero = document.querySelector('.hero');
+  const needle = document.querySelector('.hero-mini-needle');
+  if (!hero || !needle) return;
+  if (!matchMedia('(hover: hover)').matches) return; // touch devices: keep CSS-only spin behavior
+
+  let mouseControl = false;
+  let currentAngle = 720;          // CSS animation ends at 720deg = visually 0
+  let targetSpeed = 0.15;          // idle drift after wind-up
+  let currentSpeed = 0;
+
+  const onAnimEnd = (e) => {
+    if (e.animationName !== 'heroMiniNeedleSpin') return;
+    needle.removeEventListener('animationend', onAnimEnd);
+    mouseControl = true;
+    needle.classList.add('js-controlled');
+    requestAnimationFrame(tick);
+  };
+  needle.addEventListener('animationend', onAnimEnd);
+
+  hero.addEventListener('mousemove', (e) => {
+    if (!mouseControl) return;
+    const rect = hero.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const norm = Math.max(-1, Math.min(1, (e.clientX - cx) / (rect.width / 2)));
+    const sign = Math.sign(norm) || 1;
+    const magnitude = Math.max(0, Math.abs(norm) - 0.06) / 0.94;
+    targetSpeed = sign * magnitude * 2.2 + sign * 0.12;
+  }, { passive: true });
+
+  hero.addEventListener('mouseleave', () => { targetSpeed = 0.15; });
+
+  function tick() {
+    currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+    currentAngle = (currentAngle + currentSpeed) % 360;
+    needle.style.transform = `rotate(${currentAngle.toFixed(2)}deg)`;
+    requestAnimationFrame(tick);
+  }
+})();
 
 // ===== Custom cursor — 골드 도트 + 딜레이 링 + 트레일 (방주/나침반 브랜드) =====
 const cursor = document.querySelector('.cursor');
