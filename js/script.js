@@ -201,6 +201,7 @@ const getHeaderHeight = () => header?.offsetHeight ?? 70;
   });
 })();
 
+// 하단 상담 배너 — 진입 시점부터 고정 노출 (스크롤 임계값 제거)
 const bottomBanner = document.getElementById('bottomBanner');
 const BB_DISMISSED_KEY = 'noah_bb_dismissed_v1';
 const bbDismissed = (() => {
@@ -208,24 +209,15 @@ const bbDismissed = (() => {
 })();
 if (bottomBanner) {
   bottomBanner.removeAttribute('hidden');
-  if (bbDismissed) bottomBanner.classList.add('dismissed');
-}
-const BB_SHOW_THRESHOLD = 600; // px — hero 통과 이후
-let bbShown = false;
-const updateBottomBanner = (y) => {
-  if (!bottomBanner || bbDismissed) return;
-  // 모바일(max-width:768px)에서는 CSS로 display:none 처리되므로 JS 로직은 그대로 둠
-  const shouldShow = y > BB_SHOW_THRESHOLD;
-  if (shouldShow && !bbShown) {
+  if (bbDismissed) {
+    bottomBanner.classList.add('dismissed');
+  } else {
     bottomBanner.classList.add('visible');
     document.body.classList.add('bb-active');
-    bbShown = true;
-  } else if (!shouldShow && bbShown) {
-    bottomBanner.classList.remove('visible');
-    document.body.classList.remove('bb-active');
-    bbShown = false;
   }
-};
+}
+// 스크롤에 따른 노출 토글 제거 — 고정값 처리
+const updateBottomBanner = () => {};
 document.getElementById('bbClose')?.addEventListener('click', () => {
   bottomBanner?.classList.remove('visible');
   document.body.classList.remove('bb-active');

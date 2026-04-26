@@ -1798,21 +1798,25 @@ html {
   .float-cta .fc:nth-child(3) { display: none; }
 }
 
-/* ====== Bottom Sticky Inquiry Banner ====== */
+/* ====== Bottom Sticky Inquiry Banner — 진입 시점부터 고정 노출 ====== */
 .bottom-banner {
   position: fixed;
   left: 0; right: 0; bottom: 0;
   z-index: 80;
-  transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(.2,.7,.3,1);
+  transform: translateY(0);
   background: linear-gradient(180deg, rgba(11,26,51,0.98), #0B1A33 80%);
   border-top: 1px solid rgba(212,165,116,0.35);
   box-shadow: 0 -12px 40px -10px rgba(0,0,0,0.45);
   color: #fff;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  animation: bbSlideIn 0.6s 0.4s cubic-bezier(.2,.7,.3,1) backwards;
 }
-.bottom-banner[hidden] { display: block; } /* override native hidden so animation can play */
+@keyframes bbSlideIn {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.bottom-banner[hidden] { display: block; }
 .bottom-banner.visible { transform: translateY(0); }
 .bottom-banner.dismissed { display: none !important; }
 
