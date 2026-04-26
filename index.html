@@ -585,6 +585,111 @@
       </div>
     </section>
 
+    <!-- 30-second Auto-play Demo (SVG synthesis) -->
+    <section id="demo" class="demo-sec" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sub-label">PRODUCT DEMO · 30s</span>
+          <h2 class="h2" id="demo-title">한 화면에서 <em>3개 채널을 동시에</em><br>운영하면 어떻게 보이는가</h2>
+          <p class="sec-lead">Naver·Kakao·Coupang 통합 운영 대시보드 — 30초 자동재생 데모로 보세요.</p>
+        </div>
+        <div class="demo-frame">
+          <div class="demo-window">
+            <div class="demo-chrome">
+              <span class="demo-dot demo-dot-r"></span>
+              <span class="demo-dot demo-dot-y"></span>
+              <span class="demo-dot demo-dot-g"></span>
+              <span class="demo-url">noah-marketing-group · campaign dashboard</span>
+            </div>
+            <svg class="demo-canvas" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="통합 캠페인 대시보드 데모">
+              <defs>
+                <linearGradient id="demoBg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0d1a2f"/>
+                  <stop offset="100%" stop-color="#0a1628"/>
+                </linearGradient>
+                <linearGradient id="demoLine" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#caa84a"/>
+                  <stop offset="100%" stop-color="#f4d9a8"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="460" fill="url(#demoBg)"/>
+              <!-- Sidebar -->
+              <g class="demo-sidebar" font-family="Inter,sans-serif" fill="#fff" font-size="11">
+                <rect x="0" y="0" width="170" height="460" fill="rgba(255,255,255,0.03)"/>
+                <text x="20" y="36" font-weight="800" fill="#D4A574" font-size="12" letter-spacing="2">NOAH · CAMPAIGN</text>
+                <g class="demo-nav-items">
+                  <rect class="demo-nav-active" x="14" y="56" width="142" height="30" rx="8" fill="rgba(212,165,116,0.18)"/>
+                  <text x="28" y="76" fill="#f4d9a8" font-weight="700">📊 Dashboard</text>
+                  <text x="28" y="106" fill="rgba(255,255,255,0.55)">🟢 Naver SEO</text>
+                  <text x="28" y="136" fill="rgba(255,255,255,0.55)">💬 Kakao Channel</text>
+                  <text x="28" y="166" fill="rgba(255,255,255,0.55)">📦 Coupang</text>
+                  <text x="28" y="196" fill="rgba(255,255,255,0.55)">📈 Performance</text>
+                  <text x="28" y="226" fill="rgba(255,255,255,0.55)">📝 Content</text>
+                  <text x="28" y="256" fill="rgba(255,255,255,0.55)">⚖ Compliance</text>
+                </g>
+              </g>
+              <!-- KPI cards -->
+              <g class="demo-kpis" font-family="Inter,sans-serif">
+                <g transform="translate(190,30)">
+                  <rect width="180" height="84" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+                  <text x="14" y="26" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">신규 문의 (이번 달)</text>
+                  <text x="14" y="58" font-size="28" font-weight="800" fill="#fff" class="demo-counter" data-target="284">0</text>
+                  <text x="120" y="58" font-size="11" fill="#2a8f4a">+18.4%</text>
+                </g>
+                <g transform="translate(384,30)">
+                  <rect width="180" height="84" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+                  <text x="14" y="26" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">평균 ROAS</text>
+                  <text x="14" y="58" font-size="28" font-weight="800" fill="#D4A574" class="demo-counter" data-target="412" data-suffix="%">0%</text>
+                  <text x="124" y="58" font-size="11" fill="#2a8f4a">+24%</text>
+                </g>
+                <g transform="translate(578,30)">
+                  <rect width="200" height="84" rx="10" fill="rgba(212,165,116,0.12)" stroke="rgba(212,165,116,0.32)"/>
+                  <text x="14" y="26" font-size="10" fill="#f4d9a8" letter-spacing="1.5">월 매출 추정</text>
+                  <text x="14" y="58" font-size="24" font-weight="800" fill="#f4d9a8" class="demo-counter" data-target="142" data-prefix="₩" data-suffix="천만">₩0천만</text>
+                </g>
+              </g>
+              <!-- Line chart -->
+              <g transform="translate(190,140)">
+                <rect width="574" height="180" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
+                <text x="20" y="28" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">3채널 누적 매출 — 6개월</text>
+                <g stroke="rgba(255,255,255,0.06)" stroke-dasharray="2 4">
+                  <line x1="20" y1="60" x2="554" y2="60"/>
+                  <line x1="20" y1="100" x2="554" y2="100"/>
+                  <line x1="20" y1="140" x2="554" y2="140"/>
+                </g>
+                <!-- Naver line -->
+                <polyline class="demo-line demo-line-1" fill="none" stroke="#2a8f4a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  points="40,150 130,128 220,108 310,82 400,62 490,46 540,32"/>
+                <!-- Kakao line -->
+                <polyline class="demo-line demo-line-2" fill="none" stroke="#f4d9a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  points="40,158 130,140 220,124 310,104 400,84 490,68 540,54"/>
+                <!-- Coupang line -->
+                <polyline class="demo-line demo-line-3" fill="none" stroke="#caa84a" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"
+                  points="40,162 130,152 220,138 310,118 400,96 490,80 540,68"/>
+                <!-- legend -->
+                <g transform="translate(20,160)" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">
+                  <circle r="3" fill="#2a8f4a" cx="0" cy="0"/><text x="8" y="4">Naver SEO</text>
+                  <circle r="3" fill="#f4d9a8" cx="100" cy="0"/><text x="108" y="4">Kakao Ch.</text>
+                  <circle r="3" fill="#caa84a" cx="200" cy="0"/><text x="208" y="4">Coupang</text>
+                </g>
+              </g>
+              <!-- Activity feed -->
+              <g transform="translate(190,340)" font-family="Inter,sans-serif">
+                <rect width="574" height="100" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
+                <text x="20" y="26" font-size="11" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">최근 활동</text>
+                <g class="demo-feed" font-size="11.5" fill="rgba(255,255,255,0.85)">
+                  <text x="20" y="50" class="demo-feed-1">⚡ Naver Smart Block 진입 — "강남 피부과 추천" 3위</text>
+                  <text x="20" y="70" class="demo-feed-2">💬 KakaoTalk Channel 친구 +147 (지난 24시간)</text>
+                  <text x="20" y="90" class="demo-feed-3">🛒 Coupang 신규 주문 +28건, ROAS 380%</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <p class="demo-caption">실제 클라이언트 운영 화면 (NDA 익명화). 모든 수치는 자사 평균값.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Services Roadmap -->
     <section id="services" class="services" aria-labelledby="services-title">
       <div class="container">

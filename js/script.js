@@ -1518,3 +1518,37 @@ payForm?.addEventListener('submit', async (e) => {
     });
   });
 })();
+
+// ===== Demo dashboard counter animation (30s loop) =====
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const counters = document.querySelectorAll('.demo-counter');
+  if (!counters.length) return;
+
+  const animate = (el) => {
+    const target = parseFloat(el.dataset.target || '0');
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.floor(target * eased);
+      el.textContent = prefix + val.toLocaleString('ko-KR') + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  // 1. 데모 진입(viewport)에 들어왔을 때 1회 + 30초마다 반복
+  const demoSec = document.getElementById('demo');
+  if (!demoSec) return;
+  let played = false;
+  const playAll = () => counters.forEach(animate);
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !played) { played = true; playAll(); setInterval(playAll, 30000); }
+    });
+  }, { threshold: 0.3 }).observe(demoSec);
+})();
