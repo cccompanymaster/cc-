@@ -1529,13 +1529,22 @@ payForm?.addEventListener('submit', async (e) => {
     const target = parseFloat(el.dataset.target || '0');
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
     const duration = 1800;
     const start = performance.now();
     const step = (now) => {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      const val = Math.floor(target * eased);
-      el.textContent = prefix + val.toLocaleString('ko-KR') + suffix;
+      const raw = target * eased;
+      let val;
+      if (decimals > 0) {
+        const fixed = raw.toFixed(decimals);
+        const [intPart, decPart] = fixed.split('.');
+        val = parseInt(intPart, 10).toLocaleString('ko-KR') + '.' + decPart;
+      } else {
+        val = Math.floor(raw).toLocaleString('ko-KR');
+      }
+      el.textContent = prefix + val + suffix;
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -1549,6 +1558,159 @@ payForm?.addEventListener('submit', async (e) => {
   new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting && !played) { played = true; playAll(); setInterval(playAll, 30000); }
+    });
+  }, { threshold: 0.3 }).observe(demoSec);
+})();
+
+// ===== Demo dashboard — 사이드바 고객사 사례 자동 순환 (30초마다 전환) =====
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const demoSec = document.getElementById('demo');
+  if (!demoSec) return;
+
+  // 6개 고객사 사례 데이터 — KPI/그래프/활동피드 모두 변경
+  const cases = [
+    {
+      name: '강남 피부과 A · 14개월차 운영', icon: '🏥',
+      kpis: { leads: 284, roas: 412, revenue: 14.2 },
+      growth: '+218%',
+      feed: [
+        '⚡ Naver Smart Block 진입 — "강남 피부과 추천" 키워드 <tspan fill="#f4d9a8" font-weight="700">3위</tspan>',
+        '💬 KakaoTalk 채널 친구 추가 <tspan fill="#f4d9a8" font-weight="700">+147명</tspan> (지난 24시간)',
+        '🛒 Coupang 신규 주문 <tspan fill="#f4d9a8" font-weight="700">+28건</tspan> · ROAS <tspan fill="#f4d9a8" font-weight="700">380%</tspan>'
+      ]
+    },
+    {
+      name: '건강기능식품 D2C B · 8개월차 운영', icon: '💊',
+      kpis: { leads: 1842, roas: 386, revenue: 8.7 },
+      growth: '+312%',
+      feed: [
+        '🔥 스마트스토어 "유산균 추천" 카테고리 <tspan fill="#f4d9a8" font-weight="700">1페이지 2위</tspan>',
+        '📝 체험단 30건 발행 완료 — 평점 평균 <tspan fill="#f4d9a8" font-weight="700">4.8/5</tspan>',
+        '⚖ MFDS 기능성 표시 사전심의 <tspan fill="#f4d9a8" font-weight="700">통과</tspan> (피부보습 + 면역기능)'
+      ]
+    },
+    {
+      name: '송파 한의원 C · 6개월차 운영', icon: '🌿',
+      kpis: { leads: 168, roas: 358, revenue: 5.4 },
+      growth: '+184%',
+      feed: [
+        '🌸 환절기 비염 시즌 콘텐츠 <tspan fill="#f4d9a8" font-weight="700">+12건</tspan> 선제 발행',
+        '📍 네이버 플레이스 "송파 한의원" <tspan fill="#f4d9a8" font-weight="700">TOP 3 진입</tspan>',
+        '📞 신규 내원 예약 <tspan fill="#f4d9a8" font-weight="700">+38건</tspan> (이번 주)'
+      ]
+    },
+    {
+      name: '강남 법무법인 D · 18개월차 운영', icon: '⚖',
+      kpis: { leads: 92, roas: 484, revenue: 18.6 },
+      growth: '+156%',
+      feed: [
+        '📚 "이혼 소송 절차" 블로그 시리즈 <tspan fill="#f4d9a8" font-weight="700">9개 상위 진입</tspan>',
+        '🔎 Naver 파워링크 CPC <tspan fill="#f4d9a8" font-weight="700">-22%</tspan> 최적화',
+        '📋 신규 수임 <tspan fill="#f4d9a8" font-weight="700">+41건/월</tspan> 달성'
+      ]
+    },
+    {
+      name: '부산 디저트 카페 · 4개월차 운영', icon: '🍰',
+      kpis: { leads: 624, roas: 542, revenue: 2.8 },
+      growth: '+428%',
+      feed: [
+        '📸 인스타 릴스 <tspan fill="#f4d9a8" font-weight="700">조회수 124만</tspan> 달성 (시그니처 메뉴)',
+        '🗺 Naver 플레이스 "부산 디저트" <tspan fill="#f4d9a8" font-weight="700">1페이지 1위</tspan>',
+        '☕ 주말 대기 <tspan fill="#f4d9a8" font-weight="700">평균 32팀</tspan> · 월 매출 +2.4배'
+      ]
+    },
+    {
+      name: 'D2C 뷰티 브랜드 E · 10개월차 운영', icon: '💄',
+      kpis: { leads: 2104, roas: 396, revenue: 12.4 },
+      growth: '+274%',
+      feed: [
+        '🛒 스마트스토어 신규 SKU 5개 <tspan fill="#f4d9a8" font-weight="700">동시 1페이지</tspan>',
+        '⭐ 누적 리뷰 <tspan fill="#f4d9a8" font-weight="700">8,420건</tspan> · 평점 4.7',
+        '💎 KakaoTalk 단골 회원 <tspan fill="#f4d9a8" font-weight="700">+1,840명</tspan> (지난 분기)'
+      ]
+    }
+  ];
+
+  let idx = 0;
+  const headerEl = demoSec.querySelector('svg text[fill="#f4d9a8"][font-size="13"]');
+  const counters = demoSec.querySelectorAll('.demo-counter');
+  const navItems = demoSec.querySelectorAll('.demo-nav-items text');
+  const activeRect = demoSec.querySelector('.demo-nav-active');
+  const feed = demoSec.querySelector('.demo-feed');
+  const dotsTextGrowth = demoSec.querySelector('.demo-dots text');
+
+  // 사이드바 active 위치(rect Y) — 6개 항목 (각 60px 간격)
+  const navYPositions = [64, 110, 156, 202, 248, 294];
+
+  const swapCase = () => {
+    idx = (idx + 1) % cases.length;
+    const c = cases[idx];
+
+    // header 텍스트
+    if (headerEl) headerEl.textContent = c.name;
+
+    // sidebar active 위치 이동
+    if (activeRect) {
+      activeRect.setAttribute('y', navYPositions[idx]);
+    }
+    // sidebar 강조 색 변경
+    navItems.forEach((t, i) => {
+      const isActive = Math.floor(i/2) === idx;
+      t.setAttribute('fill', isActive ? (i % 2 === 0 ? '#f4d9a8' : 'rgba(244,217,168,0.65)') : (i % 2 === 0 ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.4)'));
+      t.setAttribute('font-weight', isActive && i % 2 === 0 ? '700' : '600');
+    });
+
+    // KPI 카운터 새 target 적용 + 재실행
+    if (counters[0]) { counters[0].dataset.target = c.kpis.leads; counters[0].textContent = '0'; }
+    if (counters[1]) { counters[1].dataset.target = c.kpis.roas; counters[1].textContent = '0'; }
+    if (counters[2]) { counters[2].dataset.target = c.kpis.revenue; counters[2].textContent = '0.0'; }
+
+    // 그래프 endpoint 라벨
+    if (dotsTextGrowth) dotsTextGrowth.textContent = c.growth;
+
+    // 활동 피드
+    if (feed) {
+      const texts = feed.querySelectorAll('text');
+      c.feed.forEach((html, i) => { if (texts[i]) texts[i].innerHTML = html; });
+    }
+
+    // 카운터 재애니메이션 트리거 (window의 기존 animate 함수 재사용 위해 수동 호출)
+    counters.forEach(el => {
+      const target = parseFloat(el.dataset.target || '0');
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const duration = 1400;
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const raw = target * eased;
+        let val;
+        if (decimals > 0) {
+          const fixed = raw.toFixed(decimals);
+          const [intPart, decPart] = fixed.split('.');
+          val = parseInt(intPart, 10).toLocaleString('ko-KR') + '.' + decPart;
+        } else {
+          val = Math.floor(raw).toLocaleString('ko-KR');
+        }
+        // 기존 prefix/suffix 보존
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        el.textContent = prefix + val + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  };
+
+  // viewport 진입 시 30초마다 swap
+  let started = false;
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !started) {
+        started = true;
+        setInterval(swapCase, 30000);
+      }
     });
   }, { threshold: 0.3 }).observe(demoSec);
 })();

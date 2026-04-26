@@ -602,86 +602,150 @@
               <span class="demo-dot demo-dot-g"></span>
               <span class="demo-url">noah-marketing-group · campaign dashboard</span>
             </div>
-            <svg class="demo-canvas" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="통합 캠페인 대시보드 데모">
+            <svg class="demo-canvas" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="고객사 캠페인 대시보드 데모">
               <defs>
                 <linearGradient id="demoBg" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stop-color="#0d1a2f"/>
                   <stop offset="100%" stop-color="#0a1628"/>
                 </linearGradient>
-                <linearGradient id="demoLine" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#caa84a"/>
-                  <stop offset="100%" stop-color="#f4d9a8"/>
+                <linearGradient id="demoArea1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2a8f4a" stop-opacity="0.32"/>
+                  <stop offset="100%" stop-color="#2a8f4a" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="demoArea2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#f4d9a8" stop-opacity="0.28"/>
+                  <stop offset="100%" stop-color="#f4d9a8" stop-opacity="0"/>
                 </linearGradient>
               </defs>
               <rect width="800" height="460" fill="url(#demoBg)"/>
-              <!-- Sidebar -->
-              <g class="demo-sidebar" font-family="Inter,sans-serif" fill="#fff" font-size="11">
+
+              <!-- Sidebar — 고객사 사례 리스트 -->
+              <g class="demo-sidebar" font-family="'Pretendard',sans-serif" fill="#fff">
                 <rect x="0" y="0" width="170" height="460" fill="rgba(255,255,255,0.03)"/>
-                <text x="20" y="36" font-weight="800" fill="#D4A574" font-size="12" letter-spacing="2">NOAH · CAMPAIGN</text>
-                <g class="demo-nav-items">
-                  <rect class="demo-nav-active" x="14" y="56" width="142" height="30" rx="8" fill="rgba(212,165,116,0.18)"/>
-                  <text x="28" y="76" fill="#f4d9a8" font-weight="700">📊 Dashboard</text>
-                  <text x="28" y="106" fill="rgba(255,255,255,0.55)">🟢 Naver SEO</text>
-                  <text x="28" y="136" fill="rgba(255,255,255,0.55)">💬 Kakao Channel</text>
-                  <text x="28" y="166" fill="rgba(255,255,255,0.55)">📦 Coupang</text>
-                  <text x="28" y="196" fill="rgba(255,255,255,0.55)">📈 Performance</text>
-                  <text x="28" y="226" fill="rgba(255,255,255,0.55)">📝 Content</text>
-                  <text x="28" y="256" fill="rgba(255,255,255,0.55)">⚖ Compliance</text>
+                <text x="20" y="32" font-family="Inter,sans-serif" font-weight="800" fill="#D4A574" font-size="11" letter-spacing="2">고객사 사례</text>
+                <text x="20" y="48" font-size="9.5" fill="rgba(255,255,255,0.4)">374개 운영 中 6개</text>
+                <g class="demo-nav-items" font-size="11">
+                  <rect class="demo-nav-active" x="10" y="64" width="150" height="38" rx="8" fill="rgba(212,165,116,0.18)"/>
+                  <text x="22" y="80" fill="#f4d9a8" font-weight="700">🏥 강남 피부과 A</text>
+                  <text x="22" y="94" fill="rgba(244,217,168,0.65)" font-size="9.5">레이저·여드름 · 14개월</text>
+
+                  <text x="22" y="124" fill="rgba(255,255,255,0.7)" font-weight="600">💊 건강기능식품 B</text>
+                  <text x="22" y="138" fill="rgba(255,255,255,0.4)" font-size="9.5">D2C 자사몰 · 8개월</text>
+
+                  <text x="22" y="166" fill="rgba(255,255,255,0.7)" font-weight="600">🌿 송파 한의원 C</text>
+                  <text x="22" y="180" fill="rgba(255,255,255,0.4)" font-size="9.5">다이어트·보약 · 6개월</text>
+
+                  <text x="22" y="208" fill="rgba(255,255,255,0.7)" font-weight="600">⚖ 강남 법무법인 D</text>
+                  <text x="22" y="222" fill="rgba(255,255,255,0.4)" font-size="9.5">이혼·상속 · 18개월</text>
+
+                  <text x="22" y="250" fill="rgba(255,255,255,0.7)" font-weight="600">🍰 부산 디저트 카페</text>
+                  <text x="22" y="264" fill="rgba(255,255,255,0.4)" font-size="9.5">신규 오픈 · 4개월</text>
+
+                  <text x="22" y="292" fill="rgba(255,255,255,0.7)" font-weight="600">💄 D2C 뷰티 E</text>
+                  <text x="22" y="306" fill="rgba(255,255,255,0.4)" font-size="9.5">스마트스토어 · 10개월</text>
                 </g>
+                <text x="20" y="430" font-size="9.5" fill="rgba(255,255,255,0.32)" letter-spacing="1.5">+ NEW PROJECT</text>
               </g>
+
+              <!-- Header bar -->
+              <g font-family="'Pretendard',sans-serif" fill="#fff">
+                <text x="190" y="22" font-size="13" font-weight="800" fill="#f4d9a8">강남 피부과 A · 14개월차 운영</text>
+                <text x="190" y="38" font-size="10" fill="rgba(255,255,255,0.5)">최근 30일 데이터 · 매일 KST 09:00 자동 갱신</text>
+              </g>
+
               <!-- KPI cards -->
-              <g class="demo-kpis" font-family="Inter,sans-serif">
-                <g transform="translate(190,30)">
-                  <rect width="180" height="84" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
-                  <text x="14" y="26" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">신규 문의 (이번 달)</text>
-                  <text x="14" y="58" font-size="28" font-weight="800" fill="#fff" class="demo-counter" data-target="284">0</text>
-                  <text x="120" y="58" font-size="11" fill="#2a8f4a">+18.4%</text>
+              <g class="demo-kpis" font-family="'Pretendard',sans-serif">
+                <g transform="translate(190,52)">
+                  <rect width="180" height="76" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+                  <text x="14" y="22" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">신규 문의 (이번 달)</text>
+                  <text x="14" y="52" font-size="26" font-weight="800" fill="#fff" font-family="Inter,sans-serif"><tspan class="demo-counter" data-target="284" data-suffix="">0</tspan><tspan font-size="14" fill="rgba(255,255,255,0.6)" font-weight="600"> 건</tspan></text>
+                  <text x="14" y="68" font-size="10" fill="#2a8f4a" font-weight="700">▲ +18.4% (전월 대비)</text>
                 </g>
-                <g transform="translate(384,30)">
-                  <rect width="180" height="84" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
-                  <text x="14" y="26" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">평균 ROAS</text>
-                  <text x="14" y="58" font-size="28" font-weight="800" fill="#D4A574" class="demo-counter" data-target="412" data-suffix="%">0%</text>
-                  <text x="124" y="58" font-size="11" fill="#2a8f4a">+24%</text>
+                <g transform="translate(384,52)">
+                  <rect width="180" height="76" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+                  <text x="14" y="22" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">평균 ROAS</text>
+                  <text x="14" y="52" font-size="26" font-weight="800" fill="#D4A574" font-family="Inter,sans-serif"><tspan class="demo-counter" data-target="412" data-suffix="">0</tspan><tspan font-size="14" fill="rgba(212,165,116,0.6)" font-weight="600">%</tspan></text>
+                  <text x="14" y="68" font-size="10" fill="#2a8f4a" font-weight="700">▲ +24% (분기 대비)</text>
                 </g>
-                <g transform="translate(578,30)">
-                  <rect width="200" height="84" rx="10" fill="rgba(212,165,116,0.12)" stroke="rgba(212,165,116,0.32)"/>
-                  <text x="14" y="26" font-size="10" fill="#f4d9a8" letter-spacing="1.5">월 매출 추정</text>
-                  <text x="14" y="58" font-size="24" font-weight="800" fill="#f4d9a8" class="demo-counter" data-target="142" data-prefix="₩" data-suffix="천만">₩0천만</text>
-                </g>
-              </g>
-              <!-- Line chart -->
-              <g transform="translate(190,140)">
-                <rect width="574" height="180" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
-                <text x="20" y="28" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">3채널 누적 매출 — 6개월</text>
-                <g stroke="rgba(255,255,255,0.06)" stroke-dasharray="2 4">
-                  <line x1="20" y1="60" x2="554" y2="60"/>
-                  <line x1="20" y1="100" x2="554" y2="100"/>
-                  <line x1="20" y1="140" x2="554" y2="140"/>
-                </g>
-                <!-- Naver line -->
-                <polyline class="demo-line demo-line-1" fill="none" stroke="#2a8f4a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  points="40,150 130,128 220,108 310,82 400,62 490,46 540,32"/>
-                <!-- Kakao line -->
-                <polyline class="demo-line demo-line-2" fill="none" stroke="#f4d9a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  points="40,158 130,140 220,124 310,104 400,84 490,68 540,54"/>
-                <!-- Coupang line -->
-                <polyline class="demo-line demo-line-3" fill="none" stroke="#caa84a" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"
-                  points="40,162 130,152 220,138 310,118 400,96 490,80 540,68"/>
-                <!-- legend -->
-                <g transform="translate(20,160)" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">
-                  <circle r="3" fill="#2a8f4a" cx="0" cy="0"/><text x="8" y="4">Naver SEO</text>
-                  <circle r="3" fill="#f4d9a8" cx="100" cy="0"/><text x="108" y="4">Kakao Ch.</text>
-                  <circle r="3" fill="#caa84a" cx="200" cy="0"/><text x="208" y="4">Coupang</text>
+                <g transform="translate(578,52)">
+                  <rect width="200" height="76" rx="10" fill="rgba(212,165,116,0.12)" stroke="rgba(212,165,116,0.32)"/>
+                  <text x="14" y="22" font-family="Inter,sans-serif" font-size="9.5" fill="#f4d9a8" letter-spacing="1.5">월 매출 추정</text>
+                  <text x="14" y="52" font-size="22" font-weight="800" fill="#f4d9a8" font-family="Inter,sans-serif"><tspan>₩</tspan><tspan class="demo-counter" data-target="14.2" data-decimals="1">0.0</tspan><tspan font-size="13" fill="rgba(244,217,168,0.7)" font-weight="600"> 억</tspan></text>
+                  <text x="14" y="68" font-size="10" fill="rgba(244,217,168,0.7)">≈ ₩1,420,000,000</text>
                 </g>
               </g>
+
+              <!-- Line chart — 부드러운 곡선 + 데이터 포인트 + 그리드 + Y라벨 + X라벨 -->
+              <g transform="translate(190,144)">
+                <rect width="574" height="186" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
+                <text x="18" y="22" font-family="'Pretendard',sans-serif" font-size="11" fill="#fff" font-weight="700">6개월 누적 매출 추이</text>
+                <text x="18" y="36" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">단위 : 백만원 (₩1,000,000)</text>
+
+                <!-- Y축 그리드 + 라벨 -->
+                <g font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">
+                  <line x1="56" y1="56" x2="556" y2="56" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
+                  <text x="48" y="60" text-anchor="end">200</text>
+                  <line x1="56" y1="92" x2="556" y2="92" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
+                  <text x="48" y="96" text-anchor="end">150</text>
+                  <line x1="56" y1="128" x2="556" y2="128" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4"/>
+                  <text x="48" y="132" text-anchor="end">100</text>
+                  <line x1="56" y1="148" x2="556" y2="148" stroke="rgba(255,255,255,0.08)"/>
+                  <text x="48" y="152" text-anchor="end">0</text>
+                </g>
+
+                <!-- X축 월 라벨 -->
+                <g font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.45)" text-anchor="middle">
+                  <text x="80" y="170">11월</text>
+                  <text x="160" y="170">12월</text>
+                  <text x="240" y="170">1월</text>
+                  <text x="320" y="170">2월</text>
+                  <text x="400" y="170">3월</text>
+                  <text x="480" y="170">4월</text>
+                </g>
+
+                <!-- Naver SEO area + 부드러운 곡선 (아래쪽 채움) -->
+                <path class="demo-line demo-line-1" fill="url(#demoArea1)" stroke="none"
+                  d="M 80 138 C 100 132, 140 124, 160 122 S 220 108, 240 102 S 300 86, 320 80 S 380 64, 400 58 S 460 46, 480 42 L 480 148 L 80 148 Z"/>
+                <path class="demo-line demo-line-1-stroke" fill="none" stroke="#2a8f4a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+                  d="M 80 138 C 100 132, 140 124, 160 122 S 220 108, 240 102 S 300 86, 320 80 S 380 64, 400 58 S 460 46, 480 42"/>
+
+                <!-- Kakao Channel — 부드러운 곡선 -->
+                <path class="demo-line demo-line-2" fill="none" stroke="#f4d9a8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+                  d="M 80 142 C 100 138, 140 130, 160 128 S 220 116, 240 110 S 300 96, 320 90 S 380 76, 400 70 S 460 58, 480 54"/>
+
+                <!-- Coupang — 부드러운 곡선 (점선) -->
+                <path class="demo-line demo-line-3" fill="none" stroke="#caa84a" stroke-width="1.8" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round"
+                  d="M 80 144 C 100 142, 140 138, 160 134 S 220 124, 240 118 S 300 106, 320 100 S 380 86, 400 80 S 460 70, 480 66"/>
+
+                <!-- 데이터 포인트 dots -->
+                <g class="demo-dots">
+                  <circle cx="80" cy="138" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
+                  <circle cx="160" cy="122" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
+                  <circle cx="240" cy="102" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
+                  <circle cx="320" cy="80" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
+                  <circle cx="400" cy="58" r="3.5" fill="#2a8f4a" stroke="#0a1628" stroke-width="2"/>
+                  <circle cx="480" cy="42" r="4.5" fill="#fff" stroke="#2a8f4a" stroke-width="2.5"/>
+                  <text x="496" y="38" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#f4d9a8">+218%</text>
+                </g>
+
+                <!-- Legend -->
+                <g transform="translate(80,196)" font-family="'Pretendard',sans-serif" font-size="10" fill="rgba(255,255,255,0.78)">
+                  <circle r="3.5" fill="#2a8f4a" cx="0" cy="-2"/><text x="10" y="2">Naver SEO</text>
+                  <circle r="3.5" fill="#f4d9a8" cx="100" cy="-2"/><text x="110" y="2">KakaoTalk Channel</text>
+                  <line x1="225" y1="-3" x2="240" y2="-3" stroke="#caa84a" stroke-width="1.8" stroke-dasharray="3 2"/><text x="246" y="2">Coupang</text>
+                </g>
+              </g>
+
               <!-- Activity feed -->
-              <g transform="translate(190,340)" font-family="Inter,sans-serif">
-                <rect width="574" height="100" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
-                <text x="20" y="26" font-size="11" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">최근 활동</text>
-                <g class="demo-feed" font-size="11.5" fill="rgba(255,255,255,0.85)">
-                  <text x="20" y="50" class="demo-feed-1">⚡ Naver Smart Block 진입 — "강남 피부과 추천" 3위</text>
-                  <text x="20" y="70" class="demo-feed-2">💬 KakaoTalk Channel 친구 +147 (지난 24시간)</text>
-                  <text x="20" y="90" class="demo-feed-3">🛒 Coupang 신규 주문 +28건, ROAS 380%</text>
+              <g transform="translate(190,346)" font-family="'Pretendard',sans-serif">
+                <rect width="574" height="98" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)"/>
+                <text x="18" y="22" font-size="11" fill="#fff" font-weight="700">최근 활동</text>
+                <text x="555" y="22" font-size="9" fill="rgba(255,255,255,0.4)" text-anchor="end" font-family="Inter,sans-serif">LIVE</text>
+                <circle cx="544" cy="19" r="2.5" fill="#2a8f4a"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/></circle>
+                <g class="demo-feed" font-size="11" fill="rgba(255,255,255,0.85)">
+                  <text x="18" y="46" class="demo-feed-1">⚡ Naver Smart Block 진입 — "강남 피부과 추천" 키워드 <tspan fill="#f4d9a8" font-weight="700">3위</tspan></text>
+                  <text x="18" y="66" class="demo-feed-2">💬 KakaoTalk 채널 친구 추가 <tspan fill="#f4d9a8" font-weight="700">+147명</tspan> (지난 24시간)</text>
+                  <text x="18" y="86" class="demo-feed-3">🛒 Coupang 신규 주문 <tspan fill="#f4d9a8" font-weight="700">+28건</tspan> · ROAS <tspan fill="#f4d9a8" font-weight="700">380%</tspan></text>
                 </g>
               </g>
             </svg>
