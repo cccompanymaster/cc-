@@ -1861,11 +1861,11 @@ payForm?.addEventListener('submit', async (e) => {
   const until = (() => { try { return parseInt(localStorage.getItem(KEY) || '0', 10); } catch { return 0; } })();
   if (now < until) return;
 
-  // 페이지 로드 약 1.2초 후 등장
+  // 페이지 로드 0.5초 후 등장
   setTimeout(() => {
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
-  }, 1200);
+  }, 500);
 
   const close = () => {
     modal.classList.remove('open');
