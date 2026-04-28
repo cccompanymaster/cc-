@@ -1,4 +1,4 @@
-# robots.txt — 노아마케팅그룹 (cccompanymaster.github.io/cc-)
+# robots.txt — 노아마케팅그룹 (noahgroup.co.kr)
 
 # 기본: 모든 크롤러 허용
 User-agent: *
@@ -51,4 +51,4 @@ User-agent: Google-Extended
 Allow: /
 
 # 사이트맵
-Sitemap: https://cccompanymaster.github.io/cc-/sitemap.xml
+Sitemap: https://noahgroup.co.kr/sitemap.xml

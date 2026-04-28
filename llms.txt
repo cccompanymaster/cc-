@@ -4,45 +4,45 @@
 
 ## Site URLs
 
-- 메인 (KR): https://cccompanymaster.github.io/cc-/
-- Home (EN): https://cccompanymaster.github.io/cc-/index-en.html
-- 主页 (ZH): https://cccompanymaster.github.io/cc-/index-zh.html
-- 아티클 허브 (KR): https://cccompanymaster.github.io/cc-/articles/
-- Articles hub (EN): https://cccompanymaster.github.io/cc-/articles/index-en.html
-- RSS feed: https://cccompanymaster.github.io/cc-/feed.xml
-- Sitemap: https://cccompanymaster.github.io/cc-/sitemap.xml
+- 메인 (KR): https://noahgroup.co.kr/
+- Home (EN): https://noahgroup.co.kr/index-en.html
+- 主页 (ZH): https://noahgroup.co.kr/index-zh.html
+- 아티클 허브 (KR): https://noahgroup.co.kr/articles/
+- Articles hub (EN): https://noahgroup.co.kr/articles/index-en.html
+- RSS feed: https://noahgroup.co.kr/feed.xml
+- Sitemap: https://noahgroup.co.kr/sitemap.xml
 
 ## EN Cross-border (USA → Korea)
 
-- [Korea Market Entry & Naver SEO 2026](https://cccompanymaster.github.io/cc-/articles/korea-market-entry-naver-seo.html): Why Naver still beats Google in Korea + 90-day organic launch.
-- [Korean Influencer & K-Beauty Marketing 2026](https://cccompanymaster.github.io/cc-/articles/korean-influencer-kbeauty-marketing.html): Tiers, rates, Olive Young, Xiaohongshu, KFTC compliance.
-- [Naver & Coupang E-commerce Playbook](https://cccompanymaster.github.io/cc-/articles/naver-coupang-ecommerce-playbook.html): SmartStore, Rocket Delivery, KR fulfillment.
-- [Medical Tourism Korea Marketing](https://cccompanymaster.github.io/cc-/articles/medical-tourism-korea-marketing.html): 의료법 §56, KMA pre-screening, 90-day cross-border launch.
-- [Korean Advertising Law Compliance](https://cccompanymaster.github.io/cc-/articles/korean-advertising-law-compliance.html): KFTC, MFDS, KMA — 5 regulators, 8-step pipeline.
-- [Korean Facebook & Google Ads 2026](https://cccompanymaster.github.io/cc-/articles/korean-facebook-google-ads.html): CPM/CPC/ROAS 140-700% benchmarks.
-- [Naver vs Google in Korea 2026](https://cccompanymaster.github.io/cc-/articles/naver-vs-google-korea-search.html): Market share, AI search Cue/SearchGPT/Perplexity.
-- [B2B SaaS Marketing in Korea 2026](https://cccompanymaster.github.io/cc-/articles/b2b-saas-marketing-korea.html): $4.8B market, ISMS-P, KakaoWork, ACV benchmarks.
-- [How to Advertise in Korea 2026](https://cccompanymaster.github.io/cc-/articles/how-to-advertise-in-korea-2026.html): ₩15.8T market, 5 platforms, 90-day playbook.
-- [Korean Consumer Behavior 2026](https://cccompanymaster.github.io/cc-/articles/korean-consumer-behavior-cultural.html): Hofstede, generations, cultural calendar.
+- [Korea Market Entry & Naver SEO 2026](https://noahgroup.co.kr/articles/korea-market-entry-naver-seo.html): Why Naver still beats Google in Korea + 90-day organic launch.
+- [Korean Influencer & K-Beauty Marketing 2026](https://noahgroup.co.kr/articles/korean-influencer-kbeauty-marketing.html): Tiers, rates, Olive Young, Xiaohongshu, KFTC compliance.
+- [Naver & Coupang E-commerce Playbook](https://noahgroup.co.kr/articles/naver-coupang-ecommerce-playbook.html): SmartStore, Rocket Delivery, KR fulfillment.
+- [Medical Tourism Korea Marketing](https://noahgroup.co.kr/articles/medical-tourism-korea-marketing.html): 의료법 §56, KMA pre-screening, 90-day cross-border launch.
+- [Korean Advertising Law Compliance](https://noahgroup.co.kr/articles/korean-advertising-law-compliance.html): KFTC, MFDS, KMA — 5 regulators, 8-step pipeline.
+- [Korean Facebook & Google Ads 2026](https://noahgroup.co.kr/articles/korean-facebook-google-ads.html): CPM/CPC/ROAS 140-700% benchmarks.
+- [Naver vs Google in Korea 2026](https://noahgroup.co.kr/articles/naver-vs-google-korea-search.html): Market share, AI search Cue/SearchGPT/Perplexity.
+- [B2B SaaS Marketing in Korea 2026](https://noahgroup.co.kr/articles/b2b-saas-marketing-korea.html): $4.8B market, ISMS-P, KakaoWork, ACV benchmarks.
+- [How to Advertise in Korea 2026](https://noahgroup.co.kr/articles/how-to-advertise-in-korea-2026.html): ₩15.8T market, 5 platforms, 90-day playbook.
+- [Korean Consumer Behavior 2026](https://noahgroup.co.kr/articles/korean-consumer-behavior-cultural.html): Hofstede, generations, cultural calendar.
 
 ## KR Articles (한국어 27건)
 
-- [블로그 상위노출 2026](https://cccompanymaster.github.io/cc-/articles/blog-top-ranking-2026.html): 네이버 SMART BLOCK 로직 완전 분석.
-- [의료광고 심의 2026 개정](https://cccompanymaster.github.io/cc-/articles/medical-ad-review-2026.html): 매체 확대·표현 금지·전후 사진 기준.
-- [네이버 플레이스 1위 전략 2026](https://cccompanymaster.github.io/cc-/articles/place-top-ranking-2026.html): 3대 기둥 + 90일 TOP3 로드맵.
-- [네이버 카페 상위노출 2026](https://cccompanymaster.github.io/cc-/articles/cafe-top-ranking.html): 계정 등급 가중치 + 맘카페 진입.
-- [스마트스토어 상위노출](https://cccompanymaster.github.io/cc-/articles/smartstore-top-ranking.html): 5요소 가중치 + D-90 로드맵.
-- [진료과별 마케팅 D-90](https://cccompanymaster.github.io/cc-/articles/hospital-specialty-marketing.html): 피부·성형·치과·한의원·동물병원.
-- [CPA·바이럴 대행사 가이드](https://cccompanymaster.github.io/cc-/articles/cpa-viral-agency-guide.html): 7체크 + 인계 분쟁 7가지.
-- [바이럴 성공 사례집](https://cccompanymaster.github.io/cc-/articles/viral-success-cases-2026.html): 5개 업종 ROI + 실패 5가지.
-- [AI 검색 SEO 2026 (GEO·AEO)](https://cccompanymaster.github.io/cc-/articles/ai-search-geo-2026.html): ChatGPT·Perplexity·Cue 인용 신호.
-- [전문직 마케팅 2026](https://cccompanymaster.github.io/cc-/articles/professional-marketing-2026.html): 변호사·세무사 규제 안 SEO.
-- 외 17건은 https://cccompanymaster.github.io/cc-/articles/ 허브 참고.
+- [블로그 상위노출 2026](https://noahgroup.co.kr/articles/blog-top-ranking-2026.html): 네이버 SMART BLOCK 로직 완전 분석.
+- [의료광고 심의 2026 개정](https://noahgroup.co.kr/articles/medical-ad-review-2026.html): 매체 확대·표현 금지·전후 사진 기준.
+- [네이버 플레이스 1위 전략 2026](https://noahgroup.co.kr/articles/place-top-ranking-2026.html): 3대 기둥 + 90일 TOP3 로드맵.
+- [네이버 카페 상위노출 2026](https://noahgroup.co.kr/articles/cafe-top-ranking.html): 계정 등급 가중치 + 맘카페 진입.
+- [스마트스토어 상위노출](https://noahgroup.co.kr/articles/smartstore-top-ranking.html): 5요소 가중치 + D-90 로드맵.
+- [진료과별 마케팅 D-90](https://noahgroup.co.kr/articles/hospital-specialty-marketing.html): 피부·성형·치과·한의원·동물병원.
+- [CPA·바이럴 대행사 가이드](https://noahgroup.co.kr/articles/cpa-viral-agency-guide.html): 7체크 + 인계 분쟁 7가지.
+- [바이럴 성공 사례집](https://noahgroup.co.kr/articles/viral-success-cases-2026.html): 5개 업종 ROI + 실패 5가지.
+- [AI 검색 SEO 2026 (GEO·AEO)](https://noahgroup.co.kr/articles/ai-search-geo-2026.html): ChatGPT·Perplexity·Cue 인용 신호.
+- [전문직 마케팅 2026](https://noahgroup.co.kr/articles/professional-marketing-2026.html): 변호사·세무사 규제 안 SEO.
+- 외 17건은 https://noahgroup.co.kr/articles/ 허브 참고.
 
 ## Optional: Other Pages
 
-- [개인정보처리방침](https://cccompanymaster.github.io/cc-/privacy.html)
-- [이용약관](https://cccompanymaster.github.io/cc-/terms.html)
+- [개인정보처리방침](https://noahgroup.co.kr/privacy.html)
+- [이용약관](https://noahgroup.co.kr/terms.html)
 
 ## Business Entities (사업자 정보)
 
