@@ -269,7 +269,6 @@ html {
 /* Intro 모바일 최적화 */
 @media (max-width: 640px) {
   .intro-compass { width: 72px; height: 72px; }
-  .intro-needle { transform-origin: 49px 49px; }
   .intro-text { font-size: clamp(30px, 8.5vw, 40px); letter-spacing: 0.32em; padding-left: 0.32em; gap: 6px; }
   .intro-sub { font-size: 10px; letter-spacing: 0.38em; padding-left: 0.38em; }
   .intro-progress { width: 120px; }
@@ -277,7 +276,6 @@ html {
 }
 @media (max-width: 380px) {
   .intro-compass { width: 64px; height: 64px; }
-  .intro-needle { transform-origin: 44px 44px; }
   .intro-text { font-size: clamp(26px, 9vw, 34px); letter-spacing: 0.28em; }
   .intro-sub { font-size: 9.5px; letter-spacing: 0.34em; }
   .intro-progress { width: 100px; }
