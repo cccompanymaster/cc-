@@ -203,8 +203,7 @@ html {
 }
 .intro-compass svg { width: 100%; height: 100%; }
 .intro-needle {
-  transform-origin: 60px 60px;
-  animation: introNeedleSpin 2.2s 0.6s cubic-bezier(.4,0,.2,1) forwards;
+  /* SVG SMIL animateTransform 으로 회전 — CSS transform-origin 의도하지 않은 브라우저 차이 회피 */
 }
 @keyframes introCompassIn {
   0% { opacity: 0; transform: scale(0.6) rotate(-20deg); }
