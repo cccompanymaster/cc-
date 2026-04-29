@@ -2,11 +2,10 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0B1A33"/>
-      <stop offset="60%" stop-color="#0d2246"/>
       <stop offset="100%" stop-color="#1a3358"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
-      <stop offset="0%" stop-color="#D4A574" stop-opacity="0.35"/>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#D4A574" stop-opacity="0.22"/>
       <stop offset="100%" stop-color="#D4A574" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
@@ -14,55 +13,22 @@
       <stop offset="100%" stop-color="#B5874F"/>
     </linearGradient>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Stars -->
-  <g fill="#ffffff" opacity="0.65">
-    <circle cx="120" cy="80" r="1.6"/>
-    <circle cx="260" cy="55" r="1.2"/>
-    <circle cx="430" cy="95" r="1.8"/>
-    <circle cx="640" cy="60" r="1.2"/>
-    <circle cx="820" cy="90" r="1.4"/>
-    <circle cx="980" cy="70" r="1.6"/>
-    <circle cx="1100" cy="110" r="1.2"/>
-    <circle cx="180" cy="160" r="1.1"/>
-    <circle cx="710" cy="140" r="1.3"/>
-    <circle cx="1050" cy="180" r="1.3"/>
+  <!-- Centered logo mark (same arrow shape as header logo) -->
+  <g transform="translate(600,260)">
+    <circle r="150" fill="#0B1A33" stroke="#D4A574" stroke-width="2.5"/>
+    <g transform="translate(-90,-90) scale(5.625)">
+      <path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#gold)"/>
+    </g>
   </g>
 
-  <!-- Logo mark -->
-  <g transform="translate(96,96)">
-    <rect width="72" height="72" rx="16" fill="#0B1A33" stroke="#D4A574" stroke-width="1.5"/>
-    <path d="M13 53 L36 17 L59 53 L51 53 L36 31 L21 53 Z" fill="url(#gold)"/>
-  </g>
-  <text x="188" y="128" font-family="Inter, 'Pretendard', sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#D4A574">NOAH MARKETING GROUP</text>
-  <text x="188" y="152" font-family="Inter, 'Pretendard', sans-serif" font-size="13" letter-spacing="5" fill="#ffffff" opacity="0.55">SINCE 2020 · 인천</text>
+  <!-- Brand name -->
+  <text x="600" y="490" text-anchor="middle" font-family="Inter, 'Pretendard', sans-serif" font-size="56" font-weight="800" letter-spacing="6" fill="#ffffff">NOAH</text>
+  <text x="600" y="540" text-anchor="middle" font-family="Inter, 'Pretendard', sans-serif" font-size="22" font-weight="600" letter-spacing="14" fill="#D4A574">MARKETING GROUP</text>
 
-  <!-- Headline -->
-  <text x="96" y="300" font-family="'Noto Serif KR', 'Pretendard', serif" font-style="italic" font-size="90" font-weight="700" fill="url(#gold)">Grow</text>
-  <text x="296" y="300" font-family="Inter, 'Pretendard', sans-serif" font-size="90" font-weight="800" fill="#ffffff"> Safely,</text>
-  <text x="96" y="400" font-family="'Noto Serif KR', 'Pretendard', serif" font-style="italic" font-size="90" font-weight="700" fill="url(#gold)">Scale</text>
-  <text x="308" y="400" font-family="Inter, 'Pretendard', sans-serif" font-size="90" font-weight="800" fill="#ffffff"> Boldly.</text>
-
-  <!-- Subtitle -->
-  <text x="96" y="460" font-family="'Pretendard', sans-serif" font-size="26" font-weight="500" fill="#ffffff" opacity="0.88">전문직 광고 · 바이럴 미디어 · 데이터베이스</text>
-  <text x="96" y="498" font-family="'Pretendard', sans-serif" font-size="22" font-weight="400" fill="#ffffff" opacity="0.62">3개 전문 계열사가 만드는 통합 마케팅 솔루션</text>
-
-  <!-- Badges -->
-  <g transform="translate(96,540)">
-    <rect width="190" height="48" rx="24" fill="#D4A574"/>
-    <text x="95" y="31" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="15" font-weight="700" fill="#0B1A33">영업일 24h 내 회신</text>
-    <rect x="204" width="220" height="48" rx="24" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="314" y="31" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="15" font-weight="600" fill="#ffffff">업종 맞춤 통합 솔루션</text>
-  </g>
-
-  <!-- Compass decoration right -->
-  <g transform="translate(900,320)" opacity="0.2">
-    <circle r="160" fill="none" stroke="#D4A574" stroke-width="1"/>
-    <circle r="130" fill="none" stroke="#D4A574" stroke-width="0.6"/>
-    <path d="M0 -140 L10 0 L0 140 L-10 0 Z" fill="#D4A574"/>
-    <path d="M-140 0 L0 10 L140 0 L0 -10 Z" fill="#D4A574" opacity="0.4"/>
-    <circle r="8" fill="#D4A574"/>
-  </g>
+  <!-- Subtle Korean tag -->
+  <text x="600" y="585" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="400" letter-spacing="3" fill="#ffffff" opacity="0.55">노아마케팅그룹 · noahgroup.co.kr</text>
 </svg>
