@@ -677,9 +677,13 @@ html {
   .btn-see-more { width: 100%; max-width: 320px; justify-content: center; }
   .more-hint { font-size: 12px; padding: 0 16px; }
 
-  /* News card width full */
-  .news-card { width: 100%; }
+  /* News slider — let swiper control width so peek of next card shows */
+  .news-card { width: auto; }
   .news-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .news-arrows { gap: 8px; }
+  .news-arrows button { display: none; }
+  .news-pagination { display: flex !important; }
+  .news-swipe-hint { display: flex !important; }
 
   /* About lead tighter */
   .about-lead { font-size: 15px; }
@@ -1452,7 +1456,49 @@ html {
 .news-arrows button:hover {
   background: var(--ink); color: #fff;
 }
-.news-swiper { overflow: visible; }
+.news-swiper { overflow: visible; position: relative; padding-bottom: 4px; }
+
+/* Mobile pagination dots + swipe hint (visible only via mobile media query above) */
+.news-pagination {
+  display: none;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 22px;
+}
+.news-pagination .swiper-pagination-bullet {
+  width: 8px; height: 8px;
+  background: #1a3358;
+  opacity: 0.18;
+  transition: all 0.3s ease;
+}
+.news-pagination .swiper-pagination-bullet-active {
+  background: var(--gold, #D4A574);
+  opacity: 1;
+  width: 24px;
+  border-radius: 4px;
+}
+.news-swipe-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gold-ink, #a5794f);
+  letter-spacing: -0.01em;
+}
+.news-swipe-pulse {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold, #D4A574);
+  animation: newsSwipePulse 1.6s ease-in-out infinite;
+}
+@keyframes newsSwipePulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.4); }
+}
+
 .news-card {
   width: 340px;
   background: #fff;

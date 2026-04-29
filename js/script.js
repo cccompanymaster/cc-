@@ -357,14 +357,15 @@ if (typeof Swiper !== 'undefined') {
     slidesPerView: 'auto',
     spaceBetween: 24,
     navigation: { prevEl: '.news-prev', nextEl: '.news-next' },
+    pagination: { el: '.news-pagination', clickable: true, dynamicBullets: true },
     keyboard: { enabled: true },
     a11y: {
       prevSlideMessage: '이전 슬라이드',
       nextSlideMessage: '다음 슬라이드',
     },
     breakpoints: {
-      0: { slidesPerView: 1.08, spaceBetween: 14 },
-      600: { slidesPerView: 2, spaceBetween: 20 },
+      0: { slidesPerView: 1.18, spaceBetween: 14 },
+      600: { slidesPerView: 2.15, spaceBetween: 20 },
       900: { slidesPerView: 'auto', spaceBetween: 24 },
     }
   });
