@@ -1004,7 +1004,7 @@ const inqFile = document.getElementById('inq-file');
 const inqFileLabel = document.querySelector('.file-drop');
 const inqFileText = document.getElementById('inq-file-text');
 const inqFileClear = document.getElementById('inq-file-clear');
-const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024; // 10MB
+const MAX_ATTACHMENT_BYTES = 30 * 1024 * 1024; // 30MB
 
 const updateFileDisplay = (file) => {
   if (!file) {
@@ -1014,7 +1014,7 @@ const updateFileDisplay = (file) => {
     return;
   }
   if (file.size > MAX_ATTACHMENT_BYTES) {
-    alert(`파일 크기가 너무 큽니다 (${(file.size/1024/1024).toFixed(1)}MB). 최대 10MB까지 업로드 가능합니다.`);
+    alert(`파일 크기가 너무 큽니다 (${(file.size/1024/1024).toFixed(1)}MB). 최대 30MB까지 업로드 가능합니다.`);
     inqFile.value = '';
     return;
   }
@@ -1185,7 +1185,7 @@ inqForm?.addEventListener('submit', async (e) => {
   const file = inqFile?.files?.[0];
   if (file) {
     if (file.size > MAX_ATTACHMENT_BYTES) {
-      alert('파일 크기는 10MB 이하만 가능합니다.');
+      alert('파일 크기는 30MB 이하만 가능합니다.');
       return;
     }
     try {

@@ -269,11 +269,14 @@ function handleInquiry_(data, cfg) {
 }
 
 // 첨부 저장: Drive 폴더에 업로드 + 메일 첨부용 Blob 반환
+// 30MB 까지 허용. 25MB 초과 시 Gmail 첨부 한도 때문에 Drive 링크만 메일에 첨부 (blob=null).
 function saveAttachmentSafe_(data) {
   try {
     const a = data.attachment;
     if (!a || !a.dataBase64 || !a.name) return null;
-    if (a.size > 10 * 1024 * 1024) return null; // 10MB
+    const MAX_BYTES = 30 * 1024 * 1024;          // 30MB upload limit
+    const GMAIL_ATTACH_LIMIT = 25 * 1024 * 1024; // Gmail 첨부 한도
+    if (a.size > MAX_BYTES) return null;
 
     const allowedExt = ['pdf','doc','docx','ppt','pptx','xls','xlsx','zip','hwp','hwpx','txt'];
     const ext = (a.name.split('.').pop() || '').toLowerCase();
@@ -294,8 +297,9 @@ function saveAttachmentSafe_(data) {
 
     return {
       url: file.getUrl(),
-      blob,
+      blob: a.size <= GMAIL_ATTACH_LIMIT ? blob : null,  // 25MB 초과면 메일 첨부 생략
       info: `${a.name} (${(a.size/1024/1024).toFixed(2)} MB)`,
+      oversize: a.size > GMAIL_ATTACH_LIMIT,
     };
   } catch (e) {
     try { Logger.log('saveAttachmentSafe_ error: ' + e); } catch(_) {}
@@ -326,7 +330,7 @@ function sendInquiryMail_(data, cfg, att) {
     '───── 문의 내용 ─────',
     String(data.message || '-').slice(0, 2000),
     '─────────────────',
-    att ? `\n📎 첨부파일: ${att.info}\n   Drive: ${att.url}` : '',
+    att ? `\n📎 첨부파일: ${att.info}${att.oversize ? ' [25MB 초과 — Drive 링크만 첨부]' : ''}\n   Drive: ${att.url}` : '',
     '',
     `시각: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
     `유입: ${sanitizeHeader_(data.referrer) || '(direct)'}`,
