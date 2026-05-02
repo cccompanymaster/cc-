@@ -1016,7 +1016,7 @@ document.addEventListener('keydown', (e) => {
 
 // Google Apps Script Web App URL — 배포 후 생성되는 URL을 여기에 붙여넣으세요.
 // 예: 'https://script.google.com/macros/s/AKfycb.../exec'
-const INQUIRY_WEBHOOK_URL = '';
+const INQUIRY_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';
 
 // ===== 공용 보안 유틸: formOpenedAt 주입 · IP 조회 · UUID 생성 · 허니팟 읽기 =====
 document.querySelectorAll('input.form-opened-at').forEach(el => {
@@ -1162,7 +1162,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // 발급 방법: apps-script/Code.gs 상단 주석 참조
 const PORTONE_STORE_ID = '';                // 예: 'store-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 const PORTONE_CHANNEL_KEY = '';             // 결제 채널 키 (PG사별로 발급)
-const PAYMENT_VERIFY_URL = '';              // Apps Script 웹앱 URL (INQUIRY_WEBHOOK_URL과 같은 배포면 동일 URL)
+const PAYMENT_VERIFY_URL = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';              // Apps Script 웹앱 URL (INQUIRY_WEBHOOK_URL과 같은 배포면 동일 URL)
 
 const payModal = document.getElementById('paymentModal');
 const payForm = document.getElementById('paymentForm');
