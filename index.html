@@ -1108,11 +1108,22 @@
                   <label class="chip"><input type="checkbox" name="interest" value="DB·CPA·CPS"><span>DB·CPA·CPS</span></label>
                   <label class="chip"><input type="checkbox" name="interest" value="통합 컨설팅"><span>통합 컨설팅</span></label>
                   <label class="chip"><input type="checkbox" name="interest" value="아직 모르겠음 / 전체 상담"><span>아직 모르겠음</span></label>
+                  <label class="chip"><input type="checkbox" name="interest" value="기타" id="inq-interest-other"><span>기타</span></label>
                 </div>
+                <input type="text" id="inq-interest-other-text" name="interestOther" placeholder="원하시는 영역을 직접 입력해주세요" maxlength="80" hidden>
               </div>
               <div class="form-field">
                 <label for="inq-message">문의 내용 <span>*</span></label>
                 <textarea id="inq-message" name="message" required rows="5" placeholder="업종, 현재 마케팅 상황, 목표 등을 자유롭게 작성해주세요."></textarea>
+              </div>
+              <div class="form-field">
+                <label for="inq-file">RFP·제안 요청서 첨부 <span class="optional-hint">(선택 · PDF·DOCX·PPTX·XLSX·HWP·ZIP · 최대 10MB)</span></label>
+                <label class="file-drop" for="inq-file">
+                  <input type="file" id="inq-file" name="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.zip,.hwp,.hwpx" hidden>
+                  <span class="file-drop-icon" aria-hidden="true">📎</span>
+                  <span class="file-drop-text" id="inq-file-text">파일을 선택하거나 드래그하세요</span>
+                  <span class="file-drop-clear" id="inq-file-clear" hidden>✕</span>
+                </label>
               </div>
               <label class="privacy-check">
                 <input type="checkbox" id="inq-privacy" required>

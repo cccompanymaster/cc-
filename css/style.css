@@ -3086,6 +3086,71 @@ body.nav-open .ham span:nth-child(3) { transform: translateY(-6px) rotate(-45deg
   border-color: var(--ink);
   color: #fff;
 }
+/* 기타 직접 입력 */
+#inq-interest-other-text {
+  margin-top: 10px;
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e0d8c8;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: 'Pretendard', sans-serif;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+#inq-interest-other-text:focus {
+  outline: none;
+  border-color: var(--gold, #D4A574);
+  box-shadow: 0 0 0 3px rgba(212,165,116,0.18);
+}
+
+/* RFP 파일 드롭 영역 */
+.file-drop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1.5px dashed #c8bfae;
+  border-radius: 12px;
+  background: #faf7f1;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Pretendard', sans-serif;
+}
+.file-drop:hover {
+  border-color: var(--gold, #D4A574);
+  background: #fff8ec;
+}
+.file-drop.has-file {
+  border-style: solid;
+  border-color: var(--gold, #D4A574);
+  background: #fff8ec;
+}
+.file-drop.drag-over {
+  border-color: var(--gold, #D4A574);
+  background: #fff2dd;
+  transform: scale(1.005);
+}
+.file-drop-icon { font-size: 22px; flex-shrink: 0; }
+.file-drop-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6d5d3f;
+  word-break: break-all;
+}
+.file-drop.has-file .file-drop-text { color: var(--ink); font-weight: 600; }
+.file-drop-clear {
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  color: #6d5d3f;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.file-drop-clear:hover { background: rgba(0,0,0,0.12); color: #b53a3a; }
+
 .privacy-check {
   display: flex; align-items: flex-start; gap: 10px;
   font-size: 13px;

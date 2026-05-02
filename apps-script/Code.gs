@@ -246,6 +246,9 @@ function handleInquiry_(data, cfg) {
   const errors = validateInquiry_(data);
   if (errors.length) return jsonResponse_({ ok: false, error: 'invalid input' });
 
+  // 첨부 파일 처리 — Drive 저장 + 메일 첨부용 Blob 동시 생성
+  const att = saveAttachmentSafe_(data);  // { url, blob, info } | null
+
   const sheet = getOrCreateInquirySheet_();
   sheet.appendRow([
     new Date(),
@@ -255,12 +258,49 @@ function handleInquiry_(data, cfg) {
     sanitizeCell_(maskEmail_(data.email)),
     sanitizeCell_(data.interests),
     sanitizeCell_((data.message || '').slice(0, 5000)),
+    sanitizeCell_(att ? att.info : ''),
+    sanitizeCell_(att ? att.url : ''),
     sanitizeCell_((data.referrer || '').slice(0,120)),
     sanitizeCell_((data.userAgent || '').slice(0,120)),
     sanitizeCell_((data.clientIp || '').slice(0,45)),
   ]);
-  if (cfg.NOTIFY_EMAIL) sendInquiryMail_(data, cfg);
+  if (cfg.NOTIFY_EMAIL) sendInquiryMail_(data, cfg, att);
   return jsonResponse_({ ok: true });
+}
+
+// 첨부 저장: Drive 폴더에 업로드 + 메일 첨부용 Blob 반환
+function saveAttachmentSafe_(data) {
+  try {
+    const a = data.attachment;
+    if (!a || !a.dataBase64 || !a.name) return null;
+    if (a.size > 10 * 1024 * 1024) return null; // 10MB
+
+    const allowedExt = ['pdf','doc','docx','ppt','pptx','xls','xlsx','zip','hwp','hwpx','txt'];
+    const ext = (a.name.split('.').pop() || '').toLowerCase();
+    if (!allowedExt.includes(ext)) return null;
+
+    const folderName = '노아마케팅 — 상담 첨부 (RFP)';
+    let folder;
+    const folders = DriveApp.getFoldersByName(folderName);
+    if (folders.hasNext()) folder = folders.next();
+    else folder = DriveApp.createFolder(folderName);
+
+    const decoded = Utilities.base64Decode(a.dataBase64);
+    const inquirer = sanitizeCell_(data.name || 'unknown').replace(/[^\w가-힣 _-]/g, '').slice(0, 30);
+    const timestamp = Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyyyMMdd_HHmmss');
+    const safeName = `${timestamp}_${inquirer}_${a.name.slice(0, 80).replace(/[\\/:*?"<>|]/g, '_')}`;
+    const blob = Utilities.newBlob(decoded, a.type || 'application/octet-stream', safeName);
+    const file = folder.createFile(blob);
+
+    return {
+      url: file.getUrl(),
+      blob,
+      info: `${a.name} (${(a.size/1024/1024).toFixed(2)} MB)`,
+    };
+  } catch (e) {
+    try { Logger.log('saveAttachmentSafe_ error: ' + e); } catch(_) {}
+    return null;
+  }
 }
 
 function getOrCreateInquirySheet_() {
@@ -268,14 +308,14 @@ function getOrCreateInquirySheet_() {
   let sh = ss.getSheetByName(SHEET_INQUIRIES);
   if (!sh) {
     sh = ss.insertSheet(SHEET_INQUIRIES);
-    sh.appendRow(['제출시각','이름','회사/브랜드','연락처(마스킹)','이메일(마스킹)','관심항목','문의내용','유입경로','UserAgent','IP']);
+    sh.appendRow(['제출시각','이름','회사/브랜드','연락처(마스킹)','이메일(마스킹)','관심항목','문의내용','첨부파일','첨부 Drive URL','유입경로','UserAgent','IP']);
     sh.setFrozenRows(1);
-    sh.getRange('A1:J1').setFontWeight('bold').setBackground('#0f1a3a').setFontColor('#fff');
+    sh.getRange('A1:L1').setFontWeight('bold').setBackground('#0f1a3a').setFontColor('#fff');
   }
   return sh;
 }
-function sendInquiryMail_(data, cfg) {
-  const subject = sanitizeHeader_(`[노아마케팅] 신규 문의 — ${data.name || '(이름없음)'}`);
+function sendInquiryMail_(data, cfg, att) {
+  const subject = sanitizeHeader_(`[노아마케팅] 신규 문의 — ${data.name || '(이름없음)'}${att ? ' [📎 첨부]' : ''}`);
   const body = [
     `이름: ${sanitizeHeader_(data.name)}`,
     `회사: ${sanitizeHeader_(data.company) || '-'}`,
@@ -286,11 +326,14 @@ function sendInquiryMail_(data, cfg) {
     '───── 문의 내용 ─────',
     String(data.message || '-').slice(0, 2000),
     '─────────────────',
+    att ? `\n📎 첨부파일: ${att.info}\n   Drive: ${att.url}` : '',
     '',
     `시각: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
     `유입: ${sanitizeHeader_(data.referrer) || '(direct)'}`,
-  ].join('\n');
-  MailApp.sendEmail({ to: cfg.NOTIFY_EMAIL, cc: cfg.ADMIN_EMAIL_CC, subject, body });
+  ].filter(Boolean).join('\n');
+  const opts = { to: cfg.NOTIFY_EMAIL, cc: cfg.ADMIN_EMAIL_CC, subject, body };
+  if (att && att.blob) opts.attachments = [att.blob];
+  MailApp.sendEmail(opts);
 }
 
 // ═══════════════════════════════════════════════════════════════════════

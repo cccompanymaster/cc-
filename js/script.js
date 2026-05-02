@@ -986,6 +986,73 @@ const inqClose = inqModal?.querySelector('.inquiry-modal-close');
 const inqForm = document.getElementById('inquiryForm');
 const inqSuccess = document.getElementById('inquirySuccess');
 
+// "기타" 체크박스 → 직접 입력칸 토글
+const inqInterestOther = document.getElementById('inq-interest-other');
+const inqInterestOtherText = document.getElementById('inq-interest-other-text');
+inqInterestOther?.addEventListener('change', () => {
+  if (inqInterestOther.checked) {
+    inqInterestOtherText.hidden = false;
+    setTimeout(() => inqInterestOtherText.focus(), 80);
+  } else {
+    inqInterestOtherText.hidden = true;
+    inqInterestOtherText.value = '';
+  }
+});
+
+// RFP 파일 드롭 영역 — 선택·드래그·삭제
+const inqFile = document.getElementById('inq-file');
+const inqFileLabel = document.querySelector('.file-drop');
+const inqFileText = document.getElementById('inq-file-text');
+const inqFileClear = document.getElementById('inq-file-clear');
+const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024; // 10MB
+
+const updateFileDisplay = (file) => {
+  if (!file) {
+    inqFileText.textContent = '파일을 선택하거나 드래그하세요';
+    inqFileLabel?.classList.remove('has-file');
+    inqFileClear.hidden = true;
+    return;
+  }
+  if (file.size > MAX_ATTACHMENT_BYTES) {
+    alert(`파일 크기가 너무 큽니다 (${(file.size/1024/1024).toFixed(1)}MB). 최대 10MB까지 업로드 가능합니다.`);
+    inqFile.value = '';
+    return;
+  }
+  const sizeMB = (file.size/1024/1024).toFixed(2);
+  inqFileText.textContent = `${file.name} (${sizeMB} MB)`;
+  inqFileLabel?.classList.add('has-file');
+  inqFileClear.hidden = false;
+};
+inqFile?.addEventListener('change', (e) => updateFileDisplay(e.target.files?.[0]));
+inqFileClear?.addEventListener('click', (e) => {
+  e.preventDefault();
+  inqFile.value = '';
+  updateFileDisplay(null);
+});
+['dragenter','dragover'].forEach(ev => inqFileLabel?.addEventListener(ev, (e) => {
+  e.preventDefault(); inqFileLabel.classList.add('drag-over');
+}));
+['dragleave','drop'].forEach(ev => inqFileLabel?.addEventListener(ev, (e) => {
+  e.preventDefault(); inqFileLabel.classList.remove('drag-over');
+}));
+inqFileLabel?.addEventListener('drop', (e) => {
+  const f = e.dataTransfer?.files?.[0];
+  if (f) {
+    const dt = new DataTransfer();
+    dt.items.add(f);
+    inqFile.files = dt.files;
+    updateFileDisplay(f);
+  }
+});
+
+// File → base64 (data URL의 base64 부분만)
+const fileToBase64_ = (file) => new Promise((resolve, reject) => {
+  const r = new FileReader();
+  r.onload = () => resolve(String(r.result).split(',')[1] || '');
+  r.onerror = () => reject(r.error);
+  r.readAsDataURL(file);
+});
+
 const openInquiry = () => {
   if (!inqModal) return;
   _prevFocused = document.activeElement;
@@ -1102,14 +1169,44 @@ inqForm?.addEventListener('submit', async (e) => {
 
   const clientIp = await fetchClientIp_();
   const data = new FormData(inqForm);
+
+  // 관심 영역 — '기타' 선택 시 직접 입력값 합치기
+  const interestArr = data.getAll('interest');
+  const interestOtherVal = (data.get('interestOther') || '').toString().trim();
+  const interestList = interestArr.map(v => v === '기타' && interestOtherVal ? `기타: ${interestOtherVal}` : v);
+  if (interestArr.includes('기타') && !interestOtherVal) {
+    inqInterestOtherText?.focus();
+    alert('"기타" 선택 시 직접 입력해주세요.');
+    return;
+  }
+
+  // RFP 첨부 파일 → base64 변환
+  let attachment = null;
+  const file = inqFile?.files?.[0];
+  if (file) {
+    if (file.size > MAX_ATTACHMENT_BYTES) {
+      alert('파일 크기는 10MB 이하만 가능합니다.');
+      return;
+    }
+    try {
+      const b64 = await fileToBase64_(file);
+      attachment = { name: file.name, type: file.type || 'application/octet-stream', size: file.size, dataBase64: b64 };
+    } catch (err) {
+      console.error('[Inquiry] 파일 인코딩 실패:', err);
+      alert('첨부 파일 처리 중 오류가 발생했습니다. 파일을 다시 선택해주세요.');
+      return;
+    }
+  }
+
   const payload = {
     type: 'inquiry',
     name: (data.get('name') || '').toString().trim(),
     company: (data.get('company') || '').toString().trim(),
     phone: (data.get('phone') || '').toString().trim(),
     email: (data.get('email') || '').toString().trim(),
-    interests: data.getAll('interest').join(', '),
+    interests: interestList.join(', '),
     message: (data.get('message') || '').toString().trim(),
+    attachment,
     referrer: (document.referrer || '(direct)').slice(0, 200),
     userAgent: (navigator.userAgent || '').slice(0, 200),
     clientIp,
