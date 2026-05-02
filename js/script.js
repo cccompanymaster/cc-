@@ -1056,6 +1056,7 @@ inqForm?.addEventListener('submit', async (e) => {
   const required = [
     { id: 'inq-name', label: '이름' },
     { id: 'inq-phone', label: '연락처' },
+    { id: 'inq-email', label: '이메일' },
     { id: 'inq-message', label: '문의 내용' },
   ];
   for (const { id, label } of required) {
@@ -1065,6 +1066,29 @@ inqForm?.addEventListener('submit', async (e) => {
       alert(`${label}을(를) 입력해주세요.`);
       return;
     }
+  }
+  // 연락처 형식 검증 (01X-XXXX-XXXX, 공백/하이픈/점 허용, 숫자만 있어도 OK)
+  const phoneEl = document.getElementById('inq-phone');
+  const phoneDigits = (phoneEl?.value || '').replace(/[^\d]/g, '');
+  if (!/^01[016789]\d{7,8}$/.test(phoneDigits)) {
+    phoneEl?.focus();
+    alert('연락처를 형식에 맞게 입력해주세요.\n예: 010-1234-5678');
+    return;
+  }
+  // 이메일 형식 검증
+  const emailEl = document.getElementById('inq-email');
+  const emailVal = (emailEl?.value || '').trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal)) {
+    emailEl?.focus();
+    alert('이메일 형식이 올바르지 않습니다.\n예: you@example.com');
+    return;
+  }
+  // 관심 영역 1개 이상 선택 필수
+  const interestChecked = inqForm.querySelectorAll('input[name="interest"]:checked');
+  if (interestChecked.length === 0) {
+    inqForm.querySelector('input[name="interest"]')?.focus();
+    alert('관심 영역을 1개 이상 선택해주세요.');
+    return;
   }
   const privacy = document.getElementById('inq-privacy');
   if (!privacy?.checked) {

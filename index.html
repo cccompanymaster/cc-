@@ -1093,15 +1093,15 @@
               <div class="form-row">
                 <div class="form-field">
                   <label for="inq-phone">연락처 <span>*</span></label>
-                  <input type="tel" id="inq-phone" name="phone" required placeholder="010-0000-0000" inputmode="numeric">
+                  <input type="tel" id="inq-phone" name="phone" required placeholder="010-1234-5678" inputmode="numeric" pattern="^01[016789][\s\-\.]?\d{3,4}[\s\-\.]?\d{4}$" autocomplete="tel">
                 </div>
                 <div class="form-field">
-                  <label for="inq-email">이메일</label>
-                  <input type="email" id="inq-email" name="email" placeholder="you@example.com">
+                  <label for="inq-email">이메일 <span>*</span></label>
+                  <input type="email" id="inq-email" name="email" required placeholder="you@example.com" autocomplete="email">
                 </div>
               </div>
               <div class="form-field">
-                <label>관심 영역 <span class="optional-hint">(선택 · 중복 가능)</span></label>
+                <label>관심 영역 <span>*</span> <span class="optional-hint">(필수 · 1개 이상 선택)</span></label>
                 <div class="checkbox-row">
                   <label class="chip"><input type="checkbox" name="interest" value="전문직 광고"><span>전문직 광고</span></label>
                   <label class="chip"><input type="checkbox" name="interest" value="바이럴 마케팅"><span>바이럴 마케팅</span></label>
