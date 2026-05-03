@@ -254,8 +254,8 @@ function handleInquiry_(data, cfg) {
     new Date(),
     sanitizeCell_(data.name),
     sanitizeCell_(data.company),
-    sanitizeCell_(maskPhone_(data.phone)),
-    sanitizeCell_(maskEmail_(data.email)),
+    sanitizeCell_(data.phone),
+    sanitizeCell_(data.email),
     sanitizeCell_(data.interests),
     sanitizeCell_((data.message || '').slice(0, 5000)),
     sanitizeCell_(att ? att.info : ''),
@@ -312,7 +312,7 @@ function getOrCreateInquirySheet_() {
   let sh = ss.getSheetByName(SHEET_INQUIRIES);
   if (!sh) {
     sh = ss.insertSheet(SHEET_INQUIRIES);
-    sh.appendRow(['제출시각','이름','회사/브랜드','연락처(마스킹)','이메일(마스킹)','관심항목','문의내용','첨부파일','첨부 Drive URL','유입경로','UserAgent','IP']);
+    sh.appendRow(['제출시각','이름','회사/브랜드','연락처','이메일','관심항목','문의내용','첨부파일','첨부 Drive URL','유입경로','UserAgent','IP']);
     sh.setFrozenRows(1);
     sh.getRange('A1:L1').setFontWeight('bold').setBackground('#0f1a3a').setFontColor('#fff');
   }
