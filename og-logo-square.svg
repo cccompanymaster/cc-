@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1A33"/>
+      <stop offset="100%" stop-color="#1a3358"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#D4A574" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#D4A574" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8BE8B"/>
+      <stop offset="100%" stop-color="#B5874F"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+
+  <!-- Centered circle + arrow logo -->
+  <g transform="translate(512, 460)">
+    <circle r="320" fill="#0B1A33" stroke="#D4A574" stroke-width="6"/>
+    <g transform="scale(12)">
+      <g transform="translate(-16, -16)">
+        <path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#gold)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Brand text below -->
+  <text x="512" y="880" text-anchor="middle" font-family="Inter, 'Pretendard', sans-serif" font-size="84" font-weight="900" fill="#ffffff" letter-spacing="6">NOAH</text>
+  <text x="512" y="940" text-anchor="middle" font-family="Inter, 'Pretendard', sans-serif" font-size="26" font-weight="700" fill="#D4A574" letter-spacing="11">MARKETING GROUP</text>
+</svg>
