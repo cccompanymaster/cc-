@@ -23,6 +23,28 @@ body {
   max-width: 100vw;
   word-break: keep-all;
   overflow-wrap: break-word;
+  /* 텍스트 드래그/선택 방지 (폼 입력 / 연락처 / 이메일 링크는 예외) */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* 폼 입력칸·링크·연락처는 사용자가 입력·복사할 수 있어야 함 */
+input, textarea, select, [contenteditable="true"],
+a[href^="tel:"], a[href^="mailto:"], a[href^="sms:"],
+.allow-select, .allow-select * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+/* 이미지 드래그도 방지 */
+img, svg { -webkit-user-drag: none; user-drag: none; }
+
   position: relative; /* 내부 absolute 요소 기준점 고정 — 뷰포트 초과 방지 */
 }
 h1, h2, h3, h4, h5, p { word-break: keep-all; overflow-wrap: break-word; }
