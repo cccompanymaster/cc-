@@ -44,17 +44,31 @@ window.addEventListener('pageshow', () => window.scrollTo(0, 0));
 // ===== Category filter =====
 const filters = document.querySelectorAll('.cat-filter');
 const cards = document.querySelectorAll('.product-card');
-filters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.cat;
-    cards.forEach(card => {
-      const match = cat === 'all' || card.dataset.cat === cat;
-      card.classList.toggle('hide', !match);
-    });
+const applyFilter = (cat) => {
+  filters.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  cards.forEach(card => {
+    const match = cat === 'all' || card.dataset.cat === cat;
+    card.classList.toggle('hide', !match);
   });
+};
+filters.forEach(btn => {
+  btn.addEventListener('click', () => applyFilter(btn.dataset.cat));
 });
+
+// URL 해시(#cc / #lab / #db) 자동 필터 — 홈에서 서비스 허브 카드로 진입 시
+const applyHashFilter = () => {
+  const hash = (location.hash || '').replace('#', '').toLowerCase();
+  if (['cc', 'lab', 'db'].includes(hash)) {
+    applyFilter(hash);
+    // 필터 영역으로 스크롤
+    const filterSection = document.querySelector('.cat-filter')?.closest('section');
+    if (filterSection) {
+      setTimeout(() => filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    }
+  }
+};
+applyHashFilter();
+window.addEventListener('hashchange', applyHashFilter);
 
 // ===== Sub-label draw-in =====
 const subLabelIO = new IntersectionObserver((entries) => {

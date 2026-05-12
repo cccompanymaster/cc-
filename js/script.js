@@ -1260,6 +1260,7 @@ inqForm?.addEventListener('submit', async (e) => {
 
 // ===== FAQ 섹션 CTA → 문의 모달 열기 =====
 document.getElementById('faqOpenInquiry')?.addEventListener('click', () => openInquiry());
+document.getElementById('hubOpenInquiry')?.addEventListener('click', () => openInquiry());
 
 // ===== Smooth anchor scroll (dynamic header offset) =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
