@@ -30,6 +30,69 @@ if (document.readyState === 'complete') {
 }
 introEl?.addEventListener('click', hideIntro);
 
+// ===== Hero 타이핑 모션 — 4개 브랜드 메시지 순환 =====
+(() => {
+  const target = document.getElementById('heroTyped');
+  if (!target) return;
+  const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const phrases = [
+    '휩쓸리지 않는 <em>성장</em>을 설계합니다.',
+    '<em>374건</em>이 증명한 마케팅을 합니다.',
+    '<em>매출</em>로 성과를 이야기합니다.',
+    '광고비 <em>1원</em>도 헛되이 쓰지 않습니다.',
+  ];
+  if (prefersReducedMotion) {
+    target.innerHTML = phrases[0];
+    return;
+  }
+  const TYPE_MS = 55, DELETE_MS = 28, HOLD_MS = 1800, BETWEEN_MS = 350;
+  let idx = 0;
+
+  // 문자열을 시각적 글자 단위로 자르기 (HTML 태그 무시)
+  const renderSubstring = (html, n) => {
+    let visible = 0, out = '', i = 0;
+    while (i < html.length && visible < n) {
+      if (html[i] === '<') {
+        const end = html.indexOf('>', i);
+        if (end === -1) break;
+        out += html.slice(i, end + 1);
+        i = end + 1;
+      } else {
+        out += html[i];
+        visible++;
+        i++;
+      }
+    }
+    // 미닫힌 태그(<em>...</em> 중간 자름) 닫아주기
+    const open = (out.match(/<em>/g) || []).length;
+    const close = (out.match(/<\/em>/g) || []).length;
+    if (open > close) out += '</em>';
+    return out;
+  };
+  const visibleLen = (html) => html.replace(/<[^>]+>/g, '').length;
+
+  const typeNext = async () => {
+    const phrase = phrases[idx];
+    const total = visibleLen(phrase);
+    // 타이핑
+    for (let n = 1; n <= total; n++) {
+      target.innerHTML = renderSubstring(phrase, n);
+      await new Promise(r => setTimeout(r, TYPE_MS));
+    }
+    await new Promise(r => setTimeout(r, HOLD_MS));
+    // 삭제
+    for (let n = total - 1; n >= 0; n--) {
+      target.innerHTML = renderSubstring(phrase, n);
+      await new Promise(r => setTimeout(r, DELETE_MS));
+    }
+    await new Promise(r => setTimeout(r, BETWEEN_MS));
+    idx = (idx + 1) % phrases.length;
+    typeNext();
+  };
+  // 인트로 페이드 후 시작
+  setTimeout(typeNext, 1400);
+})();
+
 // ===== Hero mini compass: initial CSS wind-up spin → after animationend, cursor controls rotation direction =====
 (() => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;

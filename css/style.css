@@ -2559,6 +2559,37 @@ body.bb-active .btn-top { bottom: 92px; }
   background: linear-gradient(180deg, transparent 72%, rgba(212,165,116,0.2) 72%);
   padding: 0 2px;
 }
+/* Hero 타이핑 모션 — 4개 브랜드 메시지 순환 */
+.hero-typed {
+  display: inline-block;
+  color: rgba(255,255,255,0.96);
+  font-weight: 600;
+  min-height: 1.55em;
+  letter-spacing: -0.01em;
+}
+.hero-typed em {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 72%, rgba(212,165,116,0.22) 72%);
+  padding: 0 2px;
+}
+.hero-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: -0.18em;
+  background: var(--gold);
+  animation: heroCaretBlink 0.85s steps(2, jump-none) infinite;
+}
+@keyframes heroCaretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-caret { animation: none; opacity: 0.6; }
+}
 .hero-micro {
   font-family: 'Pretendard', sans-serif;
   font-size: 13px;
