@@ -768,11 +768,15 @@ html {
 }
 .hero-title .line i {
   color: var(--gold);
-  font-style: italic;
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 700;
-  padding-right: 0.06em;
-  display: inline-block;
+  font-family: 'Noto Serif KR', 'Pretendard', serif;
+  font-weight: 800;
+  padding-right: 0.04em;
+  display: inline;
+  background: linear-gradient(135deg, #E8BE8B 0%, #D4A574 50%, #B5874F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: normal;
 }
 .hero-title .line {
   opacity: 0;
