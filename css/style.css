@@ -2560,11 +2560,12 @@ body.bb-active .btn-top { bottom: 92px; }
   padding: 0 2px;
 }
 /* Hero 타이핑 모션 — 4개 브랜드 메시지 순환 */
+/* .hero-typed 는 inline 으로 두어 부모(H1 grad-text 또는 hero-ko-lead)의
+   color/background-clip 처리가 자연스럽게 흐르도록 함. inline-block 으로 두면
+   부모 background-clip:text 영역에서 잘려나가 글자가 투명 상속만 받아 사라짐. */
 .hero-typed {
-  display: inline-block;
-  color: rgba(255,255,255,0.96);
+  display: inline;
   font-weight: 600;
-  min-height: 1.55em;
   letter-spacing: -0.01em;
 }
 .hero-typed em {
@@ -2574,13 +2575,14 @@ body.bb-active .btn-top { bottom: 92px; }
   background: linear-gradient(180deg, transparent 72%, rgba(212,165,116,0.22) 72%);
   padding: 0 2px;
 }
+/* caret 만 inline-block + 명시적 골드 색상 (투명 상속 회피) */
 .hero-caret {
   display: inline-block;
   width: 2px;
   height: 1.05em;
   margin-left: 3px;
   vertical-align: -0.18em;
-  background: var(--gold);
+  background: var(--gold, #D4A574);
   animation: heroCaretBlink 0.85s steps(2, jump-none) infinite;
 }
 @keyframes heroCaretBlink {
