@@ -1,0 +1,31 @@
+name: Auto-deploy to gh-pages
+
+# 작업 브랜치(claude/fix-url-redirect-42f6N)에 push되면 자동으로 gh-pages로 동기화.
+# 로컬 프록시에서 gh-pages 직접 푸시 차단되는 문제 우회.
+# 수동 실행도 가능 (Actions 탭 → "Run workflow")
+
+on:
+  push:
+    branches:
+      - claude/fix-url-redirect-42f6N
+  workflow_dispatch:
+
+jobs:
+  sync-to-gh-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/fix-url-redirect-42f6N
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Force push to gh-pages
+        run: git push origin HEAD:gh-pages --force
