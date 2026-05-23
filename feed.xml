@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>노아마케팅그룹 아티클</title>
+    <title>노아 아티클</title>
     <link>https://noahgroup.co.kr/articles/</link>
     <atom:link href="https://noahgroup.co.kr/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>네이버 블로그 상위노출·플레이스·의료광고·바이럴·SEO — 노아마케팅그룹의 마케팅 실전 인사이트.</description>
+    <description>네이버 블로그 상위노출·플레이스·의료광고·바이럴·SEO — 노아의 마케팅 실전 인사이트.</description>
     <language>ko-KR</language>
-    <copyright>© 2026 Noah Marketing Group. All rights reserved.</copyright>
-    <managingEditor>noreply@noahgroup.co.kr (노아마케팅그룹 편집팀)</managingEditor>
-    <webMaster>noreply@noahgroup.co.kr (노아마케팅그룹)</webMaster>
+    <copyright>© 2026 NOAH. All rights reserved.</copyright>
+    <managingEditor>noreply@noahgroup.co.kr (노아 편집팀)</managingEditor>
+    <webMaster>noreply@noahgroup.co.kr (노아)</webMaster>
     <pubDate>Sat, 25 Apr 2026 09:00:00 +0900</pubDate>
     <lastBuildDate>Sat, 25 Apr 2026 06:57:16 +0900</lastBuildDate>
-    <generator>Noah Marketing Group RSS Builder</generator>
+    <generator>NOAH RSS Builder</generator>
     <ttl>1440</ttl>
     <image>
       <url>https://noahgroup.co.kr/og-image.svg</url>
-      <title>노아마케팅그룹 아티클</title>
+      <title>노아 아티클</title>
       <link>https://noahgroup.co.kr/articles/</link>
     </image>
     <item>
@@ -232,7 +232,7 @@
       <pubDate>Sun, 05 Apr 2026 09:00:00 +0900</pubDate>
       <description>파워링크·당근마켓광고·페이스북광고·네이버공식대행사 2026 단가·CPC·수수료 비교. 업종별 예산 배분 실전 가이드.</description>
       <category>광고 플랫폼</category>
-      <author>noreply@noahgroup.co.kr (노아마케팅그룹 편집팀)</author>
+      <author>noreply@noahgroup.co.kr (노아 편집팀)</author>
     </item>
     <item>
       <title>네이버 스마트스토어 상위노출 2026 — 쇼핑 검색 랭킹 실전 가이드</title>

@@ -1,4 +1,4 @@
-# robots.txt — 노아마케팅그룹 (noahgroup.co.kr)
+# robots.txt — 노아 (noahgroup.co.kr)
 #
 # ============================================================
 # Site Topic & Search Keywords (검색 의도 매칭용 메타데이터)
