@@ -1453,6 +1453,107 @@ html {
 }
 
 /* ====== Services Roadmap ====== */
+/* ====== Brand Story + Hook (전환 유도 랜딩) ====== */
+.brand-story {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+  color: #fff;
+  padding: clamp(90px, 12vw, 170px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.brand-story::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 20%, rgba(194,163,107,0.12), transparent 55%);
+  pointer-events: none;
+}
+.brand-story .container { position: relative; z-index: 1; }
+.bs-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.bs-headline {
+  font-family: 'Inter', 'Pretendard', sans-serif;
+  font-size: clamp(34px, 5.5vw, 72px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+.bs-headline em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bs-lead {
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 64px;
+  max-width: 680px;
+}
+.bs-lead b { color: #fff; font-weight: 700; }
+.bs-hooks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 56px;
+}
+.bs-hook {
+  padding: 36px 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  transition: transform 0.35s var(--easing), border-color 0.3s, background 0.3s;
+}
+.bs-hook:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  background: rgba(194,163,107,0.06);
+}
+.bs-hook-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.bs-hook h3 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 800;
+  margin: 14px 0 12px;
+  letter-spacing: -0.02em;
+}
+.bs-hook p {
+  font-size: 15px; line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+}
+.bs-cta-row {
+  display: flex; flex-wrap: wrap; gap: 16px;
+}
+.btn-ghost-dark {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 700; text-decoration: none;
+  transition: all 0.3s var(--easing);
+}
+.btn-ghost-dark:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(194,163,107,0.08);
+}
+@media (max-width: 860px) {
+  .bs-hooks { grid-template-columns: 1fr; gap: 16px; }
+  .bs-hook { padding: 28px 24px; }
+  .bs-cta-row .btn, .bs-cta-row .btn-ghost-dark { width: 100%; justify-content: center; }
+}
+
 /* ===== Services Hub (Hero 직후 3-카드 빠른 안내) ===== */
 .services-hub {
   padding: 80px 0 60px;
