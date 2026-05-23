@@ -964,50 +964,50 @@ html {
   display: inline-flex; align-items: center;
   font-family: 'Inter', sans-serif;
   font-size: 12px; font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--gold-ink);
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 .sub-label::before {
   content: ''; display: inline-block;
-  width: 0; height: 2px; background: var(--gold);
+  width: 0; height: 1.5px; background: var(--gold);
   margin-right: 0;
   flex-shrink: 0;
   transition: width 0.7s 0.15s var(--easing), margin-right 0.7s 0.15s var(--easing);
 }
-.sub-label.drawn::before { width: 28px; margin-right: 14px; }
+.sub-label.drawn::before { width: 32px; margin-right: 14px; }
 .sub-label.center {
-  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
 }
 .sub-label.center::before { margin-right: 0 !important; }
-.sub-label.center.drawn::before { width: 36px; }
+.sub-label.center.drawn::before { width: 40px; }
 .sub-label em { display: none; } /* legacy HTML safety */
 .h2 {
-  font-size: clamp(28px, 3.6vw, 52px);
+  font-size: clamp(30px, 3.8vw, 56px);
   font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: -0.025em;
+  line-height: 1.18;
+  letter-spacing: -0.032em;
   color: var(--ink);
-  padding-bottom: 0.22em;
+  padding-bottom: 0.12em;
 }
 .h2 em {
-  color: var(--gold);
-  font-family: 'Noto Serif KR', serif;
-  font-style: italic;
-  font-weight: 700;
-  padding: 0 0.04em 0.1em;
-  display: inline-block;
-  line-height: 1.2;
+  font-style: normal;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 55%, var(--gold-ink));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 0.02em;
 }
-.sec-head { margin-bottom: 60px; }
+.sec-head { margin-bottom: clamp(48px, 6vw, 76px); }
 .sec-head.center { text-align: center; }
 .sec-head.center .sub-label { justify-content: center; }
 .sec-desc {
   color: var(--muted);
-  font-size: 16px;
-  margin-top: 20px;
-  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 22px;
+  max-width: 660px;
 }
 .sec-head.center .sec-desc { margin-left: auto; margin-right: auto; }
 
