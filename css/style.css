@@ -536,22 +536,7 @@ html {
   align-items: center;
   gap: clamp(24px, 4vw, 56px);
 }
-.hero-col-left { position: relative; padding-left: 40px; text-align: left; }
-
-/* 좌측 도트 레일 */
-.hero-rail {
-  position: absolute; left: 0; top: 8px; bottom: 8px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  align-items: center;
-}
-.hero-rail i {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(255,255,255,0.16);
-}
-.hero-rail i:first-child {
-  background: var(--gold);
-  box-shadow: 0 0 0 5px rgba(194,163,107,0.16);
-}
+.hero-col-left { position: relative; text-align: left; }
 
 /* ── 선언형 헤드라인 — 밝은 키워드 + 흐린 연결어 ── */
 .hero-statement {
@@ -607,7 +592,8 @@ html {
   .hero-grid { grid-template-columns: 1fr; gap: 12px; }
   .hero-col-right { order: -1; }
   .hero-orbit { max-width: 340px; opacity: 0.92; }
-  .hero-col-left { padding-left: 30px; }
+  .hero-col-left { text-align: center; }
+  .hero-col-left .hero-actions { justify-content: center; }
 }
 @media (max-width: 560px) {
   .hero-orbit { max-width: 270px; }
@@ -643,9 +629,10 @@ html {
   opacity: 0; animation: fadeUp 1s 0.9s both;
 }
 .hero-stats-row {
-  display: inline-flex; align-items: center;
+  display: flex; align-items: center; justify-content: center;
+  width: fit-content;
   gap: clamp(18px, 4vw, 48px);
-  margin-top: 44px;
+  margin: 44px auto 0;
   padding: 22px 36px;
   border: 1px solid rgba(220,201,160,0.3);
   border-radius: 999px;
@@ -4428,3 +4415,48 @@ a:hover > .srv-cta span,
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
+
+/* ============================================================
+   서브페이지 공통 (소개 · 전문팀 · 문의) — 페이지 히어로 배너
+   ============================================================ */
+.page-hero {
+  position: relative;
+  background: linear-gradient(160deg, #1a161d 0%, #2b2530 100%);
+  color: #fff;
+  padding: clamp(118px, 17vh, 196px) 0 clamp(46px, 7vh, 84px);
+  overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 78% 26%, rgba(194,163,107,0.20), transparent 56%);
+  pointer-events: none;
+}
+.page-hero .container { position: relative; z-index: 1; }
+.page-breadcrumb {
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px;
+  display: flex; gap: 9px; align-items: center; flex-wrap: wrap;
+}
+.page-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.page-breadcrumb a:hover { color: var(--gold); }
+.page-breadcrumb span { opacity: 0.4; }
+.page-hero h1 {
+  font-family: 'Pretendard', 'Inter', sans-serif;
+  font-weight: 800; font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.18; letter-spacing: -0.03em; color: #fff;
+}
+.page-hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #E8DCC2, var(--gold) 60%, var(--gold-ink));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.page-hero .page-sub {
+  margin-top: 18px; max-width: 640px;
+  color: rgba(255,255,255,0.72);
+  font-size: clamp(15px, 1.5vw, 18px); line-height: 1.75;
+}
+/* 라이트 본문 래퍼 — 추출된 섹션의 상하 여백 정리 */
+.page-main { background: var(--bg); }
+.page-main > section:first-child { padding-top: clamp(56px, 8vh, 96px); }
