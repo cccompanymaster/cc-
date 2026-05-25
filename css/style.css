@@ -536,7 +536,8 @@ html {
   align-items: center;
   gap: clamp(24px, 4vw, 56px);
 }
-.hero-col-left { position: relative; text-align: left; }
+.hero-col-left { position: relative; text-align: center; }
+.hero-col-left .hero-actions { justify-content: center; }
 
 /* ── 선언형 헤드라인 — 밝은 키워드 + 흐린 연결어 ── */
 .hero-statement {
@@ -648,6 +649,7 @@ html {
   color: #CBAE76;
   letter-spacing: -0.02em;
   line-height: 1;
+  white-space: nowrap;
 }
 .hero-stat span { font-size: clamp(11px, 1.3vw, 14px); color: rgba(255,255,255,0.65); font-weight: 600; }
 .hero-stat-div { width: 1px; height: 36px; background: rgba(255,255,255,0.15); }
