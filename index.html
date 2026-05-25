@@ -343,66 +343,124 @@
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-stars" aria-hidden="true"></div>
 
-      <!-- Small ambient compass (uses same SVG markup as loading compass — guaranteed in-place rotation) -->
-      <div class="hero-mini-compass" aria-hidden="true">
-        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="60" r="56" stroke="#C2A36B" stroke-width="1" opacity="0.35"/>
-          <circle cx="60" cy="60" r="42" stroke="#C2A36B" stroke-width="0.5" opacity="0.45" stroke-dasharray="1 3"/>
-          <g stroke="#C2A36B" stroke-width="0.8" opacity="0.65">
-            <line x1="60" y1="6" x2="60" y2="14"/>
-            <line x1="60" y1="106" x2="60" y2="114"/>
-            <line x1="6" y1="60" x2="14" y2="60"/>
-            <line x1="106" y1="60" x2="114" y2="60"/>
-          </g>
-          <g font-family="Inter,sans-serif" font-size="8" font-weight="800" fill="#C2A36B" text-anchor="middle">
-            <text x="60" y="22" letter-spacing="1.5">N</text>
-            <text x="60" y="105" opacity="0.55" letter-spacing="1.5">S</text>
-            <text x="103" y="63" opacity="0.55" letter-spacing="1.5">E</text>
-            <text x="17" y="63" opacity="0.55" letter-spacing="1.5">W</text>
-          </g>
-          <g class="hero-mini-needle">
-            <!-- N-S 주 바늘 (gold north / dark south) -->
-            <path d="M60 18 L63 60 L60 63 L57 60 Z" fill="#C2A36B"/>
-            <path d="M60 102 L57 60 L60 57 L63 60 Z" fill="#5a3f27"/>
-            <!-- E-W 보조 바늘 (cross) -->
-            <path d="M102 60 L60 63 L57 60 L60 57 Z" fill="#7a5230"/>
-            <path d="M18 60 L60 57 L63 60 L60 63 Z" fill="#7a5230"/>
-            <!-- 중심 피벗 -->
-            <circle cx="60" cy="60" r="3.2" fill="#C2A36B"/>
-            <circle cx="60" cy="60" r="1.5" fill="#1a161d"/>
-            <circle cx="60" cy="60" r="0.6" fill="#C2A36B"/>
-          </g>
-        </svg>
-      </div>
-
-
-      <div class="hero-wrap hero-v2">
-        <p class="hero-eyebrow">
-          <span class="dot" aria-hidden="true"></span>
-          노아 · 인천 송도 · 2020
-        </p>
-        <h1 class="hero-statement" id="hero-title">
-          <span class="hs-line">검증된 <a href="#companies" class="hs-key">전략</a>으로</span>
-          <span class="hs-line">기대를 뛰어넘는 <a href="impact-2026.html" class="hs-key">결과</a>를</span>
-          <span class="hs-line"><a href="#contact" class="hs-key">광고주</a>께 증명합니다.</span>
-        </h1>
-        <p class="hero-lead-v2">
-          <span class="hero-typed" id="heroTyped"></span><span class="hero-caret" aria-hidden="true"></span>
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary" id="heroPrimaryCTA">무료 상담 받기 <span aria-hidden="true">→</span></a>
-          <a href="#companies" class="btn btn-ghost">전문팀 살펴보기</a>
+      <div class="hero-grid">
+        <!-- LEFT: 선언형 카피 + 도트 레일 -->
+        <div class="hero-col hero-col-left">
+          <span class="hero-rail" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </span>
+          <div class="hero-copy">
+            <p class="hero-eyebrow">
+              <span class="dot" aria-hidden="true"></span>
+              노아 · 인천 송도 · 2020
+            </p>
+            <h1 class="hero-statement" id="hero-title">
+              <span class="hs-line"><span class="hs-strong">검증된</span> <span class="hs-key">전략</span><span class="hs-dim">으로</span></span>
+              <span class="hs-line"><span class="hs-dim">기대를 뛰어넘는</span> <span class="hs-key">결과</span><span class="hs-dim">를</span></span>
+              <span class="hs-line"><span class="hs-key">광고주</span><span class="hs-dim">께 증명합니다</span><span class="hs-dot">.</span></span>
+            </h1>
+            <p class="hero-lead-v2">
+              <span class="hero-typed" id="heroTyped"></span><span class="hero-caret" aria-hidden="true"></span>
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary" id="heroPrimaryCTA">무료 상담 받기 <span aria-hidden="true">→</span></a>
+              <a href="#companies" class="btn btn-ghost">전문팀 살펴보기</a>
+            </div>
+            <div class="hero-stats-row" aria-label="핵심 성과 지표">
+              <div class="hero-stat"><b>374</b><span>운영 사례</span></div>
+              <div class="hero-stat-div" aria-hidden="true"></div>
+              <div class="hero-stat"><b>382%</b><span>평균 ROAS</span></div>
+              <div class="hero-stat-div" aria-hidden="true"></div>
+              <div class="hero-stat"><b>96.4%</b><span>심의 승인율</span></div>
+            </div>
+            <p class="hero-micro">
+              <span aria-hidden="true">✓</span> 영업일 24시간 내 회신 · 업종 맞춤 제안서 발송
+            </p>
+          </div>
         </div>
-        <div class="hero-stats-row" aria-label="핵심 성과 지표">
-          <div class="hero-stat"><b>374</b><span>운영 사례</span></div>
-          <div class="hero-stat-div" aria-hidden="true"></div>
-          <div class="hero-stat"><b>382%</b><span>평균 ROAS</span></div>
-          <div class="hero-stat-div" aria-hidden="true"></div>
-          <div class="hero-stat"><b>96.4%</b><span>심의 승인율</span></div>
+
+        <!-- RIGHT: 노아 오빗 컨스텔레이션 — 중앙 노아 마크 + 6개 서비스 노드 -->
+        <div class="hero-col hero-col-right" aria-hidden="true">
+          <div class="hero-orbit">
+            <svg viewBox="0 0 560 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="hoGlow" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0%" stop-color="#C2A36B" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#C2A36B" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="hoGold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E8DCC2"/>
+                  <stop offset="60%" stop-color="#C2A36B"/>
+                  <stop offset="100%" stop-color="#9A7D4A"/>
+                </linearGradient>
+                <linearGradient id="hoSweepGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#C2A36B" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#C2A36B" stop-opacity="0.7"/>
+                </linearGradient>
+              </defs>
+
+              <!-- soft center glow -->
+              <circle cx="280" cy="260" r="170" fill="url(#hoGlow)"/>
+
+              <!-- connecting spokes -->
+              <g stroke="#C2A36B" stroke-width="1" opacity="0.28">
+                <line x1="280" y1="260" x2="280" y2="65"/>
+                <line x1="280" y1="260" x2="449" y2="162"/>
+                <line x1="280" y1="260" x2="449" y2="358"/>
+                <line x1="280" y1="260" x2="280" y2="455"/>
+                <line x1="280" y1="260" x2="111" y2="358"/>
+                <line x1="280" y1="260" x2="111" y2="162"/>
+              </g>
+
+              <!-- concentric rings (one rotating) -->
+              <circle cx="280" cy="260" r="195" stroke="#C2A36B" stroke-width="1" opacity="0.22"/>
+              <g class="ho-ring-rot">
+                <circle cx="280" cy="260" r="138" stroke="#C2A36B" stroke-width="1" opacity="0.4" stroke-dasharray="2 9"/>
+              </g>
+
+              <!-- radar sweep -->
+              <g class="ho-sweep">
+                <path d="M280 260 L280 65 A195 195 0 0 1 449 162 Z" fill="url(#hoSweepGrad)" opacity="0.18"/>
+              </g>
+
+              <!-- 6 service nodes -->
+              <g class="ho-nodes" font-family="'Pretendard',sans-serif" font-weight="700" font-size="17">
+                <g class="ho-node">
+                  <circle cx="280" cy="65" r="6" fill="url(#hoGold)"/>
+                  <text x="280" y="42" text-anchor="middle" fill="#fff">퍼포먼스</text>
+                </g>
+                <g class="ho-node">
+                  <circle cx="449" cy="162" r="6" fill="url(#hoGold)"/>
+                  <text x="471" y="167" text-anchor="start" fill="#fff">브랜드</text>
+                </g>
+                <g class="ho-node">
+                  <circle cx="449" cy="358" r="6" fill="url(#hoGold)"/>
+                  <text x="471" y="363" text-anchor="start" fill="#fff">콘텐츠</text>
+                </g>
+                <g class="ho-node">
+                  <circle cx="280" cy="455" r="6" fill="url(#hoGold)"/>
+                  <text x="280" y="486" text-anchor="middle" fill="#fff">데이터</text>
+                </g>
+                <g class="ho-node">
+                  <circle cx="111" cy="358" r="6" fill="url(#hoGold)"/>
+                  <text x="89" y="363" text-anchor="end" fill="#fff">전문직</text>
+                </g>
+                <g class="ho-node">
+                  <circle cx="111" cy="162" r="6" fill="url(#hoGold)"/>
+                  <text x="89" y="167" text-anchor="end" fill="#fff">바이럴</text>
+                </g>
+              </g>
+
+              <!-- center: 노아 mark -->
+              <g class="ho-core">
+                <circle cx="280" cy="260" r="58" fill="#1a161d" stroke="url(#hoGold)" stroke-width="2"/>
+                <g transform="translate(280,260) scale(2.1) translate(-16,-16)">
+                  <path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#hoGold)"/>
+                </g>
+              </g>
+            </svg>
+          </div>
         </div>
-        <p class="hero-micro">
-          <span aria-hidden="true">✓</span> 영업일 24시간 내 회신 · 업종 맞춤 제안서 발송
-        </p>
       </div>
 
       <!-- 풀폭 마퀴 티커 -->
