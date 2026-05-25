@@ -310,6 +310,25 @@ const subLabelIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.sub-label:not(.center)').forEach(el => subLabelIO.observe(el));
 
+// ===== Reveal-on-scroll (디자인 폴리시 — [data-reveal]) =====
+(() => {
+  const els = document.querySelectorAll('[data-reveal]');
+  if (!els.length) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => revealIO.observe(el));
+})();
+
 // ===== Hero sparkle particles =====
 (() => {
   const hero = document.querySelector('.hero');

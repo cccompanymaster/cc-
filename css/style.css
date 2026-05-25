@@ -4286,3 +4286,56 @@ body.nav-open .ham span:nth-child(3) { transform: translateY(-6px) rotate(-45deg
   .warn-siren { animation: none; }
   .warn-panel { transition: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   DESIGN POLISH LAYER — 완성도 향상 (C 여백 → B 컴포넌트 → A 타이포 → D 디테일)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ───── A. 타이포 — 본문 가독성·문단 리듬 ───── */
+body { line-height: 1.6; letter-spacing: -0.003em; }
+p { text-wrap: pretty; }
+.company-desc, .about-lead, .sec-desc, .product p, .news-card .info p {
+  line-height: 1.72;
+}
+
+/* ───── C. 여백·리듬 — 컨테이너·섹션 호흡 ───── */
+.container { max-width: 1280px; padding: 0 clamp(22px, 4vw, 56px); }
+.about, .companies, .products, .services, .clients, .news-sec, .faq, .roi-sec, .demo-sec {
+  padding-top: clamp(88px, 10vw, 150px);
+  padding-bottom: clamp(88px, 10vw, 150px);
+}
+
+/* ───── B. 컴포넌트 폴리시 — 카드/보더/그림자 통일 ───── */
+.product, .news-card, .srv-card, .client-item, .faq-item, .company-card {
+  transition: transform 0.4s var(--easing), box-shadow 0.4s var(--easing), border-color 0.3s !important;
+}
+.product:hover, .news-card:hover, .srv-card:hover {
+  box-shadow: 0 22px 48px -20px rgba(31,26,34,0.22) !important;
+}
+/* 골드 헤어라인 디바이더 (섹션 구분 고급화) */
+.section-rule {
+  width: 100%; max-width: 1280px; height: 1px; margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(194,163,107,0.35), transparent);
+}
+
+/* ───── D. 디테일·인터랙션 — 스크롤 등장·호버 정교화 ───── */
+[data-reveal] {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s var(--easing), transform 0.7s var(--easing);
+  will-change: opacity, transform;
+}
+[data-reveal].in { opacity: 1; transform: none; }
+[data-reveal][data-reveal-delay="1"] { transition-delay: 0.08s; }
+[data-reveal][data-reveal-delay="2"] { transition-delay: 0.16s; }
+[data-reveal][data-reveal-delay="3"] { transition-delay: 0.24s; }
+
+/* 링크·CTA 화살표 마이크로 모션 통일 */
+.srv-cta span, .btn span[aria-hidden], .news-all span {
+  transition: transform 0.3s var(--easing);
+}
+a:hover > .srv-cta span,
+.srv-card:hover .srv-cta span { transform: translateX(5px); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
