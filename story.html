@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>노아 — 매출로 답하는 마케팅</title>
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="노아 — 매출로 답하는 마케팅">
+<meta property="og:description" content="광고비, 태우고 계신가요? 노아는 숫자로 증명합니다. 평균 ROAS 382% · 재계약률 92%.">
+<meta property="og:image" content="https://noahgroup.co.kr/og-banner-final.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a161d'/%3E%3Cpath d='M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z' fill='%23C2A36B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* ───────────────────────────────────────── */
+/* RESET + VARIABLES — 노아 럭셔리 팔레트     */
+/* ───────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#161218;--bg-alt:#1e1923;--bg-hero:#120e14;
+  --paper:#f8f5f0;--paper-alt:#f1ece1;
+  --white:#fff;--sub:rgba(255,255,255,.62);--dim:rgba(255,255,255,.32);
+  --ink:#1a161d;--ink-sub:rgba(26,22,29,.62);--ink-dim:rgba(26,22,29,.35);
+  --gold:#C2A36B;--gold-soft:#E8DCC2;--gold-ink:#9A7D4A;
+  --red:#e35454;
+  --border:rgba(255,255,255,.1);--border-l:rgba(255,255,255,.06);
+  --max-w:1200px;--px:60px;
+  --font:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;position:relative;word-break:keep-all}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(232,220,194,.02) 40px,rgba(232,220,194,.02) 41.5px),
+    repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(232,220,194,.013) 40px,rgba(232,220,194,.013) 41.5px);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--px)}
+@media(max-width:768px){:root{--px:24px}}
+
+/* ─── Top mini bar ─── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,4vw,48px);
+  background:linear-gradient(to bottom,rgba(18,14,20,.85),transparent);
+}
+.topbar .tb-logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.12em;font-size:15px}
+.topbar .tb-logo svg{width:24px;height:24px}
+.topbar .tb-link{
+  font-size:13px;font-weight:700;color:var(--gold-soft);
+  border:1px solid rgba(194,163,107,.4);border-radius:999px;padding:8px 18px;
+  transition:all .3s;
+}
+.topbar .tb-link:hover{background:rgba(194,163,107,.14);border-color:var(--gold)}
+
+/* ───────────────────────────────────────── */
+/* 1. HERO — 마퀴 타이포                      */
+/* ───────────────────────────────────────── */
+.hero{
+  position:relative;height:100vh;min-height:620px;
+  background:var(--bg-hero);overflow:hidden;
+}
+.hero-rv{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1)}
+.hero-rv.show{clip-path:inset(0 0 0 0)}
+.hero-sub{
+  position:absolute;top:16%;left:50%;transform:translateX(-50%);
+  z-index:4;color:#fff;
+  font-size:clamp(17px,2.6vw,30px);font-weight:800;
+  letter-spacing:-1px;line-height:1.2;text-align:center;white-space:nowrap;
+}
+.hero-sub .thin{font-weight:300;color:var(--sub)}
+.hero-headline{
+  position:absolute;top:25%;left:50%;transform:translateX(-50%);
+  z-index:4;color:#fff;text-align:center;line-height:1.02;white-space:nowrap;
+  font-weight:900;letter-spacing:-3px;
+  font-size:clamp(52px,11vw,150px);
+}
+.hero-headline .outline{
+  color:var(--bg-hero);-webkit-text-stroke:1.5px var(--gold-soft);paint-order:stroke fill;
+  display:block;font-size:.62em;letter-spacing:.08em;
+}
+.hero-headline .solid{
+  display:block;
+  background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-tag{
+  position:absolute;top:56%;left:50%;transform:translateX(-50%);
+  z-index:4;text-align:center;
+  font-size:clamp(14px,1.6vw,19px);color:var(--sub);font-weight:500;letter-spacing:.02em;
+  line-height:1.7;white-space:nowrap;
+}
+.hero-tag b{color:var(--gold-soft);font-weight:800}
+.hero-marquee{position:absolute;left:0;right:0;overflow:hidden;white-space:nowrap}
+.hero-marquee.back{top:70%;z-index:1}
+.hero-marquee.front{top:81%;z-index:3}
+.hero-track{display:flex;gap:60px;animation:mq 20s linear infinite}
+.hero-track.reverse{animation:mqR 20s linear infinite}
+.hero-track span{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-2px;flex-shrink:0}
+.hero-marquee.back .mq-solid{color:var(--gold)}
+.hero-marquee.back .mq-outline{color:var(--bg-hero);-webkit-text-stroke:2px var(--gold);paint-order:stroke fill}
+.hero-marquee.front .mq-solid{color:var(--gold-soft)}
+.hero-marquee.front .mq-outline{color:var(--bg-hero);-webkit-text-stroke:2px var(--gold-soft);paint-order:stroke fill}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes mqR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+.scroll-circle{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  width:110px;height:110px;z-index:5;
+  animation:spinC 10s linear infinite;
+}
+.scroll-circle svg{width:100%;height:100%}
+.scroll-circle textPath{font-size:13px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;fill:rgba(232,220,194,.4)}
+@keyframes spinC{0%{transform:translateX(-50%) rotate(0)}100%{transform:translateX(-50%) rotate(360deg)}}
+
+/* ───────────────────────────────────────── */
+/* 2. WHY — 밝은 스티키 내러티브              */
+/* ───────────────────────────────────────── */
+.why{background:var(--paper);color:var(--ink);position:relative}
+.why-scroll{height:600vh;position:relative}
+.why-sticky{
+  position:sticky;top:0;height:100vh;width:100%;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+}
+.why-sticky::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(26,22,29,.028) 40px,rgba(26,22,29,.028) 41.5px),
+    repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(26,22,29,.015) 40px,rgba(26,22,29,.015) 41.5px);
+}
+.wn-screen{
+  position:absolute;inset:0;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;opacity:0;transition:opacity .5s;pointer-events:none;
+}
+.wn-screen.active{opacity:1;pointer-events:auto}
+.wn-word{
+  display:inline-block;opacity:0;transform:translateY(24px);
+  transition:opacity .45s ease,transform .45s ease;margin:0 .12em;
+}
+.wn-word.show{opacity:1;transform:translateY(0)}
+.wn-line{display:inline}
+.wn-line .wn-word{opacity:0;transform:translateY(24px)}
+.wn-line.show .wn-word{opacity:1;transform:translateY(0)}
+.wn-s0-text{font-size:clamp(52px,8vw,96px);font-weight:900;letter-spacing:-3px;line-height:1.2;color:var(--ink)}
+.wn-s1-text{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-2.5px;line-height:1.3;max-width:960px;color:var(--ink)}
+.wn-br{display:block;width:100%;height:0}
+.wn-hl-red{position:relative;padding:0 4px;isolation:isolate}
+.wn-hl-red::after{content:'';position:absolute;left:0;bottom:6%;z-index:-1;width:100%;height:38%;background:rgba(227,84,84,.55)}
+.wn-hl-gold{position:relative;padding:0 4px;isolation:isolate}
+.wn-hl-gold::after{content:'';position:absolute;left:0;bottom:6%;z-index:-1;width:100%;height:38%;background:rgba(194,163,107,.6)}
+.wn-circle-wrap{position:relative;display:inline-block;isolation:isolate}
+.wn-circle-wrap svg{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:114%;height:126%;pointer-events:none;overflow:visible;
+}
+.wn-circle-wrap .circle-back{z-index:-1;clip-path:inset(0 0 42% 0)}
+.wn-circle-wrap .circle-front{z-index:2;clip-path:inset(55% 0 0 0)}
+.wn-circle-wrap>span{position:relative;z-index:1}
+.wn-circle-wrap ellipse{
+  fill:none;stroke:var(--gold-ink);stroke-width:12;
+  stroke-linecap:round;stroke-dasharray:1050;stroke-dashoffset:1050;
+  transition:stroke-dashoffset 1.2s ease;
+}
+.wn-circle-wrap.drawn ellipse{stroke-dashoffset:120}
+.wn-progress{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;gap:10px;z-index:5;
+}
+.wn-dot{width:8px;height:8px;border-radius:50%;background:rgba(26,22,29,.15);transition:all .3s}
+.wn-dot.active{background:var(--gold-ink);transform:scale(1.3)}
+
+/* ───────────────────────────────────────── */
+/* 3. Q-INTRO — 다크 Q&A                     */
+/* ───────────────────────────────────────── */
+.q-intro{background:var(--bg);color:var(--white);position:relative}
+.q-intro-scroll{height:350vh;position:relative}
+.q-intro-sticky{
+  position:sticky;top:0;height:100vh;width:100%;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+}
+.qi-screen{
+  position:absolute;inset:0;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;opacity:0;transition:opacity .5s;pointer-events:none;
+}
+.qi-screen.active{opacity:1;pointer-events:auto}
+.qi-s1-text{font-size:clamp(34px,6vw,72px);font-weight:800;letter-spacing:-2.5px;line-height:1.4;max-width:1000px}
+.qi-word{
+  display:inline-block;opacity:0;transform:translateY(24px);
+  transition:opacity .45s ease,transform .45s ease;margin:0 .08em;
+}
+.qi-word.show{opacity:1;transform:translateY(0)}
+
+/* ───────────────────────────────────────── */
+/* 4. COUNTER                                */
+/* ───────────────────────────────────────── */
+.counter-section{
+  padding:130px 0;background:var(--bg-alt);
+  border-top:1px solid var(--border-l);border-bottom:1px solid var(--border-l);
+}
+.counter-head{text-align:center;margin-bottom:64px}
+.counter-head p{font-size:13px;font-weight:800;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.counter-head h2{font-size:clamp(28px,4.4vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.3}
+.counter-head h2 em{
+  font-style:normal;
+  background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.counter-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:40px;
+  text-align:center;max-width:1000px;margin:0 auto;
+}
+.counter-item{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.counter-item.show{opacity:1;transform:translateY(0)}
+.counter-num{
+  font-size:clamp(38px,5.4vw,68px);font-weight:900;letter-spacing:-2px;line-height:1;
+  margin-bottom:10px;font-variant-numeric:tabular-nums;color:var(--gold-soft);
+}
+.counter-num .suffix{font-size:.52em;font-weight:800;margin-left:2px;color:var(--gold)}
+.counter-label{font-size:15px;color:var(--sub);font-weight:500}
+@media(max-width:768px){.counter-grid{grid-template-columns:repeat(2,1fr);gap:32px}}
+
+/* ───────────────────────────────────────── */
+/* 5. STICKY PROCESS — 좌측 고정              */
+/* ───────────────────────────────────────── */
+.sticky-process{position:relative;background:var(--bg)}
+.sticky-process-scroll{display:flex;min-height:300vh}
+.sticky-left{
+  position:sticky;top:0;height:100vh;width:45%;flex-shrink:0;
+  display:flex;flex-direction:column;justify-content:center;padding:0 60px;
+}
+.sticky-left h2{font-size:clamp(38px,5.6vw,76px);font-weight:800;letter-spacing:-3px;margin-bottom:32px;line-height:1.18}
+.sl-word{
+  display:inline-block;opacity:0;transform:translateY(60px) scale(.9);filter:blur(8px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1),filter .8s ease;
+}
+.sl-word.show{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+.sl-hl-red{position:relative;padding:0 4px;isolation:isolate}
+.sl-hl-red::after{content:'';position:absolute;left:0;bottom:6%;z-index:-1;width:100%;height:38%;background:rgba(227,84,84,.5)}
+.sticky-left .progress-bar,.sticky-left .progress-step{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s .6s ease,transform .6s .6s cubic-bezier(.16,1,.3,1);
+}
+.sticky-left.revealed .progress-bar,.sticky-left.revealed .progress-step{opacity:1;transform:translateY(0)}
+.progress-bar{width:3px;height:200px;background:var(--border);border-radius:3px;position:relative;overflow:hidden}
+.progress-fill{position:absolute;top:0;left:0;width:100%;height:0%;background:var(--gold);border-radius:3px;transition:height .1s linear}
+.progress-step{font-size:13px;color:var(--dim);margin-top:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.sticky-right{width:55%;padding:30vh 40px 30vh 0;display:flex;flex-direction:column}
+.process-card{
+  padding:48px 0;border-bottom:1px solid rgba(232,220,194,.1);
+  opacity:0;transform:translateY(30px);
+  transition:opacity .5s ease,transform .5s ease;
+  display:flex;gap:28px;align-items:flex-start;
+}
+.process-card:first-child{border-top:1px solid rgba(232,220,194,.1)}
+.process-card.show{opacity:1;transform:translateY(0)}
+.process-card .step-num{
+  font-size:48px;font-weight:900;color:rgba(232,220,194,.1);
+  line-height:1;flex-shrink:0;letter-spacing:-2px;min-width:72px;
+}
+.process-card.show .step-num{color:rgba(194,163,107,.28);transition:color .6s ease}
+.process-card h3{font-size:clamp(26px,3.2vw,40px);font-weight:700;margin-bottom:14px;letter-spacing:-1px;line-height:1.3}
+.process-card h3 b{font-weight:900;color:#fff;position:relative;padding:0 4px;isolation:isolate}
+.process-card h3 b::after{content:'';position:absolute;left:0;bottom:6%;z-index:-1;width:100%;height:38%;background:rgba(154,125,74,.55)}
+.process-card p{color:var(--sub);font-size:18px;line-height:1.75}
+.process-card p b{color:var(--gold-soft);font-weight:700}
+@media(max-width:900px){
+  .sticky-process-scroll{flex-direction:column}
+  .sticky-left{width:100%;height:auto;position:relative;padding:80px var(--px) 40px}
+  .progress-bar,.progress-step{display:none}
+  .sticky-right{width:100%;padding:0 var(--px) 80px}
+}
+
+/* ───────────────────────────────────────── */
+/* 6. REVIEW — 세로 롤링 후기                 */
+/* ───────────────────────────────────────── */
+.review{background:var(--bg-alt);border-top:1px solid var(--border-l)}
+.rv-layout{display:flex;width:100%;min-height:100vh}
+.rv-left{
+  width:45%;flex-shrink:0;position:relative;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:80px 60px;text-align:center;
+}
+.rv-left h2{font-size:clamp(44px,6.4vw,88px);font-weight:800;letter-spacing:-3px;margin-bottom:20px;line-height:1.15}
+.rv-left .rv-sub{font-size:clamp(16px,1.7vw,22px);color:var(--sub);line-height:1.5}
+.rv-stats{display:flex;gap:48px;margin-top:48px;justify-content:center}
+.rv-stat-num{font-size:clamp(34px,3.8vw,56px);font-weight:800;letter-spacing:-2px;color:var(--gold-soft)}
+.rv-stat-label{font-size:14px;color:var(--sub);margin-top:6px}
+.rv-right{width:55%;position:relative;height:100vh;overflow:hidden}
+.rv-right::before,.rv-right::after{content:'';position:absolute;left:0;right:0;height:180px;z-index:2;pointer-events:none}
+.rv-right::before{top:0;background:linear-gradient(to bottom,var(--bg-alt) 0%,transparent 100%)}
+.rv-right::after{bottom:0;background:linear-gradient(to top,var(--bg-alt) 0%,transparent 100%)}
+.rv-track{display:flex;flex-direction:column;gap:20px;animation:rvUp 26s linear infinite;padding:20px 48px 20px 0}
+@keyframes rvUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.rv-card{
+  flex-shrink:0;border-radius:16px;
+  background:rgba(232,220,194,.05);border:1px solid rgba(194,163,107,.2);
+  padding:26px 28px;
+}
+.rv-card .rv-q{font-size:15.5px;line-height:1.75;color:rgba(255,255,255,.88);font-weight:500}
+.rv-card .rv-q::before{content:'"';font-size:30px;font-weight:900;color:var(--gold);line-height:0;vertical-align:-6px;margin-right:4px}
+.rv-card .rv-a{margin-top:14px;padding-top:12px;border-top:1px solid rgba(232,220,194,.1);font-size:13px;color:var(--dim)}
+.rv-card .rv-a b{color:var(--gold-soft);font-weight:700}
+@media(max-width:900px){
+  .rv-layout{flex-direction:column}
+  .rv-left{width:100%;padding:80px var(--px) 30px}
+  .rv-stats{gap:24px}
+  .rv-right{width:100%;height:60vh}
+  .rv-track{padding:20px var(--px)}
+}
+
+/* ───────────────────────────────────────── */
+/* 7. HPIN — 사례 가로 스크롤                 */
+/* ───────────────────────────────────────── */
+.hpin{position:relative;background:var(--bg);margin-top:80px}
+.hpin-scroll{height:400vh;position:relative}
+.hpin-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.hpin-track{display:flex;gap:32px;padding:0 60px;will-change:transform}
+.hpin-slide{
+  flex-shrink:0;width:clamp(300px,44vw,560px);height:clamp(340px,56vh,520px);
+  border-radius:18px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;
+  background:rgba(232,220,194,.04);border:1px solid rgba(194,163,107,.22);
+  padding:36px 34px;transition:border-color .3s,transform .3s;
+}
+.hpin-slide:hover{border-color:rgba(194,163,107,.55);transform:translateY(-4px)}
+.hpin-slide.intro{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:transparent;border:none;width:clamp(300px,52vw,700px);
+}
+.hpin-slide.intro h2{font-size:clamp(36px,5.6vw,72px);font-weight:800;letter-spacing:-3px;line-height:1.18}
+.hpin-slide.intro .arrow{font-size:40px;margin-top:16px;opacity:.4;animation:arrowB 1.5s ease infinite}
+@keyframes arrowB{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+.hs-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--gold)}
+.hs-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.hs-title{font-size:clamp(21px,2.3vw,30px);font-weight:800;letter-spacing:-1px;line-height:1.35;margin-top:14px}
+.hs-desc{font-size:14.5px;color:var(--sub);line-height:1.7;margin-top:12px;flex:1}
+.hs-result{padding-top:18px;border-top:1px solid rgba(232,220,194,.12)}
+.hs-result b{display:block;font-size:clamp(24px,2.6vw,34px);font-weight:900;letter-spacing:-1px;color:var(--gold-soft);line-height:1.2}
+.hs-result span{font-size:12.5px;color:var(--dim);font-weight:600}
+@media(max-width:768px){
+  .hpin-scroll{height:auto!important;position:static!important}
+  .hpin-sticky{position:static!important;height:auto!important;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:40px 0;scrollbar-width:none}
+  .hpin-sticky::-webkit-scrollbar{display:none}
+  .hpin-track{will-change:auto!important;padding:0 24px;gap:20px}
+  .hpin-slide{scroll-snap-align:center;width:82vw;height:auto;min-height:360px}
+  .hpin-slide.intro{width:82vw}
+}
+
+/* ───────────────────────────────────────── */
+/* 8. TEXT REVEAL + CTA                      */
+/* ───────────────────────────────────────── */
+.text-reveal{padding:200px 0;display:flex;align-items:center;justify-content:center;min-height:80vh;background:var(--bg)}
+.text-reveal .inner{text-align:center}
+.text-reveal h2{font-size:clamp(32px,5.6vw,68px);font-weight:800;line-height:1.5;letter-spacing:-1.5px;max-width:940px;margin:0 auto}
+.tr-word{display:inline;font-weight:300;color:var(--dim);transition:color .4s ease}
+.tr-word.lit{color:var(--white)}
+.tr-word.highlight{font-weight:900;position:relative;padding:0 4px;isolation:isolate}
+.tr-word.highlight::after{
+  content:'';position:absolute;left:0;bottom:6%;z-index:-1;width:0;height:38%;
+  background:rgba(194,163,107,.6);transition:width 1.2s cubic-bezier(.08,.4,.2,1);
+}
+.tr-word.highlight.hl-draw::after{width:100%}
+.tr-word.highlight.hl-red::after{background:rgba(227,84,84,.55)}
+.tr-cta{margin-top:52px;display:flex;gap:16px;justify-content:center;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;position:relative}
+.tr-cta.show{opacity:1;transform:translateY(0)}
+.tr-cta .btn{
+  position:relative;display:inline-flex;align-items:center;
+  padding:24px 72px;font-size:18px;font-weight:800;letter-spacing:.5px;
+  border-radius:100px;color:var(--ink);
+  background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+.tr-cta .btn span.arrow{display:inline-block;margin-left:12px;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.tr-cta .btn:hover{transform:scale(1.05);box-shadow:0 0 44px rgba(194,163,107,.35)}
+.tr-cta .btn:hover span.arrow{transform:translateX(6px)}
+.tr-cta .btn .pulse-ring{
+  position:absolute;inset:0;border-radius:inherit;opacity:0;pointer-events:none;
+  box-shadow:0 0 30px 12px rgba(232,220,194,.3);
+  animation:pulseRing .9s ease-out forwards;
+}
+@keyframes pulseRing{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+@keyframes ctaPulse{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.tr-cta .btn.pulse{animation:ctaPulse .5s cubic-bezier(.4,0,.2,1)}
+.tr-cursor{position:absolute;bottom:-80px;right:30%;opacity:0;pointer-events:none;transition:none;z-index:5}
+.tr-cursor.move{
+  opacity:1;
+  transition:bottom .8s cubic-bezier(.4,0,.2,1),right .8s cubic-bezier(.4,0,.2,1),opacity .3s ease;
+  bottom:8px;right:calc(50% - 60px);
+}
+.tr-cursor.click{transform:scale(.85);transition:transform .1s ease}
+.tr-cursor.release{transform:scale(1);transition:transform .15s ease}
+.tr-note{margin-top:20px;font-size:13.5px;color:var(--dim)}
+
+/* ───────────────────────────────────────── */
+/* 9. FAQ                                    */
+/* ───────────────────────────────────────── */
+.faq-section{padding:140px 0;background:var(--bg-alt);border-top:1px solid var(--border-l)}
+.faq-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  max-width:900px;margin:0 auto 72px;
+  border-bottom:1px solid rgba(232,220,194,.18);padding-bottom:24px;
+}
+.faq-header h2{font-size:clamp(40px,6vw,72px);font-weight:900;letter-spacing:-2px;line-height:1}
+.faq-header .faq-label{font-size:14px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;font-weight:500}
+.faq-list{max-width:900px;margin:0 auto;display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid rgba(232,220,194,.1);overflow:hidden;transition:border-color .3s}
+.faq-item:first-child{border-top:1px solid rgba(232,220,194,.1)}
+.faq-item:hover{border-color:rgba(194,163,107,.35)}
+.faq-q{padding:30px 0;display:flex;align-items:center;gap:24px;cursor:pointer;user-select:none}
+.faq-num{font-size:14px;font-weight:400;color:var(--gold-ink);font-variant-numeric:tabular-nums;flex-shrink:0;width:32px}
+.faq-q span.q-text{font-size:clamp(17px,2.3vw,21px);font-weight:600;flex:1;letter-spacing:-.5px}
+.faq-q:hover span.q-text{color:var(--gold-soft)}
+.faq-arrow{
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;border:1px solid rgba(194,163,107,.3);transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+.faq-arrow svg{width:16px;height:16px;stroke:var(--gold-soft);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s}
+.faq-item.open .faq-arrow{background:rgba(194,163,107,.14);border-color:rgba(194,163,107,.55)}
+.faq-item.open .faq-arrow svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1),padding .5s cubic-bezier(.4,0,.2,1)}
+.faq-item.open .faq-a{max-height:340px;padding:0 0 30px 56px}
+.faq-a p{font-size:17px;color:var(--sub);line-height:1.85;max-width:720px}
+.faq-a b{color:var(--gold-soft);font-weight:700}
+@media(max-width:768px){
+  .faq-section{padding:80px 0}
+  .faq-header{margin-bottom:48px;flex-direction:column;align-items:flex-start;gap:12px}
+  .faq-q{padding:22px 0;gap:14px}
+  .faq-item.open .faq-a{padding:0 0 22px 46px;max-height:420px}
+  .faq-a p{font-size:15px}
+}
+
+/* ───────────────────────────────────────── */
+/* 10. FOOTER                                */
+/* ───────────────────────────────────────── */
+footer{padding:64px 0 44px;text-align:center;background:var(--bg-hero);border-top:1px solid var(--border-l)}
+footer .f-logo{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:20px}
+footer .f-logo svg{width:34px;height:34px}
+footer .f-logo b{font-size:20px;font-weight:900;letter-spacing:.14em}
+footer .f-links{display:flex;gap:22px;justify-content:center;margin-bottom:22px;font-size:13.5px;color:var(--sub)}
+footer .f-links a:hover{color:var(--gold-soft)}
+footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
+
+/* utilities */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.show{opacity:1;transform:translateY(0)}
+
+/* mobile heights (svh) */
+@media(max-width:768px){
+  .hero{height:100svh;min-height:0}
+  .hero-headline{top:27%;font-size:clamp(48px,15vw,80px);letter-spacing:-2px}
+  .hero-sub{top:17%;font-size:clamp(15px,4.4vw,22px);white-space:normal;width:90%}
+  .hero-tag{top:56%;white-space:normal;width:88%}
+  .hero-track span{font-size:clamp(2rem,8.5vw,3.4rem)}
+  .why-scroll{height:420svh}
+  .why-sticky{height:100svh}
+  .q-intro-scroll{height:250svh}
+  .q-intro-sticky{height:100svh}
+  .wn-s1-text{font-size:clamp(30px,7vw,50px);letter-spacing:-1.5px}
+  .qi-s1-text{font-size:clamp(28px,7vw,46px);letter-spacing:-1.5px}
+  .text-reveal{padding:100px 0;min-height:60vh}
+  .tr-cta .btn{padding:18px 48px;font-size:16px}
+  .counter-section{padding:80px 0}
+  .rv-layout{min-height:0}
+  .scroll-circle{width:80px;height:80px;bottom:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- top mini bar -->
+<div class="topbar">
+  <a href="index.html" class="tb-logo" aria-label="노아 홈">
+    <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
+    NOAH
+  </a>
+  <a href="index.html" class="tb-link">메인 사이트 →</a>
+</div>
+
+<!-- ═══════════════ 1. HERO ═══════════════ -->
+<section class="hero" id="hero">
+  <p class="hero-sub hero-rv"><span class="thin">광고대행의</span> 새로운 기준.</p>
+  <h1 class="hero-headline hero-rv">
+    <span class="outline">MARKETING</span>
+    <span class="solid">NOAH</span>
+  </h1>
+  <p class="hero-tag hero-rv">노출을 팔지 않습니다. <b>매출</b>을 만듭니다.<br>전문직 · 바이럴 · 데이터 통합 마케팅</p>
+  <div class="hero-marquee back hero-rv">
+    <div class="hero-track"><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span></div>
+  </div>
+  <div class="hero-marquee front hero-rv">
+    <div class="hero-track reverse"><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span></div>
+  </div>
+  <div class="scroll-circle" aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <defs><path id="circlePath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+      <text><textPath href="#circlePath">SCROLL DOWN · NOAH · SCROLL DOWN · NOAH · </textPath></text>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. WHY — 스티키 내러티브 ═══════════════ -->
+<section class="why" id="why">
+  <div class="why-scroll" id="whyScroll">
+    <div class="why-sticky">
+
+      <!-- Screen 0: 왜? -->
+      <div class="wn-screen active" data-screen="0">
+        <div class="wn-s0-text"><span class="wn-word">왜?</span></div>
+      </div>
+
+      <!-- Screen 1: 문제 제기 -->
+      <div class="wn-screen" data-screen="1">
+        <h2 class="wn-s1-text">
+          <span class="wn-line"><span class="wn-word wn-hl-red">광고비</span><span class="wn-word" style="font-weight:300">는 매달 나가는데</span></span>
+          <span class="wn-br"></span>
+          <span class="wn-line"><span class="wn-word" style="font-weight:300">매출은</span> <span class="wn-word">그대로일까요?</span></span>
+        </h2>
+      </div>
+
+      <!-- Screen 2: 전환 선언 -->
+      <div class="wn-screen" data-screen="2">
+        <h2 class="wn-s1-text">
+          <span class="wn-line"><span class="wn-word" style="font-weight:300">노출을 사지 말고,</span></span>
+          <span class="wn-br"></span>
+          <span class="wn-line"><span class="wn-word wn-circle-wrap" id="whyCircle"><span>매출</span><svg class="circle-back" viewBox="0 0 400 160" preserveAspectRatio="none"><ellipse cx="200" cy="80" rx="190" ry="70" transform="rotate(-3 200 80)"/></svg><svg class="circle-front" viewBox="0 0 400 160" preserveAspectRatio="none"><ellipse cx="200" cy="80" rx="190" ry="70" transform="rotate(-3 200 80)"/></svg></span><span class="wn-word" style="font-weight:300">을 사세요.</span></span>
+          <span class="wn-br"></span>
+          <span class="wn-line"><span class="wn-word" style="font-weight:300">노아는</span> <span class="wn-word wn-hl-gold">결과로 증명</span><span class="wn-word" style="font-weight:300">합니다.</span></span>
+        </h2>
+      </div>
+
+      <div class="wn-progress" aria-hidden="true">
+        <div class="wn-dot active" data-dot="0"></div>
+        <div class="wn-dot" data-dot="1"></div>
+        <div class="wn-dot" data-dot="2"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3. Q-INTRO ═══════════════ -->
+<section class="q-intro" id="qIntro">
+  <div class="q-intro-scroll" id="qIntroScroll">
+    <div class="q-intro-sticky">
+
+      <div class="qi-screen active" data-qi="0">
+        <h2 class="qi-s1-text">
+          <span class="qi-word" style="color:#C2A36B">Q.</span>
+          <span class="qi-word">대행사</span>
+          <span class="qi-word">많던데..</span>
+          <br>
+          <span class="qi-word" style="font-weight:300">다</span>
+          <span class="qi-word" style="font-weight:300">거기서</span>
+          <span class="qi-word" style="font-weight:300">거기</span>
+          <span class="qi-word" style="font-weight:300">아닌가요?</span>
+        </h2>
+      </div>
+
+      <div class="qi-screen" data-qi="1">
+        <h2 class="qi-s1-text">
+          <span class="qi-word" style="color:#C2A36B">A.</span>
+          <span class="qi-word">숫자를</span>
+          <span class="qi-word">보여드리겠습니다. 👇</span>
+        </h2>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 4. COUNTER ═══════════════ -->
+<section class="counter-section" id="counterSection">
+  <div class="inner">
+    <div class="counter-head fade-up">
+      <p>PROVEN BY NUMBERS</p>
+      <h2>말이 아니라 <em>숫자</em>가 하는 이야기</h2>
+    </div>
+    <div class="counter-grid" id="counterGrid">
+      <div class="counter-item">
+        <div class="counter-num"><span data-target="10">0</span><span class="suffix">K+</span></div>
+        <div class="counter-label">누적 광고주</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num"><span data-target="382">0</span><span class="suffix">%</span></div>
+        <div class="counter-label">평균 ROAS</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num"><span data-target="92">0</span><span class="suffix">%</span></div>
+        <div class="counter-label">재계약률</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num"><span data-target="180">0</span><span class="suffix">억+</span></div>
+        <div class="counter-label">광고취급액</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 5. STICKY PROCESS ═══════════════ -->
+<section class="sticky-process" id="stickyProcess">
+  <div class="sticky-process-scroll">
+    <div class="sticky-left">
+      <h2><span class="sl-word"><span style="font-weight:300">광고비</span> <span class="sl-hl-red">낭비</span>,</span><br><span class="sl-word">이제 그만 <span style="font-weight:300">쓰세요.</span></span></h2>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-step" id="progressStep">01 / 04</div>
+    </div>
+    <div class="sticky-right" id="processCards">
+      <div class="process-card" data-step="1">
+        <div class="step-num">01</div>
+        <div>
+          <h3><b>60분 무료 진단</b>부터</h3>
+          <p>현재 마케팅 상태·경쟁 환경·예산을 종합 점검합니다. <b>진단 가능 업종만</b> 정직하게 받습니다 — 못 하는 건 못 한다고 말씀드립니다.</p>
+        </div>
+      </div>
+      <div class="process-card" data-step="2">
+        <div class="step-num">02</div>
+        <div>
+          <h3>데이터로 <b>설계</b></h3>
+          <p>누적 <b>10K+ 광고주</b> 운영 데이터와 결합해 90일 단위 마일스톤을 설계합니다. 의료광고 심의안까지 카피 단계에서 사전 검토.</p>
+        </div>
+      </div>
+      <div class="process-card" data-step="3">
+        <div class="step-num">03</div>
+        <div>
+          <h3>3개 전문팀 <b>동시 투입</b></h3>
+          <p>전문직 광고 · 바이럴 콘텐츠 · 데이터 퍼포먼스 — 채널이 늘어도 연락처는 하나. <b>전담 PM 단일 책임제</b>로 끝까지 답합니다.</p>
+        </div>
+      </div>
+      <div class="process-card" data-step="4">
+        <div class="step-num">04</div>
+        <div>
+          <h3>숫자로 <b>검증</b></h3>
+          <p>실시간 대시보드 24/7 + 매주 월요일 자동 리포트. ROI가 기대보다 낮으면 <b>먼저 알려드립니다.</b> 좋은 숫자만 보여주는 리포트는 없습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 6. REVIEW ═══════════════ -->
+<section class="review" id="review">
+  <div class="rv-layout">
+    <div class="rv-left">
+      <div>
+        <h2 class="fade-up">실제 반응</h2>
+        <p class="rv-sub fade-up">운영 중인 광고주들이<br>직접 남긴 이야기</p>
+        <div class="rv-stats fade-up">
+          <div>
+            <div class="rv-stat-num">92%</div>
+            <div class="rv-stat-label">재계약률</div>
+          </div>
+          <div>
+            <div class="rv-stat-num">382%</div>
+            <div class="rv-stat-label">평균 ROAS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-right" aria-hidden="true">
+      <div class="rv-track">
+        <div class="rv-card"><p class="rv-q">의료 광고 심의·집행이 한 곳에서 끝납니다. 운영에 쓰던 시간이 60% 줄었어요.</p><p class="rv-a"><b>강남 P 피부과</b> · 원장</p></div>
+        <div class="rv-card"><p class="rv-q">키워드 단위 ROI까지 실시간으로 보여주는 곳은 처음이었습니다. 단순 대행이 아니라 데이터 파트너입니다.</p><p class="rv-a"><b>D2C 화장품 브랜드</b> · 그로스 총괄</p></div>
+        <div class="rv-card"><p class="rv-q">6개월 만에 MQL 4배. 내부 마케팅 팀은 이제 다른 외부 컨설팅을 안 둡니다.</p><p class="rv-a"><b>시리즈A SaaS</b> · 대표</p></div>
+        <div class="rv-card"><p class="rv-q">숫자가 안 나올 때 먼저 연락이 왔습니다. 이 정직함 때문에 3년째 함께합니다.</p><p class="rv-a"><b>부산 법무법인</b> · 대표변호사</p></div>
+        <div class="rv-card"><p class="rv-q">가맹 문의가 다섯 배가 됐어요. 점주 인터뷰 콘텐츠 전략이 결정적이었습니다.</p><p class="rv-a"><b>외식 프랜차이즈</b> · 본부장</p></div>
+        <div class="rv-card"><p class="rv-q">플레이스 1위 진입 후 신환이 월 280명. 개원 초기의 막막함이 사라졌습니다.</p><p class="rv-a"><b>송도 H 한의원</b> · 원장</p></div>
+        <div class="rv-card"><p class="rv-q">의료 광고 심의·집행이 한 곳에서 끝납니다. 운영에 쓰던 시간이 60% 줄었어요.</p><p class="rv-a"><b>강남 P 피부과</b> · 원장</p></div>
+        <div class="rv-card"><p class="rv-q">키워드 단위 ROI까지 실시간으로 보여주는 곳은 처음이었습니다. 단순 대행이 아니라 데이터 파트너입니다.</p><p class="rv-a"><b>D2C 화장품 브랜드</b> · 그로스 총괄</p></div>
+        <div class="rv-card"><p class="rv-q">6개월 만에 MQL 4배. 내부 마케팅 팀은 이제 다른 외부 컨설팅을 안 둡니다.</p><p class="rv-a"><b>시리즈A SaaS</b> · 대표</p></div>
+        <div class="rv-card"><p class="rv-q">숫자가 안 나올 때 먼저 연락이 왔습니다. 이 정직함 때문에 3년째 함께합니다.</p><p class="rv-a"><b>부산 법무법인</b> · 대표변호사</p></div>
+        <div class="rv-card"><p class="rv-q">가맹 문의가 다섯 배가 됐어요. 점주 인터뷰 콘텐츠 전략이 결정적이었습니다.</p><p class="rv-a"><b>외식 프랜차이즈</b> · 본부장</p></div>
+        <div class="rv-card"><p class="rv-q">플레이스 1위 진입 후 신환이 월 280명. 개원 초기의 막막함이 사라졌습니다.</p><p class="rv-a"><b>송도 H 한의원</b> · 원장</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 7. HPIN — 사례 ═══════════════ -->
+<section class="hpin" id="hpin">
+  <div class="hpin-scroll" id="hpinScroll">
+    <div class="hpin-sticky">
+      <div class="hpin-track" id="hpinTrack">
+        <div class="hpin-slide intro">
+          <div>
+            <h2>사례, <span style="font-weight:300">직접</span><br><span style="font-weight:300">확인해보세요.</span></h2>
+            <div class="arrow">&rarr;</div>
+          </div>
+        </div>
+        <a class="hpin-slide" href="work.html">
+          <div>
+            <span class="hs-tag">의료 · 피부과 신규 개원</span>
+            <h3 class="hs-title">신환 0에서 월 280명까지</h3>
+            <p class="hs-desc">경쟁 밀집 지역 신규 개원 — 심의 7건 일괄 처리 + 검색·플레이스 + 리얼 케이스 콘텐츠 동시 운영.</p>
+          </div>
+          <div class="hs-result"><b>월 매출 1.2억</b><span>3개월 · 플레이스 1위</span></div>
+        </a>
+        <a class="hpin-slide" href="work.html">
+          <div>
+            <span class="hs-tag">D2C · 화장품 브랜드</span>
+            <h3 class="hs-title">ROAS 198% → 485%</h3>
+            <p class="hs-desc">6개 매체 분산 운영 → 기여도 재측정 후 4단 풀퍼널 재설계. CAC 41% 감소.</p>
+          </div>
+          <div class="hs-result"><b>월 매출 2.7배</b><span>5개월 · 재구매율 38%</span></div>
+        </a>
+        <a class="hpin-slide" href="work.html">
+          <div>
+            <span class="hs-tag">법무 · 부산권 법무법인</span>
+            <h3 class="hs-title">신규 문의 +320%</h3>
+            <p class="hs-desc">온라인 채널 0에서 시작 — 분야별 랜딩 분리 + 변호사 인터뷰 콘텐츠 + 검색·카카오 광고.</p>
+          </div>
+          <div class="hs-result"><b>수임 +23%</b><span>6개월 · 1인당 사건 11→14건</span></div>
+        </a>
+        <a class="hpin-slide" href="work.html">
+          <div>
+            <span class="hs-tag">B2B · 시리즈A SaaS</span>
+            <h3 class="hs-title">MQL 4.2배</h3>
+            <p class="hs-desc">ABM 타깃 200개사 + LinkedIn·검색 광고 + 화이트페이퍼 4편 + 웨비나 운영.</p>
+          </div>
+          <div class="hs-result"><b>ARR 기여 11억</b><span>6개월 · 리드당 비용 -67%</span></div>
+        </a>
+        <a class="hpin-slide" href="work.html">
+          <div>
+            <span class="hs-tag">외식 · 전국 가맹 프랜차이즈</span>
+            <h3 class="hs-title">가맹문의 +540%</h3>
+            <p class="hs-desc">실가맹점주 인터뷰 영상 9편 + 창업 설명회 LP + 검색·유튜브 통합 운영.</p>
+          </div>
+          <div class="hs-result"><b>월 가맹계약 2→9건</b><span>4개월 · 단가 1.4배</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 8. TEXT REVEAL + CTA ═══════════════ -->
+<section class="text-reveal" id="textReveal">
+  <div class="inner">
+    <h2 id="revealText">
+      <span class="tr-word" style="font-weight:900">광고</span><span class="tr-word">는</span>
+      <span class="tr-word highlight">약속</span><span class="tr-word">이고,</span>
+      <br>
+      <span class="tr-word" style="font-weight:900">마케팅</span><span class="tr-word">은</span>
+      <span class="tr-word highlight hl-red">책임</span><span class="tr-word">입니다.</span>
+    </h2>
+    <div class="tr-cta" id="trCta">
+      <a href="contact.html" class="btn" id="trCtaBtn">무료 진단 받기 <span class="arrow">&rarr;</span></a>
+      <div class="tr-cursor" id="trCursor">
+        <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M1 1L1 17.5L5.5 13.5L9.5 22L13 20.5L9 12H15L1 1Z" fill="#fff" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <p class="tr-note">60분 진단 미팅 · 영업일 24시간 내 회신 · NDA 보호</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 9. FAQ ═══════════════ -->
+<section class="faq-section" id="faqSection">
+  <div class="inner">
+    <div class="faq-header fade-up">
+      <h2>FAQ</h2>
+      <span class="faq-label">자주 묻는 질문</span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-num">01</span><span class="q-text">최소 예산은 어느 정도인가요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+        <div class="faq-a"><p>표준 운영 패키지는 <b>월 300만원부터</b>입니다. 광고비와 운영 수수료는 분리 책정되며, 첫 상담에서 업종·경쟁도별 <b>ROI 시뮬레이션</b>을 제공합니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-num">02</span><span class="q-text">계약 기간은 최소 얼마부터인가요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+        <div class="faq-a"><p>표준 계약은 6개월·12개월 단위입니다. 데이터 누적·최적화 사이클상 <b>최소 90일</b> 이상 운영해야 ROAS가 안정화됩니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-num">03</span><span class="q-text">의료광고 심의도 해주나요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+        <div class="faq-a"><p>의협·치협·한의협·약사회 등 모든 의료 단체 심의를 <b>자체 인하우스 인력으로 직접</b> 대행합니다. 평균 1차 승인율 <b>96.4%</b>, 반려 시 무상 재제출까지 책임집니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-num">04</span><span class="q-text">성과는 어떻게 확인하나요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+        <div class="faq-a"><p><b>실시간 대시보드 24/7</b> 접속 권한 + 주간 자동 리포트 + 월간 심층 리포트. 매출 전환·CAC·LTV 등 <b>30+ 핵심 지표</b>를 실측합니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-num">05</span><span class="q-text">서울·경기 외 지역도 가능한가요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+        <div class="faq-a"><p><b>전국 운영</b> 가능합니다. 화상 정기 보고 + 24시간 커뮤니케이션 채널 + 월 1회 PM 미팅 기본 제공, 분기 1회 방문 컨설팅도 별도 비용 없이 진행됩니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="f-logo">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
+      <b>NOAH</b>
+    </div>
+    <div class="f-links">
+      <a href="index.html">홈</a>
+      <a href="about.html">소개</a>
+      <a href="work.html">사례</a>
+      <a href="contact.html">문의</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
+    <div class="f-info">
+      씨씨컴퍼니 (CC Company) · 사업자등록번호 275-05-01613<br>
+      인천광역시 연수구 인천타워대로 301, A동 16층 33호 (송도동, 송도센텀하이브)<br>
+      &copy; 2026 노아 (NOAH). All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
+
+/* ─── HERO reveal ─── */
+(function(){
+  var items = document.querySelectorAll('.hero-rv');
+  var delays = [500, 1000, 1600, 2100, 2600];
+  items.forEach(function(el,i){
+    setTimeout(function(){ el.classList.add('show'); }, delays[i] || 500 + i*500);
+  });
+})();
+
+/* ─── fade-up observer ─── */
+var fadeObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('show'); fadeObserver.unobserve(e.target); }});
+},{threshold:.15});
+document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe(el) });
+
+/* ─── WHY sticky narrative ─── */
+(function(){
+  var scrollWrap = document.getElementById('whyScroll');
+  if(!scrollWrap) return;
+  var screens = scrollWrap.querySelectorAll('.wn-screen');
+  var dots = scrollWrap.querySelectorAll('.wn-dot');
+  var currentScreen = -1, ticking = false;
+  var splits = [0.22, 0.56, 1.0];
+
+  function getScreenAt(p){for(var i=0;i<splits.length;i++){if(p<splits[i])return i}return splits.length-1}
+  function getSegProgress(p,idx){var s=idx===0?0:splits[idx-1];return clamp((p-s)/(splits[idx]-s),0,1)}
+
+  function update(){
+    var rect = scrollWrap.getBoundingClientRect();
+    var scrollH = scrollWrap.offsetHeight - window.innerHeight;
+    var progress = clamp(-rect.top/scrollH,0,1);
+    var idx = getScreenAt(progress);
+    var seg = getSegProgress(progress,idx);
+
+    if(idx!==currentScreen){
+      currentScreen=idx;
+      screens.forEach(function(s,i){
+        s.classList.toggle('active',i===idx);
+        if(i!==idx){
+          s.querySelectorAll('.wn-word').forEach(function(w){w.classList.remove('show')});
+          var c=s.querySelector('.wn-circle-wrap');if(c)c.classList.remove('drawn');
+        }
+      });
+      dots.forEach(function(d,i){d.classList.toggle('active',i===idx)});
+    }
+
+    if(idx===0){
+      var words=screens[0].querySelectorAll('.wn-word');
+      var sc=Math.ceil(Math.min(seg/0.4,1)*words.length);
+      words.forEach(function(w,i){w.classList.toggle('show',i<sc)});
+    } else {
+      var lines=screens[idx].querySelectorAll('.wn-line');
+      lines.forEach(function(l,i){l.classList.toggle('show',seg>=0.1+i*0.18)});
+      if(idx===2 && seg>=0.55){
+        var c=document.getElementById('whyCircle');if(c)c.classList.add('drawn');
+      }
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  update();
+})();
+
+/* ─── Q-INTRO ─── */
+(function(){
+  var scrollWrap = document.getElementById('qIntroScroll');
+  if(!scrollWrap) return;
+  var screens = scrollWrap.querySelectorAll('.qi-screen');
+  var currentScreen=-1, ticking=false;
+  var splits=[0.45,1.0];
+
+  function getScreenAt(p){for(var i=0;i<splits.length;i++){if(p<splits[i])return i}return splits.length-1}
+  function getSegProgress(p,idx){var s=idx===0?0:splits[idx-1];return clamp((p-s)/(splits[idx]-s),0,1)}
+
+  function update(){
+    var rect=scrollWrap.getBoundingClientRect();
+    var scrollH=scrollWrap.offsetHeight-window.innerHeight;
+    var progress=clamp(-rect.top/scrollH,0,1);
+    var idx=getScreenAt(progress);
+    var seg=getSegProgress(progress,idx);
+    if(idx!==currentScreen){
+      currentScreen=idx;
+      screens.forEach(function(s,i){
+        s.classList.toggle('active',i===idx);
+        if(i!==idx)s.querySelectorAll('.qi-word').forEach(function(w){w.classList.remove('show')});
+      });
+    }
+    var words=screens[idx].querySelectorAll('.qi-word');
+    var sc=Math.ceil(Math.min(seg/0.4,1)*words.length);
+    words.forEach(function(w,i){w.classList.toggle('show',i<sc)});
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  update();
+})();
+
+/* ─── COUNTER ─── */
+(function(){
+  var section=document.getElementById('counterGrid');
+  if(!section)return;
+  var items=section.querySelectorAll('.counter-item');
+  var counted=false;
+  function animateCount(el,target,duration){
+    var span=el.querySelector('[data-target]');
+    if(!span)return;
+    var start=performance.now();
+    function tick(now){
+      var p=clamp((now-start)/duration,0,1);
+      var eased=1-Math.pow(1-p,3);
+      span.textContent=Math.round(target*eased);
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!counted){
+        counted=true;
+        items.forEach(function(item,i){
+          setTimeout(function(){
+            item.classList.add('show');
+            var span=item.querySelector('[data-target]');
+            if(span)animateCount(item,parseInt(span.dataset.target),1600);
+          },i*150);
+        });
+        obs.disconnect();
+      }
+    });
+  },{threshold:.3});
+  obs.observe(section);
+})();
+
+/* ─── STICKY PROCESS ─── */
+(function(){
+  var wrapper=document.querySelector('.sticky-process-scroll');
+  var cards=document.querySelectorAll('.process-card');
+  var fill=document.getElementById('progressFill');
+  var stepEl=document.getElementById('progressStep');
+  if(!wrapper||!cards.length)return;
+
+  var stickyLeft=document.querySelector('.sticky-left');
+  var slWords=stickyLeft?stickyLeft.querySelectorAll('.sl-word'):[];
+  var slRevealed=false;
+  var slObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!slRevealed){
+        slRevealed=true;
+        slWords.forEach(function(w,i){setTimeout(function(){w.classList.add('show')},i*300)});
+        setTimeout(function(){if(stickyLeft)stickyLeft.classList.add('revealed')},slWords.length*300+200);
+        slObs.disconnect();
+      }
+    });
+  },{threshold:.2});
+  if(stickyLeft)slObs.observe(stickyLeft);
+
+  var cardObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('show')});
+  },{threshold:.3});
+  cards.forEach(function(c){cardObs.observe(c)});
+
+  var ticking=false;
+  function updateProgress(){
+    var mid=window.innerHeight*0.5;
+    var activeStep=0;
+    cards.forEach(function(c,i){if(c.getBoundingClientRect().top<mid)activeStep=i+1});
+    var progress=clamp(activeStep/cards.length,0,1);
+    if(fill)fill.style.height=(progress*100)+'%';
+    if(stepEl)stepEl.textContent='0'+Math.max(activeStep,1)+' / 0'+cards.length;
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(updateProgress)}},{passive:true});
+  updateProgress();
+})();
+
+/* ─── HPIN horizontal ─── */
+(function(){
+  var scrollWrap=document.getElementById('hpinScroll');
+  var track=document.getElementById('hpinTrack');
+  if(!scrollWrap||!track)return;
+  if(window.innerWidth<=768)return; /* 모바일: 네이티브 가로 스크롤 */
+  var ticking=false;
+  function update(){
+    var rect=scrollWrap.getBoundingClientRect();
+    var scrollH=scrollWrap.offsetHeight-window.innerHeight;
+    var progress=clamp(-rect.top/scrollH,0,1);
+    var maxShift=track.scrollWidth-window.innerWidth;
+    track.style.transform='translateX('+(-progress*maxShift)+'px)';
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  update();
+})();
+
+/* ─── TEXT REVEAL + cursor CTA ─── */
+(function(){
+  var section=document.getElementById('textReveal');
+  var words=section?section.querySelectorAll('.tr-word'):[];
+  if(!words.length)return;
+  var revealed=false;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!revealed){
+        revealed=true;
+        var totalTime=words.length*200;
+        words.forEach(function(w,i){setTimeout(function(){w.classList.add('lit')},i*200)});
+        var hls=section.querySelectorAll('.tr-word.highlight');
+        var hlTime=totalTime+400;
+        hls.forEach(function(h,i){setTimeout(function(){h.classList.add('hl-draw')},hlTime+i*300)});
+        var trCta=document.getElementById('trCta');
+        var ctaTime=hlTime+hls.length*300+400;
+        if(trCta){
+          setTimeout(function(){trCta.classList.add('show')},ctaTime);
+          var cursor=document.getElementById('trCursor');
+          var ctaBtn=document.getElementById('trCtaBtn');
+          if(cursor&&ctaBtn){
+            setTimeout(function(){cursor.classList.add('move')},ctaTime+800);
+            setTimeout(function(){
+              cursor.classList.add('click');ctaBtn.classList.add('pulse');
+              var ring=document.createElement('span');ring.className='pulse-ring';ctaBtn.appendChild(ring);
+              setTimeout(function(){ring.remove()},900);
+            },ctaTime+1700);
+            setTimeout(function(){cursor.classList.remove('click');cursor.classList.add('release')},ctaTime+1850);
+            setTimeout(function(){cursor.style.opacity='0';cursor.style.transition='opacity .4s ease'},ctaTime+2800);
+          }
+        }
+        obs.disconnect();
+      }
+    });
+  },{threshold:.4});
+  obs.observe(section);
+})();
+
+/* ─── FAQ ─── */
+(function(){
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.parentElement;
+      var wasOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+      if(!wasOpen)item.classList.add('open');
+    });
+  });
+})();
+
+})();
+</script>
+
+<!-- Lenis smooth scroll (데스크탑) -->
+<script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+<script>
+if(window.innerWidth > 768 && window.Lenis){
+  var lenis = new Lenis({
+    duration: 1.5,
+    easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)) }
+  });
+  function rafLoop(time){ lenis.raf(time); requestAnimationFrame(rafLoop) }
+  requestAnimationFrame(rafLoop);
+}
+</script>
+
+</body>
+</html>
