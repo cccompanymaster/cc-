@@ -253,7 +253,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 2. WHY — 밝은 스티키 내러티브              */
 /* ───────────────────────────────────────── */
 .why{background:var(--paper);color:var(--ink);position:relative}
-.why-scroll{height:600vh;position:relative}
+.why-scroll{height:340vh;position:relative}
 .why-sticky{
   position:sticky;top:0;height:100vh;width:100%;
   display:flex;align-items:center;justify-content:center;
@@ -311,7 +311,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 3. Q-INTRO — 다크 Q&A                     */
 /* ───────────────────────────────────────── */
 .q-intro{background:var(--bg);color:var(--white);position:relative}
-.q-intro-scroll{height:350vh;position:relative}
+.q-intro-scroll{height:230vh;position:relative}
 .q-intro-sticky{
   position:sticky;top:0;height:100vh;width:100%;
   display:flex;align-items:center;justify-content:center;
@@ -452,7 +452,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 7. HPIN — 사례 가로 스크롤                 */
 /* ───────────────────────────────────────── */
 .hpin{position:relative;background:var(--bg);margin-top:80px}
-.hpin-scroll{height:400vh;position:relative}
+.hpin-scroll{height:330vh;position:relative}
 .hpin-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
 .hpin-track{display:flex;gap:32px;padding:0 60px;will-change:transform}
 .hpin-slide{
@@ -488,7 +488,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* ───────────────────────────────────────── */
 /* 8. TEXT REVEAL + CTA                      */
 /* ───────────────────────────────────────── */
-.text-reveal{padding:200px 0;display:flex;align-items:center;justify-content:center;min-height:80vh;background:var(--bg)}
+.text-reveal{padding:40px 0 180px;display:flex;align-items:center;justify-content:center;min-height:70vh;background:var(--bg)}
 .text-reveal .inner{text-align:center}
 .text-reveal h2{font-size:clamp(32px,5.6vw,68px);font-weight:800;line-height:1.5;letter-spacing:-1.5px;max-width:940px;margin:0 auto}
 .tr-word{display:inline;font-weight:300;color:var(--dim);transition:color .4s ease}
@@ -590,13 +590,13 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
   .hero-sub{top:17%;font-size:clamp(15px,4.4vw,22px);white-space:normal;width:90%}
   .hero-tag{top:56%;white-space:normal;width:88%}
   .hero-track span{font-size:clamp(2rem,8.5vw,3.4rem)}
-  .why-scroll{height:420svh}
+  .why-scroll{height:260svh}
   .why-sticky{height:100svh}
-  .q-intro-scroll{height:250svh}
+  .q-intro-scroll{height:180svh}
   .q-intro-sticky{height:100svh}
   .wn-s1-text{font-size:clamp(30px,7vw,50px);letter-spacing:-1.5px}
   .qi-s1-text{font-size:clamp(28px,7vw,46px);letter-spacing:-1.5px}
-  .text-reveal{padding:100px 0;min-height:60vh}
+  .text-reveal{padding:20px 0 90px;min-height:52vh}
   .tr-cta .btn{padding:18px 48px;font-size:16px}
   .counter-section{padding:80px 0}
   .rv-layout{min-height:0}
@@ -783,6 +783,26 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
   </div>
 </section>
 
+<!-- ═══════════════ 8. TEXT REVEAL + CTA ═══════════════ -->
+<section class="text-reveal" id="textReveal">
+  <div class="inner">
+    <h2 id="revealText">
+      <span class="tr-word" style="font-weight:900">광고</span><span class="tr-word">는</span>
+      <span class="tr-word highlight">약속</span><span class="tr-word">이고,</span>
+      <br>
+      <span class="tr-word" style="font-weight:900">마케팅</span><span class="tr-word">은</span>
+      <span class="tr-word highlight hl-red">책임</span><span class="tr-word">입니다.</span>
+    </h2>
+    <div class="tr-cta" id="trCta">
+      <a href="contact.html" class="btn" id="trCtaBtn">무료 진단 받기 <span class="arrow">&rarr;</span></a>
+      <div class="tr-cursor" id="trCursor">
+        <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M1 1L1 17.5L5.5 13.5L9.5 22L13 20.5L9 12H15L1 1Z" fill="#fff" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <p class="tr-note">60분 진단 미팅 · 영업일 24시간 내 회신 · NDA 보호</p>
+  </div>
+</section>
+
 <!-- ═══════════════ 6. REVIEW ═══════════════ -->
 <section class="review" id="review">
   <div class="rv-layout">
@@ -874,26 +894,6 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
         </a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════ 8. TEXT REVEAL + CTA ═══════════════ -->
-<section class="text-reveal" id="textReveal">
-  <div class="inner">
-    <h2 id="revealText">
-      <span class="tr-word" style="font-weight:900">광고</span><span class="tr-word">는</span>
-      <span class="tr-word highlight">약속</span><span class="tr-word">이고,</span>
-      <br>
-      <span class="tr-word" style="font-weight:900">마케팅</span><span class="tr-word">은</span>
-      <span class="tr-word highlight hl-red">책임</span><span class="tr-word">입니다.</span>
-    </h2>
-    <div class="tr-cta" id="trCta">
-      <a href="contact.html" class="btn" id="trCtaBtn">무료 진단 받기 <span class="arrow">&rarr;</span></a>
-      <div class="tr-cursor" id="trCursor">
-        <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M1 1L1 17.5L5.5 13.5L9.5 22L13 20.5L9 12H15L1 1Z" fill="#fff" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/></svg>
-      </div>
-    </div>
-    <p class="tr-note">60분 진단 미팅 · 영업일 24시간 내 회신 · NDA 보호</p>
   </div>
 </section>
 
@@ -1003,12 +1003,12 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
 
     if(idx===0){
       var words=screens[0].querySelectorAll('.wn-word');
-      var sc=Math.ceil(Math.min(seg/0.4,1)*words.length);
+      var sc=Math.ceil(Math.min(seg/0.22,1)*words.length);
       words.forEach(function(w,i){w.classList.toggle('show',i<sc)});
     } else {
       var lines=screens[idx].querySelectorAll('.wn-line');
-      lines.forEach(function(l,i){l.classList.toggle('show',seg>=0.1+i*0.18)});
-      if(idx===2 && seg>=0.55){
+      lines.forEach(function(l,i){l.classList.toggle('show',seg>=0.06+i*0.12)});
+      if(idx===2 && seg>=0.35){
         var c=document.getElementById('whyCircle');if(c)c.classList.add('drawn');
       }
     }
@@ -1043,7 +1043,7 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
       });
     }
     var words=screens[idx].querySelectorAll('.qi-word');
-    var sc=Math.ceil(Math.min(seg/0.4,1)*words.length);
+    var sc=Math.ceil(Math.min(seg/0.22,1)*words.length);
     words.forEach(function(w,i){w.classList.toggle('show',i<sc)});
     ticking=false;
   }
@@ -1205,14 +1205,81 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
 <!-- Lenis smooth scroll (데스크탑) -->
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script>
+var lenis = null;
 if(window.innerWidth > 768 && window.Lenis){
-  var lenis = new Lenis({
-    duration: 1.5,
+  lenis = new Lenis({
+    duration: 1.05,
+    wheelMultiplier: 1.15,
     easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)) }
   });
   function rafLoop(time){ lenis.raf(time); requestAnimationFrame(rafLoop) }
   requestAnimationFrame(rafLoop);
 }
+
+/* ─── 씬 스냅: 스크롤 멈추면 가장 가까운 씬에 살짝 정착 ─── */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var wraps = [
+    { el: document.getElementById('whyScroll'),    splits: [0.22, 0.56, 1.0] },
+    { el: document.getElementById('qIntroScroll'), splits: [0.45, 1.0] }
+  ];
+  var targets = []; /* {y, radius} */
+
+  function build(){
+    targets = [];
+    wraps.forEach(function(w){
+      if(!w.el) return;
+      var top = w.el.getBoundingClientRect().top + window.scrollY;
+      var scrollH = w.el.offsetHeight - window.innerHeight;
+      if(scrollH <= 0) return;
+      var prev = 0;
+      w.splits.forEach(function(sp){
+        var mid = (prev + sp) / 2;
+        var segPx = (sp - prev) * scrollH;
+        /* 씬 텍스트가 완성되는 지점(세그먼트 중간)에 스냅 */
+        targets.push({ y: top + mid * scrollH, radius: segPx * 0.5 });
+        prev = sp;
+      });
+    });
+  }
+  build();
+  window.addEventListener('resize', build);
+  window.addEventListener('load', build);
+
+  var idleTimer = null, snapping = false;
+  function cancelSnap(){ snapping = false; }
+  ['wheel','touchstart','keydown'].forEach(function(ev){
+    window.addEventListener(ev, cancelSnap, { passive: true });
+  });
+
+  function trySnap(){
+    if(snapping) return;
+    var y = window.scrollY;
+    var best = null, bestDist = Infinity;
+    targets.forEach(function(t){
+      var d = Math.abs(y - t.y);
+      if(d < t.radius && d < bestDist){ best = t; bestDist = d; }
+    });
+    if(!best || bestDist < 8) return; /* 이미 정착 */
+    snapping = true;
+    if(lenis){
+      lenis.scrollTo(best.y, {
+        duration: 0.65,
+        easing: function(t){ return 1 - Math.pow(1 - t, 3) },
+        onComplete: function(){ snapping = false; }
+      });
+      setTimeout(cancelSnap, 900); /* 안전 해제 */
+    } else {
+      window.scrollTo({ top: best.y, behavior: 'smooth' });
+      setTimeout(cancelSnap, 700);
+    }
+  }
+
+  window.addEventListener('scroll', function(){
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(trySnap, 140);
+  }, { passive: true });
+})();
 </script>
 
 </body>
