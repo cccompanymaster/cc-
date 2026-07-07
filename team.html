@@ -15,14 +15,15 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="format-detection" content="telephone=no">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.portone.io https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.ipify.org https://api.portone.io https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; frame-src https://*.portone.io; object-src 'none'; base-uri 'self'; form-action 'self';">
 
-<title>전문팀 | 노아 — 전문직 광고·바이럴 콘텐츠·데이터 퍼포먼스</title>
+<title>팀 구성 | 노아 — 전문직 광고·바이럴 콘텐츠·데이터 퍼포먼스</title>
 <meta name="description" content="노아의 세 전문팀 — 전문직 광고팀(의료·법률·세무 컴플라이언스), 바이럴 콘텐츠팀(블로그·카페·체험단), 데이터 퍼포먼스팀(CPA·CPS·DB). 각자의 전문성으로 매출 전환을 설계합니다.">
 <link rel="canonical" href="https://noahgroup.co.kr/team.html">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="노아">
-<meta property="og:title" content="전문팀 | 노아 — 각자의 영역에서, 각자의 정상으로">
+<meta property="og:title" content="팀 구성 | 노아 — 각자의 영역에서, 각자의 정상으로">
 <meta property="og:description" content="전문직 광고·바이럴 콘텐츠·데이터 퍼포먼스 — 노아의 세 전문팀.">
 <meta property="og:url" content="https://noahgroup.co.kr/team.html">
 <meta property="og:locale" content="ko_KR">
@@ -30,7 +31,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="전문팀 | 노아">
+<meta name="twitter:title" content="팀 구성 | 노아">
 <meta name="twitter:image" content="https://noahgroup.co.kr/og-banner-final.png">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a161d'/%3E%3Cpath d='M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z' fill='%23C2A36B'/%3E%3C/svg%3E">
@@ -59,7 +60,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/" },
-    { "@type": "ListItem", "position": 2, "name": "전문팀", "item": "https://noahgroup.co.kr/team.html" }
+    { "@type": "ListItem", "position": 2, "name": "팀 구성", "item": "https://noahgroup.co.kr/team.html" }
   ]
 }
 </script>
@@ -68,7 +69,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#161218;--bg-alt:#1e1923;--bg-hero:#120e14;
-  --white:#fff;--sub:rgba(255,255,255,.62);--dim:rgba(255,255,255,.32);
+  --white:#fff;--sub:rgba(255,255,255,.62);--dim:rgba(255,255,255,.45);
   --gold:#C2A36B;--gold-soft:#E8DCC2;--gold-ink:#9A7D4A;
   --red:#e35454;
   --border:rgba(255,255,255,.1);--border-l:rgba(255,255,255,.06);
@@ -196,7 +197,29 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
 
 .fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.show{opacity:1;transform:translateY(0)}
+
+/* ── 공통 하드닝: 포커스·모바일 내비·스크롤 탑바·플로팅 ── */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.topbar{transition:background .3s ease}
+.topbar.scrolled{background:rgba(18,14,20,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,220,194,.08)}
+.ham{display:none;position:relative;z-index:102;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:42px;height:42px;border-radius:12px;border:1px solid rgba(194,163,107,.4);background:rgba(18,14,20,.5)}
+.ham span{display:block;width:18px;height:2px;background:var(--gold-soft);transition:transform .3s,opacity .3s}
+@media(max-width:900px){
+  .ham{display:flex}
+  .tb-nav{display:flex;position:fixed;inset:0;z-index:101;flex-direction:column;align-items:center;justify-content:center;gap:30px;background:rgba(18,14,20,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-size:21px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .3s}
+  body.nav-open .tb-nav{opacity:1;pointer-events:auto}
+  body.nav-open{overflow:hidden}
+  body.nav-open .ham span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .ham span:nth-child(2){opacity:0}
+  body.nav-open .ham span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.float-cta{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:10px}
+.float-cta .fc{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#201a26;border:1px solid rgba(194,163,107,.5);box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .25s,border-color .25s}
+.float-cta .fc:hover{transform:translateY(-3px);border-color:var(--gold)}
+.float-cta .fc svg{width:24px;height:24px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<noscript><style>.rv-word,.fade-up,.hero-rv,.wn-word,.qi-word,.tr-word,.sl-word,.counter-item,.process-card{opacity:1!important;transform:none!important;clip-path:none!important}.tr-word{color:#fff!important}</style></noscript>
 </head>
 <body>
 
@@ -205,13 +228,14 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
-  <nav class="tb-nav" aria-label="주 메뉴">
+  <nav class="tb-nav" id="tbNav" aria-label="주 메뉴">
     <a href="about.html">소개</a>
     <a href="team.html" class="active" aria-current="page">팀 구성</a>
     <a href="work.html">레퍼런스</a>
     <a href="impact-2026.html">리포트</a>
     <a href="articles/">칼럼</a>
   </nav>
+  <button type="button" class="ham" aria-expanded="false" aria-controls="tbNav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
   <a href="contact.html" class="tb-link">무료 진단 →</a>
 </div>
 
@@ -307,6 +331,8 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
       <a href="about.html">소개</a>
       <a href="team.html">팀 구성</a>
       <a href="work.html">레퍼런스</a>
+      <a href="impact-2026.html">리포트</a>
+      <a href="articles/">칼럼</a>
       <a href="contact.html">문의</a>
       <a href="privacy.html">개인정보처리방침</a>
       <a href="terms.html">이용약관</a>
@@ -334,5 +360,14 @@ document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el) });
 })();
 </script>
 
+<aside class="float-cta" aria-label="빠른 상담">
+  <a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener" class="fc" aria-label="카카오톡 상담">
+    <svg viewBox="0 0 36 36" fill="none"><path d="M18 6C10.8 6 5 10.6 5 16.3c0 3.6 2.4 6.8 6 8.6l-1.3 4.8c-.1.4.3.7.7.5l5.7-3.8c.6.1 1.3.1 1.9.1 7.2 0 13-4.6 13-10.3C31 10.6 25.2 6 18 6z" fill="#E8DCC2"/></svg>
+  </a>
+  <a href="tel:01066586482" class="fc" aria-label="전화 상담 010-6658-6482">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#E8DCC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+</aside>
+<script src="js/site.js" defer></script>
 </body>
 </html>

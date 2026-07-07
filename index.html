@@ -15,6 +15,7 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="format-detection" content="telephone=no">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.portone.io https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.ipify.org https://api.portone.io https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; frame-src https://*.portone.io; object-src 'none'; base-uri 'self'; form-action 'self';">
 
 <title>노아 | 매출로 답하는 통합 마케팅 에이전시</title>
 <meta name="description" content="광고비, 태우고 계신가요? 노아는 숫자로 증명합니다 — 누적 광고주 10K+, 평균 ROAS 382%, 재계약률 92%. 전문직·바이럴·데이터 통합 마케팅.">
@@ -148,7 +149,7 @@
 :root{
   --bg:#161218;--bg-alt:#1e1923;--bg-hero:#120e14;
   --paper:#f8f5f0;--paper-alt:#f1ece1;
-  --white:#fff;--sub:rgba(255,255,255,.62);--dim:rgba(255,255,255,.32);
+  --white:#fff;--sub:rgba(255,255,255,.62);--dim:rgba(255,255,255,.45);
   --ink:#1a161d;--ink-sub:rgba(26,22,29,.62);--ink-dim:rgba(26,22,29,.35);
   --gold:#C2A36B;--gold-soft:#E8DCC2;--gold-ink:#9A7D4A;
   --red:#e35454;
@@ -545,27 +546,26 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .faq-item{border-bottom:1px solid rgba(232,220,194,.1);overflow:hidden;transition:border-color .3s}
 .faq-item:first-child{border-top:1px solid rgba(232,220,194,.1)}
 .faq-item:hover{border-color:rgba(194,163,107,.35)}
-.faq-q{padding:30px 0;display:flex;align-items:center;gap:24px;cursor:pointer;user-select:none}
+.faq-item summary{padding:30px 0;display:flex;align-items:center;gap:24px;cursor:pointer;user-select:none;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
 .faq-num{font-size:14px;font-weight:400;color:var(--gold-ink);font-variant-numeric:tabular-nums;flex-shrink:0;width:32px}
-.faq-q span.q-text{font-size:clamp(17px,2.3vw,21px);font-weight:600;flex:1;letter-spacing:-.5px}
-.faq-q:hover span.q-text{color:var(--gold-soft)}
+.faq-item summary .q-text{font-size:clamp(17px,2.3vw,21px);font-weight:600;flex:1;letter-spacing:-.5px}
+.faq-item summary:hover .q-text{color:var(--gold-soft)}
 .faq-arrow{
   width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
   border-radius:50%;border:1px solid rgba(194,163,107,.3);transition:all .4s cubic-bezier(.4,0,.2,1);
 }
 .faq-arrow svg{width:16px;height:16px;stroke:var(--gold-soft);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s}
-.faq-item.open .faq-arrow{background:rgba(194,163,107,.14);border-color:rgba(194,163,107,.55)}
-.faq-item.open .faq-arrow svg{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1),padding .5s cubic-bezier(.4,0,.2,1)}
-.faq-item.open .faq-a{max-height:340px;padding:0 0 30px 56px}
+.faq-item[open] .faq-arrow{background:rgba(194,163,107,.14);border-color:rgba(194,163,107,.55)}
+.faq-item[open] .faq-arrow svg{transform:rotate(180deg)}
+.faq-a{padding:0 4px 30px 56px}
 .faq-a p{font-size:17px;color:var(--sub);line-height:1.85;max-width:720px}
 .faq-a b{color:var(--gold-soft);font-weight:700}
 @media(max-width:768px){
   .faq-section{padding:80px 0}
   .faq-header{margin-bottom:48px;flex-direction:column;align-items:flex-start;gap:12px}
-  .faq-q{padding:22px 0;gap:14px}
-  .faq-item.open .faq-a{padding:0 0 22px 46px;max-height:420px}
-  .faq-a p{font-size:15px}
+  .faq-item summary{padding:22px 0;gap:14px}
+    .faq-a p{font-size:15px}
 }
 
 /* ───────────────────────────────────────── */
@@ -602,7 +602,52 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
   .rv-layout{min-height:0}
   .scroll-circle{width:80px;height:80px;bottom:20px}
 }
+
+/* ── 공통 하드닝: 포커스·모바일 내비·스크롤 탑바·플로팅 ── */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.topbar{transition:background .3s ease}
+.topbar.scrolled{background:rgba(18,14,20,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,220,194,.08)}
+.ham{display:none;position:relative;z-index:102;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:42px;height:42px;border-radius:12px;border:1px solid rgba(194,163,107,.4);background:rgba(18,14,20,.5)}
+.ham span{display:block;width:18px;height:2px;background:var(--gold-soft);transition:transform .3s,opacity .3s}
+@media(max-width:900px){
+  .ham{display:flex}
+  .tb-nav{display:flex;position:fixed;inset:0;z-index:101;flex-direction:column;align-items:center;justify-content:center;gap:30px;background:rgba(18,14,20,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-size:21px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .3s}
+  body.nav-open .tb-nav{opacity:1;pointer-events:auto}
+  body.nav-open{overflow:hidden}
+  body.nav-open .ham span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .ham span:nth-child(2){opacity:0}
+  body.nav-open .ham span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.float-cta{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:10px}
+.float-cta .fc{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#201a26;border:1px solid rgba(194,163,107,.5);box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .25s,border-color .25s}
+.float-cta .fc:hover{transform:translateY(-3px);border-color:var(--gold)}
+.float-cta .fc svg{width:24px;height:24px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* 짧은 뷰포트(노트북)에서 히어로 겹침 방지 */
+@media(min-width:769px) and (max-height:840px){
+  .hero-sub{top:12%}
+  .hero-headline{top:21%;font-size:clamp(44px,9vw,112px)}
+  .hero-tag{top:60%}
+}
+@media(min-width:769px) and (max-height:700px){
+  .hero-headline{font-size:clamp(40px,8vw,90px)}
+  .hero-tag{display:none}
+}
+/* 무한 모션 — 모션 축소 존중 + 호버 일시정지 */
+@media(prefers-reduced-motion:reduce){
+  .hero-track,.rv-track,.scroll-circle,.hpin-slide.intro .arrow{animation:none!important}
+}
+.hero-marquee:hover .hero-track,.rv-right:hover .rv-track{animation-play-state:paused}
+
+.final-cta{padding:90px 0 130px;background:var(--bg-alt);text-align:center}
+.final-cta h2{font-weight:900;font-size:clamp(26px,4.4vw,50px);letter-spacing:-1.5px;line-height:1.3}
+.final-cta .grad2{background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.final-cta .btn2{display:inline-flex;margin-top:34px;padding:20px 60px;border-radius:100px;font-size:16px;font-weight:800;color:#1a161d;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);transition:all .35s}
+.final-cta .btn2:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(194,163,107,.35)}
+.final-cta .note2{margin-top:14px;font-size:13px;color:var(--dim)}
 </style>
+<noscript><style>.rv-word,.fade-up,.hero-rv,.wn-word,.qi-word,.tr-word,.sl-word,.counter-item,.process-card{opacity:1!important;transform:none!important;clip-path:none!important}.tr-word{color:#fff!important}</style></noscript>
 </head>
 <body>
 
@@ -612,13 +657,14 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
-  <nav class="tb-nav" aria-label="주 메뉴">
+  <nav class="tb-nav" id="tbNav" aria-label="주 메뉴">
     <a href="about.html">소개</a>
     <a href="team.html">팀 구성</a>
     <a href="work.html">레퍼런스</a>
     <a href="impact-2026.html">리포트</a>
     <a href="articles/">칼럼</a>
   </nav>
+  <button type="button" class="ham" aria-expanded="false" aria-controls="tbNav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
   <a href="contact.html" class="tb-link">무료 진단 →</a>
 </div>
 
@@ -706,7 +752,7 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
         <h2 class="qi-s1-text">
           <span class="qi-word" style="color:#C2A36B">A.</span>
           <span class="qi-word">숫자를</span>
-          <span class="qi-word">보여드리겠습니다. 👇</span>
+          <span class="qi-word">보여드리겠습니다.<span aria-hidden="true"> 👇</span></span>
         </h2>
       </div>
 
@@ -723,19 +769,19 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
     </div>
     <div class="counter-grid" id="counterGrid">
       <div class="counter-item">
-        <div class="counter-num"><span data-target="10">0</span><span class="suffix">K+</span></div>
+        <div class="counter-num"><span data-target="10">10</span><span class="suffix">K+</span></div>
         <div class="counter-label">누적 광고주</div>
       </div>
       <div class="counter-item">
-        <div class="counter-num"><span data-target="382">0</span><span class="suffix">%</span></div>
+        <div class="counter-num"><span data-target="382">382</span><span class="suffix">%</span></div>
         <div class="counter-label">평균 ROAS</div>
       </div>
       <div class="counter-item">
-        <div class="counter-num"><span data-target="92">0</span><span class="suffix">%</span></div>
+        <div class="counter-num"><span data-target="92">92</span><span class="suffix">%</span></div>
         <div class="counter-label">재계약률</div>
       </div>
       <div class="counter-item">
-        <div class="counter-num"><span data-target="180">0</span><span class="suffix">억+</span></div>
+        <div class="counter-num"><span data-target="180">180</span><span class="suffix">억+</span></div>
         <div class="counter-label">광고취급액</div>
       </div>
     </div>
@@ -905,27 +951,37 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
       <span class="faq-label">자주 묻는 질문</span>
     </div>
     <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-num">01</span><span class="q-text">최소 예산은 어느 정도인가요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <details class="faq-item">
+        <summary><span class="faq-num">01</span><span class="q-text">최소 예산은 어느 정도인가요?</span><span class="faq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
         <div class="faq-a"><p>표준 운영 패키지는 <b>월 300만원부터</b>입니다. 광고비와 운영 수수료는 분리 책정되며, 첫 상담에서 업종·경쟁도별 <b>ROI 시뮬레이션</b>을 제공합니다.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-num">02</span><span class="q-text">계약 기간은 최소 얼마부터인가요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">02</span><span class="q-text">계약 기간은 최소 얼마부터인가요?</span><span class="faq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
         <div class="faq-a"><p>표준 계약은 6개월·12개월 단위입니다. 데이터 누적·최적화 사이클상 <b>최소 90일</b> 이상 운영해야 ROAS가 안정화됩니다.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-num">03</span><span class="q-text">의료광고 심의도 해주나요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">03</span><span class="q-text">의료광고 심의도 해주나요?</span><span class="faq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
         <div class="faq-a"><p>의협·치협·한의협·약사회 등 모든 의료 단체 심의를 <b>자체 인하우스 인력으로 직접</b> 대행합니다. 평균 1차 승인율 <b>96.4%</b>, 반려 시 무상 재제출까지 책임집니다.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-num">04</span><span class="q-text">성과는 어떻게 확인하나요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">04</span><span class="q-text">성과는 어떻게 확인하나요?</span><span class="faq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
         <div class="faq-a"><p><b>실시간 대시보드 24/7</b> 접속 권한 + 주간 자동 리포트 + 월간 심층 리포트. 매출 전환·CAC·LTV 등 <b>30+ 핵심 지표</b>를 실측합니다.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span class="faq-num">05</span><span class="q-text">서울·경기 외 지역도 가능한가요?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">05</span><span class="q-text">서울·경기 외 지역도 가능한가요?</span><span class="faq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
         <div class="faq-a"><p><b>전국 운영</b> 가능합니다. 화상 정기 보고 + 24시간 커뮤니케이션 채널 + 월 1회 PM 미팅 기본 제공, 분기 1회 방문 컨설팅도 별도 비용 없이 진행됩니다.</p></div>
-      </div>
+      </details>
     </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 10. FINAL CTA ═══════════════ -->
+<section class="final-cta">
+  <div class="inner fade-up">
+    <h2>여기까지 읽으셨다면,<br><span class="grad2">진단</span>받을 준비는 끝났습니다.</h2>
+    <a href="contact.html" class="btn2">무료 진단 받기 →</a>
+    <p class="note2">60분 진단 미팅 · 영업일 24시간 내 회신 · NDA 보호</p>
   </div>
 </section>
 
@@ -938,7 +994,10 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
     <div class="f-links">
       <a href="index.html">홈</a>
       <a href="about.html">소개</a>
+      <a href="team.html">팀 구성</a>
       <a href="work.html">레퍼런스</a>
+      <a href="impact-2026.html">리포트</a>
+      <a href="articles/">칼럼</a>
       <a href="contact.html">문의</a>
       <a href="privacy.html">개인정보처리방침</a>
       <a href="terms.html">이용약관</a>
@@ -1135,7 +1194,9 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
   var scrollWrap=document.getElementById('hpinScroll');
   var track=document.getElementById('hpinTrack');
   if(!scrollWrap||!track)return;
-  if(window.innerWidth<=768)return; /* 모바일: 네이티브 가로 스크롤 */
+  var hpinMq=matchMedia('(max-width:768px)');
+  hpinMq.addEventListener('change',function(e){if(e.matches)track.style.transform='';});
+  if(hpinMq.matches)return; /* 모바일: 네이티브 가로 스크롤 */
   var ticking=false;
   function update(){
     var rect=scrollWrap.getBoundingClientRect();
@@ -1188,26 +1249,15 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
   obs.observe(section);
 })();
 
-/* ─── FAQ ─── */
-(function(){
-  document.querySelectorAll('.faq-q').forEach(function(q){
-    q.addEventListener('click',function(){
-      var item=q.parentElement;
-      var wasOpen=item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
-      if(!wasOpen)item.classList.add('open');
-    });
-  });
-})();
 
 })();
 </script>
 
 <!-- Lenis smooth scroll (데스크탑) -->
-<script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 <script>
 var lenis = null;
-if(window.innerWidth > 768 && window.Lenis){
+if(window.innerWidth > 768 && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){
   lenis = new Lenis({
     duration: 1.05,
     wheelMultiplier: 1.15,
@@ -1220,6 +1270,7 @@ if(window.innerWidth > 768 && window.Lenis){
 /* ─── 씬 스냅: 스크롤 멈추면 가장 가까운 씬에 살짝 정착 ─── */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!matchMedia('(hover: hover) and (pointer: fine)').matches) return; /* 터치 기기 제외 */
   var wraps = [
     { el: document.getElementById('whyScroll'),    splits: [0.22, 0.56, 1.0] },
     { el: document.getElementById('qIntroScroll'), splits: [0.45, 1.0] }
@@ -1238,7 +1289,7 @@ if(window.innerWidth > 768 && window.Lenis){
         var mid = (prev + sp) / 2;
         var segPx = (sp - prev) * scrollH;
         /* 씬 텍스트가 완성되는 지점(세그먼트 중간)에 스냅 */
-        targets.push({ y: top + mid * scrollH, radius: segPx * 0.5 });
+        targets.push({ y: top + mid * scrollH, radius: segPx * 0.35 });
         prev = sp;
       });
     });
@@ -1278,10 +1329,19 @@ if(window.innerWidth > 768 && window.Lenis){
 
   window.addEventListener('scroll', function(){
     clearTimeout(idleTimer);
-    idleTimer = setTimeout(trySnap, 140);
+    idleTimer = setTimeout(trySnap, 200);
   }, { passive: true });
 })();
 </script>
 
+<aside class="float-cta" aria-label="빠른 상담">
+  <a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener" class="fc" aria-label="카카오톡 상담">
+    <svg viewBox="0 0 36 36" fill="none"><path d="M18 6C10.8 6 5 10.6 5 16.3c0 3.6 2.4 6.8 6 8.6l-1.3 4.8c-.1.4.3.7.7.5l5.7-3.8c.6.1 1.3.1 1.9.1 7.2 0 13-4.6 13-10.3C31 10.6 25.2 6 18 6z" fill="#E8DCC2"/></svg>
+  </a>
+  <a href="tel:01066586482" class="fc" aria-label="전화 상담 010-6658-6482">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#E8DCC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+</aside>
+<script src="js/site.js" defer></script>
 </body>
 </html>

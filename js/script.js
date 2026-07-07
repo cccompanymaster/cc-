@@ -1299,6 +1299,12 @@ inqForm?.addEventListener('submit', async (e) => {
 
     inqForm.style.display = 'none';
     inqSuccess.hidden = false;
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'inquiry_form' });
+    if (!inqModal) {
+      // 인라인 폼(문의 페이지): 성공 메시지 유지 — 자동 리셋하지 않음
+      inqSuccess.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      return;
+    }
     setTimeout(() => {
       closeInquiry();
       setTimeout(() => {
@@ -1313,6 +1319,7 @@ inqForm?.addEventListener('submit', async (e) => {
     }, 2400);
   } catch (err) {
     console.error('[Inquiry] 전송 실패:', err);
+    if (typeof gtag === 'function') gtag('event', 'form_error', { form: 'inquiry' });
     alert('문의 전송 중 오류가 발생했습니다.\n잠시 후 다시 시도해주시거나 010-6658-6482로 연락 부탁드립니다.');
     if (submitBtn) {
       submitBtn.disabled = false;
@@ -1504,6 +1511,7 @@ payForm?.addEventListener('submit', async (e) => {
     // 성공 UI
     payForm.style.display = 'none';
     paySuccess.hidden = false;
+    if (typeof gtag === 'function') gtag('event', 'purchase', { currency: 'KRW', value: amount, transaction_id: paymentId });
     setTimeout(() => {
       closePayment();
       setTimeout(() => {

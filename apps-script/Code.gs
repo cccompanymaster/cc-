@@ -63,6 +63,27 @@ const PRICE_CATALOG = {
   '기본 진단 패키지':  { price: 300000,   fixed: true  },
   '표준 월간 패키지':  { price: 1500000,  fixed: true  },
   '맞춤 견적 결제':    { price: null,     fixed: false, min: 50000, max: 10000000 },
+  // ── shop.html 상품 (클라이언트 금액 조작 방지: fixed 가격 서버 검증) ──
+  '전문직 마케팅':          { price: 1500000, fixed: true },
+  '법률 마케팅':            { price: 1800000, fixed: true },
+  '병원 마케팅':            { price: 2000000, fixed: true },
+  '병원 MSO':               { price: 3000000, fixed: true },
+  'N사 검색광고 운영대행':  { price: 1000000, fixed: true },
+  '마케팅 디자인':          { price: 500000,  fixed: true },
+  '홈페이지 제작':          { price: 2500000, fixed: true },
+  '체험단 마케팅':          { price: 800000,  fixed: true },
+  '블로그 마케팅':          { price: 700000,  fixed: true },
+  '블로그 상위노출':        { price: 900000,  fixed: true },
+  '카페 상위노출':          { price: 700000,  fixed: true },
+  '플레이스 상위노출':      { price: 600000,  fixed: true },
+  '쇼핑 상위노출':          { price: 800000,  fixed: true },
+  '브랜드블로그 관리대행':  { price: 1200000, fixed: true },
+  '전문직 블로그 관리대행': { price: 1500000, fixed: true },
+  '인플루언서 마케팅':      { price: 1000000, fixed: true },
+  '유튜브 마케팅':          { price: 1500000, fixed: true },
+  '스레드 마케팅':          { price: 500000,  fixed: true },
+  '블로그 임대':            { price: 400000,  fixed: true },
+  '공동구매 대행':          { price: 1000000, fixed: true },
 };
 
 const SHEET_INQUIRIES = 'Inquiries';
@@ -548,7 +569,13 @@ function handleWebhook_(data, cfg) {
       phone: info.customer.phoneNumber,
       email: info.customer.email,
     } : {},
-  }, { status: info.status, amount: info.amount?.total || 0, raw: info, note: 'webhook' });
+  }, (function () {
+    // 카탈로그 금액 대조 — fixed 상품이 다른 금액으로 결제되면 플래그
+    const cat = PRICE_CATALOG[info.orderName];
+    const paid = (info.amount && info.amount.total) || 0;
+    const mismatch = cat && cat.fixed && cat.price !== paid;
+    return { status: info.status, amount: paid, raw: info, note: mismatch ? 'webhook:PRICE_MISMATCH' : 'webhook' };
+  })());
   return jsonResponse_({ ok: true });
 }
 
