@@ -254,7 +254,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 2. WHY — 밝은 스티키 내러티브              */
 /* ───────────────────────────────────────── */
 .why{background:var(--paper);color:var(--ink);position:relative}
-.why-scroll{height:340vh;position:relative}
+.why-scroll{height:300vh;position:relative}
 .why-sticky{
   position:sticky;top:0;height:100vh;width:100%;
   display:flex;align-items:center;justify-content:center;
@@ -312,7 +312,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 3. Q-INTRO — 다크 Q&A                     */
 /* ───────────────────────────────────────── */
 .q-intro{background:var(--bg);color:var(--white);position:relative}
-.q-intro-scroll{height:230vh;position:relative}
+.q-intro-scroll{height:200vh;position:relative}
 .q-intro-sticky{
   position:sticky;top:0;height:100vh;width:100%;
   display:flex;align-items:center;justify-content:center;
@@ -364,7 +364,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 5. STICKY PROCESS — 좌측 고정              */
 /* ───────────────────────────────────────── */
 .sticky-process{position:relative;background:var(--bg)}
-.sticky-process-scroll{display:flex;min-height:300vh}
+.sticky-process-scroll{display:flex}
 .sticky-left{
   position:sticky;top:0;height:100vh;width:45%;flex-shrink:0;
   display:flex;flex-direction:column;justify-content:center;padding:0 60px;
@@ -385,7 +385,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .progress-bar{width:3px;height:200px;background:var(--border);border-radius:3px;position:relative;overflow:hidden}
 .progress-fill{position:absolute;top:0;left:0;width:100%;height:0%;background:var(--gold);border-radius:3px;transition:height .1s linear}
 .progress-step{font-size:13px;color:var(--dim);margin-top:16px;font-weight:600;font-variant-numeric:tabular-nums}
-.sticky-right{width:55%;padding:30vh 40px 10vh 0;display:flex;flex-direction:column}
+.sticky-right{width:55%;padding:20vh 40px 8vh 0;display:flex;flex-direction:column}
 .process-card{
   padding:48px 0;border-bottom:1px solid rgba(232,220,194,.1);
   opacity:0;transform:translateY(30px);
@@ -590,9 +590,9 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
   .hero-sub{top:17%;font-size:clamp(15px,4.4vw,22px);white-space:normal;width:90%}
   .hero-tag{top:56%;white-space:normal;width:88%}
   .hero-track span{font-size:clamp(2rem,8.5vw,3.4rem)}
-  .why-scroll{height:260svh}
+  .why-scroll{height:230svh}
   .why-sticky{height:100svh}
-  .q-intro-scroll{height:180svh}
+  .q-intro-scroll{height:160svh}
   .q-intro-sticky{height:100svh}
   .wn-s1-text{font-size:clamp(30px,7vw,50px);letter-spacing:-1.5px}
   .qi-s1-text{font-size:clamp(28px,7vw,46px);letter-spacing:-1.5px}
@@ -618,10 +618,26 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
   body.nav-open .ham span:nth-child(2){opacity:0}
   body.nav-open .ham span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
-.float-cta{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:10px}
-.float-cta .fc{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#201a26;border:1px solid rgba(194,163,107,.5);box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .25s,border-color .25s}
-.float-cta .fc:hover{transform:translateY(-3px);border-color:var(--gold)}
-.float-cta .fc svg{width:24px;height:24px}
+.float-cta{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:95;display:flex;flex-direction:column;gap:12px}
+.float-cta .fc{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.5);transition:transform .25s,box-shadow .25s}
+.float-cta .fc:hover{transform:scale(1.12);box-shadow:0 14px 32px rgba(0,0,0,.6)}
+.float-cta .fc svg{width:26px;height:26px}
+.fc-kakao{background:#FAE100}
+.fc-talk{background:#03C75A}
+.fc-blog{background:#fff}
+.fc-blog b{font-weight:900;font-size:15px;color:#03C75A;letter-spacing:-.5px}
+.fc-tel{background:linear-gradient(135deg,#E8DCC2,#C2A36B)}
+@media(max-width:768px){.float-cta{right:10px;gap:10px}.float-cta .fc{width:46px;height:46px}.float-cta .fc svg{width:22px;height:22px}}
+.bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:96;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;padding:12px 56px 12px 20px;background:rgba(18,14,20,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid rgba(194,163,107,.35);transform:translateY(110%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+body.show-bb .bottom-bar{transform:translateY(0)}
+.bottom-bar .bb-txt{font-size:14.5px;color:rgba(255,255,255,.85)}
+.bottom-bar .bb-txt b{color:var(--gold-soft)}
+.bottom-bar .bb-tel{font-weight:800;font-size:15px;color:var(--gold-soft);white-space:nowrap}
+.bottom-bar .bb-btn{padding:11px 26px;border-radius:999px;font-size:14px;font-weight:800;color:#1a161d;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);white-space:nowrap;transition:transform .25s}
+.bottom-bar .bb-btn:hover{transform:scale(1.05)}
+.bottom-bar .bb-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;color:rgba(255,255,255,.6);font-size:15px;display:flex;align-items:center;justify-content:center}
+.bottom-bar .bb-close:hover{color:#fff;background:rgba(255,255,255,.1)}
+@media(max-width:640px){.bottom-bar{gap:10px;padding:10px 48px 10px 14px}.bottom-bar .bb-txt{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* 짧은 뷰포트(노트북)에서 히어로 겹침 방지 */
@@ -1002,6 +1018,7 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
       <a href="work.html">레퍼런스</a>
       <a href="impact-2026.html">리포트</a>
       <a href="articles/">칼럼</a>
+      <a href="shop.html">서비스</a>
       <a href="contact.html">문의</a>
       <a href="privacy.html">개인정보처리방침</a>
       <a href="terms.html">이용약관</a>
@@ -1010,6 +1027,7 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
     <div class="f-info">
       씨씨컴퍼니 (CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613<br>
       대표전화 <a href="tel:01066586482" style="color:inherit;text-decoration:underline">010-6658-6482</a> · 이메일 cccompanymaster@gmail.com · 평일 10:00–19:00<br>
+      통신판매업신고번호: 신고 절차 진행 중<br>
       인천광역시 연수구 인천타워대로 301, A동 16층 33호 (송도동, 송도센텀하이브)<br>
       &copy; 2026 노아 (NOAH). All rights reserved.
     </div>
@@ -1340,12 +1358,22 @@ if(window.innerWidth > 768 && window.Lenis && !matchMedia('(prefers-reduced-moti
 })();
 </script>
 
-<aside class="float-cta" aria-label="빠른 상담">
-  <a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener" class="fc" aria-label="카카오톡 상담">
-    <svg viewBox="0 0 36 36" fill="none"><path d="M18 6C10.8 6 5 10.6 5 16.3c0 3.6 2.4 6.8 6 8.6l-1.3 4.8c-.1.4.3.7.7.5l5.7-3.8c.6.1 1.3.1 1.9.1 7.2 0 13-4.6 13-10.3C31 10.6 25.2 6 18 6z" fill="#E8DCC2"/></svg>
+<div class="bottom-bar" id="bottomBar" role="region" aria-label="빠른 문의 배너">
+  <p class="bb-txt"><b>광고비, 더 태우기 전에</b> — 무료 진단부터 받아보세요.</p>
+  <a href="tel:01066586482" class="bb-tel">📞 010-6658-6482</a>
+  <a href="contact.html" class="bb-btn">문의하기 →</a>
+  <button type="button" class="bb-close" aria-label="배너 닫기">✕</button>
+</div>
+<aside class="float-cta" aria-label="빠른 상담 채널">
+  <a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener" class="fc fc-kakao" aria-label="카카오톡 상담">
+    <svg viewBox="0 0 36 36" fill="none"><path d="M18 6C10.8 6 5 10.6 5 16.3c0 3.6 2.4 6.8 6 8.6l-1.3 4.8c-.1.4.3.7.7.5l5.7-3.8c.6.1 1.3.1 1.9.1 7.2 0 13-4.6 13-10.3C31 10.6 25.2 6 18 6z" fill="#3C1E1E"/></svg>
   </a>
-  <a href="tel:01066586482" class="fc" aria-label="전화 상담 010-6658-6482">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#E8DCC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+  <a href="https://talk.naver.com/profile/w40zwc/form/1" target="_blank" rel="noopener" class="fc fc-talk" aria-label="네이버 톡톡 상담">
+    <svg viewBox="0 0 36 36" fill="none"><path d="M18 7C11.4 7 6 11.5 6 17c0 3.4 2.1 6.4 5.3 8.1l-1 3.4c-.2.6.4 1.1 1 .8l4.5-2.7c.7.1 1.4.1 2.2.1 6.6 0 12-4.4 12-9.7 0-5.5-5.4-10-12-10z" fill="#fff"/><circle cx="13" cy="17" r="1.6" fill="#03C75A"/><circle cx="18" cy="17" r="1.6" fill="#03C75A"/><circle cx="23" cy="17" r="1.6" fill="#03C75A"/></svg>
+  </a>
+  <a href="https://blog.naver.com/cccompanyad" target="_blank" rel="noopener" class="fc fc-blog" aria-label="네이버 블로그"><b>blog</b></a>
+  <a href="tel:01066586482" class="fc fc-tel" aria-label="전화 상담 010-6658-6482">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#1a161d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
   </a>
 </aside>
 <script src="js/site.js" defer></script>
