@@ -1274,6 +1274,7 @@ inqForm?.addEventListener('submit', async (e) => {
     userAgent: (navigator.userAgent || '').slice(0, 200),
     clientIp,
     origin: location.origin,
+    recaptchaToken: await getRecaptchaToken_(),
     formOpenedAt: readFormOpenedAt_(inqForm),
     submittedAt: new Date().toISOString(),
   };
@@ -1354,6 +1355,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // 발급 방법: apps-script/Code.gs 상단 주석 참조
 const PORTONE_STORE_ID = '';                // 예: 'store-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 const PORTONE_CHANNEL_KEY = '';             // 결제 채널 키 (PG사별로 발급)
+// ── reCAPTCHA v3 (스팸 방어) ──
+// 사이트 키 발급 후 아래에 입력하면 자동 활성화됩니다.
+// (Apps Script 쪽엔 스크립트 속성 RECAPTCHA_SECRET에 시크릿 키 등록)
+const RECAPTCHA_SITE_KEY = '';
+let _recaptchaReady = null;
+const getRecaptchaToken_ = () => {
+  if (!RECAPTCHA_SITE_KEY) return Promise.resolve('');
+  if (!_recaptchaReady) {
+    _recaptchaReady = new Promise((resolve) => {
+      const sc = document.createElement('script');
+      sc.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY;
+      sc.onload = () => window.grecaptcha ? grecaptcha.ready(resolve) : resolve();
+      sc.onerror = () => resolve();
+      document.head.appendChild(sc);
+    });
+  }
+  return _recaptchaReady.then(() =>
+    window.grecaptcha ? grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'inquiry' }).catch(() => '') : ''
+  );
+};
+
 const PAYMENT_VERIFY_URL = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';              // Apps Script 웹앱 URL (INQUIRY_WEBHOOK_URL과 같은 배포면 동일 URL)
 
 const payModal = document.getElementById('paymentModal');

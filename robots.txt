@@ -30,7 +30,7 @@
 # B2B 마케팅 / SaaS 마케팅 / 스타트업 마케팅 / D2C 마케팅
 #
 # Metrics: ROAS / ROI / CPL / CPA / CTR / CVR / LTV /
-# 평균 ROAS 382% / 374건 운영 사례
+# 매출로 답하는 통합 마케팅 — 노아
 #
 # AI Search (GEO/AEO): AI 검색 SEO / GEO 마케팅 / AEO 마케팅 /
 # ChatGPT 색인 최적화 / Perplexity 색인 / 네이버 큐(Cue) 검색 /
