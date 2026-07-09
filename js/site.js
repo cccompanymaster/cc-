@@ -1,26 +1,37 @@
-/* 노아 공통 — 모바일 내비 · 스크롤 탑바 · GA4 클릭 이벤트 */
+/* 노아 공통 — 우측 날개 드로어 내비 · 스크롤 탑바 · GA4 클릭 이벤트 */
 (function () {
   'use strict';
+  var body = document.body;
   var ham = document.querySelector('.ham');
-  if (ham) {
-    ham.addEventListener('click', function () {
-      var open = document.body.classList.toggle('nav-open');
+  var nav = document.getElementById('tbNav');
+  if (ham && nav) {
+    var scrim = document.getElementById('navScrim');
+    var closeBtn = nav.querySelector('.tb-nav-close');
+    function setOpen(open) {
+      body.classList.toggle('nav-open', open);
       ham.setAttribute('aria-expanded', open ? 'true' : 'false');
       ham.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    }
+    ham.addEventListener('click', function () {
+      setOpen(!body.classList.contains('nav-open'));
     });
-    document.querySelectorAll('.tb-nav a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        document.body.classList.remove('nav-open');
-        ham.setAttribute('aria-expanded', 'false');
-      });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); ham.focus(); });
+    if (scrim) scrim.addEventListener('click', function () { setOpen(false); });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
-        document.body.classList.remove('nav-open');
-        ham.setAttribute('aria-expanded', 'false');
-        ham.focus();
-      }
+      if (e.key === 'Escape' && body.classList.contains('nav-open')) { setOpen(false); ham.focus(); }
     });
+    // 결제 아코디언
+    var pay = document.getElementById('tbnPay');
+    if (pay) {
+      var toggle = pay.querySelector('.tbn-pay-toggle');
+      if (toggle) toggle.addEventListener('click', function () {
+        var open = pay.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
   }
   var topbar = document.querySelector('.topbar');
   if (topbar) {
@@ -43,7 +54,7 @@
     else if (href.indexOf('pf.kakao.com') > -1) ev('contact_kakao', { page: location.pathname });
     else if (href.indexOf('talk.naver.com') > -1) ev('contact_naver_talk', { page: location.pathname });
     else if (href.indexOf('blog.naver.com') > -1) ev('click_blog', { page: location.pathname });
-    else if (a.classList.contains('tb-link') || a.classList.contains('btn-gold') || a.classList.contains('btn2') || a.classList.contains('bb-btn') || a.id === 'trCtaBtn')
+    else if (a.classList.contains('tb-link') || a.classList.contains('tbn-cta') || a.classList.contains('tbn-shortcut') || a.classList.contains('btn-gold') || a.classList.contains('btn2') || a.classList.contains('bb-btn') || a.id === 'trCtaBtn')
       ev('cta_click', { label: (a.textContent || '').trim().slice(0, 40), page: location.pathname });
   }, true);
 })();

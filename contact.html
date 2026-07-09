@@ -338,6 +338,46 @@ body.show-bb .bottom-bar{transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <noscript><style>.rv-word,.fade-up,.hero-rv,.wn-word,.qi-word,.tr-word,.sl-word,.counter-item,.process-card{opacity:1!important;transform:none!important;clip-path:none!important}.tr-word{color:#fff!important}</style></noscript>
+<style>
+/* ===== 우측 날개 드로어 내비 (전 페이지 공통) ===== */
+.tb-actions{display:flex;align-items:center;gap:12px;margin-left:auto;transition:opacity .2s}
+body.nav-open .tb-actions{opacity:0;pointer-events:none}
+.ham{display:flex}
+.nav-scrim{position:fixed;inset:0;z-index:100;border:0;padding:0;cursor:pointer;background:rgba(10,7,12,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .35s}
+body.nav-open .nav-scrim{opacity:1;pointer-events:auto}
+body.nav-open{overflow:hidden}
+#tbNav{display:block;position:fixed;top:0;right:0;bottom:0;left:auto;z-index:101;width:min(90vw,364px);height:100%;margin:0;padding:0;gap:0;background:linear-gradient(180deg,#1b161f,#141019);border-left:1px solid rgba(232,220,194,.14);box-shadow:-26px 0 64px rgba(0,0,0,.5);transform:translateX(101%);opacity:1;pointer-events:none;overflow-y:auto;overscroll-behavior:contain;transition:transform .42s cubic-bezier(.4,0,.2,1)}
+body.nav-open #tbNav{transform:none;pointer-events:auto}
+#tbNav .tb-nav-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:19px 20px 14px;background:linear-gradient(180deg,#1b161f,rgba(27,22,31,.94));border-bottom:1px solid rgba(232,220,194,.1)}
+#tbNav .tb-nav-title{font-size:11px;letter-spacing:.24em;font-weight:800;color:var(--gold-soft)}
+#tbNav .tb-nav-close{width:38px;height:38px;border-radius:10px;border:1px solid rgba(194,163,107,.35);background:rgba(18,14,20,.5);color:var(--gold-soft);font-size:15px;line-height:1;cursor:pointer;transition:background .2s,border-color .2s}
+#tbNav .tb-nav-close:hover{background:rgba(194,163,107,.16);border-color:var(--gold)}
+#tbNav .tb-nav-body{padding:12px 16px 40px}
+#tbNav .tbn-link{display:block;padding:14px 8px;font-size:16px;font-weight:600;color:var(--sub);border-bottom:1px solid rgba(255,255,255,.05);transition:color .2s,padding-left .2s}
+#tbNav .tbn-link:hover{color:var(--gold-soft);padding-left:14px}
+#tbNav .tbn-link.active{color:var(--gold-soft)}
+#tbNav .tbn-pay{margin:14px 0 6px;border:1px solid rgba(194,163,107,.3);border-radius:14px;overflow:hidden;background:rgba(232,220,194,.04)}
+#tbNav .tbn-pay-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:none;border:0;cursor:pointer;font-family:inherit;font-size:16px;font-weight:800;color:#fff}
+#tbNav .tbn-pay-toggle>span:first-child{background:linear-gradient(135deg,#E8DCC2,#C2A36B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#tbNav .tbn-caret{color:var(--gold-soft);transition:transform .3s}
+#tbNav .tbn-pay.open .tbn-caret{transform:rotate(180deg)}
+#tbNav .tbn-pay-list{max-height:0;overflow:hidden;transition:max-height .45s ease}
+#tbNav .tbn-pay.open .tbn-pay-list{max-height:1000px}
+#tbNav .tbn-pay-inner{padding:2px 12px 14px}
+#tbNav .tbn-shortcut{display:block;margin:6px 0 12px;padding:12px 14px;text-align:center;border-radius:100px;font-weight:800;font-size:14px;color:#171219;background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A)}
+#tbNav .tbn-pay-group{margin-top:12px}
+#tbNav .tbn-pay-group>b{display:block;font-size:11px;letter-spacing:.1em;color:var(--gold-soft);margin-bottom:4px;font-weight:800}
+#tbNav .tbn-pay-group a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 6px;font-size:14px;font-weight:600;color:var(--sub);border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s}
+#tbNav .tbn-pay-group a:hover{color:#fff}
+#tbNav .tbn-pay-group a em{font-style:normal;font-size:12px;font-weight:700;color:var(--gold-soft);white-space:nowrap}
+#tbNav .tbn-cta{display:block;margin:18px 0 8px;padding:15px;text-align:center;border-radius:100px;font-weight:800;color:#171219;background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A)}
+#tbNav .tbn-contact{display:flex;gap:8px}
+#tbNav .tbn-contact a{flex:1;text-align:center;padding:11px;border-radius:10px;border:1px solid rgba(194,163,107,.3);font-size:13px;font-weight:700;color:var(--gold-soft)}
+#tbNav .tbn-contact a:hover{background:rgba(194,163,107,.12)}
+.prod{scroll-margin-top:86px}
+@media(max-width:400px){.tb-actions .tb-link{display:none}}
+@media(prefers-reduced-motion:reduce){#tbNav,.nav-scrim,.tbn-pay-list,.tbn-caret{transition:none}}
+</style>
 </head>
 <body>
 
@@ -346,15 +386,43 @@ body.show-bb .bottom-bar{transform:translateY(0)}
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
+  <button type="button" class="nav-scrim" id="navScrim" aria-hidden="true" tabindex="-1"></button>
   <nav class="tb-nav" id="tbNav" aria-label="주 메뉴">
-    <a href="about.html">소개</a>
-    <a href="team.html">팀 구성</a>
-    <a href="work.html">레퍼런스</a>
-    <a href="impact-2026.html">리포트</a>
-    <a href="articles/">칼럼</a>
+    <div class="tb-nav-head"><span class="tb-nav-title">MENU</span><button type="button" class="tb-nav-close" aria-label="메뉴 닫기">✕</button></div>
+    <div class="tb-nav-body">
+      <a class="tbn-link" href="index.html">홈</a>
+      <a class="tbn-link" href="about.html">소개</a>
+      <a class="tbn-link" href="team.html">팀 구성</a>
+      <a class="tbn-link" href="work.html">레퍼런스</a>
+      <a class="tbn-link" href="impact-2026.html">리포트</a>
+      <a class="tbn-link" href="articles/">칼럼</a>
+      <div class="tbn-pay" id="tbnPay">
+        <button type="button" class="tbn-pay-toggle" aria-expanded="false" aria-controls="tbnPayList"><span>결제 · 상품 구매</span><span class="tbn-caret">▾</span></button>
+        <div class="tbn-pay-list" id="tbnPayList"><div class="tbn-pay-inner">
+          <a class="tbn-shortcut" href="shop.html">전체 상품 · 바로 결제 →</a>
+          <div class="tbn-pay-group"><b>블로그 마케팅</b>
+            <a href="shop.html#p-blog-run">브랜드 블로그 운영 <em>149,000원~</em></a>
+            <a href="shop.html#p-blog-post">블로그 포스팅 배포 <em>11,000원~</em></a>
+            <a href="shop.html#p-blog-write">블로그 원고 작성 <em>8,000원~</em></a>
+            <a href="shop.html#p-blog-neighbor">블로그 이웃관리·활성화 <em>20,000원~</em></a>
+            <a href="shop.html#p-blog-rank">블로그 최적화 노출 <em>49,000원~</em></a>
+          </div>
+          <div class="tbn-pay-group"><b>체험단 · 광고 · 제작</b>
+            <a href="shop.html#p-exp">블로그 체험단 모집 <em>16,000원~</em></a>
+            <a href="shop.html#p-exp">인플루언서 캠페인 <em>상담</em></a>
+            <a href="shop.html#p-danggeun">당근마켓 광고대행 <em>100,000원</em></a>
+            <a href="shop.html#p-homepage">템플릿형 홈페이지 제작 <em>199,000원</em></a>
+          </div>
+        </div></div>
+      </div>
+      <a class="tbn-cta" href="contact.html">무료 진단 받기 →</a>
+      <div class="tbn-contact"><a href="tel:01066586482">📞 010-6658-6482</a><a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener">카카오 상담</a></div>
+    </div>
   </nav>
-  <button type="button" class="ham" aria-expanded="false" aria-controls="tbNav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
-  <a href="#inquiryForm" class="tb-link">무료 진단 →</a>
+  <div class="tb-actions">
+    <a href="contact.html" class="tb-link">무료 진단 →</a>
+    <button type="button" class="ham" aria-expanded="false" aria-controls="tbNav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
 </div>
 
 <section class="page-hero">
