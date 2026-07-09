@@ -1358,7 +1358,7 @@ const PORTONE_CHANNEL_KEY = '';             // 결제 채널 키 (PG사별로 �
 // ── reCAPTCHA v3 (스팸 방어) ──
 // 사이트 키 발급 후 아래에 입력하면 자동 활성화됩니다.
 // (Apps Script 쪽엔 스크립트 속성 RECAPTCHA_SECRET에 시크릿 키 등록)
-const RECAPTCHA_SITE_KEY = '';
+const RECAPTCHA_SITE_KEY = '6LeU_EotAAAAAMlu3TPwG6_vVsi0Am9ejNFyP9Jw';
 let _recaptchaReady = null;
 const getRecaptchaToken_ = () => {
   if (!RECAPTCHA_SITE_KEY) return Promise.resolve('');
