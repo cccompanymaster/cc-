@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#120e14">
+<title>템플릿 갤러리 | 노아 — 홈페이지 템플릿 라인업</title>
+<meta name="description" content="노아 웹 템플릿 라인업 — 고객이 직접 고르는 홈페이지 스타일 데모 모음.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a161d'/%3E%3Cpath d='M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z' fill='%23C2A36B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#161218;--bg-hero:#120e14;--white:#fff;--sub:rgba(255,255,255,.62);--dim:rgba(255,255,255,.45);
+--gold:#C2A36B;--gold-soft:#E8DCC2;--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.inner{max-width:1100px;margin:0 auto;padding:0 clamp(22px,4vw,56px)}
+.grad{font-style:normal;background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero{background:var(--bg-hero);padding:clamp(110px,16vh,170px) 0 clamp(50px,7vh,80px);text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(194,163,107,.14),transparent 55%)}
+.hero .inner{position:relative}
+.eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.28em;color:var(--gold);margin-bottom:18px}
+h1{font-weight:900;font-size:clamp(30px,5vw,58px);letter-spacing:-2px;line-height:1.25}
+.sub{margin:20px auto 0;max-width:600px;color:var(--sub);font-size:15.5px;line-height:1.85}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;padding:clamp(40px,6vh,70px) 0 30px}
+.tpl{background:rgba(232,220,194,.04);border:1px solid rgba(194,163,107,.22);border-radius:20px;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column}
+.tpl:hover{border-color:rgba(194,163,107,.55);transform:translateY(-5px)}
+.tpl-cover{height:170px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.tpl-cover small{position:absolute;top:14px;left:16px;font-size:10.5px;font-weight:900;letter-spacing:.14em;color:rgba(255,255,255,.85)}
+.tpl-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tpl h2{font-size:19px;font-weight:800;letter-spacing:-.4px}
+.tpl p{font-size:13.5px;color:var(--sub);line-height:1.7;flex:1}
+.tpl-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tpl-tags span{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(232,220,194,.06);border:1px solid rgba(194,163,107,.25);color:rgba(255,255,255,.75)}
+.tpl-cta{margin-top:8px;display:flex;gap:8px}
+.tpl-cta a{flex:1;text-align:center;padding:11px;border-radius:999px;font-size:13px;font-weight:800}
+.tpl-view{color:#1a161d;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%)}
+.tpl-ask{color:var(--gold-soft);border:1px solid rgba(194,163,107,.45)}
+.tpl.soon{opacity:.55}
+.tpl.soon .tpl-view{background:rgba(255,255,255,.12);color:var(--dim)}
+.note{margin:10px 0 70px;padding:18px 22px;border-radius:14px;background:rgba(194,163,107,.06);border:1px solid rgba(194,163,107,.22);font-size:13px;color:var(--sub);line-height:1.8}
+.note a{color:var(--gold-soft);text-decoration:underline}
+footer{padding:40px 0;text-align:center;background:var(--bg-hero);border-top:1px solid rgba(255,255,255,.06);font-size:12.5px;color:var(--dim)}
+footer a{color:var(--gold-soft);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="inner">
+    <p class="eyebrow">NOAH TEMPLATE GALLERY</p>
+    <h1>스타일을 고르세요.<br><em class="grad">나머지는 노아가 합니다.</em></h1>
+    <p class="sub">아래 데모는 실제로 동작하는 템플릿입니다. 마음에 드는 스타일을 고르면 — 브랜드 컬러·카피·사진만 바꿔 그대로 당신의 사이트가 됩니다.</p>
+  </div>
+</section>
+
+<div class="inner">
+  <div class="grid">
+
+    <article class="tpl">
+      <div class="tpl-cover" style="background:linear-gradient(135deg,#0e141d,#1d3a32)"><small>T-01 · STORYTELLING</small>🛡️</div>
+      <div class="tpl-body">
+        <h2>스토리텔링형 — 온담 (보험설계사)</h2>
+        <p>스크롤을 내릴수록 이야기가 쌓이는 내러티브 구조. 개인 브랜딩·전문직·상담형 비즈니스에 강합니다. 명조 헤드라인 + 감성 스토리 + 신뢰 지표.</p>
+        <div class="tpl-tags"><span>스크롤 내러티브</span><span>개인 브랜딩</span><span>상담 전환형</span></div>
+        <div class="tpl-cta">
+          <a class="tpl-view" href="insurance.html">데모 보기 →</a>
+          <a class="tpl-ask" href="../contact.html">이 스타일로 제작</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tpl soon">
+      <div class="tpl-cover" style="background:linear-gradient(135deg,#14121a,#2a2030)"><small>T-02 · COMING SOON</small>✨</div>
+      <div class="tpl-body">
+        <h2>다음 템플릿 준비 중</h2>
+        <p>요식업 · 병의원 · 학원 · 쇼핑몰 등 업종별 특화 템플릿이 차례로 추가됩니다.</p>
+        <div class="tpl-tags"><span>준비 중</span></div>
+        <div class="tpl-cta"><a class="tpl-view" href="#" onclick="return false">준비 중</a></div>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="note">💡 모든 데모의 인물·수치·후기는 예시입니다. 템플릿형 홈페이지 제작은 <b>199,000원(VAT 별도) · 7일 완성</b> — 모바일 반응형, SEO 기본 설정, 1년 호스팅 포함. <a href="../shop.html#p-homepage">상품 자세히 보기 →</a></p>
+</div>
+
+<footer>
+  <a href="../index.html">← noahgroup.co.kr 메인으로</a>
+</footer>
+
+</body>
+</html>
