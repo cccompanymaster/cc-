@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F7F4EF">
+<title>시술 안내 — 르블랑 성형외과·피부과 (템플릿 데모)</title>
+<meta name="description" content="노아 웹 템플릿 T-02 시술 상세 페이지 템플릿 — 데모">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%23F7F4EF' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#F7F4EF;--paper2:#EFEAE2;--paper3:#E7E0D5;--ink:#141210;--ink2:#4A453D;--mut:#8A8378;
+--line:rgba(20,18,16,.14);--line-l:rgba(20,18,16,.08);--dark:#191613;--max:1200px;--px:clamp(20px,4vw,56px);
+--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;--serif:'Noto Serif KR',serif}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.inner{max-width:var(--max);margin:0 auto;padding:0 var(--px)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.demo-bar{position:fixed;left:0;right:0;top:0;z-index:300;display:flex;justify-content:center;gap:12px;align-items:center;padding:7px 12px;font-size:11.5px;font-weight:700;color:#F7F4EF;background:#141210}
+.demo-bar a{text-decoration:underline;color:#D8CFC0;white-space:nowrap}
+header{position:sticky;top:0;z-index:200;margin-top:31px;background:rgba(247,244,239,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
+.gnb-in{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:0 var(--px);height:68px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:900;font-size:18px;letter-spacing:.26em}
+.logo svg{width:24px;height:24px}
+.gnb-r{display:flex;gap:9px;align-items:center}
+.btn-ink{display:inline-flex;align-items:center;gap:7px;padding:11px 24px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:800;transition:opacity .2s}
+.btn-ink:hover{opacity:.82}
+.btn-line{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:700;transition:all .2s}
+.btn-line:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ph-hero{background:var(--dark);color:var(--paper);padding:clamp(70px,10vh,120px) 0;position:relative;overflow:hidden}
+.ph-hero::after{content:attr(data-note);position:absolute;right:18px;bottom:12px;font-size:10px;letter-spacing:.1em;color:rgba(247,244,239,.35)}
+.crumb{font-size:12px;letter-spacing:.06em;color:rgba(247,244,239,.5);margin-bottom:20px}
+.crumb a:hover{color:#fff;text-decoration:underline}
+.ph-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(30px,4.6vw,58px);letter-spacing:-.8px;line-height:1.3}
+.ph-hero .sub{margin-top:16px;max-width:560px;font-size:clamp(13.5px,1.5vw,16px);color:rgba(247,244,239,.66);line-height:1.85}
+.sec{padding:clamp(64px,9vh,110px) 0}
+.sec-alt{background:var(--paper2)}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.34em;color:var(--mut);text-transform:uppercase;margin-bottom:14px}
+h2.title{font-family:var(--serif);font-weight:900;font-size:clamp(22px,3vw,36px);letter-spacing:-.6px;line-height:1.4;margin-bottom:34px}
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line-l);border:1px solid var(--line-l)}
+.pt-card{background:var(--paper);padding:30px 24px}
+.pt-card .n{font-family:var(--serif);font-size:13px;color:var(--mut);margin-bottom:16px}
+.pt-card h3{font-size:16.5px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px}
+.pt-card p{font-size:13px;color:var(--ink2);line-height:1.7}
+.cross{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px);align-items:center;margin-bottom:clamp(40px,6vh,70px)}
+.cross:last-child{margin-bottom:0}
+.cross.rev .cr-visual{order:2}
+@media(max-width:820px){.cross{grid-template-columns:1fr}.cross.rev .cr-visual{order:0}}
+.cr-visual{aspect-ratio:4/3;background:linear-gradient(140deg,var(--paper3),var(--paper2));border:1px solid var(--line-l);position:relative;display:flex;align-items:center;justify-content:center}
+.cr-visual em{font-family:var(--serif);font-style:normal;font-size:44px;opacity:.28}
+.cr-visual::after{content:attr(data-note);position:absolute;bottom:10px;right:12px;font-size:10px;color:var(--mut);letter-spacing:.08em}
+.cr-body h3{font-family:var(--serif);font-size:clamp(19px,2.2vw,26px);font-weight:900;letter-spacing:-.4px;margin-bottom:12px}
+.cr-body p{font-size:14px;color:var(--ink2);line-height:1.9}
+.tl{position:relative;margin-left:10px;padding-left:30px;border-left:1px solid var(--line)}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-35px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.tl-item .step{font-family:var(--serif);font-size:12px;color:var(--mut);letter-spacing:.14em;margin-bottom:5px}
+.tl-item h3{font-size:16.5px;font-weight:800;margin-bottom:5px}
+.tl-item p{font-size:13.5px;color:var(--ink2)}
+.faq details{border-bottom:1px solid var(--line);padding:2px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 2px;font-size:15.5px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--serif);font-size:20px;color:var(--mut);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .fb{padding:0 2px 22px;font-size:13.5px;color:var(--ink2);line-height:1.85}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.rel a{display:block;padding:20px 20px;border:1px solid var(--line-l);background:#fff;font-size:14px;font-weight:700;transition:all .2s}
+.rel a:hover{background:var(--ink);color:var(--paper)}
+.rel a span{display:block;margin-top:4px;font-size:11.5px;font-weight:500;color:var(--mut)}
+.rel a:hover span{color:rgba(247,244,239,.6)}
+.cta{background:var(--dark);color:var(--paper);text-align:center;padding:clamp(70px,10vh,120px) var(--px)}
+.cta h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3.6vw,44px);letter-spacing:-.6px;line-height:1.4;margin-bottom:14px}
+.cta p{font-size:13.5px;color:rgba(247,244,239,.6);margin-bottom:30px}
+.cta .btn-ink{background:var(--paper);color:var(--ink);padding:15px 40px}
+footer{background:#12100D;color:rgba(247,244,239,.55);padding:44px 0;font-size:12px;text-align:center;line-height:2}
+footer a{color:rgba(247,244,239,.85);text-decoration:underline}
+.notice{max-width:840px;margin:26px auto 0;padding:14px 18px;border:1px solid rgba(247,244,239,.16);font-size:11.5px;text-align:left;line-height:1.8}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.show{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.fade-up{transition:none;opacity:1;transform:none}}
+</style>
+<noscript><style>.fade-up{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="demo-bar">🧩 NOAH 템플릿 T-02 — 시술 상세 템플릿 (하나의 파일이 전 시술 페이지를 렌더링) <a href="https://noahgroup.co.kr/contact.html">제작 문의 →</a></div>
+
+<header>
+  <div class="gnb-in">
+    <a href="index.html" class="logo"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#141210" stroke-width="2"/><circle cx="16" cy="16" r="3.5" fill="#141210"/></svg>LEBLANC</a>
+    <div class="gnb-r">
+      <a class="btn-line" href="index.html">← 메인</a>
+      <a class="btn-ink" href="index.html#access">상담 예약</a>
+    </div>
+  </div>
+</header>
+
+<section class="ph-hero" id="phHero" data-note="IMG SLOT: procedure-hero-21x9.webp">
+  <div class="inner">
+    <p class="crumb"><a href="index.html">홈</a> · <span id="crumbCat">시술</span> · <b id="crumbName">—</b></p>
+    <h1 id="phTitle">—</h1>
+    <p class="sub" id="phSub">—</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <p class="eyebrow fade-up">Point</p>
+    <h2 class="title fade-up" id="ptTitle">핵심 포인트</h2>
+    <div class="pt-grid fade-up" id="ptGrid"></div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="inner" id="crossWrap">
+    <p class="eyebrow fade-up">Detail</p>
+    <h2 class="title fade-up">이렇게 진행합니다</h2>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <p class="eyebrow fade-up">Process</p>
+    <h2 class="title fade-up">진행 과정</h2>
+    <div class="tl fade-up" id="tlWrap"></div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="inner">
+    <p class="eyebrow fade-up">FAQ</p>
+    <h2 class="title fade-up">자주 묻는 질문</h2>
+    <div class="faq fade-up" id="faqWrap"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <p class="eyebrow fade-up">Related</p>
+    <h2 class="title fade-up">함께 보는 시술</h2>
+    <div class="rel fade-up" id="relWrap"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 id="ctaTitle">고민은 길게,<br>상담은 가볍게.</h2>
+  <p>첫 상담에서는 권유 대신 진단부터 — 부작용·회복기간까지 있는 그대로 설명드립니다.</p>
+  <a class="btn-ink" href="index.html#access">온라인 예약 →</a>
+</section>
+
+<footer>
+  <div class="inner">
+    르블랑 성형외과·피부과 (가상의 의료기관) · 본 페이지는 노아(NOAH) 템플릿 T-02 데모입니다
+    <div class="notice">의료광고 고지 — 시술 정보는 참고용이며 개인에 따라 결과가 다를 수 있습니다. 부작용이 발생할 수 있으므로 시술 전 반드시 의사와 상담하시기 바랍니다. 본 데모의 모든 시술명·설명은 템플릿 예시 문안입니다. <a href="../index.html">템플릿 갤러리 ←</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+/* 슬러그 → [이름, 카테고리] : 메뉴의 모든 링크를 커버 */
+var NAMES={
+about:['르블랑의 특별함','병원소개'],tour:['병원 둘러보기','병원소개'],
+checkup:['수술 전 검진센터','안전우선시스템'],safety:['안전 수술 시스템','안전우선시스템'],aftercare:['애프터케어','안전우선시스템'],caution:['수술 전·후 주의사항','안전우선시스템'],
+breast:['가슴성형','가슴'],'breast-aug':['가슴확대','가슴'],'breast-red':['가슴축소','가슴'],'breast-post':['출산 후 가슴성형','가슴'],'breast-fix':['가슴교정','가슴'],'breast-removal':['가슴보형물제거','가슴'],'breast-re':['가슴재수술','가슴'],'breast-exam':['유방검진 · 맘모톰','가슴검진'],
+contour:['안면윤곽','안면윤곽'],contour3:['윤곽 3종','안면윤곽'],vline:['브이라인 수술','안면윤곽'],cheek:['광대축소술','안면윤곽'],jaw:['사각턱수술','안면윤곽'],chin:['턱끝 수술','안면윤곽'],'contour-re':['윤곽 재수술','안면윤곽'],
+twojaw:['양악수술','양악'],protrude:['돌출입수술','양악'],
+eye:['눈성형','눈'],eyelid:['쌍꺼풀 (매몰·유착·절개)','눈'],ptosis:['눈매교정','눈'],epican:['트임성형','눈'],underbag:['눈밑지방재배치','눈'],mideye:['중년 눈성형 (상·하안검)','눈'],'eye-re':['눈재수술','눈'],
+nose:['코성형','코'],'nose-func':['기능코 성형','코'],'nose-tip':['무보형물 코끝성형','코'],'nose-3d':['3D 맞춤 코성형','코'],alar:['콧볼축소','코'],'nose-re':['코재수술','코'],
+lipo:['지방흡입','지방성형'],'lipo-part':['부위별 지방흡입','지방성형'],abdomino:['복부거상술','지방성형'],'face-lipo':['얼굴 지방흡입','지방성형'],'fat-graft':['지방이식','지방성형'],
+anti:['안티에이징','안티에이징'],lift2030:['2030 리프팅','안티에이징'],lift4050:['4050 리프팅','안티에이징'],thread:['실 리프팅','안티에이징'],minilift:['미니거상','안티에이징'],facelift:['안면거상','안티에이징'],
+man:['남자성형','남자'],'man-nose':['TOP 코성형','남자'],'man-eye':['남자 눈성형','남자'],'man-contour':['모델라인 윤곽성형','남자'],gyneco:['여성형유방','남자'],
+derma:['피부과','피부과'],ulthera:['울트라 리프팅','피부과'],rf:['고주파 타이트닝','피부과'],booster:['스킨부스터','피부과'],bright:['브라이트닝','피부과'],acne:['여드름·모공·흉터','피부과'],petit:['스킨쁘띠','피부과'],slim:['슬리밍','피부과'],
+hair:['모발이식','모발이식'],stemcell:['줄기세포','줄기세포']
+};
+/* 카테고리별 본문 템플릿 (CMS 교체 지점) */
+var TPL={
+'기본':{
+  sub:'과한 변화가 아닌 균형 — 진단에서 회복까지, 안전을 우선하는 르블랑의 방식으로 진행합니다.',
+  pts:[['정밀 진단','수술 전 검진과 정밀 분석으로 계획을 먼저 세웁니다.'],['맞춤 설계','같은 시술도 사람마다 다릅니다. 개인의 비율에 맞춰 설계합니다.'],['전담 집도','상담한 의사가 직접 집도합니다. 중간에 바뀌지 않습니다.'],['애프터케어','수술 후 회복 관리까지 전담 일정으로 책임집니다.']],
+  cross:[['진단이 절반입니다','시술을 결정하기 전, 상태를 정확히 아는 것이 먼저입니다. 정밀 진단 결과를 바탕으로 필요한 것과 불필요한 것을 구분해 설명드립니다.','IMG SLOT: detail-diagnosis-4x3.webp'],['자연스러움이 기준입니다','티 나는 변화가 아니라, 원래 그랬던 것 같은 균형이 목표입니다. 과한 계획은 먼저 말리는 것이 르블랑의 원칙입니다.','IMG SLOT: detail-result-4x3.webp']],
+  proc:[['상담·진단','정밀 검사와 충분한 상담으로 계획을 세웁니다.'],['설계','개인 상태에 맞춘 수술·시술 계획을 확정합니다.'],['시술·수술','안전 시스템 안에서 전담 의료진이 진행합니다.'],['회복·애프터케어','경과 확인과 회복 관리 일정을 안내합니다.']],
+  faq:[['회복 기간은 얼마나 걸리나요?','시술 범위와 개인에 따라 다릅니다. 상담 시 생활 패턴을 고려한 회복 일정을 안내드립니다.'],['통증이 심한가요?','통증 관리 프로토콜에 따라 조절합니다. 개인차가 있어 상담 시 자세히 설명드립니다.'],['부작용은 없나요?','모든 의료행위에는 부작용 가능성이 있습니다. 발생 가능한 부작용과 대처 방법을 시술 전 반드시 설명드립니다.'],['상담만 받아도 되나요?','네. 첫 상담은 진단 중심으로 진행되며, 결정은 충분히 생각하신 뒤에 하셔도 됩니다.']]
+},
+'병원소개':{
+  sub:'상담부터 회복까지 — 한 건물 안에서 완결되는 프리미엄 메디컬 공간을 소개합니다.',
+  pts:[['전층 스마트 빌딩','상담·검진·수술·회복·피부관리까지 한 동선.'],['프라이빗 설계','1인 상담실과 개별 회복실로 마주침을 최소화.'],['검진센터','수술 전 건강 상태를 먼저 확인하는 전용 공간.'],['안전 시스템','마취과 전문의 상주와 실시간 모니터링.']],
+  cross:[['공간이 신뢰를 만듭니다','로비에서 회복실까지 — 청결하고 정돈된 공간은 그 자체로 병원의 태도입니다.','IMG SLOT: lobby-4x3.webp'],['층별 안내','상담·검진·수술·회복·피부과 라운지 — 층별 시설은 CMS 데이터로 관리됩니다.','IMG SLOT: floor-guide-4x3.webp']],
+  proc:[['방문·접수','프라이빗 접수 후 전담 상담실로 안내됩니다.'],['상담·진단','분야 전담 의료진과 1:1 상담.'],['검진','필요시 검진센터에서 사전 검사.'],['안내','일정·비용·주의사항을 서면으로 안내합니다.']],
+  faq:[['주차가 가능한가요?','건물 내 주차 후 데스크에서 등록해 드립니다. (데모 문안)'],['상담 예약은 어떻게 하나요?','온라인 예약 또는 전화·카카오 채널로 가능합니다.'],['보호자 동반이 가능한가요?','가능합니다. 상담실은 동반 1인 기준으로 준비되어 있습니다.'],['외국어 상담이 되나요?','통역 지원 여부는 CMS 문안으로 관리하세요.']]
+},
+'줄기세포':{
+  sub:'회복의 속도가 다른 이유 — 줄기세포 기반 웰에이징 프로그램을 소개합니다.',
+  pts:[['줄기세포란?','자기 조직에서 유래한 세포를 활용하는 재생 의학적 접근입니다.'],['추천 대상','회복력 저하, 노화 관리가 필요한 분께 안내합니다.'],['시술 프로세스','채취–처리–시술의 단계별 과정을 안내합니다.'],['안전 기준','관련 법규와 안전 기준 안에서만 진행합니다.']],
+  cross:[['웰에이징의 관점','나이를 되돌리는 것이 아니라, 회복력과 컨디션을 관리하는 관점으로 접근합니다.','IMG SLOT: wellaging-4x3.webp'],['정직한 안내','효과에는 개인차가 있으며, 검증된 범위 내에서만 안내드립니다.','IMG SLOT: consult-4x3.webp']],
+  proc:[['상담·검사','적합 여부를 먼저 확인합니다.'],['채취','전문 의료진이 안전하게 진행합니다.'],['처리·시술','기준을 준수한 프로세스로 진행합니다.'],['경과 관리','정기적인 경과 확인을 진행합니다.']],
+  faq:[['누구나 받을 수 있나요?','아닙니다. 사전 검사로 적합 여부를 먼저 확인합니다.'],['효과가 보장되나요?','효과에는 개인차가 있으며, 절대적 효과를 보장하는 안내는 하지 않습니다.'],['안전한가요?','관련 법규와 안전 기준을 준수하는 범위에서만 진행합니다.'],['비용은 어떻게 되나요?','상담 후 구성에 따라 안내드립니다. (비급여수가표 참고)']]
+}
+};
+var qs=new URLSearchParams(location.search);
+var slug=qs.get('p')||'eye';
+var info=NAMES[slug]||['시술 안내','시술'];
+var name=info[0],cat=info[1];
+var tpl=TPL[cat]||TPL[slug]||TPL['기본'];
+if(slug==='about'||slug==='tour'||slug==='checkup'||slug==='safety'||slug==='aftercare'||slug==='caution')tpl=TPL['병원소개'];
+if(slug==='stemcell')tpl=TPL['줄기세포'];
+document.title=name+' — 르블랑 성형외과·피부과 (템플릿 데모)';
+document.getElementById('crumbCat').textContent=cat;
+document.getElementById('crumbName').textContent=name;
+document.getElementById('phTitle').innerHTML=name;
+document.getElementById('phSub').textContent=tpl.sub;
+/* 포인트 */
+var pg=document.getElementById('ptGrid');
+tpl.pts.forEach(function(p,i){
+  var d=document.createElement('div');d.className='pt-card';
+  d.innerHTML='<p class="n">0'+(i+1)+'</p><h3>'+p[0]+'</h3><p>'+p[1]+'</p>';
+  pg.appendChild(d);
+});
+/* 교차 섹션 */
+var cw=document.getElementById('crossWrap');
+tpl.cross.forEach(function(c,i){
+  var d=document.createElement('div');d.className='cross fade-up'+(i%2?' rev':'');
+  d.innerHTML='<div class="cr-visual" data-note="'+c[2]+'"><em>'+name.slice(0,2)+'</em></div><div class="cr-body"><h3>'+c[0]+'</h3><p>'+c[1]+'</p></div>';
+  cw.appendChild(d);
+});
+/* 프로세스 */
+var tw=document.getElementById('tlWrap');
+tpl.proc.forEach(function(p,i){
+  var d=document.createElement('div');d.className='tl-item';
+  d.innerHTML='<p class="step">STEP 0'+(i+1)+'</p><h3>'+p[0]+'</h3><p>'+p[1]+'</p>';
+  tw.appendChild(d);
+});
+/* FAQ */
+var fw=document.getElementById('faqWrap');
+tpl.faq.forEach(function(f){
+  var d=document.createElement('details');
+  d.innerHTML='<summary>'+f[0]+'</summary><div class="fb">'+f[1]+'</div>';
+  fw.appendChild(d);
+});
+/* 관련 시술 — 같은 카테고리에서 추천 */
+var rel=document.getElementById('relWrap'),cnt=0;
+for(var k in NAMES){
+  if(k!==slug&&NAMES[k][1]===cat&&cnt<4){
+    var a=document.createElement('a');a.href='procedure.html?p='+k;
+    a.innerHTML=NAMES[k][0]+'<span>'+cat+'</span>';
+    rel.appendChild(a);cnt++;
+  }
+}
+if(!cnt){ ['eye','nose','contour','derma'].forEach(function(k){
+  var a=document.createElement('a');a.href='procedure.html?p='+k;
+  a.innerHTML=NAMES[k][0]+'<span>'+NAMES[k][1]+'</span>';
+  rel.appendChild(a);
+});}
+document.getElementById('ctaTitle').innerHTML=name+',<br>고민은 길게 — 상담은 가볍게.';
+/* fade-up */
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>

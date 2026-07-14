@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F7F4EF">
+<title>커뮤니티 — 르블랑 성형외과·피부과 (템플릿 데모)</title>
+<meta name="description" content="노아 웹 템플릿 T-02 게시판 템플릿 — 검색·페이지네이션·상세 데모">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%23F7F4EF' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#F7F4EF;--paper2:#EFEAE2;--ink:#141210;--ink2:#4A453D;--mut:#8A8378;
+--line:rgba(20,18,16,.14);--line-l:rgba(20,18,16,.08);--dark:#191613;--max:1080px;--px:clamp(20px,4vw,56px);
+--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;--serif:'Noto Serif KR',serif}
+body{font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+button{cursor:pointer;border:none;background:none;color:inherit}
+.inner{max-width:var(--max);margin:0 auto;padding:0 var(--px)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.demo-bar{position:fixed;left:0;right:0;top:0;z-index:300;display:flex;justify-content:center;gap:12px;align-items:center;padding:7px 12px;font-size:11.5px;font-weight:700;color:#F7F4EF;background:#141210}
+.demo-bar a{text-decoration:underline;color:#D8CFC0;white-space:nowrap}
+header{position:sticky;top:0;z-index:200;margin-top:31px;background:rgba(247,244,239,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
+.gnb-in{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:0 var(--px);height:66px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:900;font-size:17px;letter-spacing:.26em}
+.logo svg{width:23px;height:23px}
+.btn-line{display:inline-flex;padding:10px 20px;border-radius:999px;border:1px solid var(--line);font-size:12.5px;font-weight:700;transition:all .2s}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.bd-hero{background:var(--dark);color:var(--paper);padding:clamp(50px,7vh,80px) 0}
+.bd-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3.6vw,42px);letter-spacing:-.6px}
+.bd-hero p{margin-top:8px;font-size:13px;color:rgba(247,244,239,.55)}
+.bd-tabs{display:flex;gap:8px;overflow-x:auto;padding:18px var(--px);max-width:var(--max);margin:0 auto;scrollbar-width:none}
+.bd-tabs::-webkit-scrollbar{display:none}
+.bd-tabs a{flex:0 0 auto;padding:9px 20px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink2);white-space:nowrap;transition:all .2s}
+.bd-tabs a.on,.bd-tabs a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tools{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:8px 0 22px}
+.tools select,.tools input{padding:11px 13px;border:1px solid var(--line);background:#fff;font-size:13.5px}
+.tools input{flex:1;min-width:160px}
+.tools .go{padding:11px 24px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:800}
+.tools .write{margin-left:auto;padding:11px 22px;border:1px solid var(--ink);font-size:13px;font-weight:800}
+.tools .write:hover{background:var(--ink);color:var(--paper)}
+.list{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:64px 1fr 92px 82px;gap:12px;align-items:center;padding:16px 6px;border-bottom:1px solid var(--line-l);cursor:pointer;transition:background .15s}
+.row:hover{background:#fff}
+.row .no{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+.row .tt{font-size:14.5px;font-weight:600;letter-spacing:-.2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .tt .cat{display:inline-block;margin-right:8px;padding:2px 9px;border:1px solid var(--line);border-radius:999px;font-size:10.5px;font-weight:800;color:var(--ink2)}
+.row .wr,.row .dt{font-size:12px;color:var(--mut);text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:640px){.row{grid-template-columns:1fr 78px}.row .no,.row .wr{display:none}}
+.empty{padding:70px 0;text-align:center;color:var(--mut);font-size:13.5px}
+.pager{display:flex;gap:6px;justify-content:center;margin:34px 0 80px}
+.pager button{min-width:38px;height:38px;border:1px solid var(--line);font-size:13px;font-weight:600;transition:all .15s}
+.pager button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pager button:hover:not(.on){background:var(--paper2)}
+.modal{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-bg{position:absolute;inset:0;background:rgba(20,18,16,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.modal-panel{position:relative;width:100%;max-width:560px;max-height:86vh;overflow-y:auto;background:var(--paper);padding:clamp(26px,4vw,40px)}
+.modal-x{position:absolute;top:14px;right:14px;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;font-size:14px}
+.modal-panel .cat{display:inline-block;padding:3px 11px;border:1px solid var(--line);border-radius:999px;font-size:10.5px;font-weight:800;color:var(--ink2);margin-bottom:12px}
+.modal-panel h2{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.4px;line-height:1.45;margin-bottom:6px}
+.modal-panel .meta{font-size:12px;color:var(--mut);padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--line-l)}
+.modal-panel .body{font-size:14px;color:var(--ink2);line-height:1.95}
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(16px);z-index:500;background:var(--ink);color:var(--paper);padding:13px 26px;font-size:13.5px;font-weight:700;border-radius:999px;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{background:#12100D;color:rgba(247,244,239,.55);padding:36px var(--px);font-size:11.5px;text-align:center;line-height:1.9}
+footer a{color:rgba(247,244,239,.85);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">🧩 NOAH 템플릿 T-02 — 게시판 템플릿 (검색·필터·페이지네이션 동작 데모) <a href="https://noahgroup.co.kr/contact.html">제작 문의 →</a></div>
+
+<header>
+  <div class="gnb-in">
+    <a href="index.html" class="logo"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#141210" stroke-width="2"/><circle cx="16" cy="16" r="3.5" fill="#141210"/></svg>LEBLANC</a>
+    <a class="btn-line" href="index.html">← 메인으로</a>
+  </div>
+</header>
+
+<section class="bd-hero">
+  <div class="inner">
+    <h1 id="bdTitle">커뮤니티</h1>
+    <p id="bdSub">—</p>
+  </div>
+</section>
+
+<nav class="bd-tabs" id="bdTabs" aria-label="게시판 선택"></nav>
+
+<div class="inner">
+  <div class="tools">
+    <select id="sField" aria-label="검색 조건">
+      <option value="tt">제목</option>
+      <option value="cat">카테고리</option>
+      <option value="wr">작성자</option>
+    </select>
+    <input type="search" id="sQuery" placeholder="검색어를 입력하세요" aria-label="검색어">
+    <button type="button" class="go" id="sGo">검색</button>
+    <button type="button" class="write" id="btnWrite">글쓰기</button>
+  </div>
+  <div class="list" id="bdList" role="list"></div>
+  <div class="empty" id="bdEmpty" hidden>검색 결과가 없습니다. 다른 검색어로 시도해 보세요.</div>
+  <div class="pager" id="bdPager"></div>
+</div>
+
+<div class="modal" id="mDetail" role="dialog" aria-modal="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-panel">
+    <button type="button" class="modal-x" data-close aria-label="닫기">✕</button>
+    <div id="mBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer>
+  르블랑 성형외과·피부과 (가상의 의료기관) — 노아(NOAH) 템플릿 T-02 데모 · 게시물은 모두 예시 데이터입니다<br>
+  <a href="https://noahgroup.co.kr/contact.html">이 템플릿으로 제작 문의</a> · <a href="../index.html">템플릿 갤러리</a>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var BOARDS={
+notice:{t:'공지사항',s:'병원 소식과 안내를 전합니다',cats:['진료안내','병원소식','시스템'],write:false},
+qna:{t:'온라인상담',s:'궁금한 점을 남겨주시면 의료진이 답변드립니다',cats:['가슴','눈','코','윤곽/양악','체형','동안','남자','피부'],write:true},
+event:{t:'이벤트',s:'진행 중인 이벤트를 확인하세요',cats:['Best','가슴','눈','코','안면윤곽','동안/리프팅','스킨&쁘띠','남자'],write:false},
+ba:{t:'전후사진',s:'의료광고 심의·동의 완료 자료만 게시됩니다',cats:['가슴','눈','코','윤곽/양악','체형','동안','남자','피부'],write:false},
+selfie:{t:'전후셀카',s:'고객이 직접 남긴 기록입니다 (동의 자료)',cats:['눈','코','윤곽/양악','가슴','동안','남자'],write:true},
+video:{t:'르블랑TV',s:'영상으로 미리 만나보세요',cats:['인터뷰','병원투어','시술정보','Q&A','Shorts'],write:false},
+recruit:{t:'인재채용',s:'르블랑과 함께할 분을 찾습니다',cats:['의료진','간호','상담','경영지원'],write:false},
+partner:{t:'업무제휴',s:'제휴 제안을 기다립니다',cats:['제휴문의'],write:true}
+};
+var TITLES={
+notice:['진료시간 변경 안내','설 연휴 진료 일정','검진센터 신규 장비 도입','주차장 이용 안내','애프터케어 프로그램 개편','온라인 예약 시스템 점검','피부과 라운지 리뉴얼','비급여수가 고지 갱신'],
+qna:['쌍꺼풀 자연유착 문의드립니다','코 재수술 상담 가능할까요','윤곽 3종 회복기간이 궁금해요','리프팅 시술 종류 추천 부탁드려요','가슴 보형물 교체 주기 질문','남자 눈성형 흉터 문의','지방이식 유지 기간','스킨부스터 시술 간격'],
+event:['여름 리프팅 시그니처','자연유착 상담 이벤트','3D 코성형 진단 패키지','바디 라인 컨설팅','스킨부스터 정기 플랜','남자성형 퍼스트 컨설팅','윤곽 정밀 진단','첫 방문 상담 패키지'],
+ba:['눈성형 CASE','코성형 CASE','브이라인 CASE','가슴성형 CASE','리프팅 CASE','지방흡입 CASE','남자 코성형 CASE','피부 개선 CASE'],
+selfie:['자연유착 3개월차 기록','코성형 6개월 후기','브이라인 1년 후기','리프팅 3개월 기록','가슴성형 6개월 후기','남자 눈성형 후기'],
+video:['원장 인터뷰 — 검진이 먼저인 이유','수술센터 투어','쌍꺼풀 30초 정리','코성형 상담 질문 3가지','리프팅 과정 공개','남자 눈성형이 다른 이유'],
+recruit:['성형외과 전문의 채용','수술실 간호사 모집','상담실장 채용','경영지원 신입 모집'],
+partner:['미디어 제휴 안내','기업 임직원 제휴','뷰티 브랜드 협업','해외 에이전시 제휴']
+};
+var qs=new URLSearchParams(location.search);
+var bkey=qs.get('b')||'notice';
+if(!BOARDS[bkey])bkey='notice';
+var B=BOARDS[bkey];
+document.title=B.t+' — 르블랑 (템플릿 데모)';
+document.getElementById('bdTitle').textContent=B.t;
+document.getElementById('bdSub').textContent=B.s;
+/* 탭 */
+var tabs=document.getElementById('bdTabs');
+Object.keys(BOARDS).forEach(function(k){
+  var a=document.createElement('a');a.href='board.html?b='+k;a.textContent=BOARDS[k].t;
+  if(k===bkey)a.className='on';
+  tabs.appendChild(a);
+});
+/* 데이터 생성 (데모 30건) — 실서비스에서는 API/CMS 데이터로 교체 */
+var base=TITLES[bkey]||TITLES.notice;
+var DATA=[];
+for(var i=0;i<30;i++){
+  var t=base[i%base.length]+(i>=base.length?' ('+(Math.floor(i/base.length)+1)+')':'');
+  DATA.push({no:30-i,cat:B.cats[i%B.cats.length],tt:t,wr:bkey==='qna'||bkey==='selfie'?'익명':'르블랑',dt:'2026.'+String(7-(i%3)).padStart(2,'0')+'.'+String(28-(i%27)).padStart(2,'0')});
+}
+var view=DATA.slice(),page=1,PER=10;
+var list=document.getElementById('bdList'),pager=document.getElementById('bdPager'),empty=document.getElementById('bdEmpty');
+function render(){
+  list.innerHTML='';
+  var s=(page-1)*PER,items=view.slice(s,s+PER);
+  empty.hidden=items.length>0;
+  items.forEach(function(r){
+    var d=document.createElement('div');d.className='row';d.setAttribute('role','listitem');d.setAttribute('tabindex','0');
+    d.innerHTML='<span class="no">'+r.no+'</span><span class="tt"><span class="cat">'+r.cat+'</span>'+r.tt+'</span><span class="wr">'+r.wr+'</span><span class="dt">'+r.dt+'</span>';
+    function open(){
+      document.getElementById('mBody').innerHTML='<span class="cat">'+r.cat+'</span><h2>'+r.tt+'</h2><p class="meta">'+r.wr+' · '+r.dt+'</p><div class="body">'+
+      (bkey==='ba'?'<p style="margin-bottom:14px">동일 조명·동일 각도 기준의 승인 자료가 이 영역에 게시됩니다. (데모 — 이미지 없음)</p>':'')+
+      '게시물 본문 영역입니다. 실제 서비스에서는 CMS/데이터에서 본문·이미지·답변이 로드됩니다. 본 데모의 모든 게시물은 예시입니다.'+
+      (bkey==='qna'?'<br><br><b style="color:var(--ink)">답변 — 의료진</b><br>안녕하세요, 르블랑입니다. 남겨주신 내용 확인했습니다. 정확한 안내를 위해 상담 예약을 도와드리겠습니다. (데모 답변)':'')+
+      '</div>';
+      document.getElementById('mDetail').classList.add('open');
+    }
+    d.addEventListener('click',open);
+    d.addEventListener('keydown',function(e){if(e.key==='Enter')open()});
+    list.appendChild(d);
+  });
+  var pages=Math.max(1,Math.ceil(view.length/PER));
+  pager.innerHTML='';
+  function pb(label,to,on,dis){
+    var b=document.createElement('button');b.textContent=label;if(on)b.className='on';b.disabled=!!dis;
+    b.addEventListener('click',function(){page=to;render();scrollTo({top:0,behavior:'smooth'})});
+    pager.appendChild(b);
+  }
+  pb('←',Math.max(1,page-1),false,page===1);
+  for(var p=1;p<=pages;p++)pb(p,p,p===page);
+  pb('→',Math.min(pages,page+1),false,page===pages);
+}
+function doSearch(){
+  var f=document.getElementById('sField').value,q=document.getElementById('sQuery').value.trim().toLowerCase();
+  view=q?DATA.filter(function(r){return String(r[f]).toLowerCase().indexOf(q)>-1}):DATA.slice();
+  page=1;render();
+}
+document.getElementById('sGo').addEventListener('click',doSearch);
+document.getElementById('sQuery').addEventListener('keydown',function(e){if(e.key==='Enter')doSearch()});
+document.getElementById('btnWrite').addEventListener('click',function(){
+  var t=document.getElementById('toast');
+  t.textContent=B.write?'글쓰기 — 데모에서는 로그인·작성이 비활성화되어 있습니다':'이 게시판은 관리자만 작성할 수 있습니다';
+  t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},2400);
+});
+document.addEventListener('click',function(e){if(e.target.closest('[data-close]'))document.getElementById('mDetail').classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('mDetail').classList.remove('open')});
+render();
+})();
+</script>
+</body>
+</html>
