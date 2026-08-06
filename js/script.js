@@ -1673,6 +1673,8 @@ payForm?.addEventListener('submit', async (e) => {
   const tBtn = document.createElement('button');
   tBtn.type = 'button';
   tBtn.className = 'sound-toggle ' + (enabled ? 'on' : 'off');
+  // css/style.css를 로드하지 않는 페이지에서도 안전하도록 기본 스타일 인라인 부여
+  tBtn.style.cssText = 'position:fixed;left:14px;bottom:76px;z-index:90;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(18,14,20,.85);border:1px solid rgba(194,163,107,.35);color:#C2A36B;cursor:pointer;opacity:.6;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)';
   tBtn.setAttribute('aria-label', enabled ? '사운드 끄기' : '사운드 켜기');
   tBtn.title = enabled ? '사운드 ON (클릭해서 끄기)' : '사운드 OFF (클릭해서 켜기)';
   const renderIcon = () => {

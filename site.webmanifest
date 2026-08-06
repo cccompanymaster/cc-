@@ -11,15 +11,15 @@
   "lang": "ko-KR",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%230B1A33'/%3E%3Cpath d='M36 132 L96 48 L156 132 L132 132 L96 90 L60 132 Z' fill='%23D4A574'/%3E%3C/svg%3E",
+      "src": "/favicon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%230B1A33'/%3E%3Cpath d='M96 352 L256 128 L416 352 L352 352 L256 240 L160 352 Z' fill='%23D4A574'/%3E%3C/svg%3E",
+      "src": "/favicon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
