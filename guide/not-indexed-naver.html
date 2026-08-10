@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9J2V6KLGLG');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#120e14">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<title>네이버 검색 노출 안 될 때 점검 순서 | 노아 제작 가이드</title>
+<meta name="description" content="홈페이지가 네이버에서 검색되지 않는 원인을 수집·색인·노출 3단계로 나눠 진단합니다. 순서대로 확인할 8가지 항목과 단계별 조치를 담았습니다.">
+<link rel="canonical" href="https://noahgroup.co.kr/guide/not-indexed-naver.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="노아 홈페이지 제작 가이드">
+<meta property="og:title" content="네이버 검색 노출 안 될 때 점검 순서">
+<meta property="og:description" content="홈페이지가 네이버에서 검색되지 않는 원인을 수집·색인·노출 3단계로 나눠 진단합니다. 순서대로 확인할 8가지 항목과 단계별 조치를 담았습니다.">
+<meta property="og:url" content="https://noahgroup.co.kr/guide/not-indexed-naver.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noahgroup.co.kr/og-banner-final.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization", "name": "노아(NOAH)", "legalName": "씨씨컴퍼니", "url": "https://noahgroup.co.kr/", "logo": {"@type": "ImageObject", "url": "https://noahgroup.co.kr/favicon-512.png"}, "description": "노아(NOAH)는 검증된 템플릿 구조를 브랜드에 맞춰 7일 안에 오픈하는 홈페이지 제작과 통합 마케팅을 제공하는 회사입니다.", "address": {"@type": "PostalAddress", "streetAddress": "인천타워대로 301, A동 16층 33호", "addressLocality": "인천광역시 연수구", "addressCountry": "KR"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+82-10-6658-6482", "contactType": "sales", "areaServed": "KR", "availableLanguage": "Korean"}, "sameAs": ["https://pf.kakao.com/_RjRSxj", "https://blog.naver.com/cccompanyad"]}, {"@type": "WebSite", "@id": "https://noahgroup.co.kr/#website", "url": "https://noahgroup.co.kr/", "name": "노아(NOAH)", "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "inLanguage": "ko-KR"}, {"@type": "BreadcrumbList", "@id": "https://noahgroup.co.kr/guide/not-indexed-naver.html#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "홈페이지 제작 가이드", "item": "https://noahgroup.co.kr/guide/"}, {"@type": "ListItem", "position": 3, "name": "홈페이지 네이버 검색 안됨"}]}, {"@type": "Article", "@id": "https://noahgroup.co.kr/guide/not-indexed-naver.html#article", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://noahgroup.co.kr/guide/not-indexed-naver.html"}, "headline": "네이버 검색 노출 안 될 때 점검 순서", "description": "홈페이지가 네이버에서 검색되지 않는 원인을 수집·색인·노출 3단계로 나눠 진단합니다. 순서대로 확인할 8가지 항목과 단계별 조치를 담았습니다.", "datePublished": "2026-08-09T09:00:00+09:00", "dateModified": "2026-08-09T09:00:00+09:00", "author": {"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization"}, "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "breadcrumb": {"@id": "https://noahgroup.co.kr/guide/not-indexed-naver.html#breadcrumb"}, "inLanguage": "ko-KR", "articleSection": "SEO·AI검색", "keywords": ["홈페이지 네이버 검색 안됨"], "about": {"@type": "Thing", "name": "홈페이지 네이버 검색 안됨"}}, {"@type": "FAQPage", "@id": "https://noahgroup.co.kr/guide/not-indexed-naver.html#faq", "mainEntity": [{"@type": "Question", "name": "오픈한 지 열흘인데 안 나옵니다", "acceptedAnswer": {"@type": "Answer", "text": "신규 사이트는 수집·색인까지 통상 1~4주가 걸리므로 열흘 시점의 미노출은 정상 범위일 수 있습니다. 지금은 등록·robots.txt·사이트맵 3가지만 확인해 두고 4주 차에 다시 판단하시면 됩니다."}}, {"@type": "Question", "name": "블로그는 나오는데 홈페이지만 안 나옵니다", "acceptedAnswer": {"@type": "Answer", "text": "블로그와 홈페이지는 수집 경로가 다릅니다. 홈페이지는 별도 등록과 수집 요청이 필요하므로, 네이버 서치어드바이저 등록 여부와 수집 문서 수부터 확인하는 편이 빠릅니다. 확인에는 5분이면 충분합니다."}}, {"@type": "Question", "name": "상호로도 안 나오면 심각한가요?", "acceptedAnswer": {"@type": "Answer", "text": "상호 검색 미노출은 수집 단계에서 끊긴 신호일 가능성이 큽니다. 등록·소유확인·robots.txt 3가지를 먼저 확인하고, 이상이 없으면 브랜드 정보 정비 단계로 넘어가면 됩니다."}}]}]}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#161218;--white:#fff;--sub:rgba(255,255,255,.68);--dim:rgba(255,255,255,.46);
+--gold:#C2A36B;--gold-soft:#E8DCC2;--line:rgba(232,220,194,.14);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.grad{background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,4vw,44px);background:rgba(18,14,20,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tb-logo{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.12em;font-size:14.5px}
+.tb-logo svg{width:22px;height:22px}
+.tb-r{display:flex;gap:8px;font-size:12.5px}
+.tb-r a{padding:8px 16px;border:1px solid rgba(194,163,107,.4);border-radius:999px;font-weight:700;color:var(--gold-soft)}
+.tb-r a.fill{background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);color:#1a161d;border:none}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(34px,6vh,60px) clamp(20px,4vw,32px) 40px}
+.crumb{font-size:12px;color:var(--dim);margin-bottom:18px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+h1{font-size:clamp(24px,4.2vw,38px);font-weight:900;letter-spacing:-1.1px;line-height:1.4}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 26px;font-size:12.5px;color:var(--dim)}
+.meta .cat{color:var(--gold);font-weight:800}
+.lead p{font-size:16px;color:rgba(255,255,255,.86);line-height:1.9;margin-bottom:10px}
+.lead .cut{font-weight:800;color:var(--gold-soft)}
+.sum3{margin:28px 0 34px;padding:20px 22px;border:1px solid rgba(194,163,107,.35);border-radius:16px;background:rgba(232,220,194,.05)}
+.sum3 h2{font-size:14px;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.sum3 li{list-style:none;position:relative;padding:5px 0 5px 24px;font-size:14.5px;color:rgba(255,255,255,.85);line-height:1.75}
+.sum3 li::before{content:'—';position:absolute;left:2px;color:var(--gold)}
+article h2{font-size:clamp(19px,2.6vw,24px);font-weight:800;letter-spacing:-.5px;margin:40px 0 12px}
+.direct{padding:14px 18px;border-left:3px solid var(--gold);background:rgba(232,220,194,.05);border-radius:0 12px 12px 0;font-size:15px;color:rgba(255,255,255,.88);font-weight:600;line-height:1.85;margin-bottom:14px}
+article p{font-size:15px;color:var(--sub);margin-bottom:15px}
+article b,article strong{color:var(--gold-soft)}
+.tbl{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}
+th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{background:rgba(232,220,194,.07);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+td{color:var(--sub)}
+ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
+ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
+ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);color:#1a161d;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.chk2{margin:20px 0;display:grid;gap:10px}
+.chk2 .g{padding:14px 18px;border:1px solid var(--line);border-radius:12px}
+.chk2 b{display:block;font-size:12.5px;color:var(--gold);margin-bottom:6px;letter-spacing:.06em}
+.chk2 li{list-style:none;position:relative;padding:3px 0 3px 22px;font-size:13.5px;color:var(--sub)}
+.chk2 li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:900}
+.faq{margin:14px 0 6px}
+.faq details{border-bottom:1px solid var(--line);padding:2px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:15px 2px;font-size:15px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:18px;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq .fb{padding:0 2px 16px;font-size:13.5px;color:var(--sub);line-height:1.85}
+.noah{margin:40px 0;padding:26px;border-radius:18px;background:linear-gradient(135deg,rgba(232,220,194,.08),rgba(194,163,107,.05));border:1px solid rgba(194,163,107,.4)}
+.noah h2{margin:0 0 10px;font-size:18px}
+.noah p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.9;margin-bottom:16px}
+.noah a.cta{display:inline-flex;padding:13px 30px;border-radius:999px;font-size:14px;font-weight:800;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);color:#1a161d}
+.rel{margin:34px 0 0}
+.rel h2{font-size:16px;margin-bottom:12px}
+.rel a{display:block;padding:12px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
+.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}
+.src a{color:var(--gold-soft);text-decoration:underline}
+footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
+footer a{color:var(--gold-soft);text-decoration:underline}</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html" class="tb-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>NOAH</a>
+  <div class="tb-r"><a href="index.html">가이드 목록</a><a href="../contact.html" class="fill">무료 상담 →</a></div>
+</div>
+<div class="wrap">
+<nav class="crumb"><a href="../index.html">홈</a> › <a href="index.html">홈페이지 제작 가이드</a> › SEO·AI검색</nav>
+<article>
+<h1>홈페이지가 네이버에 안 나올 때 순서대로 확인할 8가지</h1>
+<div class="meta"><span class="cat">#SEO·AI검색</span><span>2026.08.09</span><span>노아 편집팀</span></div>
+<div class="lead"><p>오픈 3주차·상호 검색 0건·유입 0명 — 숫자만 보면 홈페이지가 없는 것과 같은 상태.</p><p class="cut">네이버 노출은 한 덩어리가 아니라 수집·색인·노출 3단계입니다. 어느 단계에서 끊겼는지부터 찾아야 합니다.</p><p>이 글은 3단계별 진단 순서와 확인해야 할 8가지 항목을 우선순위대로 정리합니다.</p></div>
+<div class="sum3"><h2>⚡ 3줄 요약</h2><ul><li>네이버 미노출은 수집·색인·노출 3단계 중 어디서 끊겼는지 먼저 확인해야 조치가 정해집니다.</li><li>신규 사이트는 등록 후 수집·색인까지 통상 1~4주가 걸립니다. 2주 차 미노출은 정상 범위일 수 있습니다.</li><li>확인 순서는 등록 여부·robots.txt·사이트맵·수집 상태·색인 여부·제목 태그·내용 분량·중복 8가지입니다.</li></ul></div>
+<h2>홈페이지가 네이버에서 검색되지 않는 이유는 무엇인가요?</h2>
+<p class="direct">네이버 서치어드바이저에 등록되지 않았거나, robots.txt가 수집을 막았거나, 수집은 됐지만 색인에서 제외됐거나, 색인은 됐지만 검색어 경쟁에서 밀린 경우입니다. 원인마다 조치가 다르므로 수집·색인·노출 3단계 중 어디서 끊겼는지 먼저 확인해야 합니다.</p>
+<p>3단계를 구분하지 않으면 엉뚱한 작업에 시간을 씁니다. 수집이 안 되는 사이트에 콘텐츠를 더 쓰는 일은 효과가 없고, 색인은 됐는데 노출이 없는 사이트에 사이트맵을 다시 제출해도 달라지지 않습니다. 진단 순서를 지키면 대부분 30분 안에 원인이 어느 단계에 있는지 좁혀집니다.</p>
+<h2>수집이 됐는지 어떻게 아나요?</h2>
+<p>문서 수가 0이면 아직 수집 단계에서 막혀 있다는 뜻입니다. 이 경우 원인은 대부분 등록 누락·robots.txt 차단·주소 불일치 3가지 안에 있습니다. 반대로 문서 수가 1 이상인데 검색이 안 되면 수집은 통과한 것이므로, 다음 진단 대상은 색인 제외 사유와 페이지 내용입니다.</p>
+<ol class="steps"><li>네이버 서치어드바이저에 사이트가 등록되어 있는지 확인합니다.</li><li>소유확인이 완료 상태인지 확인합니다.</li><li>도메인 뒤 robots.txt를 열어 전체 차단 규칙이 있는지 확인합니다.</li><li>사이트맵 제출 상태에 오류가 남아 있는지 확인합니다.</li><li>수집 현황에서 문서 수가 0인지 1 이상인지 확인합니다.</li><li>메인 페이지에 웹페이지 수집을 1회 요청합니다.</li><li>요청 후 7일 뒤 문서 수 변화를 다시 확인합니다.</li><li>4주가 지나도 0이면 소유확인 주소와 실제 접속 주소가 같은지 재대조합니다.</li></ol>
+<h2>색인 제외는 왜 생기나요?</h2>
+<div class="tbl"><table><caption>단계별 원인과 조치</caption><thead><tr><th>단계</th><th>증상</th><th>조치</th></tr></thead><tbody><tr><td>수집</td><td>문서 수 0·robots.txt 차단</td><td>차단 규칙 제거 후 수집 요청</td></tr><tr><td>수집</td><td>사이트맵 오류 지속</td><td>사이트맵 주소·형식 재확인 후 재제출</td></tr><tr><td>색인</td><td>내용이 거의 없는 페이지</td><td>페이지별 본문 분량과 제목 태그 보완</td></tr><tr><td>색인</td><td>여러 주소에서 같은 내용 노출</td><td>대표 주소 하나로 통일</td></tr><tr><td>노출</td><td>상호 검색에도 미노출</td><td>브랜드 엔티티 정보 정비 후 재확인</td></tr><tr><td>노출</td><td>일반 키워드에서 미노출</td><td>검색어 경쟁도 확인 후 세부 키워드로 조정</td></tr></tbody></table></div>
+<h2>노출까지 얼마나 걸리나요?</h2>
+<p>신규 사이트는 등록 후 수집·색인까지 통상 1~4주가 걸립니다. 오픈 2주차에 검색되지 않는 상태는 고장이 아니라 대기 구간인 경우가 많습니다. 다만 4주가 지나도 수집 문서 수가 0이면 대기가 아니라 차단이므로, 그 시점부터는 robots.txt와 소유확인 주소를 다시 확인해야 합니다.</p>
+<h2>그래서 지금 무엇부터 하면 되나요?</h2>
+<div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>robots.txt에 전체 차단 규칙이 있는지 확인합니다.</li><li>네이버 서치어드바이저 수집 문서 수가 0인지 확인합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>메인과 핵심 페이지 3개에 수집 요청을 넣고 7일 뒤 변화를 기록합니다.</li></ul></div><div class="g"><b>맡길 것</b><ul><li>제작사에 색인 제외 사유 목록과 대표 주소 통일 작업을 요청합니다.</li></ul></div></div>
+<h2>자주 묻는 질문</h2>
+<div class="faq"><details><summary>오픈한 지 열흘인데 안 나옵니다</summary><div class="fb">신규 사이트는 수집·색인까지 통상 1~4주가 걸리므로 열흘 시점의 미노출은 정상 범위일 수 있습니다. 지금은 등록·robots.txt·사이트맵 3가지만 확인해 두고 4주 차에 다시 판단하시면 됩니다.</div></details><details><summary>블로그는 나오는데 홈페이지만 안 나옵니다</summary><div class="fb">블로그와 홈페이지는 수집 경로가 다릅니다. 홈페이지는 별도 등록과 수집 요청이 필요하므로, 네이버 서치어드바이저 등록 여부와 수집 문서 수부터 확인하는 편이 빠릅니다. 확인에는 5분이면 충분합니다.</div></details><details><summary>상호로도 안 나오면 심각한가요?</summary><div class="fb">상호 검색 미노출은 수집 단계에서 끊긴 신호일 가능성이 큽니다. 등록·소유확인·robots.txt 3가지를 먼저 확인하고, 이상이 없으면 브랜드 정보 정비 단계로 넘어가면 됩니다.</div></details></div>
+<div class="noah"><h2>NOAH가 이 문제를 없애는 방식</h2><p>NOAH는 검증된 템플릿 구조를 사장님 브랜드에 맞춰 7일 안에 오픈하는 홈페이지 제작 서비스입니다. 기본 ₩199,000(부가세 별도) 1회 결제에 SEO 기본 설정이 포함되어, 수집·색인 단계에서 자주 끊기는 robots.txt·사이트맵·제목 태그를 오픈 전에 맞춰 둡니다. 다만 검색 순위 자체를 보장하지는 않으며, 네이버·구글 사이트 등록 대행은 ₩50,000 별도 옵션입니다. 오픈 후 1년 무료 호스팅과 1년 텍스트 수정이 포함됩니다. 상담은 무료이고 결정은 안 하셔도 됩니다.</p><a class="cta" href="../contact.html">옵션 문의 →</a></div>
+<div class="rel"><h2>관련 글</h2><a href="naver-search-advisor.html">네이버 서치어드바이저 등록부터 수집 요청까지 전 과정</a><a href="robots-txt.html">robots.txt 한 줄 때문에 네이버에서 사라진 홈페이지</a><a href="brand-search-visibility.html">상호를 검색해도 우리 홈페이지가 안 나오는 이유</a><a href="no-inquiries.html">홈페이지를 만들었는데 문의가 없는 진짜 이유</a></div>
+<p class="src">참고 자료 — <a href="https://searchadvisor.naver.com" rel="noopener nofollow" target="_blank">네이버 서치어드바이저</a> · <a href="https://developers.google.com/search/docs" rel="noopener nofollow" target="_blank">구글 검색 문서</a></p>
+
+</article>
+</div>
+<footer>
+씨씨컴퍼니 (CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고번호 2020-인천연수구-1872<br>
+대표전화 010-6658-6482 · cccompanymaster@gmail.com · 인천광역시 연수구 인천타워대로 301, A동 16층 33호<br>
+&copy; 2026 노아 (NOAH). <a href="../index.html">홈</a> · <a href="index.html">제작 가이드</a> · <a href="../column/">마케팅 칼럼</a> · <a href="../shop.html">서비스</a> · <a href="../contact.html">문의</a>
+</footer>
+</body>
+</html>
