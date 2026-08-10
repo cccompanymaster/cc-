@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9J2V6KLGLG');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#120e14">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<title>viewport 메타태그 문법과 오류 해결 | 노아 제작 가이드</title>
+<meta name="description" content="viewport 메타태그의 역할과 표준 문법을 정리했습니다. 화면이 축소되는 이유, 흔한 오작성 3가지 비교표, 적용 후 확인 절차까지 안내드립니다.">
+<link rel="canonical" href="https://noahgroup.co.kr/guide/viewport-meta-tag.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="노아 홈페이지 제작 가이드">
+<meta property="og:title" content="viewport 메타태그 문법과 오류 해결">
+<meta property="og:description" content="viewport 메타태그의 역할과 표준 문법을 정리했습니다. 화면이 축소되는 이유, 흔한 오작성 3가지 비교표, 적용 후 확인 절차까지 안내드립니다.">
+<meta property="og:url" content="https://noahgroup.co.kr/guide/viewport-meta-tag.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noahgroup.co.kr/og-banner-final.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization", "name": "노아(NOAH)", "legalName": "씨씨컴퍼니", "url": "https://noahgroup.co.kr/", "logo": {"@type": "ImageObject", "url": "https://noahgroup.co.kr/favicon-512.png"}, "description": "노아(NOAH)는 검증된 템플릿 구조를 브랜드에 맞춰 7일 안에 오픈하는 홈페이지 제작과 통합 마케팅을 제공하는 회사입니다.", "address": {"@type": "PostalAddress", "streetAddress": "인천타워대로 301, A동 16층 33호", "addressLocality": "인천광역시 연수구", "addressCountry": "KR"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+82-10-6658-6482", "contactType": "sales", "areaServed": "KR", "availableLanguage": "Korean"}, "sameAs": ["https://pf.kakao.com/_RjRSxj", "https://blog.naver.com/cccompanyad"]}, {"@type": "WebSite", "@id": "https://noahgroup.co.kr/#website", "url": "https://noahgroup.co.kr/", "name": "노아(NOAH)", "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "inLanguage": "ko-KR"}, {"@type": "BreadcrumbList", "@id": "https://noahgroup.co.kr/guide/viewport-meta-tag.html#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "홈페이지 제작 가이드", "item": "https://noahgroup.co.kr/guide/"}, {"@type": "ListItem", "position": 3, "name": "viewport 메타태그"}]}, {"@type": "Article", "@id": "https://noahgroup.co.kr/guide/viewport-meta-tag.html#article", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://noahgroup.co.kr/guide/viewport-meta-tag.html"}, "headline": "viewport 메타태그 문법과 오류 해결", "description": "viewport 메타태그의 역할과 표준 문법을 정리했습니다. 화면이 축소되는 이유, 흔한 오작성 3가지 비교표, 적용 후 확인 절차까지 안내드립니다.", "datePublished": "2026-08-09T09:00:00+09:00", "dateModified": "2026-08-09T09:00:00+09:00", "author": {"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization"}, "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "breadcrumb": {"@id": "https://noahgroup.co.kr/guide/viewport-meta-tag.html#breadcrumb"}, "inLanguage": "ko-KR", "articleSection": "셀프 트러블슈팅", "keywords": ["viewport 메타태그"], "about": {"@type": "Thing", "name": "viewport 메타태그"}}, {"@type": "FAQPage", "@id": "https://noahgroup.co.kr/guide/viewport-meta-tag.html#faq", "mainEntity": [{"@type": "Question", "name": "viewport 태그는 head 안 어디에 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "head 안이면 동작하지만, 문자 인코딩 선언 다음인 head 상단에 두는 것이 관행입니다. 브라우저가 화면 폭 기준을 먼저 알아야 이후 스타일 계산이 정확해지기 때문입니다. body 안에 넣으면 무시될 수 있습니다."}}, {"@type": "Question", "name": "아임웹·카페24 같은 빌더에도 직접 넣어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "대부분의 임대형 빌더는 viewport를 자동 삽입하므로 직접 넣을 필요가 없습니다. 다만 머리글 코드 삽입 기능으로 태그를 추가했다면 중복될 수 있으니, 소스 보기에서 검색 결과가 1개인지 확인하는 것이 안전합니다."}}, {"@type": "Question", "name": "maximum-scale=1은 왜 빼라고 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "사용자의 화면 확대를 막는 속성이기 때문입니다. 저시력 사용자는 글자를 확대해 읽는데, 확대가 막히면 내용을 읽을 수 없습니다. 웹 접근성 지침도 확대 제한을 피하도록 안내하며, 접근성 문제 외에 얻는 이점도 없습니다."}}]}]}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#161218;--white:#fff;--sub:rgba(255,255,255,.68);--dim:rgba(255,255,255,.46);
+--gold:#C2A36B;--gold-soft:#E8DCC2;--line:rgba(232,220,194,.14);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.grad{background:linear-gradient(135deg,#E8DCC2,#C2A36B 55%,#9A7D4A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,4vw,44px);background:rgba(18,14,20,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tb-logo{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.12em;font-size:14.5px}
+.tb-logo svg{width:22px;height:22px}
+.tb-r{display:flex;gap:8px;font-size:12.5px}
+.tb-r a{padding:8px 16px;border:1px solid rgba(194,163,107,.4);border-radius:999px;font-weight:700;color:var(--gold-soft)}
+.tb-r a.fill{background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);color:#1a161d;border:none}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(34px,6vh,60px) clamp(20px,4vw,32px) 40px}
+.crumb{font-size:12px;color:var(--dim);margin-bottom:18px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+h1{font-size:clamp(24px,4.2vw,38px);font-weight:900;letter-spacing:-1.1px;line-height:1.4}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 26px;font-size:12.5px;color:var(--dim)}
+.meta .cat{color:var(--gold);font-weight:800}
+.lead p{font-size:16px;color:rgba(255,255,255,.86);line-height:1.9;margin-bottom:10px}
+.lead .cut{font-weight:800;color:var(--gold-soft)}
+.sum3{margin:28px 0 34px;padding:20px 22px;border:1px solid rgba(194,163,107,.35);border-radius:16px;background:rgba(232,220,194,.05)}
+.sum3 h2{font-size:14px;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.sum3 li{list-style:none;position:relative;padding:5px 0 5px 24px;font-size:14.5px;color:rgba(255,255,255,.85);line-height:1.75}
+.sum3 li::before{content:'—';position:absolute;left:2px;color:var(--gold)}
+article h2{font-size:clamp(19px,2.6vw,24px);font-weight:800;letter-spacing:-.5px;margin:40px 0 12px}
+.direct{padding:14px 18px;border-left:3px solid var(--gold);background:rgba(232,220,194,.05);border-radius:0 12px 12px 0;font-size:15px;color:rgba(255,255,255,.88);font-weight:600;line-height:1.85;margin-bottom:14px}
+article p{font-size:15px;color:var(--sub);margin-bottom:15px}
+article b,article strong{color:var(--gold-soft)}
+.tbl{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}
+th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{background:rgba(232,220,194,.07);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+td{color:var(--sub)}
+ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
+ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
+ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);color:#1a161d;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.chk2{margin:20px 0;display:grid;gap:10px}
+.chk2 .g{padding:14px 18px;border:1px solid var(--line);border-radius:12px}
+.chk2 b{display:block;font-size:12.5px;color:var(--gold);margin-bottom:6px;letter-spacing:.06em}
+.chk2 li{list-style:none;position:relative;padding:3px 0 3px 22px;font-size:13.5px;color:var(--sub)}
+.chk2 li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:900}
+.faq{margin:14px 0 6px}
+.faq details{border-bottom:1px solid var(--line);padding:2px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:15px 2px;font-size:15px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:18px;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq .fb{padding:0 2px 16px;font-size:13.5px;color:var(--sub);line-height:1.85}
+.noah{margin:40px 0;padding:26px;border-radius:18px;background:linear-gradient(135deg,rgba(232,220,194,.08),rgba(194,163,107,.05));border:1px solid rgba(194,163,107,.4)}
+.noah h2{margin:0 0 10px;font-size:18px}
+.noah p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.9;margin-bottom:16px}
+.noah a.cta{display:inline-flex;padding:13px 30px;border-radius:999px;font-size:14px;font-weight:800;background:linear-gradient(135deg,#E8DCC2,#C2A36B 70%);color:#1a161d}
+.rel{margin:34px 0 0}
+.rel h2{font-size:16px;margin-bottom:12px}
+.rel a{display:block;padding:12px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
+.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}
+.src a{color:var(--gold-soft);text-decoration:underline}
+footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
+footer a{color:var(--gold-soft);text-decoration:underline}</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html" class="tb-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>NOAH</a>
+  <div class="tb-r"><a href="index.html">가이드 목록</a><a href="../contact.html" class="fill">무료 상담 →</a></div>
+</div>
+<div class="wrap">
+<nav class="crumb"><a href="../index.html">홈</a> › <a href="index.html">홈페이지 제작 가이드</a> › 셀프 트러블슈팅</nav>
+<article>
+<h1>viewport 태그 한 줄이 없으면 모바일이 전부 축소됩니다</h1>
+<div class="meta"><span class="cat">#셀프 트러블슈팅</span><span>2026.08.09</span><span>노아 편집팀</span></div>
+<div class="lead"><p>미디어 쿼리·반응형 템플릿·모바일 전용 테마 — 전부 적용했는데도 축소되어 열리는 화면.</p><p class="cut">왜 그럴까요? head에 viewport 한 줄이 없으면 브라우저는 폰 화면을 폭 980px 데스크톱으로 간주합니다.</p><p>이 글은 올바른 태그 문법과 흔한 오작성 3가지, 적용 확인 절차를 안내드립니다.</p></div>
+<div class="sum3"><h2>⚡ 3줄 요약</h2><ul><li>viewport 메타태그는 브라우저에게 화면 폭 계산 기준을 알려주는 한 줄입니다. 없으면 모바일 화면 전체가 축소됩니다.</li><li>표준 문법은 width=device-width와 initial-scale=1 두 속성입니다. 철자 오류 1글자만으로도 태그 전체가 무시됩니다.</li><li>확대를 막는 user-scalable=no·maximum-scale=1 속성은 접근성을 해치므로 빼는 것이 기준입니다.</li></ul></div>
+<h2>viewport 메타태그는 무엇인가요?</h2>
+<p class="direct">viewport 메타태그는 브라우저에 화면 폭 계산 기준을 알려주는 head 안의 설정 한 줄입니다. 이 한 줄이 없으면 모바일 브라우저는 페이지를 폭 980px 데스크톱으로 가정하고 전체를 축소해 보여줍니다. 반응형 코드가 있어도 태그가 없으면 동작하지 않습니다.</p>
+<p>표준 문법은 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt; 한 줄입니다. width=device-width는 화면 폭을 기기 실제 폭으로 계산하라는 뜻이고, initial-scale=1은 처음 열 때 확대·축소 없이 100분의 100 크기로 보여주라는 뜻입니다. 이 두 속성이면 충분하며, 그 이상의 속성은 대부분 부작용을 만듭니다.</p>
+<h2>흔한 오작성 3가지는 무엇인가요?</h2>
+<p>3가지 중 가장 자주 보이는 실수는 철자 오류입니다. 브라우저는 틀린 철자를 추측해 주지 않고 태그를 조용히 무시하므로, 오류 메시지 없이 증상만 남습니다. 두 번째로 흔한 사례는 오래된 사이트에서 복사해 온 폭 고정값입니다. 특정 폭 숫자를 적는 순간 기기 폭 대응이 사라지므로, 항상 device-width로 적어야 합니다.</p>
+<div class="tbl"><table><caption>viewport 오작성 3가지 비교</caption><thead><tr><th>오작성 유형</th><th>증상</th><th>교정 방법</th></tr></thead><tbody><tr><td>name 철자 오류(viewpoint·view-port 등)</td><td>태그가 통째로 무시되어 화면 축소</td><td>name 값을 viewport로 정정</td></tr><tr><td>content에 width=980 등 숫자 고정</td><td>모든 기기가 특정 폭으로 고정·축소</td><td>width=device-width로 교체</td></tr><tr><td>user-scalable=no·maximum-scale=1 추가</td><td>사용자 확대가 막혀 저시력 접근성 저하</td><td>확대 제한 속성 삭제</td></tr></tbody></table></div>
+<h2>넣었는데도 축소되면 왜 그런가요?</h2>
+<p>원인은 보통 3가지입니다. 첫째, 태그가 head 밖(body 안)에 들어가 브라우저가 무시하는 경우입니다. 둘째, 빌더가 자동 삽입한 태그와 직접 넣은 태그가 중복되어 뒤의 값이 앞의 값을 덮는 경우입니다. 셋째, 수정이 반영됐지만 폰 브라우저가 캐시된 옛 화면을 보여주는 경우입니다.</p>
+<p>확인 방법은 단순합니다. 폰 브라우저에서 캐시를 지우고 새로고침한 뒤에도 증상이 남으면, PC 크롬에서 페이지 소스 보기로 viewport를 검색합니다. 검색 결과가 0개면 삽입 위치가 틀린 것이고, 2개 이상이면 중복입니다. 하나만 남기고 head 상단에 두면 해결됩니다.</p>
+<h2>적용과 확인은 어떻게 하나요?</h2>
+<p>임대형 빌더는 대부분 viewport를 자동 삽입하므로 이 절차가 필요 없지만, 직접 제작했거나 5년 이상 된 외주 사이트라면 확인 가치가 있습니다. 태그 확인부터 폰 재확인까지 6단계 전체에 걸리는 시간은 10분 안팎입니다. 한 줄 점검으로 모바일 방문자 전원의 첫 화면이 달라집니다.</p>
+<ol class="steps"><li>관리자 화면이나 편집기에서 head 영역을 엽니다.</li><li>viewport로 검색해 기존 태그가 있는지, 몇 개인지 확인합니다.</li><li>표준 한 줄을 head 상단에 넣고 중복 태그는 삭제합니다.</li><li>저장 후 폰 브라우저에서 캐시를 지우고 새로고침합니다.</li><li>화면이 기기 폭에 맞게 열리는지, 확대가 되는지 확인합니다.</li><li>PageSpeed Insights 모바일 검사로 최종 점검합니다.</li></ol>
+<h2>그래서 지금 무엇부터 하면 되나요?</h2>
+<div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>PC 크롬에서 내 홈페이지 소스 보기를 열어 viewport를 검색하고 개수를 확인합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>태그 정비 후 폰 2대에서 첫 화면 크기와 확대 가능 여부를 확인합니다.</li></ul></div><div class="g"><b>맡길 것</b><ul><li>편집 권한이 없는 외주 사이트라면 소스 검색 결과 캡처를 제작사에 보내 표준 태그 삽입을 요청합니다.</li></ul></div></div>
+<h2>자주 묻는 질문</h2>
+<div class="faq"><details><summary>viewport 태그는 head 안 어디에 넣나요?</summary><div class="fb">head 안이면 동작하지만, 문자 인코딩 선언 다음인 head 상단에 두는 것이 관행입니다. 브라우저가 화면 폭 기준을 먼저 알아야 이후 스타일 계산이 정확해지기 때문입니다. body 안에 넣으면 무시될 수 있습니다.</div></details><details><summary>아임웹·카페24 같은 빌더에도 직접 넣어야 하나요?</summary><div class="fb">대부분의 임대형 빌더는 viewport를 자동 삽입하므로 직접 넣을 필요가 없습니다. 다만 머리글 코드 삽입 기능으로 태그를 추가했다면 중복될 수 있으니, 소스 보기에서 검색 결과가 1개인지 확인하는 것이 안전합니다.</div></details><details><summary>maximum-scale=1은 왜 빼라고 하나요?</summary><div class="fb">사용자의 화면 확대를 막는 속성이기 때문입니다. 저시력 사용자는 글자를 확대해 읽는데, 확대가 막히면 내용을 읽을 수 없습니다. 웹 접근성 지침도 확대 제한을 피하도록 안내하며, 접근성 문제 외에 얻는 이점도 없습니다.</div></details></div>
+<div class="noah"><h2>NOAH가 이 문제를 없애는 방식</h2><p>NOAH는 검증된 템플릿 구조를 사장님 브랜드에 맞춰 7일 안에 오픈하는 홈페이지 제작 서비스입니다. viewport를 포함한 기본 코드 설정과 모바일·태블릿 반응형 검수가 기본에 들어 있어, 오픈 시점에 축소 화면 문제가 남지 않도록 확인합니다. 기본 ₩199,000에 시안 2개·수정 5회가 포함되며 부가세는 별도입니다. 기존 사이트의 태그 상태가 궁금하시면 상담에서 화면을 함께 열어 확인해 드립니다. 상담은 무료이고, 제작 여부는 그 뒤에 천천히 정하셔도 됩니다.</p><a class="cta" href="../contact.html">무료 상담 신청 →</a></div>
+<div class="rel"><h2>관련 글</h2><a href="mobile-broken-layout.html">폰에서만 홈페이지가 깨지는 6가지 원인과 해결</a><a href="page-speed.html">홈페이지 로딩 1초가 늦어질 때 잃는 문의 수</a><a href="production-process.html">상담부터 오픈까지 홈페이지가 만들어지는 전체 순서</a><a href="launch-checklist.html">오픈 버튼을 누르기 전 확인해야 할 22가지</a></div>
+<p class="src">참고 자료 — <a href="https://developers.google.com/search/docs" rel="noopener nofollow" target="_blank">구글 검색 센터 문서</a> · <a href="https://pagespeed.web.dev" rel="noopener nofollow" target="_blank">PageSpeed Insights</a></p>
+
+</article>
+</div>
+<footer>
+씨씨컴퍼니 (CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고번호 2020-인천연수구-1872<br>
+대표전화 010-6658-6482 · cccompanymaster@gmail.com · 인천광역시 연수구 인천타워대로 301, A동 16층 33호<br>
+&copy; 2026 노아 (NOAH). <a href="../index.html">홈</a> · <a href="index.html">제작 가이드</a> · <a href="../column/">마케팅 칼럼</a> · <a href="../shop.html">서비스</a> · <a href="../contact.html">문의</a>
+</footer>
+</body>
+</html>
