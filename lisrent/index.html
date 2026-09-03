@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>리스렌트 업무관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- 로그인 / 회원가입 -->
+<div id="auth-screen" hidden>
+  <div class="auth-card">
+    <div class="auth-logo">리스렌트<span>업무관리</span></div>
+
+    <form id="login-form" class="auth-form">
+      <h2>로그인</h2>
+      <label>이메일<input type="email" name="email" required autocomplete="username"></label>
+      <label>비밀번호<input type="password" name="password" required autocomplete="current-password"></label>
+      <button type="submit" class="btn btn-primary btn-block">로그인</button>
+      <p class="auth-switch">계정이 없나요? <a href="#" id="show-signup">회원가입</a></p>
+      <p class="auth-error" id="login-error" hidden></p>
+    </form>
+
+    <form id="signup-form" class="auth-form" hidden>
+      <h2>회원가입</h2>
+      <p class="auth-hint">첫 가입자는 자동으로 관리자가 됩니다. 이후 가입자는 관리자 승인 후 사용할 수 있습니다.</p>
+      <label>이름<input type="text" name="name" required></label>
+      <label>이메일<input type="email" name="email" required autocomplete="username"></label>
+      <label>비밀번호 (6자 이상)<input type="password" name="password" required minlength="6" autocomplete="new-password"></label>
+      <button type="submit" class="btn btn-primary btn-block">가입하기</button>
+      <p class="auth-switch"><a href="#" id="show-login">로그인으로 돌아가기</a></p>
+      <p class="auth-error" id="signup-error" hidden></p>
+    </form>
+  </div>
+</div>
+
+<!-- 승인 대기 -->
+<div id="pending-screen" hidden>
+  <div class="auth-card">
+    <div class="auth-logo">리스렌트<span>업무관리</span></div>
+    <h2>승인 대기 중</h2>
+    <p class="auth-hint">관리자가 계정을 승인하면 사용할 수 있습니다.<br>승인 후 새로고침해 주세요.</p>
+    <button class="btn btn-block" onclick="location.reload()">새로고침</button>
+    <button class="btn btn-ghost btn-block" onclick="App.logout()">로그아웃</button>
+  </div>
+</div>
+
+<!-- 앱 본체 -->
+<div id="app" hidden>
+  <aside id="sidebar">
+    <div class="side-logo">리스렌트<span>업무관리</span></div>
+    <nav id="side-nav">
+      <a href="#/" data-route="dashboard">대시보드</a>
+      <a href="#/customers" data-route="customers">고객 관리</a>
+      <a href="#/quotes" data-route="quotes">견적 관리</a>
+      <a href="#/contracts" data-route="contracts">계약 관리</a>
+      <a href="#/expiry" data-route="expiry">만기 관리</a>
+      <div class="side-sep">기준 정보</div>
+      <a href="#/vehicles" data-route="vehicles">차종 마스터</a>
+      <a href="#/financiers" data-route="financiers">금융사</a>
+      <div class="side-sep">정산·관리</div>
+      <a href="#/commissions" data-route="commissions">수수료 정산</a>
+      <a href="#/settings" data-route="settings">설정</a>
+    </nav>
+    <div class="side-user">
+      <div id="side-user-name"></div>
+      <button class="btn btn-ghost btn-sm" onclick="App.logout()">로그아웃</button>
+    </div>
+  </aside>
+  <main id="main"></main>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+<div id="print-root"></div>
+
+<script src="js/vendor/supabase-2.45.4.js"></script>
+<script src="js/config.js"></script>
+<script src="js/core.js"></script>
+<script src="js/views-dashboard.js"></script>
+<script src="js/views-customers.js"></script>
+<script src="js/views-quotes.js"></script>
+<script src="js/views-contracts.js"></script>
+<script src="js/views-admin.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
