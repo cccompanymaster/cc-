@@ -240,6 +240,24 @@ body.show-bb .bottom-bar{transform:translateY(0)}
 footer .f-sns{display:flex;gap:18px;justify-content:center;margin:0 0 20px;font-size:13px;font-weight:700;letter-spacing:.04em}
 footer .f-sns a{color:var(--gold-soft);border-bottom:1px solid rgba(154,125,74,.35);padding-bottom:2px;transition:color .2s,border-color .2s}
 footer .f-sns a:hover{color:var(--gold);border-color:var(--gold)}
+
+.team-card{grid-template-columns:104px minmax(0,1.05fr) minmax(0,.95fr);align-items:start}
+.tc-num{grid-column:1;grid-row:1}
+.tc-photo{margin:0;position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#F0EADD,#E3D9C8);align-self:start}
+.tc-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:14px}
+.tc-photo-fb{display:none;padding:64px 0;text-align:center;font-size:11px;color:rgba(23,20,26,.5)}
+.tc-photo.noimg .tc-photo-fb{display:block}
+.tc-photo .ai-cap{margin-top:9px;font-size:10.5px;letter-spacing:.02em;color:rgba(23,20,26,.5);text-align:left}
+.tc-photo.left{grid-column:2;grid-row:1}
+.tc-text{grid-column:3;grid-row:1}
+.tc-photo.right{grid-column:3;grid-row:1}
+.team-card:has(.tc-photo.right) .tc-text{grid-column:2;grid-row:1}
+@media(max-width:900px){
+  .team-card{grid-template-columns:1fr!important;gap:10px}
+  .tc-num{grid-column:1!important;grid-row:auto!important}
+  .tc-photo.left,.tc-photo.right{grid-column:1!important;grid-row:auto!important;margin-bottom:14px}
+  .tc-text{grid-column:1!important;grid-row:auto!important}
+}
 </style>
 <noscript><style>.rv-word,.fade-up,.hero-rv,.wn-word,.qi-word,.tr-word,.sl-word,.counter-item,.process-card{opacity:1!important;transform:none!important;clip-path:none!important}.tr-word{color:#17141A!important}</style></noscript>
 <style>
@@ -354,7 +372,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 
     <article class="team-card fade-up">
       <div class="tc-num">01</div>
-      <div>
+      <div class="tc-text">
         <span class="tc-tag">전문직 광고 · 컴플라이언스</span>
         <h2 class="tc-name">전문직 광고팀</h2>
         <p class="tc-tagline">전문직의 품격, 광고로 완성합니다.</p>
@@ -367,11 +385,12 @@ footer .f-links a{display:inline-block;padding:6px 2px}
         </ul>
         <a href="contact.html" class="tc-cta">상담 문의하기 <span aria-hidden="true">→</span></a>
       </div>
+      <figure class="tc-photo left"><img src="assets/photos/13-team-professional-640.webp" srcset="assets/photos/13-team-professional-640.webp 640w, assets/photos/13-team-professional-1200.webp 1200w" sizes="(max-width:900px) 92vw, 40vw" width="1448" height="1086" alt="전문직 광고 자료를 검토하는 업무 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.tc-photo').classList.add('noimg')"><span class="tc-photo-fb">이미지 준비 중</span><figcaption class="ai-cap">업무 연출 이미지 · AI 제작</figcaption></figure>
     </article>
 
     <article class="team-card fade-up">
       <div class="tc-num">02</div>
-      <div>
+      <div class="tc-text">
         <span class="tc-tag">바이럴 미디어 · 격이 다른 마케팅</span>
         <h2 class="tc-name">바이럴 콘텐츠팀</h2>
         <p class="tc-tagline">조용히 퍼지게, 크게 터지게.</p>
@@ -386,11 +405,12 @@ footer .f-links a{display:inline-block;padding:6px 2px}
         </ul>
         <a href="contact.html" class="tc-cta">상담 문의하기 <span aria-hidden="true">→</span></a>
       </div>
+      <figure class="tc-photo right"><img src="assets/photos/14-team-content-640.webp" srcset="assets/photos/14-team-content-640.webp 640w, assets/photos/14-team-content-1200.webp 1200w" sizes="(max-width:900px) 92vw, 40vw" width="1448" height="1086" alt="콘텐츠 촬영 세팅을 표현한 업무 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.tc-photo').classList.add('noimg')"><span class="tc-photo-fb">이미지 준비 중</span><figcaption class="ai-cap">업무 연출 이미지 · AI 제작</figcaption></figure>
     </article>
 
     <article class="team-card fade-up">
       <div class="tc-num">03</div>
-      <div>
+      <div class="tc-text">
         <span class="tc-tag">데이터베이스 &amp; 퍼포먼스</span>
         <h2 class="tc-name">데이터 퍼포먼스팀</h2>
         <p class="tc-tagline">데이터가 먼저 항로를 그립니다.</p>
@@ -403,6 +423,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
         </ul>
         <a href="contact.html" class="tc-cta">상담 문의하기 <span aria-hidden="true">→</span></a>
       </div>
+      <figure class="tc-photo left"><img src="assets/photos/15-team-performance-640.webp" srcset="assets/photos/15-team-performance-640.webp 640w, assets/photos/15-team-performance-1200.webp 1200w" sizes="(max-width:900px) 92vw, 40vw" width="1448" height="1086" alt="데이터 분석 화면을 함께 보는 업무 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.tc-photo').classList.add('noimg')"><span class="tc-photo-fb">이미지 준비 중</span><figcaption class="ai-cap">업무 연출 이미지 · AI 제작</figcaption></figure>
     </article>
 
   </div>

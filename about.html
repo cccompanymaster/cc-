@@ -226,6 +226,14 @@ body.show-bb .bottom-bar{transform:translateY(0)}
 footer .f-sns{display:flex;gap:18px;justify-content:center;margin:0 0 20px;font-size:13px;font-weight:700;letter-spacing:.04em}
 footer .f-sns a{color:var(--gold-soft);border-bottom:1px solid rgba(154,125,74,.35);padding-bottom:2px;transition:color .2s,border-color .2s}
 footer .f-sns a:hover{color:var(--gold);border-color:var(--gold)}
+
+.office-photo{padding:clamp(28px,5vh,52px) 0 0}
+.of-fig{margin:0;position:relative}
+.of-fig img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:16px;border:1px solid rgba(154,125,74,.18)}
+.of-fb{display:none;padding:80px 0;text-align:center;font-size:12px;color:rgba(23,20,26,.5);background:linear-gradient(150deg,#F0EADD,#E3D9C8);border-radius:16px}
+.of-fig.noimg .of-fb{display:block}
+.of-fig .ai-cap{margin-top:10px;font-size:10.5px;letter-spacing:.02em;color:rgba(23,20,26,.5)}
+@media(max-width:768px){.of-fig img{aspect-ratio:4/3}}
 </style>
 <noscript><style>.rv-word,.fade-up,.hero-rv,.wn-word,.qi-word,.tr-word,.sl-word,.counter-item,.process-card{opacity:1!important;transform:none!important;clip-path:none!important}.tr-word{color:#17141A!important}</style></noscript>
 <style>
@@ -330,6 +338,16 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       <span class="rv-word"><em>생존</em>을 설계합니다.</span>
     </h1>
     <p class="ph-sub rv-word">2020년 인천 송도에서 출발한 노아는 광고 · 바이럴 · 데이터 세 축으로<br>클라이언트의 성장을 지켜왔습니다. 파도가 높을수록, 방주는 더 정교해집니다.</p>
+  </div>
+</section>
+
+<section class="office-photo">
+  <div class="inner">
+    <figure class="of-fig fade-up">
+      <img src="assets/photos/17-about-office-1200.webp" srcset="assets/photos/17-about-office-640.webp 640w, assets/photos/17-about-office-1200.webp 1200w" sizes="(max-width:768px) 92vw, 1100px" width="1448" height="1086" alt="업무 공간을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.of-fig').classList.add('noimg')">
+      <span class="of-fb">이미지 준비 중</span>
+      <figcaption class="ai-cap">업무 공간 연출 이미지 · AI 제작</figcaption>
+    </figure>
   </div>
 </section>
 
