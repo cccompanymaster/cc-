@@ -237,42 +237,51 @@ footer .f-sns a:hover{color:var(--gold);border-color:var(--gold)}
 </style>
 <noscript><style>.rv-word,.fade-up,.hero-rv,.wn-word,.qi-word,.tr-word,.sl-word,.counter-item,.process-card{opacity:1!important;transform:none!important;clip-path:none!important}.tr-word{color:#17141A!important}</style></noscript>
 <style>
-/* ===== 우측 날개 드로어 내비 (전 페이지 공통) ===== */
+/* ===== 우측 드로어 내비 (라이트) — v2 ===== */
 .tb-actions{display:flex;align-items:center;gap:12px;margin-left:auto;transition:opacity .2s}
 body.nav-open .tb-actions{opacity:0;pointer-events:none}
 .ham{display:flex}
-.nav-scrim{position:fixed;inset:0;z-index:100;border:0;padding:0;cursor:pointer;background:rgba(23,20,26,.35);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .35s}
+.nav-scrim{position:fixed;inset:0;z-index:9000;border:0;padding:0;cursor:pointer;background:rgba(23,20,26,.42);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .3s}
 body.nav-open .nav-scrim{opacity:1;pointer-events:auto}
 body.nav-open{overflow:hidden}
-#tbNav{display:block;position:fixed;top:0;right:0;bottom:0;left:auto;z-index:101;width:min(90vw,364px);height:100%;margin:0;padding:0;gap:0;background:linear-gradient(180deg,#F7F4EE,#FFFFFF);border-left:1px solid rgba(154,125,74,.22);box-shadow:-26px 0 64px rgba(23,20,26,.13);transform:translateX(101%);opacity:1;pointer-events:none;overflow-y:auto;overscroll-behavior:contain;transition:transform .42s cubic-bezier(.4,0,.2,1)}
+#tbNav{position:fixed;top:0;right:0;bottom:0;left:auto;z-index:9001;display:flex;flex-direction:column;
+  width:min(92vw,372px);height:100dvh;margin:0;padding:0;gap:0;
+  background:#FFFFFF;border-left:1px solid rgba(23,20,26,.1);
+  box-shadow:-24px 0 60px rgba(23,20,26,.18);
+  transform:translateX(101%);opacity:1;pointer-events:none;
+  overflow-y:auto;overscroll-behavior:contain;
+  transition:transform .38s cubic-bezier(.4,0,.2,1)}
 body.nav-open #tbNav{transform:none;pointer-events:auto}
-#tbNav .tb-nav-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:19px 20px 14px;background:linear-gradient(180deg,#F7F4EE,rgba(27,22,31,.94));border-bottom:1px solid rgba(154,125,74,.16)}
-#tbNav .tb-nav-title{font-size:11px;letter-spacing:.24em;font-weight:800;color:var(--gold-soft)}
-#tbNav .tb-nav-close{width:38px;height:38px;border-radius:10px;border:1px solid rgba(194,163,107,.35);background:rgba(255,255,255,.72);color:var(--gold-soft);font-size:15px;line-height:1;cursor:pointer;transition:background .2s,border-color .2s}
-#tbNav .tb-nav-close:hover{background:rgba(194,163,107,.16);border-color:var(--gold)}
-#tbNav .tb-nav-body{padding:12px 16px 40px}
-#tbNav .tbn-link{display:block;padding:14px 8px;font-size:16px;font-weight:600;color:var(--sub);border-bottom:1px solid rgba(23,20,26,.05);transition:color .2s,padding-left .2s}
-#tbNav .tbn-link:hover{color:var(--gold-soft);padding-left:14px}
-#tbNav .tbn-link.active{color:var(--gold-soft)}
-#tbNav .tbn-pay{margin:14px 0 6px;border:1px solid rgba(194,163,107,.3);border-radius:14px;overflow:hidden;background:rgba(154,125,74,.055)}
-#tbNav .tbn-pay-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:none;border:0;cursor:pointer;font-family:inherit;font-size:16px;font-weight:800;color:#17141A}
-#tbNav .tbn-pay-toggle>span:first-child{background:linear-gradient(135deg,#B08D4E,#8A6A2E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-#tbNav .tbn-caret{color:var(--gold-soft);transition:transform .3s}
+#tbNav .tb-nav-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 20px 15px;background:#FFFFFF;border-bottom:1px solid rgba(23,20,26,.1)}
+#tbNav .tb-nav-title{font-size:11px;letter-spacing:.24em;font-weight:800;color:#8A6A2E}
+#tbNav .tb-nav-close{width:38px;height:38px;border-radius:10px;border:1px solid rgba(23,20,26,.16);background:#FBFAF7;color:#17141A;font-size:15px;line-height:1;cursor:pointer;transition:background .2s,border-color .2s}
+#tbNav .tb-nav-close:hover{background:#F2EEE5;border-color:#B08D4E}
+#tbNav .tb-nav-body{padding:10px 16px 40px}
+#tbNav .tbn-link{display:flex;align-items:center;justify-content:space-between;padding:15px 10px;
+  font-size:16px;font-weight:700;color:#17141A;border-bottom:1px solid rgba(23,20,26,.08);
+  transition:color .2s,background .2s,padding-left .2s;border-radius:8px}
+#tbNav .tbn-link::after{content:'\203A';color:rgba(23,20,26,.3);font-size:18px;font-weight:400}
+#tbNav .tbn-link:hover{color:#8A6A2E;background:#FBFAF7;padding-left:16px}
+#tbNav .tbn-link.active{color:#8A6A2E}
+#tbNav .tbn-link.active::after{color:#B08D4E}
+#tbNav .tbn-pay{margin:16px 0 8px;border:1px solid rgba(176,141,78,.4);border-radius:14px;overflow:hidden;background:#FBF8F2}
+#tbNav .tbn-pay-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:none;border:0;cursor:pointer;font-family:inherit;font-size:15.5px;font-weight:800;color:#7A5C24}
+#tbNav .tbn-caret{color:#B08D4E;transition:transform .3s;font-size:13px}
 #tbNav .tbn-pay.open .tbn-caret{transform:rotate(180deg)}
-#tbNav .tbn-pay-list{max-height:0;overflow:hidden;transition:max-height .45s ease}
-#tbNav .tbn-pay.open .tbn-pay-list{max-height:1000px}
+#tbNav .tbn-pay-list{max-height:0;overflow:hidden;transition:max-height .4s ease}
+#tbNav .tbn-pay.open .tbn-pay-list{max-height:1200px}
 #tbNav .tbn-pay-inner{padding:2px 12px 14px}
-#tbNav .tbn-shortcut{display:block;margin:6px 0 12px;padding:12px 14px;text-align:center;border-radius:100px;font-weight:800;font-size:14px;color:#171219;background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120)}
+#tbNav .tbn-shortcut{display:block;margin:6px 0 12px;padding:12px 14px;text-align:center;border-radius:100px;font-weight:800;font-size:13.5px;color:#FFFFFF;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%)}
 #tbNav .tbn-pay-group{margin-top:12px}
-#tbNav .tbn-pay-group>b{display:block;font-size:11px;letter-spacing:.1em;color:var(--gold-soft);margin-bottom:4px;font-weight:800}
-#tbNav .tbn-pay-group a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 6px;font-size:14px;font-weight:600;color:var(--sub);border-bottom:1px solid rgba(23,20,26,.04);transition:color .2s}
-#tbNav .tbn-pay-group a:hover{color:#17141A}
-#tbNav .tbn-pay-group a em{font-style:normal;font-size:12px;font-weight:700;color:var(--gold-soft);white-space:nowrap}
-#tbNav .tbn-cta{display:block;margin:18px 0 8px;padding:15px;text-align:center;border-radius:100px;font-weight:800;color:#171219;background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120)}
+#tbNav .tbn-pay-group>b{display:block;font-size:11px;letter-spacing:.1em;color:#8A6A2E;margin-bottom:4px;font-weight:800}
+#tbNav .tbn-pay-group a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 6px;font-size:13.5px;font-weight:600;color:#3A3540;border-bottom:1px solid rgba(23,20,26,.06);transition:color .2s}
+#tbNav .tbn-pay-group a:hover{color:#8A6A2E}
+#tbNav .tbn-pay-group a em{font-style:normal;font-size:12px;font-weight:700;color:#8A6A2E;white-space:nowrap}
+#tbNav .tbn-cta{display:block;margin:18px 0 10px;padding:15px;text-align:center;border-radius:100px;font-weight:800;font-size:15px;color:#FFFFFF;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%)}
 #tbNav .tbn-contact{display:flex;gap:8px}
-#tbNav .tbn-contact a{flex:1;text-align:center;padding:11px;border-radius:10px;border:1px solid rgba(194,163,107,.3);font-size:13px;font-weight:700;color:var(--gold-soft)}
-#tbNav .tbn-contact a:hover{background:rgba(194,163,107,.12)}
-.prod{scroll-margin-top:86px}
+#tbNav .tbn-contact a{flex:1;text-align:center;padding:12px;border-radius:10px;border:1px solid rgba(176,141,78,.45);font-size:13px;font-weight:700;color:#7A5C24;background:#FFFFFF}
+#tbNav .tbn-contact a:hover{background:#FBF8F2}
 @media(max-width:400px){.tb-actions .tb-link{display:none}}
 @media(prefers-reduced-motion:reduce){#tbNav,.nav-scrim,.tbn-pay-list,.tbn-caret{transition:none}}
 /* 모바일 안정화: 푸터 오버플로·터치 타깃 */
@@ -289,6 +298,12 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
+  <div class="tb-actions">
+    <a href="contact.html" class="tb-link">무료 진단 →</a>
+    <button type="button" class="ham" aria-expanded="false" aria-controls="tbNav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+</div>
+
   <button type="button" class="nav-scrim" id="navScrim" aria-hidden="true" tabindex="-1"></button>
   <nav class="tb-nav" id="tbNav" aria-label="주 메뉴">
     <div class="tb-nav-head"><span class="tb-nav-title">MENU</span><button type="button" class="tb-nav-close" aria-label="메뉴 닫기">✕</button></div>
@@ -324,11 +339,6 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       <div class="tbn-contact"><a href="tel:01066586482">📞 010-6658-6482</a><a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener">카카오 상담</a></div>
     </div>
   </nav>
-  <div class="tb-actions">
-    <a href="contact.html" class="tb-link">무료 진단 →</a>
-    <button type="button" class="ham" aria-expanded="false" aria-controls="tbNav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
-  </div>
-</div>
 
 <section class="page-hero">
   <div class="inner">
@@ -468,9 +478,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       <a href="terms.html#refund">취소·환불 정책</a>
     </div>
     <div class="f-sns">
-      <a href="https://www.instagram.com/richella_lab" target="_blank" rel="noopener" aria-label="인스타그램">Instagram</a>
-      <a href="https://www.youtube.com/@%EB%A6%AC%EC%B9%98%EC%97%98%EB%9D%BC%EC%9C%A4%EB%8F%84%EC%97%B0" target="_blank" rel="noopener" aria-label="유튜브">YouTube</a>
-      <a href="https://blog.naver.com/funfunmind" target="_blank" rel="noopener" aria-label="네이버 블로그">Blog</a>
+      <a href="https://blog.naver.com/cccompanyad" data-mo="https://m.blog.naver.com/cccompanyad" class="js-blog" target="_blank" rel="noopener" aria-label="노아 네이버 블로그">네이버 블로그</a>
     </div>
     <div class="f-info">
       씨씨컴퍼니 (CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613<br>
@@ -514,5 +522,7 @@ document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el) });
   </a>
 </aside>
 <script src="js/site.js" defer></script>
+<script>(function(){if(!matchMedia('(max-width:768px)').matches)return;
+document.querySelectorAll('a.js-blog[data-mo]').forEach(function(a){a.href=a.getAttribute('data-mo');});})();</script>
 </body>
 </html>

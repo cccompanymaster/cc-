@@ -364,12 +364,16 @@ window.addEventListener('resize', () => {
     gnbLinks.forEach(a => a.setAttribute('tabindex', '-1'));
   }
 });
-ham?.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
-backdrop?.addEventListener('click', () => setNav(false));
-gnb?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.body.classList.contains('nav-open')) setNav(false);
-});
+// 구버전 .gnb 내비가 있는 페이지에서만 동작 — 현행 페이지의 드로어는 js/site.js가 전담한다.
+// (둘 다 붙으면 같은 클릭에서 nav-open이 두 번 토글되어 메뉴가 열리지 않는다)
+if (gnb) {
+  ham?.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+  backdrop?.addEventListener('click', () => setNav(false));
+  gnb.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) setNav(false);
+  });
+}
 
 // ===== Reveal on scroll =====
 const revealSelector = '.sec-head, .about-points li, .company, .step, .client-item, .news-card, .kpi-item, .contact-wrap';
