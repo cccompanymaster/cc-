@@ -103,16 +103,7 @@
         </span>
         <span class="logo-text"><b>NOAH</b><em>노아</em></span>
       </a>
-      <nav class="gnb" id="gnb" aria-label="주 메뉴">
-        <ul>
-          <li><a href="../about.html">소개</a></li>
-          <li><a href="../team.html">팀 구성</a></li>
-          <li><a href="../work.html">레퍼런스</a></li>
-          <li><a href="../impact-2026.html">리포트</a></li>
-          <li class="active"><a href="./" aria-current="page">칼럼</a></li>
-          <li><a href="../contact.html">문의</a></li>
-        </ul>
-      </nav>
+      <nav class="gnb" id="gnb" aria-label="주 메뉴"><ul><li><a href="../about.html">소개</a></li><li><a href="../work.html">레퍼런스</a></li><li><a href="../shop.html">결제·상품</a></li><li><a href="../column/">칼럼</a></li><li><a href="../guide/">가이드</a></li><li><a href="./" aria-current="page">아티클</a></li><li><a href="../contact.html">문의</a></li></ul></nav>
       <div class="header-right">
         <ul class="lang" role="group" aria-label="언어 선택">
           <li class="active"><a href="./" aria-current="true">KR</a></li>
@@ -125,6 +116,7 @@
       </div>
     </div>
   </header>
+<div class="nav-backdrop" aria-hidden="true"></div>
 
   <main id="main-content" class="article-page">
     <article class="article-wrap" id="article-body">
@@ -433,16 +425,12 @@
 
   <script>
     // 햄버거 + 맨 위 버튼 (허브와 동일한 최소 JS)
-    const ham = document.querySelector('.ham');
-    ham?.addEventListener('click', () => {
-      const isOpen = document.body.classList.toggle('nav-open');
-      ham.setAttribute('aria-expanded', String(isOpen));
-    });
     const topBtn = document.querySelector('.btn-top');
     window.addEventListener('scroll', () => {
       topBtn?.classList.toggle('show', window.scrollY > 400);
     }, { passive: true });
     topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
+<script src="../js/legacy-nav.js" defer></script>
 </body>
 </html>

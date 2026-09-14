@@ -4691,3 +4691,13 @@ a:hover > .srv-cta span,
   color: var(--gold-soft);
 }
 .founder-quote cite b { color: var(--gold); font-weight: 800; }
+
+/* ====== 구형 모바일 내비 — 라이트 드로어로 통일 (articles/authors) ====== */
+@media (max-width: 900px) {
+  .gnb { background: #FFFFFF; color: #17141A; border-left: 1px solid rgba(23,20,26,.1); box-shadow: -24px 0 60px rgba(23,20,26,.18); }
+  .gnb li { border-bottom: 1px solid rgba(23,20,26,.08); }
+  .gnb a { color: #17141A; font-size: 17px; font-weight: 700; letter-spacing: 0; }
+  .gnb a:hover, .gnb a[aria-current="page"] { color: #8A6A2E; }
+  body.nav-open { overflow: hidden; }
+  .nav-backdrop { background: rgba(23,20,26,.42); }
+}
