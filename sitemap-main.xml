@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://noahgroup.co.kr/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://noahgroup.co.kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noahgroup.co.kr/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://noahgroup.co.kr/index-zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noahgroup.co.kr/"/>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/01-business-insurance-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/02-business-lease-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/03-business-carwash-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/04-business-website-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/05-business-database-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/06-business-supplement-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/07-review-dermatology-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/08-review-cosmetics-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/09-review-saas-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/10-review-law-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/11-review-franchise-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/12-review-korean-medicine-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/og-banner-final.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/index-en.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://noahgroup.co.kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noahgroup.co.kr/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://noahgroup.co.kr/index-zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noahgroup.co.kr/"/>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/index-zh.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://noahgroup.co.kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noahgroup.co.kr/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://noahgroup.co.kr/index-zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noahgroup.co.kr/"/>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/about.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/17-about-office-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/og-banner-final.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/team.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/13-team-professional-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/14-team-content-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/15-team-performance-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/og-banner-final.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/contact.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/18-contact-consultation-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/og-banner-final.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/work.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/07-review-dermatology-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/08-review-cosmetics-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/09-review-saas-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/10-review-law-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/11-review-franchise-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/assets/photos/12-review-korean-medicine-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://noahgroup.co.kr/og-banner-final.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/shop.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/products-en.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://noahgroup.co.kr/shop.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noahgroup.co.kr/products-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://noahgroup.co.kr/products-zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noahgroup.co.kr/shop.html"/>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/products-zh.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://noahgroup.co.kr/shop.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noahgroup.co.kr/products-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://noahgroup.co.kr/products-zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noahgroup.co.kr/shop.html"/>
+  </url>
+  <url>
+    <loc>https://noahgroup.co.kr/impact-2026.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
