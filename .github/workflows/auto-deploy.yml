@@ -29,3 +29,36 @@ jobs:
 
       - name: Force push to gh-pages
         run: git push origin HEAD:gh-pages --force
+
+      # IndexNow — 이번 push에서 바뀐 페이지를 Bing·Naver·Yandex에 즉시 알림 (Google은 미지원, sitemap lastmod로 대응)
+      - name: Ping IndexNow
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        continue-on-error: true
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          sleep 120  # GitHub Pages 빌드 대기
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+          B = "https://noahgroup.co.kr/"
+          KEY = "db4892bcddb73d10b7e088975806de3b"
+          diff = subprocess.run(["git", "diff", "--name-only", "--diff-filter=AM", os.environ["BEFORE"], os.environ["AFTER"]],
+                                capture_output=True, text=True).stdout.split()
+          urls = []
+          for f in diff:
+              if f.startswith((".", "templates/")) or not f.endswith((".html", ".xml", ".txt")):
+                  continue
+              if f.endswith("index.html"):
+                  f = f[: -len("index.html")]
+              urls.append(B + f)
+          if not urls:
+              print("no changed pages"); raise SystemExit
+          body = json.dumps({"host": "noahgroup.co.kr", "key": KEY, "keyLocation": B + KEY + ".txt", "urlList": urls[:10000]}).encode()
+          for ep in ("https://api.indexnow.org/indexnow", "https://searchadvisor.naver.com/indexnow"):
+              req = urllib.request.Request(ep, data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+              try:
+                  print(ep, urllib.request.urlopen(req, timeout=30).status, len(urls), "urls")
+              except Exception as e:
+                  print(ep, "failed:", e)
+          PY
