@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- NOAH 진입 인트로: 세션당 1회, 모션 최소화 설정·봇·JS 꺼짐 시 표시 안 함 -->
-<script>(function(){try{var d=document.documentElement;if(sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent))return;d.className+=' ni-on';}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/bot|crawl|spider|slurp|lighthouse|yeti|daum\/|headless|inspectiontool/i.test(navigator.userAgent))return;d.className+=' ni-on';}catch(e){}})();</script>
 <style>
 #noahIntro{display:none}
 .ni-on #noahIntro{display:flex;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);animation:niOut .7s cubic-bezier(.7,0,.3,1) 2.6s forwards;cursor:pointer}
