@@ -2,6 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<!-- NOAH 진입 인트로: 24시간에 1회(localStorage, 차단 시 탭당 1회), 모션 최소화 설정·봇·JS 꺼짐 시 표시 안 함 -->
+<script>(function(){try{var d=document.documentElement,t=0;try{t=+localStorage.getItem('noahIntroAt')||0;}catch(e){}if(Date.now()-t<864e5||sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/bot|crawl|spider|slurp|lighthouse|yeti|daum\/|headless|inspectiontool/i.test(navigator.userAgent))return;d.className+=' ni-on';}catch(e){}})();</script>
+<style>
+#noahIntro{display:none}
+.ni-on #noahIntro{display:flex;position:fixed;inset:0;z-index:2147483000;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);animation:niOut .6s ease 4.5s forwards;cursor:pointer}
+/* ni-lock은 본문 스크립트가 붙임 — 스크립트가 실패하면 잠금·일시정지 없이 4.5초 뒤 CSS만으로 사라짐 */
+.ni-lock body{overflow:hidden}
+.ni-lock:not(.ni-done) .hero,.ni-lock:not(.ni-done) .hero *{animation-play-state:paused!important}
+/* 건너뛰기·자동 종료용 페이드는 이름을 달리해야 처음부터 재생됨(같은 이름이면 경과 시간 때문에 바로 끝 상태로 점프) */
+.ni-done #noahIntro{animation:niFade .6s cubic-bezier(.7,0,.3,1) forwards!important}
+.ni-orb{position:relative;width:min(46vw,220px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(60% 60% at 32% 26%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 34%,rgba(255,255,255,0) 60%),
+             radial-gradient(80% 80% at 70% 82%,rgba(194,163,107,.42) 0%,rgba(194,163,107,0) 60%),
+             radial-gradient(100% 100% at 50% 50%,rgba(251,250,247,.55) 0%,rgba(226,212,182,.55) 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),inset 0 -14px 34px rgba(154,125,74,.28),inset 0 10px 24px rgba(255,255,255,.9),0 30px 60px -20px rgba(122,92,36,.35),0 0 0 1px rgba(176,141,78,.25);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  transform:scale(.82);opacity:0;animation:niOrb 1.1s cubic-bezier(.2,.8,.2,1) .1s forwards}
+.ni-orb::before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(220,201,160,.55) 80%,transparent 90%);animation:niSpin 2.4s linear infinite;mix-blend-mode:screen}
+.ni-orb::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-18deg);animation:niSheen 1s ease-in-out 1.35s forwards}
+.ni-orb svg{position:relative;z-index:1;width:46%;height:46%;overflow:visible}
+.ni-orb path{fill:url(#niGold);fill-opacity:0;stroke:#B08D4E;stroke-width:.7;stroke-linejoin:round;stroke-dasharray:80;stroke-dashoffset:80;
+  animation:niDraw 1s cubic-bezier(.6,0,.2,1) .45s forwards,niFill .5s ease 1.2s forwards;filter:drop-shadow(0 2px 3px rgba(122,92,36,.3))}
+.ni-stage{position:relative}
+.ni-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(176,141,78,.55);opacity:0;animation:niRing 1.4s ease-out 1.2s forwards;pointer-events:none}
+.ni-p{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#C2A36B;opacity:0;animation:niP 1.6s ease-out forwards;pointer-events:none}
+.ni-word{margin-top:30px;font:900 clamp(22px,4.4vw,30px)/1 'Pretendard Variable',Pretendard,-apple-system,sans-serif;letter-spacing:.42em;padding-left:.42em;color:#17141A;display:flex}
+.ni-word span{opacity:0;transform:translateY(10px);animation:niUp .6s cubic-bezier(.2,.8,.2,1) forwards}
+.ni-sub{margin-top:12px;font:700 12px/1 'Pretendard Variable',Pretendard,sans-serif;letter-spacing:.6em;padding-left:.6em;color:#8A6A2E;opacity:0;animation:niUp .6s ease 1.75s forwards}
+.ni-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom));padding:9px 16px;border:1px solid rgba(23,20,26,.16);border-radius:999px;background:rgba(255,255,255,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font:600 12px/1 'Pretendard Variable',Pretendard,sans-serif;color:rgba(23,20,26,.62);cursor:pointer;letter-spacing:.04em}
+.ni-skip:hover{color:#17141A;border-color:#B08D4E}
+@keyframes niOrb{to{transform:scale(1);opacity:1}}
+@keyframes niSpin{to{transform:rotate(360deg)}}
+@keyframes niSheen{to{left:130%}}
+@keyframes niDraw{to{stroke-dashoffset:0}}
+@keyframes niFill{to{fill-opacity:1}}
+@keyframes niRing{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.9)}}
+@keyframes niP{0%{opacity:0;transform:translate(-50%,-50%)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(.4)}}
+@keyframes niUp{to{opacity:1;transform:none}}
+@keyframes niOut{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
+@keyframes niFade{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
+</style>
   <!-- Google tag (gtag.js) — GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
   <script>
@@ -167,42 +208,59 @@
 body.show-bb .float-cta{bottom:96px}
 @media(max-width:768px){.float-cta{display:none}}
 </style>
+<style>
+/* ── B: 메인 CTA 글래스 레이어 (CSS만) ── */
+.btn-primary{isolation:isolate;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -2px 6px rgba(0,0,0,.25),0 8px 28px -10px rgba(26,22,29,.5)!important}
+.btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -3px 8px rgba(80,58,20,.28),0 14px 36px -10px rgba(194,163,107,.5)!important}
+.btn-primary::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,240,210,.4) 50%,transparent 65%) no-repeat,linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0) 52%);
+  background-size:250% 100%,100% 100%;background-position:130% 0,0 0;transition:background-position .9s cubic-bezier(.4,0,.2,1)}
+.btn-primary:hover::before,.btn-primary:focus-visible::before{background-position:-30% 0,0 0}
+.btn-primary:active{transform:scale(.97)!important}
+.hero .btn-ghost,.contact .btn-ghost{background:rgba(255,255,255,.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+/* ── A: 히어로 대표 CTA 쇼케이스 (진짜 <a> 유지, 캔버스는 장식) ── */
+.hero-glass-wrap{position:relative;display:inline-flex;isolation:isolate;border-radius:999px}
+.hero-glass-wrap::before{content:"";position:absolute;inset:-3px;border-radius:999px;padding:1.5px;
+  background:conic-gradient(from var(--hg-a,0deg),rgba(212,165,116,0) 0deg,#F6DDB5 60deg,rgba(212,165,116,0) 140deg,rgba(212,165,116,0) 220deg,#D4A574 290deg,rgba(212,165,116,0) 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  animation:hgSpin 4s linear infinite;pointer-events:none}
+.hero-glass-wrap canvas{position:absolute;left:50%;top:50%;width:calc(100% + 120px);height:calc(100% + 90px);transform:translate(-50%,-50%);pointer-events:none;z-index:-1}
+@property --hg-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes hgSpin{to{--hg-a:360deg}}
+@media(max-width:560px){.hero-actions .hero-glass-wrap{width:100%}}
+@media(prefers-reduced-motion:reduce){.hero-glass-wrap::before{animation:none}.btn-primary::before{transition:none}}
+</style>
 </head>
 <body>
+<div id="noahIntro" aria-hidden="true">
+  <div class="ni-stage">
+  <div class="ni-ring"></div>
+  <div class="ni-orb">
+    <svg viewBox="0 0 32 32"><defs><linearGradient id="niGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCC9A0"/><stop offset="1" stop-color="#9A7D4A"/></linearGradient></defs><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z"/></svg>
+  </div>
+  </div>
+  <div class="ni-word"><span style="animation-delay:1.3s">N</span><span style="animation-delay:1.38s">O</span><span style="animation-delay:1.46s">A</span><span style="animation-delay:1.54s">H</span></div>
+  <div class="ni-sub">SEOUL · KOREA</div>
+  <button type="button" class="ni-skip" tabindex="-1">Skip</button>
+</div>
+<script>(function(){var d=document.documentElement,el=document.getElementById('noahIntro');if(!/\bni-on\b/.test(d.className)||!el)return;
+d.className+=' ni-lock';
+var t0=Date.now(),ga=function(n,p){if(typeof gtag==='function')gtag('event',n,p||{});};
+var done=false;function end(how){if(done)return;done=true;
+if(how==='auto')ga('intro_complete');else ga('intro_skip',{method:how,seconds:Math.round((Date.now()-t0)/100)/10});
+d.className+=' ni-done';try{document.dispatchEvent(new Event('noah:introend'));}catch(e){}
+setTimeout(function(){d.className=d.className.replace(/\s*ni-(on|done|lock)\b/g,'');if(el.parentNode)el.parentNode.removeChild(el);},650);}
+setTimeout(function(){end('auto');},2600);
+el.addEventListener('click',function(e){end(e.target.closest('.ni-skip')?'button':'click');});document.addEventListener('keydown',function(){end('key');},{once:true});
+try{localStorage.setItem('noahIntroAt',Date.now());}catch(e){}try{sessionStorage.setItem('noahIntro','1');}catch(e){}
+ga('intro_view');
+var st=el.querySelector('.ni-stage');
+for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=120+Math.random()*120;p.className='ni-p';p.style.setProperty('--x',Math.cos(a)*r+'px');p.style.setProperty('--y',Math.sin(a)*r+'px');p.style.animationDelay=(1.2+Math.random()*.35)+'s';st.appendChild(p);}
+})();</script>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="cursor" aria-hidden="true"></div>
-
-  <!-- Intro / Loading -->
-  <div id="intro" class="intro" aria-hidden="true" role="status" aria-label="Loading">
-    <div class="intro-inner">
-      <div class="intro-compass">
-        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="60" cy="60" r="56" stroke="#D4A574" stroke-width="1" opacity="0.3"/>
-          <circle cx="60" cy="60" r="42" stroke="#D4A574" stroke-width="0.5" opacity="0.4" stroke-dasharray="1 3"/>
-          <g stroke="#D4A574" stroke-width="0.8" opacity="0.6">
-            <line x1="60" y1="6" x2="60" y2="14"/>
-            <line x1="60" y1="106" x2="60" y2="114"/>
-            <line x1="6" y1="60" x2="14" y2="60"/>
-            <line x1="106" y1="60" x2="114" y2="60"/>
-          </g>
-          <text x="60" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="800" fill="#D4A574" letter-spacing="1.5">N</text>
-          <g class="intro-needle">
-            <path d="M60 18 L63 60 L60 63 L57 60 Z" fill="#D4A574"/>
-            <path d="M60 102 L57 60 L60 57 L63 60 Z" fill="#5a3f27"/>
-            <circle cx="60" cy="60" r="2.5" fill="#D4A574"/>
-            <circle cx="60" cy="60" r="1" fill="#0B1A33"/>
-          </g>
-        </svg>
-      </div>
-      <div class="intro-text">
-        <span>N</span><span>O</span><span>A</span><span>H</span>
-      </div>
-      <p class="intro-sub">Marketing Group</p>
-      <div class="intro-progress"><span></span></div>
-    </div>
-  </div>
 
   <!-- Header -->
   <header id="header">
@@ -1442,5 +1500,39 @@ body.show-bb .float-cta{bottom:96px}
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="js/script.js" defer></script>
+<script>/* A: 히어로 CTA 골드 파티클 오라 — 2D 캔버스, 화면에 보일 때만 동작, 누르면 버스트 */
+(function(){var a=document.querySelector('#heroPrimaryCTA');if(!a)return;
+var w=document.createElement('span');w.className='hero-glass-wrap';a.parentNode.insertBefore(w,a);w.appendChild(a);
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var c=document.createElement('canvas');c.setAttribute('aria-hidden','true');w.insertBefore(c,a);
+var x=c.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2),W,H,ps=[],run=false,raf,hov=0,mob=matchMedia('(max-width:768px)').matches,N=mob?26:48;
+function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);}
+function spawn(b){var bw=a.offsetWidth/2,bh=a.offsetHeight/2,t=Math.random()*6.283,ex=Math.cos(t),ey=Math.sin(t);
+return{x:W/2+ex*bw*(b?.9:1.02),y:H/2+ey*bh*(b?.9:1.1),vx:ex*(b?1.6+Math.random()*2.4:.12+Math.random()*.2),vy:ey*(b?1.2+Math.random()*1.8:.08)-(b?0:.12),l:0,m:b?50+Math.random()*30:110+Math.random()*90,r:.6+Math.random()*1.5};}
+function tick(){x.clearRect(0,0,W,H);while(ps.length<N)ps.push(spawn());
+for(var i=ps.length-1;i>=0;i--){var p=ps[i];p.l++;p.x+=p.vx*(1+hov*1.5);p.y+=p.vy*(1+hov*1.5);
+var k=p.l/p.m,al=Math.sin(Math.PI*Math.min(k,1))*(.55+hov*.4);if(k>=1){ps.splice(i,1);continue;}
+x.beginPath();x.fillStyle='rgba(212,165,116,'+al+')';x.arc(p.x,p.y,p.r,0,6.283);x.fill();}
+raf=requestAnimationFrame(tick);}
+function start(){if(run)return;run=true;size();tick();}function stop(){run=false;cancelAnimationFrame(raf);}
+var inView=false;
+new IntersectionObserver(function(e){inView=e[0].isIntersecting;inView&&!document.hidden?start():stop();}).observe(w);
+document.addEventListener('visibilitychange',function(){document.hidden?stop():inView&&start();});
+addEventListener('resize',function(){if(run)size();});
+a.addEventListener('mouseenter',function(){hov=1;});a.addEventListener('mouseleave',function(){hov=0;});
+a.addEventListener('pointerdown',function(){for(var i=0;i<40;i++)ps.push(spawn(true));});})();</script>
+<script>/* GA4 클릭 이벤트 — 문의 CTA·연락 채널 (cta_location: 헤더·플로팅·하단 배너·문의창·푸터, 그 밖에는 섹션 id) */
+(function(){function ev(n,p){if(typeof gtag==='function')gtag('event',n,p);}
+function where(a){var m=a.closest('#header,.float-cta,.bottom-banner,.inquiry-modal,footer,section');if(!m)return 'other';
+if(m.id==='header')return 'header';if(m.classList.contains('float-cta'))return 'float';if(m.classList.contains('bottom-banner'))return 'bottom_bar';if(m.classList.contains('inquiry-modal'))return 'modal';
+return m.id||m.classList[0]||m.tagName.toLowerCase();}
+document.addEventListener('click',function(e){var a=e.target.closest('a,button');if(!a||a.closest('#noahIntro'))return;
+var h=a.getAttribute('href')||'',p={page:location.pathname,cta_location:where(a)};
+if(h.indexOf('tel:')===0)ev('contact_call',p);
+else if(h.indexOf('pf.kakao.com')>-1)ev('contact_kakao',p);
+else if(h.indexOf('talk.naver.com')>-1)ev('contact_naver_talk',p);
+else if(h.indexOf('blog.naver.com')>-1)ev('click_blog',p);
+else if((a.classList.contains('btn-primary')&&a.getAttribute('type')!=='submit')||a.classList.contains('company-link')||a.classList.contains('btn-ghost')||h==='#contact'){p.label=(a.textContent||'').trim().slice(0,40);ev('cta_click',p);}
+},true);})();</script>
 </body>
 </html>
