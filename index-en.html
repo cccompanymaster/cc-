@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<!-- NOAH 진입 인트로: 24시간에 1회(localStorage, 차단 시 탭당 1회), 모션 최소화 설정·봇·JS 꺼짐 시 표시 안 함 -->
-<script>(function(){try{var d=document.documentElement,t=0;try{t=+localStorage.getItem('noahIntroAt')||0;}catch(e){}if(Date.now()-t<864e5||sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/bot|crawl|spider|slurp|lighthouse|yeti|daum\/|headless|inspectiontool/i.test(navigator.userAgent))return;d.className+=' ni-on';}catch(e){}})();</script>
+<!-- NOAH 진입 인트로: 24시간에 1회(localStorage, 차단 시 탭당 1회). 검색 결과에서 들어온 방문자·모션 최소화 설정·JS 꺼짐 시 표시 안 함.
+     사람과 검색 로봇을 구분하지 않음(구글 클로킹 정책) — 검색 유입은 바로 본문(구글 전면 인터스티셜 가이드) -->
+<script>(function(){try{var d=document.documentElement,t=0,r=document.referrer,h='';try{t=+localStorage.getItem('noahIntroAt')||0;}catch(e){}try{h=new URL(r).hostname;}catch(e){}if(Date.now()-t<864e5||sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/(^|\.)(google\.[a-z.]+|bing\.com|duckduckgo\.com|baidu\.com|yandex\.[a-z.]+|ecosia\.org)$|(^|\.)search\.(naver\.com|daum\.net|zum\.com|yahoo\.[a-z.]+)$/i.test(h)||/^android-app:\/\/com\.google/.test(r))return;d.className+=' ni-on';}catch(e){}})();</script>
 <style>
 #noahIntro{display:none}
 .ni-on #noahIntro{display:flex;position:fixed;inset:0;z-index:2147483000;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);animation:niOut .6s ease 4.5s forwards;cursor:pointer}
