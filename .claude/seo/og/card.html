@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- 칼럼·카테고리 공유 이미지(1200x630) 템플릿 — render.js가 cards.json 항목마다 renderCard()를 불러 PNG로 저장 -->
+<html lang="ko"><head><meta charset="utf-8">
+<style>
+*{margin:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{position:relative;color:#17141A;
+  font-family:'Pretendard Variable',Pretendard,'Noto Sans CJK SC','Noto Sans SC','WenQuanYi Zen Hei',sans-serif;
+  background:radial-gradient(110% 95% at 28% 38%,#FFFFFF 0%,#FBFAF7 48%,#EFE8DA 100%)}
+body::before{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,rgba(176,141,78,.05) 0 1px,transparent 1px 46px),
+             repeating-linear-gradient(-45deg,rgba(176,141,78,.05) 0 1px,transparent 1px 46px)}
+.brand{position:absolute;left:80px;top:60px;display:flex;align-items:center;gap:14px}
+.brand svg{width:30px;height:30px;filter:drop-shadow(0 1px 1px rgba(122,92,36,.25))}
+.brand b{font-weight:900;font-size:22px;letter-spacing:.32em}
+.brand i{width:1px;height:16px;background:rgba(138,106,46,.45)}
+.brand span{font-weight:700;font-size:15px;letter-spacing:.3em;color:#8A6A2E}
+.main{position:absolute;left:80px;top:128px;bottom:112px;width:720px;display:flex;flex-direction:column;justify-content:center}
+.kicker{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-weight:700;font-size:20px;letter-spacing:.14em;color:#8A6A2E}
+.kicker::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#C2A36B;box-shadow:0 0 0 4px rgba(194,163,107,.18)}
+h1{font-weight:800;line-height:1.24;letter-spacing:-.02em;color:#17141A;text-wrap:balance}
+h1:lang(ko),h1:lang(zh){word-break:keep-all} /* 중국어는 cards.json에 \u200b로 줄바꿈 위치 지정 */
+.sub{margin-top:18px;font-weight:600;line-height:1.38;letter-spacing:-.01em;color:rgba(23,20,26,.7);text-wrap:balance}
+.sub:lang(ko),.sub:lang(zh){word-break:keep-all}
+.sub:empty{display:none}
+.rule{width:64px;height:3px;margin-top:30px;background:linear-gradient(90deg,#B08D4E,#DCC9A0)}
+.foot{position:absolute;left:80px;bottom:60px;font-weight:600;font-size:18px;letter-spacing:.06em;color:rgba(23,20,26,.5)}
+.stage{position:absolute;left:840px;top:165px;width:290px;height:290px}
+.ring{position:absolute;border-radius:50%;border:1.5px solid rgba(176,141,78,.32)}
+.ring.r1{inset:-34px}
+.ring.r2{inset:-78px;border-width:1px;border-color:rgba(176,141,78,.15)}
+.orb{position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(60% 60% at 32% 26%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 34%,rgba(255,255,255,0) 60%),
+             radial-gradient(80% 80% at 70% 82%,rgba(194,163,107,.42) 0%,rgba(194,163,107,0) 60%),
+             radial-gradient(100% 100% at 50% 50%,rgba(251,250,247,.55) 0%,rgba(226,212,182,.55) 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),inset 0 -18px 40px rgba(154,125,74,.28),inset 0 12px 28px rgba(255,255,255,.9),0 36px 70px -24px rgba(122,92,36,.38),0 0 0 1px rgba(176,141,78,.28)}
+.orb svg{width:44%;height:44%;filter:drop-shadow(0 3px 4px rgba(122,92,36,.3))}
+.p{position:absolute;border-radius:50%;background:#C2A36B}
+</style></head>
+<body>
+<div class="brand">
+  <svg viewBox="0 0 32 32"><defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCC9A0"/><stop offset="1" stop-color="#9A7D4A"/></linearGradient></defs><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#gb)"/></svg>
+  <b>NOAH</b><i></i><span id="sub"></span>
+</div>
+<div class="main"><div class="kicker" id="kicker"></div><h1 id="title"></h1><p class="sub" id="subt"></p><div class="rule"></div></div>
+<div class="foot" id="foot"></div>
+<div class="stage" id="stage"><div class="ring r2"></div><div class="ring r1"></div>
+  <div class="orb"><svg viewBox="0 0 32 32"><defs><linearGradient id="go" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCC9A0"/><stop offset="1" stop-color="#9A7D4A"/></linearGradient></defs><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#go)" stroke="#B08D4E" stroke-width=".7" stroke-linejoin="round"/></svg></div>
+</div>
+<script>
+// c = {lang:'ko'|'en'|'zh', kicker, title | lines(+breaks:true), foot, seed}
+window.renderCard = function (c) {
+  var $ = function (id) { return document.getElementById(id); };
+  document.documentElement.lang = c.lang;
+  $('sub').textContent = { ko: '노아', en: 'SEOUL · KOREA', zh: '诺亚' }[c.lang];
+  $('kicker').textContent = c.kicker;
+  $('foot').textContent = c.foot || 'noahgroup.co.kr';
+  var t = $('title'); t.innerHTML = '';
+  // 제목은 ' — ' 앞을 큰 제목, 뒤를 부제로 나눔 / breaks: 줄을 직접 나눈 제목(카테고리·중국어 일부)
+  // 줄 첫머리에 '·'가 오지 않게, 'K-Beauty'·'D-90' 같은 하이픈에서 줄이 나뉘지 않게
+  var nb = function (x) { return x.replace(/\s*·/g, '\u2060·').replace(/(\w)-(\w)/g, '$1\u2060-\u2060$2'); };
+  var sub = $('subt'), main = c.title || '', rest = '';
+  var k = main.indexOf(' — ');
+  if (!c.breaks && k > 0) { rest = main.slice(k + 3); main = main.slice(0, k); }
+  t.style.whiteSpace = c.breaks ? 'nowrap' : '';
+  if (c.breaks) c.lines.forEach(function (l, i) { if (i) t.appendChild(document.createElement('br')); t.appendChild(document.createTextNode(l)); });
+  else t.textContent = nb(main);
+  sub.textContent = rest ? nb(rest) : '';
+  sub.lang = t.lang = c.lang;
+  var box = document.querySelector('.main'), fs, lines, slines = 0;
+  var nlines = function (el, size) { return Math.round(el.getBoundingClientRect().height / (size * parseFloat(getComputedStyle(el).lineHeight) / size)); };
+  for (fs = c.breaks ? 72 : 64; fs >= 38; fs -= 2) {
+    t.style.fontSize = fs + 'px';
+    var ss = Math.max(22, Math.min(32, Math.round(fs * .5))); sub.style.fontSize = ss + 'px';
+    lines = nlines(t, fs); slines = rest ? nlines(sub, ss) : 0;
+    if (lines <= (rest ? 2 : 3) && slines <= 2 && box.scrollHeight <= box.clientHeight + 1 && t.scrollWidth <= 720 && sub.scrollWidth <= 720) break;
+  }
+  // 오브 주변 입자 — 파일마다 seed로 배치만 살짝 다르게
+  var st = $('stage'); st.querySelectorAll('.p').forEach(function (p) { p.remove(); });
+  var r = c.seed || 7, rnd = function () { r = (r * 9301 + 49297) % 233280; return r / 233280; };
+  for (var i = 0; i < 22; i++) {
+    var a = rnd() * 6.283, d = 145 * (1.15 + rnd() * .5), z = 2 + rnd() * 3.5, e = document.createElement('i');
+    if (145 + Math.cos(a) * d < -10) continue; // 제목 쪽으로 넘어가는 입자는 생략
+    e.className = 'p';
+    e.style.cssText = 'width:' + z + 'px;height:' + z + 'px;left:' + (145 + Math.cos(a) * d) + 'px;top:' + (145 + Math.sin(a) * d) + 'px;opacity:' + (.25 + (i % 5) * .12);
+    st.appendChild(e);
+  }
+  return { fontSize: fs, lines: lines, subLines: slines };
+};
+</script>
+</body></html>

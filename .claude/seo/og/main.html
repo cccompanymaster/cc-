@@ -1,0 +1,36 @@
+<!-- 메인 공유 배너(og-noah-glass.png)·정사각 로고(og-logo-square.png) 템플릿 — render.js에서 사용, ?sq=1 이면 정사각 -->
+<!doctype html><meta charset="utf-8"><style>
+*{margin:0;box-sizing:border-box}
+body{width:var(--w);height:var(--h);overflow:hidden;font-family:'Pretendard Variable',Pretendard,'Noto Sans CJK KR',sans-serif;
+ background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+body::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(176,141,78,.05) 0 1px,transparent 1px 46px),repeating-linear-gradient(-45deg,rgba(176,141,78,.05) 0 1px,transparent 1px 46px)}
+.stage{position:relative;width:var(--o);height:var(--o)}
+.ring{position:absolute;inset:calc(var(--o)*-.12);border-radius:50%;border:1.5px solid rgba(176,141,78,.35)}
+.ring2{position:absolute;inset:calc(var(--o)*-.26);border-radius:50%;border:1px solid rgba(176,141,78,.16)}
+.orb{position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;
+ background:radial-gradient(60% 60% at 32% 26%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 34%,rgba(255,255,255,0) 60%),
+ radial-gradient(80% 80% at 70% 82%,rgba(194,163,107,.42) 0%,rgba(194,163,107,0) 60%),
+ radial-gradient(100% 100% at 50% 50%,rgba(251,250,247,.55) 0%,rgba(226,212,182,.55) 100%);
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),inset 0 -18px 40px rgba(154,125,74,.28),inset 0 12px 28px rgba(255,255,255,.9),0 36px 70px -24px rgba(122,92,36,.38),0 0 0 1px rgba(176,141,78,.28)}
+.orb svg{width:46%;height:46%;filter:drop-shadow(0 3px 4px rgba(122,92,36,.3))}
+.p{position:absolute;border-radius:50%;background:#C2A36B}
+.word{margin-top:var(--g);font-weight:900;font-size:var(--fs);letter-spacing:.42em;padding-left:.42em;color:#17141A;line-height:1}
+.sub{margin-top:calc(var(--fs)*.42);font-weight:700;font-size:calc(var(--fs)*.4);letter-spacing:.6em;padding-left:.6em;color:#8A6A2E}
+.tag{margin-top:calc(var(--fs)*.9);font-weight:700;font-size:calc(var(--fs)*.5);color:#3a3236;letter-spacing:.02em}
+.tag b{color:#8A6A2E}
+.url{margin-top:10px;font-size:calc(var(--fs)*.32);font-weight:600;color:rgba(23,20,26,.5);letter-spacing:.08em}
+</style>
+<body><div class="stage"><div class="ring2"></div><div class="ring"></div><div class="orb">
+<svg viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCC9A0"/><stop offset="1" stop-color="#9A7D4A"/></linearGradient></defs><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="url(#g)" stroke="#B08D4E" stroke-width=".7" stroke-linejoin="round"/></svg>
+</div></div>
+<div class="word">NOAH</div><div class="sub">노아</div><div id="extra"></div>
+<script>
+const q=new URLSearchParams(location.search),sq=q.get('sq');
+const s=document.body.style;
+if(sq){s.setProperty('--w','1024px');s.setProperty('--h','1024px');s.setProperty('--o','400px');s.setProperty('--fs','84px');s.setProperty('--g','90px');}
+else{s.setProperty('--w','1200px');s.setProperty('--h','630px');s.setProperty('--o','220px');s.setProperty('--fs','46px');s.setProperty('--g','44px');
+document.getElementById('extra').outerHTML='<div class="tag">노출이 아니라, <b>매출</b>을 만듭니다</div><div class="url">전문직 · 바이럴 · 데이터 통합 마케팅 · noahgroup.co.kr</div>';}
+const st=document.querySelector('.stage'),o=st.offsetWidth;let r=7;
+for(let i=0;i<26;i++){r=(r*9301+49297)%233280;const a=r/233280*6.283;r=(r*9301+49297)%233280;const d=o*(.62+r/233280*.32);r=(r*9301+49297)%233280;const z=2+r/233280*3.5;
+if(Math.sin(a)>.45)continue;const e=document.createElement('i');e.className='p';e.style.cssText=`width:${z}px;height:${z}px;left:${o/2+Math.cos(a)*d}px;top:${o/2+Math.sin(a)*d}px;opacity:${.25+(i%5)*.12}`;st.appendChild(e);}
+</script>
