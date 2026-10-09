@@ -8,8 +8,16 @@
     <language>ko-KR</language>
     <copyright>© 2026 NOAH. All rights reserved.</copyright>
     <managingEditor>noreply@noahgroup.co.kr (노아 편집팀)</managingEditor>
-    <lastBuildDate>Fri, 25 Sep 2026 14:27:21 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 00:29:05 +0900</lastBuildDate>
     <image><url>https://noahgroup.co.kr/og-noah-glass.png</url><title>노아 — 마케팅 칼럼·제작 가이드·아티클</title><link>https://noahgroup.co.kr/</link></image>
+    <item>
+      <title>홈페이지 인트로 화면은 검색 순위에 불리할까</title>
+      <link>https://noahgroup.co.kr/guide/intro-screen-seo.html</link>
+      <guid isPermaLink="true">https://noahgroup.co.kr/guide/intro-screen-seo.html</guid>
+      <pubDate>Fri, 09 Oct 2026 09:00:00 +0900</pubDate>
+      <description>홈페이지 인트로(로딩) 화면이 검색 순위와 속도에 주는 영향을 노아 메인 실측으로 정리했습니다. 구글 인터스티셜 가이드, LCP 3.54초가 0.17초로 바뀐 구현 차이, 넣어도 되는 7가지 조건을 담았습니다.</description>
+      <dc:creator>노아 편집팀</dc:creator>
+    </item>
     <item>
       <title>회사소개 페이지 작성법과 예시 문장</title>
       <link>https://noahgroup.co.kr/guide/about-page.html</link>

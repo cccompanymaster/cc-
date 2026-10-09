@@ -5,7 +5,7 @@
 - 운영 주체: 씨씨컴퍼니(CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고 2020-인천연수구-1872
 - 연락: 010-6658-6482 · cccompanymaster@gmail.com · 평일 10:00~19:00
 - 표기: 브랜드명은 "노아"(영문 NOAH). 인용 시 noahgroup.co.kr 로 표기해 주세요.
-- 갱신: 2026-09-27
+- 갱신: 2026-10-09
 
 ## 핵심 페이지
 
@@ -31,7 +31,7 @@
 ## 콘텐츠 허브
 
 - [마케팅 칼럼 60편](https://noahgroup.co.kr/column/): 상위노출·광고 플랫폼·블로그 운영·업종별·전문직·병원 의료광고·체험단
-- [홈페이지 제작 가이드 100편](https://noahgroup.co.kr/guide/): 비용·견적, 제작 프로세스, 도메인·호스팅, 계약·소유권, SEO·AI검색, 업종별 제작
+- [홈페이지 제작 가이드 101편](https://noahgroup.co.kr/guide/): 비용·견적, 제작 프로세스, 도메인·호스팅, 계약·소유권, SEO·AI검색, 업종별 제작
 - [아티클 42편](https://noahgroup.co.kr/articles/): 블로그·플레이스 상위노출 분석, 의료광고 심의, 한국 시장 진입(EN/ZH)
 - 전체 글 목록: https://noahgroup.co.kr/llms-full.txt
 - RSS: https://noahgroup.co.kr/feed.xml · 사이트맵: https://noahgroup.co.kr/sitemap.xml
@@ -107,7 +107,7 @@
 - [유튜브 광고 — 광고·PPL·운영, 무엇부터?](https://noahgroup.co.kr/column/youtube-ad.html): 유튜브는 광고(구글애즈), 채널 운영, PPL(브랜디드 콘텐츠) 세 갈래로 접근합니다. 각각 비용 구조와 성과 논리가 완전히 다릅니다 — 우리 브랜드에 맞는 진입 순서를 제안합니다.
 - [유튜브 체험단 — 영상 후기의 힘과 운영법](https://noahgroup.co.kr/column/youtube-experience.html): 글보다 영상을 믿는 소비자가 늘면서 유튜브 체험단 수요가 커졌습니다. 블로그 체험단과는 단가도, 운영법도, 성과 구조도 다릅니다. 시작 전에 알아야 할 것들을 정리했습니다.
 
-## 홈페이지 제작 가이드 (100편)
+## 홈페이지 제작 가이드 (101편)
 
 - [회사소개 페이지 작성법과 예시 문장](https://noahgroup.co.kr/guide/about-page.html): 회사소개 페이지 작성법을 신뢰 요소 6가지의 배치 순서로 정리했습니다. 안 읽히는 연혁·인사말의 문제와 바로 쓸 수 있는 예시 문장을 담았습니다.
 - [학원 홈페이지 제작 상담 신청 구조](https://noahgroup.co.kr/guide/academy-website.html): 학원 홈페이지 제작에서 상담 신청을 만드는 구조를 정리했습니다. 커리큘럼·성적·강사 신뢰 요소를 학부모 결정 순서대로 배치하는 기준을 담았습니다.
@@ -149,6 +149,7 @@
 - [아임웹 단점과 한계, 실제 증상 정리](https://noahgroup.co.kr/guide/imweb-limitations.html): 아임웹 단점을 SEO 확장 제약·캐시 제어·커스터마이징 한계 중심으로 정리했습니다. 어떤 상황에서 아임웹이 잘 맞고 어디서 막히는지 짚었습니다.
 - [홈페이지 없이 인스타만 운영해도 될까](https://noahgroup.co.kr/guide/instagram-vs-website.html): 홈페이지 없이 인스타그램만 운영할 때의 리스크를 정리했습니다. 플랫폼 종속과 검색 자산의 차이를 5가지 항목으로 비교하고 병행 전략까지 담았습니다.
 - [내부링크 전략과 앵커텍스트 작성 규칙](https://noahgroup.co.kr/guide/internal-linking.html): 내부 링크의 적정 개수와 배치 원리를 토픽 클러스터 구조로 설명합니다. 앵커텍스트 작성 규칙과 연결 순서까지 실무 기준으로 담았습니다.
+- [홈페이지 인트로 화면은 검색 순위에 불리할까](https://noahgroup.co.kr/guide/intro-screen-seo.html): 홈페이지 인트로(로딩) 화면이 검색 순위와 속도에 주는 영향을 노아 메인 실측으로 정리했습니다. 구글 인터스티셜 가이드, LCP 3.54초가 0.17초로 바뀐 구현 차이, 넣어도 되는 7가지 조건을 담았습니다.
 - [카카오톡 상담 버튼 다는 법과 위치](https://noahgroup.co.kr/guide/kakao-chat-button.html): 홈페이지 카카오톡 상담 버튼 설치법을 정리했습니다. 전화보다 문의가 늘어나는 이유 3가지와 채널 연동 절차 6단계, 버튼 위치·문구 기준을 담았습니다.
 - [랜딩페이지 제작 비용과 적정 상황](https://noahgroup.co.kr/guide/landing-page-cost.html): 랜딩페이지 제작 비용 구간과 홈페이지와의 차이를 목적 관점에서 정리했습니다. 원페이지가 적합한 상황과 광고 착지용 설계 기준까지 담았습니다.
 - [랜딩페이지 구성 순서 11단계 정리](https://noahgroup.co.kr/guide/landing-page-structure.html): 랜딩페이지 구성 순서를 11단계로 정리했습니다. 섹션마다 목적과 이탈 방지 장치를 붙였고, 순서가 전환을 바꾸는 원리와 점검 절차까지 담았습니다.

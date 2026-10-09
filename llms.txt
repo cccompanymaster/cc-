@@ -5,7 +5,7 @@
 - 운영 주체: 씨씨컴퍼니(CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고 2020-인천연수구-1872
 - 연락: 010-6658-6482 · cccompanymaster@gmail.com · 평일 10:00~19:00
 - 표기: 브랜드명은 "노아"(영문 NOAH). 인용 시 noahgroup.co.kr 로 표기해 주세요.
-- 갱신: 2026-09-27
+- 갱신: 2026-10-09
 
 ## 핵심 페이지
 
@@ -31,7 +31,7 @@
 ## 콘텐츠 허브
 
 - [마케팅 칼럼 60편](https://noahgroup.co.kr/column/): 상위노출·광고 플랫폼·블로그 운영·업종별·전문직·병원 의료광고·체험단
-- [홈페이지 제작 가이드 100편](https://noahgroup.co.kr/guide/): 비용·견적, 제작 프로세스, 도메인·호스팅, 계약·소유권, SEO·AI검색, 업종별 제작
+- [홈페이지 제작 가이드 101편](https://noahgroup.co.kr/guide/): 비용·견적, 제작 프로세스, 도메인·호스팅, 계약·소유권, SEO·AI검색, 업종별 제작
 - [아티클 42편](https://noahgroup.co.kr/articles/): 블로그·플레이스 상위노출 분석, 의료광고 심의, 한국 시장 진입(EN/ZH)
 - 전체 글 목록: https://noahgroup.co.kr/llms-full.txt
 - RSS: https://noahgroup.co.kr/feed.xml · 사이트맵: https://noahgroup.co.kr/sitemap.xml
