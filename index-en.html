@@ -7,9 +7,8 @@
 <style>
 #noahIntro{display:none}
 .ni-on #noahIntro{display:flex;position:fixed;inset:0;z-index:2147483000;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);animation:niOut .6s ease 4.5s forwards;cursor:pointer}
-/* ni-lock은 본문 스크립트가 붙임 — 스크립트가 실패하면 잠금·일시정지 없이 4.5초 뒤 CSS만으로 사라짐 */
+/* ni-lock은 본문 스크립트가 붙임 — 스크립트가 실패하면 스크롤 잠금 없이 4.5초 뒤 CSS만으로 사라짐 */
 .ni-lock body{overflow:hidden}
-.ni-lock:not(.ni-done) .hero,.ni-lock:not(.ni-done) .hero *{animation-play-state:paused!important}
 /* 건너뛰기·자동 종료용 페이드는 이름을 달리해야 처음부터 재생됨(같은 이름이면 경과 시간 때문에 바로 끝 상태로 점프) */
 .ni-done #noahIntro{animation:niFade .6s cubic-bezier(.7,0,.3,1) forwards!important}
 .ni-orb{position:relative;width:min(46vw,220px);aspect-ratio:1;border-radius:50%;
@@ -252,11 +251,15 @@ d.className+=' ni-done';try{document.dispatchEvent(new Event('noah:introend'));}
 setTimeout(function(){d.className=d.className.replace(/\s*ni-(on|done|lock)\b/g,'');if(el.parentNode)el.parentNode.removeChild(el);},650);}
 setTimeout(function(){end('auto');},2600);
 el.addEventListener('click',function(e){end(e.target.closest('.ni-skip')?'button':'click');});document.addEventListener('keydown',function(){end('key');},{once:true});
+addEventListener('wheel',function(){end('scroll');},{passive:true,once:true});addEventListener('touchmove',function(){end('scroll');},{passive:true,once:true});
 try{localStorage.setItem('noahIntroAt',Date.now());}catch(e){}try{sessionStorage.setItem('noahIntro','1');}catch(e){}
 ga('intro_view');
 var st=el.querySelector('.ni-stage');
 for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=120+Math.random()*120;p.className='ni-p';p.style.setProperty('--x',Math.cos(a)*r+'px');p.style.setProperty('--y',Math.sin(a)*r+'px');p.style.animationDelay=(1.2+Math.random()*.35)+'s';st.appendChild(p);}
 })();</script>
+<script>/* 진입 인트로 아래에서 이미 끝난 첫 화면 등장 애니메이션을 인트로가 걷힐 때 처음부터 다시 재생 (무한 반복 장식은 그대로) */
+document.addEventListener('noah:introend',function(){var h=document.querySelector('.hero');if(!h||!h.getAnimations)return;
+h.getAnimations({subtree:true}).forEach(function(a){var t=a.effect&&a.effect.getTiming();if(t&&t.iterations!==Infinity){a.cancel();a.play();}});},{once:true});</script>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
