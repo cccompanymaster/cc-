@@ -52,7 +52,6 @@ Allow: /
 # Google 이미지 검색 (OG 이미지 색인)
 User-agent: Googlebot-Image
 Allow: /
-Allow: /og-image.svg
 Allow: /*.svg$
 Allow: /*.png$
 Allow: /*.jpg$
