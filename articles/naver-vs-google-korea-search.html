@@ -313,5 +313,6 @@
   <script>(function(){var toc=document.querySelector('.article-toc');if(!toc)return;var list=toc.querySelector('.atoc-list');var heads=document.querySelectorAll('.article-body h2');if(heads.length<3){return;}heads.forEach(function(h,i){var id=h.id||'sec-'+(i+1);h.id=id;var a=document.createElement('a');a.href='#'+id;a.textContent=h.textContent.trim();var li=document.createElement('li');li.appendChild(a);list.appendChild(li);});toc.hidden=false;})();</script>
   <script>const t=document.querySelector('.btn-top');window.addEventListener('scroll',()=>t?.classList.toggle('show',window.scrollY>400),{passive:true});t?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));</script>
 <script src="../js/legacy-nav.js" defer></script>
+<script src="../js/track.js" defer></script>
 </body>
 </html>

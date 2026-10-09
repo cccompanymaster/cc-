@@ -1524,18 +1524,6 @@ document.addEventListener('visibilitychange',function(){document.hidden?stop():i
 addEventListener('resize',function(){if(run)size();});
 a.addEventListener('mouseenter',function(){hov=1;});a.addEventListener('mouseleave',function(){hov=0;});
 a.addEventListener('pointerdown',function(){for(var i=0;i<40;i++)ps.push(spawn(true));});})();</script>
-<script>/* GA4 클릭 이벤트 — 문의 CTA·연락 채널 (cta_location: 헤더·플로팅·하단 배너·문의창·푸터, 그 밖에는 섹션 id) */
-(function(){function ev(n,p){if(typeof gtag==='function')gtag('event',n,p);}
-function where(a){var m=a.closest('#header,.float-cta,.bottom-banner,.inquiry-modal,footer,section');if(!m)return 'other';
-if(m.id==='header')return 'header';if(m.classList.contains('float-cta'))return 'float';if(m.classList.contains('bottom-banner'))return 'bottom_bar';if(m.classList.contains('inquiry-modal'))return 'modal';
-return m.id||m.classList[0]||m.tagName.toLowerCase();}
-document.addEventListener('click',function(e){var a=e.target.closest('a,button');if(!a||a.closest('#noahIntro'))return;
-var h=a.getAttribute('href')||'',p={page:location.pathname,cta_location:where(a)};
-if(h.indexOf('tel:')===0)ev('contact_call',p);
-else if(h.indexOf('pf.kakao.com')>-1)ev('contact_kakao',p);
-else if(h.indexOf('talk.naver.com')>-1)ev('contact_naver_talk',p);
-else if(h.indexOf('blog.naver.com')>-1)ev('click_blog',p);
-else if((a.classList.contains('btn-primary')&&a.getAttribute('type')!=='submit')||a.classList.contains('company-link')||a.classList.contains('btn-ghost')||h==='#contact'){p.label=(a.textContent||'').trim().slice(0,40);ev('cta_click',p);}
-},true);})();</script>
+  <script src="js/track.js" defer></script>
 </body>
 </html>
