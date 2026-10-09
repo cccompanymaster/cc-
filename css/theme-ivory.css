@@ -1,0 +1,196 @@
+/* ============================================================
+   아이보리 테마 — 한국어 메인(index.html)과 같은 톤으로 맞추기
+   style.css(+articles.css·authors.css·products-page.css) 다음에 로드해서
+   예전 남색·차콜 구역(첫 화면·숫자·문의·푸터·하단 배너·저자 상단 등)을 밝게 덮어씀.
+   대상: 영문·중문 메인, 영문·중문 상품, 아티클, 저자 페이지
+   ============================================================ */
+:root {
+  --iv-bg: #FBFAF7;
+  --iv-alt: #F2EEE5;
+  --iv-ink: #17141A;
+  --iv-sub: rgba(23,20,26,.68);
+  --iv-dim: rgba(23,20,26,.46);
+  --iv-line: rgba(23,20,26,.12);
+  --iv-gold: #B08D4E;
+  --iv-gold-soft: #8A6A2E;
+  --iv-gold-ink: #7A5C24;
+  --iv-btn: linear-gradient(135deg, #B08D4E, #8A6A2E 70%);
+}
+
+/* ── 공통 ── */
+::-webkit-scrollbar-track { background: var(--iv-alt); }
+.btn-primary {
+  background: var(--iv-btn) !important;
+  color: #fff !important;
+  border: 1px solid rgba(138,106,46,.55) !important;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #C2A36B, #9A7D4A 70%) !important;
+  color: #fff !important;
+}
+.btn-see-more { background: #fff; color: var(--iv-ink); border: 1px solid var(--iv-line); }
+.btn-top { background: #fff; color: var(--iv-gold-soft); border: 1px solid var(--iv-line); box-shadow: 0 8px 24px -10px rgba(23,20,26,.25); }
+.btn-top:hover { background: var(--iv-gold); color: #fff; }
+.fc-phone { background: var(--iv-btn); }
+.fc-phone .fc-icon { color: #fff; }
+/* 소리 버튼은 script.js가 인라인 스타일로 그림(밝은 색으로 수정) — 꺼짐 상태 글자색만 여기서 */
+.sound-toggle.off { color: rgba(23,20,26,.4) !important; }
+.lang-toast { background: rgba(255,255,255,.97); color: var(--iv-ink); border-color: rgba(176,141,78,.35); box-shadow: 0 18px 40px -16px rgba(23,20,26,.3); }
+
+/* ── 헤더: 첫 화면이 밝아졌으니 맨 위에서도 진한 글자 ── */
+#header { color: var(--iv-ink); }
+
+/* ── 첫 화면 (영문·중문 메인) ── */
+.hero {
+  color: var(--iv-ink);
+  background: radial-gradient(120% 90% at 50% 38%, #FFFFFF 0%, #FBFAF7 52%, #EFE8DA 100%);
+}
+.hero-bg {
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(194,163,107,.16), transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(194,163,107,.10), transparent 50%) !important;
+}
+.hero-bg::after, .hero-stars { display: none; }
+.hero-compass { color: var(--iv-gold); opacity: .42; }
+.hero-waves stop { stop-color: #C2A36B; }
+.hero-eyebrow { color: var(--iv-gold-soft); }
+.hero-title .line i {
+  background: linear-gradient(135deg, #B08D4E 0%, #9A7D4A 55%, #7A5C24 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.hero-ko-lead { color: var(--iv-ink); }
+.hero-sub { color: var(--iv-sub); }
+.hero-sub b, .hero-ko-lead b { color: var(--iv-gold-soft); }
+.hero-micro { color: var(--iv-dim); }
+.hero-micro span { color: var(--iv-gold); }
+.hero .btn-ghost, .contact .btn-ghost { border-color: rgba(23,20,26,.25); color: var(--iv-ink); }
+.hero .btn-ghost:hover, .contact .btn-ghost:hover { border-color: var(--iv-gold); color: var(--iv-gold-soft); background: rgba(194,163,107,.08); }
+
+/* ── 숫자(KPI) ── */
+.kpi { background: var(--iv-alt); color: var(--iv-ink); }
+.kpi-label { color: var(--iv-gold-ink); }
+.kpi .sub-label { color: var(--iv-gold-soft); }
+.kpi-h2 { color: var(--iv-ink); }
+.kpi-h2 em { color: var(--iv-gold); }
+.kpi-lead { color: var(--iv-sub); }
+.kpi-item { border-right-color: var(--iv-line) !important; border-bottom-color: var(--iv-line) !important; }
+.kpi-num, .kpi-item .kpi-num em { color: var(--iv-gold-soft); }
+.kpi-item p { color: var(--iv-sub); }
+.kpi-footnote { color: var(--iv-dim); }
+.kpi-footnote span { color: var(--iv-gold); }
+
+/* ── 문의 ── */
+.contact {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(194,163,107,.12), transparent 50%),
+    linear-gradient(180deg, var(--iv-bg), var(--iv-alt));
+  color: var(--iv-ink);
+}
+.contact-title em { color: var(--iv-gold); }
+.contact-desc { color: var(--iv-sub); }
+.contact-sla { color: var(--iv-sub); }
+.contact-sla span { color: var(--iv-gold); }
+.contact-pay-hint { color: var(--iv-sub); }
+.contact-pay-hint .link-btn { color: var(--iv-gold-soft); }
+.contact-pay-hint .link-btn:hover { color: var(--iv-gold-ink); }
+
+/* ── 푸터 ── */
+#footer { background: var(--iv-alt); color: var(--iv-sub); border-top: 1px solid var(--iv-line); }
+.foot-top { border-bottom-color: var(--iv-line); }
+.foot-logo { color: var(--iv-gold); }
+.foot-logo b { color: var(--iv-ink); }
+.foot-logo span { color: var(--iv-dim); }
+.foot-slogan { color: var(--iv-gold-soft); }
+.foot-slogan-sub { color: var(--iv-dim); }
+.foot-sns .sns { color: var(--iv-sub); border-color: var(--iv-line); }
+.foot-companies h5, .foot-info h5 { color: var(--iv-gold-soft); }
+.foot-companies ul li { border-bottom-color: var(--iv-line); }
+.foot-companies b { color: var(--iv-ink); }
+.foot-companies em { color: var(--iv-dim); }
+.foot-info b { color: var(--iv-dim); }
+.foot-info span { color: var(--iv-ink); }
+.foot-info a:hover, .foot-links a:hover { color: var(--iv-gold-soft); }
+.foot-btm { color: var(--iv-dim); }
+
+/* ── 하단 고정 문의 배너 ── */
+.bottom-banner {
+  background: rgba(251,250,247,.96);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-top-color: rgba(176,141,78,.35);
+  box-shadow: 0 -12px 34px -16px rgba(23,20,26,.22);
+}
+.bb-badge { color: #fff; }
+.bb-text b { color: var(--iv-ink); }
+.bb-text .bb-sub { color: var(--iv-sub); }
+.bb-tel, .bb-tel svg { color: var(--iv-gold-soft); }
+.bb-tel:hover { color: var(--iv-gold-ink); }
+.bb-close { border-color: var(--iv-line); color: rgba(23,20,26,.55); }
+.bb-close:hover { background: rgba(23,20,26,.06); color: var(--iv-ink); border-color: rgba(23,20,26,.25); }
+
+/* ── 아티클 ── */
+.article-body .cta-box {
+  background: linear-gradient(135deg, #FFFFFF, var(--iv-alt));
+  color: var(--iv-ink);
+  border: 1px solid rgba(176,141,78,.35);
+  box-shadow: 0 18px 40px -24px rgba(122,92,36,.35);
+}
+.article-body .cta-box p { color: var(--iv-sub); }
+.article-body .cta-box .btn { background: var(--iv-btn); color: #fff; }
+.article-cta { background: linear-gradient(135deg, #FFFFFF, var(--iv-alt)); color: var(--iv-ink); border: 1px solid rgba(176,141,78,.35); }
+
+/* 칼럼 목록 — 대표 글 카드 */
+.mag-feature { background: var(--iv-alt); color: var(--iv-ink); border: 1px solid rgba(176,141,78,.3); }
+.mag-feature:hover { box-shadow: 0 30px 60px -24px rgba(122,92,36,.35); }
+.mag-feature-bg {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(194,163,107,.30), transparent 50%),
+    linear-gradient(135deg, #FFFFFF 0%, #FBFAF7 55%, #EFE8DA 100%);
+}
+.mag-feature-bg::after { background: linear-gradient(180deg, transparent 40%, rgba(242,238,229,.9) 100%); }
+.mag-feature p { color: var(--iv-sub); }
+
+/* ── 저자 ── */
+.author-hero { background: radial-gradient(120% 120% at 20% 0%, #FFFFFF 0%, #FBFAF7 50%, #EFE8DA 100%); color: var(--iv-ink); border-bottom: 1px solid var(--iv-line); }
+.author-hero .article-crumb { color: var(--iv-dim); }
+.author-hero .article-crumb a { color: var(--iv-sub); }
+.author-hero .article-crumb a:hover { color: var(--iv-gold-soft); }
+.ah-avatar { color: #fff; }
+.ah-role { color: var(--iv-gold-soft); }
+.ah-bio { color: var(--iv-sub); }
+.ah-bio b { color: var(--iv-ink); }
+
+/* ── 글자 대비 보정: 예전 디자인의 연한 금색(#C2A36B·#D4A574) 글씨는 아이보리 위에서 흐려서
+      한국어 메인처럼 진한 금색으로 (작은 글씨 4.5:1, 큰 제목 3:1 이상) ── */
+h1 em, h2 em, h3 em, .kpi-h2 em, .contact-title em, .page-title em { color: #9A7D4A; }
+.sub-label, .kpi .sub-label, .company-tag, .product-brand, .pc-tag, .company-link, .ac-read,
+.aa-role, .aa-profile-link, .mag-eyebrow, .mag-stat, .mag-tag { color: var(--iv-gold-soft); }
+.company-tagline { color: #9A7D4A; }
+.num { color: var(--iv-gold-soft); }
+.scroll-down, .scroll-down p { color: var(--iv-sub); }
+.scroll-down span { border-color: rgba(23,20,26,.3); }
+.hero-micro, .kpi-footnote { color: var(--iv-sub); }
+.page-title { color: var(--iv-ink); }
+.mag-feature, .mag-feature h2, .mag-feature h3, .mag-meta, .mag-meta span { color: var(--iv-ink); }
+.mag-meta span { color: var(--iv-sub); }
+.bb-badge { background: var(--iv-gold-soft); color: #fff; }
+/* 푸터 작은 글씨 */
+.foot-logo span, .foot-slogan-sub, .foot-info b, .foot-btm, .foot-btm a, .foot-btm strong, .copyright { color: var(--iv-sub); }
+.foot-biz { border-top-color: var(--iv-line); border-bottom-color: var(--iv-line); }
+.foot-biz .biz-info { color: var(--iv-sub); }
+.foot-biz .biz-info li b { color: var(--iv-ink); }
+/* 금색 그라데이션 글씨(.h2 em 등)는 맨 앞 색이 #E8DCC2라 아이보리 위에서 거의 안 보임 → 진한 금색 그라데이션 */
+.h2 em, .hero-title i, .hero-title .line i, .page-hero h1 em {
+  background: linear-gradient(135deg, #B08D4E 0%, #9A7D4A 55%, #7A5C24 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.articles-title em, .page-title em { color: #9A7D4A; }
+.page-hero h1 { color: var(--iv-ink); }
+.news-card .meta span:first-child { color: var(--iv-gold-soft); }
+.foot-companies em { color: var(--iv-sub); }
+.mag-side-card .mag-stat { color: var(--iv-gold-soft); }
+.author-hero .article-crumb { color: var(--iv-sub); }
+.about-points .num { color: var(--iv-gold-soft); }
+.auth-role, .auth-link { color: var(--iv-gold-soft); }
+/* 아티클·저자 페이지의 작은 금색 글씨·본문 링크 */
+.aa-tag, .am-link, .article-body a, .article-refs a, .article-refs li a { color: var(--iv-gold-soft); }
+.article-body a:hover, .article-refs a:hover, .article-refs li a:hover { color: var(--iv-gold-ink); }
