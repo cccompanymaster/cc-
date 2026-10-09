@@ -2,13 +2,16 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<!-- NOAH 진입 인트로: 세션당 1회, 모션 최소화 설정·봇·JS 꺼짐 시 표시 안 함 -->
-<script>(function(){try{var d=document.documentElement;if(sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/bot|crawl|spider|slurp|lighthouse|yeti|daum\/|headless|inspectiontool/i.test(navigator.userAgent))return;d.className+=' ni-on';}catch(e){}})();</script>
+<!-- NOAH 진입 인트로: 24시간에 1회(localStorage, 차단 시 탭당 1회), 모션 최소화 설정·봇·JS 꺼짐 시 표시 안 함 -->
+<script>(function(){try{var d=document.documentElement,t=0;try{t=+localStorage.getItem('noahIntroAt')||0;}catch(e){}if(Date.now()-t<864e5||sessionStorage.getItem('noahIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches||/bot|crawl|spider|slurp|lighthouse|yeti|daum\/|headless|inspectiontool/i.test(navigator.userAgent))return;d.className+=' ni-on';}catch(e){}})();</script>
 <style>
 #noahIntro{display:none}
-.ni-on #noahIntro{display:flex;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);animation:niOut .7s cubic-bezier(.7,0,.3,1) 2.6s forwards;cursor:pointer}
-.ni-on body{overflow:hidden}
-.ni-done #noahIntro{animation:niOut .45s cubic-bezier(.7,0,.3,1) forwards!important}
+.ni-on #noahIntro{display:flex;position:fixed;inset:0;z-index:2147483000;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 42%,#FFFFFF 0%,#FBFAF7 45%,#EFE8DA 100%);animation:niOut .6s ease 4.5s forwards;cursor:pointer}
+/* ni-lock은 본문 스크립트가 붙임 — 스크립트가 실패하면 잠금·일시정지 없이 4.5초 뒤 CSS만으로 사라짐 */
+.ni-lock body{overflow:hidden}
+.ni-lock:not(.ni-done) .hero,.ni-lock:not(.ni-done) .hero *{animation-play-state:paused!important}
+/* 건너뛰기·자동 종료용 페이드는 이름을 달리해야 처음부터 재생됨(같은 이름이면 경과 시간 때문에 바로 끝 상태로 점프) */
+.ni-done #noahIntro{animation:niFade .6s cubic-bezier(.7,0,.3,1) forwards!important}
 .ni-orb{position:relative;width:min(46vw,220px);aspect-ratio:1;border-radius:50%;
   background:radial-gradient(60% 60% at 32% 26%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 34%,rgba(255,255,255,0) 60%),
              radial-gradient(80% 80% at 70% 82%,rgba(194,163,107,.42) 0%,rgba(194,163,107,0) 60%),
@@ -38,6 +41,7 @@
 @keyframes niP{0%{opacity:0;transform:translate(-50%,-50%)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(.4)}}
 @keyframes niUp{to{opacity:1;transform:none}}
 @keyframes niOut{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
+@keyframes niFade{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
 </style>
 <!-- Google tag (gtag.js) — GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
@@ -947,12 +951,19 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   <button type="button" class="ni-skip" tabindex="-1">건너뛰기</button>
 </div>
 <script>(function(){var d=document.documentElement,el=document.getElementById('noahIntro');if(!/\bni-on\b/.test(d.className)||!el)return;
-try{sessionStorage.setItem('noahIntro','1');}catch(e){}
+d.className+=' ni-lock';
+var t0=Date.now(),ga=function(n,p){if(typeof gtag==='function')gtag('event',n,p||{});};
+var done=false;function end(how){if(done)return;done=true;
+if(how==='auto')ga('intro_complete');else ga('intro_skip',{method:how,seconds:Math.round((Date.now()-t0)/100)/10});
+d.className+=' ni-done';try{document.dispatchEvent(new Event('noah:introend'));}catch(e){}
+setTimeout(function(){d.className=d.className.replace(/\s*ni-(on|done|lock)\b/g,'');if(el.parentNode)el.parentNode.removeChild(el);},650);}
+setTimeout(function(){end('auto');},2600);
+el.addEventListener('click',function(e){end(e.target.closest('.ni-skip')?'button':'click');});document.addEventListener('keydown',function(){end('key');},{once:true});
+try{localStorage.setItem('noahIntroAt',Date.now());}catch(e){}try{sessionStorage.setItem('noahIntro','1');}catch(e){}
+ga('intro_view');
 var st=el.querySelector('.ni-stage');
 for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=120+Math.random()*120;p.className='ni-p';p.style.setProperty('--x',Math.cos(a)*r+'px');p.style.setProperty('--y',Math.sin(a)*r+'px');p.style.animationDelay=(1.2+Math.random()*.35)+'s';st.appendChild(p);}
-var done=false;function end(){if(done)return;done=true;d.className+=' ni-done';setTimeout(function(){d.className=d.className.replace(/\s*ni-(on|done)\b/g,'');if(el.parentNode)el.parentNode.removeChild(el);},480);}
-el.addEventListener('click',end);document.addEventListener('keydown',end,{once:true});
-el.addEventListener('animationend',function(e){if(e.target===el)end();});setTimeout(end,3600);})();</script>
+})();</script>
 
 <!-- top mini bar -->
 <div class="topbar">
@@ -1399,9 +1410,18 @@ function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
 (function(){
   var items = document.querySelectorAll('.hero-rv');
   var delays = [500, 1000, 1600, 2100, 2600];
-  items.forEach(function(el,i){
-    setTimeout(function(){ el.classList.add('show'); }, delays[i] || 500 + i*500);
-  });
+  function run(k){
+    items.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('show'); }, (delays[i] || 500 + i*500) * k);
+    });
+  }
+  // 진입 인트로가 떠 있으면 끝날 때(페이드 시작) 재생 — 인트로 뒤에서 미리 끝나 버리지 않게
+  var c = document.documentElement.className;
+  if (/\bni-lock\b/.test(c) && !/\bni-done\b/.test(c)) {
+    var go = function(){ if (go.d) return; go.d = 1; run(.5); };
+    document.addEventListener('noah:introend', go);
+    setTimeout(go, 6000);
+  } else run(1);
 })();
 
 /* ─── fade-up observer ─── */

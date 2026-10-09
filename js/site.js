@@ -46,16 +46,28 @@
     onScroll();
   }
   function ev(name, params) { if (typeof gtag === 'function') gtag('event', name, params || {}); }
+  // 클릭 위치(cta_location): 상단바·메뉴·하단바·플로팅·푸터, 그 밖에는 섹션 id(없으면 첫 클래스)
+  function where(a) {
+    var m = a.closest('.topbar,#tbNav,.bottom-bar,.float-cta,footer,section');
+    if (!m) return 'other';
+    if (m.id === 'tbNav') return 'menu';
+    if (m.classList.contains('bottom-bar')) return 'bottom_bar';
+    if (m.classList.contains('float-cta')) return 'float';
+    return m.id || m.classList[0] || m.tagName.toLowerCase();
+  }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a,button');
-    if (!a) return;
+    if (!a || a.closest('#noahIntro')) return;
     var href = a.getAttribute('href') || '';
-    if (href.indexOf('tel:') === 0) ev('contact_call', { page: location.pathname });
-    else if (href.indexOf('pf.kakao.com') > -1) ev('contact_kakao', { page: location.pathname });
-    else if (href.indexOf('talk.naver.com') > -1) ev('contact_naver_talk', { page: location.pathname });
-    else if (href.indexOf('blog.naver.com') > -1) ev('click_blog', { page: location.pathname });
-    else if (a.classList.contains('tb-link') || a.classList.contains('tbn-cta') || a.classList.contains('tbn-shortcut') || a.classList.contains('btn-gold') || a.classList.contains('btn2') || a.classList.contains('bb-btn') || a.id === 'trCtaBtn')
-      ev('cta_click', { label: (a.textContent || '').trim().slice(0, 40), page: location.pathname });
+    var p = { page: location.pathname, cta_location: where(a) };
+    if (href.indexOf('tel:') === 0) ev('contact_call', p);
+    else if (href.indexOf('pf.kakao.com') > -1) ev('contact_kakao', p);
+    else if (href.indexOf('talk.naver.com') > -1) ev('contact_naver_talk', p);
+    else if (href.indexOf('blog.naver.com') > -1) ev('click_blog', p);
+    else if (/(^|\/)contact\.html/.test(href) || a.classList.contains('tb-link') || a.classList.contains('tbn-cta') || a.classList.contains('tbn-shortcut') || a.classList.contains('btn-gold') || a.classList.contains('btn2') || a.classList.contains('bb-btn') || a.id === 'trCtaBtn') {
+      p.label = (a.textContent || '').trim().slice(0, 40);
+      ev('cta_click', p);
+    }
   }, true);
 })();
 
