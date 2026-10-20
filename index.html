@@ -937,6 +937,22 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   .hero-glass-wrap::before{animation:none}
   .ob-btns .btn::after,.tr-cta .btn::after,.final-cta .btn2::after,.bottom-bar .bb-btn::after,#tbNav .tbn-cta::after{transition:none}
 }
+
+/* 첫 화면 문의 동선 — 버튼·사례 한 줄 (마키는 아래로) */
+.hero-cta{position:absolute;top:65%;left:50%;transform:translateX(-50%);z-index:5;width:min(92%,640px);text-align:center}
+.hero-cta .ob-btns{margin-top:0}
+.hero-proof{margin-top:12px;font-size:12.5px;color:var(--sub);letter-spacing:.01em}
+.hero-proof span{white-space:nowrap}
+.hero-marquee.back{top:76%}.hero-marquee.front{top:87%}
+@media(min-width:769px) and (max-height:840px){.hero-tag{top:56%}.hero-cta{top:67%}.hero-proof{display:none}.hero-marquee.back{top:80%}.hero-marquee.front{top:90%}}
+@media(min-width:769px) and (max-height:700px){.hero-cta{top:56%}}
+@media(max-width:768px){.hero-tag{top:51%}.hero-cta{top:63%}.hero-cta .ob-btns .btn.hero-glass{padding:15px 28px;font-size:14.5px}.hero-cta .ob-btns .btn2{padding:15px 22px;font-size:14px}.hero-marquee.back{top:80%}.hero-marquee.front{top:89%}}
+/* 자체 사업 — 벤토 그리드(큰 칸 1 + 작은 칸 5), 데스크톱만 */
+@media(min-width:881px){
+  .ob-grid .ob-card:first-child{grid-column:span 2;grid-row:span 2}
+  .ob-grid .ob-card:first-child .ob-thumb{aspect-ratio:auto;flex:1}
+  .ob-grid .ob-card:first-child h3{font-size:21px}
+}
 </style>
 </head>
 <body>
@@ -1023,6 +1039,10 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
     <span class="solid">NOAH</span>
   </h1>
   <p class="hero-tag hero-rv">노출을 팔지 않습니다. <b>매출</b>을 만듭니다.<br>전문직 · 바이럴 · 데이터 통합 마케팅</p>
+  <div class="hero-cta hero-rv">
+    <div class="ob-btns"><a href="contact.html" class="btn hero-glass">무료 진단 받기 <span class="arrow">→</span></a><a href="#hpin" class="btn2">성과 사례 보기</a></div>
+    <p class="hero-proof">실제 사례 · <span>신환 0→월 280명</span> · <span>ROAS 198%→485%</span> · <span>가맹 문의 +540%</span></p>
+  </div>
   <div class="hero-marquee back hero-rv">
     <div class="hero-track"><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span></div>
   </div>
@@ -1119,7 +1139,7 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
     </div>
 
     <div class="ob-grid">
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/01-business-insurance-640.webp" srcset="assets/photos/01-business-insurance-640.webp 640w, assets/photos/01-business-insurance-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="보험 상담 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🛡️</span></div><div class="ob-body"><h3>보험 지사</h3><p>설계사 조직 운영 &middot; DB 기반 상담 전환</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/01-business-insurance-640.webp" srcset="assets/photos/01-business-insurance-640.webp 640w, assets/photos/01-business-insurance-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 64vw" width="1448" height="1086" alt="보험 상담 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🛡️</span></div><div class="ob-body"><h3>보험 지사</h3><p>설계사 조직 운영 &middot; DB 기반 상담 전환</p><p class="ai-cap">AI 연출 이미지</p></div></article>
       <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/02-business-lease-640.webp" srcset="assets/photos/02-business-lease-640.webp 640w, assets/photos/02-business-lease-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="차량 리스·렌트 안내를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🚗</span></div><div class="ob-body"><h3>리스·렌트</h3><p>차량 금융 상담 &middot; 고관여 리드 관리</p><p class="ai-cap">AI 연출 이미지</p></div></article>
       <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/03-business-carwash-640.webp" srcset="assets/photos/03-business-carwash-640.webp 640w, assets/photos/03-business-carwash-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="출장 세차 작업을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🫧</span></div><div class="ob-body"><h3>출장 세차</h3><p>지역 기반 O2O &middot; 예약 전환 운영</p><p class="ai-cap">AI 연출 이미지</p></div></article>
       <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/04-business-website-640.webp" srcset="assets/photos/04-business-website-640.webp 640w, assets/photos/04-business-website-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="홈페이지 디자인 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🖥️</span></div><div class="ob-body"><h3>홈페이지 제작</h3><p>템플릿형 제작 &middot; 검색 기반 유입 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
@@ -1131,7 +1151,7 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
       <p class="ob-quote">대행만 해 본 회사는 <b>예산을 씁니다.</b><br>사업을 해 본 회사는 <b>예산을 지킵니다.</b></p>
       <p class="ob-cta-line">진짜 잘하는 회사, 노아와 함께 성장하시죠.</p>
       <div class="ob-btns">
-        <a href="contact.html" class="btn hero-glass">무료 진단 받기 <span class="arrow">→</span></a>
+        <a href="contact.html" class="btn">무료 진단 받기 <span class="arrow">→</span></a>
         <a href="work.html" class="btn2">레퍼런스 보기</a>
       </div>
     </div>
@@ -1780,7 +1800,7 @@ if(window.innerWidth > 768 && !matchMedia('(prefers-reduced-motion: reduce)').ma
 <script>/* A: 히어로 CTA 골드 파티클 오라 — 2D 캔버스, 화면에 보일 때만 동작, 누르면 버스트 */
 (function(){var a=document.querySelector('.ob-btns .btn.hero-glass');if(!a)return;
 var w=document.createElement('span');w.className='hero-glass-wrap';a.parentNode.insertBefore(w,a);w.appendChild(a);
-if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches||matchMedia('(max-width:768px)').matches)return; // ponytail: 모바일은 테두리 빛만 — 입자 캔버스는 첫 화면에서 메인 스레드를 계속 씀
 var c=document.createElement('canvas');c.setAttribute('aria-hidden','true');w.insertBefore(c,a);
 var x=c.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2),W,H,ps=[],run=false,raf,hov=0,mob=matchMedia('(max-width:768px)').matches,N=mob?26:48;
 function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);}
