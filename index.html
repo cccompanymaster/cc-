@@ -220,7 +220,7 @@
 :root{
   --bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;
   --paper:#f8f5f0;--paper-alt:#f1ece1;
-  --white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
+  --white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
   --ink:#17141A;--ink-sub:rgba(26,22,29,.62);--ink-dim:rgba(26,22,29,.35);
   --gold:#B08D4E;--gold-soft:#8A6A2E;--gold-ink:#7A5C24;
   --red:#e35454;
@@ -410,7 +410,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   border-top:1px solid var(--border-l);border-bottom:1px solid var(--border-l);
 }
 .counter-head{text-align:center;margin-bottom:64px}
-.counter-head p{font-size:13px;font-weight:800;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.counter-head p{font-size:13px;font-weight:800;letter-spacing:.2em;color:var(--gold-ink);text-transform:uppercase;margin-bottom:14px}
 .counter-head h2{font-size:clamp(28px,4.4vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.3}
 .counter-head h2 em{
   font-style:normal;
@@ -455,7 +455,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .sticky-left.revealed .progress-bar,.sticky-left.revealed .progress-step{opacity:1;transform:translateY(0)}
 .progress-bar{width:3px;height:200px;background:var(--border);border-radius:3px;position:relative;overflow:hidden}
 .progress-fill{position:absolute;top:0;left:0;width:100%;height:0%;background:var(--gold);border-radius:3px;transition:height .1s linear}
-.progress-step{font-size:13px;color:var(--dim);margin-top:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.progress-step{font-size:13px;color:var(--sub);margin-top:16px;font-weight:600;font-variant-numeric:tabular-nums}
 .sticky-right{width:55%;padding:20vh 40px 8vh 0;display:flex;flex-direction:column}
 .process-card{
   padding:48px 0;border-bottom:1px solid rgba(154,125,74,.16);
@@ -522,7 +522,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 @media(prefers-reduced-motion:reduce){.rv-track{animation:none!important;transform:none!important}}
 .rv-card .rv-q{font-size:15.5px;line-height:1.75;color:rgba(23,20,26,.88);font-weight:500}
 .rv-card .rv-q::before{content:'"';font-size:30px;font-weight:900;color:var(--gold);line-height:0;vertical-align:-6px;margin-right:4px}
-.rv-card .rv-a{margin-top:14px;padding-top:12px;border-top:1px solid rgba(154,125,74,.16);font-size:13px;color:var(--dim)}
+.rv-card .rv-a{margin-top:14px;padding-top:12px;border-top:1px solid rgba(154,125,74,.16);font-size:13px;color:var(--sub)}
 .rv-card .rv-a b{color:var(--gold-soft);font-weight:700}
 @media(max-width:900px){
   .rv-layout{flex-direction:column}
@@ -553,13 +553,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hpin-slide.intro h2{font-size:clamp(36px,5.6vw,72px);font-weight:800;letter-spacing:-3px;line-height:1.18}
 .hpin-slide.intro .arrow{font-size:40px;margin-top:16px;opacity:.4;animation:arrowB 1.5s ease infinite}
 @keyframes arrowB{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
-.hs-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--gold)}
+.hs-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--gold-ink)}
 .hs-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .hs-title{font-size:clamp(21px,2.3vw,30px);font-weight:800;letter-spacing:-1px;line-height:1.35;margin-top:14px}
 .hs-desc{font-size:14.5px;color:var(--sub);line-height:1.7;margin-top:12px;flex:1}
 .hs-result{padding-top:18px;border-top:1px solid rgba(154,125,74,.2)}
 .hs-result b{display:block;font-size:clamp(24px,2.6vw,34px);font-weight:900;letter-spacing:-1px;color:var(--gold-soft);line-height:1.2}
-.hs-result span{font-size:12.5px;color:var(--dim);font-weight:600}
+.hs-result span{font-size:12.5px;color:var(--sub);font-weight:600}
 @media(max-width:768px){
   .hpin-scroll{height:auto!important;position:static!important}
   .hpin-sticky{position:static!important;height:auto!important;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:40px 0;scrollbar-width:none}
@@ -575,7 +575,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .text-reveal{padding:0 0 150px;display:flex;align-items:center;justify-content:center;background:var(--bg);text-align:center}
 .text-reveal .inner{text-align:center}
 .text-reveal h2{font-size:clamp(32px,5.6vw,68px);font-weight:800;line-height:1.5;letter-spacing:-1.5px;max-width:940px;margin:0 auto}
-.tr-word{display:inline;font-weight:300;color:var(--dim);transition:color .25s ease}
+.tr-word{display:inline;font-weight:300;color:rgba(23,20,26,.46);transition:color .25s ease}
 .tr-word.lit{color:var(--white)}
 .tr-word.highlight{font-weight:900;position:relative;padding:0 4px;isolation:isolate}
 .tr-word.highlight::after{
@@ -612,7 +612,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 }
 .tr-cursor.click{transform:scale(.85);transition:transform .1s ease}
 .tr-cursor.release{transform:scale(1);transition:transform .15s ease}
-.tr-note{margin-top:20px;font-size:13.5px;color:var(--dim)}
+.tr-note{margin-top:20px;font-size:13.5px;color:var(--sub)}
 
 /* ───────────────────────────────────────── */
 /* 9. FAQ                                    */
@@ -866,7 +866,7 @@ body.nav-open #tbNav{transform:none;pointer-events:auto;visibility:visible;box-s
 /* ===== 자체 사업 섹션 ===== */
 .ownbiz{padding:clamp(80px,12vh,140px) 0;background:var(--bg-alt);border-top:1px solid var(--border-l)}
 .ob-head{text-align:center;max-width:760px;margin:0 auto clamp(40px,6vh,60px)}
-.ob-eyebrow{font-size:12px;font-weight:800;letter-spacing:.3em;color:var(--gold);margin-bottom:16px}
+.ob-eyebrow{font-size:12px;font-weight:800;letter-spacing:.3em;color:var(--gold-ink);margin-bottom:16px}
 .ob-head h2{font-family:inherit;font-size:clamp(25px,4vw,44px);font-weight:900;letter-spacing:-1.4px;line-height:1.32}
 .ob-head h2 em{font-style:normal;background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .ob-sub{margin-top:18px;font-size:15px;color:var(--sub);line-height:1.85}
@@ -883,7 +883,7 @@ body.nav-open #tbNav{transform:none;pointer-events:auto;visibility:visible;box-s
 .ob-card:hover .ob-thumb img{transform:scale(1.045)}
 .ob-thumb .ob-ico{font-size:38px;margin:0;opacity:.5}
 .ob-body{padding:22px 22px 26px}
-.ai-cap{margin-top:10px;font-size:10.5px;letter-spacing:.02em;color:rgba(23,20,26,.5)}
+.ai-cap{margin-top:10px;font-size:11px;letter-spacing:.02em;color:var(--sub)}
 
 
 .ob-card h3{font-size:17px;font-weight:800;letter-spacing:-.3px;margin-bottom:7px}
@@ -938,6 +938,8 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   .ob-btns .btn::after,.tr-cta .btn::after,.final-cta .btn2::after,.bottom-bar .bb-btn::after,#tbNav .tbn-cta::after{transition:none}
 }
 
+.skip-link{position:fixed;left:12px;top:-64px;z-index:10000;padding:10px 16px;border-radius:10px;background:#17141A;color:#fff;font-size:14px;font-weight:700}
+.skip-link:focus{top:16px}
 /* 첫 화면 문의 동선 — 버튼·사례 한 줄 (마키는 아래로) */
 .hero-cta{position:absolute;top:65%;left:50%;transform:translateX(-50%);z-index:5;width:min(92%,640px);text-align:center}
 .hero-cta .ob-btns{margin-top:0}
@@ -954,6 +956,8 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   .ob-grid .ob-card:first-child h3{font-size:21px}
 }
 </style>
+<!-- FAQPage: 아래 FAQ 구역(#faqSection) 문장과 글자까지 같게 유지 -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "@id": "https://noahgroup.co.kr/#faqSection", "mainEntity": [{"@type": "Question", "name": "최소 예산은 어느 정도인가요?", "acceptedAnswer": {"@type": "Answer", "text": "표준 운영 패키지는 월 300만원부터입니다. 광고비와 운영 수수료는 분리 책정되며, 첫 상담에서 업종·경쟁도별 ROI 시뮬레이션을 제공합니다."}}, {"@type": "Question", "name": "계약 기간은 최소 얼마부터인가요?", "acceptedAnswer": {"@type": "Answer", "text": "표준 계약은 6개월·12개월 단위입니다. 데이터 누적·최적화 사이클상 최소 90일 이상 운영해야 ROAS가 안정화됩니다."}}, {"@type": "Question", "name": "의료광고 심의도 해주나요?", "acceptedAnswer": {"@type": "Answer", "text": "의협·치협·한의협·약사회 등 모든 의료 단체 심의를 자체 인하우스 인력으로 직접 대행합니다. 평균 1차 승인율 96.4%, 반려 시 무상 재제출까지 책임집니다."}}, {"@type": "Question", "name": "성과는 어떻게 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "실시간 대시보드 24/7 접속 권한 + 주간 자동 리포트 + 월간 심층 리포트. 매출 전환·CAC·LTV 등 30+ 핵심 지표를 실측합니다."}}, {"@type": "Question", "name": "서울·경기 외 지역도 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "전국 운영 가능합니다. 화상 정기 보고 + 24시간 커뮤니케이션 채널 + 월 1회 PM 미팅 기본 제공, 분기 1회 방문 컨설팅도 별도 비용 없이 진행됩니다."}}]}</script>
 </head>
 <body>
 <div id="noahIntro" aria-hidden="true">
@@ -984,6 +988,7 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
 })();</script>
 
 <!-- top mini bar -->
+<a href="#main-content" class="skip-link">본문 바로가기</a>
 <div class="topbar">
   <a href="index.html" class="tb-logo" aria-label="노아 홈">
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
@@ -1032,21 +1037,24 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
   </nav>
 
 <!-- ═══════════════ 1. HERO ═══════════════ -->
+<main id="main-content">
 <section class="hero" id="hero">
   <p class="hero-sub hero-rv"><span class="thin">광고대행의</span> 새로운 기준.</p>
-  <h1 class="hero-headline hero-rv">
+  <h1>
+  <span class="hero-headline hero-rv">
     <span class="outline">MARKETING</span>
     <span class="solid">NOAH</span>
+  </span>
+  <span class="hero-tag hero-rv">노출을 팔지 않습니다. <b>매출</b>을 만듭니다.<br>전문직 · 바이럴 · 데이터 통합 마케팅</span>
   </h1>
-  <p class="hero-tag hero-rv">노출을 팔지 않습니다. <b>매출</b>을 만듭니다.<br>전문직 · 바이럴 · 데이터 통합 마케팅</p>
   <div class="hero-cta hero-rv">
     <div class="ob-btns"><a href="contact.html" class="btn hero-glass">무료 진단 받기 <span class="arrow">→</span></a><a href="#hpin" class="btn2">성과 사례 보기</a></div>
     <p class="hero-proof">실제 사례 · <span>신환 0→월 280명</span> · <span>ROAS 198%→485%</span> · <span>가맹 문의 +540%</span></p>
   </div>
-  <div class="hero-marquee back hero-rv">
+  <div class="hero-marquee back hero-rv" aria-hidden="true">
     <div class="hero-track"><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span></div>
   </div>
-  <div class="hero-marquee front hero-rv">
+  <div class="hero-marquee front hero-rv" aria-hidden="true">
     <div class="hero-track reverse"><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span></div>
   </div>
   <div class="scroll-circle" aria-hidden="true">
@@ -1376,6 +1384,7 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
   </div>
 </section>
 
+</main>
 <footer>
   <div class="inner">
     <div class="f-logo">
@@ -1427,6 +1436,8 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
 (function(){
 'use strict';
 function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
+// 스티키 구역 첫 장면의 단어 등장 비율: 구역 윗변이 화면 아래에 닿을 때 0 → 고정 후 endPx만큼 더 스크롤하면 1 (들어오는 동안 빈 화면 방지)
+function revealAt(el,endPx){return clamp((window.innerHeight-el.getBoundingClientRect().top)/(window.innerHeight+endPx),0,1)}
 
 /* ─── HERO reveal ─── */
 (function(){
@@ -1493,7 +1504,7 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
 
     if(idx===0){
       var words=screens[0].querySelectorAll('.wn-word');
-      var sc=Math.ceil(Math.min(seg/0.22,1)*words.length);
+      var sc=Math.ceil(revealAt(scrollWrap,splits[0]*0.22*scrollH)*words.length);
       words.forEach(function(w,i){w.classList.toggle('show',i<sc)});
     } else {
       var lines=screens[idx].querySelectorAll('.wn-line');
@@ -1533,7 +1544,7 @@ document.querySelectorAll('.fade-up').forEach(function(el){ fadeObserver.observe
       });
     }
     var words=screens[idx].querySelectorAll('.qi-word');
-    var sc=Math.ceil(Math.min(seg/0.22,1)*words.length);
+    var sc=Math.ceil((idx===0?revealAt(scrollWrap,splits[0]*0.22*scrollH):Math.min(seg/0.22,1))*words.length);
     words.forEach(function(w,i){w.classList.toggle('show',i<sc)});
     ticking=false;
   }
