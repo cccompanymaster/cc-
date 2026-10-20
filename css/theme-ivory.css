@@ -194,3 +194,8 @@ h1 em, h2 em, h3 em, .kpi-h2 em, .contact-title em, .page-title em { color: #9A7
 /* 아티클·저자 페이지의 작은 금색 글씨·본문 링크 */
 .aa-tag, .am-link, .article-body a, .article-refs a, .article-refs li a { color: var(--iv-gold-soft); }
 .article-body a:hover, .article-refs a:hover, .article-refs li a:hover { color: var(--iv-gold-ink); }
+/* 본문 안에 들어간 관련 글 카드는 본문 링크(밑줄·금색) 스타일을 받지 않게 */
+.article-body .ar-card { text-decoration: none; color: var(--iv-ink); }
+/* 관련 글 카드: 긴 영문 단어가 칸을 밀어내 본문 밖으로 넘치지 않게 */
+@media (min-width: 761px) { .ar-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ar-card h3, .ar-card p { overflow-wrap: anywhere; }
