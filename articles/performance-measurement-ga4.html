@@ -29,6 +29,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "퍼포먼스 측정 2026 — GA4·UTM·ROAS·구글 SGE 대응 종합 가이드", "image": "https://noahgroup.co.kr/og/db.jpg", "datePublished": "2026-04-25", "dateModified": "2026-04-25", "wordCount": 1380, "author": {"@type": "Person", "name": "박정훈", "url": "https://noahgroup.co.kr/authors/park-jeonghoon.html", "jobTitle": "데이터 퍼포먼스팀 퍼포먼스 리드", "worksFor": {"@type": "Organization", "name": "노아", "@id": "https://noahgroup.co.kr/#organization"}, "knowsAbout": ["GA4", "UTM", "ROAS", "전환 추적", "퍼포먼스 측정"]}, "publisher": {"@type": "Organization", "name": "노아", "logo": {"@type": "ImageObject", "url": "https://noahgroup.co.kr/favicon-512.png"}, "@id": "https://noahgroup.co.kr/#organization"}, "mainEntityOfPage": "https://noahgroup.co.kr/articles/performance-measurement-ga4.html", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".lead", "h1"]}, "articleSection": "퍼포먼스 측정", "keywords": "GA4, UTM활용, ROAS측정, 전환추적"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://noahgroup.co.kr/"},{"@type":"ListItem","position":2,"name":"아티클","item":"https://noahgroup.co.kr/articles/"},{"@type":"ListItem","position":3,"name":"퍼포먼스 측정 GA4·UTM·ROAS","item":"https://noahgroup.co.kr/articles/performance-measurement-ga4.html"}]}</script>
 <link rel="stylesheet" href="../css/theme-ivory.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "UTM 파라미터는 어떤 규칙으로 만들어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "UTM 값은 소문자 + 언더스코어 + 연도로 표기를 통일해야 합니다. 대소문자를 섞어 쓰면 GA4가 별도 채널로 집계해 데이터가 망가지며, 표준 파라미터는 utm_source·utm_medium·utm_campaign·utm_content·utm_term 5개입니다."}}, {"@type": "Question", "name": "구글 SGE나 ChatGPT에서 들어온 트래픽은 GA4에서 어떻게 구분하나요?", "acceptedAnswer": {"@type": "Answer", "text": "구글 SGE 답변에서 들어오는 트래픽은 GA4 기본 분류에서 (other)로 잡히므로 커스텀 채널 그룹에 SGE referrer 패턴을 등록해 구분합니다. chat.openai.com·perplexity.ai·claude.ai 유입은 별도 채널로 분리하고, GSC(Search Console)의 AI Overview 임프레션도 따로 추적합니다."}}, {"@type": "Question", "name": "GA4를 처음 설정할 때 꼭 바꿔야 할 설정이 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "GA4 데이터 보존 기간은 기본 2개월로는 충분하지 않으므로 14개월로 설정해야 합니다. 셋업 체크리스트에는 강화된 측정 켜기, 전환 이벤트(purchase, generate_lead, contact 등) 정의, 원본 데이터 백업을 위한 BigQuery 연동(무료)도 포함됩니다."}}]}</script>
 </head>
 <body class="articles-page">
   <a href="#article-body" class="skip-link">본문 바로가기</a><div class="cursor" aria-hidden="true"></div>
@@ -56,6 +57,7 @@
 
       <div class="article-body">
         <nav class="article-toc" aria-label="목차" hidden><div class="atoc-title">목차</div><ol class="atoc-list"></ol></nav>
+        <div class="article-answer"><span class="ans-label">한 줄 답</span><p>광고 ROI는 GA4·UTM·ROAS 3종 세트로 측정하며, ROAS(광고로 발생한 매출 / 광고비)의 목표는 4배+입니다. 광고 성과의 건전성 기준은 LTV가 CAC의 3배 이상(LTV ≥ 3 × CAC)인 상태입니다.</p></div>
         <p class="lead">"광고비 1,000만원 썼는데 매출이 얼마나 늘었어요?" 답할 수 없으면 광고가 아니라 도박입니다. <b>GA4·UTM·ROAS</b> 3종 세트로 ROI를 측정하는 표준 셋업과, 2026 신규 이슈인 <b>구글 SGE 트래픽 추적</b>까지 정리합니다.</p>
 
         <h2>1. GA4 도입 — 30분 셋업 체크리스트</h2>
@@ -158,6 +160,12 @@
           <li><b>코호트 LTV</b> (가입 월별 12개월 누적)</li>
         </ol>
 
+        <section class="article-faq" aria-label="자주 묻는 질문">
+          <h2>자주 묻는 질문</h2>
+          <details><summary>UTM 파라미터는 어떤 규칙으로 만들어야 하나요?</summary><p>UTM 값은 소문자 + 언더스코어 + 연도로 표기를 통일해야 합니다. 대소문자를 섞어 쓰면 GA4가 별도 채널로 집계해 데이터가 망가지며, 표준 파라미터는 utm_source·utm_medium·utm_campaign·utm_content·utm_term 5개입니다.</p></details>
+          <details><summary>구글 SGE나 ChatGPT에서 들어온 트래픽은 GA4에서 어떻게 구분하나요?</summary><p>구글 SGE 답변에서 들어오는 트래픽은 GA4 기본 분류에서 (other)로 잡히므로 커스텀 채널 그룹에 SGE referrer 패턴을 등록해 구분합니다. chat.openai.com·perplexity.ai·claude.ai 유입은 별도 채널로 분리하고, GSC(Search Console)의 AI Overview 임프레션도 따로 추적합니다.</p></details>
+          <details><summary>GA4를 처음 설정할 때 꼭 바꿔야 할 설정이 있나요?</summary><p>GA4 데이터 보존 기간은 기본 2개월로는 충분하지 않으므로 14개월로 설정해야 합니다. 셋업 체크리스트에는 강화된 측정 켜기, 전환 이벤트(purchase, generate_lead, contact 등) 정의, 원본 데이터 백업을 위한 BigQuery 연동(무료)도 포함됩니다.</p></details>
+        </section>
         <div class="cta-box">
           <h4>측정 셋업·대시보드 구축 컨설팅</h4>
           <p>데이터 퍼포먼스팀는 GA4·GTM·UTM 표준 + 광고 채널 통합 대시보드를 4주 내 셋업합니다.</p>
