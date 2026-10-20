@@ -539,3 +539,17 @@ body.articles-page { background: #fafbfd; }
   .aa-bio { font-size: 12.5px; }
   .article-refs { padding: 18px 20px; }
 }
+
+/* 직답 박스 — 제목의 질문에 한두 문장으로 바로 답 (AEO) */
+.article-answer { margin: 0 0 24px; padding: 16px 20px; border-left: 3px solid #B08D4E; background: rgba(154,125,74,.07); border-radius: 0 12px 12px 0; }
+.article-answer .ans-label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 800; letter-spacing: .08em; color: #7A5C24; }
+.article-answer p { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.75; color: #17141A; }
+/* 자주 묻는 질문 — 화면 문장 = FAQPage 구조화 데이터 (같은 소스에서 생성) */
+.article-faq { margin: 44px 0 8px; }
+.article-faq h2 { margin-bottom: 10px; }
+.article-faq details { border-bottom: 1px solid rgba(23,20,26,.12); }
+.article-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; padding: 16px 2px; font-size: 16px; font-weight: 700; color: #17141A; }
+.article-faq summary::-webkit-details-marker { display: none; }
+.article-faq summary::after { content: '+'; color: #B08D4E; font-size: 18px; flex-shrink: 0; }
+.article-faq details[open] summary::after { content: '\2212'; }
+.article-faq details p { margin: 0 0 16px; padding: 0 2px; font-size: 15px; line-height: 1.8; color: rgba(23,20,26,.72); }
