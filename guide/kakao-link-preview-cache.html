@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9J2V6KLGLG');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<title>카카오톡 링크 미리보기가 안 바뀔 때 해결 순서 | 노아 제작 가이드</title>
+<meta name="description" content="홈페이지 대표 이미지를 바꿨는데 카카오톡 미리보기가 그대로일 때 확인할 순서입니다. 캐시 초기화 메뉴 위치, 덮어쓴 이미지 주소를 바꾸는 법, 1200×630 규격과 노아의 교체 기록을 담았습니다.">
+<link rel="canonical" href="https://noahgroup.co.kr/guide/kakao-link-preview-cache.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="노아 홈페이지 제작 가이드">
+<meta property="og:title" content="카카오톡 링크 미리보기가 안 바뀔 때 해결 순서">
+<meta property="og:description" content="홈페이지 대표 이미지를 바꿨는데 카카오톡 미리보기가 그대로일 때 확인할 순서입니다. 캐시 초기화 메뉴 위치, 덮어쓴 이미지 주소를 바꾸는 법, 1200×630 규격과 노아의 교체 기록을 담았습니다.">
+<meta property="og:url" content="https://noahgroup.co.kr/guide/kakao-link-preview-cache.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noahgroup.co.kr/og-noah-glass.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization", "name": "노아", "legalName": "씨씨컴퍼니", "url": "https://noahgroup.co.kr/", "logo": {"@type": "ImageObject", "url": "https://noahgroup.co.kr/favicon-512.png"}, "description": "노아(NOAH)는 검증된 템플릿 구조를 브랜드에 맞춰 7일 안에 오픈하는 홈페이지 제작과 통합 마케팅을 제공하는 회사입니다.", "address": {"@type": "PostalAddress", "streetAddress": "인천타워대로 301, A동 16층 33호", "addressLocality": "인천광역시 연수구", "addressCountry": "KR"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+82-10-6658-6482", "contactType": "sales", "areaServed": "KR", "availableLanguage": "Korean"}, "sameAs": ["https://pf.kakao.com/_RjRSxj", "https://blog.naver.com/cccompanyad"]}, {"@type": "WebSite", "@id": "https://noahgroup.co.kr/#website", "url": "https://noahgroup.co.kr/", "name": "노아(NOAH)", "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "inLanguage": "ko-KR"}, {"@type": "BreadcrumbList", "@id": "https://noahgroup.co.kr/guide/kakao-link-preview-cache.html#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "홈페이지 제작 가이드", "item": "https://noahgroup.co.kr/guide/"}, {"@type": "ListItem", "position": 3, "name": "카카오톡 링크 미리보기"}]}, {"@type": "Article", "@id": "https://noahgroup.co.kr/guide/kakao-link-preview-cache.html#article", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://noahgroup.co.kr/guide/kakao-link-preview-cache.html"}, "headline": "카카오톡 링크 미리보기가 안 바뀔 때 해결 순서", "description": "홈페이지 대표 이미지를 바꿨는데 카카오톡 미리보기가 그대로일 때 확인할 순서입니다. 캐시 초기화 메뉴 위치, 덮어쓴 이미지 주소를 바꾸는 법, 1200×630 규격과 노아의 교체 기록을 담았습니다.", "datePublished": "2026-10-21T09:00:00+09:00", "dateModified": "2026-10-21T09:00:00+09:00", "author": {"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization"}, "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "breadcrumb": {"@id": "https://noahgroup.co.kr/guide/kakao-link-preview-cache.html#breadcrumb"}, "inLanguage": "ko-KR", "articleSection": "셀프 트러블슈팅", "keywords": ["카카오톡 미리보기", "카카오톡 링크 미리보기 캐시", "og:image", "OG 이미지 변경", "카카오 캐시 초기화", "공유 디버거"], "about": {"@type": "Thing", "name": "카카오톡 링크 미리보기"}}, {"@type": "FAQPage", "@id": "https://noahgroup.co.kr/guide/kakao-link-preview-cache.html#faq", "mainEntity": [{"@type": "Question", "name": "카카오 캐시는 얼마나 지나면 저절로 바뀌나요?", "acceptedAnswer": {"@type": "Answer", "text": "이 글에서 확인한 카카오디벨로퍼스 문서에는 캐시 유지 기간이 나와 있지 않습니다. 기다리기보다 [카카오톡 URL 메타정보 관리]에서 직접 초기화하는 편이 확실합니다. 같은 이름으로 덮어쓴 이미지는 초기화로도 남을 수 있으니, 이미지 주소를 바꾼 뒤 초기화합니다."}}, {"@type": "Question", "name": "페이스북에 올린 링크도 같은 방법으로 바꾸나요?", "acceptedAnswer": {"@type": "Answer", "text": "원리는 같고 도구가 다릅니다. 메타 공유 디버거(developers.facebook.com/tools/debug)에 주소를 넣고 ‘다시 스크랩’을 누르면 페이스북이 페이지를 새로 읽습니다. 메타 문서에 따르면 이미지는 이미지 주소 기준으로 저장되므로 그림을 바꿀 때는 새 주소를 써야 하고, 이미 올린 게시물의 미리보기는 자동으로 바뀌지 않아 게시물마다 새로 고쳐야 합니다."}}, {"@type": "Question", "name": "페이지가 많으면 하나씩 모두 초기화해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "카카오 도구는 주소를 하나씩 처리하고, 여러 주소를 한꺼번에 지우는 기능은 제공하지 않는다는 것이 카카오 데브톡 답변입니다. 메인·문의·이벤트 페이지처럼 카카오톡으로 자주 보내는 주소부터 초기화합니다. 이미지 주소를 새로 바꿔 두면 나머지 페이지는 카카오가 다시 읽을 때 새 이미지로 나옵니다."}}]}]}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FBFAF7;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
+--gold:#B08D4E;--gold-soft:#8A6A2E;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.grad{background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,4vw,44px);background:rgba(251,250,247,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tb-logo{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.12em;font-size:14.5px}
+.tb-logo svg{width:22px;height:22px}
+.tb-r{display:flex;gap:8px;font-size:12.5px}
+.tb-r a{padding:8px 16px;border:1px solid rgba(194,163,107,.4);border-radius:999px;font-weight:700;color:var(--gold-soft)}
+.tb-r a.fill{background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);color:#17141A;border:none}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(34px,6vh,60px) clamp(20px,4vw,32px) 40px}
+.crumb{font-size:12px;color:var(--dim);margin-bottom:18px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+h1{font-size:clamp(24px,4.2vw,38px);font-weight:900;letter-spacing:-1.1px;line-height:1.4}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 26px;font-size:12.5px;color:var(--dim)}
+.meta .cat{color:var(--gold);font-weight:800}
+.lead p{font-size:16px;color:rgba(23,20,26,.86);line-height:1.9;margin-bottom:10px}
+.lead .cut{font-weight:800;color:var(--gold-soft)}
+.sum3{margin:28px 0 34px;padding:20px 22px;border:1px solid rgba(194,163,107,.35);border-radius:16px;background:rgba(154,125,74,.06)}
+.sum3 h2{font-size:14px;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.sum3 li{list-style:none;position:relative;padding:5px 0 5px 24px;font-size:14.5px;color:rgba(23,20,26,.85);line-height:1.75}
+.sum3 li::before{content:'—';position:absolute;left:2px;color:var(--gold)}
+article h2{font-size:clamp(19px,2.6vw,24px);font-weight:800;letter-spacing:-.5px;margin:40px 0 12px}
+.direct{padding:14px 18px;border-left:3px solid var(--gold);background:rgba(154,125,74,.06);border-radius:0 12px 12px 0;font-size:15px;color:rgba(23,20,26,.88);font-weight:600;line-height:1.85;margin-bottom:14px}
+article p{font-size:15px;color:var(--sub);margin-bottom:15px}
+article b,article strong{color:var(--gold-soft)}
+.tbl{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}
+th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+td{color:var(--sub)}
+ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
+ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
+ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);color:#17141A;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.chk2{margin:20px 0;display:grid;gap:10px}
+.chk2 .g{padding:14px 18px;border:1px solid var(--line);border-radius:12px}
+.chk2 b{display:block;font-size:12.5px;color:var(--gold);margin-bottom:6px;letter-spacing:.06em}
+.chk2 li{list-style:none;position:relative;padding:3px 0 3px 22px;font-size:13.5px;color:var(--sub)}
+.chk2 li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:900}
+.faq{margin:14px 0 6px}
+.faq details{border-bottom:1px solid var(--line);padding:2px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:15px 2px;font-size:15px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:18px;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq .fb{padding:0 2px 16px;font-size:13.5px;color:var(--sub);line-height:1.85}
+.noah{margin:40px 0;padding:26px;border-radius:18px;background:linear-gradient(135deg,rgba(154,125,74,.09),rgba(194,163,107,.05));border:1px solid rgba(194,163,107,.4)}
+.noah h2{margin:0 0 10px;font-size:18px}
+.noah p{font-size:14.5px;color:rgba(23,20,26,.82);line-height:1.9;margin-bottom:16px}
+.noah a.cta{display:inline-flex;padding:13px 30px;border-radius:999px;font-size:14px;font-weight:800;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);color:#17141A}
+.rel{margin:34px 0 0}
+.rel h2{font-size:16px;margin-bottom:12px}
+.rel a{display:block;padding:12px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
+.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}
+.src a{color:var(--gold-soft);text-decoration:underline}
+footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
+footer a{color:var(--gold-soft);text-decoration:underline}</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html" class="tb-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>NOAH</a>
+  <div class="tb-r"><a href="index.html">가이드 목록</a><a href="../contact.html" class="fill">무료 상담 →</a></div>
+</div>
+<div class="wrap">
+<nav class="crumb"><a href="../index.html">홈</a> › <a href="index.html">홈페이지 제작 가이드</a> › 셀프 트러블슈팅</nav>
+<article>
+<h1>카카오톡 링크 미리보기가 안 바뀔 때 해결 순서</h1>
+<div class="meta"><span class="cat">#셀프 트러블슈팅</span><span>2026.10.21</span><span>노아 편집팀</span></div>
+<div class="lead"><p>홈페이지 대표 이미지를 새로 바꿨는데, 카카오톡에 링크를 보내면 옛 이미지가 그대로 뜨는 경우.</p><p class="cut">먼저 의심할 곳은 홈페이지가 아니라 카카오 서버에 저장된 미리보기입니다.</p><p>이 글은 카카오디벨로퍼스·메타 공식 문서와 노아 사이트가 공유 이미지를 바꾼 git 기록으로, 바꾼 뒤 확인하는 순서를 정리했습니다.</p></div>
+<div class="sum3"><h2>⚡ 3줄 요약</h2><ul><li>카카오톡 미리보기는 페이지의 og 태그(og:title·og:description·og:image)로 만들어져 카카오 서버에 저장됩니다. 홈페이지를 고친 뒤 저장된 정보도 지워야 바뀝니다.</li><li>카카오디벨로퍼스에 로그인해 [도구] &gt; [카카오톡 URL 메타정보 관리]에서 주소를 넣고 [캐시 초기화]를 누릅니다. 주소는 하나씩 처리합니다.</li><li>이미지를 같은 파일명으로 덮어썼다면 초기화로도 옛 그림이 남을 수 있습니다. 파일명을 바꾸거나 이미지 주소 뒤에 ?v=2를 붙입니다.</li></ul></div>
+
+<h2>카카오톡 링크 미리보기는 왜 바로 안 바뀌나요?</h2>
+<p class="direct">카카오가 링크를 읽을 때 가져간 정보를 서버에 저장해 두고 다시 쓰기 때문입니다. 미리보기 이미지는 페이지에 보이는 사진이 아니라 og:image 태그에 적힌 이미지이므로, 이 태그를 바꾼 뒤 카카오에 저장된 정보까지 지워야 새 이미지가 나옵니다.</p>
+<p>카카오디벨로퍼스 문서를 보면 카카오톡 미리보기(스크랩)는 공유된 주소의 오픈 그래프(og) 태그로 만들어집니다. og:image는 대표 이미지 자리에, og:title과 og:description은 제목과 설명 자리에 각각 최대 2줄까지 들어갑니다. 저장되는 정보는 아래 두 가지입니다. 카카오 데브톡 답변에 따르면 캐시 초기화로 지워지는 것은 메타정보뿐이고, 카카오톡 서버에 저장된 이미지 썸네일은 남습니다.</p>
+<div class="tbl"><table><caption>카카오톡 미리보기에 저장되는 정보 두 가지 (카카오디벨로퍼스·카카오 데브톡, 2026-10-21 확인)</caption><thead><tr><th>저장되는 것</th><th>저장 기준</th><th>[캐시 초기화]로</th><th>새로 바꾸는 방법</th></tr></thead><tbody><tr><td>제목·설명·이미지 주소(og 메타정보)</td><td>공유한 페이지 주소</td><td>지워짐</td><td>초기화한 뒤 다시 조회</td></tr><tr><td>이미지 썸네일</td><td>이미지 주소(og:image)</td><td>지워지지 않음</td><td>파일명 변경 또는 주소 뒤 ?v=2</td></tr></tbody></table></div>
+
+<h2>카카오 캐시는 어디서 초기화하나요?</h2>
+<p class="direct">카카오디벨로퍼스(developers.kakao.com)에 카카오계정으로 로그인한 뒤 [도구] &gt; [카카오톡 URL 메타정보 관리]에서 초기화합니다. 주소를 넣고 [메타 정보 조회]로 저장된 값을 확인한 다음 [캐시 초기화]를 누릅니다.</p>
+<p>카카오디벨로퍼스 시작 안내 문서는 이 기능을 ‘공유 디버거’라고 부릅니다. 카카오톡 채팅창으로 보낸 주소의 미리보기 정보를 확인하고 캐시를 초기화하는 도구이며, 도구 메뉴는 로그인해야 열립니다.</p>
+<ol class="steps"><li>developers.kakao.com에 카카오계정으로 로그인합니다.</li><li>[도구] &gt; [카카오톡 URL 메타정보 관리]를 엽니다.</li><li>[URL 입력]에 카카오톡으로 보내는 주소를 그대로 넣습니다. 메인과 하위 페이지는 주소가 달라 따로 넣어야 합니다.</li><li>[메타 정보 조회]를 눌러 저장된 og:title·og:description·og:image를 봅니다.</li><li>[캐시 초기화]를 누르고 다시 조회해 og:image가 새 이미지 주소로 나오는지 확인합니다.</li><li>새로 만든 채팅방에 링크를 보내 실제 미리보기를 확인합니다.</li></ol>
+<p>초기화한 뒤에도 og:image가 옛 주소로 나오면 홈페이지 쪽에서 아직 옛 태그를 내보내고 있는 것입니다. PC 브라우저에서 페이지 소스를 열어 og:image 줄을 확인합니다. 카카오 데브톡 체크 리스트는 og 태그가 중복되지 않았는지, og:image 주소가 브라우저에서 열리는지도 보라고 안내합니다.</p>
+
+<h2>캐시를 지웠는데도 옛 이미지가 보이면 어떻게 하나요?</h2>
+<p class="direct">이미지 파일을 같은 이름으로 덮어썼는지부터 확인합니다. 그렇다면 og:image 주소 자체를 바꿔야 합니다. 파일명을 바꿔 올리거나 기존 주소 뒤에 ?v=2를 붙이고, 페이지 주소를 다시 초기화합니다.</p>
+<p>카카오 데브톡 답변도 이 경우 og:image 주소를 바꿔 썸네일을 새로 만들라고 안내합니다. 노아 사이트는 10월에 공유 이미지를 세 차례 손봤는데, 주소를 바꾼 경우와 같은 주소에 덮어쓴 경우가 모두 있어 바꾼 뒤 확인할 것이 다릅니다.</p>
+<div class="tbl"><table><caption>노아 사이트 공유 이미지 변경 기록 (git 커밋 기준, 2026-10-21 확인)</caption><thead><tr><th>날짜</th><th>바꾼 것</th><th>파일 처리</th><th>확인할 것</th></tr></thead><tbody><tr><td>10월 3일</td><td>메인 공유 이미지 교체</td><td>새 파일명(og-noah-glass.png)으로 올리고 186개 페이지·RSS·사이트맵의 경로 수정, 옛 파일 보존</td><td>자주 보내는 페이지 주소 초기화</td></tr><tr><td>10월 9일</td><td>메인 이미지를 사이트 글꼴로 다시 렌더링</td><td>같은 파일명에 덮어씀</td><td>같은 주소라 그사이 카카오에 저장된 썸네일이 남아 있을 수 있음 — 메타 정보 조회로 확인</td></tr><tr><td>10월 9일</td><td>칼럼·카테고리 공유 이미지 47장 재제작</td><td>.png에서 .jpg로 바뀌어 주소 변경, 참조 91곳 수정, 옛 PNG 삭제</td><td>페이지 주소 초기화</td></tr></tbody></table></div>
+<p>10월 3일 커밋에는 ‘파일명을 바꿔 카카오·페이스북 캐시 갱신 유도’라는 이유가 적혀 있습니다. 반면 10월 9일 재렌더링은 같은 이름에 덮어썼습니다. 노아의 공유 이미지 생성 스크립트가 메인 이미지를 늘 같은 파일명으로 저장하기 때문입니다.</p>
+<p>메타 문서는 이미 올라간 게시물이 옛 파일을 쓸 수 있으니 옛 이미지를 지우지 말라고 안내합니다. 10월 3일처럼 옛 파일을 남겨 두는 쪽이 이 기준에 맞습니다.</p>
+
+<h2>주소 뒤에 ?v=2를 붙이면 되나요?</h2>
+<p class="direct">이미지 주소(og:image) 뒤에 붙이는 것은 효과가 있습니다. 카카오와 페이스북은 이미지를 주소 기준으로 저장하므로, 태그를 고치고 페이지 주소를 초기화하면 ?v=2가 붙은 주소를 새 이미지로 받아 갑니다. 카카오톡으로 보내는 페이지 주소 뒤에 붙이는 것은 그 링크 하나만 바뀌는 임시방편입니다.</p>
+<div class="tbl"><table><caption>미리보기 갱신 방법 비교 (카카오디벨로퍼스·카카오 데브톡·메타 문서 기준, 2026-10-21 확인)</caption><thead><tr><th>방법</th><th>장점</th><th>단점</th></tr></thead><tbody><tr><td>[캐시 초기화]만 누르기</td><td>홈페이지를 고치지 않아도 됨</td><td>주소 하나씩 처리. 같은 이름에 덮어쓴 이미지는 남을 수 있음</td></tr><tr><td>이미지 파일명 바꾸기</td><td>페이지 주소를 초기화하면 카카오·페이스북 모두 새 이미지를 받아 감. 옛 파일을 남겨 두면 이미 올라간 게시물도 안전</td><td>그 이미지를 쓰는 모든 페이지의 og:image를 고쳐야 함</td></tr><tr><td>이미지 주소 뒤 ?v=2</td><td>파일은 그대로 두고 태그만 고침</td><td>모든 페이지의 og:image를 고쳐야 하고, 다음에 바꿀 때 숫자를 올려야 함</td></tr><tr><td>보내는 페이지 주소 뒤 ?v=2</td><td>홈페이지를 고치지 않고 그 링크만 새로 읽힘</td><td>원래 주소로 보내는 사람에게는 옛 미리보기 그대로. og:url이 원래 주소를 가리키면 카카오가 그 주소 기준으로 읽어 안 바뀔 수 있음</td></tr></tbody></table></div>
+<p>노아 사이트는 지금 메인 공유 이미지 1장을 186개 페이지가 함께 씁니다. 10월 3일 교체 때도 HTML 186개 파일의 경로를 한 번에 고쳤습니다. 이미지 하나를 여러 페이지가 쓰는 구조라면 주소를 바꿀 때 빠진 페이지가 없는지 확인합니다.</p>
+
+<h2>미리보기용 대표 이미지는 어떤 규격으로 만드나요?</h2>
+<p class="direct">가로 1200×세로 630픽셀 이상의 JPG나 PNG로 만들고 용량은 8MB를 넘기지 않습니다. 크기와 용량은 메타가 공개한 링크 공유 기준이고, 형식은 카카오 데브톡 체크 리스트의 항목입니다.</p>
+<div class="tbl"><table><caption>미리보기 이미지·태그 기준과 노아 사이트 현재값 (2026-10-21 확인)</caption><thead><tr><th>항목</th><th>기준</th><th>근거</th><th>노아 사이트</th></tr></thead><tbody><tr><td>크기</td><td>1200×630 이상 권장, 최소 600×315</td><td>메타</td><td>공유 이미지 48장 모두 1200×630</td></tr><tr><td>용량</td><td>8MB 이하</td><td>메타</td><td>JPG 최대 84,286바이트, 메인 PNG 368,177바이트</td></tr><tr><td>형식</td><td>JPG·JPEG·PNG</td><td>카카오 데브톡</td><td>8월 22일 SVG→PNG, 10월 9일 칼럼 47장 PNG→JPG</td></tr><tr><td>og:image 주소</td><td>브라우저에서 열리는 전체 주소</td><td>카카오 데브톡</td><td>235개 페이지 모두 https://noahgroup.co.kr/로 시작, 가리키는 파일 모두 있음</td></tr><tr><td>og:url</td><td>실제 페이지 주소와 같게</td><td>카카오 데브톡</td><td>235개 페이지 모두 대표 주소(canonical)와 같음</td></tr><tr><td>og:image:width·height</td><td>크롤러가 이미지를 내려받기 전에 바로 그릴 수 있게 함</td><td>메타</td><td>메인·소개·문의 등 15개 페이지에 표기</td></tr></tbody></table></div>
+<p>10월 9일 칼럼·카테고리 이미지 47장을 PNG에서 JPG(품질 90)로 바꾸면서 og 폴더의 이미지 용량 합계는 4,194,020바이트에서 3,462,938바이트로 줄었습니다. SVG는 쓰지 않습니다. 노아 사이트도 8월 22일 칼럼 공유 이미지를 SVG에서 PNG로 바꿨습니다.</p>
+
+<h2>그래서 지금 무엇부터 하면 되나요?</h2>
+<div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>카카오디벨로퍼스 [카카오톡 URL 메타정보 관리]에 메인 주소를 넣고 [메타 정보 조회]로 og:image가 새 이미지 주소인지 확인한 뒤 [캐시 초기화]를 누릅니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>이미지를 같은 이름으로 덮어썼다면 og:image 주소에 ?v=2를 붙이거나 파일명을 바꾸고, 카카오톡으로 자주 보내는 주소를 하나씩 다시 초기화합니다. 페이스북에 올릴 링크라면 메타 공유 디버거에서도 다시 스크랩합니다.</li></ul></div></div>
+
+<h2>자주 묻는 질문</h2>
+<div class="faq"><details><summary>카카오 캐시는 얼마나 지나면 저절로 바뀌나요?</summary><div class="fb">이 글에서 확인한 카카오디벨로퍼스 문서에는 캐시 유지 기간이 나와 있지 않습니다. 기다리기보다 [카카오톡 URL 메타정보 관리]에서 직접 초기화하는 편이 확실합니다. 같은 이름으로 덮어쓴 이미지는 초기화로도 남을 수 있으니, 이미지 주소를 바꾼 뒤 초기화합니다.</div></details><details><summary>페이스북에 올린 링크도 같은 방법으로 바꾸나요?</summary><div class="fb">원리는 같고 도구가 다릅니다. 메타 공유 디버거(developers.facebook.com/tools/debug)에 주소를 넣고 ‘다시 스크랩’을 누르면 페이스북이 페이지를 새로 읽습니다. 메타 문서에 따르면 이미지는 이미지 주소 기준으로 저장되므로 그림을 바꿀 때는 새 주소를 써야 하고, 이미 올린 게시물의 미리보기는 자동으로 바뀌지 않아 게시물마다 새로 고쳐야 합니다.</div></details><details><summary>페이지가 많으면 하나씩 모두 초기화해야 하나요?</summary><div class="fb">카카오 도구는 주소를 하나씩 처리하고, 여러 주소를 한꺼번에 지우는 기능은 제공하지 않는다는 것이 카카오 데브톡 답변입니다. 메인·문의·이벤트 페이지처럼 카카오톡으로 자주 보내는 주소부터 초기화합니다. 이미지 주소를 새로 바꿔 두면 나머지 페이지는 카카오가 다시 읽을 때 새 이미지로 나옵니다.</div></details></div>
+<div class="noah"><h2>NOAH가 공유 이미지를 다루는 방식</h2><p>이 글의 기록은 노아 사이트의 공유 이미지 48장을 바꾸며 남은 git 커밋에서 직접 확인한 것입니다. 노아의 템플릿형 홈페이지 제작(₩199,000, 부가세 별도)에는 카톡 미리보기 설정이 기본으로 들어갑니다. 지금 홈페이지 주소를 보내 주시면 og 태그와 대표 이미지 규격이 맞는지 상담에서 무료로 확인해 드립니다. 상담 후 결정은 안 하셔도 됩니다.</p><a class="cta" href="../contact.html">무료 상담 신청 →</a></div>
+<div class="rel"><h2>관련 글</h2><a href="meta-tags.html">클릭을 부르는 title과 description 글자수 기준</a><a href="image-optimization.html">홈페이지 이미지 용량 기준과 변환 방법</a><a href="launch-checklist.html">오픈 버튼을 누르기 전 확인해야 할 22가지</a></div>
+<div class="rel hub"><h2>노아 핵심 가이드</h2><a href="homepage-cost.html">홈페이지 제작 비용, 격차의 3가지 원인</a><a href="../column/blog-top-exposure.html">블로그 상위노출 — 알고리즘이 보는 신호</a><a href="../column/hospital-marketing.html">병의원 마케팅 — 의료광고법 안에서 이기는 법</a><a href="../column/place-marketing.html">플레이스 마케팅 — 지도 시대의 로컬 마케팅</a><a href="../column/blog-experience-site.html">블로그 체험단 사이트 — 고르는 기준과 이용 팁</a></div>
+<p class="src">참고 자료 — <a href="https://developers.kakao.com/docs/ko/tool/common" rel="noopener nofollow" target="_blank">카카오디벨로퍼스: 도구 소개(카카오톡 URL 메타정보 관리)</a> · <a href="https://developers.kakao.com/docs/latest/ko/getting-started/kakao-developers" rel="noopener nofollow" target="_blank">카카오디벨로퍼스: 웹사이트와 모바일 앱(공유 디버거·로그인)</a> · <a href="https://developers.kakao.com/docs/latest/ko/message-template/common" rel="noopener nofollow" target="_blank">카카오디벨로퍼스: 메시지 템플릿 이해하기(스크랩)</a> · <a href="https://developers.kakao.com/docs/ko/message-template/faq" rel="noopener nofollow" target="_blank">카카오디벨로퍼스: 메시지 템플릿 FAQ</a> · <a href="https://devtalk.kakao.com/t/og/148829" rel="noopener nofollow" target="_blank">카카오 데브톡: OG 이미지 변경이 안됩니다</a> · <a href="https://devtalk.kakao.com/t/scrap-url/116202" rel="noopener nofollow" target="_blank">카카오 데브톡: 미리보기 안될 때 체크 리스트</a> · <a href="https://devtalk.kakao.com/t/og-open-graph/149379" rel="noopener nofollow" target="_blank">카카오 데브톡: OG 태그 일괄 캐시 초기화</a> · <a href="https://developers.facebook.com/documentation/sharing/webmasters/images" rel="noopener nofollow" target="_blank">Meta: Images in Link Shares</a> · <a href="https://developers.facebook.com/docs/sharing/best-practices" rel="noopener nofollow" target="_blank">Meta: Sharing Best Practices</a> · <a href="https://developers.facebook.com/tools/debug/" rel="noopener nofollow" target="_blank">Meta: Sharing Debugger(공유 디버거)</a> · 기록: 노아 사이트 git 커밋 7c3bf14·a55103c·0944614·07efc94 (2026-10-21 확인)</p>
+
+</article>
+</div>
+<footer>
+씨씨컴퍼니 (CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고번호 2020-인천연수구-1872<br>
+대표전화 010-6658-6482 · cccompanymaster@gmail.com · 인천광역시 연수구 인천타워대로 301, A동 16층 33호<br>
+&copy; 2026 노아 (NOAH). <a href="../index.html">홈</a> · <a href="index.html">제작 가이드</a> · <a href="../column/">마케팅 칼럼</a> · <a href="../shop.html">서비스</a> · <a href="../contact.html">문의</a><br><a href="https://blog.naver.com/cccompanyad" data-mo="https://m.blog.naver.com/cccompanyad" class="js-blog" target="_blank" rel="noopener" aria-label="노아 네이버 블로그">네이버 블로그</a>
+</footer>
+<script>(function(){if(!matchMedia('(max-width:768px)').matches)return;
+document.querySelectorAll('a.js-blog[data-mo]').forEach(function(a){a.href=a.getAttribute('data-mo');});})();</script>
+<script src="../js/track.js" defer></script>
+</body>
+</html>

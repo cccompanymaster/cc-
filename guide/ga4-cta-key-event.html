@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9J2V6KLGLG');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<title>문의 버튼 클릭을 GA4 전환(주요 이벤트)으로 잡는 법 | 노아 제작 가이드</title>
+<meta name="description" content="GA4는 문의 버튼 클릭을 알아서 전환으로 세지 않습니다. 주요 이벤트 표시 경로, 실시간·DebugView 확인법, 반영 시간·한도를 노아 사이트 전 페이지에 붙인 이벤트 설계로 정리했습니다.">
+<link rel="canonical" href="https://noahgroup.co.kr/guide/ga4-cta-key-event.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="노아 홈페이지 제작 가이드">
+<meta property="og:title" content="문의 버튼 클릭을 GA4 전환(주요 이벤트)으로 잡는 법">
+<meta property="og:description" content="GA4는 문의 버튼 클릭을 알아서 전환으로 세지 않습니다. 주요 이벤트 표시 경로, 실시간·DebugView 확인법, 반영 시간·한도를 노아 사이트 전 페이지에 붙인 이벤트 설계로 정리했습니다.">
+<meta property="og:url" content="https://noahgroup.co.kr/guide/ga4-cta-key-event.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noahgroup.co.kr/og-noah-glass.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization", "name": "노아", "legalName": "씨씨컴퍼니", "url": "https://noahgroup.co.kr/", "logo": {"@type": "ImageObject", "url": "https://noahgroup.co.kr/favicon-512.png"}, "description": "노아(NOAH)는 검증된 템플릿 구조를 브랜드에 맞춰 7일 안에 오픈하는 홈페이지 제작과 통합 마케팅을 제공하는 회사입니다.", "address": {"@type": "PostalAddress", "streetAddress": "인천타워대로 301, A동 16층 33호", "addressLocality": "인천광역시 연수구", "addressCountry": "KR"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+82-10-6658-6482", "contactType": "sales", "areaServed": "KR", "availableLanguage": "Korean"}, "sameAs": ["https://pf.kakao.com/_RjRSxj", "https://blog.naver.com/cccompanyad"]}, {"@type": "WebSite", "@id": "https://noahgroup.co.kr/#website", "url": "https://noahgroup.co.kr/", "name": "노아(NOAH)", "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "inLanguage": "ko-KR"}, {"@type": "BreadcrumbList", "@id": "https://noahgroup.co.kr/guide/ga4-cta-key-event.html#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "홈페이지 제작 가이드", "item": "https://noahgroup.co.kr/guide/"}, {"@type": "ListItem", "position": 3, "name": "GA4 문의 클릭 주요 이벤트"}]}, {"@type": "Article", "@id": "https://noahgroup.co.kr/guide/ga4-cta-key-event.html#article", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://noahgroup.co.kr/guide/ga4-cta-key-event.html"}, "headline": "문의 버튼 클릭을 GA4 전환(주요 이벤트)으로 잡는 법", "description": "GA4는 문의 버튼 클릭을 알아서 전환으로 세지 않습니다. 주요 이벤트 표시 경로, 실시간·DebugView 확인법, 반영 시간·한도를 노아 사이트 전 페이지에 붙인 이벤트 설계로 정리했습니다.", "datePublished": "2026-10-21T09:00:00+09:00", "dateModified": "2026-10-21T09:00:00+09:00", "author": {"@type": "Organization", "@id": "https://noahgroup.co.kr/#organization"}, "publisher": {"@id": "https://noahgroup.co.kr/#organization"}, "breadcrumb": {"@id": "https://noahgroup.co.kr/guide/ga4-cta-key-event.html#breadcrumb"}, "inLanguage": "ko-KR", "articleSection": "전환·카피", "keywords": ["GA4 주요 이벤트", "GA4 전환 설정", "문의 버튼 클릭 측정", "맞춤 측정기준", "DebugView", "generate_lead"], "about": {"@type": "Thing", "name": "GA4 주요 이벤트"}}, {"@type": "FAQPage", "@id": "https://noahgroup.co.kr/guide/ga4-cta-key-event.html#faq", "mainEntity": [{"@type": "Question", "name": "주요 이벤트로 표시하면 지난달 클릭도 전환으로 잡히나요?", "acceptedAnswer": {"@type": "Answer", "text": "잡히지 않습니다. 구글 고객센터 안내에 따르면 주요 이벤트 표시는 표시한 시점 이후 보고서에만 반영되고 과거 데이터는 바뀌지 않습니다. 반대로 표시를 해제해도 이미 쌓인 데이터는 그대로 남습니다. 클릭 측정 코드를 붙였다면 표시는 그날 바로 하는 편이 낫습니다."}}, {"@type": "Question", "name": "이벤트 목록에 cta_click이 보이지 않으면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "아직 데이터가 들어오지 않은 이벤트는 목록에서 고를 수 없습니다. 이때는 관리 > 데이터 표시 > 주요 이벤트 > 새 주요 이벤트에서 코드에 적힌 이름을 그대로 입력해 미리 등록합니다. 실시간 보고서에도 클릭이 찍히지 않는다면 사이트에 클릭 이벤트 코드가 없거나 동작하지 않는 상태이므로 제작사에 확인해야 합니다."}}, {"@type": "Question", "name": "GA4 주요 이벤트와 Google Ads 전환은 무엇이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "주요 이벤트는 GA4 안에서 방문자 행동을 분석하는 기준이고, 전환은 Google Ads에서 광고 성과를 재고 입찰에 쓰는 기준입니다. 광고를 돌린다면 GA4 속성과 Google Ads 계정을 연결하고 자동 태그 추가를 켠 뒤 주요 이벤트로 Google Ads 전환을 만듭니다. 이렇게 만든 전환은 기본값이 보조 전환 액션이라 입찰에 쓰려면 Google Ads에서 설정을 바꿔야 하고, Google Ads에 반영되기까지 최대 24시간이 걸립니다. 기여 분석 기준이 달라 두 숫자가 다르게 나올 수 있습니다."}}]}]}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FBFAF7;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
+--gold:#B08D4E;--gold-soft:#8A6A2E;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.grad{background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,4vw,44px);background:rgba(251,250,247,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tb-logo{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.12em;font-size:14.5px}
+.tb-logo svg{width:22px;height:22px}
+.tb-r{display:flex;gap:8px;font-size:12.5px}
+.tb-r a{padding:8px 16px;border:1px solid rgba(194,163,107,.4);border-radius:999px;font-weight:700;color:var(--gold-soft)}
+.tb-r a.fill{background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);color:#17141A;border:none}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(34px,6vh,60px) clamp(20px,4vw,32px) 40px}
+.crumb{font-size:12px;color:var(--dim);margin-bottom:18px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+h1{font-size:clamp(24px,4.2vw,38px);font-weight:900;letter-spacing:-1.1px;line-height:1.4}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 26px;font-size:12.5px;color:var(--dim)}
+.meta .cat{color:var(--gold);font-weight:800}
+.lead p{font-size:16px;color:rgba(23,20,26,.86);line-height:1.9;margin-bottom:10px}
+.lead .cut{font-weight:800;color:var(--gold-soft)}
+.sum3{margin:28px 0 34px;padding:20px 22px;border:1px solid rgba(194,163,107,.35);border-radius:16px;background:rgba(154,125,74,.06)}
+.sum3 h2{font-size:14px;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.sum3 li{list-style:none;position:relative;padding:5px 0 5px 24px;font-size:14.5px;color:rgba(23,20,26,.85);line-height:1.75}
+.sum3 li::before{content:'—';position:absolute;left:2px;color:var(--gold)}
+article h2{font-size:clamp(19px,2.6vw,24px);font-weight:800;letter-spacing:-.5px;margin:40px 0 12px}
+.direct{padding:14px 18px;border-left:3px solid var(--gold);background:rgba(154,125,74,.06);border-radius:0 12px 12px 0;font-size:15px;color:rgba(23,20,26,.88);font-weight:600;line-height:1.85;margin-bottom:14px}
+article p{font-size:15px;color:var(--sub);margin-bottom:15px}
+article b,article strong{color:var(--gold-soft)}
+.tbl{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}
+th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+td{color:var(--sub)}
+ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
+ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
+ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);color:#17141A;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.chk2{margin:20px 0;display:grid;gap:10px}
+.chk2 .g{padding:14px 18px;border:1px solid var(--line);border-radius:12px}
+.chk2 b{display:block;font-size:12.5px;color:var(--gold);margin-bottom:6px;letter-spacing:.06em}
+.chk2 li{list-style:none;position:relative;padding:3px 0 3px 22px;font-size:13.5px;color:var(--sub)}
+.chk2 li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:900}
+.faq{margin:14px 0 6px}
+.faq details{border-bottom:1px solid var(--line);padding:2px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:15px 2px;font-size:15px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:18px;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq .fb{padding:0 2px 16px;font-size:13.5px;color:var(--sub);line-height:1.85}
+.noah{margin:40px 0;padding:26px;border-radius:18px;background:linear-gradient(135deg,rgba(154,125,74,.09),rgba(194,163,107,.05));border:1px solid rgba(194,163,107,.4)}
+.noah h2{margin:0 0 10px;font-size:18px}
+.noah p{font-size:14.5px;color:rgba(23,20,26,.82);line-height:1.9;margin-bottom:16px}
+.noah a.cta{display:inline-flex;padding:13px 30px;border-radius:999px;font-size:14px;font-weight:800;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);color:#17141A}
+.rel{margin:34px 0 0}
+.rel h2{font-size:16px;margin-bottom:12px}
+.rel a{display:block;padding:12px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
+.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}
+.src a{color:var(--gold-soft);text-decoration:underline}
+footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
+footer a{color:var(--gold-soft);text-decoration:underline}</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html" class="tb-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>NOAH</a>
+  <div class="tb-r"><a href="index.html">가이드 목록</a><a href="../contact.html" class="fill">무료 상담 →</a></div>
+</div>
+<div class="wrap">
+<nav class="crumb"><a href="../index.html">홈</a> › <a href="index.html">홈페이지 제작 가이드</a> › 전환·카피</nav>
+<article>
+<h1>문의 버튼 클릭을 GA4 전환(주요 이벤트)으로 잡는 법</h1>
+<div class="meta"><span class="cat">#전환·카피</span><span>2026.10.21</span><span>노아 편집팀</span></div>
+<div class="lead"><p>GA4를 달아 두었는데, 정작 문의 버튼이 몇 번 눌렸는지는 보고서에서 찾기 어렵습니다.</p><p class="cut">GA4는 어떤 버튼이 문의 버튼인지 모릅니다. 클릭 이벤트를 보내고 그 이벤트를 ‘주요 이벤트’로 표시해야 전환으로 집계됩니다.</p><p>이 글은 구글 애널리틱스 고객센터 문서와, 노아가 사이트 전 페이지에 붙인 클릭 측정 코드를 바탕으로 설정 순서를 정리했습니다.</p></div>
+<div class="sum3"><h2>⚡ 3줄 요약</h2><ul><li>문의 버튼 클릭을 전환으로 세려면 두 가지가 필요합니다. 클릭 순간 이벤트를 보내는 사이트 코드, 그리고 GA4 관리 &gt; 데이터 표시 &gt; 이벤트에서 그 이벤트에 별표를 눌러 주요 이벤트로 표시하는 설정입니다.</li><li>GA4의 ‘전환’은 2024년 3월 ‘주요 이벤트’로 이름이 바뀌었습니다. 지금 ‘전환’은 Google Ads에서 광고 성과를 재고 입찰에 쓰는 행동을 가리킵니다.</li><li>표시하면 실시간 보고서에는 몇 분, 표준 보고서에는 최대 24시간 뒤에 반영되고 과거 데이터에는 소급되지 않습니다. 설정한 날은 실시간 보고서로 확인합니다.</li></ul></div>
+
+<h2>GA4에서 문의 버튼 클릭을 전환으로 잡으려면 무엇이 필요한가요?</h2>
+<p class="direct">클릭 순간 GA4로 이벤트를 보내는 사이트 코드와, 그 이벤트를 주요 이벤트로 표시하는 GA4 설정이 필요합니다. 코드는 홈페이지에 한 번 넣고, 표시는 GA4 관리 화면에서 이벤트마다 한 번 합니다.</p>
+<p>GA4 기본 코드는 페이지 조회를 자동으로 기록하지만, 화면의 어느 버튼이 문의 버튼인지는 알지 못합니다. 그래서 사이트가 버튼을 누르는 순간 cta_click처럼 이름을 붙인 이벤트를 보내야 하고, GA4에서 그 이벤트를 주요 이벤트로 표시해야 보고서의 주요 이벤트 수에 잡힙니다.</p>
+<p>예전 글이나 영상에서 말하는 ‘전환 설정’이 지금 화면의 ‘주요 이벤트로 표시’입니다. 구글은 2024년 3월 Google Ads와 애널리틱스가 ‘전환’을 같은 뜻으로 쓰도록 정의를 맞추면서, 애널리틱스에서 사업에 중요한 행동을 재는 이벤트를 ‘주요 이벤트’로 바꿔 불렀습니다. 이전에 전환으로 표시해 둔 이벤트와 데이터는 주요 이벤트로 그대로 이어지므로 따로 할 일은 없습니다.</p>
+<div class="tbl"><table><caption>문의 클릭을 전환으로 잡는 설정 한눈에 — 구글 애널리틱스 고객센터 기준, 표준 속성, 2026-10-21 확인</caption><thead><tr><th>할 일</th><th>어디서</th><th>반영 시간</th><th>표준 속성 한도</th></tr></thead><tbody><tr><td>클릭 이벤트 보내기</td><td>홈페이지 코드 (제작사·개발자)</td><td>실시간 보고서(지난 30분)로 확인</td><td>—</td></tr><tr><td>주요 이벤트로 표시</td><td>관리 &gt; 데이터 표시 &gt; 이벤트 &gt; 별표 (아직 안 들어온 이벤트는 관리 &gt; 데이터 표시 &gt; 주요 이벤트 &gt; 새 주요 이벤트)</td><td>실시간 보고서 몇 분, 표준 보고서 최대 24시간</td><td>30개 (애널리틱스 360은 50개)</td></tr><tr><td>클릭 위치 측정기준 만들기</td><td>관리 &gt; 데이터 표시 &gt; 맞춤 정의 &gt; 맞춤 측정기준 만들기</td><td>24~48시간 뒤 보고서에 추가 가능</td><td>이벤트 범위 50개</td></tr><tr><td>이벤트 수신 확인</td><td>실시간 보고서, 관리 &gt; 데이터 표시 &gt; DebugView</td><td>실시간은 지난 30분, DebugView는 디버그 모드 기기만</td><td>—</td></tr><tr><td>Google Ads 전환으로 가져오기 (광고 집행 시)</td><td>GA4와 Google Ads 계정 연결, 자동 태그 추가 후 전환 만들기</td><td>Google Ads 반영 최대 24시간</td><td>—</td></tr></tbody></table></div>
+<p>UTM·ROAS까지 포함한 측정 전반은 <a href="../articles/performance-measurement-ga4.html">퍼포먼스 측정 종합 가이드</a>에 정리했습니다. 이 글은 그중 문의 클릭을 주요 이벤트로 잡는 설정 절차만 다룹니다.</p>
+
+<h2>노아 사이트는 어떤 클릭을 이벤트로 보내나요?</h2>
+<p class="direct">문의 페이지로 가는 링크와 주요 버튼은 cta_click, 전화·카카오톡·네이버 톡톡·네이버 블로그 링크는 채널별 이벤트, 문의 폼 접수 완료는 generate_lead로 보냅니다.</p>
+<p>노아는 2026년 10월 9일, 사이트 공용 스크립트와 영문·중문 페이지에 나뉘어 있던 클릭 기록 코드를 js/track.js 한 파일로 합치고 기록이 없던 칼럼·가이드·아티클 페이지까지 넓혔습니다. 2026년 10월 21일 기준으로 리다이렉트용 빈 페이지 2개를 뺀 235개 페이지가 이 파일을 불러옵니다. 버튼마다 코드를 달지 않고 페이지 전체의 클릭을 한곳에서 받아, 링크 주소와 버튼 종류를 보고 이벤트 이름을 정합니다.</p>
+<p>한 번의 클릭은 이벤트 하나로만 셉니다. 전화·카카오톡·톡톡·블로그 링크인지를 먼저 보고, 어디에도 해당하지 않을 때 문의 페이지 링크나 주요 버튼이면 cta_click으로 보냅니다.</p>
+<div class="tbl"><table><caption>노아 사이트가 GA4로 보내는 클릭·문의 이벤트 — js/track.js·js/script.js, 2026-10-21 기준</caption><thead><tr><th>이벤트</th><th>보내는 순간</th><th>함께 보내는 값</th><th>주요 이벤트 대상</th></tr></thead><tbody><tr><td>cta_click</td><td>문의 페이지·#contact 링크, 주요 CTA 버튼 클릭</td><td>label(버튼 문구 앞 40자), cta_location, page</td><td>대상</td></tr><tr><td>contact_call</td><td>전화(tel:) 링크 클릭</td><td>cta_location, page</td><td>대상</td></tr><tr><td>contact_kakao</td><td>카카오톡 채널 링크 클릭</td><td>cta_location, page</td><td>대상</td></tr><tr><td>contact_naver_talk</td><td>네이버 톡톡 링크 클릭</td><td>cta_location, page</td><td>대상</td></tr><tr><td>click_blog</td><td>네이버 블로그 링크 클릭</td><td>cta_location, page</td><td>제외</td></tr><tr><td>generate_lead</td><td>문의 폼 전송이 성공한 뒤</td><td>method(inquiry_form)</td><td>대상</td></tr></tbody></table></div>
+<p>page에는 클릭이 일어난 페이지 경로가, cta_location에는 버튼이 놓인 자리가 들어갑니다. 상단 바는 header, 주 메뉴는 menu, 화면 아래 빠른 문의 배너는 bottom_bar, 떠 있는 상담 버튼은 float, 문의 팝업은 modal, 본문 문의 박스는 content_cta, 푸터는 footer로 남기고, 그 밖의 자리는 버튼을 감싼 섹션의 id(없으면 첫 클래스 이름)를 씁니다. 이 글 아래 ‘무료 상담 신청’ 버튼을 누르면 cta_click이 content_cta 위치로 기록됩니다. 같은 ‘문의하기’라도 어느 자리의 버튼이 눌렸는지 나눠 보려는 값입니다.</p>
+<p>문의 폼 접수는 다른 스크립트(js/script.js)가 맡습니다. 폼 내용을 서버로 보내 성공 응답을 받은 뒤에만 generate_lead를 보내고, 전송에 실패하면 form_error를 따로 남깁니다. 그래서 <b>cta_click은 문의하려고 누른 횟수, generate_lead는 실제로 접수된 횟수</b>로 나눠 읽을 수 있습니다. 클릭에 비해 접수가 크게 적다면 문의 페이지나 폼에서 빠져나가는 방문자가 많다는 신호이니 <a href="contact-form.html">문의 폼 항목 수</a>부터 점검합니다. generate_lead는 구글이 양식 제출이나 정보 요청에 쓰도록 정해 둔 추천 이벤트 이름이기도 합니다.</p>
+
+<h2>이벤트를 주요 이벤트로 표시하는 메뉴는 어디에 있나요?</h2>
+<p class="direct">관리 &gt; 데이터 표시 &gt; 이벤트에서 이벤트 이름 옆 별표를 누르면 주요 이벤트가 됩니다. 아직 데이터가 들어오지 않은 이벤트는 관리 &gt; 데이터 표시 &gt; 주요 이벤트 &gt; 새 주요 이벤트에서 이름을 입력해 미리 등록합니다.</p>
+<p>이벤트 화면의 최근 이벤트 탭이나 검색에서 cta_click을 찾아 별표를 누르면 끝입니다. 새 주요 이벤트로 미리 등록할 때는 코드에 적힌 이름을 한 글자도 다르지 않게 입력합니다. 노아는 위 표에서 ‘대상’으로 적은 5개를 주요 이벤트로 정했고, 블로그 링크 클릭은 문의보다 관심 표시에 가까워 넣지 않았습니다.</p>
+<p>표시는 그 시점부터 보고서에 반영되고, 이미 쌓인 과거 데이터는 바뀌지 않습니다. 실시간 보고서에는 몇 분 안에 나타나지만 표준 보고서에는 최대 24시간이 걸릴 수 있습니다. 표준 속성은 주요 이벤트를 30개까지 표시할 수 있어(애널리틱스 360은 50개) 문의 채널을 모두 표시해도 여유가 있습니다.</p>
+<p>이벤트 이름을 바꿀 때는 주의합니다. 고객센터는 주요 이벤트로 표시한 이벤트의 이름을 GA4의 이벤트 수정 기능으로 바꾸면 주요 이벤트 표시가 풀린다고 안내합니다. 제작사가 코드에서 이름을 바꿔도 GA4에는 새 이벤트로 들어오므로, 이름을 바꾼 날에는 별표를 다시 확인합니다.</p>
+<p>클릭 이벤트 코드를 넣기 어렵고 문의를 마치면 완료 페이지로 넘어가는 사이트라면, 그 페이지의 조회(page_view)를 조건으로 새 이벤트를 만들어 주요 이벤트로 표시하는 방법도 고객센터에 안내돼 있습니다. 모든 page_view를 주요 이벤트로 표시하면 의미가 없으므로 완료 페이지 주소로 조건을 좁힙니다.</p>
+
+<h2>버튼 위치별 클릭 수를 보려면 무엇을 더 하나요?</h2>
+<p class="direct">cta_location 같은 매개변수는 맞춤 측정기준으로 등록해야 보고서에서 골라 볼 수 있습니다. 관리 &gt; 데이터 표시 &gt; 맞춤 정의 &gt; 맞춤 측정기준 만들기에서 범위는 ‘이벤트’, 이벤트 매개변수는 cta_location으로 입력합니다.</p>
+<p>측정기준 이름은 보고서에 보일 이름이라 알아보기 쉽게 짓습니다. 노아는 ‘클릭 위치’로 정했습니다. 범위와 이벤트 매개변수 이름은 저장한 뒤 바꿀 수 없으니 철자를 확인하고 저장합니다. 만든 뒤 24~48시간이 지나야 보고서에 추가할 수 있으므로, 이벤트 코드를 붙인 날 함께 만들어 둡니다.</p>
+<p>버튼 문구(label)도 같은 방법으로 ‘버튼 문구’ 측정기준을 만들면 <a href="cta-copy.html">CTA 버튼 문구</a>를 바꾼 전후의 클릭 수를 문구별로 비교할 수 있습니다. 반면 page는 등록하지 않아도 됩니다. GA4가 웹의 모든 이벤트에 페이지 주소(page_location)를 자동으로 붙이기 때문입니다. 표준 속성의 이벤트 범위 맞춤 측정기준은 50개까지라 기본으로 있는 값에 자리를 쓰지 않는 편이 낫습니다.</p>
+
+<h2>설정이 맞는지 오늘 바로 확인할 수 있나요?</h2>
+<p class="direct">실시간 보고서와 DebugView로 바로 확인할 수 있습니다. 표준 보고서는 처리에 24~48시간이 걸릴 수 있어, 설정한 날 표준 보고서에 숫자가 없어도 이상한 일이 아닙니다.</p>
+<p>가장 쉬운 방법은 실시간 보고서입니다. 지난 30분 동안의 활동을 보여 주므로, 휴대폰으로 내 사이트를 열어 문의 버튼을 누른 뒤 ‘이벤트 이름별 이벤트 수’ 카드에 cta_click이 나타나는지 봅니다. 주요 이벤트로 표시했다면 ‘이벤트 이름별 주요 이벤트’ 카드에도 잡힙니다.</p>
+<p>DebugView는 관리 &gt; 데이터 표시 &gt; DebugView에 있고, 디버그 모드를 켠 기기에서 들어오는 이벤트만 실시간으로 보여 줍니다. 디버그 모드는 Google 태그 어시스턴트(tagassistant.google.com)에 내 사이트 주소를 넣어 연결하는 방법이 가장 간단합니다. 개발자가 GA4 설정 코드에 debug_mode 값을 넣어 켤 수도 있는데, 끌 때는 false로 바꾸는 것으로는 꺼지지 않고 값을 지워야 합니다. 쿠키 동의 배너가 있는 사이트는 분석 쿠키에 동의한 상태로 테스트해야 DebugView에 이벤트가 보입니다.</p>
+<p>표준 보고서의 숫자는 처리되는 동안 바뀔 수 있습니다. 주간 비교는 이틀 이상 지난 날짜끼리 하는 편이 정확합니다.</p>
+
+<h2>그래서 지금 무엇부터 하면 되나요?</h2>
+<div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>휴대폰으로 내 홈페이지의 문의 버튼을 누르고, GA4 실시간 보고서의 ‘이벤트 이름별 이벤트 수’ 카드에 클릭 이벤트가 찍히는지 봅니다. 찍히면 관리 &gt; 데이터 표시 &gt; 이벤트에서 별표를 눌러 주요 이벤트로 표시합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>클릭 이벤트가 없다면 제작사에 이벤트 이름과 위치 매개변수를 정해 코드를 넣어 달라고 요청합니다. 이미 있다면 위치 매개변수를 맞춤 측정기준으로 등록하고, 이틀 뒤 보고서에서 위치별 클릭 수를 확인합니다.</li></ul></div></div>
+
+<h2>자주 묻는 질문</h2>
+<div class="faq"><details><summary>주요 이벤트로 표시하면 지난달 클릭도 전환으로 잡히나요?</summary><div class="fb">잡히지 않습니다. 구글 고객센터 안내에 따르면 주요 이벤트 표시는 표시한 시점 이후 보고서에만 반영되고 과거 데이터는 바뀌지 않습니다. 반대로 표시를 해제해도 이미 쌓인 데이터는 그대로 남습니다. 클릭 측정 코드를 붙였다면 표시는 그날 바로 하는 편이 낫습니다.</div></details><details><summary>이벤트 목록에 cta_click이 보이지 않으면 어떻게 하나요?</summary><div class="fb">아직 데이터가 들어오지 않은 이벤트는 목록에서 고를 수 없습니다. 이때는 관리 &gt; 데이터 표시 &gt; 주요 이벤트 &gt; 새 주요 이벤트에서 코드에 적힌 이름을 그대로 입력해 미리 등록합니다. 실시간 보고서에도 클릭이 찍히지 않는다면 사이트에 클릭 이벤트 코드가 없거나 동작하지 않는 상태이므로 제작사에 확인해야 합니다.</div></details><details><summary>GA4 주요 이벤트와 Google Ads 전환은 무엇이 다른가요?</summary><div class="fb">주요 이벤트는 GA4 안에서 방문자 행동을 분석하는 기준이고, 전환은 Google Ads에서 광고 성과를 재고 입찰에 쓰는 기준입니다. 광고를 돌린다면 GA4 속성과 Google Ads 계정을 연결하고 자동 태그 추가를 켠 뒤 주요 이벤트로 Google Ads 전환을 만듭니다. 이렇게 만든 전환은 기본값이 보조 전환 액션이라 입찰에 쓰려면 Google Ads에서 설정을 바꿔야 하고, Google Ads에 반영되기까지 최대 24시간이 걸립니다. 기여 분석 기준이 달라 두 숫자가 다르게 나올 수 있습니다.</div></details></div>
+<div class="noah"><h2>NOAH가 문의 클릭을 재는 방식</h2><p>이 글의 이벤트 이름과 위치 값은 노아 사이트 전 페이지에 실제로 붙인 공용 측정 스크립트에서 가져왔습니다. 지금 홈페이지에서 문의 버튼 클릭이 GA4에 잡히는지 모르겠다면 사이트 주소를 보내 주세요. 상담에서 사이트가 어떤 이벤트를 보내고 있는지, 무엇을 주요 이벤트로 표시하면 되는지 무료로 짚어 드립니다. 상담 후 결정은 안 하셔도 됩니다.</p><a class="cta" href="../contact.html">무료 상담 신청 →</a></div>
+<div class="rel"><h2>관련 글</h2><a href="conversion-rate.html">홈페이지 전환율을 올리는 우선순위 10가지</a><a href="cta-copy.html">클릭률을 바꾸는 CTA 버튼 문구 규칙</a><a href="no-inquiries.html">홈페이지를 만들었는데 문의가 없는 진짜 이유</a></div>
+<div class="rel hub"><h2>노아 핵심 가이드</h2><a href="homepage-cost.html">홈페이지 제작 비용, 격차의 3가지 원인</a><a href="../column/blog-top-exposure.html">블로그 상위노출 — 알고리즘이 보는 신호</a><a href="../column/hospital-marketing.html">병의원 마케팅 — 의료광고법 안에서 이기는 법</a><a href="../column/place-marketing.html">플레이스 마케팅 — 지도 시대의 로컬 마케팅</a><a href="../column/blog-experience-site.html">블로그 체험단 사이트 — 고르는 기준과 이용 팁</a></div>
+<p class="src">참고 자료 — <a href="https://support.google.com/analytics/answer/13965727?hl=ko" rel="noopener nofollow" target="_blank">애널리틱스 고객센터: 전환 및 주요 이벤트</a> · <a href="https://blog.google/products/marketingplatform/analytics/evolving-google-analytics-for-more-insightful-measurement/" rel="noopener nofollow" target="_blank">Google 블로그: Google Ads·애널리틱스 측정 정렬(2024년 3월)</a> · <a href="https://support.google.com/analytics/answer/13128484?hl=ko" rel="noopener nofollow" target="_blank">이벤트를 주요 이벤트로 표시하기</a> · <a href="https://support.google.com/analytics/answer/12946393?hl=ko" rel="noopener nofollow" target="_blank">주요 이벤트 측정 방법(새 주요 이벤트)</a> · <a href="https://support.google.com/analytics/answer/12844695?hl=ko" rel="noopener nofollow" target="_blank">주요 이벤트 만들기 또는 수정하기</a> · <a href="https://support.google.com/analytics/answer/10085872?hl=ko" rel="noopener nofollow" target="_blank">이벤트 이름 변경</a> · <a href="https://support.google.com/analytics/answer/14239696?hl=ko" rel="noopener nofollow" target="_blank">이벤트 범위 맞춤 측정기준 만들기</a> · <a href="https://support.google.com/analytics/answer/9216061?hl=ko" rel="noopener nofollow" target="_blank">향상된 측정 이벤트(page_view)</a> · <a href="https://support.google.com/analytics/answer/9234069?hl=ko" rel="noopener nofollow" target="_blank">자동 수집 이벤트</a> · <a href="https://support.google.com/analytics/answer/12229528?hl=ko" rel="noopener nofollow" target="_blank">구성 한도</a> · <a href="https://support.google.com/analytics/answer/9271392?hl=ko" rel="noopener nofollow" target="_blank">실시간 보고서</a> · <a href="https://support.google.com/analytics/answer/7201382?hl=ko" rel="noopener nofollow" target="_blank">DebugView에서 이벤트 모니터링하기</a> · <a href="https://support.google.com/analytics/answer/11198161?hl=ko" rel="noopener nofollow" target="_blank">데이터 기록 빈도</a> · <a href="https://support.google.com/analytics/answer/9267735?hl=ko" rel="noopener nofollow" target="_blank">추천 이벤트(generate_lead)</a> · <a href="https://support.google.com/analytics/answer/10632359?hl=ko" rel="noopener nofollow" target="_blank">주요 이벤트 기반 Google Ads 전환 만들기</a> · 자사: 노아 사이트 js/track.js(2026-10-09 도입)·js/script.js, 2026-10-21 확인</p>
+
+</article>
+</div>
+<footer>
+씨씨컴퍼니 (CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고번호 2020-인천연수구-1872<br>
+대표전화 010-6658-6482 · cccompanymaster@gmail.com · 인천광역시 연수구 인천타워대로 301, A동 16층 33호<br>
+&copy; 2026 노아 (NOAH). <a href="../index.html">홈</a> · <a href="index.html">제작 가이드</a> · <a href="../column/">마케팅 칼럼</a> · <a href="../shop.html">서비스</a> · <a href="../contact.html">문의</a><br><a href="https://blog.naver.com/cccompanyad" data-mo="https://m.blog.naver.com/cccompanyad" class="js-blog" target="_blank" rel="noopener" aria-label="노아 네이버 블로그">네이버 블로그</a>
+</footer>
+<script>(function(){if(!matchMedia('(max-width:768px)').matches)return;
+document.querySelectorAll('a.js-blog[data-mo]').forEach(function(a){a.href=a.getAttribute('data-mo');});})();</script>
+<script src="../js/track.js" defer></script>
+</body>
+</html>
