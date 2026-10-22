@@ -1,0 +1,244 @@
+# 내부 링크 후보 (칼럼 페이지 기준 상대 경로 → 제목)
+## 기존 칼럼
+- academy-marketing.html — 학원 마케팅,신규 원생 상담을 만드는 구조
+- accountant-blog.html — 회계사 블로그,B2B 신뢰를 쌓는 전문 콘텐츠
+- blog-ad-apply.html — 블로그 광고 신청,진행 절차와 준비물
+- blog-ad-company.html — 블로그 광고 대행사,좋은 회사와 위험한 회사
+- blog-ad-cost.html — 블로그 광고 비용,2026년 시세와 견적 읽는 법
+- blog-care-agency.html — 블로그 관리 대행,월 운영에 포함돼야 할 것들
+- blog-experience-list.html — 블로그 체험단 모음,플랫폼별 특징 비교
+- blog-experience-site.html — 블로그 체험단 사이트,고르는 기준과 이용 팁
+- blog-job-review.html — 블로그 알바 후기,6개월 해본 사람들의 진짜 이야기
+- blog-low-quality.html — 블로그 저품질,확인 방법과 회복 전략
+- blog-marketing-agency.html — 블로그 마케팅 대행,업체 고르는 기준 7가지
+- blog-posting-job.html — 블로그 포스팅 알바,원고 알바와 뭐가 다른가
+- blog-side-income.html — 블로그 부업,구조를 알고 시작하는 법
+- blog-top-exposure.html — 블로그 상위노출,알고리즘이 보는 신호
+- blog-writing-parttime.html — 블로그 원고 알바,단가·구직처·주의사항
+- brand-blog.html — 브랜드 블로그,기업 블로그를 자산으로 만드는 법
+- busan-blog-marketing.html — 부산 블로그 마케팅,지역 기반 전략 가이드
+- cafe-top-marketing.html — 카페 상위노출,커뮤니티 검색을 잡는 법
+- cpa-ad.html — CPA 광고,성과형 광고의 구조와 함정
+- danggeun-ad.html — 당근마켓 광고,동네 고객에게 닿는 하이퍼로컬 광고
+- dental-marketing.html — 치과 마케팅,임플란트부터 교정까지, 신뢰 설계
+- dermatology-marketing.html — 피부과 마케팅,시술 경쟁 시대의 차별화
+- facebook-ad.html — 페이스북 광고,메타 광고, 아직 유효한가
+- food-biz-marketing.html — 요식업 마케팅,프랜차이즈부터 동네 가게까지
+- gym-marketing.html — 헬스장 마케팅,회원권 문의를 만드는 검색 전략
+- homepage-blog.html — 홈페이지형 블로그,제작 방법과 비용, 장단점
+- hospital-ad.html — 병원 광고,매체별 규제와 집행 가이드
+- hospital-marketing.html — 병의원 마케팅,의료광고법 안에서 이기는 법
+- hospital-pr.html — 병원 홍보,광고비 없이 시작하는 5가지
+- instagram-marketing.html — 인스타그램 마케팅,팔로워보다 도달, 도달보다 전환
+- interior-marketing.html — 인테리어 마케팅,시공 사례로 계약을 만드는 법
+- judicial-scrivener.html — 법무사 마케팅,등기·상속 수요를 잡는 법
+- lawfirm-marketing.html — 법무법인 마케팅,분야별 랜딩 전략과 규정 준수
+- lawyer-marketing.html — 변호사 마케팅,수임으로 이어지는 콘텐츠 설계
+- legal-marketing.html — 법률 마케팅,로펌·개인 사무소 실전 가이드
+- marketing-agency.html — 마케팅 에이전시,에이전시 협업 성공 공식
+- marketing-lecture.html — 마케팅 강의,강의 고르는 법과 독학 로드맵
+- matjip-marketing.html — 맛집 마케팅,'맛집' 검색 결과에 들어가는 법
+- medical-ad-law.html — 의료광고법,2026 실무 가이드 — 되는 것과 안 되는 것
+- naver-blog-ad.html — 네이버 블로그 광고,종류와 활용 전략 총정리
+- naver-map-top.html — 네이버 지도 상위노출,동네 검색 1페이지 전략
+- naver-official-ad-agency.html — 네이버 공식 광고대행사,확인 방법과 선택 기준
+- online-ad-company.html — 온라인 광고 회사,대행사 구조의 이해와 선택법
+- online-marketing-agency.html — 온라인 마케팅 대행사,2026년 선택 가이드
+- online-viral.html — 온라인 바이럴 마케팅,채널 조합 설계법
+- oriental-clinic.html — 한의원 마케팅,보험·비보험 균형 전략
+- place-marketing.html — 플레이스 마케팅,지도 시대의 로컬 마케팅
+- place-ranking.html — 네이버 플레이스 순위,순위 결정 요인 분석
+- place-top-exposure.html — 플레이스 상위노출,지도 검색을 잡는 법
+- plastic-surgery-marketing.html — 성형외과 마케팅,전후사진 규제 시대의 전략
+- powerlink-ad-guide.html — 파워링크 광고,과금 구조와 효율 올리는 법
+- reels-marketing.html — 릴스 마케팅,짧은 영상으로 매장을 알리는 법
+- restaurant-marketing.html — 음식점 마케팅,손님이 검색하는 순간을 잡아라
+- smartstore-top.html — 스마트스토어 상위노출,쇼핑검색 랭킹의 원리
+- tax-accountant-blog.html — 세무사 마케팅,기장 문의를 만드는 콘텐츠 전략
+- vet-marketing.html — 동물병원 마케팅,보호자의 검색을 잡는 법
+- viral-marketing-case.html — 바이럴 마케팅 사례,성공과 실패에서 배우는 것
+- viral-promotion.html — 바이럴 홍보,퍼지는 콘텐츠의 조건
+- youtube-ad.html — 유튜브 광고,광고·PPL·운영, 무엇부터?
+- youtube-experience.html — 유튜브 체험단,영상 후기의 힘과 운영법
+## 가이드 (홈페이지 제작·SEO)
+- ../guide/about-page.html — 아무도 안 읽는 회사소개와 읽히는 회사소개의 차이
+- ../guide/academy-website.html — 학원 홈페이지가 상담 신청을 만드는 구조
+- ../guide/accounting-treatment.html — 홈페이지 제작비는 비용일까 자산일까
+- ../guide/ai-website-builder.html — AI가 만들어준 홈페이지를 그대로 쓰면 안 되는 이유
+- ../guide/beauty-website.html — 에스테틱 홈페이지 시술 안내와 가격 표기 기준
+- ../guide/brand-search-visibility.html — 상호를 검색해도 우리 홈페이지가 안 나오는 이유
+- ../guide/buy-domain.html — 도메인은 반드시 사장님 명의로 사야 합니다
+- ../guide/cafe-website.html — 카페 홈페이지가 인스타보다 필요한 이유
+- ../guide/cafe24-vs-imweb.html — 카페24와 아임웹 어느 쪽이 내 업종에 맞을까
+- ../guide/color-palette.html — 업종별로 검증된 홈페이지 색상 조합
+- ../guide/contact-form.html — 문의 폼은 항목이 적을수록 문의가 늘어납니다
+- ../guide/contract-clauses.html — 홈페이지 제작 계약서에 반드시 넣어야 할 9개 조항
+- ../guide/contractor-closure.html — 제작 업체가 폐업하면 내 홈페이지는 어떻게 되나
+- ../guide/contractor-ghosting.html — 선입금 후 연락이 끊겼을 때 오늘 해야 할 5가지
+- ../guide/conversion-rate.html — 홈페이지 전환율을 올리는 우선순위 10가지
+- ../guide/cta-copy.html — 클릭률을 바꾸는 CTA 버튼 문구 규칙
+- ../guide/dental-website.html — 치과 홈페이지에 꼭 들어가야 할 구성과 의료광고 주의사항
+- ../guide/diy-vs-outsourcing.html — 직접 만들기와 외주 맡기기 — 손익분기는 어디인가
+- ../guide/dns-setup.html — 도메인을 홈페이지에 연결하는 DNS 설정 완전 가이드
+- ../guide/domain-extension.html — co.kr과 .com 중 무엇을 사야 할까
+- ../guide/domain-transfer.html — 제작사 명의로 등록된 도메인을 되찾는 방법
+- ../guide/domain-vs-hosting.html — 도메인과 호스팅 그리고 서버 — 3분 만에 끝내는 개념 정리
+- ../guide/ecommerce-registration.html — 내 홈페이지는 통신판매업 신고 대상일까
+- ../guide/extra-charges.html — 견적에 없던 추가금이 청구됐습니다 — 나와야 할 돈과 아닌 돈
+- ../guide/faq-section.html — FAQ는 검색 유입과 전환을 동시에 잡는 유일한 섹션입니다
+- ../guide/footer-legal-info.html — 홈페이지 하단에 반드시 들어가야 하는 정보
+- ../guide/free-stock-images.html — 상업적 이용이 가능한 무료 이미지 사이트와 확인법
+- ../guide/free-website-builders.html — 무료 홈페이지의 진짜 비용은 시간입니다
+- ../guide/free-website-trap.html — 무료로 만들어드린다는 전화 — 3년치 108만원의 정체
+- ../guide/freelance-marketplace.html — 재능마켓에서 홈페이지를 맡길 때 생기는 일
+- ../guide/google-search-console.html — 구글 서치콘솔 등록과 색인 요청 실전 가이드
+- ../guide/government-support.html — 홈페이지 제작 정부지원 사업 신청 전에 확인할 것
+- ../guide/hero-headline.html — 첫 화면 문구는 멋진 문장이 아니라 명확한 문장이어야 합니다
+- ../guide/homepage-cost.html — 홈페이지 제작 비용 완전 분해 — 30만원부터 1000만원까지 왜 갈리는가
+- ../guide/hosting-cost.html — 호스팅 비용을 매년 내는 게 맞나요
+- ../guide/how-to-read-quote.html — 견적서에 이 6줄이 없으면 나중에 반드시 추가금이 붙습니다
+- ../guide/image-optimization.html — 홈페이지 이미지 용량 기준과 변환 방법
+- ../guide/imweb-limitations.html — 아임웹으로 만들다 막히는 지점 10가지
+- ../guide/instagram-vs-website.html — 인스타그램만 있으면 홈페이지는 정말 필요 없을까
+- ../guide/internal-linking.html — 내부 링크 3개가 검색 순위를 바꾸는 원리
+- ../guide/kakao-chat-button.html — 전화보다 카카오톡 상담이 문의를 늘리는 이유
+- ../guide/landing-page-cost.html — 랜딩페이지 제작 비용과 홈페이지 제작 비용은 왜 다를까
+- ../guide/landing-page-structure.html — 전환되는 랜딩페이지의 섹션 순서 11단계
+- ../guide/launch-checklist.html — 오픈 버튼을 누르기 전 확인해야 할 22가지
+- ../guide/law-firm-website.html — 법무법인 홈페이지는 신뢰를 어떻게 설계하는가
+- ../guide/legal-notice.html — 홈페이지 제작 분쟁 내용증명 작성법과 문구 예시
+- ../guide/llm-visibility.html — ChatGPT가 우리 회사를 추천하게 만드는 실전 세팅
+- ../guide/maintenance-cost.html — 글자 한 줄 바꾸는 데 5만원 — 유지보수 비용의 진짜 구조
+- ../guide/manufacturing-website.html — 제조업 B2B 홈페이지는 카탈로그가 아니라 견적서를 받는 곳입니다
+- ../guide/menu-structure.html — 메뉴가 7개를 넘어가면 문의가 줄어듭니다
+- ../guide/meta-tags.html — 클릭을 부르는 title과 description 글자수 기준
+- ../guide/mobile-broken-layout.html — 폰에서만 홈페이지가 깨지는 6가지 원인과 해결
+- ../guide/naver-ai-briefing.html — 네이버 AI 브리핑에 인용되는 콘텐츠의 조건
+- ../guide/naver-place-link.html — 네이버 플레이스에 홈페이지를 연결해 유입을 늘리는 법
+- ../guide/naver-search-advisor.html — 네이버 서치어드바이저 등록부터 수집 요청까지 전 과정
+- ../guide/no-inquiries.html — 홈페이지를 만들었는데 문의가 없는 진짜 이유
+- ../guide/no-photos.html — 매장 사진이 없어도 홈페이지를 만들 수 있을까요
+- ../guide/not-indexed-naver.html — 홈페이지가 네이버에 안 나올 때 순서대로 확인할 8가지
+- ../guide/not-secure-warning.html — 주소창에 주의 요함이 뜨는 홈페이지 고치는 법
+- ../guide/notion-website.html — 노션으로 회사 홈페이지를 만들어도 될까요
+- ../guide/one-page-website.html — 원페이지 홈페이지가 맞는 업종과 아닌 업종
+- ../guide/page-speed.html — 홈페이지 로딩 1초가 늦어질 때 잃는 문의 수
+- ../guide/payment-gateway.html — 홈페이지에 카드결제를 붙이는 전체 절차와 수수료
+- ../guide/pension-website.html — 플랫폼 수수료 대신 자사 예약을 늘리는 숙박 홈페이지
+- ../guide/pilates-website.html — 필라테스 스튜디오 홈페이지 필수 구성 7가지
+- ../guide/planning-document.html — 기획서 없이 시작한 홈페이지가 3번 갈아엎히는 이유
+- ../guide/portal-impersonation.html — 네이버 본사라며 상위노출을 보장하는 전화의 실체
+- ../guide/portfolio-website.html — 포트폴리오 홈페이지에서 작업물보다 중요한 것
+- ../guide/preparation-checklist.html — 제작 의뢰 전에 이 8가지만 정리하면 기간이 절반으로 줄어듭니다
+- ../guide/price-tier-difference.html — 30만원과 300만원 홈페이지는 정확히 무엇이 다른가
+- ../guide/privacy-policy.html — 문의 폼 하나만 있어도 개인정보처리방침은 필수입니다
+- ../guide/production-process.html — 상담부터 오픈까지 홈페이지가 만들어지는 전체 순서
+- ../guide/production-timeline.html — 홈페이지 제작 기간이 늘어지는 진짜 원인은 발주자 쪽에 있습니다
+- ../guide/refund-guide.html — 계약서에 환불 조항이 없어도 환불받을 수 있을까
+- ../guide/renewal-seo.html — 리뉴얼하다 검색 순위를 통째로 날리지 않는 법
+- ../guide/renewal-vs-rebuild.html — 고쳐 쓸 홈페이지와 새로 만들 홈페이지를 가르는 6가지 기준
+- ../guide/responsive-cost.html — 모바일 버전을 따로 청구받고 계신가요
+- ../guide/robots-txt.html — robots.txt 한 줄 때문에 네이버에서 사라진 홈페이지
+- ../guide/scam-patterns.html — 홈페이지 제작 사기의 5가지 정형 패턴
+- ../guide/sitemap-submission.html — 사이트맵 가져올 수 없음 오류의 원인 7가지
+- ../guide/sixshop-review.html — 식스샵이 어울리는 브랜드와 어울리지 않는 브랜드
+- ../guide/small-business-cost.html — 소상공인이 홈페이지에 쓰는 적정 예산은 얼마일까
+- ../guide/source-code-ownership.html — 홈페이지 소스코드는 누구의 것인가
+- ../guide/ssl-certificate.html — SSL 없는 홈페이지는 검색에서도 손해를 봅니다
+- ../guide/startup-website.html — 스타트업 홈페이지가 투자자와 고객을 동시에 설득하는 법
+- ../guide/structured-data.html — 구조화 데이터를 넣으면 AI 검색에 인용될 확률이 달라집니다
+- ../guide/tax-invoice.html — 홈페이지 제작비 세금계산서와 부가세 처리 정리
+- ../guide/testimonials.html — 후기를 어디에 두느냐가 전환을 바꿉니다
+- ../guide/vetting-agencies.html — 홈페이지 제작 업체를 고르기 전에 던져야 할 질문 10개
+- ../guide/viewport-meta-tag.html — viewport 태그 한 줄이 없으면 모바일이 전부 축소됩니다
+- ../guide/warranty-period.html — 홈페이지 하자보수 기간은 보통 몇 개월인가요
+- ../guide/web-fonts.html — 상업적으로 안전한 한글 웹폰트와 크기 기준
+- ../guide/website-backup.html — 백업 없이 업체를 바꾸면 홈페이지를 통째로 잃습니다
+- ../guide/website-builder-comparison.html — 2026년 홈페이지 제작 툴 7종 실사용 비교
+- ../guide/website-migration.html — 업체를 바꾸기 전에 확보해야 할 계정과 파일 목록
+- ../guide/website-trust.html — 3초 안에 신뢰를 만드는 홈페이지 요소 12가지
+- ../guide/what-is-aeo.html — AEO란 무엇이고 SEO와 어떻게 다른가
+- ../guide/what-is-geo.html — GEO란 무엇이며 지금 홈페이지에 무엇을 바꿔야 하나
+- ../guide/wix-limitations.html — 윅스로 만든 홈페이지가 네이버에서 약한 이유
+- ../guide/wordpress-vs-imweb.html — 워드프레스의 자유도는 정말 필요한 자유도일까
+- ../guide/ga4-cta-key-event.html — 문의 버튼 클릭을 GA4 전환(주요 이벤트)으로 잡는 법
+- ../guide/kakao-link-preview-cache.html — 카카오톡 링크 미리보기가 안 바뀔 때 해결 순서
+## 아티클
+- ../articles/ad-platform-comparison.html — 플랫폼별 광고 수수료·CPC 비교 2026 — 파워링크·당근·페이스북·네이버공식대행사
+- ../articles/agency-selection-compliance.html — 마케팅 대행사 선택·부정클릭·광고 컴플라이언스 가이드 2026
+- ../articles/ai-search-geo-2026.html — AI 검색 SEO 2026 — GEO·AEO·LLM 최적화 완전 가이드
+- ../articles/b2b-leadgen-marketing.html — B2B 마케팅·리드젠 가이드 2026 — 기업 대상 콘텐츠·세일즈 퍼널
+- ../articles/blog-ad-cost-guide.html — 블로그 광고 비용 2026 — 단가 공개 + 대행사 선택 체크리스트
+- ../articles/blog-outsourcing-vs-inhouse.html — 블로그 원고 외주 vs 인하우스 — 비용·품질·리스크 비교 가이드 2026
+- ../articles/blog-top-ranking-2026.html — 블로그 상위노출 2026 — 네이버 SMART BLOCK 로직 완전 분석
+- ../articles/brand-blog-management.html — 브랜드 블로그 관리대행 — 직접운영 vs 대행 ROI 비교
+- ../articles/cafe-top-ranking.html — 네이버 카페 상위노출 완전 가이드 2026 — 인기글·검색 상위 로직
+- ../articles/content-marketing-titles-thumbnails.html — 콘텐츠 마케팅 2026 — 블로그 제목·썸네일·롱테일 키워드·상세페이지
+- ../articles/cpa-viral-agency-guide.html — CPA 광고회사 선택 가이드 + 바이럴 마케팅 사례집 2026
+- ../articles/hospital-specialty-marketing.html — 진료과별 마케팅 전략 2026 — 피부과·성형외과·치과·한의원·동물병원 D-90 로드맵
+- ../articles/industry-blog-marketing.html — 업종별 블로그 마케팅 — 헬스장·학원·음식점·인테리어·맛집 완전 가이드 2026
+- ../articles/kakao-email-push-marketing.html — 카카오 비즈니스·이메일·푸시 마케팅 2026 — CRM 채널 통합 가이드
+- ../articles/low-quality-blog-recovery.html — 블로그 저품질 해제 — 원인 진단·복구 로드맵·재발 방지 가이드 2026
+- ../articles/marketing-education-2026.html — 마케팅 강의·교육 가이드 2026 — 실무·커리어·자격증 완전 정리
+- ../articles/medical-ad-review-2026.html — 의료광고 심의 2026 — 병원 마케팅 실무자가 꼭 알아야 할 5가지
+- ../articles/new-sns-platforms-2026.html — 인스타·틱톡·쓰레드 신규 SNS 마케팅 2026 — 알고리즘·예산·콘텐츠 비교
+- ../articles/performance-measurement-ga4.html — 퍼포먼스 측정 2026 — GA4·UTM·ROAS·구글 AI 개요 대응 종합 가이드
+- ../articles/place-top-ranking-2026.html — 네이버 플레이스 1위 전략 2026 — 지역 비즈니스 상위노출 완전 가이드
+- ../articles/professional-marketing-2026.html — 변호사·세무사·법무사 블로그 마케팅 2026 — 전문직 SEO 완전 가이드
+- ../articles/restaurant-viral-marketing.html — 요식업·맛집 바이럴 마케팅 심화 2026 — 오픈·안정기·위기 3단계 전략
+- ../articles/review-experience-team-guide.html — 블로그 체험단 마케팅 실전 — 모집·원고 검수·대가성 표기 완전 가이드 2026
+- ../articles/smartstore-top-ranking.html — 네이버 스마트스토어 상위노출 2026 — 쇼핑 검색 랭킹 실전 가이드
+- ../articles/sns-platform-marketing.html — SNS 플랫폼별 마케팅 가이드 2026 — 인스타그램·릴스·유튜브 PPL·체험단
+- ../articles/startup-launch-marketing-d90.html — 창업·오픈 마케팅 D-90 종합 가이드 2026 — 신규 매장·런칭 90일 플랜
+- ../articles/viral-success-cases-2026.html — 바이럴 마케팅 성공 사례집 2026 — 업종별 ROI·KPI 공개
+## 이번에 새로 쓰는 칼럼 50편 (서로 링크 가능)
+- naver-searchad-cost.html — 네이버 검색광고 비용, 얼마부터 시작하고 어디서 새나
+- power-content-ad.html — 파워컨텐츠 광고, 파워링크와 무엇이 다른가
+- shopping-search-ad.html — 쇼핑검색광고, 스마트스토어 판매자가 먼저 알 것
+- google-ads-start.html — 구글 광고 하는 법, 처음 시작하는 순서와 예산
+- coupang-ads.html — 쿠팡 광고, 판매자가 시작 전 확인할 구조
+- retargeting-ad.html — 리타겟팅 광고, 다시 데려오는 원리와 주의점
+- ad-agency-fee.html — 광고대행 수수료, 몇 %가 적정하고 무엇이 포함되나
+- naver-keyword-volume.html — 키워드 검색량 조회, 네이버 키워드 도구 사용법
+- blog-keyword-selection.html — 블로그 키워드 선정, 검색량보다 먼저 볼 것
+- place-review.html — 네이버 플레이스 리뷰, 정책을 지키며 늘리는 법
+- youtube-seo.html — 유튜브 상위노출, 검색 결과에 걸리는 영상의 조건
+- smart-place-register.html — 스마트플레이스 등록, 첫 30일에 해야 할 세팅
+- blog-index.html — 블로그 지수 확인, 공개되지 않는 점수를 읽는 법
+- blog-post-length.html — 블로그 글자수, 몇 자보다 중요한 것
+- blog-omission.html — 블로그 누락, 검색에서 빠졌을 때 확인 순서
+- naver-blog-vs-tistory.html — 네이버 블로그 vs 티스토리, 사업자는 어디에 써야 하나
+- ai-blog-writing.html — AI 블로그 글쓰기, 불리해지는 경우와 아닌 경우
+- blog-dwell-time.html — 블로그 체류시간, 늘리는 글 구조
+- hair-salon-marketing.html — 미용실 마케팅, 재방문을 만드는 예약 동선
+- nail-shop-marketing.html — 네일샵 마케팅, 디자인 사진이 예약이 되는 구조
+- pilates-marketing.html — 필라테스 마케팅, 체험 수업에서 등록까지
+- cafe-marketing.html — 카페 마케팅, 동네 카페가 검색에서 이기는 법
+- shopping-mall-marketing.html — 쇼핑몰 마케팅, 자사몰이 광고비에 덜 끌려가는 구조
+- study-cafe-marketing.html — 스터디카페 마케팅, 시간권보다 정기권을 파는 법
+- car-repair-marketing.html — 카센터 마케팅, 가격 불신을 신뢰로 바꾸는 법
+- bakery-marketing.html — 베이커리 마케팅, 갓 구운 시간을 알리는 법
+- labor-attorney-marketing.html — 노무사 마케팅, 사건 문의가 오는 콘텐츠
+- patent-attorney-marketing.html — 변리사 마케팅, 기술 고객이 찾는 방식
+- administrative-agent-marketing.html — 행정사 마케팅, 업무 분야를 좁혀야 문의가 온다
+- claims-adjuster-marketing.html — 손해사정사 마케팅, 보험금 분쟁 검색을 받는 법
+- insurance-planner-marketing.html — 보험설계사 마케팅, 광고 심의 안에서 고객 만드는 법
+- realtor-marketing.html — 공인중개사 마케팅, 매물 광고 규정부터 지켜야 한다
+- orthopedic-marketing.html — 정형외과 마케팅, 통증 검색에 답하는 병원
+- ophthalmology-marketing.html — 안과 마케팅, 시력교정 광고의 경계
+- internal-medicine-marketing.html — 내과 마케팅, 건강검진·내시경 검색을 받는 법
+- nursing-hospital-marketing.html — 요양병원 마케팅, 보호자가 확인하는 것
+- pharmacy-marketing.html — 약국 마케팅, 약사법 안에서 할 수 있는 홍보
+- naver-adpost.html — 애드포스트 수익, 신청 조건과 현실적인 기대치
+- blog-experience-apply.html — 블로그 체험단 신청, 선정되는 블로그의 공통점
+- naver-influencer.html — 네이버 인플루언서, 신청 조건과 주제 선택
+- blog-income-tax.html — 블로그 수익 세금, 부업 소득 신고 기준
+- viral-marketing-meaning.html — 바이럴 마케팅 뜻, 광고와 무엇이 다른가
+- marketing-contract.html — 마케팅 대행 계약서, 서명 전에 확인할 조항
+- marketing-agency-scam.html — 마케팅 대행 사기, 계약 전에 걸러내는 신호
+- press-release-cost.html — 보도자료 배포 비용, 기사형 광고와 구분하는 법
+- influencer-marketing-cost.html — 인플루언서 마케팅 비용, 단가가 정해지는 기준
+- experience-cost.html — 체험단 비용, 업주가 내는 돈과 블로거가 받는 것
+- instagram-experience.html — 인스타 체험단, 블로그 체험단과 다른 점
+- experience-vs-reporter.html — 체험단 vs 기자단, 무엇이 다르고 언제 쓰나
+- review-edit-request.html — 체험단 후기 수정 요청, 어디까지 요청해도 되나
