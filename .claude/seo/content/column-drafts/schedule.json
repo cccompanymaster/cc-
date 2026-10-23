@@ -1,0 +1,102 @@
+{
+ "batches": [
+  {
+   "date": "2026-10-23",
+   "slugs": [
+    "blog-keyword-selection",
+    "blog-omission",
+    "cafe-marketing",
+    "marketing-contract",
+    "ad-agency-fee"
+   ]
+  },
+  {
+   "date": "2026-10-24",
+   "slugs": [
+    "smart-place-register",
+    "naver-blog-vs-tistory",
+    "nail-shop-marketing",
+    "labor-attorney-marketing",
+    "experience-vs-reporter"
+   ]
+  },
+  {
+   "date": "2026-10-25",
+   "slugs": [
+    "youtube-seo",
+    "blog-post-length",
+    "pilates-marketing",
+    "google-ads-start",
+    "naver-adpost"
+   ]
+  },
+  {
+   "date": "2026-10-26",
+   "slugs": [
+    "blog-dwell-time",
+    "shopping-mall-marketing",
+    "shopping-search-ad",
+    "viral-marketing-meaning",
+    "review-edit-request"
+   ]
+  },
+  {
+   "date": "2026-10-27",
+   "slugs": [
+    "study-cafe-marketing",
+    "coupang-ads",
+    "patent-attorney-marketing",
+    "blog-experience-apply",
+    "instagram-experience"
+   ]
+  },
+  {
+   "date": "2026-10-28",
+   "slugs": [
+    "car-repair-marketing",
+    "power-content-ad",
+    "administrative-agent-marketing",
+    "naver-influencer",
+    "press-release-cost"
+   ]
+  },
+  {
+   "date": "2026-10-29",
+   "slugs": [
+    "bakery-marketing",
+    "retargeting-ad",
+    "claims-adjuster-marketing",
+    "insurance-planner-marketing",
+    "influencer-marketing-cost"
+   ]
+  },
+  {
+   "date": "2026-10-30",
+   "slugs": [
+    "orthopedic-marketing",
+    "ophthalmology-marketing",
+    "internal-medicine-marketing",
+    "nursing-hospital-marketing",
+    "pharmacy-marketing"
+   ],
+   "before": "의료법 제56·57조, 약사법 광고 조항 현행본을 국가법령정보센터 기준으로 대조하고, 다른 내용이면 원고를 고친 뒤 발행"
+  }
+ ],
+ "published": {
+  "naver-keyword-volume": "2026-10-22",
+  "blog-index": "2026-10-22",
+  "place-review": "2026-10-22",
+  "naver-searchad-cost": "2026-10-22",
+  "hair-salon-marketing": "2026-10-22",
+  "realtor-marketing": "2026-10-22",
+  "ai-blog-writing": "2026-10-22",
+  "experience-cost": "2026-10-22",
+  "marketing-agency-scam": "2026-10-22",
+  "blog-income-tax": "2026-10-22",
+  "blog-keyword-selection": "2026-10-23",
+  "blog-omission": "2026-10-23",
+  "cafe-marketing": "2026-10-23",
+  "marketing-contract": "2026-10-23",
+  "ad-agency-fee": "2026-10-23"
+ }
+}

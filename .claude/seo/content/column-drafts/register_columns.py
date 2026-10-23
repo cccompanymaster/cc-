@@ -4,8 +4,12 @@ D = os.path.dirname(os.path.abspath(__file__)) + '/'; ROOT = D.split('/.claude/'
 os.chdir(ROOT)
 CAT = {'ad': '광고 플랫폼', 'expo': '상위노출', 'blog': '블로그 운영', 'industry': '업종별 마케팅', 'pro': '전문직 마케팅',
        'medical': '병원·의료', 'job': '블로그 부업', 'viral': '바이럴·에이전시', 'exp': '체험단'}
-DATE = '2026-10-22'; PUB = 'Thu, 22 Oct 2026 09:00:00 +0900'
-slugs = sys.argv[1:]; specs = [json.load(open(D + f'specs/{s}.json', encoding='utf-8')) for s in slugs]
+import datetime
+argv = sys.argv[1:]
+DATE = argv[argv.index('--date') + 1] if '--date' in argv else datetime.date.today().isoformat()
+PUB = datetime.date.fromisoformat(DATE).strftime('%a, %d %b %Y') + ' 09:00:00 +0900'
+slugs = [a for i, a in enumerate(argv) if not a.startswith('--') and (i == 0 or argv[i - 1] != '--date')]; specs = [json.load(open(D + f'specs/{s}.json', encoding='utf-8')) for s in slugs]
+managed = {os.path.basename(f)[:-5] for f in glob.glob(D + 'rewrite/*.json')}  # 재작성 원고가 있는 기존 칼럼은 원고의 관련 글로 관리
 for sp in specs: assert os.path.exists(f'column/{sp["slug"]}.html'), sp['slug']
 e = lambda s: html.escape(s, quote=False)
 # 1) 목록 카드(최신 글 앞) + 편수
@@ -53,7 +57,7 @@ for f, s in pages.items():
     if m: catof[f] = m.group(1)
 added = 0
 for sp in new:
-    cands = [f for f in pages if catof.get(f) == CAT[sp['cat']] and f[7:-5] not in slugs and f'href="{sp["slug"]}.html"' not in pages[f]]
+    cands = [f for f in pages if catof.get(f) == CAT[sp['cat']] and f[7:-5] not in slugs and f[7:-5] not in managed and f'href="{sp["slug"]}.html"' not in pages[f]]
     for f in sorted(cands, key=lambda f: inbound[f[7:]])[:2]:
         s = pages[f]; m = re.search(r'(<div class="rel"><h2>함께 읽으면 좋은 글</h2>.*?)(</div>)', s, re.S)
         if not m: continue
