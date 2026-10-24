@@ -1750,5 +1750,45 @@
 "pub": "2026-10-23",
 "mod": "2026-10-23",
 "faq": 3
+},
+{
+"url": "column/smart-place-register.html",
+"title": "스마트플레이스 등록 — 첫 30일에 해야 할 세팅",
+"lang": "ko",
+"pub": "2026-10-24",
+"mod": "2026-10-24",
+"faq": 3
+},
+{
+"url": "column/naver-blog-vs-tistory.html",
+"title": "네이버 블로그 vs 티스토리 — 사업자 기준 선택법",
+"lang": "ko",
+"pub": "2026-10-24",
+"mod": "2026-10-24",
+"faq": 3
+},
+{
+"url": "column/nail-shop-marketing.html",
+"title": "네일샵 마케팅 — 디자인 사진이 예약이 되는 구조",
+"lang": "ko",
+"pub": "2026-10-24",
+"mod": "2026-10-24",
+"faq": 3
+},
+{
+"url": "column/labor-attorney-marketing.html",
+"title": "노무사 마케팅 — 사건 문의가 오는 콘텐츠",
+"lang": "ko",
+"pub": "2026-10-24",
+"mod": "2026-10-24",
+"faq": 3
+},
+{
+"url": "column/experience-vs-reporter.html",
+"title": "체험단 기자단 차이 — 무엇이 다르고 언제 쓰나",
+"lang": "ko",
+"pub": "2026-10-24",
+"mod": "2026-10-24",
+"faq": 3
 }
 ]
