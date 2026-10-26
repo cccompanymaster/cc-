@@ -1830,5 +1830,45 @@
 "pub": "2026-10-25",
 "mod": "2026-10-25",
 "faq": 3
+},
+{
+"url": "column/blog-dwell-time.html",
+"title": "블로그 체류시간 — 늘리는 글 구조와 흔한 오해",
+"lang": "ko",
+"pub": "2026-10-26",
+"mod": "2026-10-26",
+"faq": 3
+},
+{
+"url": "column/shopping-mall-marketing.html",
+"title": "쇼핑몰 마케팅 — 광고비에 덜 끌려가는 자사몰 구조",
+"lang": "ko",
+"pub": "2026-10-26",
+"mod": "2026-10-26",
+"faq": 3
+},
+{
+"url": "column/shopping-search-ad.html",
+"title": "쇼핑검색광고 — 스마트스토어 판매자가 먼저 알 것",
+"lang": "ko",
+"pub": "2026-10-26",
+"mod": "2026-10-26",
+"faq": 3
+},
+{
+"url": "column/viral-marketing-meaning.html",
+"title": "바이럴 마케팅 뜻 — 광고와 무엇이 다른가",
+"lang": "ko",
+"pub": "2026-10-26",
+"mod": "2026-10-26",
+"faq": 3
+},
+{
+"url": "column/review-edit-request.html",
+"title": "체험단 후기 수정 요청 — 어디까지 요청해도 되나",
+"lang": "ko",
+"pub": "2026-10-26",
+"mod": "2026-10-26",
+"faq": 3
 }
 ]
