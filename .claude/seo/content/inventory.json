@@ -1950,5 +1950,45 @@
 "pub": "2026-10-28",
 "mod": "2026-10-28",
 "faq": 3
+},
+{
+"url": "column/bakery-marketing.html",
+"title": "베이커리 마케팅 — 갓 구운 시간을 알리는 법",
+"lang": "ko",
+"pub": "2026-10-29",
+"mod": "2026-10-29",
+"faq": 3
+},
+{
+"url": "column/retargeting-ad.html",
+"title": "리타겟팅 광고 — 다시 데려오는 원리와 주의점",
+"lang": "ko",
+"pub": "2026-10-29",
+"mod": "2026-10-29",
+"faq": 3
+},
+{
+"url": "column/claims-adjuster-marketing.html",
+"title": "손해사정사 마케팅 — 보험금 분쟁 검색을 받는 법",
+"lang": "ko",
+"pub": "2026-10-29",
+"mod": "2026-10-29",
+"faq": 3
+},
+{
+"url": "column/insurance-planner-marketing.html",
+"title": "보험설계사 마케팅 — 광고 심의 안에서 고객 만드는 법",
+"lang": "ko",
+"pub": "2026-10-29",
+"mod": "2026-10-29",
+"faq": 3
+},
+{
+"url": "column/influencer-marketing-cost.html",
+"title": "인플루언서 마케팅 비용 — 단가가 정해지는 기준",
+"lang": "ko",
+"pub": "2026-10-29",
+"mod": "2026-10-29",
+"faq": 3
 }
 ]
