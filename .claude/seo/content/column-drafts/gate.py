@@ -4,7 +4,7 @@ D = os.path.dirname(os.path.abspath(__file__)) + '/'; ROOT = D.split('/.claude/'
 BAN = ['최고', '1위', '무조건', '100%', '보장']
 def text(h): return html.unescape(re.sub(r'<[^>]+>', '', h))
 def sentences(t): return [x.strip() for x in re.split(r'(?<=[.?!다요])\s+', t) if len(x.strip()) >= 40]
-specs = {os.path.basename(f)[:-5]: json.load(open(f, encoding='utf-8')) for f in sorted(glob.glob(D + 'specs/*.json'))}
+specs = {os.path.basename(f)[:-5]: json.load(open(f, encoding='utf-8')) for f in sorted(glob.glob(D + 'specs/*.json')) + sorted(glob.glob(D + 'rewrite/*.json'))}
 # 기존 칼럼 문장 (중복 검사용)
 old = collections.Counter()
 for f in glob.glob(ROOT + 'column/*.html'):
@@ -14,6 +14,7 @@ for f in glob.glob(ROOT + 'column/*.html'):
 seen = collections.defaultdict(set); probs = collections.defaultdict(list)
 for slug, sp in specs.items():
     P = probs[slug]
+    if os.path.exists(D + f'rewrite/{slug}.json') and not sp.get('published'): P.append('published 없음')
     body = ' '.join(text(s['html']) for s in sp['sections'])
     n = len(body)
     if not 2300 <= n <= 4600: P.append(f'본문 {n}자')

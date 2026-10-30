@@ -6,7 +6,38 @@ argv = sys.argv[1:]
 date = argv[argv.index('--date') + 1] if '--date' in argv else datetime.date.today().isoformat()
 sched = json.load(open(D + 'schedule.json', encoding='utf-8'))
 todo = [b for b in sched['batches'] if b['date'] <= date and not all(s in sched['published'] for s in b['slugs'])]
-if not todo: sys.exit(f'{date}: 발행할 묶음 없음 (남은 묶음 {sum(1 for b in sched["batches"] if b["date"] > date)}개)')
+if not todo:
+    # 새 글이 끝났으면 기존 칼럼 재작성 묶음 (하루 5편)
+    rw = sched.setdefault('rewritten', {})
+    if any(d == date for d in rw.values()): sys.exit(f'{date}: 발행할 묶음 없음 (오늘 재작성분 발행 완료)')
+    rtodo = [b for b in sched.get('rewrite_batches', []) if b['date'] <= date and not all(s in rw for s in b['slugs'])]
+    if not rtodo: sys.exit(f'{date}: 발행할 묶음 없음 (남은 재작성 묶음 {sum(1 for b in sched.get("rewrite_batches", []) if b["date"] > date)}개)')
+    rb = rtodo[0]; rslugs = [s for s in rb['slugs'] if s not in rw]
+    missing = [s for s in rslugs if not os.path.exists(D + f'rewrite/{s}.json')]
+    if missing: sys.exit('재작성 원고 없음: ' + ', '.join(missing))
+    run = lambda *a: subprocess.run([sys.executable, *a], check=True, cwd=ROOT)
+    gate = subprocess.run([sys.executable, D + 'gate.py'], capture_output=True, text=True).stdout
+    bad = [l for l in gate.splitlines() if any(l.strip().startswith(s + ' ') for s in rslugs) and '키워드 없음' not in l]
+    if bad: sys.exit('게이트 실패:\n' + '\n'.join(bad))
+    import re as _re, html as _html
+    oldt = {}
+    for s in rslugs:   # 바꾸기 전 제목(다른 페이지의 링크 문구를 찾을 때 씀)
+        page = open(ROOT + f'column/{s}.html', encoding='utf-8').read()
+        t = _html.unescape(_re.search(r'<title>(.*?)</title>', page, _re.S).group(1)).split(' | ')[0]
+        h = _html.unescape(_re.sub(r'<[^>]+>', '', _re.sub(r'<br>', ' ', _re.search(r'<h1>(.*?)</h1>', page, _re.S).group(1)))).strip()
+        oldt[s] = list(dict.fromkeys([t, h, h.replace(', ', ',')]))
+    of = D + '.old_titles.json'; json.dump(oldt, open(of, 'w', encoding='utf-8'), ensure_ascii=False)
+    run(D + 'build_columns.py', '--date', date, *rslugs)
+    run(D + 'register_rewrites.py', '--date', date, '--old', of, *rslugs)
+    os.remove(of)
+    for s in rslugs: rw[s] = date
+    json.dump(sched, open(D + 'schedule.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    again = [s for s in list(sched['published']) + list(rw) if s not in rslugs]
+    if again: run(D + 'build_columns.py', *again)
+    run(ROOT + '.claude/seo/build_llms.py')
+    left = sum(1 for x in sched.get('rewrite_batches', []) for s in x['slugs'] if s not in rw)
+    print(f'재작성 발행 {len(rslugs)}편 ({rb["date"]} 묶음) · 다시 빌드 {len(again)}편 · 남은 재작성 {left}편')
+    sys.exit(0)
 b = todo[0]
 if b.get('before') and '--checked' not in argv: sys.exit('발행 전 확인 필요: ' + b['before'])
 slugs = [s for s in b['slugs'] if s not in sched['published']]

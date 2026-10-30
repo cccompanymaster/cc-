@@ -133,5 +133,128 @@
   "internal-medicine-marketing": "2026-10-30",
   "nursing-hospital-marketing": "2026-10-30",
   "pharmacy-marketing": "2026-10-30"
- }
+ },
+ "rewrite_batches": [
+  {
+   "date": "2026-10-31",
+   "slugs": [
+    "blog-top-exposure",
+    "place-top-exposure",
+    "hospital-marketing",
+    "place-marketing",
+    "blog-experience-site"
+   ]
+  },
+  {
+   "date": "2026-11-01",
+   "slugs": [
+    "blog-ad-cost",
+    "naver-official-ad-agency",
+    "brand-blog",
+    "restaurant-marketing",
+    "lawyer-marketing"
+   ]
+  },
+  {
+   "date": "2026-11-02",
+   "slugs": [
+    "powerlink-ad-guide",
+    "place-ranking",
+    "blog-low-quality",
+    "academy-marketing",
+    "dermatology-marketing"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "slugs": [
+    "blog-ad-apply",
+    "naver-map-top",
+    "blog-marketing-agency",
+    "gym-marketing",
+    "tax-accountant-blog"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "slugs": [
+    "blog-ad-company",
+    "smartstore-top",
+    "blog-care-agency",
+    "interior-marketing",
+    "plastic-surgery-marketing"
+   ]
+  },
+  {
+   "date": "2026-11-05",
+   "slugs": [
+    "online-ad-company",
+    "cafe-top-marketing",
+    "homepage-blog",
+    "matjip-marketing",
+    "judicial-scrivener"
+   ]
+  },
+  {
+   "date": "2026-11-06",
+   "slugs": [
+    "naver-blog-ad",
+    "busan-blog-marketing",
+    "food-biz-marketing",
+    "accountant-blog",
+    "dental-marketing"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "slugs": [
+    "danggeun-ad",
+    "online-marketing-agency",
+    "lawfirm-marketing",
+    "vet-marketing",
+    "blog-side-income"
+   ]
+  },
+  {
+   "date": "2026-11-08",
+   "slugs": [
+    "instagram-marketing",
+    "cpa-ad",
+    "legal-marketing",
+    "hospital-ad",
+    "blog-writing-parttime"
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "slugs": [
+    "reels-marketing",
+    "viral-promotion",
+    "oriental-clinic",
+    "blog-job-review",
+    "youtube-experience"
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "slugs": [
+    "youtube-ad",
+    "viral-marketing-case",
+    "medical-ad-law",
+    "blog-posting-job",
+    "blog-experience-list"
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "slugs": [
+    "facebook-ad",
+    "online-viral",
+    "marketing-agency",
+    "hospital-pr",
+    "marketing-lecture"
+   ]
+  }
+ ],
+ "rewritten": {}
 }
