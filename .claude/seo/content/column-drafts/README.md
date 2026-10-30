@@ -13,4 +13,4 @@
 
 ## 발행 현황
 - 1차(2026-10-22): naver-keyword-volume, blog-index, place-review, naver-searchad-cost, hair-salon-marketing, realtor-marketing, ai-blog-writing, experience-cost, marketing-agency-scam, blog-income-tax
-- 의료 5편(정형외과·안과·내과·요양병원·약국)은 의료법·약사법 현행 조문(2026 개정 여부)을 국가법령정보센터에서 대조한 뒤 발행
+- 10/23~10/30 하루 5편씩 나머지 40편 발행 완료 (schedule.json). 의료 5편은 10/30 법령 대조 후 발행 — 약국 글은 2026-08 약사법 개정(약국 명칭 제한 법률화)을 반영해 고침
