@@ -105,6 +105,8 @@ def build(sp, links, pub, mod=None):
     out = sub1(out, r'<article>.*?</article>', art)
     out = re.sub(r'(<div class="cta">\s*<h2>)[^<]*(</h2>)', lambda m: m.group(1) + esc(sp['cta_title']) + m.group(2), out, count=1)
     out = sub1(out, r'<div class="rel"><h2>함께 읽으면 좋은 글</h2>.*?</div>', rel)
+    # 하단 '노아 핵심 가이드' 링크 문구도 지금 제목으로 (재작성으로 제목이 바뀌어도 틀이 옛 제목을 들고 있지 않게)
+    out = re.sub(r'<div class="rel hub">.*?</div>', lambda m: re.sub(r'<a href="([^"]+)">[^<]*</a>', lambda a: f'<a href="{a.group(1)}">{esc(links.get(a.group(1), html.unescape(re.sub("<[^>]+>", "", a.group(0)))))}</a>', m.group(0)), out, count=1, flags=re.S)
     return out
 
 if __name__ == '__main__':
