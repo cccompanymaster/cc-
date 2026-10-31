@@ -40,14 +40,23 @@ for i in inv:
     s = i['url'][7:-5] if i['url'].startswith('column/') else None
     if s in specs: i['title'], i['mod'], i['faq'] = specs[s]['title'], DATE, len(specs[s]['faq'])
 open(p, 'w', encoding='utf-8').write(json.dumps(inv, ensure_ascii=False, indent=0) + '\n')
-# 5) 다른 페이지의 링크 문구: 옛 제목 그대로 걸린 링크만 새 제목으로 (생성기가 만드는 페이지는 다시 빌드할 때 바뀜)
+# 5) 다른 페이지의 링크 문구: 이 글로 가는 링크(큰·작은따옴표, 카드형 포함) 안의 옛 제목 → 새 제목 (생성기가 만드는 페이지는 다시 빌드할 때 바뀜)
+#    아티클 카드(ar-card)는 아래 요약(리드 앞부분)도 새 글 것으로
 n = 0
+def relink(m, sp, olds):
+    global n
+    a = m.group(0)
+    for v in olds:
+        if '>' + v + '<' in a: a = a.replace('>' + v + '<', '>' + e(sp['title']) + '<'); n += 1
+    if a != m.group(0) and 'class="ar-card"' in a:
+        a = re.sub(r'<p>([^<]*)…</p>', lambda p: '<p>' + html.escape(sp['lead'][:len(html.unescape(p.group(1)))].rstrip()) + '…</p>', a, count=1)
+    return a
 for f in glob.glob('**/*.html', recursive=True):
     if f.startswith(('templates/', '.claude/')): continue
     s0 = open(f, encoding='utf-8').read(); s1 = s0
     for s, sp in specs.items():
-        for ot in old.get(s, []):
-            pat = r'(<a href="(?:\.\./column/|column/|/column/)?' + re.escape(s) + r'\.html"[^>]*>)' + re.escape(e(ot)) + '(</a>)'
-            s1, k = re.subn(pat, lambda m: m.group(1) + e(sp['title']) + m.group(2), s1); n += k
+        olds = {v for ot in old.get(s, []) for v in (e(ot), html.escape(ot))}
+        pat = r'''<a\b[^>]*\bhref=(["'])(?:\.\./column/|column/|/column/)?''' + re.escape(s) + r'''\.html\1[^>]*>.*?</a>'''
+        s1 = re.sub(pat, lambda m: relink(m, sp, olds), s1, flags=re.S)
     if s1 != s0: open(f, 'w', encoding='utf-8').write(s1)
 print('재작성 등록', len(slugs), '· 링크 문구 교체', n)

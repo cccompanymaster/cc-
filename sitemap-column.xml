@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://noahgroup.co.kr/column/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -34,13 +34,13 @@
   </url>
   <url>
     <loc>https://noahgroup.co.kr/column/blog-top-exposure.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://noahgroup.co.kr/column/place-top-exposure.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -100,7 +100,7 @@
   </url>
   <url>
     <loc>https://noahgroup.co.kr/column/place-marketing.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -244,7 +244,7 @@
   </url>
   <url>
     <loc>https://noahgroup.co.kr/column/hospital-marketing.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -364,7 +364,7 @@
   </url>
   <url>
     <loc>https://noahgroup.co.kr/column/blog-experience-site.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
