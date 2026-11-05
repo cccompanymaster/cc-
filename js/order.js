@@ -33,8 +33,9 @@ const S = {
   'influencer': { title: '공식 인플루언서 블로그 배포', f: [QTY, KW, FILES,
     { t: 'check', n: 'cat', l: '인플루언서 카테고리 지정 (+20,000원)', more: { t: 'text', n: 'catName', l: '원하는 카테고리', max: 100, ph: '예: 푸드, 뷰티, 육아' } }] },
   'neighbor': { title: '블로그 이웃 늘리기', f: [
-    { t: 'text', n: 'blog', l: '블로그 주소 또는 아이디', req: 1, max: 200, ph: 'blog.naver.com/아이디' },
-    { t: 'note', l: '작업은 10:00~22:00 사이에 진행합니다. 비밀번호는 이 주문서로 받지 않습니다 — 주문 확인 후 담당자가 연락드려 진행 방법을 안내합니다.' }] },
+    { t: 'text', n: 'blogId', l: '네이버 아이디', req: 1, max: 100 },
+    { t: 'password', n: 'blogPw', l: '비밀번호', req: 1, max: 100 },
+    { t: 'note', l: '작업은 10:00~22:00 사이에 진행합니다. 이 시간에는 로그인 알림이 올 수 있습니다. 작업이 끝나면 비밀번호를 바꿔 주세요.' }] },
   'write': { title: '블로그용 원고 작성', f: [QTY, KW, ...BIZ,
     { t: 'textarea', n: 'direction', l: '포스팅 방향 요청사항', max: 400, rows: 3 },
     { t: 'radio', n: 'photo', l: '사진 자료 여부', req: 1, o: ['있음', '없음'] }, FILES] },
@@ -55,6 +56,8 @@ const S = {
     { t: 'text', n: 'blog', l: '운영할 블로그 주소', max: 200, ph: '없으면 비워 두세요' }, REQ] },
   'exp': { title: '블로그 체험단 모집', f: [BIZ_NAME,
     { t: 'text', n: 'offer', l: '제공 상품 · 서비스', req: 1, max: 200 }, REQ] },
+  'daangn-local': { title: '당근 동네생활 게시글 (바이럴)', f: [
+    { t: 'textarea', n: 'request', l: '추가 요청사항', req: 1, max: 1000, ph: '알리고자 하는 내용을 간단하게 기재해주세요!' }] },
   'daangn-ad': { title: '당근마켓 비즈니스 광고대행', f: [BIZ_NAME,
     { t: 'text', n: 'profile', l: '당근 비즈프로필 주소', max: 200 }, REQ] },
   'homepage': { title: '템플릿형 홈페이지 제작', f: [BIZ_NAME,
@@ -79,6 +82,7 @@ function fieldHTML(f) {
   switch (f.t) {
     case 'note': return `<p class="of-note">${esc(f.l)}</p>`;
     case 'number': return `<div class="form-field"><label for="${id}">${f.l}${star(f)}</label><input type="number" id="${id}" name="${f.n}" min="1" step="1" value="1" inputmode="numeric"></div>`;
+    case 'password': return `<div class="form-field"><label for="${id}">${f.l}${star(f)}</label><input type="password" id="${id}" name="${f.n}" autocomplete="new-password"${ml}></div>`;
     case 'text': return `<div class="form-field"><label for="${id}">${f.l}${star(f)}</label><input type="text" id="${id}" name="${f.n}"${ml}${ph}></div>`;
     case 'textarea': return `<div class="form-field"><label for="${id}">${f.l}${star(f)}</label><textarea id="${id}" name="${f.n}" rows="${f.rows || 4}"${ml}${ph}></textarea>${counter(f)}</div>`;
     case 'select': return `<div class="form-field"><label for="${id}">${f.l}${star(f)}</label><select id="${id}" name="${f.n}"><option value="">선택해 주세요</option>${f.o.map((o) => `<option>${esc(o)}</option>`).join('')}</select></div>`;
