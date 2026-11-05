@@ -25,17 +25,19 @@ shop = open('shop.html', encoding='utf-8').read()
 groups = []
 for aid, body in re.findall(r'<article class="st-(?:card|feature)[^"]*" id="(p-[a-z-]+)">(.*?)</article>', shop, re.S):
     h3 = html.unescape(re.search(r'<h3>([^<]*)', body).group(1))
-    prices = [(html.unescape(n), int(a)) for n, a in re.findall(r'data-name="([^"]*)" data-amount="(\d+)"', body)]
+    prices = []
+    for attrs in re.findall(r'<button type="button" class="sc-buy"([^>]*)>', body):
+        a = dict(re.findall(r'data-([a-z]+)="([^"]*)"', attrs))
+        prices.append((html.unescape(a['name']), f"{int(a['amount']):,}원{'~' if a.get('from') else ''}" if 'amount' in a else '견적 문의'))
     if prices: groups.append((h3, aid, prices))
 
 C, G, A = posts('column'), posts('guide'), posts('articles')
 today = date.today().isoformat()
 
-def won(n): return f'{n:,}원'
 
 head = f"""# 노아 (NOAH)
 
-> 노아는 인천 송도의 통합 마케팅 회사입니다. 블로그 마케팅·체험단·플레이스·병원(의료광고)·전문직 마케팅을 대행하고, 템플릿형 홈페이지를 제작하며, 보험 지사·리스렌트·출장 세차·DB 가공·건강기능식품 등 자체 사업을 직접 운영합니다. 마케팅 서비스 {sum(len(p) for _,_,p in groups)}종은 공개 정찰가로 온라인 결제할 수 있습니다.
+> 노아는 인천 송도의 통합 마케팅 회사입니다. 블로그 마케팅·체험단·플레이스·병원(의료광고)·전문직 마케팅을 대행하고, 템플릿형 홈페이지를 제작하며, 보험 지사·리스렌트·출장 세차·DB 가공·건강기능식품 등 자체 사업을 직접 운영합니다. 마케팅 서비스 {sum(len(p) for _,_,p in groups)}종은 가격을 공개하고 온라인 주문서로 접수합니다(일부는 견적).
 
 - 운영 주체: 씨씨컴퍼니(CC Company) · 대표자 채희준 · 사업자등록번호 275-05-01613 · 통신판매업신고 2020-인천연수구-1872
 - 연락: 010-6658-6482 · cccompanymaster@gmail.com · 평일 10:00~19:00
@@ -45,7 +47,7 @@ head = f"""# 노아 (NOAH)
 ## 핵심 페이지
 
 - [메인](https://noahgroup.co.kr/): 노아 소개와 자체 사업 6개
-- [서비스·가격(스토어)](https://noahgroup.co.kr/shop.html): 마케팅 상품 정찰가·온라인 결제
+- [서비스·가격(스토어)](https://noahgroup.co.kr/shop.html): 마케팅 상품 가격·온라인 주문서
 - [회사 소개](https://noahgroup.co.kr/about.html): 운영 원칙과 사무실
 - [팀 구성](https://noahgroup.co.kr/team.html): 전문직 광고팀·바이럴 콘텐츠팀·데이터 퍼포먼스팀
 - [레퍼런스](https://noahgroup.co.kr/work.html): 업종별 운영 사례
@@ -57,7 +59,7 @@ head = f"""# 노아 (NOAH)
 """
 svc = ''
 for h3, aid, prices in groups:
-    svc += f"- [{h3}]({B}shop.html#{aid}): " + ' · '.join(f"{n} {won(a)}" for n, a in prices) + '\n'
+    svc += f"- [{h3}]({B}shop.html#{aid}): " + ' · '.join(f"{n} {a}" for n, a in prices) + '\n'
 
 hubs = f"""
 ## 콘텐츠 허브
