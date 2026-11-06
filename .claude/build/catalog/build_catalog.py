@@ -2,7 +2,7 @@
 """스토어 가격표 생성기 — apps-script/shop-catalog.json 하나에서 아래를 모두 만듭니다.
 
   1) js/catalog.js            화면(결제창)이 쓰는 가격표
-  2) apps-script/Code.gs      서버가 금액을 결정하는 SHOP_CATALOG 블록
+  2) apps-script/Nicepay.gs   서버가 금액을 결정하는 SHOP_CATALOG 블록
   3) shop.html                상품 카드의 옵션 줄(<!-- pay:상품키 --> 사이), JSON-LD ItemList
   4) 루트 *.html 상단 메뉴      '서비스 · 주문' 목록의 시작 가격
 
@@ -87,11 +87,11 @@ def build_catalog_js(cat):
     body = json.dumps(client_catalog(cat), ensure_ascii=False, indent=1)
     return ('/* 자동 생성 파일 — 직접 고치지 마세요.\n'
             '   원본: apps-script/shop-catalog.json → python3 .claude/build/catalog/build_catalog.py\n'
-            '   서버(Code.gs SHOP_CATALOG)와 같은 표에서 나옵니다. 실제 결제 금액은 서버가 다시 계산합니다. */\n'
+            '   서버(apps-script/Nicepay.gs SHOP_CATALOG)와 같은 표에서 나옵니다. 실제 결제 금액은 서버가 다시 계산합니다. */\n'
             'window.NOAH_CATALOG = Object.freeze(' + body + ');\n')
 
 
-# ── 2) Code.gs 블록 ──────────────────────────────────────────────────────
+# ── 2) Nicepay.gs 블록 ──────────────────────────────────────────────────────
 GS_BEGIN = '// >>> SHOP_CATALOG — 자동 생성(apps-script/shop-catalog.json → .claude/build/catalog/build_catalog.py). 직접 고치지 마세요.'
 GS_END = '// <<< SHOP_CATALOG'
 
@@ -100,7 +100,7 @@ def build_code_gs(cat, src):
     block = GS_BEGIN + '\nconst SHOP_CATALOG = ' + json.dumps(server_catalog(cat), ensure_ascii=False, indent=2) + ';\n' + GS_END
     pat = re.compile(re.escape(GS_BEGIN) + r'.*?' + re.escape(GS_END), re.S)
     if not pat.search(src):
-        raise SystemExit('Code.gs에 SHOP_CATALOG 표식이 없습니다.')
+        raise SystemExit('Nicepay.gs에 SHOP_CATALOG 표식이 없습니다.')
     return pat.sub(lambda m: block, src)
 
 
@@ -235,7 +235,7 @@ def main():
     cat = load_catalog()
     outputs = {}
     outputs['js/catalog.js'] = build_catalog_js(cat)
-    outputs['apps-script/Code.gs'] = build_code_gs(cat, read('apps-script/Code.gs'))
+    outputs['apps-script/Nicepay.gs'] = build_code_gs(cat, read('apps-script/Nicepay.gs'))
     shop = build_tiers(cat, read('shop.html'))
     shop = build_jsonld(cat, shop)
     # 카드 안에 결제 옵션 말고 다른(견적) 옵션이 있는지 — 메뉴 '~' 표기용

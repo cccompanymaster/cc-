@@ -1,4 +1,4 @@
-// Code.gs 나이스페이 결제 로직 시험 — Google 서비스(시트·캐시·UrlFetch·메일)를 흉내 내고 실제 Code.gs를 그대로 실행합니다.
+// Code.gs + Nicepay.gs 나이스페이 결제 로직 시험 — Google 서비스(시트·캐시·UrlFetch·메일)를 흉내 내고 실제 Code.gs를 그대로 실행합니다.
 // 실행: node --test .claude/build/payments/nicepay.test.mjs
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -9,7 +9,8 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const CODE = fs.readFileSync(path.join(ROOT, 'apps-script/Code.gs'), 'utf8');
+// Apps Script는 프로젝트의 .gs 파일들을 한 전역으로 실행한다 — Code.gs + Nicepay.gs 를 이어 붙여 같은 조건으로 시험
+const CODE = ['Code.gs', 'Nicepay.gs'].map((f) => fs.readFileSync(path.join(ROOT, 'apps-script', f), 'utf8')).join('\n');
 const CATALOG = JSON.parse(fs.readFileSync(path.join(ROOT, 'apps-script/shop-catalog.json'), 'utf8'));
 
 const SANDBOX_CLIENT = 'S2_testclientkey000000000000000000';

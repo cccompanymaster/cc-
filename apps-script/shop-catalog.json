@@ -1,5 +1,5 @@
 {
-  "_readme": "노아 스토어 결제 가격표 — 서버(Code.gs)·화면(js/catalog.js·shop.html 가격·JSON-LD·상단 메뉴)이 모두 이 파일에서 나옵니다. 수정 후 실행: python3 .claude/build/catalog/build_catalog.py  (그다음 Code.gs를 Apps Script에 붙여 넣고 새 버전으로 재배포)",
+  "_readme": "노아 스토어 결제 가격표 — 서버(Nicepay.gs)·화면(js/catalog.js·shop.html 가격·JSON-LD·상단 메뉴)이 모두 이 파일에서 나옵니다. 수정 후 실행: python3 .claude/build/catalog/build_catalog.py  (그다음 Nicepay.gs를 Apps Script의 Nicepay 파일에 통째로 붙여 넣고 새 버전으로 재배포)",
   "source": "크몽 판매 가격(VAT 포함가), 2026-11-06 확인",
   "currency": "KRW",
   "vatIncluded": true,

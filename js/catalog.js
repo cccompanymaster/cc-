@@ -1,6 +1,6 @@
 /* 자동 생성 파일 — 직접 고치지 마세요.
    원본: apps-script/shop-catalog.json → python3 .claude/build/catalog/build_catalog.py
-   서버(Code.gs SHOP_CATALOG)와 같은 표에서 나옵니다. 실제 결제 금액은 서버가 다시 계산합니다. */
+   서버(apps-script/Nicepay.gs SHOP_CATALOG)와 같은 표에서 나옵니다. 실제 결제 금액은 서버가 다시 계산합니다. */
 window.NOAH_CATALOG = Object.freeze({
  "currency": "KRW",
  "vatIncluded": true,
