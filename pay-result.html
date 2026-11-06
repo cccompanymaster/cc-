@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) — GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9J2V6KLGLG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9J2V6KLGLG');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <title>결제 결과 | 노아</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <style>
+    :root { --ink: #17141A; --sub: rgba(23,20,26,.68); --dim: rgba(23,20,26,.46); --gold: #B08D4E; --gold-soft: #8A6A2E; --line: rgba(23,20,26,.12); --bg: #FBFAF7; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif; color: var(--ink); background: var(--bg); line-height: 1.7; font-size: 15px; word-break: keep-all; }
+    .wrap { max-width: 620px; margin: 0 auto; padding: 72px 22px 96px; }
+    .back { display: inline-flex; gap: 8px; font-size: 13px; color: var(--sub); text-decoration: none; margin-bottom: 36px; }
+    .back:hover { color: var(--gold); }
+    .card { background: #fff; border: 1px solid rgba(176,141,78,.28); border-radius: 22px; padding: clamp(26px, 5vw, 40px); }
+    .badge { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--gold); margin-bottom: 10px; }
+    h1 { font-size: clamp(24px, 4vw, 30px); font-weight: 900; letter-spacing: -.02em; margin: 0 0 10px; }
+    .lede { color: var(--sub); margin: 0 0 24px; }
+    dl { margin: 0 0 26px; padding: 16px 18px; border-radius: 14px; background: rgba(176,141,78,.07); border: 1px solid rgba(176,141,78,.22); display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14px; }
+    dt { color: var(--sub); }
+    dd { margin: 0; font-weight: 700; text-align: right; word-break: break-all; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn { flex: 1 1 200px; display: inline-flex; align-items: center; justify-content: center; padding: 15px 20px; border-radius: 999px; font-weight: 800; font-size: 15px; text-decoration: none; }
+    .btn.main { color: #fff; background: linear-gradient(135deg, #B08D4E, #8A6A2E 70%); }
+    .btn.sub { color: var(--ink); background: rgba(23,20,26,.06); border: 1px solid var(--line); }
+    .note { margin: 22px 0 0; font-size: 13px; color: var(--sub); }
+    .note a { color: var(--gold-soft); }
+    .fail h1 { color: #a33b3b; }
+    footer { margin-top: 44px; font-size: 12px; color: var(--dim); line-height: 1.8; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="shop.html">← 노아 스토어로</a>
+    <section class="card" id="box" aria-live="polite">
+      <p class="badge" id="badge">PAYMENT</p>
+      <h1 id="title">결제 결과를 확인하고 있습니다</h1>
+      <p class="lede" id="lede">잠시만 기다려 주세요.</p>
+      <dl id="info" hidden></dl>
+      <div class="btns" id="btns">
+        <a class="btn sub" href="shop.html">스토어로 돌아가기</a>
+      </div>
+      <p class="note" id="note">문의: <a href="tel:01066586482">010-6658-6482</a> · <a href="https://pf.kakao.com/_RjRSxj/chat" target="_blank" rel="noopener">카카오 상담</a> · <a href="terms.html#refund">취소·환불 정책</a></p>
+    </section>
+    <footer>
+      노아데이터베이스 · 대표자 채희준 · 사업자등록번호 224-73-00560 · 통신판매업신고번호 2026-인천서해-1228<br>
+      인천광역시 서해구 청라한내로100번길 10, 4층 411,412-L044호 · 대표전화 <a href="tel:01066586482">010-6658-6482</a> · cccompanymaster@gmail.com
+    </footer>
+  </main>
+  <script src="js/catalog.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var q = new URLSearchParams(location.search);
+    var ok = q.get('r') === 'ok';
+    var oid = /^NOAH-\d{14}-[0-9a-f]{8}$/.test(q.get('o') || '') ? q.get('o') : '';
+    var amount = /^\d{1,9}$/.test(q.get('a') || '') ? Number(q.get('a')) : 0;
+    var code = (q.get('c') || '').replace(/[^a-z]/g, '').slice(0, 20);
+    var msg = (q.get('m') || '').slice(0, 120);
+    var cat = window.NOAH_CATALOG || { products: {} };
+    var pk = '', opt = null, prod = null;
+    (function () {
+      var parts = (q.get('p') || '').split(':');
+      if (cat.products[parts[0]]) {
+        prod = cat.products[parts[0]]; pk = parts[0];
+        opt = prod.options.filter(function (o) { return o.key === parts[1]; })[0] || null;
+      }
+    })();
+    var won = function (n) { return new Intl.NumberFormat('ko-KR').format(n) + '원'; };
+    var $ = function (id) { return document.getElementById(id); };
+    function row(k, v) {
+      var dt = document.createElement('dt'); dt.textContent = k;
+      var dd = document.createElement('dd'); dd.textContent = v;
+      $('info').appendChild(dt); $('info').appendChild(dd);
+    }
+    function btn(cls, href, text) {
+      var a = document.createElement('a'); a.className = 'btn ' + cls; a.href = href; a.textContent = text;
+      $('btns').insertBefore(a, $('btns').firstChild);
+    }
+    var FAIL = {
+      auth: '결제가 취소됐거나 카드·간편결제 인증이 끝나지 않았습니다. 청구되지 않았습니다.',
+      amount: '결제창의 금액이 주문 금액과 달라 결제를 진행하지 않았습니다. 청구되지 않았습니다.',
+      sign: '결제 정보 확인에 실패해 결제를 진행하지 않았습니다. 청구되지 않았습니다.',
+      approve: '결제 승인이 완료되지 않았습니다. 카드사 문자로 청구 여부를 확인해 주시고, 청구됐다면 연락 주세요.',
+      verify: '결제 확인 중 문제가 있어 자동으로 취소했습니다. 승인 문자를 받으셨다면 취소 문자도 곧 도착합니다.',
+      done: '이미 처리된 주문입니다. 결제를 마치셨다면 영수증 메일을 확인해 주세요.',
+      unknown: '주문 정보를 찾지 못했습니다. 다시 결제해 주세요.',
+      error: '결제 처리 중 문제가 생겼습니다. 청구 여부를 확인해 연락드리겠습니다.'
+    };
+    if (oid) row('주문번호', oid);
+    if (prod) row('상품', prod.name + (opt ? ' · ' + opt.label : ''));
+    if (amount) row('결제금액', won(amount) + ' (VAT 포함)');
+    $('info').hidden = !$('info').children.length;
+
+    if (ok) {
+      $('badge').textContent = 'PAYMENT COMPLETE';
+      $('title').textContent = '결제가 완료됐습니다';
+      $('lede').textContent = '영수증을 입력하신 이메일로 보냈습니다. 작업에 필요한 키워드·자료를 작업 요청서로 보내 주시면 다음 영업일부터 착수합니다.';
+      if (prod && opt && oid) btn('main', 'shop.html?order=' + encodeURIComponent(pk + ':' + opt.key) + '&oid=' + encodeURIComponent(oid), '작업 요청서 작성하기 →');
+      try {
+        var key = 'noahPaid_' + oid;
+        if (oid && !sessionStorage.getItem(key) && typeof gtag === 'function') {
+          gtag('event', 'purchase', { transaction_id: oid, currency: 'KRW', value: amount,
+            items: prod ? [{ item_id: pk + ':' + (opt ? opt.key : ''), item_name: prod.name, item_variant: opt ? opt.label : '' }] : [] });
+          sessionStorage.setItem(key, '1');
+        }
+      } catch (e) {}
+    } else {
+      $('box').classList.add('fail');
+      $('badge').textContent = 'PAYMENT NOT COMPLETED';
+      $('title').textContent = code === 'done' ? '이미 처리된 주문입니다' : '결제가 완료되지 않았습니다';
+      $('lede').textContent = (FAIL[code] || FAIL.error) + (msg && code !== 'amount' && code !== 'sign' ? ' (' + msg + ')' : '');
+      if (prod && opt) btn('main', 'shop.html?buy=' + encodeURIComponent(pk + '-' + opt.key), '다시 결제하기 →');
+    }
+  })();
+  </script>
+</body>
+</html>

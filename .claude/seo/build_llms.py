@@ -54,7 +54,7 @@ head = f"""# 노아 (NOAH)
 - [문의](https://noahgroup.co.kr/contact.html): 무료 진단 신청
 - [이용약관·환불](https://noahgroup.co.kr/terms.html#refund): 용역 개시 전 7일 이내 전액 환불 기준
 
-## 서비스와 공개 가격 (VAT 별도)
+## 서비스와 공개 가격 (가격 표시 상품은 VAT 포함 · 온라인 결제, 견적 상품은 VAT 별도)
 
 """
 svc = ''

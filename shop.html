@@ -15,16 +15,16 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="format-detection" content="telephone=no">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdn.portone.io https://www.googletagmanager.com https://www.google.com https://www.gstatic.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.ipify.org https://api.portone.io https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; frame-src https://*.portone.io https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://*.nicepay.co.kr https://www.googletagmanager.com https://www.google.com https://www.gstatic.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.ipify.org https://*.nicepay.co.kr https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.nicepay.co.kr; font-src https://cdn.jsdelivr.net https://*.nicepay.co.kr data:; img-src 'self' data: https:; frame-src https://*.nicepay.co.kr https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://*.nicepay.co.kr https://script.google.com;">
 
 <title>블로그마케팅 상품 | 블로그 체험단 | 블로그상위노출 | 당근마켓 광고 | 홈페이지제작 | 노아 스토어</title>
-<meta name="description" content="노아 마케팅 서비스 주문 — 블로그 배포·상위노출 보장·인플루언서 배포·원고 작성·플레이스 SEO·AI 검색 최적화·카페·언론 이미지·당근 영상·체험단·홈페이지 제작. 주문서를 남기면 확인 후 견적·결제를 안내합니다.">
+<meta name="description" content="노아 마케팅 서비스 주문 — 블로그 배포·상위노출 보장·인플루언서 배포·원고 작성·플레이스 SEO·AI 검색 최적화·카페·언론 이미지·당근 영상·체험단·홈페이지 제작. 가격이 표시된 상품은 VAT 포함가로 바로 결제하고, 견적 상품은 주문서로 접수합니다.">
 <link rel="canonical" href="https://noahgroup.co.kr/shop.html">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="노아">
 <meta property="og:title" content="서비스 | 노아 — 마케팅 상품 온라인 구매">
-<meta property="og:description" content="블로그 배포·상위노출·플레이스·AI 검색·카페·당근·홈페이지 — 주문서를 남기면 확인 후 견적·결제를 안내합니다.">
+<meta property="og:description" content="블로그 배포·상위노출·플레이스·AI 검색·카페·당근·홈페이지 — 가격 표시 상품은 바로 결제, 견적 상품은 주문서로 접수합니다.">
 <meta property="og:url" content="https://noahgroup.co.kr/shop.html">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://noahgroup.co.kr/og-noah-glass.png">
@@ -411,8 +411,8 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "노아 마케팅 서비스 상품",
-  "description": "블로그 배포·상위노출 보장·인플루언서 배포·원고 작성·이웃 늘리기·플레이스 SEO·AI 검색 최적화·카페 게시글·언론 이미지·당근 영상·광고·체험단·홈페이지 제작 — 온라인 주문서로 접수하는 마케팅 서비스 28종",
-  "numberOfItems": 28,
+  "description": "블로그 배포·상위노출 보장·인플루언서 배포·원고 작성·이웃 늘리기·플레이스 SEO·AI 검색 최적화·카페 게시글·언론 이미지·당근 영상·광고·체험단·홈페이지 제작 — 온라인 결제·주문서로 접수하는 마케팅 서비스 33종",
+  "numberOfItems": 33,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -420,6 +420,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       "item": {
         "@type": "Service",
         "name": "브랜드 블로그 운영 STANDARD",
+        "identifier": "noah-shop:brand-run:standard",
         "serviceType": "브랜드 블로그 운영 관리",
         "description": "브랜드 블로그 운영 관리 — 대신 써주는 게 아니라, 매달 쌓이는 브랜드 신뢰 자산. 기획부터 월말 보고까지 전담. (STANDARD: 콘텐츠 8건 · 1,500자↑ · 지수 육성)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-run",
@@ -438,8 +439,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "149000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "149000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-run",
           "seller": {
@@ -460,6 +467,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       "item": {
         "@type": "Service",
         "name": "브랜드 블로그 운영 DELUXE",
+        "identifier": "noah-shop:brand-run:deluxe",
         "serviceType": "브랜드 블로그 운영 관리",
         "description": "브랜드 블로그 운영 관리 — 대신 써주는 게 아니라, 매달 쌓이는 브랜드 신뢰 자산. 기획부터 월말 보고까지 전담. (DELUXE: 콘텐츠 15건 · 키워드 전략 · 이웃관리)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-run",
@@ -478,8 +486,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "299000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "299000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-run",
           "seller": {
@@ -500,6 +514,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       "item": {
         "@type": "Service",
         "name": "브랜드 블로그 운영 PREMIUM",
+        "identifier": "noah-shop:brand-run:premium",
         "serviceType": "브랜드 블로그 운영 관리",
         "description": "브랜드 블로그 운영 관리 — 대신 써주는 게 아니라, 매달 쌓이는 브랜드 신뢰 자산. 기획부터 월말 보고까지 전담. (PREMIUM: 콘텐츠 30+1건 · 2,000자↑ · 노출 리포트)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-run",
@@ -518,8 +533,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "499000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "499000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-run",
           "seller": {
@@ -562,8 +583,9 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       "item": {
         "@type": "Service",
         "name": "블로그 배포 준최적",
+        "identifier": "noah-shop:blog-dist:standard",
         "serviceType": "블로그 배포 (실명·준최적·최적)",
-        "description": "블로그 배포 (실명·준최적·최적) — 준비한 원고와 사진을 블로그 지수에 맞춰 발행합니다. 키워드 경쟁도에 따라 등급을 고르세요. (준최적: 준최적화 블로그 · 저경쟁 키워드)",
+        "description": "블로그 배포 (실명·준최적·최적) — 준비한 원고와 사진을 블로그 지수에 맞춰 발행합니다. 키워드 경쟁도에 따라 등급을 고르세요. (준최적: 준최적화 블로그 · 상호명·저경쟁 키워드)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-post",
         "image": "https://noahgroup.co.kr/og-noah-glass.png",
         "areaServed": {
@@ -580,8 +602,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "11000",
-          "validFrom": "2026-11-05",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "11000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-post",
           "seller": {
@@ -601,7 +629,55 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       "position": 6,
       "item": {
         "@type": "Service",
+        "name": "블로그 배포 고지수 준최적",
+        "identifier": "noah-shop:blog-dist:deluxe",
+        "serviceType": "블로그 배포 (실명·준최적·최적)",
+        "description": "블로그 배포 (실명·준최적·최적) — 준비한 원고와 사진을 블로그 지수에 맞춰 발행합니다. 키워드 경쟁도에 따라 등급을 고르세요. (고지수 준최적: 지수 높은 준최적화 블로그)",
+        "url": "https://noahgroup.co.kr/shop.html#p-blog-post",
+        "image": "https://noahgroup.co.kr/og-noah-glass.png",
+        "areaServed": {
+          "@type": "Country",
+          "name": "KR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "노아",
+          "url": "https://noahgroup.co.kr/",
+          "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "22000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "22000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-blog-post",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Service",
         "name": "블로그 배포 최적",
+        "identifier": "noah-shop:blog-dist:premium",
         "serviceType": "블로그 배포 (실명·준최적·최적)",
         "description": "블로그 배포 (실명·준최적·최적) — 준비한 원고와 사진을 블로그 지수에 맞춰 발행합니다. 키워드 경쟁도에 따라 등급을 고르세요. (최적: 최적화 블로그 · 경쟁 키워드)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-post",
@@ -620,8 +696,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "38000",
-          "validFrom": "2026-11-05",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "38000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-post",
           "seller": {
@@ -638,7 +720,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "item": {
         "@type": "Service",
         "name": "신로직 맞춤 블로그 배포",
@@ -660,56 +742,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Service",
-        "name": "블로그 상위노출 24시간 보장",
-        "serviceType": "블로그 상위노출 보장",
-        "description": "블로그 상위노출 보장 — 키워드 경쟁도를 진단한 뒤 진행하고, 보장 기간 동안 노출을 관리합니다. (24시간 보장: 24시간 상위노출 보장)",
-        "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
-        "image": "https://noahgroup.co.kr/og-noah-glass.png",
-        "areaServed": {
-          "@type": "Country",
-          "name": "KR"
-        },
-        "provider": {
-          "@type": "Organization",
-          "name": "노아",
-          "url": "https://noahgroup.co.kr/",
-          "@id": "https://noahgroup.co.kr/#organization"
-        },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "KRW",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": 60000,
-            "priceCurrency": "KRW"
-          },
-          "validFrom": "2026-11-05",
-          "priceValidUntil": "2026-12-31",
-          "availability": "https://schema.org/InStock",
-          "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
-          "seller": {
-            "@type": "Organization",
-            "name": "노아",
-            "@id": "https://noahgroup.co.kr/#organization"
-          },
-          "eligibleRegion": {
-            "@type": "Country",
-            "name": "KR"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
       "position": 9,
       "item": {
         "@type": "Service",
-        "name": "블로그 상위노출 25일 보장",
+        "name": "블로그 상위노출 보장 24시간",
+        "identifier": "noah-shop:rank:standard",
         "serviceType": "블로그 상위노출 보장",
-        "description": "블로그 상위노출 보장 — 키워드 경쟁도를 진단한 뒤 진행하고, 보장 기간 동안 노출을 관리합니다. (25일 보장: 25일 상위노출 보장)",
+        "description": "블로그 상위노출 보장 — 키워드 경쟁도를 진단한 뒤 진행하고, 보장 기간 동안 노출을 관리합니다. (24시간: 24시간 최적화 노출 관리)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
         "image": "https://noahgroup.co.kr/og-noah-glass.png",
         "areaServed": {
@@ -725,13 +764,15 @@ footer .f-links a{display:inline-block;padding:6px 2px}
         "offers": {
           "@type": "Offer",
           "priceCurrency": "KRW",
+          "price": "49000",
           "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": 150000,
-            "priceCurrency": "KRW"
+            "@type": "UnitPriceSpecification",
+            "price": "49000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
           },
-          "validFrom": "2026-11-05",
-          "priceValidUntil": "2026-12-31",
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
           "seller": {
@@ -751,9 +792,104 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       "position": 10,
       "item": {
         "@type": "Service",
-        "name": "공식 인플루언서 블로그 배포",
+        "name": "블로그 상위노출 보장 25일 프리미엄",
+        "identifier": "noah-shop:rank:deluxe",
+        "serviceType": "블로그 상위노출 보장",
+        "description": "블로그 상위노출 보장 — 키워드 경쟁도를 진단한 뒤 진행하고, 보장 기간 동안 노출을 관리합니다. (25일 프리미엄: 25일 프리미엄 노출 관리)",
+        "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
+        "image": "https://noahgroup.co.kr/og-noah-glass.png",
+        "areaServed": {
+          "@type": "Country",
+          "name": "KR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "노아",
+          "url": "https://noahgroup.co.kr/",
+          "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "198000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "198000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "Service",
+        "name": "블로그 상위노출 보장 25일 도배형",
+        "identifier": "noah-shop:rank:premium",
+        "serviceType": "블로그 상위노출 보장",
+        "description": "블로그 상위노출 보장 — 키워드 경쟁도를 진단한 뒤 진행하고, 보장 기간 동안 노출을 관리합니다. (25일 도배형: 25일 도배형 노출 관리)",
+        "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
+        "image": "https://noahgroup.co.kr/og-noah-glass.png",
+        "areaServed": {
+          "@type": "Country",
+          "name": "KR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "노아",
+          "url": "https://noahgroup.co.kr/",
+          "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "999000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "999000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-blog-rank",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Service",
+        "name": "공식 인플루언서 블로그 배포 준최적",
+        "identifier": "noah-shop:influencer:standard",
         "serviceType": "공식 인플루언서 블로그 배포",
-        "description": "공식 인플루언서 블로그 배포 — 네이버 공식 인플루언서 블로그에 원고를 발행합니다. 업종에 맞는 카테고리를 지정할 수 있습니다. (기본: 인플루언서 블로그 발행)",
+        "description": "공식 인플루언서 블로그 배포 — 네이버 공식 인플루언서 블로그에 원고를 발행합니다. 업종에 맞는 카테고리를 지정할 수 있습니다. (준최적: 준최적 인플루언서 블로그 발행)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-influencer",
         "image": "https://noahgroup.co.kr/og-noah-glass.png",
         "areaServed": {
@@ -765,15 +901,134 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "name": "노아",
           "url": "https://noahgroup.co.kr/",
           "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "77000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "77000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-blog-influencer",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 13,
+      "item": {
+        "@type": "Service",
+        "name": "공식 인플루언서 블로그 배포 고품질 준최적",
+        "identifier": "noah-shop:influencer:deluxe",
+        "serviceType": "공식 인플루언서 블로그 배포",
+        "description": "공식 인플루언서 블로그 배포 — 네이버 공식 인플루언서 블로그에 원고를 발행합니다. 업종에 맞는 카테고리를 지정할 수 있습니다. (고품질 준최적: 고품질 준최적 인플루언서 발행)",
+        "url": "https://noahgroup.co.kr/shop.html#p-blog-influencer",
+        "image": "https://noahgroup.co.kr/og-noah-glass.png",
+        "areaServed": {
+          "@type": "Country",
+          "name": "KR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "노아",
+          "url": "https://noahgroup.co.kr/",
+          "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "165000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "165000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-blog-influencer",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Service",
+        "name": "공식 인플루언서 블로그 배포 최적화",
+        "identifier": "noah-shop:influencer:premium",
+        "serviceType": "공식 인플루언서 블로그 배포",
+        "description": "공식 인플루언서 블로그 배포 — 네이버 공식 인플루언서 블로그에 원고를 발행합니다. 업종에 맞는 카테고리를 지정할 수 있습니다. (최적화: 최적화 인플루언서 블로그 발행)",
+        "url": "https://noahgroup.co.kr/shop.html#p-blog-influencer",
+        "image": "https://noahgroup.co.kr/og-noah-glass.png",
+        "areaServed": {
+          "@type": "Country",
+          "name": "KR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "노아",
+          "url": "https://noahgroup.co.kr/",
+          "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "220000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "220000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-blog-influencer",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
       "item": {
         "@type": "Service",
         "name": "블로그 이웃 늘리기 STANDARD",
+        "identifier": "noah-shop:neighbor:standard",
         "serviceType": "블로그 이웃 늘리기",
         "description": "블로그 이웃 늘리기 — 가계정 없이 실제 블로거만 선별 — 저품질 위험 없이 소통 기반을 만듭니다. (STANDARD: 소규모 · 공감/소통 · A/S 10일)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-neighbor",
@@ -792,8 +1047,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "20000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "20000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-neighbor",
           "seller": {
@@ -810,10 +1071,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 16,
       "item": {
         "@type": "Service",
         "name": "블로그 이웃 늘리기 DELUXE",
+        "identifier": "noah-shop:neighbor:deluxe",
         "serviceType": "블로그 이웃 늘리기",
         "description": "블로그 이웃 늘리기 — 가계정 없이 실제 블로거만 선별 — 저품질 위험 없이 소통 기반을 만듭니다. (DELUXE: 중규모 · 공감/소통 · A/S 30일)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-neighbor",
@@ -832,8 +1094,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "50000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "50000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-neighbor",
           "seller": {
@@ -850,10 +1118,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 17,
       "item": {
         "@type": "Service",
         "name": "블로그 이웃 늘리기 PREMIUM",
+        "identifier": "noah-shop:neighbor:premium",
         "serviceType": "블로그 이웃 늘리기",
         "description": "블로그 이웃 늘리기 — 가계정 없이 실제 블로거만 선별 — 저품질 위험 없이 소통 기반을 만듭니다. (PREMIUM: 대규모 · 공감/소통 · A/S 30일)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-neighbor",
@@ -872,8 +1141,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "100000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "100000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-neighbor",
           "seller": {
@@ -890,10 +1165,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 18,
       "item": {
         "@type": "Service",
         "name": "블로그용 원고 작성 STANDARD",
+        "identifier": "noah-shop:write:standard",
         "serviceType": "블로그용 원고 작성",
         "description": "블로그용 원고 작성 — 업체 정보와 강점을 콘텐츠 가이드에 적어 주시면, 검색 키워드와 전환 흐름에 맞춰 원고를 씁니다. (STANDARD: 1,000자 이하 1건 · 키워드 분석)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-write",
@@ -912,8 +1188,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "8000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "8000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-write",
           "seller": {
@@ -930,10 +1212,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 19,
       "item": {
         "@type": "Service",
         "name": "블로그용 원고 작성 DELUXE",
+        "identifier": "noah-shop:write:deluxe",
         "serviceType": "블로그용 원고 작성",
         "description": "블로그용 원고 작성 — 업체 정보와 강점을 콘텐츠 가이드에 적어 주시면, 검색 키워드와 전환 흐름에 맞춰 원고를 씁니다. (DELUXE: 1,500자 이하 1건 · 키워드 분석)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-write",
@@ -952,8 +1235,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "12000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "12000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-write",
           "seller": {
@@ -970,10 +1259,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 20,
       "item": {
         "@type": "Service",
         "name": "블로그용 원고 작성 PREMIUM",
+        "identifier": "noah-shop:write:premium",
         "serviceType": "블로그용 원고 작성",
         "description": "블로그용 원고 작성 — 업체 정보와 강점을 콘텐츠 가이드에 적어 주시면, 검색 키워드와 전환 흐름에 맞춰 원고를 씁니다. (PREMIUM: 2,000자 이하 1건 · 키워드 분석)",
         "url": "https://noahgroup.co.kr/shop.html#p-blog-write",
@@ -992,8 +1282,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "15000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "15000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-blog-write",
           "seller": {
@@ -1010,7 +1306,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 21,
       "item": {
         "@type": "Service",
         "name": "플레이스 메타데이터 기반 SEO 전문 세팅",
@@ -1032,7 +1328,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 22,
       "item": {
         "@type": "Service",
         "name": "AI 검색 최적화 (AEO)",
@@ -1054,12 +1350,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 23,
       "item": {
         "@type": "Service",
-        "name": "카페 배포형 게시글 발행",
-        "serviceType": "카페 배포형 · 노출용 게시글 발행",
-        "description": "카페 배포형 · 노출용 게시글 발행 — 키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 배포형과 노출용 중에 고르세요. (배포형: 배포형 게시글 발행)",
+        "name": "카페 게시글 배포 대량 배포",
+        "identifier": "noah-shop:cafe:standard",
+        "serviceType": "카페 게시글 배포",
+        "description": "카페 게시글 배포 — 키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 대량 배포·업종 맞춤·노출 최적화 중에 고르세요. (대량 배포: 인지도·콘텐츠 쌓기용 · 10건부터)",
         "url": "https://noahgroup.co.kr/shop.html#p-cafe",
         "image": "https://noahgroup.co.kr/og-noah-glass.png",
         "areaServed": {
@@ -1071,17 +1368,42 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "name": "노아",
           "url": "https://noahgroup.co.kr/",
           "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "11000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "11000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-cafe",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 24,
       "item": {
         "@type": "Service",
-        "name": "카페 노출용 게시글 발행",
-        "serviceType": "카페 배포형 · 노출용 게시글 발행",
-        "description": "카페 배포형 · 노출용 게시글 발행 — 키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 배포형과 노출용 중에 고르세요. (노출용: 노출용 게시글 발행)",
+        "name": "카페 게시글 배포 카테고리 맞춤",
+        "identifier": "noah-shop:cafe:deluxe",
+        "serviceType": "카페 게시글 배포",
+        "description": "카페 게시글 배포 — 키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 대량 배포·업종 맞춤·노출 최적화 중에 고르세요. (카테고리 맞춤: 업종 맞춤 카페 · 발행 전 리스트 확인)",
         "url": "https://noahgroup.co.kr/shop.html#p-cafe",
         "image": "https://noahgroup.co.kr/og-noah-glass.png",
         "areaServed": {
@@ -1093,12 +1415,83 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "name": "노아",
           "url": "https://noahgroup.co.kr/",
           "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "22000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "22000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-cafe",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 25,
+      "item": {
+        "@type": "Service",
+        "name": "카페 게시글 배포 노출 최적화",
+        "identifier": "noah-shop:cafe:premium",
+        "serviceType": "카페 게시글 배포",
+        "description": "카페 게시글 배포 — 키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 대량 배포·업종 맞춤·노출 최적화 중에 고르세요. (노출 최적화: 카테고리별 노출 최적화 카페)",
+        "url": "https://noahgroup.co.kr/shop.html#p-cafe",
+        "image": "https://noahgroup.co.kr/og-noah-glass.png",
+        "areaServed": {
+          "@type": "Country",
+          "name": "KR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "노아",
+          "url": "https://noahgroup.co.kr/",
+          "@id": "https://noahgroup.co.kr/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "KRW",
+          "price": "44000",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "44000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://noahgroup.co.kr/shop.html#p-cafe",
+          "seller": {
+            "@type": "Organization",
+            "name": "노아",
+            "@id": "https://noahgroup.co.kr/#organization"
+          },
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "KR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
       "item": {
         "@type": "Service",
         "name": "언론홍보 이미지 제작",
@@ -1120,10 +1513,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 27,
       "item": {
         "@type": "Service",
         "name": "블로그 체험단 배송형",
+        "identifier": "noah-shop:exp:standard",
         "serviceType": "블로그 체험단 모집",
         "description": "블로그 체험단 모집 — 지원자 리스트 제공 · 준최4 이상 블로거 · 키워드 분석까지 포함한 검증형 체험단. (배송형: 준최4↑ 블로거 10건 규모)",
         "url": "https://noahgroup.co.kr/shop.html#p-exp",
@@ -1142,8 +1536,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "16000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "16000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-exp",
           "seller": {
@@ -1160,10 +1560,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 28,
       "item": {
         "@type": "Service",
         "name": "블로그 체험단 방문형",
+        "identifier": "noah-shop:exp:deluxe",
         "serviceType": "블로그 체험단 모집",
         "description": "블로그 체험단 모집 — 지원자 리스트 제공 · 준최4 이상 블로거 · 키워드 분석까지 포함한 검증형 체험단. (방문형: 준최4↑ 방문 체험 · 5건↑ 할인)",
         "url": "https://noahgroup.co.kr/shop.html#p-exp",
@@ -1182,8 +1583,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "45000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "45000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-exp",
           "seller": {
@@ -1200,10 +1607,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 29,
       "item": {
         "@type": "Service",
         "name": "블로그 체험단 프리미엄",
+        "identifier": "noah-shop:exp:premium",
         "serviceType": "블로그 체험단 모집",
         "description": "블로그 체험단 모집 — 지원자 리스트 제공 · 준최4 이상 블로거 · 키워드 분석까지 포함한 검증형 체험단. (프리미엄: 최적화 5건~ · 인플루언서 15건~)",
         "url": "https://noahgroup.co.kr/shop.html#p-exp",
@@ -1222,8 +1630,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "55000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "55000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-exp",
           "seller": {
@@ -1240,7 +1654,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 30,
       "item": {
         "@type": "Service",
         "name": "당근 스토리 영상 제작",
@@ -1262,7 +1676,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 31,
       "item": {
         "@type": "Service",
         "name": "당근 동네생활 게시글",
@@ -1284,10 +1698,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 32,
       "item": {
         "@type": "Service",
         "name": "당근마켓 광고대행",
+        "identifier": "noah-shop:daangn-ad:single",
         "serviceType": "당근마켓 비즈니스 광고대행",
         "description": "당근마켓 비즈니스 광고대행 — 매장 주변 고객에게 도달하는 지역 광고 — 세팅·운영·월 관리 보고서 일체. (단일 상품: 광고 세팅 + 운영 대행 + 컨설팅 + 월 보고서)",
         "url": "https://noahgroup.co.kr/shop.html#p-danggeun",
@@ -1306,8 +1721,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "100000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "100000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-danggeun",
           "seller": {
@@ -1324,10 +1745,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 33,
       "item": {
         "@type": "Service",
         "name": "템플릿형 홈페이지 제작",
+        "identifier": "noah-shop:homepage:single",
         "serviceType": "템플릿형 홈페이지 제작",
         "description": "템플릿형 홈페이지 제작 — 모바일 반응형 · SEO 기본 · 1년 호스팅 · 카톡 미리보기 · 파비콘/로고 · 1년 텍스트 수정 포함. (단일 상품: 제작 일체(위 포함 항목 전체) · 시안 2개)",
         "url": "https://noahgroup.co.kr/shop.html#p-homepage",
@@ -1346,8 +1768,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           "@type": "Offer",
           "priceCurrency": "KRW",
           "price": "199000",
-          "validFrom": "2026-09-01",
-          "priceValidUntil": "2026-12-31",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "199000",
+            "priceCurrency": "KRW",
+            "valueAddedTaxIncluded": true
+          },
+          "validFrom": "2026-11-06",
+          "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
           "url": "https://noahgroup.co.kr/shop.html#p-homepage",
           "seller": {
@@ -1381,6 +1809,24 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 .of-count{text-align:right}
 .of-note{margin:0 0 18px;padding:12px 14px;border-radius:12px;background:rgba(194,163,107,.1);border:1px solid rgba(194,163,107,.3);font-size:13px;line-height:1.7;color:#17141A}
 .st-tier-price.q{font-size:13px;color:var(--sub)}
+/* 결제창 (나이스페이) */
+.co-test{margin-top:10px;padding:8px 12px;border-radius:10px;background:rgba(227,84,84,.1);border:1px solid rgba(227,84,84,.35);color:#a33b3b;font-size:12.5px;font-weight:700}
+.co-qty{display:flex;align-items:stretch;gap:6px}
+.co-qty button{flex:0 0 46px;border-radius:12px;border:1px solid rgba(194,163,107,.35);background:rgba(255,255,255,.78);font-size:20px;font-weight:700;color:#17141A}
+.co-qty button:disabled{opacity:.35}
+.co-qty input[type=number]{text-align:center;-moz-appearance:textfield}
+.co-qty input::-webkit-outer-spin-button,.co-qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.co-extras label{display:flex;width:100%;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.6);border:1px solid rgba(194,163,107,.22);font-weight:600}
+.co-extras label span{flex:1}
+.co-extras label em{font-style:normal;color:var(--gold-soft);font-weight:800;white-space:nowrap}
+.co-extras small{display:block;font-size:12px;font-weight:500;color:var(--sub)}
+.co-agree{margin:6px 0 16px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(194,163,107,.22)}
+.co-agree .privacy-check{margin:0 0 8px}
+.co-agree .privacy-check:last-child{margin-bottom:0}
+.co-agree .co-all{font-weight:800;color:#17141A;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid rgba(194,163,107,.22)}
+.co-lines{margin:0 0 6px;padding:0;list-style:none;font-size:13px;color:var(--sub)}
+.co-lines li{display:flex;justify-content:space-between;gap:10px;padding:3px 2px}
+.co-err{margin:0 0 14px;padding:10px 14px;border-radius:12px;background:rgba(227,84,84,.08);border:1px solid rgba(227,84,84,.3);color:#a33b3b;font-size:13px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -1414,8 +1860,8 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <a class="tbn-shortcut" href="shop.html">전체 상품 · 주문서 →</a>
           <div class="tbn-pay-group"><b>블로그 마케팅</b>
             <a href="shop.html#p-blog-post">블로그 배포 <em>11,000원~</em></a>
-            <a href="shop.html#p-blog-rank">블로그 상위노출 보장 <em>60,000원~</em></a>
-            <a href="shop.html#p-blog-influencer">공식 인플루언서 배포 <em>견적</em></a>
+            <a href="shop.html#p-blog-rank">블로그 상위노출 보장 <em>49,000원~</em></a>
+            <a href="shop.html#p-blog-influencer">공식 인플루언서 배포 <em>77,000원~</em></a>
             <a href="shop.html#p-blog-write">블로그용 원고 작성 <em>8,000원~</em></a>
             <a href="shop.html#p-blog-neighbor">블로그 이웃 늘리기 <em>20,000원~</em></a>
             <a href="shop.html#p-blog-run">브랜드 블로그 운영 <em>149,000원~</em></a>
@@ -1423,7 +1869,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <div class="tbn-pay-group"><b>플레이스 · 카페 · 당근</b>
             <a href="shop.html#p-place-seo">플레이스 SEO 세팅 <em>견적</em></a>
             <a href="shop.html#p-aeo">AI 검색 최적화 <em>견적</em></a>
-            <a href="shop.html#p-cafe">카페 게시글 발행 <em>견적</em></a>
+            <a href="shop.html#p-cafe">카페 게시글 발행 <em>11,000원~</em></a>
             <a href="shop.html#p-press-img">언론홍보 이미지 <em>견적</em></a>
             <a href="shop.html#p-daangn-story">당근 스토리 영상 <em>견적</em></a>
             <a href="shop.html#p-daangn-local">당근 동네생활 게시글 <em>견적</em></a>
@@ -1473,7 +1919,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 <div class="st-catalog">
   <div class="inner">
     <div class="ops-note fade-up">
-      <b>서비스 제공 안내</b> — 모든 상품은 온라인(비대면)으로 제공되는 마케팅 용역입니다. 결제 확인 후 각 상품에 표기된 <b>작업일 이내 착수·제공</b>되며, 진행 상황은 카카오채널·이메일로 안내드립니다. 표시 가격은 부가세(VAT) 별도이며, 교환·환불은 <a href="terms.html#refund">취소·환불 정책</a>을 따릅니다.
+      <b>서비스 제공 안내</b> — 모든 상품은 온라인(비대면)으로 제공되는 마케팅 용역입니다. 결제 확인 후 각 상품에 표기된 <b>작업일 이내 착수·제공</b>되며, 진행 상황은 카카오채널·이메일로 안내드립니다. 가격이 표시된 상품은 <b>부가세(VAT) 포함가</b>(크몽과 같은 가격)이고 [구매하기]로 바로 결제할 수 있으며, 견적 상품은 부가세 별도로 견적을 안내합니다. 교환·환불은 <a href="terms.html#refund">취소·환불 정책</a>을 따릅니다.
     </div>
   </div>
 </div>
@@ -1494,11 +1940,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <p class="st-hook">대신 써주는 게 아니라, 매달 쌓이는 브랜드 신뢰 자산. 기획부터 월말 보고까지 전담.</p>
           <ul class="st-for"><li>병원·법률·부동산 등 고관여 업종</li><li>블로그를 '자산'으로 만들고 싶은 분</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>STANDARD</b><span>콘텐츠 8건 · 1,500자↑ · 지수 육성</span></div><div class="st-tier-buy"><span class="st-tier-price">149,000<small>원</small></span><button type="button" class="sc-buy" data-svc="brand-run" data-opt="STANDARD" data-name="브랜드 블로그 운영 STANDARD" data-amount="149000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>DELUXE</b><span>콘텐츠 15건 · 키워드 전략 · 이웃관리</span></div><div class="st-tier-buy"><span class="st-tier-price">299,000<small>원</small></span><button type="button" class="sc-buy" data-svc="brand-run" data-opt="DELUXE" data-name="브랜드 블로그 운영 DELUXE" data-amount="299000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>PREMIUM</b><span>콘텐츠 30+1건 · 2,000자↑ · 노출 리포트</span></div><div class="st-tier-buy"><span class="st-tier-price">499,000<small>원</small></span><button type="button" class="sc-buy" data-svc="brand-run" data-opt="PREMIUM" data-name="브랜드 블로그 운영 PREMIUM" data-amount="499000">주문하기</button></div></div>
+            <!-- pay:brand-run -->
+            <div class="st-tier"><div class="st-tier-info"><b>STANDARD</b><span>콘텐츠 8건 · 1,500자↑ · 지수 육성</span></div><div class="st-tier-buy"><span class="st-tier-price">149,000<small>원</small></span><button type="button" class="sc-buy" data-svc="brand-run" data-opt="STANDARD" data-name="브랜드 블로그 운영 STANDARD" data-amount="149000" data-pay="brand-run:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>DELUXE</b><span>콘텐츠 15건 · 키워드 전략 · 이웃관리</span></div><div class="st-tier-buy"><span class="st-tier-price">299,000<small>원</small></span><button type="button" class="sc-buy" data-svc="brand-run" data-opt="DELUXE" data-name="브랜드 블로그 운영 DELUXE" data-amount="299000" data-pay="brand-run:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>PREMIUM</b><span>콘텐츠 30+1건 · 2,000자↑ · 노출 리포트</span></div><div class="st-tier-buy"><span class="st-tier-price">499,000<small>원</small></span><button type="button" class="sc-buy" data-svc="brand-run" data-opt="PREMIUM" data-name="브랜드 블로그 운영 PREMIUM" data-amount="499000" data-pay="brand-run:premium">주문하기</button></div></div>
+            <!-- /pay:brand-run -->
           </div>
-          <p class="st-vat">VAT 별도 · 작업일 30일 · 월 단위 운영</p>
+          <p class="st-vat">VAT 포함 · 작업일 30일 · 수정 1회 · 월 단위 운영 · 블로그 디자인·썸네일·카드뉴스 추가 가능</p>
         </div>
       </article>
 
@@ -1510,11 +1958,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <ul class="st-for"><li>키워드 노출을 빠르게 늘리고 싶은 분</li><li>원고·사진을 이미 준비한 분</li></ul>
           <div class="st-tiers">
             <div class="st-tier"><div class="st-tier-info"><b>실명</b><span>실명 블로그 발행</span></div><div class="st-tier-buy"><span class="st-tier-price q">견적 문의</span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="실명" data-name="블로그 배포 실명">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>준최적</b><span>준최적화 블로그 · 저경쟁 키워드</span></div><div class="st-tier-buy"><span class="st-tier-price">11,000<small>원</small></span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="준최적" data-name="블로그 배포 준최적" data-amount="11000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>최적</b><span>최적화 블로그 · 경쟁 키워드</span></div><div class="st-tier-buy"><span class="st-tier-price">38,000<small>원</small></span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="최적" data-name="블로그 배포 최적" data-amount="38000">주문하기</button></div></div>
+            <!-- pay:blog-dist -->
+            <div class="st-tier"><div class="st-tier-info"><b>준최적</b><span>준최적화 블로그 · 상호명·저경쟁 키워드</span></div><div class="st-tier-buy"><span class="st-tier-price">11,000<small>원</small></span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="준최적" data-name="블로그 배포 준최적" data-amount="11000" data-pay="blog-dist:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>고지수 준최적</b><span>지수 높은 준최적화 블로그</span></div><div class="st-tier-buy"><span class="st-tier-price">22,000<small>원</small></span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="고지수 준최적" data-name="블로그 배포 고지수 준최적" data-amount="22000" data-pay="blog-dist:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>최적</b><span>최적화 블로그 · 경쟁 키워드</span></div><div class="st-tier-buy"><span class="st-tier-price">38,000<small>원</small></span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="최적" data-name="블로그 배포 최적" data-amount="38000" data-pay="blog-dist:premium">주문하기</button></div></div>
+            <!-- /pay:blog-dist -->
             <div class="st-tier"><div class="st-tier-info"><b>신로직 맞춤</b><span>신로직 기준 맞춤 블로그</span></div><div class="st-tier-buy"><span class="st-tier-price q">견적 문의</span><button type="button" class="sc-buy" data-svc="blog-dist" data-opt="신로직 맞춤" data-name="신로직 맞춤 블로그 배포">주문하기</button></div></div>
           </div>
-          <p class="st-vat">VAT 별도 · 건당 가격 · 작업일 2일 · 노출 유지 90일</p>
+          <p class="st-vat">VAT 포함(견적 상품 제외) · 건당 가격 · 작업일 2일 · 수정 1회 · 노출 유지 90일 · 빠른 작업 +10,000원</p>
         </div>
       </article>
 
@@ -1525,10 +1976,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <p class="st-hook">키워드 경쟁도를 진단한 뒤 진행하고, 보장 기간 동안 노출을 관리합니다.</p>
           <ul class="st-for"><li>특정 키워드 상위 노출이 목표인 분</li><li>노출 기간을 정해 관리받고 싶은 분</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>24시간 보장</b><span>24시간 상위노출 보장</span></div><div class="st-tier-buy"><span class="st-tier-price">60,000<small>원~</small></span><button type="button" class="sc-buy" data-svc="rank-24h" data-opt="24시간 보장" data-name="블로그 상위노출 24시간 보장" data-amount="60000" data-from="1">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>25일 보장</b><span>25일 상위노출 보장</span></div><div class="st-tier-buy"><span class="st-tier-price">150,000<small>원~</small></span><button type="button" class="sc-buy" data-svc="rank-25d" data-opt="25일 보장" data-name="블로그 상위노출 25일 보장" data-amount="150000" data-from="1">주문하기</button></div></div>
+            <!-- pay:rank -->
+            <div class="st-tier"><div class="st-tier-info"><b>24시간</b><span>24시간 최적화 노출 관리</span></div><div class="st-tier-buy"><span class="st-tier-price">49,000<small>원</small></span><button type="button" class="sc-buy" data-svc="rank-24h" data-opt="24시간" data-name="블로그 상위노출 보장 24시간" data-amount="49000" data-pay="rank:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>25일 프리미엄</b><span>25일 프리미엄 노출 관리</span></div><div class="st-tier-buy"><span class="st-tier-price">198,000<small>원</small></span><button type="button" class="sc-buy" data-svc="rank-25d" data-opt="25일 프리미엄" data-name="블로그 상위노출 보장 25일 프리미엄" data-amount="198000" data-pay="rank:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>25일 도배형</b><span>25일 도배형 노출 관리</span></div><div class="st-tier-buy"><span class="st-tier-price">999,000<small>원</small></span><button type="button" class="sc-buy" data-svc="rank-25d" data-opt="25일 도배형" data-name="블로그 상위노출 보장 25일 도배형" data-amount="999000" data-pay="rank:premium">주문하기</button></div></div>
+            <!-- /pay:rank -->
           </div>
-          <p class="st-vat">VAT 별도 · 키워드 경쟁도에 따라 금액이 달라집니다 · 보장 조건은 주문 확인 때 안내</p>
+          <p class="st-vat">VAT 포함 · 키워드당 가격 · 수정 1회 · 경쟁이 센 키워드는 결제 전 상담을 권장합니다</p>
         </div>
       </article>
 
@@ -1539,9 +1993,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <p class="st-hook">네이버 공식 인플루언서 블로그에 원고를 발행합니다. 업종에 맞는 카테고리를 지정할 수 있습니다.</p>
           <ul class="st-for"><li>신뢰도 높은 채널에 노출하고 싶은 분</li><li>업종에 맞는 인플루언서가 필요한 분</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>기본</b><span>인플루언서 블로그 발행</span></div><div class="st-tier-buy"><span class="st-tier-price q">견적 문의</span><button type="button" class="sc-buy" data-svc="influencer" data-opt="기본" data-name="공식 인플루언서 블로그 배포">주문하기</button></div></div>
+            <!-- pay:influencer -->
+            <div class="st-tier"><div class="st-tier-info"><b>준최적</b><span>준최적 인플루언서 블로그 발행</span></div><div class="st-tier-buy"><span class="st-tier-price">77,000<small>원</small></span><button type="button" class="sc-buy" data-svc="influencer" data-opt="준최적" data-name="공식 인플루언서 블로그 배포 준최적" data-amount="77000" data-pay="influencer:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>고품질 준최적</b><span>고품질 준최적 인플루언서 발행</span></div><div class="st-tier-buy"><span class="st-tier-price">165,000<small>원</small></span><button type="button" class="sc-buy" data-svc="influencer" data-opt="고품질 준최적" data-name="공식 인플루언서 블로그 배포 고품질 준최적" data-amount="165000" data-pay="influencer:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>최적화</b><span>최적화 인플루언서 블로그 발행</span></div><div class="st-tier-buy"><span class="st-tier-price">220,000<small>원</small></span><button type="button" class="sc-buy" data-svc="influencer" data-opt="최적화" data-name="공식 인플루언서 블로그 배포 최적화" data-amount="220000" data-pay="influencer:premium">주문하기</button></div></div>
+            <!-- /pay:influencer -->
           </div>
-          <p class="st-vat">VAT 별도 · 카테고리 지정 +20,000원</p>
+          <p class="st-vat">VAT 포함 · 건당 가격 · 작업일 2일 · 노출 유지 90일 · 특정 인플루언서는 단가가 달라 상담 후 진행</p>
         </div>
       </article>
 
@@ -1552,11 +2010,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <p class="st-hook">가계정 없이 실제 블로거만 선별 — 저품질 위험 없이 소통 기반을 만듭니다.</p>
           <ul class="st-for"><li>블로그가 죽어있어 반응이 없는 분</li><li>활성화의 '토대'부터 다지고 싶은 분</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>STANDARD</b><span>소규모 · 공감/소통 · A/S 10일</span></div><div class="st-tier-buy"><span class="st-tier-price">20,000<small>원</small></span><button type="button" class="sc-buy" data-svc="neighbor" data-opt="STANDARD" data-name="블로그 이웃 늘리기 STANDARD" data-amount="20000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>DELUXE</b><span>중규모 · 공감/소통 · A/S 30일</span></div><div class="st-tier-buy"><span class="st-tier-price">50,000<small>원</small></span><button type="button" class="sc-buy" data-svc="neighbor" data-opt="DELUXE" data-name="블로그 이웃 늘리기 DELUXE" data-amount="50000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>PREMIUM</b><span>대규모 · 공감/소통 · A/S 30일</span></div><div class="st-tier-buy"><span class="st-tier-price">100,000<small>원</small></span><button type="button" class="sc-buy" data-svc="neighbor" data-opt="PREMIUM" data-name="블로그 이웃 늘리기 PREMIUM" data-amount="100000">주문하기</button></div></div>
+            <!-- pay:neighbor -->
+            <div class="st-tier"><div class="st-tier-info"><b>STANDARD</b><span>소규모 · 공감/소통 · A/S 10일</span></div><div class="st-tier-buy"><span class="st-tier-price">20,000<small>원</small></span><button type="button" class="sc-buy" data-svc="neighbor" data-opt="STANDARD" data-name="블로그 이웃 늘리기 STANDARD" data-amount="20000" data-pay="neighbor:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>DELUXE</b><span>중규모 · 공감/소통 · A/S 30일</span></div><div class="st-tier-buy"><span class="st-tier-price">50,000<small>원</small></span><button type="button" class="sc-buy" data-svc="neighbor" data-opt="DELUXE" data-name="블로그 이웃 늘리기 DELUXE" data-amount="50000" data-pay="neighbor:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>PREMIUM</b><span>대규모 · 공감/소통 · A/S 30일</span></div><div class="st-tier-buy"><span class="st-tier-price">100,000<small>원</small></span><button type="button" class="sc-buy" data-svc="neighbor" data-opt="PREMIUM" data-name="블로그 이웃 늘리기 PREMIUM" data-amount="100000" data-pay="neighbor:premium">주문하기</button></div></div>
+            <!-- /pay:neighbor -->
           </div>
-          <p class="st-vat">VAT 별도 · 작업 시간 10:00~22:00 · 기본 세팅 PDF 제공</p>
+          <p class="st-vat">VAT 포함 · 작업 시간 10:00~22:00 · 수정 제한 없음 · 기본 세팅 PDF 제공</p>
         </div>
       </article>
 
@@ -1567,11 +2027,13 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <p class="st-hook">업체 정보와 강점을 콘텐츠 가이드에 적어 주시면, 검색 키워드와 전환 흐름에 맞춰 원고를 씁니다.</p>
           <ul class="st-for"><li>발행은 직접, 원고 퀄리티만 맡기고 싶은 분</li><li>법률·병의원·맛집·부동산 업종</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>STANDARD</b><span>1,000자 이하 1건 · 키워드 분석</span></div><div class="st-tier-buy"><span class="st-tier-price">8,000<small>원</small></span><button type="button" class="sc-buy" data-svc="write" data-opt="STANDARD" data-name="블로그용 원고 작성 STANDARD" data-amount="8000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>DELUXE</b><span>1,500자 이하 1건 · 키워드 분석</span></div><div class="st-tier-buy"><span class="st-tier-price">12,000<small>원</small></span><button type="button" class="sc-buy" data-svc="write" data-opt="DELUXE" data-name="블로그용 원고 작성 DELUXE" data-amount="12000">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>PREMIUM</b><span>2,000자 이하 1건 · 키워드 분석</span></div><div class="st-tier-buy"><span class="st-tier-price">15,000<small>원</small></span><button type="button" class="sc-buy" data-svc="write" data-opt="PREMIUM" data-name="블로그용 원고 작성 PREMIUM" data-amount="15000">주문하기</button></div></div>
+            <!-- pay:write -->
+            <div class="st-tier"><div class="st-tier-info"><b>STANDARD</b><span>1,000자 이하 1건 · 키워드 분석</span></div><div class="st-tier-buy"><span class="st-tier-price">8,000<small>원</small></span><button type="button" class="sc-buy" data-svc="write" data-opt="STANDARD" data-name="블로그용 원고 작성 STANDARD" data-amount="8000" data-pay="write:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>DELUXE</b><span>1,500자 이하 1건 · 키워드 분석</span></div><div class="st-tier-buy"><span class="st-tier-price">12,000<small>원</small></span><button type="button" class="sc-buy" data-svc="write" data-opt="DELUXE" data-name="블로그용 원고 작성 DELUXE" data-amount="12000" data-pay="write:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>PREMIUM</b><span>2,000자 이하 1건 · 키워드 분석</span></div><div class="st-tier-buy"><span class="st-tier-price">15,000<small>원</small></span><button type="button" class="sc-buy" data-svc="write" data-opt="PREMIUM" data-name="블로그용 원고 작성 PREMIUM" data-amount="15000" data-pay="write:premium">주문하기</button></div></div>
+            <!-- /pay:write -->
           </div>
-          <p class="st-vat">VAT 별도 · 작업일 2일 · 수정 1회</p>
+          <p class="st-vat">VAT 포함 · 작업일 2일 · 수정 1회 · 빠른 작업 +1,000원</p>
         </div>
       </article>
     </div>
@@ -1631,14 +2093,17 @@ footer .f-links a{display:inline-block;padding:6px 2px}
       <article class="st-card fade-up" id="p-cafe">
         <div class="st-cover st-cover-post"><span class="st-ico">💬</span><span class="st-cover-cat">카페 게시글</span></div>
         <div class="st-body">
-          <h3>카페 배포형 · 노출용 게시글 발행</h3>
-          <p class="st-hook">키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 배포형과 노출용 중에 고르세요.</p>
+          <h3>카페 게시글 배포</h3>
+          <p class="st-hook">키워드에 맞춘 카페 게시글을 발행합니다. 목적에 따라 대량 배포·업종 맞춤·노출 최적화 중에 고르세요.</p>
           <ul class="st-for"><li>카페 검색 결과에도 노출이 필요한 분</li><li>지역·관심사 카페에 알리고 싶은 분</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>배포형</b><span>배포형 게시글 발행</span></div><div class="st-tier-buy"><span class="st-tier-price q">견적 문의</span><button type="button" class="sc-buy" data-svc="cafe" data-opt="배포형" data-name="카페 배포형 게시글 발행">주문하기</button></div></div>
-            <div class="st-tier"><div class="st-tier-info"><b>노출용</b><span>노출용 게시글 발행</span></div><div class="st-tier-buy"><span class="st-tier-price q">견적 문의</span><button type="button" class="sc-buy" data-svc="cafe" data-opt="노출용" data-name="카페 노출용 게시글 발행">주문하기</button></div></div>
+            <!-- pay:cafe -->
+            <div class="st-tier"><div class="st-tier-info"><b>대량 배포</b><span>인지도·콘텐츠 쌓기용 · 10건부터</span></div><div class="st-tier-buy"><span class="st-tier-price">11,000<small>원</small></span><button type="button" class="sc-buy" data-svc="cafe" data-opt="대량 배포" data-name="카페 게시글 배포 대량 배포" data-amount="11000" data-pay="cafe:standard">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>카테고리 맞춤</b><span>업종 맞춤 카페 · 발행 전 리스트 확인</span></div><div class="st-tier-buy"><span class="st-tier-price">22,000<small>원</small></span><button type="button" class="sc-buy" data-svc="cafe" data-opt="카테고리 맞춤" data-name="카페 게시글 배포 카테고리 맞춤" data-amount="22000" data-pay="cafe:deluxe">주문하기</button></div></div>
+            <div class="st-tier"><div class="st-tier-info"><b>노출 최적화</b><span>카테고리별 노출 최적화 카페</span></div><div class="st-tier-buy"><span class="st-tier-price">44,000<small>원</small></span><button type="button" class="sc-buy" data-svc="cafe" data-opt="노출 최적화" data-name="카페 게시글 배포 노출 최적화" data-amount="44000" data-pay="cafe:premium">주문하기</button></div></div>
+            <!-- /pay:cafe -->
           </div>
-          <p class="st-vat">VAT 별도 · 요청사항은 1,000자까지</p>
+          <p class="st-vat">VAT 포함 · 건당 가격 · 작업일 2일 · 게시 유지 7일 · 24시간 내 누락 시 A/S</p>
         </div>
       </article>
 
@@ -1674,12 +2139,14 @@ footer .f-links a{display:inline-block;padding:6px 2px}
         <p class="st-hook">지원자 리스트 제공 · 준최4 이상 블로거 · 키워드 분석까지 포함한 검증형 체험단.</p>
         <ul class="st-for"><li>신규 매장·신제품의 첫 후기가 필요한 분</li><li>방문형/배송형을 골라 진행하고 싶은 분</li></ul>
         <div class="st-tiers">
-          <div class="st-tier"><div class="st-tier-info"><b>배송형</b><span>준최4↑ 블로거 10건 규모</span></div><div class="st-tier-buy"><span class="st-tier-price">16,000<small>원</small></span><button type="button" class="sc-buy" data-svc="exp" data-opt="배송형" data-name="블로그 체험단 배송형" data-amount="16000">주문하기</button></div></div>
-          <div class="st-tier"><div class="st-tier-info"><b>방문형</b><span>준최4↑ 방문 체험 · 5건↑ 할인</span></div><div class="st-tier-buy"><span class="st-tier-price">45,000<small>원</small></span><button type="button" class="sc-buy" data-svc="exp" data-opt="방문형" data-name="블로그 체험단 방문형" data-amount="45000">주문하기</button></div></div>
-          <div class="st-tier"><div class="st-tier-info"><b>프리미엄</b><span>최적화 5건~ · 인플루언서 15건~</span></div><div class="st-tier-buy"><span class="st-tier-price">55,000<small>원</small></span><button type="button" class="sc-buy" data-svc="exp" data-opt="프리미엄" data-name="블로그 체험단 프리미엄" data-amount="55000">주문하기</button></div></div>
+          <!-- pay:exp -->
+          <div class="st-tier"><div class="st-tier-info"><b>배송형</b><span>준최4↑ 블로거 10건 규모</span></div><div class="st-tier-buy"><span class="st-tier-price">16,000<small>원</small></span><button type="button" class="sc-buy" data-svc="exp" data-opt="배송형" data-name="블로그 체험단 배송형" data-amount="16000" data-pay="exp:standard">주문하기</button></div></div>
+          <div class="st-tier"><div class="st-tier-info"><b>방문형</b><span>준최4↑ 방문 체험 · 5건↑ 할인</span></div><div class="st-tier-buy"><span class="st-tier-price">45,000<small>원</small></span><button type="button" class="sc-buy" data-svc="exp" data-opt="방문형" data-name="블로그 체험단 방문형" data-amount="45000" data-pay="exp:deluxe">주문하기</button></div></div>
+          <div class="st-tier"><div class="st-tier-info"><b>프리미엄</b><span>최적화 5건~ · 인플루언서 15건~</span></div><div class="st-tier-buy"><span class="st-tier-price">55,000<small>원</small></span><button type="button" class="sc-buy" data-svc="exp" data-opt="프리미엄" data-name="블로그 체험단 프리미엄" data-amount="55000" data-pay="exp:premium">주문하기</button></div></div>
+          <!-- /pay:exp -->
           <div class="st-tier"><div class="st-tier-info"><b>인플루언서 캠페인</b><span>고영향력 단독 캠페인 · 맞춤 설계</span></div><div class="st-tier-buy"><span class="st-tier-price" style="color:var(--dim);font-size:12.5px">업데이트중</span><a class="st-consult" href="contact.html">상담 →</a></div></div>
         </div>
-        <p class="st-vat">VAT 별도 · 작업일 14일 · 노출 유지 90일</p>
+        <p class="st-vat">VAT 포함 · 작업일 14일 · 수정 1회 · 노출 유지 90일</p>
       </div>
     </article>
   </div>
@@ -1728,9 +2195,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
           <p class="st-hook">매장 주변 고객에게 도달하는 지역 광고 — 세팅·운영·월 관리 보고서 일체.</p>
           <ul class="st-for"><li>요식업·병원·학원·뷰티 등 지역 사업자</li><li>광고 세팅이 막막한 분</li></ul>
           <div class="st-tiers">
-            <div class="st-tier"><div class="st-tier-info"><b>단일 상품</b><span>광고 세팅 + 운영 대행 + 컨설팅 + 월 보고서</span></div><div class="st-tier-buy"><span class="st-tier-price">100,000<small>원</small></span><button type="button" class="sc-buy" data-svc="daangn-ad" data-opt="단일 상품" data-name="당근마켓 광고대행" data-amount="100000">주문하기</button></div></div>
+            <!-- pay:daangn-ad -->
+            <div class="st-tier"><div class="st-tier-info"><b>단일 상품</b><span>광고 세팅 + 운영 대행 + 컨설팅 + 월 보고서</span></div><div class="st-tier-buy"><span class="st-tier-price">100,000<small>원</small></span><button type="button" class="sc-buy" data-svc="daangn-ad" data-opt="단일 상품" data-name="당근마켓 광고대행" data-amount="100000" data-pay="daangn-ad:single">주문하기</button></div></div>
+            <!-- /pay:daangn-ad -->
           </div>
-          <p class="st-vat">VAT 별도 · 작업일 5일 · 수정 2회 · 월 관리 보고서</p>
+          <p class="st-vat">VAT 포함 · 작업일 5일 · 수정 2회 · 월 관리 보고서</p>
         </div>
       </article>
 
@@ -1753,9 +2222,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
         <p class="st-hook">모바일 반응형 · SEO 기본 · 1년 호스팅 · 카톡 미리보기 · 파비콘/로고 · 1년 텍스트 수정 포함.</p>
         <ul class="st-for"><li>빠르게 오픈할 검증형 홈페이지가 필요한 분</li><li>상업적 이용까지 고려하는 분</li></ul>
         <div class="st-tiers">
-          <div class="st-tier"><div class="st-tier-info"><b>단일 상품</b><span>제작 일체(위 포함 항목 전체) · 시안 2개</span></div><div class="st-tier-buy"><span class="st-tier-price">199,000<small>원</small></span><button type="button" class="sc-buy" data-svc="homepage" data-opt="단일 상품" data-name="템플릿형 홈페이지 제작" data-amount="199000">주문하기</button></div></div>
+          <!-- pay:homepage -->
+          <div class="st-tier"><div class="st-tier-info"><b>단일 상품</b><span>제작 일체(위 포함 항목 전체) · 시안 2개</span></div><div class="st-tier-buy"><span class="st-tier-price">199,000<small>원</small></span><button type="button" class="sc-buy" data-svc="homepage" data-opt="단일 상품" data-name="템플릿형 홈페이지 제작" data-amount="199000" data-pay="homepage:single">주문하기</button></div></div>
+          <!-- /pay:homepage -->
         </div>
-        <p class="st-vat">VAT 별도 · 작업일 7일 · 수정 5회</p>
+        <p class="st-vat">VAT 포함 · 작업일 7일 · 수정 5회</p>
       </div>
     </article>
   </div>
@@ -1764,86 +2235,102 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 <!-- 진행 절차 + 보증 -->
 <section class="st-flow">
   <div class="inner">
-    <div class="sec-head"><p>HOW IT WORKS</p><h2>주문서만 남기면, 그 다음은 우리가 합니다</h2></div>
+    <div class="sec-head"><p>HOW IT WORKS</p><h2>결제 또는 주문서 한 번이면, 그 다음은 우리가 합니다</h2></div>
     <div class="st-flow-grid">
-      <div class="st-step fade-up"><div class="st-step-n">1</div><h4>주문서 작성</h4><p>상품을 고르고 수량·키워드·자료를 주문서에 적어 보냅니다.</p></div>
-      <div class="st-step fade-up"><div class="st-step-n">2</div><h4>확인 · 결제 · 착수</h4><p>담당자가 견적과 결제 방법을 안내하고, 결제 확인 다음 영업일부터 착수합니다.</p></div>
+      <div class="st-step fade-up"><div class="st-step-n">1</div><h4>구매 · 주문서</h4><p>가격이 표시된 상품은 바로 결제하고, 견적 상품은 주문서를 보냅니다.</p></div>
+      <div class="st-step fade-up"><div class="st-step-n">2</div><h4>작업 요청서 · 착수</h4><p>결제 후 작업 요청서로 키워드·자료를 받고, 다음 영업일부터 착수합니다. 견적 상품은 담당자가 견적·결제를 안내합니다.</p></div>
       <div class="st-step fade-up"><div class="st-step-n">3</div><h4>진행 · 보고</h4><p>진행 상황을 카카오채널·이메일로 실시간 공유합니다.</p></div>
       <div class="st-step fade-up"><div class="st-step-n">4</div><h4>완료 · A/S</h4><p>산출물 전달 후 상품별 수정·A/S 기준에 따라 대응합니다.</p></div>
     </div>
     <div class="st-guarantee">
-      <div class="st-gcard fade-up"><b>🏷 공개 가격</b><span>가격이 표시된 상품은 표시가로, ‘견적 문의’ 상품은 확인 후 안내합니다.</span></div>
-      <div class="st-gcard fade-up"><b>📝 주문서 접수</b><span>주문서를 확인한 담당자가 영업일 내 연락드립니다.</span></div>
+      <div class="st-gcard fade-up"><b>🏷 공개 가격</b><span>가격이 표시된 상품은 VAT 포함 표시가로 결제하고, ‘견적 문의’ 상품은 확인 후 안내합니다.</span></div>
+      <div class="st-gcard fade-up"><b>💳 안전 결제</b><span>나이스페이 결제창 · 신용카드·간편결제·계좌이체. 결제 즉시 영수증 메일을 보냅니다.</span></div>
       <div class="st-gcard fade-up"><b>↩ 환불 정책</b><span>착수 전 전액 환불, 이후 기집행분 공제 후 환불.</span></div>
       <div class="st-gcard fade-up"><b>🧾 세금계산서</b><span>사업자 증빙용 세금계산서 발행 가능.</span></div>
     </div>
-    <p class="st-note fade-up">※ 일부 상품은 키워드 경쟁도·업종에 따라 구성 상담이 필요할 수 있습니다. 어떤 상품이 맞을지 모르겠다면 <a href="contact.html">무료 진단 상담</a>을 이용해 주세요. 결제 방법은 주문 확인 때 안내드리며, 취소·환불 기준은 <a href="terms.html#refund">환불 정책</a>을 따릅니다.</p>
+    <p class="st-note fade-up">※ 일부 상품은 키워드 경쟁도·업종에 따라 구성 상담이 필요할 수 있습니다. 어떤 상품이 맞을지 모르겠다면 <a href="contact.html">무료 진단 상담</a>을 이용해 주세요. 견적 상품의 결제 방법은 주문 확인 때 안내드리며, 취소·환불 기준은 <a href="terms.html#refund">환불 정책</a>을 따릅니다.</p>
   </div>
 </section>
 
-<!-- Payment Modal -->
-<div class="payment-modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title" aria-hidden="true">
+<!-- 결제창 (나이스페이) — js/checkout.js. 포트원 결제 모달은 2026-11 나이스페이 전환으로 이 페이지에서 뺐습니다(코드는 js/script.js에 비활성 보관). -->
+<div class="payment-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-hidden="true">
   <div class="payment-modal-backdrop"></div>
   <div class="payment-modal-panel">
     <button class="payment-modal-close" type="button" aria-label="닫기">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 L6 18 M6 6 L18 18"/></svg>
     </button>
     <div class="payment-modal-header">
-      <p class="inquiry-eyebrow">안전한 결제</p>
-      <h2 id="payment-modal-title">온라인 결제</h2>
-      <p class="inquiry-sub">포트원(PortOne) 안전 결제 · 카드·계좌이체·간편결제 지원</p>
+      <p class="inquiry-eyebrow">안전 결제 · 나이스페이</p>
+      <h2 id="checkout-title">구매하기</h2>
+      <p class="inquiry-sub" id="coSub"></p>
+      <p class="co-test" id="coTest" hidden>테스트 결제 모드 — 실제로 청구되지 않습니다.</p>
     </div>
-    <form class="payment-form" id="paymentForm" novalidate>
+    <form class="payment-form" id="checkoutForm" novalidate>
       <div class="hp-field" aria-hidden="true">
         <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
       </div>
       <input type="hidden" name="formOpenedAt" class="form-opened-at">
       <div class="form-field">
-        <label>상품 선택</label>
-        <div class="pay-options">
-          <label class="pay-opt"><input type="radio" name="pay-preset" value="50000" data-name="상담 예약금" checked><div><b>상담 예약금</b><em>50,000원</em></div></label>
-          <label class="pay-opt"><input type="radio" name="pay-preset" value="300000" data-name="기본 진단 패키지"><div><b>기본 진단 패키지</b><em>300,000원</em></div></label>
-          <label class="pay-opt"><input type="radio" name="pay-preset" value="1500000" data-name="표준 월간 패키지"><div><b>표준 월간 패키지</b><em>1,500,000원</em></div></label>
-          <label class="pay-opt"><input type="radio" name="pay-preset" value="custom" data-name="맞춤 견적 결제"><div><b>선택 상품 / 맞춤</b><em>직접 입력</em></div></label>
-        </div>
-      </div>
-      <div class="form-field" id="payCustomWrap" hidden>
-        <label for="pay-custom-amount">결제 금액 (원)</label>
-        <input type="number" id="pay-custom-amount" name="customAmount" min="10000" step="1000" placeholder="예: 500000" inputmode="numeric">
+        <label for="co-option">옵션 <span>*</span></label>
+        <select id="co-option" name="option"></select>
+        <small class="of-help" id="coDetail"></small>
       </div>
       <div class="form-row">
         <div class="form-field">
-          <label for="pay-name">이름 <span>*</span></label>
-          <input type="text" id="pay-name" name="name" required placeholder="홍길동">
+          <label for="co-qty">수량 <span>*</span> <em class="optional-hint" id="coUnit"></em></label>
+          <div class="co-qty">
+            <button type="button" data-step="-1" aria-label="수량 줄이기">−</button>
+            <input type="number" id="co-qty" name="qty" min="1" step="1" value="1" inputmode="numeric">
+            <button type="button" data-step="1" aria-label="수량 늘리기">+</button>
+          </div>
+          <small class="of-help" id="coQtyHelp"></small>
+        </div>
+        <fieldset class="form-field of-group">
+          <legend>결제수단 <span>*</span></legend>
+          <div class="of-opts">
+            <label><input type="radio" name="method" value="cardAndEasyPay" checked> 카드 · 간편결제</label>
+            <label><input type="radio" name="method" value="bank"> 계좌이체</label>
+          </div>
+        </fieldset>
+      </div>
+      <fieldset class="form-field of-group co-extras" id="coExtrasWrap" hidden>
+        <legend>추가 옵션 <em class="optional-hint">(선택)</em></legend>
+        <div class="of-opts" id="coExtras"></div>
+      </fieldset>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="co-name">주문자 이름 <span>*</span></label>
+          <input type="text" id="co-name" name="name" maxlength="20" placeholder="홍길동" autocomplete="name">
         </div>
         <div class="form-field">
-          <label for="pay-phone">연락처 <span>*</span></label>
-          <input type="tel" id="pay-phone" name="phone" required placeholder="010-0000-0000" inputmode="numeric">
+          <label for="co-phone">휴대폰 <span>*</span></label>
+          <input type="tel" id="co-phone" name="phone" maxlength="13" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel">
         </div>
       </div>
       <div class="form-field">
-        <label for="pay-email">이메일 <span>*</span><em class="optional-hint">(영수증 발송)</em></label>
-        <input type="email" id="pay-email" name="email" required placeholder="you@example.com">
+        <label for="co-email">이메일 <span>*</span><em class="optional-hint">(영수증 · 작업 요청서 링크 발송)</em></label>
+        <input type="email" id="co-email" name="email" maxlength="60" placeholder="you@example.com" autocomplete="email">
       </div>
       <div class="form-field">
-        <label for="pay-memo">메모 <span class="optional-hint">(선택)</span></label>
-        <input type="text" id="pay-memo" name="memo" placeholder="요청사항 · 프로젝트명 등">
+        <label for="co-memo">요청사항 <em class="optional-hint">(선택 — 키워드·자료는 결제 후 작업 요청서로 받습니다)</em></label>
+        <input type="text" id="co-memo" name="memo" maxlength="500" placeholder="예: 업체명, 희망 일정">
       </div>
-      <label class="privacy-check">
-        <input type="checkbox" id="pay-privacy" required>
-        <span>전자상거래 약관·개인정보 수집에 동의합니다. <a href="terms.html" target="_blank" rel="noopener">약관</a> · <a href="privacy.html#collect" target="_blank" rel="noopener">개인정보처리방침</a></span>
-      </label>
+      <div class="co-agree">
+        <label class="privacy-check co-all"><input type="checkbox" id="co-agree-all"> <span>아래 내용에 모두 동의합니다</span></label>
+        <label class="privacy-check"><input type="checkbox" id="co-agree-privacy" data-agree> <span>(필수) 주문 처리·영수증 발송을 위한 개인정보(이름·휴대폰·이메일) 수집·이용과 결제대행사(나이스페이먼츠) 처리 위탁에 동의합니다. 결제 기록은 전자상거래법에 따라 5년 보관합니다. <a href="privacy.html#collect" target="_blank" rel="noopener">개인정보처리방침</a></span></label>
+        <label class="privacy-check"><input type="checkbox" id="co-agree-refund" data-agree> <span>(필수) <a href="terms.html#refund" target="_blank" rel="noopener">취소·환불 규정</a>을 확인했습니다. 착수 전에는 전액 환불되고, 착수 후에는 진행분을 공제합니다.</span></label>
+        <label class="privacy-check"><input type="checkbox" id="co-agree-order" data-agree> <span>(필수) 주문 상품·수량·결제 금액을 확인했고 결제에 동의합니다.</span></label>
+      </div>
+      <ul class="co-lines" id="coLines" aria-live="polite"></ul>
       <div class="payment-summary" aria-live="polite">
-        <span>결제 예정 금액</span>
-        <b id="paySummaryAmount">50,000 원</b>
+        <span>총 결제금액 <em class="optional-hint">VAT 포함</em></span>
+        <b id="coTotal">0 원</b>
       </div>
-      <button type="submit" class="inquiry-submit" id="paySubmitBtn">
-        <span id="paySubmitLabel">결제하기</span> <span aria-hidden="true">→</span>
+      <p class="co-err" id="coErr" hidden role="alert"></p>
+      <button type="submit" class="inquiry-submit" id="coSubmit">
+        <span id="coSubmitLabel">결제하기</span> <span aria-hidden="true">→</span>
       </button>
-      <p class="inquiry-success" id="paymentSuccess" hidden>
-        ✓ 결제가 완료됐습니다. 영수증은 입력하신 이메일로 발송되며, 영업일 내 담당자가 연락드립니다.
-      </p>
-      <p class="pay-secure">🔒 모든 결제는 SSL 암호화로 보호되며, 카드정보는 PG사에서 직접 처리됩니다. · <a href="terms.html#refund" style="color:var(--gold-soft);text-decoration:underline">취소·환불 정책</a></p>
+      <p class="pay-secure">🔒 카드 정보는 나이스페이 결제창에서 직접 처리되고, 결제 금액은 서버에서 다시 확인합니다 · <a href="terms.html#refund" style="color:var(--gold-soft);text-decoration:underline">취소·환불 정책</a></p>
     </form>
   </div>
 </div>
@@ -1925,9 +2412,11 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   </div>
 </footer>
 
-<script src="https://cdn.portone.io/v2/browser-sdk.js" defer></script>
+<!-- 포트원 SDK: 나이스페이 전환으로 이 페이지에서는 불러오지 않음 (2026-11) <script src="https://cdn.portone.io/v2/browser-sdk.js" defer></script> -->
 <script src="js/script.js" defer></script>
+<script src="js/catalog.js" defer></script>
 <script src="js/order.js" defer></script>
+<script src="js/checkout.js" defer></script>
 <script>
 (function(){
 'use strict';

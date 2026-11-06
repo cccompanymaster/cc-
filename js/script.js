@@ -1354,6 +1354,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // ============================================================
 // ===== PortOne (포트원) 결제 연동 =====
 // ============================================================
+// ⛔ 2026-11 나이스페이로 전환하며 비활성화했습니다(코드는 보관). 포트원 키가 비어 결제가 동작하지 않았고,
+//    PG 계약을 나이스페이와 맺어 스토어 결제는 js/checkout.js(나이스페이 결제창)가 맡습니다.
+//    다시 쓰려면 PORTONE_ENABLED를 true로 바꾸고 아래 키를 채운 뒤 Code.gs의 포트원 속성을 설정하세요.
+const PORTONE_ENABLED = false;
 // ⚠️ 배포 전 아래 3개 상수를 실제 PortOne 계정에서 발급받은 값으로 교체하세요.
 // 발급 방법: apps-script/Code.gs 상단 주석 참조
 const PORTONE_STORE_ID = '';                // 예: 'store-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
@@ -1464,6 +1468,12 @@ payForm?.addEventListener('submit', async (e) => {
 
   const { amount, name: itemName } = getSelectedAmount();
   if (!amount || amount < 100) { alert('결제 금액을 확인해주세요.'); return; }
+
+  if (!PORTONE_ENABLED) {
+    alert('온라인 결제는 스토어의 상품별 [구매하기]에서 가능합니다.\n견적 금액 결제는 010-6658-6482 또는 카카오채널로 안내해 드립니다.');
+    location.href = 'shop.html';
+    return;
+  }
 
   if (!PORTONE_STORE_ID || !PORTONE_CHANNEL_KEY) {
     alert('결제 시스템이 아직 활성화되지 않았습니다. 관리자에게 문의하거나 카카오채널/전화로 연락 주세요.');

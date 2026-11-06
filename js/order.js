@@ -68,6 +68,7 @@ const box = document.getElementById('orderFields');
 const title = document.getElementById('order-modal-title');
 const sub = document.getElementById('orderSub');
 const ok = document.getElementById('orderSuccess');
+const okDefault = ok.textContent;
 const btn = document.getElementById('orderSubmit');
 let cur = null, opener = null;
 
@@ -95,13 +96,18 @@ function fieldHTML(f) {
 }
 
 function open(btnEl) {
-  const svc = S[btnEl.dataset.svc];
-  if (!svc) return;
-  const opt = btnEl.dataset.opt || '';
-  cur = { key: btnEl.dataset.svc, svc, opt: svc.title.includes(opt) ? '' : opt, price: btnEl.closest('.st-tier')?.querySelector('.st-tier-price')?.textContent.trim() || '' };
-  opener = btnEl;
-  title.textContent = svc.title + ' 주문서';
-  sub.textContent = [cur.opt, cur.price].filter(Boolean).join(' · ') + ' — 작성해 주시면 담당자가 확인 후 견적·결제 방법을 안내합니다.';
+  openSvc(btnEl.dataset.svc, btnEl.dataset.opt || '', btnEl.closest('.st-tier')?.querySelector('.st-tier-price')?.textContent.trim() || '', '', btnEl);
+}
+// oid가 있으면 결제를 마친 주문의 '작업 요청서' — 결제 안내 문구 대신 주문번호를 붙인다.
+function openSvc(key, opt, price, oid, from) {
+  const svc = S[key];
+  if (!svc) return false;
+  cur = { key, svc, opt: svc.title.includes(opt) ? '' : opt, price: oid ? '' : price, oid: oid || '' };
+  opener = from || document.activeElement;
+  title.textContent = svc.title + (cur.oid ? ' 작업 요청서' : ' 주문서');
+  sub.textContent = cur.oid
+    ? `주문번호 ${cur.oid}${cur.opt ? ' · ' + cur.opt : ''} — 작업에 필요한 내용을 보내 주시면 바로 착수합니다.`
+    : [cur.opt, cur.price].filter(Boolean).join(' · ') + ' — 작성해 주시면 담당자가 확인 후 견적·결제 방법을 안내합니다.';
   box.innerHTML = svc.f.map(fieldHTML).join('');
   form.reset();
   form.hidden = false;
@@ -113,7 +119,8 @@ function open(btnEl) {
   modal.setAttribute('aria-hidden', 'false');
   document.documentElement.style.overflow = 'hidden';
   setTimeout(() => form.querySelector('input:not([type=hidden]):not([tabindex="-1"]),select,textarea')?.focus(), 50);
-  if (typeof gtag === 'function') gtag('event', 'begin_checkout', { item_name: svc.title, item_variant: cur.opt });
+  if (!cur.oid && typeof gtag === 'function') gtag('event', 'begin_checkout', { item_name: svc.title, item_variant: cur.opt });
+  return true;
 }
 function close() {
   modal.classList.remove('open');
@@ -122,7 +129,9 @@ function close() {
   opener?.focus();
 }
 
-document.querySelectorAll('.sc-buy[data-svc]').forEach((b) => b.addEventListener('click', () => open(b)));
+// 결제 가능한 옵션(data-pay)은 js/checkout.js가 맡고, 결제가 닫혀 있으면 이 주문서로 넘겨준다.
+document.querySelectorAll('.sc-buy[data-svc]:not([data-pay])').forEach((b) => b.addEventListener('click', () => open(b)));
+window.NoahOrder = { open, openSvc };
 modal.querySelector('.payment-modal-close').addEventListener('click', close);
 modal.querySelector('.payment-modal-backdrop').addEventListener('click', close);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
@@ -198,14 +207,14 @@ form.addEventListener('submit', async (e) => {
       attachment = { name: `주문자료_${cur.key}.zip`, type: 'application/zip', size: blob.size, dataBase64: await fileToBase64_(blob) };
       btn.innerHTML = '보내는 중…';
     }
-    const head = `[주문서] ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}${cur.price ? ' (' + cur.price + ')' : ''}`;
+    const head = `${cur.oid ? '[작업 요청서 · 결제완료 ' + cur.oid + ']' : '[주문서]'} ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}${cur.price ? ' (' + cur.price + ')' : ''}`;
     const lines = got.rows.map(([k, v]) => `${k}: ${v}`);
     if (files.length) lines.push(`첨부: ${files.map((f) => f.name).join(', ')} (ZIP 1개로 묶음)`);
     const payload = {
       type: 'inquiry',
       name, phone, email,
       company: (form.querySelector('#of-biz')?.value || '').trim(),
-      interests: `[주문] ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}`,
+      interests: `${cur.oid ? '[작업요청]' : '[주문]'} ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}`,
       message: [head, ...lines].join('\n').slice(0, 4900),
       attachment,
       referrer: (document.referrer || '(direct)').slice(0, 200),
@@ -224,6 +233,7 @@ form.addEventListener('submit', async (e) => {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     form.hidden = true;
+    ok.textContent = cur.oid ? '✓ 작업 요청서가 접수됐습니다. 담당자가 확인 후 착수 일정을 안내드립니다.' : okDefault;
     ok.hidden = false;
     if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'order_form', item_name: cur.svc.title, item_variant: cur.opt });
   } catch (err) {
