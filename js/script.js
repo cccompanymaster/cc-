@@ -505,7 +505,7 @@ const articlesByLang = {
       <h3>5. 카페·지식인 연계 노출</h3>
       <p>블로그 단독이 아닌 카페·지식인과 동일 키워드로 교차 노출될 때 신뢰도가 올라가는 것으로 확인됐습니다.</p>
       <div class="article-cta">
-        <p>CC컴퍼니는 블로그·카페·지식iN 통합 운영으로 2026 로직에 최적화된 바이럴 솔루션을 제공합니다.</p>
+        <p>노아는 블로그·카페·지식iN 통합 운영으로 2026 로직에 최적화된 바이럴 솔루션을 제공합니다.</p>
         <a href="#contact" class="btn btn-primary">상담 문의하기 →</a>
       </div>
     `
@@ -600,7 +600,7 @@ const articlesByLang = {
     date: '2026.01.18',
     title: '격이 다른 바이럴 — 왜 "노출"이 아닌 "매출 전환"이 답인가',
     body: `
-      <p class="lead">블로그 상위노출 100건이 있어도 매출이 안 나오는 이유는 간단합니다. 지금까지의 바이럴은 "보여주기"에 집중했기 때문입니다. CC컴퍼니가 추구하는 "격이 다른 마케팅"의 실체를 공개합니다.</p>
+      <p class="lead">블로그 상위노출 100건이 있어도 매출이 안 나오는 이유는 간단합니다. 지금까지의 바이럴은 "보여주기"에 집중했기 때문입니다. 노아가 추구하는 "격이 다른 마케팅"의 실체를 공개합니다.</p>
 
       <h3>보여주기 바이럴의 한계</h3>
       <p>대부분의 바이럴 대행사는 "블로그 몇 건 상위노출" 같은 아웃풋 지표만 보장합니다. 문제는 노출된 글이 <b>구매로 이어지지 않는다</b>는 것. 클릭률이 낮거나, 클릭해도 이탈하거나, 재방문이 없습니다.</p>
@@ -613,7 +613,7 @@ const articlesByLang = {
       </ul>
 
       <h3>실제 사례 — 수도권 A 피부과</h3>
-      <p>블로그 상위노출 위주로 진행하던 기존 대행사와 계약 종료 후 CC컴퍼니 이관.</p>
+      <p>블로그 상위노출 위주로 진행하던 기존 대행사와 계약 종료 후 노아로 이관.</p>
       <ul>
         <li>첫 달 블로그 게시글 수는 <b>30% 감소</b>시킴 (불필요한 노출 정리)</li>
         <li>대신 카페·지식iN에 <b>질문-답변 시리즈</b> 전개</li>
@@ -622,12 +622,12 @@ const articlesByLang = {
       </ul>
 
       <h3>"격이 다른" 의 의미</h3>
-      <p>CC컴퍼니는 단순 포스팅 대행이 아닙니다. 업종 분석 → 키워드 설계 → 콘텐츠 기획 → 다채널 집행 → 전환 측정까지 하나의 시스템으로 운영합니다. 결과가 숫자로 증명되지 않으면, 마케팅이 아닙니다.</p>
+      <p>노아는 단순 포스팅 대행이 아닙니다. 업종 분석 → 키워드 설계 → 콘텐츠 기획 → 다채널 집행 → 전환 측정까지 하나의 시스템으로 운영합니다. 결과가 숫자로 증명되지 않으면, 마케팅이 아닙니다.</p>
 
       <blockquote>"우리는 상위노출이 목표가 아니라, 매출이 올라가는 것이 목표입니다. 매출이 오르지 않았다면, 저희가 실패한 겁니다."</blockquote>
 
       <div class="article-cta">
-        <p>CC컴퍼니 공식 블로그에서 더 많은 실제 사례를 확인하세요.</p>
+        <p>노아 공식 블로그에서 더 많은 실제 사례를 확인하세요.</p>
         <a href="https://blog.naver.com/cccompanyad" target="_blank" rel="noopener" class="btn btn-primary">블로그 방문하기 →</a>
       </div>
     `
@@ -673,7 +673,7 @@ const articlesByLang = {
       <h3>5. Cross-exposure with Cafés and Knowledge-iN</h3>
       <p>Credibility rises when the same keyword is cross-exposed on blogs, cafés, and Knowledge-iN — not blog alone.</p>
       <div class="article-cta">
-        <p>CC Company runs integrated blog + café + Knowledge-iN operation optimized for 2026 logic.</p>
+        <p>NOAH runs integrated blog + café + Knowledge-iN operation optimized for 2026 logic.</p>
         <a href="#contact" class="btn btn-primary">Request consultation →</a>
       </div>
     `
@@ -768,7 +768,7 @@ const articlesByLang = {
       date: '2026.01.18',
       title: 'Viral of a Different Class — Why "Conversion" Beats "Impressions"',
       body: `
-      <p class="lead">Even with 100 top-ranked blog posts, revenue doesn't follow if the viral strategy only shows off. That's the gap CC Company's "marketing of a different class" closes.</p>
+      <p class="lead">Even with 100 top-ranked blog posts, revenue doesn't follow if the viral strategy only shows off. That's the gap NOAH's "marketing of a different class" closes.</p>
       <h3>The limit of "display" viral</h3>
       <p>Most viral agencies guarantee output metrics — "X blog posts on top". The problem: those posts <b>don't lead to purchase</b>. Low CTR, high bounce, no return.</p>
       <h3>Three principles of conversion-centric viral</h3>
@@ -778,7 +778,7 @@ const articlesByLang = {
         <li><b>Conversion tracking</b>: UTM + GA4 + call tracking to measure viral → inquiry → contract rate</li>
       </ul>
       <h3>Case — Capital-area Dermatology A</h3>
-      <p>After ending the prior top-ranking-only agency, they switched to CC Company.</p>
+      <p>After ending the prior top-ranking-only agency, they switched to NOAH.</p>
       <ul>
         <li>Month 1: blog post count <b>cut 30%</b> (removed noise)</li>
         <li>Expanded into <b>Q&amp;A series</b> on Cafés and Knowledge-iN</li>
@@ -786,10 +786,10 @@ const articlesByLang = {
         <li>Result: 3 months later, <b>+218% new bookings</b> at the same spend</li>
       </ul>
       <h3>What "a different class" means</h3>
-      <p>CC Company is not a posting vendor. One system runs industry analysis → keyword design → content planning → multi-channel execution → conversion measurement. If results aren't proved by numbers, it isn't marketing.</p>
+      <p>NOAH is not a posting vendor. One system runs industry analysis → keyword design → content planning → multi-channel execution → conversion measurement. If results aren't proved by numbers, it isn't marketing.</p>
       <blockquote>"Our goal isn't top ranking — it's revenue. If revenue didn't grow, we failed."</blockquote>
       <div class="article-cta">
-        <p>Browse more real cases on CC Company's official blog.</p>
+        <p>Browse more real cases on NOAH's official blog.</p>
         <a href="https://blog.naver.com/cccompanyad" target="_blank" rel="noopener" class="btn btn-primary">Visit blog →</a>
       </div>
     `
@@ -835,7 +835,7 @@ const articlesByLang = {
       <h3>5. 与咖啡厅/知识 iN 联动曝光</h3>
       <p>博客单打独斗不如跨平台(咖啡厅、知识 iN)同关键字交叉曝光,信任度明显提升。</p>
       <div class="article-cta">
-        <p>CC Company 以博客·咖啡厅·知识 iN 整合运营,提供针对 2026 新逻辑的口碑营销方案。</p>
+        <p>NOAH 以博客·咖啡厅·知识 iN 整合运营,提供针对 2026 新逻辑的口碑营销方案。</p>
         <a href="#contact" class="btn btn-primary">咨询预约 →</a>
       </div>
     `
@@ -930,7 +930,7 @@ const articlesByLang = {
       date: '2026.01.18',
       title: '不一样的口碑营销 — 为何答案是"转化"而非"曝光"',
       body: `
-      <p class="lead">博客 100 条上位曝光仍拉不动营收,原因很简单:过往的口碑营销只在乎"被看到"。介绍 CC Company 坚持的"不一样的营销"的实质。</p>
+      <p class="lead">博客 100 条上位曝光仍拉不动营收,原因很简单:过往的口碑营销只在乎"被看到"。介绍 NOAH 坚持的"不一样的营销"的实质。</p>
       <h3>展示型口碑的极限</h3>
       <p>多数代理公司只保证"博客上位 N 条"等产出指标。问题是,这些曝光 <b>并未带来购买</b> — 点击率低、跳出率高、不再回访。</p>
       <h3>以转化为核心的口碑三原则</h3>
@@ -940,7 +940,7 @@ const articlesByLang = {
         <li><b>转化追踪</b>:UTM + GA4 + 来电追踪,测量 口碑 → 咨询 → 合约 的转化率</li>
       </ul>
       <h3>真实案例 — 首都圈 A 皮肤科</h3>
-      <p>以博客上位为主的原代理到期后转入 CC Company。</p>
+      <p>以博客上位为主的原代理到期后转入 NOAH。</p>
       <ul>
         <li>首月博客发文数 <b>减少 30%</b>(清理无效曝光)</li>
         <li>在咖啡厅/知识 iN 上部署 <b>问答系列</b></li>
@@ -948,10 +948,10 @@ const articlesByLang = {
         <li>结果:3 个月后 <b>新增预约 +218%</b>,广告预算不变</li>
       </ul>
       <h3>"不一样"的含义</h3>
-      <p>CC Company 不是单纯代发博文,而是把行业分析 → 关键字设计 → 内容策划 → 多渠道执行 → 转化测量整合为一套系统。结果无法以数字证明,就不叫营销。</p>
+      <p>NOAH 不是单纯代发博文,而是把行业分析 → 关键字设计 → 内容策划 → 多渠道执行 → 转化测量整合为一套系统。结果无法以数字证明,就不叫营销。</p>
       <blockquote>"我们的目标不是上位曝光,而是营收增长。营收没上,就是我们失败了。"</blockquote>
       <div class="article-cta">
-        <p>欢迎前往 CC Company 官方博客查看更多真实案例。</p>
+        <p>欢迎前往 NOAH 官方博客查看更多真实案例。</p>
         <a href="https://blog.naver.com/cccompanyad" target="_blank" rel="noopener" class="btn btn-primary">访问博客 →</a>
       </div>
     `
