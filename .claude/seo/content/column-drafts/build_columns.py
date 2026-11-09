@@ -8,7 +8,7 @@ CAT = {'ad': '광고 플랫폼', 'expo': '상위노출', 'blog': '블로그 운�
 EXTRA_CSS = ('.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}'
              'th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}'
              'th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}'
-             'caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}'
+             'caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}'
              '.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}'
              'article b,article strong{color:var(--gold-soft)}')
 tpl = open(D + 'template.html', encoding='utf-8').read()  # 2026-10-22 시점 칼럼 틀 (상단바·스타일·CTA·허브·푸터)

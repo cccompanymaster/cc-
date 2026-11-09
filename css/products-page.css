@@ -57,7 +57,7 @@ body.products-page { background: #fafbfd; }
   font-family: 'Pretendard', sans-serif;
   font-size: 14px; font-weight: 700;
   color: var(--muted);
-  transition: all 0.25s var(--easing);
+  transition:color 0.25s var(--easing),background-color 0.25s var(--easing),border-color 0.25s var(--easing),box-shadow 0.25s var(--easing),transform 0.25s var(--easing),opacity 0.25s var(--easing);
 }
 .cat-filter:hover { color: var(--ink); border-color: var(--ink); }
 .cat-filter.active { background: var(--ink); border-color: var(--ink); color: #fff; }
@@ -146,7 +146,7 @@ body.products-page { background: #fafbfd; }
   font-size: 16px;
   opacity: 0;
   transform: translateX(-4px);
-  transition: all 0.3s var(--easing);
+  transition:color 0.3s var(--easing),background-color 0.3s var(--easing),border-color 0.3s var(--easing),box-shadow 0.3s var(--easing),transform 0.3s var(--easing),opacity 0.3s var(--easing);
 }
 .product-card:hover::after {
   opacity: 1;
@@ -188,7 +188,7 @@ body.products-page { background: #fafbfd; }
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0;
-  transition: all 0.25s;
+  transition:color 0.25s,background-color 0.25s,border-color 0.25s,box-shadow 0.25s,transform 0.25s,opacity 0.25s;
 }
 .cat-filter.active .cnt { background: rgba(255,255,255,0.18); color: #fff; }
 

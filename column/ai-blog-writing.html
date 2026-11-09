@@ -28,8 +28,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI로 쓴 초안을 체험단 원고 가이드로 줘도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "실제 체험 내용을 대신 써 준 초안이라면 주지 않는 편이 맞습니다. 체험단 후기는 블로거가 직접 겪은 사실이어야 하고, 겪지 않은 내용을 경험처럼 쓰면 부당한 표시·광고가 될 수 있습니다. 가이드에는 꼭 확인할 항목과 대가 표시 방법만 담고 문장은 블로거가 쓰게 합니다."}}, {"@type": "Question", "name": "해외 자료를 AI로 번역해 올려도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "원문을 통째로 번역해 올리면 저작권 침해가 될 수 있습니다. 번역물은 저작권법상 원저작물을 바탕으로 만든 2차적저작물이라 원저작자의 허락이 필요하고, 출처를 밝히는 것만으로는 해결되지 않습니다. 필요한 사실만 인용 범위에서 짧게 쓰고 내 설명과 판단을 붙입니다."}}, {"@type": "Question", "name": "AI로 만든 이미지를 블로그에 써도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "쓸 수 있지만 두 가지를 확인합니다. 이미지 생성 도구의 이용약관이 상업적 이용을 허용하는지, 그리고 이미지 속 인물이 상품을 권하는 장면이라 가상인물 표시가 필요한지입니다. 매장 사진이나 시공 결과처럼 사실을 보여 줘야 하는 자리에는 AI 이미지를 쓰지 않습니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "마케팅 칼럼", "item": "https://noahgroup.co.kr/column/"}, {"@type": "ListItem", "position": 3, "name": "AI 블로그 글쓰기", "item": "https://noahgroup.co.kr/column/ai-blog-writing.html"}]}</script>
 <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
---gold:#B08D4E;--gold-soft:#8A6A2E;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
+--gold:#B08D4E;--gold-soft:#7A5C24;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
@@ -45,7 +45,7 @@ a{color:inherit;text-decoration:none}
 .crumb a{text-decoration:underline;text-underline-offset:2px}
 h1{font-size:clamp(25px,4.4vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1.35}
 .meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 30px;font-size:12.5px;color:var(--dim)}
-.meta .cat{color:var(--gold);font-weight:800}
+.meta .cat{color:var(--gold-soft);font-weight:800}
 .lead{font-size:16.5px;color:rgba(23,20,26,.85);line-height:1.9;padding:18px 20px;border-left:3px solid var(--gold);background:rgba(154,125,74,.06);border-radius:0 12px 12px 0;margin-bottom:34px}
 article h2{font-size:clamp(19px,2.6vw,25px);font-weight:800;letter-spacing:-.5px;margin:38px 0 12px}
 article p{font-size:15px;color:var(--sub);margin-bottom:16px}
@@ -70,10 +70,10 @@ article strong,article b{color:var(--gold-soft)}
 .cta .l{border:1px solid rgba(194,163,107,.45);color:var(--gold-soft)}
 .rel{margin:36px 0 0}
 .rel h2{font-size:16px;margin-bottom:14px}
-.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 .rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
 footer{margin-top:48px;padding:36px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
-footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
+footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
 </head>
 <body>
 <div class="topbar">

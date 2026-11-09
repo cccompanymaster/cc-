@@ -28,8 +28,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "광고비가 하루 예산보다 많이 나갔는데 오류인가요?", "acceptedAnswer": {"@type": "Answer", "text": "오류가 아닙니다. 평균 일일 예산 방식이라 트래픽이 몰리는 날에는 그 2배까지 쓰일 수 있습니다. 대신 한 달 청구액은 평균 일일 예산의 30.4배로 묶이므로, 월 단위로 보면 정한 범위를 넘지 않습니다."}}, {"@type": "Question", "name": "구글 광고는 최소 얼마부터 할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "평균 일일 예산을 광고주가 직접 정하는 구조라 작은 금액으로 시작할 수 있습니다. 다만 하루 예산이 예상 클릭 단가 몇 번 분량밖에 안 되면 데이터가 쌓이지 않아 판단이 늦어집니다. 키워드 플래너의 예상 단가로 하루에 받을 수 있는 클릭 수를 먼저 가늠합니다."}}, {"@type": "Question", "name": "네이버 검색광고와 구글 광고를 같이 해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "고객이 두 곳에서 모두 찾는다면 같이 하되, 예산과 전환을 매체별로 나눠 봐야 합니다. 같은 문의 폼을 쓰더라도 유입 경로를 구분하지 않으면 어느 매체가 문의를 만들었는지 알 수 없습니다. 링크에 UTM 값을 붙이거나 매체별 전환을 따로 집계합니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "마케팅 칼럼", "item": "https://noahgroup.co.kr/column/"}, {"@type": "ListItem", "position": 3, "name": "구글 광고 하는 법", "item": "https://noahgroup.co.kr/column/google-ads-start.html"}]}</script>
 <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
---gold:#B08D4E;--gold-soft:#8A6A2E;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
+--gold:#B08D4E;--gold-soft:#7A5C24;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
@@ -45,7 +45,7 @@ a{color:inherit;text-decoration:none}
 .crumb a{text-decoration:underline;text-underline-offset:2px}
 h1{font-size:clamp(25px,4.4vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1.35}
 .meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 30px;font-size:12.5px;color:var(--dim)}
-.meta .cat{color:var(--gold);font-weight:800}
+.meta .cat{color:var(--gold-soft);font-weight:800}
 .lead{font-size:16.5px;color:rgba(23,20,26,.85);line-height:1.9;padding:18px 20px;border-left:3px solid var(--gold);background:rgba(154,125,74,.06);border-radius:0 12px 12px 0;margin-bottom:34px}
 article h2{font-size:clamp(19px,2.6vw,25px);font-weight:800;letter-spacing:-.5px;margin:38px 0 12px}
 article p{font-size:15px;color:var(--sub);margin-bottom:16px}
@@ -70,10 +70,10 @@ article strong,article b{color:var(--gold-soft)}
 .cta .l{border:1px solid rgba(194,163,107,.45);color:var(--gold-soft)}
 .rel{margin:36px 0 0}
 .rel h2{font-size:16px;margin-bottom:14px}
-.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 .rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
 footer{margin-top:48px;padding:36px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
-footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
+footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
 </head>
 <body>
 <div class="topbar">

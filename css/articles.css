@@ -49,7 +49,7 @@ body.articles-page { background: #fafbfd; }
   font-family: 'Pretendard', sans-serif;
   font-size: 14px; font-weight: 700;
   color: var(--muted);
-  transition: all 0.25s var(--easing);
+  transition:color 0.25s var(--easing),background-color 0.25s var(--easing),border-color 0.25s var(--easing),box-shadow 0.25s var(--easing),transform 0.25s var(--easing),opacity 0.25s var(--easing);
   cursor: pointer;
 }
 .af:hover { color: var(--ink); border-color: var(--ink); }
@@ -275,8 +275,9 @@ body.articles-page { background: #fafbfd; }
   border-radius: 18px;
   text-align: center;
 }
-.article-body .cta-box h4 {
-  font-size: 22px; font-weight: 800;
+.article-body .cta-box h4,
+.article-body .cta-box h3 {
+  font-size: 22px; font-weight: 800; color: inherit;
   margin: 0 0 10px;
   letter-spacing: -0.015em;
 }
@@ -323,7 +324,7 @@ body.articles-page { background: #fafbfd; }
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #8a6a45;
+  color: #6f5528;
   margin-bottom: 10px;
 }
 .atoc-list {

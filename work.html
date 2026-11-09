@@ -57,8 +57,8 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;
-  --white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
-  --gold:#B08D4E;--gold-soft:#8A6A2E;--gold-ink:#7A5C24;
+  --white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
+  --gold:#B08D4E;--gold-soft:#7A5C24;--gold-ink:#7A5C24;
   --red:#e35454;
   --border:rgba(23,20,26,.13);--border-l:rgba(23,20,26,.075);
   --max-w:1200px;--px:60px;
@@ -94,7 +94,7 @@ img{max-width:100%;display:block}
 .topbar .tb-link{
   font-size:13px;font-weight:700;color:var(--gold-soft);
   border:1px solid rgba(194,163,107,.4);border-radius:999px;padding:8px 18px;
-  transition:all .3s;
+  transition:color .3s,background-color .3s,border-color .3s,box-shadow .3s,transform .3s,opacity .3s;
 }
 .topbar .tb-link:hover{background:rgba(194,163,107,.14);border-color:var(--gold)}
 
@@ -108,7 +108,7 @@ img{max-width:100%;display:block}
   content:'';position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(circle at 50% 20%,rgba(194,163,107,.14),transparent 55%);
 }
-.ph-eyebrow{font-size:13px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.ph-eyebrow{font-size:13px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:22px}
 .page-hero h1{font-weight:900;font-size:clamp(38px,6.4vw,84px);letter-spacing:-2.5px;line-height:1.2}
 .page-hero h1 .thin{font-weight:300;color:var(--sub)}
 .page-hero h1 em{
@@ -152,7 +152,7 @@ img{max-width:100%;display:block}
   transition:border-color .3s,transform .3s;
 }
 .case:hover{border-color:rgba(194,163,107,.5);transform:translateY(-4px)}
-.c-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--gold)}
+.c-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--gold-soft)}
 .c-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .c-title{font-size:clamp(19px,2.1vw,24px);font-weight:800;letter-spacing:-.5px;line-height:1.4}
 .c-rows{display:grid;gap:10px;margin-top:2px}
@@ -181,7 +181,7 @@ img{max-width:100%;display:block}
 /* testimonials */
 .testi{padding:clamp(56px,9vh,110px) 0;background:var(--bg-alt);border-top:1px solid var(--border-l)}
 .testi-head{text-align:center;margin-bottom:44px}
-.testi-head p{font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.testi-head p{font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--gold-soft);text-transform:uppercase;margin-bottom:12px}
 .testi-head h2{font-size:clamp(26px,4vw,46px);font-weight:900;letter-spacing:-1.5px}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
 .t-card{
@@ -201,7 +201,7 @@ img{max-width:100%;display:block}
   display:inline-flex;align-items:center;margin-top:36px;
   padding:22px 64px;font-size:17px;font-weight:800;letter-spacing:.5px;border-radius:100px;
   color:#FFFFFF;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);
-  transition:all .4s cubic-bezier(.4,0,.2,1);
+  transition:color .4s cubic-bezier(.4,0,.2,1),background-color .4s cubic-bezier(.4,0,.2,1),border-color .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1),opacity .4s cubic-bezier(.4,0,.2,1);
 }
 .close-cta .btn:hover{transform:scale(1.05);box-shadow:0 0 44px rgba(194,163,107,.35)}
 .close-cta .note{margin-top:16px;font-size:13px;color:var(--dim)}
@@ -264,9 +264,9 @@ footer .f-sns a:hover{color:var(--gold);border-color:var(--gold)}
 .case{display:flex;flex-direction:column;overflow:hidden}
 .c-photo{position:relative;aspect-ratio:4/3;margin:-1px -1px 0;border-radius:14px 14px 0 0;overflow:hidden;background:linear-gradient(150deg,#F0EADD,#E3D9C8);display:flex;align-items:center;justify-content:center}
 .c-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.c-photo-fb{display:none;font-size:11px;color:rgba(23,20,26,.5)}
+.c-photo-fb{display:none;font-size:11px;color:rgba(23,20,26,.62)}
 .c-photo.noimg .c-photo-fb{display:block}
-.case .ai-cap{margin:10px 0 4px;font-size:10.5px;letter-spacing:.02em;color:rgba(23,20,26,.5)}
+.case .ai-cap{margin:10px 0 4px;font-size:10.5px;letter-spacing:.02em;color:rgba(23,20,26,.62)}
 
 /* ===== 플로팅 상담 버튼 정리 — 본문을 덮지 않게 ===== */
 .float-cta{top:50%;bottom:auto;transform:translateY(-50%);gap:10px}
@@ -329,12 +329,13 @@ footer{overflow-x:clip}
 footer .f-info{overflow-wrap:anywhere}
 footer .f-links a{display:inline-block;padding:6px 2px}
 
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <a href="./" class="tb-logo" aria-label="노아 홈">
+  <a href="./" class="tb-logo" aria-label="NOAH 노아 홈">
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
@@ -412,6 +413,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 <!-- CASES -->
 <section class="cases">
   <div class="inner">
+    <h2 class="sr-only">성과 사례</h2>
     <div class="cases-grid">
 
       <article class="case fade-up">

@@ -1004,7 +1004,7 @@ document.querySelectorAll('.news-card[data-article]').forEach(card => {
   card.addEventListener('click', handler);
   card.setAttribute('tabindex', '0');
   card.setAttribute('role', url ? 'link' : 'button');
-  if (url) { card.setAttribute('aria-label', card.querySelector('h4')?.textContent || ''); }
+  if (url) { card.setAttribute('aria-label', card.querySelector('h3, h4')?.textContent || ''); }
   card.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
   });

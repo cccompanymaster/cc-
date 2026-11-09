@@ -84,8 +84,8 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;
-  --white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
-  --gold:#B08D4E;--gold-soft:#8A6A2E;--gold-ink:#7A5C24;
+  --white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
+  --gold:#B08D4E;--gold-soft:#7A5C24;--gold-ink:#7A5C24;
   --red:#e35454;
   --border:rgba(23,20,26,.13);--border-l:rgba(23,20,26,.075);
   --max-w:1200px;--px:60px;
@@ -121,7 +121,7 @@ img{max-width:100%;display:block}
 .topbar .tb-link{
   font-size:13px;font-weight:700;color:var(--gold-soft);
   border:1px solid rgba(194,163,107,.4);border-radius:999px;padding:8px 18px;
-  transition:all .3s;
+  transition:color .3s,background-color .3s,border-color .3s,box-shadow .3s,transform .3s,opacity .3s;
 }
 .topbar .tb-link:hover{background:rgba(194,163,107,.14);border-color:var(--gold)}
 
@@ -137,7 +137,7 @@ img{max-width:100%;display:block}
 }
 .ph-eyebrow{
   font-size:13px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:22px;
+  color:var(--gold-soft);margin-bottom:22px;
 }
 .page-hero h1{
   font-weight:900;font-size:clamp(38px,6.4vw,84px);
@@ -167,7 +167,7 @@ img{max-width:100%;display:block}
   font-size:clamp(56px,7vw,96px);font-weight:900;letter-spacing:-3px;line-height:1;
   color:rgba(194,163,107,.22);
 }
-.tc-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--gold)}
+.tc-tag{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--gold-soft)}
 .tc-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .tc-name{font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-1px;margin:12px 0 6px}
 .tc-tagline{font-size:clamp(15px,1.7vw,19px);color:var(--gold-soft);font-weight:600;margin-bottom:16px}
@@ -196,7 +196,7 @@ img{max-width:100%;display:block}
   display:inline-flex;align-items:center;margin-top:36px;
   padding:22px 64px;font-size:17px;font-weight:800;letter-spacing:.5px;border-radius:100px;
   color:#FFFFFF;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);
-  transition:all .4s cubic-bezier(.4,0,.2,1);
+  transition:color .4s cubic-bezier(.4,0,.2,1),background-color .4s cubic-bezier(.4,0,.2,1),border-color .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1),opacity .4s cubic-bezier(.4,0,.2,1);
 }
 .close-cta .btn:hover{transform:scale(1.05);box-shadow:0 0 44px rgba(194,163,107,.35)}
 .close-cta .note{margin-top:16px;font-size:13px;color:var(--dim)}
@@ -258,7 +258,7 @@ footer .f-sns a:hover{color:var(--gold);border-color:var(--gold)}
 .tc-num{grid-column:1;grid-row:1}
 .tc-photo{margin:0;position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#F0EADD,#E3D9C8);align-self:start}
 .tc-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:14px}
-.tc-photo-fb{display:none;padding:64px 0;text-align:center;font-size:11px;color:rgba(23,20,26,.5)}
+.tc-photo-fb{display:none;padding:64px 0;text-align:center;font-size:11px;color:rgba(23,20,26,.62)}
 .tc-photo.noimg .tc-photo-fb{display:block}
 .tc-photo .ai-cap{margin-top:9px;font-size:10.5px;letter-spacing:.02em;color:rgba(23,20,26,.5);text-align:left}
 .tc-photo.left{grid-column:2;grid-row:1}
@@ -333,12 +333,13 @@ footer{overflow-x:clip}
 footer .f-info{overflow-wrap:anywhere}
 footer .f-links a{display:inline-block;padding:6px 2px}
 
+.tc-num::before{content:attr(data-n)}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <a href="./" class="tb-logo" aria-label="노아 홈">
+  <a href="./" class="tb-logo" aria-label="NOAH 노아 홈">
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
@@ -410,7 +411,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
   <div class="inner">
 
     <article class="team-card fade-up">
-      <div class="tc-num">01</div>
+      <div class="tc-num" aria-hidden="true" data-n="01"></div>
       <div class="tc-text">
         <span class="tc-tag">전문직 광고 · 컴플라이언스</span>
         <h2 class="tc-name">전문직 광고팀</h2>
@@ -428,7 +429,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     </article>
 
     <article class="team-card fade-up">
-      <div class="tc-num">02</div>
+      <div class="tc-num" aria-hidden="true" data-n="02"></div>
       <div class="tc-text">
         <span class="tc-tag">바이럴 미디어 · 격이 다른 마케팅</span>
         <h2 class="tc-name">바이럴 콘텐츠팀</h2>
@@ -448,7 +449,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     </article>
 
     <article class="team-card fade-up">
-      <div class="tc-num">03</div>
+      <div class="tc-num" aria-hidden="true" data-n="03"></div>
       <div class="tc-text">
         <span class="tc-tag">데이터베이스 &amp; 퍼포먼스</span>
         <h2 class="tc-name">데이터 퍼포먼스팀</h2>

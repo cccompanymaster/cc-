@@ -28,8 +28,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "기자단은 불법인가요?", "acceptedAnswer": {"@type": "Answer", "text": "원고를 주고 블로그에 싣는 방식 자체는 광고의 한 형태입니다. 문제가 되는 것은 경험하지 않은 내용을 써 본 사람의 후기처럼 꾸미거나 원고료를 받은 사실을 숨기는 경우입니다. 광고임을 밝히고 안내형으로 쓰면 이 위험을 피할 수 있습니다."}}, {"@type": "Question", "name": "체험단 블로거가 업체가 준 원고를 그대로 올리면 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "그 글은 체험 후기보다 원고 배포에 가까워집니다. 블로거가 실제로 다녀왔더라도 원고 속 평가가 본인의 경험과 다르면 심사지침이 요구하는 ‘실제 경험과의 일치’에서 벗어납니다. 업체 원고는 사실 정보만 참고하고 평가는 자기 문장으로 씁니다."}}, {"@type": "Question", "name": "기자단과 언론 보도자료 배포는 같은 건가요?", "acceptedAnswer": {"@type": "Answer", "text": "다릅니다. 기자단은 블로거 개인 블로그에 업체 원고를 싣는 방식이고, 보도자료는 언론사에 자료를 보내 기사로 쓸지를 언론사가 판단하는 방식입니다. 돈을 내고 기사처럼 싣는 유료 게재라면 광고 구분 기준을 따로 확인해야 합니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "마케팅 칼럼", "item": "https://noahgroup.co.kr/column/"}, {"@type": "ListItem", "position": 3, "name": "체험단 기자단 차이", "item": "https://noahgroup.co.kr/column/experience-vs-reporter.html"}]}</script>
 <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
---gold:#B08D4E;--gold-soft:#8A6A2E;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
+--gold:#B08D4E;--gold-soft:#7A5C24;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
@@ -45,7 +45,7 @@ a{color:inherit;text-decoration:none}
 .crumb a{text-decoration:underline;text-underline-offset:2px}
 h1{font-size:clamp(25px,4.4vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1.35}
 .meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 30px;font-size:12.5px;color:var(--dim)}
-.meta .cat{color:var(--gold);font-weight:800}
+.meta .cat{color:var(--gold-soft);font-weight:800}
 .lead{font-size:16.5px;color:rgba(23,20,26,.85);line-height:1.9;padding:18px 20px;border-left:3px solid var(--gold);background:rgba(154,125,74,.06);border-radius:0 12px 12px 0;margin-bottom:34px}
 article h2{font-size:clamp(19px,2.6vw,25px);font-weight:800;letter-spacing:-.5px;margin:38px 0 12px}
 article p{font-size:15px;color:var(--sub);margin-bottom:16px}
@@ -70,10 +70,10 @@ article strong,article b{color:var(--gold-soft)}
 .cta .l{border:1px solid rgba(194,163,107,.45);color:var(--gold-soft)}
 .rel{margin:36px 0 0}
 .rel h2{font-size:16px;margin-bottom:14px}
-.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 .rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
 footer{margin-top:48px;padding:36px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
-footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
+footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
 </head>
 <body>
 <div class="topbar">

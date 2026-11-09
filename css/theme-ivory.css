@@ -9,10 +9,10 @@
   --iv-alt: #F2EEE5;
   --iv-ink: #17141A;
   --iv-sub: rgba(23,20,26,.68);
-  --iv-dim: rgba(23,20,26,.46);
+  --iv-dim: rgba(23,20,26,.62);
   --iv-line: rgba(23,20,26,.12);
   --iv-gold: #B08D4E;
-  --iv-gold-soft: #8A6A2E;
+  --iv-gold-soft: #7A5C24;
   --iv-gold-ink: #7A5C24;
   --iv-btn: linear-gradient(135deg, #B08D4E, #8A6A2E 70%);
 }
@@ -103,7 +103,7 @@
 .foot-slogan { color: var(--iv-gold-soft); }
 .foot-slogan-sub { color: var(--iv-dim); }
 .foot-sns .sns { color: var(--iv-sub); border-color: var(--iv-line); }
-.foot-companies h5, .foot-info h5 { color: var(--iv-gold-soft); }
+.foot-companies h5, .foot-info h5, .foot-companies .foot-h, .foot-info .foot-h { color: var(--iv-gold-soft); }
 .foot-companies ul li { border-bottom-color: var(--iv-line); }
 .foot-companies b { color: var(--iv-ink); }
 .foot-companies em { color: var(--iv-dim); }
@@ -199,3 +199,10 @@ h1 em, h2 em, h3 em, .kpi-h2 em, .contact-title em, .page-title em { color: #9A7
 /* 관련 글 카드: 긴 영문 단어가 칸을 밀어내 본문 밖으로 넘치지 않게 */
 @media (min-width: 761px) { .ar-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .ar-card h3, .ar-card p { overflow-wrap: anywhere; }
+
+/* 화면에는 숨기고 화면낭독기에는 읽히는 제목 */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* 대비·누르기 영역 보정 (2026-11-09) */
+.article-head .tag { color: #7A5C24; background: rgba(176,141,78,.14); }
+.news-pagination .swiper-pagination-bullet { margin: 0 8px !important; }

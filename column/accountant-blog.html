@@ -28,8 +28,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "회계 기준이 바뀌면 지난 글은 지워야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "지우기보다 고쳐서 남기는 편이 낫습니다. 글 상단에 변경 사항과 적용 시기를 적고 본문을 현행 기준으로 바꾸면, 예전 기준을 검색한 담당자도 같은 글에서 달라진 내용을 확인합니다. 바뀐 날짜와 확인일을 함께 적어 두면 내부 보고에 인용하기도 쉽습니다."}}, {"@type": "Question", "name": "블로그만으로 감사 계약 문의가 들어오나요?", "acceptedAnswer": {"@type": "Answer", "text": "블로그는 비교 단계의 자료 역할이 더 큽니다. 감사인 선임은 회사 안에서 검토를 거쳐 정하는 일이라, 블로그 글은 제안서와 미팅 자료로 이어질 때 힘을 냅니다. 글 끝에 업무 범위 안내 페이지와 미팅 신청 경로를 함께 둡니다."}}, {"@type": "Question", "name": "기업 담당자를 위한 글은 길게 써야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "길이보다 구조가 중요합니다. 첫 단락에 결론을, 이어서 근거와 회사가 할 일을 순서대로 두면 긴 글도 필요한 부분만 찾아 읽습니다. 표와 체크리스트를 넣어 내부 보고에 옮기기 쉽게 만듭니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noahgroup.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "마케팅 칼럼", "item": "https://noahgroup.co.kr/column/"}, {"@type": "ListItem", "position": 3, "name": "회계사 블로그", "item": "https://noahgroup.co.kr/column/accountant-blog.html"}]}</script>
 <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.46);
---gold:#B08D4E;--gold-soft:#8A6A2E;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
+:root{--bg:#FBFAF7;--bg-alt:#F2EEE5;--bg-hero:#FFFFFF;--white:#17141A;--sub:rgba(23,20,26,.68);--dim:rgba(23,20,26,.62);
+--gold:#B08D4E;--gold-soft:#7A5C24;--line:rgba(23,20,26,.13);--font:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
@@ -45,7 +45,7 @@ a{color:inherit;text-decoration:none}
 .crumb a{text-decoration:underline;text-underline-offset:2px}
 h1{font-size:clamp(25px,4.4vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1.35}
 .meta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 30px;font-size:12.5px;color:var(--dim)}
-.meta .cat{color:var(--gold);font-weight:800}
+.meta .cat{color:var(--gold-soft);font-weight:800}
 .lead{font-size:16.5px;color:rgba(23,20,26,.85);line-height:1.9;padding:18px 20px;border-left:3px solid var(--gold);background:rgba(154,125,74,.06);border-radius:0 12px 12px 0;margin-bottom:34px}
 article h2{font-size:clamp(19px,2.6vw,25px);font-weight:800;letter-spacing:-.5px;margin:38px 0 12px}
 article p{font-size:15px;color:var(--sub);margin-bottom:16px}
@@ -70,10 +70,10 @@ article strong,article b{color:var(--gold-soft)}
 .cta .l{border:1px solid rgba(194,163,107,.45);color:var(--gold-soft)}
 .rel{margin:36px 0 0}
 .rel h2{font-size:16px;margin-bottom:14px}
-.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:all .2s}
+.rel a{display:block;padding:13px 16px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--sub);transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 .rel a:hover{color:var(--gold-soft);border-color:rgba(194,163,107,.5)}
 footer{margin-top:48px;padding:36px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
-footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
+footer a{color:var(--gold-soft);text-decoration:underline}.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}article b,article strong{color:var(--gold-soft)}</style>
 </head>
 <body>
 <div class="topbar">
