@@ -253,7 +253,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .topbar .tb-link{
   font-size:13px;font-weight:700;color:var(--gold-soft);
   border:1px solid rgba(194,163,107,.4);border-radius:999px;padding:8px 18px;
-  transition:all .3s;
+  transition:background-color .3s,border-color .3s;
 }
 .topbar .tb-link:hover{background:rgba(194,163,107,.14);border-color:var(--gold)}
 .tb-nav{display:flex;gap:clamp(16px,2.4vw,30px);font-size:14px;font-weight:600}
@@ -265,66 +265,72 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* 1. HERO — 마퀴 타이포                      */
 /* ───────────────────────────────────────── */
 .hero{
-  position:relative;height:100vh;min-height:620px;
+  position:relative;min-height:100vh;min-height:100svh;
+  display:grid;grid-template-rows:1fr auto;
   background:var(--bg-hero);overflow:hidden;
 }
-.hero-rv{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1)}
-.hero-rv.show{clip-path:inset(0 0 0 0)}
-.hero-sub{
-  position:absolute;top:16%;left:50%;transform:translateX(-50%);
-  z-index:4;color:#17141A;
-  font-size:clamp(17px,2.6vw,30px);font-weight:800;
-  letter-spacing:-1px;line-height:1.2;text-align:center;white-space:nowrap;
+.hero-rv{clip-path:inset(0 0 100% 0);transition:clip-path .9s cubic-bezier(.16,1,.3,1)}
+.hero-rv.show{clip-path:inset(0 -2% -6% -2%)}
+.hero-in{
+  position:relative;z-index:2;width:100%;max-width:1320px;margin:0 auto;
+  padding:clamp(108px,15vh,148px) var(--px) clamp(36px,5vh,56px);
+  display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:end;
 }
-.hero-sub .thin{font-weight:300;color:var(--sub)}
-.hero-headline{
-  position:absolute;top:25%;left:50%;transform:translateX(-50%);
-  z-index:4;color:#17141A;text-align:center;line-height:1.02;white-space:nowrap;
-  font-weight:900;letter-spacing:-3px;
-  font-size:clamp(52px,11vw,150px);
-}
-.hero-headline .outline{
-  color:var(--bg-hero);-webkit-text-stroke:1.5px var(--gold-soft);paint-order:stroke fill;
-  display:block;font-size:.62em;letter-spacing:.08em;
-}
-.hero-headline .solid{
-  display:block;
-  background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-}
-.hero-tag{
-  position:absolute;top:56%;left:50%;transform:translateX(-50%);
-  z-index:4;text-align:center;
-  font-size:clamp(14px,1.6vw,19px);color:var(--sub);font-weight:500;letter-spacing:.02em;
-  line-height:1.7;white-space:nowrap;
-}
-.hero-tag b{color:var(--gold-soft);font-weight:800}
-.hero-marquee{position:absolute;left:0;right:0;overflow:hidden;white-space:nowrap}
-.hero-marquee.back{top:70%;z-index:1}
-.hero-marquee.front{top:81%;z-index:3}
-.hero-track{display:flex;gap:60px;animation:mq 20s linear infinite}
-.hero-track.reverse{animation:mqR 20s linear infinite}
-.hero-track span{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-2px;flex-shrink:0}
-.hero-marquee.back .mq-solid{color:var(--gold)}
-.hero-marquee.back .mq-outline{color:var(--bg-hero);-webkit-text-stroke:2px var(--gold);paint-order:stroke fill}
-.hero-marquee.front .mq-solid{color:var(--gold-soft)}
-.hero-marquee.front .mq-outline{color:var(--bg-hero);-webkit-text-stroke:2px var(--gold-soft);paint-order:stroke fill}
+.hero-sub{font-size:clamp(15px,1.3vw,18px);font-weight:600;color:var(--sub);letter-spacing:-.2px}
+.hero-h1{margin-top:18px;font-size:clamp(52px,4.9vw,80px);line-height:1.12;letter-spacing:-.045em;color:var(--ink);text-wrap:balance}
+.hero-h1 .h1-a{display:block;font-weight:300}
+.hero-h1 .h1-b{display:block;font-weight:900}
+.hero-tag{margin-top:26px;max-width:34em;font-size:clamp(16px,1.35vw,19px);line-height:1.7;color:var(--sub);font-weight:500}
+.hero-cta{margin-top:36px}
+.hero-cta .ob-btns{justify-content:flex-start;margin-top:0}
+.hero-note{margin-top:14px;font-size:13px;color:var(--sub)}
+/* 운영 사례 원장 — 시작 값과 결과 값을 나란히 */
+.hero-ledger{border-top:2px solid var(--ink);padding-top:16px}
+.hl-cap{font-size:13.5px;font-weight:700;color:var(--ink)}
+.hero-ledger dl{margin-top:6px}
+.hl-row{padding:16px 0 14px;border-bottom:1px solid var(--border)}
+.hl-row dt{font-size:13px;font-weight:600;color:var(--sub)}
+.hl-row dd{display:flex;align-items:baseline;gap:12px;margin-top:4px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hl-from{font-size:20px;font-weight:300;color:rgba(23,20,26,.62);letter-spacing:-.02em}
+.hl-arrow{font-size:16px;color:var(--gold)}
+.hl-to{font-size:clamp(30px,2.6vw,38px);font-weight:900;letter-spacing:-.04em;color:var(--ink);line-height:1.05}
+.hl-link{display:inline-block;margin-top:16px;font-size:13.5px;font-weight:700;color:var(--gold-ink);border-bottom:1px solid rgba(122,92,36,.35);padding:4px 0 2px}
+.hl-link:hover{border-color:var(--gold-ink)}
+/* 키네틱 워드마크 띠 */
+.hero-band{position:relative;z-index:1;overflow:hidden;white-space:nowrap;padding:0 0 clamp(10px,2vh,22px);margin-top:-.08em}
+.hero-track{display:flex;width:max-content;animation:mq 34s linear infinite}
+.hero-track span{flex-shrink:0;padding-right:.5em;font-size:clamp(64px,11vw,176px);font-weight:900;letter-spacing:-.04em;line-height:.92}
+.hero-band .mq-outline{color:var(--bg-hero);-webkit-text-stroke:1.5px var(--gold);paint-order:stroke fill;font-weight:800}
+.hero-band .mq-solid{background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes mqR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-.scroll-circle{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  width:110px;height:110px;z-index:5;
-  animation:spinC 10s linear infinite;
+.br-d{display:inline}
+@media(max-width:1023px){
+  .hero-in{grid-template-columns:1fr;gap:44px;align-items:start}
+  .hero-ledger{max-width:520px}
 }
-.scroll-circle svg{width:100%;height:100%}
-.scroll-circle textPath{font-size:13px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;fill:rgba(154,125,74,.4)}
-@keyframes spinC{0%{transform:translateX(-50%) rotate(0)}100%{transform:translateX(-50%) rotate(360deg)}}
+@media(max-width:768px){
+  .hero-in{padding:104px var(--px) 28px;gap:36px}
+  .hero-h1{margin-top:12px;font-size:clamp(31px,8.6vw,46px);line-height:1.18}
+  .hero-tag{margin-top:18px;font-size:15.5px}
+  .br-d{display:none}
+  .hero-cta{margin-top:26px}
+  .hero-cta .ob-btns{gap:10px}
+  .hero-cta .ob-btns .btn.hero-glass{padding:16px 28px;font-size:15px}
+  .hero-cta .ob-btns .btn2{padding:16px 22px;font-size:14.5px}
+  .hero-note{font-size:12.5px}
+  .hl-row{padding:12px 0 10px}
+  .hl-row dd{gap:10px}
+  .hl-from{font-size:17px}
+  .hl-to{font-size:28px}
+  .hero-track span{font-size:clamp(56px,19vw,96px)}
+}
+@media(prefers-reduced-motion:reduce){.hero-rv{clip-path:none!important;transition:none!important}}
 
 /* ───────────────────────────────────────── */
 /* 2. WHY — 밝은 스티키 내러티브              */
 /* ───────────────────────────────────────── */
 .why{background:var(--paper);color:var(--ink);position:relative}
-.why-scroll{height:300vh;position:relative}
+.why-scroll{height:220vh;position:relative}
 .why-sticky{
   position:sticky;top:0;height:100vh;width:100%;
   display:flex;align-items:center;justify-content:center;
@@ -375,14 +381,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
   display:flex;gap:10px;z-index:5;
 }
-.wn-dot{width:8px;height:8px;border-radius:50%;background:rgba(26,22,29,.15);transition:all .3s}
+.wn-dot{width:8px;height:8px;border-radius:50%;background:rgba(26,22,29,.15);transition:background-color .3s,transform .3s}
 .wn-dot.active{background:var(--gold-ink);transform:scale(1.3)}
 
 /* ───────────────────────────────────────── */
 /* 3. Q-INTRO — 다크 Q&A                     */
 /* ───────────────────────────────────────── */
 .q-intro{background:var(--bg);color:var(--white);position:relative}
-.q-intro-scroll{height:200vh;position:relative}
+.q-intro-scroll{height:160vh;position:relative}
 .q-intro-sticky{
   position:sticky;top:0;height:100vh;width:100%;
   display:flex;align-items:center;justify-content:center;
@@ -508,14 +514,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   padding:26px 28px;
 }
 .rv-card{display:flex;gap:18px;align-items:stretch;padding:0;overflow:hidden}
-.rv-photo{position:relative;flex:0 0 32%;max-width:240px;min-width:180px;background:linear-gradient(150deg,#F0EADD,#E3D9C8);display:flex;align-items:center;justify-content:center}
-.rv-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.rv-photo-fb{display:none;font-size:11px;color:rgba(23,20,26,.5)}
-.rv-photo.noimg .rv-photo-fb{display:block}
 .rv-body{flex:1;padding:24px 26px 22px;min-width:0}
 @media(max-width:860px){
   .rv-card{flex-direction:column}
-  .rv-photo{flex:none;max-width:none;width:100%;aspect-ratio:4/3}
   .rv-body{padding:20px 22px 20px}
 }
 @media(prefers-reduced-motion:reduce){.rv-track{animation:none!important;transform:none!important}}
@@ -590,7 +591,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   padding:24px 72px;font-size:18px;font-weight:800;letter-spacing:.5px;
   border-radius:100px;color:var(--ink);
   background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);
-  transition:all .4s cubic-bezier(.4,0,.2,1);
+  transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1);
 }
 .tr-cta .btn span.arrow{display:inline-block;margin-left:12px;transition:transform .4s cubic-bezier(.4,0,.2,1)}
 .tr-cta .btn:hover{transform:scale(1.05);box-shadow:0 0 44px rgba(194,163,107,.35)}
@@ -635,7 +636,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .faq-item summary:hover .q-text{color:var(--gold-soft)}
 .faq-arrow{
   width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  border-radius:50%;border:1px solid rgba(194,163,107,.3);transition:all .4s cubic-bezier(.4,0,.2,1);
+  border-radius:50%;border:1px solid rgba(194,163,107,.3);transition:background-color .4s cubic-bezier(.4,0,.2,1),border-color .4s cubic-bezier(.4,0,.2,1);
 }
 .faq-arrow svg{width:16px;height:16px;stroke:var(--gold-soft);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s}
 .faq-item[open] .faq-arrow{background:rgba(194,163,107,.14);border-color:rgba(194,163,107,.55)}
@@ -667,14 +668,9 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
 
 /* mobile heights (svh) */
 @media(max-width:768px){
-  .hero{height:100svh;min-height:0}
-  .hero-headline{top:27%;font-size:clamp(48px,15vw,80px);letter-spacing:-2px}
-  .hero-sub{top:17%;font-size:clamp(15px,4.4vw,22px);white-space:normal;width:90%}
-  .hero-tag{top:56%;white-space:normal;width:88%}
-  .hero-track span{font-size:clamp(2rem,8.5vw,3.4rem)}
-  .why-scroll{height:230svh}
+  .why-scroll{height:185svh}
   .why-sticky{height:100svh}
-  .q-intro-scroll{height:160svh}
+  .q-intro-scroll{height:140svh}
   .q-intro-sticky{height:100svh}
   .wn-s1-text{font-size:clamp(30px,7vw,50px);letter-spacing:-1.5px}
   .qi-s1-text{font-size:clamp(28px,7vw,46px);letter-spacing:-1.5px}
@@ -682,7 +678,6 @@ footer .f-info{font-size:12.5px;color:var(--dim);line-height:1.9}
   .tr-cta .btn{padding:18px 48px;font-size:16px}
   .counter-section{padding:80px 0}
   .rv-layout{min-height:0}
-  .scroll-circle{width:80px;height:80px;bottom:20px}
 }
 
 /* ── 공통 하드닝: 포커스·모바일 내비·스크롤 탑바·플로팅 ── */
@@ -722,26 +717,16 @@ body.show-bb .bottom-bar{transform:translateY(0)}
 @media(max-width:640px){.bottom-bar{gap:10px;padding:10px 48px 10px 14px}.bottom-bar .bb-txt{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-/* 짧은 뷰포트(노트북)에서 히어로 겹침 방지 */
-@media(min-width:769px) and (max-height:840px){
-  .hero-sub{top:12%}
-  .hero-headline{top:21%;font-size:clamp(44px,9vw,112px)}
-  .hero-tag{top:60%}
-}
-@media(min-width:769px) and (max-height:700px){
-  .hero-headline{font-size:clamp(40px,8vw,90px)}
-  .hero-tag{display:none}
-}
 /* 무한 모션 — 모션 축소 존중 + 호버 일시정지 */
 @media(prefers-reduced-motion:reduce){
-  .hero-track,.rv-track,.scroll-circle,.hpin-slide.intro .arrow{animation:none!important}
+  .hero-track,.rv-track,.hpin-slide.intro .arrow{animation:none!important}
 }
-.hero-marquee:hover .hero-track,.rv-right:hover .rv-track{animation-play-state:paused}
+.rv-right:hover .rv-track{animation-play-state:paused}
 
 .final-cta{padding:90px 0 130px;background:var(--bg-alt);text-align:center}
 .final-cta h2{font-weight:900;font-size:clamp(26px,4.4vw,50px);letter-spacing:-1.5px;line-height:1.3}
 .final-cta .grad2{background:linear-gradient(135deg,#A9853F,#8A6A2E 55%,#6B5120);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.final-cta .btn2{display:inline-flex;margin-top:34px;padding:20px 60px;border-radius:100px;font-size:16px;font-weight:800;color:#FFFFFF;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);transition:all .35s}
+.final-cta .btn2{display:inline-flex;margin-top:34px;padding:20px 60px;border-radius:100px;font-size:16px;font-weight:800;color:#FFFFFF;background:linear-gradient(135deg,#B08D4E,#8A6A2E 70%);transition:transform .35s,box-shadow .35s}
 .final-cta .btn2:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(194,163,107,.35)}
 .final-cta .note2{margin-top:14px;font-size:13px;color:var(--dim)}
 .counter-num{white-space:nowrap}
@@ -938,21 +923,101 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 
 .skip-link{position:fixed;left:12px;top:-64px;z-index:10000;padding:10px 16px;border-radius:10px;background:#17141A;color:#fff;font-size:14px;font-weight:700}
 .skip-link:focus{top:16px}
-/* 첫 화면 문의 동선 — 버튼·사례 한 줄 (마키는 아래로) */
-.hero-cta{position:absolute;top:65%;left:50%;transform:translateX(-50%);z-index:5;width:min(92%,640px);text-align:center}
-.hero-cta .ob-btns{margin-top:0}
-.hero-proof{margin-top:12px;font-size:12.5px;color:var(--sub);letter-spacing:.01em}
-.hero-proof span{white-space:nowrap}
-.hero-marquee.back{top:76%}.hero-marquee.front{top:87%}
-@media(min-width:769px) and (max-height:840px){.hero-tag{top:56%}.hero-cta{top:67%}.hero-proof{display:none}.hero-marquee.back{top:80%}.hero-marquee.front{top:90%}}
-@media(min-width:769px) and (max-height:700px){.hero-cta{top:56%}}
-@media(max-width:768px){.hero-tag{top:51%}.hero-cta{top:63%}.hero-cta .ob-btns .btn.hero-glass{padding:15px 28px;font-size:14.5px}.hero-cta .ob-btns .btn2{padding:15px 22px;font-size:14px}.hero-marquee.back{top:80%}.hero-marquee.front{top:89%}}
 /* 자체 사업 — 벤토 그리드(큰 칸 1 + 작은 칸 5), 데스크톱만 */
 @media(min-width:881px){
   .ob-grid .ob-card:first-child{grid-column:span 2;grid-row:span 2}
   .ob-grid .ob-card:first-child .ob-thumb{aspect-ratio:auto;flex:1}
   .ob-grid .ob-card:first-child h3{font-size:21px}
 }
+
+/* ===== 서비스 — 맡기는 방법 두 가지 (통합 운영 / 단건 상품) ===== */
+.svc{padding:clamp(96px,13vh,150px) 0;background:var(--bg);border-top:1px solid var(--border-l);position:relative;z-index:1}
+.svc-head{max-width:760px}
+.svc-head h2{font-size:clamp(30px,4.2vw,52px);font-weight:900;letter-spacing:-.04em;line-height:1.2}
+.svc-head p{margin-top:16px;font-size:clamp(15.5px,1.4vw,18px);color:var(--sub);line-height:1.75;max-width:40em}
+.svc-plan{margin-top:clamp(40px,6vh,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) auto;gap:clamp(28px,4vw,56px);align-items:center;padding:clamp(32px,4vw,48px);border-radius:24px;background:var(--ink);color:#F2EEE5}
+.svc-plan h3{font-size:clamp(22px,2.2vw,28px);font-weight:800;letter-spacing:-.03em}
+.svc-price{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.svc-price b{font-size:clamp(28px,3vw,40px);font-weight:900;letter-spacing:-.04em;line-height:1.1;color:#DCC9A0}
+.svc-price span{font-size:13.5px;color:rgba(242,238,229,.74)}
+.svc-desc{margin-top:16px;font-size:14.5px;line-height:1.75;color:rgba(242,238,229,.8);max-width:30em}
+.svc-steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px}
+.svc-steps li{counter-increment:st;position:relative;padding-left:40px}
+.svc-steps li::before{content:counter(st);position:absolute;left:0;top:0;width:27px;height:27px;border-radius:50%;border:1px solid rgba(220,201,160,.55);color:#DCC9A0;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.svc-steps b{display:block;font-size:15.5px;font-weight:700;color:#FBFAF7;line-height:1.6}
+.svc-steps span{display:block;margin-top:2px;font-size:13px;color:rgba(242,238,229,.7)}
+.svc-plan-btn{display:inline-flex;align-items:center;justify-content:center;padding:18px 34px;border-radius:999px;background:#FBFAF7;color:var(--ink);font-size:15.5px;font-weight:800;white-space:nowrap;transition:background .2s,transform .2s}
+.svc-plan-btn:hover{background:#DCC9A0}
+.svc-plan-btn:active{transform:scale(.97)}
+.svc-plan :focus-visible{outline-color:#DCC9A0}
+.svc-card{margin-top:20px;padding:clamp(28px,3.4vw,44px);border-radius:24px;background:#FFFFFF;border:1px solid var(--border)}
+.svc-card-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.svc-card-head h3{font-size:clamp(20px,2vw,24px);font-weight:800;letter-spacing:-.03em}
+.svc-card-head a{font-size:14px;font-weight:700;color:var(--gold-ink);border-bottom:1px solid rgba(122,92,36,.35);padding:4px 0 2px}
+.svc-card-head a:hover{border-color:var(--gold-ink)}
+.svc-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.svc-cols section{padding:24px clamp(18px,2.4vw,32px) 6px}
+.svc-cols section:first-child{padding-left:0}
+.svc-cols section:last-child{padding-right:0}
+.svc-cols section+section{border-left:1px solid var(--border)}
+.svc-cols h4{font-size:14px;font-weight:800;color:var(--gold-ink);margin-bottom:6px}
+.svc-cols li{list-style:none}
+.svc-cols ul a{display:grid;grid-template-columns:auto minmax(14px,1fr) auto;align-items:baseline;gap:8px;padding:11px 0;font-size:15px;color:var(--ink)}
+.svc-cols ul a span{font-weight:600;transition:color .2s}
+.svc-cols ul a i{border-bottom:1.5px dotted rgba(23,20,26,.26);transform:translateY(-4px)}
+.svc-cols ul a em{font-style:normal;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
+.svc-cols ul a em.q{font-weight:600;color:var(--sub)}
+.svc-cols ul a:hover span{color:var(--gold-ink)}
+.svc-help{margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--bg-alt);font-size:13.5px;line-height:1.7;color:var(--sub)}
+.svc-help a{color:var(--gold-ink);font-weight:700;border-bottom:1px solid rgba(122,92,36,.35)}
+.svc-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--border);font-size:12.5px;color:var(--sub)}
+@media(max-width:1100px){
+  .svc-plan{grid-template-columns:1fr 1fr}
+  .svc-plan-btn{grid-column:1/-1;justify-self:start}
+}
+@media(max-width:900px){
+  .svc-cols{grid-template-columns:1fr}
+  .svc-cols section,.svc-cols section:first-child,.svc-cols section:last-child{padding:20px 0 4px}
+  .svc-cols section+section{border-left:0;border-top:1px solid var(--border)}
+}
+@media(max-width:768px){
+  .svc{padding:88px 0}
+  .svc-plan{grid-template-columns:1fr;border-radius:20px;padding:28px 24px;gap:28px}
+  .svc-steps{grid-template-columns:1fr;gap:16px}
+  .svc-plan-btn{justify-self:stretch}
+  .svc-card{padding:24px 20px;border-radius:20px}
+  .svc-cols ul a{font-size:14.5px}
+}
+
+/* ===== 자체 사업 — 휴대폰에서 2열 (6장 세로 나열이 1,700px 넘게 이어지던 것) ===== */
+@media(max-width:480px){
+  .ob-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .ob-card{border-radius:14px}
+  .ob-body{padding:14px 14px 16px}
+  .ob-card h3{font-size:15.5px;margin-bottom:5px}
+  .ob-card p{font-size:12.5px;line-height:1.6}
+  .ai-cap{margin-top:6px;font-size:10.5px}
+}
+
+/* ===== 인터페이스 가이드라인 보정 ===== */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+a,button,summary{touch-action:manipulation}
+main section[id]{scroll-margin-top:84px}
+.hero-band:hover .hero-track{animation-play-state:paused}
+
+/* ===== 후기 — 사진 없이 인용문 중심 ===== */
+.rv-card{display:block;padding:0;position:relative}
+.rv-body{padding:28px 30px 24px}
+.rv-card .rv-q::before{content:'\201C';display:block;font-size:46px;font-weight:900;line-height:.7;height:24px;margin:0 0 10px;color:var(--gold);vertical-align:0}
+@media(max-width:768px){.rv-body{padding:22px 22px 18px}}
+
+/* ===== 사례 카드 — 빈 공간 축소 ===== */
+.hpin-scroll{height:280vh}
+.hpin-slide{height:clamp(300px,46vh,420px)}
+.hs-desc{flex:none}
+
+/* ===== 푸터 링크 줄바꿈 (모바일에서 잘리던 약관 링크) ===== */
+footer .f-links{flex-wrap:wrap;gap:0 18px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 20px}
 </style>
 <!-- FAQPage: 아래 FAQ 구역(#faqSection) 문장과 글자까지 같게 유지 -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "@id": "https://noahgroup.co.kr/#faqSection", "mainEntity": [{"@type": "Question", "name": "최소 예산은 어느 정도인가요?", "acceptedAnswer": {"@type": "Answer", "text": "표준 운영 패키지는 월 300만원부터입니다. 광고비와 운영 수수료는 분리 책정되며, 첫 상담에서 업종·경쟁도별 ROI 시뮬레이션을 제공합니다."}}, {"@type": "Question", "name": "계약 기간은 최소 얼마부터인가요?", "acceptedAnswer": {"@type": "Answer", "text": "표준 계약은 6개월·12개월 단위입니다. 데이터 누적·최적화 사이클상 최소 90일 이상 운영해야 ROAS가 안정화됩니다."}}, {"@type": "Question", "name": "의료광고 심의도 해주나요?", "acceptedAnswer": {"@type": "Answer", "text": "의협·치협·한의협·약사회 등 모든 의료 단체 심의를 자체 인하우스 인력으로 직접 대행합니다. 평균 1차 승인율 96.4%, 반려 시 무상 재제출까지 책임집니다."}}, {"@type": "Question", "name": "성과는 어떻게 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "실시간 대시보드 24/7 접속 권한 + 주간 자동 리포트 + 월간 심층 리포트. 매출 전환·CAC·LTV 등 30+ 핵심 지표를 실측합니다."}}, {"@type": "Question", "name": "서울·경기 외 지역도 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "전국 운영 가능합니다. 화상 정기 보고 + 24시간 커뮤니케이션 채널 + 월 1회 PM 미팅 기본 제공, 분기 1회 방문 컨설팅도 별도 비용 없이 진행됩니다."}}]}</script>
@@ -988,7 +1053,7 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
 <!-- top mini bar -->
 <a href="#main-content" class="skip-link">본문 바로가기</a>
 <div class="topbar">
-  <a href="./" class="tb-logo" aria-label="노아 홈">
+  <a href="./" class="tb-logo" aria-label="NOAH 노아 홈">
     <svg viewBox="0 0 32 32" fill="none"><path d="M6 22 L16 8 L26 22 L22 22 L16 14 L10 22 Z" fill="#C2A36B"/></svg>
     NOAH
   </a>
@@ -1046,29 +1111,28 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
 <!-- ═══════════════ 1. HERO ═══════════════ -->
 <main id="main-content">
 <section class="hero" id="hero">
-  <p class="hero-sub hero-rv"><span class="thin">광고대행의</span> 새로운 기준.</p>
-  <h1>
-  <span class="hero-headline hero-rv">
-    <span class="outline">MARKETING</span>
-    <span class="solid">NOAH</span>
-  </span>
-  <span class="hero-tag hero-rv">노출을 팔지 않습니다. <b>매출</b>을 만듭니다.<br>전문직 · 바이럴 · 데이터 통합 마케팅</span>
-  </h1>
-  <div class="hero-cta hero-rv">
-    <div class="ob-btns"><a href="contact.html" class="btn hero-glass">무료 진단 받기 <span class="arrow">→</span></a><a href="#hpin" class="btn2">성과 사례 보기</a></div>
-    <p class="hero-proof">실제 사례 · <span>신환 0→월 280명</span> · <span>ROAS 198%→485%</span> · <span>가맹 문의 +540%</span></p>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <p class="hero-sub hero-rv">광고대행의 새로운 기준, 노아</p>
+      <h1 class="hero-h1 hero-rv"><span class="h1-a">노출을 팔지 않습니다.</span> <span class="h1-b">매출을 만듭니다.</span></h1>
+      <p class="hero-tag hero-rv">전문직 광고, 바이럴 콘텐츠, 데이터 퍼포먼스까지<br class="br-d"> 전담&nbsp;PM 한 명이 처음부터 끝까지 맡습니다.</p>
+      <div class="hero-cta hero-rv">
+        <div class="ob-btns"><a href="contact.html" class="btn hero-glass">무료 진단 받기 <span class="arrow">→</span></a><a href="#hpin" class="btn2">성과 사례 보기</a></div>
+        <p class="hero-note">60분 진단 미팅 · 영업일 24시간 내 회신 · NDA 보호</p>
+      </div>
+    </div>
+    <aside class="hero-ledger hero-rv" aria-labelledby="hlCap">
+      <p class="hl-cap" id="hlCap">운영 사례, 시작과 결과</p>
+      <dl>
+        <div class="hl-row"><dt>피부과 신규 개원 · 월 신환</dt><dd><span class="hl-from">0명</span><span class="hl-arrow" aria-hidden="true">→</span><span class="sr-only">에서</span><b class="hl-to" data-from="0" data-to="280" data-unit="명">280명</b></dd></div>
+        <div class="hl-row"><dt>D2C 화장품 · ROAS</dt><dd><span class="hl-from">198%</span><span class="hl-arrow" aria-hidden="true">→</span><span class="sr-only">에서</span><b class="hl-to" data-from="198" data-to="485" data-unit="%">485%</b></dd></div>
+        <div class="hl-row"><dt>외식 프랜차이즈 · 월 가맹계약</dt><dd><span class="hl-from">2건</span><span class="hl-arrow" aria-hidden="true">→</span><span class="sr-only">에서</span><b class="hl-to" data-from="2" data-to="9" data-unit="건">9건</b></dd></div>
+      </dl>
+      <a class="hl-link" href="#hpin">사례 5건 자세히 보기</a>
+    </aside>
   </div>
-  <div class="hero-marquee back hero-rv" aria-hidden="true">
-    <div class="hero-track"><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span><span><b class="mq-solid">노아</b><b class="mq-outline">가 증명합니다.</b></span></div>
-  </div>
-  <div class="hero-marquee front hero-rv" aria-hidden="true">
-    <div class="hero-track reverse"><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span><span><b class="mq-outline">매출로 답하는</b> <b class="mq-solid">통합 마케팅</b></span></div>
-  </div>
-  <div class="scroll-circle" aria-hidden="true">
-    <svg viewBox="0 0 200 200">
-      <defs><path id="circlePath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
-      <text><textPath href="#circlePath">SCROLL DOWN · NOAH · SCROLL DOWN · NOAH · </textPath></text>
-    </svg>
+  <div class="hero-band hero-rv" aria-hidden="true">
+    <div class="hero-track"><span><b class="mq-outline">MARKETING</b> <b class="mq-solid">NOAH</b></span><span><b class="mq-outline">MARKETING</b> <b class="mq-solid">NOAH</b></span><span><b class="mq-outline">MARKETING</b> <b class="mq-solid">NOAH</b></span><span><b class="mq-outline">MARKETING</b> <b class="mq-solid">NOAH</b></span></div>
   </div>
 </section>
 
@@ -1136,7 +1200,7 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
           <span class="qi-word">&lsquo;진짜&rsquo; 광고회사는</span>
           <br>
           <span class="qi-word">자기 사업 하나쯤,</span>
-          <span class="qi-word">있겠죠.<span aria-hidden="true"> 👇</span></span>
+          <span class="qi-word">있겠죠.</span>
         </h2>
       </div>
 
@@ -1154,12 +1218,12 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
     </div>
 
     <div class="ob-grid">
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/01-business-insurance-640.webp" srcset="assets/photos/01-business-insurance-640.webp 640w, assets/photos/01-business-insurance-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 64vw" width="1448" height="1086" alt="보험 상담 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🛡️</span></div><div class="ob-body"><h3>보험 지사</h3><p>설계사 조직 운영 &middot; DB 기반 상담 전환</p><p class="ai-cap">AI 연출 이미지</p></div></article>
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/02-business-lease-640.webp" srcset="assets/photos/02-business-lease-640.webp 640w, assets/photos/02-business-lease-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="차량 리스·렌트 안내를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🚗</span></div><div class="ob-body"><h3>리스·렌트</h3><p>차량 금융 상담 &middot; 고관여 리드 관리</p><p class="ai-cap">AI 연출 이미지</p></div></article>
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/03-business-carwash-640.webp" srcset="assets/photos/03-business-carwash-640.webp 640w, assets/photos/03-business-carwash-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="출장 세차 작업을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🫧</span></div><div class="ob-body"><h3>출장 세차</h3><p>지역 기반 O2O &middot; 예약 전환 운영</p><p class="ai-cap">AI 연출 이미지</p></div></article>
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/04-business-website-640.webp" srcset="assets/photos/04-business-website-640.webp 640w, assets/photos/04-business-website-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="홈페이지 디자인 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🖥️</span></div><div class="ob-body"><h3>홈페이지 제작</h3><p>템플릿형 제작 &middot; 검색 기반 유입 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/05-business-database-640.webp" srcset="assets/photos/05-business-database-640.webp 640w, assets/photos/05-business-database-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="데이터 분석·가공 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🗂️</span></div><div class="ob-body"><h3>DB 가공·판매</h3><p>데이터 정제 &middot; 세그먼트 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
-      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/06-business-supplement-640.webp" srcset="assets/photos/06-business-supplement-640.webp 640w, assets/photos/06-business-supplement-1200.webp 1200w" sizes="(max-width:480px) 92vw, (max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="건강기능식품 포장·출고를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🌿</span></div><div class="ob-body"><h3>건강기능식품</h3><p>이커머스 운영 &middot; 반복 구매 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/01-business-insurance-640.webp" srcset="assets/photos/01-business-insurance-640.webp 640w, assets/photos/01-business-insurance-1200.webp 1200w" sizes="(max-width:880px) 46vw, 64vw" width="1448" height="1086" alt="보험 상담 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🛡️</span></div><div class="ob-body"><h3>보험 지사</h3><p>설계사 조직 운영 &middot; DB 기반 상담 전환</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/02-business-lease-640.webp" srcset="assets/photos/02-business-lease-640.webp 640w, assets/photos/02-business-lease-1200.webp 1200w" sizes="(max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="차량 리스·렌트 안내를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🚗</span></div><div class="ob-body"><h3>리스·렌트</h3><p>차량 금융 상담 &middot; 고관여 리드 관리</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/03-business-carwash-640.webp" srcset="assets/photos/03-business-carwash-640.webp 640w, assets/photos/03-business-carwash-1200.webp 1200w" sizes="(max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="출장 세차 작업을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🫧</span></div><div class="ob-body"><h3>출장 세차</h3><p>지역 기반 O2O &middot; 예약 전환 운영</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/04-business-website-640.webp" srcset="assets/photos/04-business-website-640.webp 640w, assets/photos/04-business-website-1200.webp 1200w" sizes="(max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="홈페이지 디자인 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🖥️</span></div><div class="ob-body"><h3>홈페이지 제작</h3><p>템플릿형 제작 &middot; 검색 기반 유입 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/05-business-database-640.webp" srcset="assets/photos/05-business-database-640.webp 640w, assets/photos/05-business-database-1200.webp 1200w" sizes="(max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="데이터 분석·가공 업무를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🗂️</span></div><div class="ob-body"><h3>DB 가공·판매</h3><p>데이터 정제 &middot; 세그먼트 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
+      <article class="ob-card fade-up"><div class="ob-thumb"><img src="assets/photos/06-business-supplement-640.webp" srcset="assets/photos/06-business-supplement-640.webp 640w, assets/photos/06-business-supplement-1200.webp 1200w" sizes="(max-width:880px) 46vw, 31vw" width="1448" height="1086" alt="건강기능식품 포장·출고를 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.remove()"><span class="ob-ico">🌿</span></div><div class="ob-body"><h3>건강기능식품</h3><p>이커머스 운영 &middot; 반복 구매 설계</p><p class="ai-cap">AI 연출 이미지</p></div></article>
     </div>
 
     <div class="ob-close fade-up">
@@ -1197,6 +1261,73 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
         <div class="counter-num">선보고</div>
         <div class="counter-label">나쁜 결과일수록 먼저 알립니다</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 4.5 SERVICES — 맡기는 방법 두 가지 ═══════════════ -->
+<section class="svc" id="services" aria-labelledby="svcTitle">
+  <div class="inner">
+    <header class="svc-head fade-up">
+      <h2 id="svcTitle">맡기는 방법은 두 가지입니다.</h2>
+      <p>매출 구조부터 다시 짜야 한다면 통합 운영으로, 필요한 작업이 정해져 있다면 단건 상품으로 바로 주문하세요.</p>
+    </header>
+
+    <article class="svc-plan fade-up" aria-labelledby="svcPlanTitle">
+      <div class="svc-plan-main">
+        <h3 id="svcPlanTitle">통합 운영 대행</h3>
+        <p class="svc-price"><b>월 300만원부터</b><span>광고비 별도 · 6개월·12개월 계약</span></p>
+        <p class="svc-desc">첫 상담에서 업종·경쟁도별 ROI 시뮬레이션을 드리고, 진단이 가능한 업종만 받습니다.</p>
+      </div>
+      <ol class="svc-steps">
+        <li><b>60분 무료 진단</b><span>현재 상태·경쟁·예산 점검</span></li>
+        <li><b>90일 단위 설계</b><span>업종 데이터로 마일스톤 수립</span></li>
+        <li><b>3개 전문팀 운영</b><span>연락은 전담 PM 한 명</span></li>
+        <li><b>주간 리포트</b><span>대시보드 24시간 공개</span></li>
+      </ol>
+      <a class="svc-plan-btn" href="contact.html">무료 진단 받기</a>
+    </article>
+
+    <div class="svc-card fade-up">
+      <div class="svc-card-head">
+        <h3>바로 주문하는 단건 상품</h3>
+        <a href="shop.html">전체 상품과 주문서 보기</a>
+      </div>
+      <div class="svc-cols">
+        <section aria-labelledby="svcG1">
+          <h4 id="svcG1">블로그 마케팅</h4>
+          <ul>
+            <li><a href="shop.html#p-blog-post"><span>블로그 배포</span><i></i><em>11,000원~</em></a></li>
+            <li><a href="shop.html#p-blog-rank"><span>블로그 상위노출 보장</span><i></i><em>49,000원~</em></a></li>
+            <li><a href="shop.html#p-blog-influencer"><span>공식 인플루언서 배포</span><i></i><em>77,000원~</em></a></li>
+            <li><a href="shop.html#p-blog-write"><span>블로그용 원고 작성</span><i></i><em>8,000원~</em></a></li>
+            <li><a href="shop.html#p-blog-neighbor"><span>블로그 이웃 늘리기</span><i></i><em>20,000원~</em></a></li>
+            <li><a href="shop.html#p-blog-run"><span>브랜드 블로그 운영</span><i></i><em>149,000원~</em></a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="svcG2">
+          <h4 id="svcG2">플레이스 · 카페 · 당근</h4>
+          <ul>
+            <li><a href="shop.html#p-place-seo"><span>플레이스 SEO 세팅</span><i></i><em class="q">견적</em></a></li>
+            <li><a href="shop.html#p-aeo"><span>AI 검색 최적화</span><i></i><em class="q">견적</em></a></li>
+            <li><a href="shop.html#p-cafe"><span>카페 게시글 발행</span><i></i><em>11,000원~</em></a></li>
+            <li><a href="shop.html#p-press-img"><span>언론홍보 이미지</span><i></i><em class="q">견적</em></a></li>
+            <li><a href="shop.html#p-daangn-story"><span>당근 스토리 영상</span><i></i><em class="q">견적</em></a></li>
+            <li><a href="shop.html#p-daangn-local"><span>당근 동네생활 게시글</span><i></i><em class="q">견적</em></a></li>
+            <li><a href="shop.html#p-danggeun"><span>당근마켓 광고대행</span><i></i><em>100,000원</em></a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="svcG3">
+          <h4 id="svcG3">체험단 · 제작</h4>
+          <ul>
+            <li><a href="shop.html#p-exp"><span>블로그 체험단 모집</span><i></i><em>16,000원~</em></a></li>
+            <li><a href="shop.html#p-exp"><span>인플루언서 캠페인</span><i></i><em class="q">상담</em></a></li>
+            <li><a href="shop.html#p-homepage"><span>템플릿형 홈페이지 제작</span><i></i><em>199,000원</em></a></li>
+          </ul>
+          <p class="svc-help">어떤 상품이 맞을지 모르겠다면 <a href="contact.html">무료 진단</a>에서 함께 고릅니다.</p>
+        </section>
+      </div>
+      <p class="svc-foot">가격이 적힌 상품은 VAT 포함 시작가입니다. 견적·상담 상품은 상담 후 확정됩니다.</p>
     </div>
   </div>
 </section>
@@ -1276,18 +1407,18 @@ for(var i=0;i<18;i++){var p=document.createElement('i'),a=Math.random()*6.283,r=
     </div>
     <div class="rv-right">
       <div class="rv-track">
-        <div class="rv-card"><div class="rv-photo"><img src="assets/photos/07-review-dermatology-640.webp" srcset="assets/photos/07-review-dermatology-640.webp 640w, assets/photos/07-review-dermatology-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="피부과 리셉션 공간을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">의료 광고 심의·집행이 한 곳에서 끝납니다. 운영에 쓰던 시간이 60% 줄었어요.</p><p class="rv-a"><b>강남 P 피부과</b> · 원장</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card"><div class="rv-photo"><img src="assets/photos/08-review-cosmetics-640.webp" srcset="assets/photos/08-review-cosmetics-640.webp 640w, assets/photos/08-review-cosmetics-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="화장품 제품 촬영을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">키워드 단위 ROI까지 실시간으로 보여주는 곳은 처음이었습니다. 단순 대행이 아니라 데이터 파트너입니다.</p><p class="rv-a"><b>D2C 화장품 브랜드</b> · 그로스 총괄</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card"><div class="rv-photo"><img src="assets/photos/09-review-saas-640.webp" srcset="assets/photos/09-review-saas-640.webp 640w, assets/photos/09-review-saas-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="소프트웨어 시연·팀 미팅을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">6개월 만에 MQL 4배. 내부 마케팅 팀은 이제 다른 외부 컨설팅을 안 둡니다.</p><p class="rv-a"><b>시리즈A SaaS</b> · 대표</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card"><div class="rv-photo"><img src="assets/photos/10-review-law-640.webp" srcset="assets/photos/10-review-law-640.webp 640w, assets/photos/10-review-law-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="법무법인 상담실을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">숫자가 안 나올 때 먼저 연락이 왔습니다. 이 정직함 때문에 3년째 함께합니다.</p><p class="rv-a"><b>부산 법무법인</b> · 대표변호사</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card"><div class="rv-photo"><img src="assets/photos/11-review-franchise-640.webp" srcset="assets/photos/11-review-franchise-640.webp 640w, assets/photos/11-review-franchise-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="영업 준비 중인 외식 매장을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">가맹 문의가 다섯 배가 됐어요. 점주 인터뷰 콘텐츠 전략이 결정적이었습니다.</p><p class="rv-a"><b>외식 프랜차이즈</b> · 본부장</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card"><div class="rv-photo"><img src="assets/photos/12-review-korean-medicine-640.webp" srcset="assets/photos/12-review-korean-medicine-640.webp 640w, assets/photos/12-review-korean-medicine-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="한의원 대기 공간을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">플레이스 1위 진입 후 신환이 월 280명. 개원 초기의 막막함이 사라졌습니다.</p><p class="rv-a"><b>송도 H 한의원</b> · 원장</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card" aria-hidden="true"><div class="rv-photo"><img src="assets/photos/07-review-dermatology-640.webp" srcset="assets/photos/07-review-dermatology-640.webp 640w, assets/photos/07-review-dermatology-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="피부과 리셉션 공간을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">의료 광고 심의·집행이 한 곳에서 끝납니다. 운영에 쓰던 시간이 60% 줄었어요.</p><p class="rv-a"><b>강남 P 피부과</b> · 원장</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card" aria-hidden="true"><div class="rv-photo"><img src="assets/photos/08-review-cosmetics-640.webp" srcset="assets/photos/08-review-cosmetics-640.webp 640w, assets/photos/08-review-cosmetics-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="화장품 제품 촬영을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">키워드 단위 ROI까지 실시간으로 보여주는 곳은 처음이었습니다. 단순 대행이 아니라 데이터 파트너입니다.</p><p class="rv-a"><b>D2C 화장품 브랜드</b> · 그로스 총괄</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card" aria-hidden="true"><div class="rv-photo"><img src="assets/photos/09-review-saas-640.webp" srcset="assets/photos/09-review-saas-640.webp 640w, assets/photos/09-review-saas-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="소프트웨어 시연·팀 미팅을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">6개월 만에 MQL 4배. 내부 마케팅 팀은 이제 다른 외부 컨설팅을 안 둡니다.</p><p class="rv-a"><b>시리즈A SaaS</b> · 대표</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card" aria-hidden="true"><div class="rv-photo"><img src="assets/photos/10-review-law-640.webp" srcset="assets/photos/10-review-law-640.webp 640w, assets/photos/10-review-law-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="법무법인 상담실을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">숫자가 안 나올 때 먼저 연락이 왔습니다. 이 정직함 때문에 3년째 함께합니다.</p><p class="rv-a"><b>부산 법무법인</b> · 대표변호사</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card" aria-hidden="true"><div class="rv-photo"><img src="assets/photos/11-review-franchise-640.webp" srcset="assets/photos/11-review-franchise-640.webp 640w, assets/photos/11-review-franchise-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="영업 준비 중인 외식 매장을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">가맹 문의가 다섯 배가 됐어요. 점주 인터뷰 콘텐츠 전략이 결정적이었습니다.</p><p class="rv-a"><b>외식 프랜차이즈</b> · 본부장</p><p class="ai-cap">AI 연출 이미지</p></div></div>
-        <div class="rv-card" aria-hidden="true"><div class="rv-photo"><img src="assets/photos/12-review-korean-medicine-640.webp" srcset="assets/photos/12-review-korean-medicine-640.webp 640w, assets/photos/12-review-korean-medicine-1200.webp 1200w" sizes="(max-width:860px) 92vw, 230px" width="1448" height="1086" alt="한의원 대기 공간을 표현한 AI 연출 이미지" loading="lazy" decoding="async" onerror="this.closest('.rv-photo').classList.add('noimg')"><span class="rv-photo-fb">이미지 준비 중</span></div><div class="rv-body"><p class="rv-q">플레이스 1위 진입 후 신환이 월 280명. 개원 초기의 막막함이 사라졌습니다.</p><p class="rv-a"><b>송도 H 한의원</b> · 원장</p><p class="ai-cap">AI 연출 이미지</p></div></div>
+        <div class="rv-card"><div class="rv-body"><p class="rv-q">의료 광고 심의·집행이 한 곳에서 끝납니다. 운영에 쓰던 시간이 60% 줄었어요.</p><p class="rv-a"><b>강남 P 피부과</b> · 원장</p></div></div>
+        <div class="rv-card"><div class="rv-body"><p class="rv-q">키워드 단위 ROI까지 실시간으로 보여주는 곳은 처음이었습니다. 단순 대행이 아니라 데이터 파트너입니다.</p><p class="rv-a"><b>D2C 화장품 브랜드</b> · 그로스 총괄</p></div></div>
+        <div class="rv-card"><div class="rv-body"><p class="rv-q">6개월 만에 MQL 4배. 내부 마케팅 팀은 이제 다른 외부 컨설팅을 안 둡니다.</p><p class="rv-a"><b>시리즈A SaaS</b> · 대표</p></div></div>
+        <div class="rv-card"><div class="rv-body"><p class="rv-q">숫자가 안 나올 때 먼저 연락이 왔습니다. 이 정직함 때문에 3년째 함께합니다.</p><p class="rv-a"><b>부산 법무법인</b> · 대표변호사</p></div></div>
+        <div class="rv-card"><div class="rv-body"><p class="rv-q">가맹 문의가 다섯 배가 됐어요. 점주 인터뷰 콘텐츠 전략이 결정적이었습니다.</p><p class="rv-a"><b>외식 프랜차이즈</b> · 본부장</p></div></div>
+        <div class="rv-card"><div class="rv-body"><p class="rv-q">플레이스 1위 진입 후 신환이 월 280명. 개원 초기의 막막함이 사라졌습니다.</p><p class="rv-a"><b>송도 H 한의원</b> · 원장</p></div></div>
+        <div class="rv-card" aria-hidden="true"><div class="rv-body"><p class="rv-q">의료 광고 심의·집행이 한 곳에서 끝납니다. 운영에 쓰던 시간이 60% 줄었어요.</p><p class="rv-a"><b>강남 P 피부과</b> · 원장</p></div></div>
+        <div class="rv-card" aria-hidden="true"><div class="rv-body"><p class="rv-q">키워드 단위 ROI까지 실시간으로 보여주는 곳은 처음이었습니다. 단순 대행이 아니라 데이터 파트너입니다.</p><p class="rv-a"><b>D2C 화장품 브랜드</b> · 그로스 총괄</p></div></div>
+        <div class="rv-card" aria-hidden="true"><div class="rv-body"><p class="rv-q">6개월 만에 MQL 4배. 내부 마케팅 팀은 이제 다른 외부 컨설팅을 안 둡니다.</p><p class="rv-a"><b>시리즈A SaaS</b> · 대표</p></div></div>
+        <div class="rv-card" aria-hidden="true"><div class="rv-body"><p class="rv-q">숫자가 안 나올 때 먼저 연락이 왔습니다. 이 정직함 때문에 3년째 함께합니다.</p><p class="rv-a"><b>부산 법무법인</b> · 대표변호사</p></div></div>
+        <div class="rv-card" aria-hidden="true"><div class="rv-body"><p class="rv-q">가맹 문의가 다섯 배가 됐어요. 점주 인터뷰 콘텐츠 전략이 결정적이었습니다.</p><p class="rv-a"><b>외식 프랜차이즈</b> · 본부장</p></div></div>
+        <div class="rv-card" aria-hidden="true"><div class="rv-body"><p class="rv-q">플레이스 1위 진입 후 신환이 월 280명. 개원 초기의 막막함이 사라졌습니다.</p><p class="rv-a"><b>송도 H 한의원</b> · 원장</p></div></div>
       </div>
     </div>
   </div>
@@ -1449,11 +1580,26 @@ function revealAt(el,endPx){return clamp((window.innerHeight-el.getBoundingClien
 /* ─── HERO reveal ─── */
 (function(){
   var items = document.querySelectorAll('.hero-rv');
-  var delays = [500, 1000, 1600, 2100, 2600];
-  function run(k){
-    items.forEach(function(el,i){
-      setTimeout(function(){ el.classList.add('show'); }, (delays[i] || 500 + i*500) * k);
+  var delays = [120, 260, 420, 560, 700, 840];
+  // 운영 사례 원장: 시작 값에서 결과 값으로 한 번 올라감 (모션 축소 설정이면 결과 값 그대로)
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countLedger(){
+    if (calm) return;
+    document.querySelectorAll('.hl-to[data-to]').forEach(function(el){
+      var a = +el.dataset.from, b = +el.dataset.to, u = el.dataset.unit || '', t0 = performance.now(), d = 1400;
+      (function step(now){
+        var p = Math.min((now - t0) / d, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(a + (b - a) * e) + u;
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
     });
+  }
+  function run(k){
+    if (!calm) document.querySelectorAll('.hl-to[data-to]').forEach(function(el){ el.textContent = el.dataset.from + (el.dataset.unit || ''); });
+    items.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('show'); }, (delays[i] || 120 + i*140) * k);
+    });
+    setTimeout(countLedger, 900 * k);
   }
   // 진입 인트로가 떠 있으면 그 아래에서는 바로 그려 두고(첫 화면 표시 지표 LCP 유지),
   // 인트로가 걷히기 시작할 때(아직 불투명한 순간) 숨겼다가 등장 연출을 다시 재생
