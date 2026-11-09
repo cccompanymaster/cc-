@@ -1,6 +1,6 @@
 /**
  * 노아마케팅그룹 — 문의·결제·웹훅 통합 엔드포인트 (Google Apps Script)
- * 보안 하드닝: OWASP Top 10 + PortOne/PCI-DSS + 한국 개인정보보호법 대응
+ * 보안 하드닝: OWASP Top 10 + 한국 개인정보보호법 대응 (결제는 Nicepay.gs)
  *
  * ┌─────────────────────────────────────────────────────────────────────┐
  * │                           📦 배포 절차                               │
@@ -8,18 +8,14 @@
  *  1) Google Sheets 새 스프레드시트 → 확장프로그램 → Apps Script
  *  2) Code.gs에 이 파일 전체 붙여넣기 → 저장
  *  3) Apps Script 좌측 톱니(⚙️) → 스크립트 속성 에 아래 값 등록 (하드코딩 금지):
- *       • PORTONE_V2_API_SECRET     = 포트원 V2 API Secret
- *       • PORTONE_STORE_ID          = 스토어 ID (store-xxx)
- *       • PORTONE_WEBHOOK_SECRET    = (선택) 포트원 웹훅 서명키 — 설정하면 재검증만 수행
  *       • NOTIFY_EMAIL              = 관리자 알림 이메일
  *       • ADMIN_EMAIL_CC            = (선택) 추가 수신자
  *       • RECAPTCHA_SECRET          = (선택) reCAPTCHA v3 서버 시크릿
  *       • ALLOWED_ORIGINS           = 쉼표구분: https://cccompanymaster.github.io,https://your-domain.kr
  *  4) 배포 → 새 배포 → 웹 앱 → 실행 "나", 액세스 "모든 사용자"
- *  5) 발급 URL → js/script.js 의 INQUIRY_WEBHOOK_URL / PAYMENT_VERIFY_URL 양쪽
+ *  5) 발급 URL → js/script.js 의 INQUIRY_WEBHOOK_URL, pay-result.html 의 API
  *  6) 코드 수정 후에는 "배포 관리 → 편집 → 새 버전" 으로 재배포 필수
  *
- *  포트원 웹훅(선택): 콘솔 → 웹훅 → URL 입력 + 시크릿 복사해서 속성에 저장
  *
  * ┌─────────────────────────────────────────────────────────────────────┐
  * │        💳 나이스페이 결제 → 같은 프로젝트의 Nicepay.gs (2026-11)        │
@@ -37,16 +33,12 @@
  *  • LockService로 동시성 race 방지
  *  • Sheet Formula Injection 방어 (=,+,-,@ prefix escape)
  *  • Email Header Injection 방어 (CRLF 제거·길이제한)
- *  • 서버 권위적 가격 카탈로그 (클라이언트 금액 신뢰 X)
- *  • paymentId UUID 포맷 검증 + 중복(replay) 차단
  *  • Origin/Referer 검증 (화이트리스트)
  *  • Rate Limiting (CacheService: IP·이메일·UA 복합)
  *  • 허니팟 필드 + 시간 기반 봇 탐지 (form open < 3s)
  *  • reCAPTCHA v3 검증 (시크릿 설정 시 자동 활성)
  *  • PII 마스킹 (휴대폰 중간 4자리, 카드 BIN 제거)
  *  • 에러 응답 정적화 (스택/내부 경로 노출 금지)
- *  • UrlFetchApp SSRF 방지 (PortOne 도메인 allowlist)
- *  • 금액 범위 검증 (50,000 ~ 10,000,000원)
  */
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -55,9 +47,6 @@
 function CFG_() {
   const p = PropertiesService.getScriptProperties();
   return {
-    PORTONE_V2_API_SECRET: p.getProperty('PORTONE_V2_API_SECRET') || '',
-    PORTONE_STORE_ID:      p.getProperty('PORTONE_STORE_ID') || '',
-    PORTONE_WEBHOOK_SECRET:p.getProperty('PORTONE_WEBHOOK_SECRET') || '',
     NOTIFY_EMAIL:          p.getProperty('NOTIFY_EMAIL') || '',
     ADMIN_EMAIL_CC:        p.getProperty('ADMIN_EMAIL_CC') || '',
     RECAPTCHA_SECRET:      p.getProperty('RECAPTCHA_SECRET') || '',
@@ -67,35 +56,6 @@ function CFG_() {
 }
 
 
-// 서버 권위적 가격 카탈로그 — 클라이언트의 expectedAmount는 참조만, 금액은 여기서 확정
-const PRICE_CATALOG = {
-  '상담 예약금':       { price: 50000,    fixed: true  },
-  '기본 진단 패키지':  { price: 300000,   fixed: true  },
-  '표준 월간 패키지':  { price: 1500000,  fixed: true  },
-  '맞춤 견적 결제':    { price: null,     fixed: false, min: 50000, max: 10000000 },
-  // ── shop.html 상품 (크몽 검증 상품 · fixed 가격 서버 검증) ──
-  '브랜드 블로그 운영 STANDARD':   { price: 149000, fixed: true },
-  '브랜드 블로그 운영 DELUXE':     { price: 299000, fixed: true },
-  '브랜드 블로그 운영 PREMIUM':    { price: 499000, fixed: true },
-  '블로그 포스팅 배포 STANDARD':   { price: 11000,  fixed: true },
-  '블로그 포스팅 배포 DELUXE':     { price: 22000,  fixed: true },
-  '블로그 포스팅 배포 PREMIUM':    { price: 38000,  fixed: true },
-  '블로그 원고 작성 STANDARD':     { price: 8000,   fixed: true },
-  '블로그 원고 작성 DELUXE':       { price: 12000,  fixed: true },
-  '블로그 원고 작성 PREMIUM':      { price: 15000,  fixed: true },
-  '블로그 이웃관리 STANDARD':      { price: 20000,  fixed: true },
-  '블로그 이웃관리 DELUXE':        { price: 50000,  fixed: true },
-  '블로그 이웃관리 PREMIUM':       { price: 100000, fixed: true },
-  '블로그 최적화 노출 STANDARD':   { price: 49000,  fixed: true },
-  '블로그 최적화 노출 DELUXE':     { price: 198000, fixed: true },
-  '블로그 최적화 노출 PREMIUM':    { price: 999000, fixed: true },
-  '블로그 체험단 배송형':          { price: 16000,  fixed: true },
-  '블로그 체험단 방문형':          { price: 45000,  fixed: true },
-  '블로그 체험단 프리미엄':        { price: 55000,  fixed: true },
-  '당근마켓 광고대행':             { price: 100000, fixed: true },
-  '템플릿형 홈페이지 제작':        { price: 199000, fixed: true },
-};
-
 const SHEET_INQUIRIES = 'Inquiries';
 const SHEET_ORDERS    = 'Orders';
 const SHEET_LOGS      = 'Logs';
@@ -103,7 +63,6 @@ const MIN_SUBMIT_MS   = 3000;          // 3초 미만 제출 = 봇
 const RL_WINDOW_SEC   = 60;            // rate limit 윈도우
 const RL_MAX_PER_MIN  = 5;             // 1분당 최대 시도
 const RL_MAX_PER_DAY  = 50;            // 1일당 최대 시도
-const UUID_RE         = /^noah_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const PHONE_RE        = /^[\d\-+() ]{9,20}$/;
 const EMAIL_RE        = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -121,7 +80,7 @@ function doPost(e) {
     }
 
     const raw = (e && e.postData && e.postData.contents) || '{}';
-    if (raw.length > 50000) return jsonResponse_({ ok: false, error: 'payload too large' });
+    if (raw.length > 45e6) return jsonResponse_({ ok: false, error: 'payload too large' });   // 첨부 30MB → base64 약 40MB
     const data = JSON.parse(raw);
 
     // 허니팟 — 값이 차 있으면 봇, 조용히 성공 가장
@@ -167,8 +126,6 @@ function doPost(e) {
     // 라우팅
     switch (data.type) {
       case 'nicepay-prepare': return handleNicepayPrepare_(data, cfg);   // → Nicepay.gs
-      case 'payment':  return handlePayment_(data, cfg);   // 포트원(비활성) — 키가 없어 'verification disabled'로 끝남
-      case 'webhook':  return handleWebhook_(data, cfg);
       default:         return handleInquiry_(data, cfg);
     }
   } catch (err) {
@@ -186,6 +143,7 @@ function doGet(e) {
     const mode = nicepayActiveMode_(nicepayCfg_());   // → Nicepay.gs
     return jsonResponse_({ ok: true, mode: mode, testOnly: mode === 'sandbox' });
   }
+  if (e && e.parameter && e.parameter.action === 'order-status') return npOrderStatus_(e.parameter.o);   // → Nicepay.gs
   return ContentService.createTextOutput('OK');
 }
 
@@ -222,20 +180,6 @@ function validateInquiry_(d) {
   if (d.company && d.company.length > 100) e.push('company');
   return e;
 }
-function validatePayment_(d) {
-  const e = [];
-  if (!d.paymentId || !UUID_RE.test(d.paymentId)) e.push('paymentId');
-  if (!d.orderName || d.orderName.length > 80) e.push('orderName');
-  const amt = Number(d.expectedAmount);
-  if (!Number.isFinite(amt) || amt < 100 || amt > 10000000) e.push('amount');
-  const c = d.customer || {};
-  if (!c.name || c.name.length > 60) e.push('cust.name');
-  if (!c.phone || !PHONE_RE.test(c.phone)) e.push('cust.phone');
-  if (!c.email || !EMAIL_RE.test(c.email) || c.email.length > 80) e.push('cust.email');
-  if (c.memo && c.memo.length > 500) e.push('cust.memo');
-  return e;
-}
-
 // ═══════════════════════════════════════════════════════════════════════
 //  Rate limit / fingerprint / 로그
 // ═══════════════════════════════════════════════════════════════════════
@@ -385,87 +329,6 @@ function sendInquiryMail_(data, cfg, att) {
 // ═══════════════════════════════════════════════════════════════════════
 //  결제 검증 & 주문 기록 (포트원 V2)
 // ═══════════════════════════════════════════════════════════════════════
-function handlePayment_(data, cfg) {
-  // 1) 입력 검증
-  const errors = validatePayment_(data);
-  if (errors.length) return jsonResponse_({ ok: false, error: 'invalid input' });
-
-  // 2) 서버 권위적 가격 카탈로그 — 클라이언트 금액 신뢰 금지
-  const catalog = PRICE_CATALOG[data.orderName];
-  if (!catalog) return jsonResponse_({ ok: false, error: 'unknown product' });
-  let authoritativeAmount;
-  if (catalog.fixed) {
-    authoritativeAmount = catalog.price;
-  } else {
-    const amt = Number(data.expectedAmount);
-    if (amt < catalog.min || amt > catalog.max) {
-      return jsonResponse_({ ok: false, error: 'amount out of range' });
-    }
-    authoritativeAmount = amt;
-  }
-
-  // 3) paymentId 중복 체크 (replay)
-  if (isDuplicatePaymentId_(data.paymentId)) {
-    logEvent_('duplicate-payment', data);
-    return jsonResponse_({ ok: false, error: 'duplicate' });
-  }
-
-  // 4) 포트원 API secret 필수
-  if (!cfg.PORTONE_V2_API_SECRET) {
-    recordOrder_(data, { status: 'UNVERIFIED', amount: authoritativeAmount, note: 'api-secret not set' });
-    return jsonResponse_({ ok: false, error: 'verification disabled' });
-  }
-
-  // 5) PortOne V2 REST로 실제 결제 조회 (SSRF 방어: 도메인 고정)
-  const url = 'https://api.portone.io/payments/' + encodeURIComponent(data.paymentId);
-  const res = UrlFetchApp.fetch(url, {
-    method: 'get',
-    headers: { Authorization: 'PortOne ' + cfg.PORTONE_V2_API_SECRET },
-    muteHttpExceptions: true,
-  });
-  const code = res.getResponseCode();
-  if (code !== 200) {
-    recordOrder_(data, { status: 'VERIFY_ERROR', amount: authoritativeAmount, note: 'HTTP ' + code });
-    return jsonResponse_({ ok: false, error: 'verify failed' });
-  }
-
-  const info = JSON.parse(res.getContentText());
-  const paid = info.status === 'PAID';
-  const realAmount = Number(info.amount?.total || info.amount?.paid || 0);
-  const amountMatches = paid && realAmount === authoritativeAmount;
-
-  if (!amountMatches) {
-    recordOrder_(data, {
-      status: paid ? 'AMOUNT_MISMATCH' : (info.status || 'FAILED'),
-      amount: realAmount,
-      note: 'expected ' + authoritativeAmount,
-      raw: info,
-    });
-    notifyAdminAlert_(cfg, '결제 검증 실패', {
-      paymentId: data.paymentId,
-      expected: authoritativeAmount,
-      actual: realAmount,
-      status: info.status,
-    });
-    return jsonResponse_({ ok: false, error: paid ? 'amount mismatch' : 'not paid' });
-  }
-
-  // 6) 정상 — 시트 기록 + 양측 이메일
-  recordOrder_(data, { status: 'PAID', amount: realAmount, raw: info });
-  sendOrderMail_(data, info, authoritativeAmount, cfg);
-  if (data.customer?.email) sendReceiptMail_(data.customer.email, data, info, authoritativeAmount);
-
-  return jsonResponse_({ ok: true, status: 'PAID' });
-}
-
-function isDuplicatePaymentId_(paymentId) {
-  const sheet = getOrCreateOrderSheet_();
-  const last = sheet.getLastRow();
-  if (last < 2) return false;
-  const ids = sheet.getRange(2, 3, last - 1, 1).getValues();
-  return ids.some(r => r[0] === paymentId);
-}
-
 function getOrCreateOrderSheet_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   let sh = ss.getSheetByName(SHEET_ORDERS);
@@ -477,34 +340,6 @@ function getOrCreateOrderSheet_() {
     sh.setColumnWidth(3, 280);
   }
   return sh;
-}
-
-function recordOrder_(data, result) {
-  const sheet = getOrCreateOrderSheet_();
-  const cust = data.customer || {};
-  const raw = result.raw || {};
-  // Raw에서 카드정보(PCI scope) 제거
-  const rawSafe = JSON.parse(JSON.stringify(raw));
-  if (rawSafe.method) {
-    if (rawSafe.method.card) {
-      delete rawSafe.method.card.number;
-      delete rawSafe.method.card.bin;
-    }
-  }
-  sheet.appendRow([
-    new Date(),
-    sanitizeCell_(result.status || 'UNKNOWN'),
-    sanitizeCell_(data.paymentId || ''),
-    sanitizeCell_(data.orderName || ''),
-    Number(result.amount) || 0,
-    sanitizeCell_(cust.name || ''),
-    sanitizeCell_(maskPhone_(cust.phone)),
-    sanitizeCell_(maskEmail_(cust.email)),
-    sanitizeCell_((cust.memo || '').slice(0, 500)),
-    sanitizeCell_(raw.pgTxId || raw.pg?.pgTxId || ''),
-    sanitizeCell_(raw.method?.type || ''),
-    sanitizeCell_((result.note || '') + ' ' + JSON.stringify(rawSafe).slice(0, 800)),
-  ]);
 }
 
 function sendOrderMail_(data, info, amount, cfg) {
@@ -563,43 +398,6 @@ function notifyAdminAlert_(cfg, title, payload) {
 // ═══════════════════════════════════════════════════════════════════════
 //  웹훅 (포트원 결제 상태 변경)
 // ═══════════════════════════════════════════════════════════════════════
-function handleWebhook_(data, cfg) {
-  // 웹훅 시크릿 서명 검증은 Apps Script에서 header 접근 제한으로 어려움
-  // → API로 직접 재조회해서 검증 (double-confirm)
-  if (!cfg.PORTONE_V2_API_SECRET || !data.paymentId) {
-    return jsonResponse_({ ok: false, error: 'invalid' });
-  }
-  const url = 'https://api.portone.io/payments/' + encodeURIComponent(data.paymentId);
-  const res = UrlFetchApp.fetch(url, {
-    method: 'get',
-    headers: { Authorization: 'PortOne ' + cfg.PORTONE_V2_API_SECRET },
-    muteHttpExceptions: true,
-  });
-  if (res.getResponseCode() !== 200) return jsonResponse_({ ok: false });
-  const info = JSON.parse(res.getContentText());
-  // 이미 처리된 주문인지 확인
-  if (isDuplicatePaymentId_(data.paymentId) && info.status === 'PAID') {
-    return jsonResponse_({ ok: true, note: 'already recorded' });
-  }
-  // 최종 기록 (클라이언트 검증 누락된 경우 대비)
-  recordOrder_({
-    paymentId: data.paymentId,
-    orderName: info.orderName || '',
-    customer: info.customer ? {
-      name: info.customer.fullName || info.customer.name,
-      phone: info.customer.phoneNumber,
-      email: info.customer.email,
-    } : {},
-  }, (function () {
-    // 카탈로그 금액 대조 — fixed 상품이 다른 금액으로 결제되면 플래그
-    const cat = PRICE_CATALOG[info.orderName];
-    const paid = (info.amount && info.amount.total) || 0;
-    const mismatch = cat && cat.fixed && cat.price !== paid;
-    return { status: info.status, amount: paid, raw: info, note: mismatch ? 'webhook:PRICE_MISMATCH' : 'webhook' };
-  })());
-  return jsonResponse_({ ok: true });
-}
-
 // ═══════════════════════════════════════════════════════════════════════
 //  reCAPTCHA v3 검증
 // ═══════════════════════════════════════════════════════════════════════

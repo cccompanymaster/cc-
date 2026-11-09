@@ -594,6 +594,13 @@ function nicepayReturnInner_(p, cfg) {
   return nicepayResultPage_('ok', back);
 }
 
+// 결제 결과 화면이 구매 이벤트를 보내기 전에 묻는 값 — 결제 여부와 금액만 (개인정보 없음, 주문번호는 추측 불가)
+function npOrderStatus_(orderId) {
+  const o = NP_ORDER_ID_RE.test(String(orderId || '')) ? findNicepayOrder_(String(orderId)) : null;
+  const paid = !!(o && o.status === 'PAID' && o.intent);
+  return jsonResponse_({ ok: true, paid: paid, amount: paid ? o.intent.amount : 0 });
+}
+
 function npEscapeHtml_(s) {   // Code.gs의 escapeHtml_와 이름이 겹치지 않게 따로 둠
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }

@@ -232,6 +232,7 @@ form.addEventListener('submit', async (e) => {
       redirect: 'follow',
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if ((await res.json().catch(() => ({}))).ok === false) throw new Error('rejected');   // 서버 거절도 HTTP 200 — 본문으로 판단
     form.hidden = true;
     ok.textContent = cur.oid ? '✓ 작업 요청서가 접수됐습니다. 담당자가 확인 후 착수 일정을 안내드립니다.' : okDefault;
     ok.hidden = false;

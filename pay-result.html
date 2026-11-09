@@ -15,7 +15,7 @@
   <meta name="description" content="노아 스토어 결제 결과 안내 — 결제 완료·실패 여부와 다음 단계를 확인하세요.">
 <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
   <title>결제 결과 | 노아</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -74,7 +74,6 @@
     var oid = /^NOAH-\d{14}-[0-9a-f]{8}$/.test(q.get('o') || '') ? q.get('o') : '';
     var amount = /^\d{1,9}$/.test(q.get('a') || '') ? Number(q.get('a')) : 0;
     var code = (q.get('c') || '').replace(/[^a-z]/g, '').slice(0, 20);
-    var msg = (q.get('m') || '').slice(0, 120);
     var cat = window.NOAH_CATALOG || { products: {} };
     var pk = '', opt = null, prod = null;
     (function () {
@@ -115,19 +114,25 @@
       $('title').textContent = '결제가 완료됐습니다';
       $('lede').textContent = '영수증을 입력하신 이메일로 보냈습니다. 작업에 필요한 키워드·자료를 작업 요청서로 보내 주시면 다음 영업일부터 착수합니다.';
       if (prod && opt && oid) btn('main', 'shop.html?order=' + encodeURIComponent(pk + ':' + opt.key) + '&oid=' + encodeURIComponent(oid), '작업 요청서 작성하기 →');
+      // 구매 이벤트는 주소창 값이 아니라 서버 주문 기록(PAID)과 서버 금액으로만 보낸다
+      var API = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';   // js/script.js INQUIRY_WEBHOOK_URL과 같은 값
       try {
-        var key = 'noahPaid_' + oid;
-        if (oid && !sessionStorage.getItem(key) && typeof gtag === 'function') {
-          gtag('event', 'purchase', { transaction_id: oid, currency: 'KRW', value: amount,
-            items: prod ? [{ item_id: pk + ':' + (opt ? opt.key : ''), item_name: prod.name, item_variant: opt ? opt.label : '' }] : [] });
-          sessionStorage.setItem(key, '1');
+        if (oid && typeof gtag === 'function' && !sessionStorage.getItem('noahPaid_' + oid)) {
+          fetch(API + '?action=order-status&o=' + encodeURIComponent(oid), { cache: 'no-store' })
+            .then(function (r) { return r.json(); })
+            .then(function (s) {
+              if (!s || !s.paid) return;
+              gtag('event', 'purchase', { transaction_id: oid, currency: 'KRW', value: s.amount,
+                items: prod ? [{ item_id: pk + ':' + (opt ? opt.key : ''), item_name: prod.name, item_variant: opt ? opt.label : '' }] : [] });
+              sessionStorage.setItem('noahPaid_' + oid, '1');
+            }).catch(function () {});
         }
       } catch (e) {}
     } else {
       $('box').classList.add('fail');
       $('badge').textContent = 'PAYMENT NOT COMPLETED';
       $('title').textContent = code === 'done' ? '이미 처리된 주문입니다' : '결제가 완료되지 않았습니다';
-      $('lede').textContent = (FAIL[code] || FAIL.error) + (msg && code !== 'amount' && code !== 'sign' ? ' (' + msg + ')' : '');
+      $('lede').textContent = FAIL[code] || FAIL.error;
       if (prod && opt) btn('main', 'shop.html?buy=' + encodeURIComponent(pk + '-' + opt.key), '다시 결제하기 →');
     }
   })();

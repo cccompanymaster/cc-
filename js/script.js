@@ -1300,6 +1300,7 @@ inqForm?.addEventListener('submit', async (e) => {
       redirect: 'follow',
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if ((await res.json().catch(() => ({}))).ok === false) throw new Error('rejected');   // 서버 거절도 HTTP 200 — 본문으로 판단
 
     inqForm.style.display = 'none';
     inqSuccess.hidden = false;
@@ -1351,17 +1352,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ============================================================
-// ===== PortOne (포트원) 결제 연동 =====
-// ============================================================
-// ⛔ 2026-11 나이스페이로 전환하며 비활성화했습니다(코드는 보관). 포트원 키가 비어 결제가 동작하지 않았고,
-//    PG 계약을 나이스페이와 맺어 스토어 결제는 js/checkout.js(나이스페이 결제창)가 맡습니다.
-//    다시 쓰려면 PORTONE_ENABLED를 true로 바꾸고 아래 키를 채운 뒤 Code.gs의 포트원 속성을 설정하세요.
-const PORTONE_ENABLED = false;
-// ⚠️ 배포 전 아래 3개 상수를 실제 PortOne 계정에서 발급받은 값으로 교체하세요.
-// 발급 방법: apps-script/Code.gs 상단 주석 참조
-const PORTONE_STORE_ID = '';                // 예: 'store-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-const PORTONE_CHANNEL_KEY = '';             // 결제 채널 키 (PG사별로 발급)
 // ── reCAPTCHA v3 (스팸 방어) ──
 // 사이트 키 발급 후 아래에 입력하면 자동 활성화됩니다.
 // (Apps Script 쪽엔 스크립트 속성 RECAPTCHA_SECRET에 시크릿 키 등록)
@@ -1382,189 +1372,6 @@ const getRecaptchaToken_ = () => {
     window.grecaptcha ? grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'inquiry' }).catch(() => '') : ''
   );
 };
-
-const PAYMENT_VERIFY_URL = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';              // Apps Script 웹앱 URL (INQUIRY_WEBHOOK_URL과 같은 배포면 동일 URL)
-
-const payModal = document.getElementById('paymentModal');
-const payForm = document.getElementById('paymentForm');
-const payClose = payModal?.querySelector('.payment-modal-close');
-const payBackdrop = payModal?.querySelector('.payment-modal-backdrop');
-const paySuccess = document.getElementById('paymentSuccess');
-const paySummaryAmount = document.getElementById('paySummaryAmount');
-const paySubmitBtn = document.getElementById('paySubmitBtn');
-const paySubmitLabel = document.getElementById('paySubmitLabel');
-const payCustomWrap = document.getElementById('payCustomWrap');
-const payCustomInput = document.getElementById('pay-custom-amount');
-
-const formatWon = (n) => new Intl.NumberFormat('ko-KR').format(Math.max(0, Math.floor(Number(n) || 0))) + ' 원';
-
-const getSelectedAmount = () => {
-  const sel = payForm?.querySelector('input[name="pay-preset"]:checked');
-  if (!sel) return { amount: 0, name: '' };
-  const name = sel.getAttribute('data-name') || '결제';
-  if (sel.value === 'custom') {
-    const custom = parseInt(payCustomInput?.value || '0', 10) || 0;
-    return { amount: custom, name };
-  }
-  return { amount: parseInt(sel.value, 10), name };
-};
-const refreshPaySummary = () => {
-  const { amount } = getSelectedAmount();
-  if (paySummaryAmount) paySummaryAmount.textContent = formatWon(amount);
-};
-
-payForm?.querySelectorAll('input[name="pay-preset"]').forEach(el => {
-  el.addEventListener('change', () => {
-    const isCustom = el.value === 'custom' && el.checked;
-    if (payCustomWrap) payCustomWrap.hidden = !isCustom;
-    refreshPaySummary();
-    if (isCustom) payCustomInput?.focus();
-  });
-});
-payCustomInput?.addEventListener('input', refreshPaySummary);
-
-let _prevFocusedPay = null;
-const openPayment = () => {
-  if (!payModal) return;
-  _prevFocusedPay = document.activeElement;
-  payModal.classList.add('open');
-  payModal.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('no-scroll');
-  lockBackground(true);
-  refreshPaySummary();
-  setTimeout(() => document.getElementById('pay-name')?.focus(), 250);
-};
-const closePayment = () => {
-  if (!payModal) return;
-  payModal.classList.remove('open');
-  payModal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('no-scroll');
-  lockBackground(false);
-  _prevFocusedPay?.focus?.();
-};
-document.getElementById('openPayment')?.addEventListener('click', openPayment);
-payClose?.addEventListener('click', closePayment);
-payBackdrop?.addEventListener('click', closePayment);
-document.addEventListener('keydown', (e) => {
-  if (payModal?.classList.contains('open')) {
-    if (e.key === 'Escape') { closePayment(); return; }
-    trapFocus(payModal, e);
-  }
-});
-
-payForm?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  // 필수 필드 검증
-  const name = document.getElementById('pay-name')?.value.trim();
-  const phone = document.getElementById('pay-phone')?.value.trim();
-  const email = document.getElementById('pay-email')?.value.trim();
-  const memo = document.getElementById('pay-memo')?.value.trim();
-  const privacy = document.getElementById('pay-privacy')?.checked;
-  if (!name) { alert('이름을 입력해주세요.'); return; }
-  if (!phone) { alert('연락처를 입력해주세요.'); return; }
-  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) { alert('유효한 이메일을 입력해주세요.'); return; }
-  if (!privacy) { alert('약관·개인정보 수집에 동의해주세요.'); return; }
-
-  const { amount, name: itemName } = getSelectedAmount();
-  if (!amount || amount < 100) { alert('결제 금액을 확인해주세요.'); return; }
-
-  if (!PORTONE_ENABLED) {
-    alert('온라인 결제는 스토어의 상품별 [구매하기]에서 가능합니다.\n견적 금액 결제는 010-6658-6482 또는 카카오채널로 안내해 드립니다.');
-    location.href = 'shop.html';
-    return;
-  }
-
-  if (!PORTONE_STORE_ID || !PORTONE_CHANNEL_KEY) {
-    alert('결제 시스템이 아직 활성화되지 않았습니다. 관리자에게 문의하거나 카카오채널/전화로 연락 주세요.');
-    return;
-  }
-  if (!window.PortOne) {
-    alert('결제 모듈을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.');
-    return;
-  }
-
-  // 허니팟 체크
-  if (readHoneypot_(payForm)) { return; }
-
-  // 서버에서 paymentId 포맷 검증에 쓸 UUID 생성 (brute-force 저항)
-  const paymentId = 'noah_' + makeUUID_();
-  const clientIp = await fetchClientIp_();
-
-  paySubmitBtn.disabled = true;
-  const originalLabel = paySubmitLabel.textContent;
-  paySubmitLabel.textContent = '결제창 여는 중…';
-
-  try {
-    const rsp = await window.PortOne.requestPayment({
-      storeId: PORTONE_STORE_ID,
-      channelKey: PORTONE_CHANNEL_KEY,
-      paymentId,
-      orderName: itemName,
-      totalAmount: amount,
-      currency: 'CURRENCY_KRW',
-      payMethod: 'CARD',
-      customer: {
-        fullName: name,
-        phoneNumber: phone.replace(/-/g, ''),
-        email,
-      },
-      customData: { memo: (memo || '').slice(0, 500) },
-    });
-
-    if (rsp?.code !== undefined) {
-      // 사용자 취소 또는 오류
-      throw new Error(rsp.message || '결제가 취소됐습니다.');
-    }
-
-    // 서버 검증 — 응답이 {ok:true}일 때만 성공 처리 (F17 수정)
-    if (!PAYMENT_VERIFY_URL) {
-      throw new Error('서버 검증이 구성되지 않았습니다. 관리자에게 문의해주세요.');
-    }
-    const verifyRes = await fetch(PAYMENT_VERIFY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({
-        type: 'payment',
-        paymentId,
-        expectedAmount: amount,
-        orderName: itemName,
-        customer: { name, phone, email, memo: (memo || '').slice(0, 500) },
-        clientIp,
-        origin: location.origin,
-        userAgent: (navigator.userAgent || '').slice(0, 200),
-        formOpenedAt: readFormOpenedAt_(payForm),
-        submittedAt: new Date().toISOString(),
-      }),
-    });
-    let verifyJson = {};
-    try { verifyJson = await verifyRes.json(); } catch(_) {}
-    if (!verifyRes.ok || !verifyJson.ok) {
-      throw new Error('결제 검증에 실패했습니다. 결제는 진행됐을 수 있으니 영수증 확인 후 010-6658-6482로 연락주세요.');
-    }
-
-    // 성공 UI
-    payForm.style.display = 'none';
-    paySuccess.hidden = false;
-    if (typeof gtag === 'function') gtag('event', 'purchase', { currency: 'KRW', value: amount, transaction_id: paymentId });
-    setTimeout(() => {
-      closePayment();
-      setTimeout(() => {
-        payForm.reset();
-        payForm.style.display = '';
-        paySuccess.hidden = true;
-        paySubmitBtn.disabled = false;
-        paySubmitLabel.textContent = originalLabel;
-        refreshPaySummary();
-      }, 400);
-    }, 3000);
-  } catch (err) {
-    console.error('[Payment] 결제 실패:', err);
-    alert(`결제 중 오류가 발생했습니다.\n${err.message || ''}\n\n문제가 계속되면 010-6658-6482로 연락 부탁드립니다.`);
-    paySubmitBtn.disabled = false;
-    paySubmitLabel.textContent = originalLabel;
-  }
-});
 
 // ===== ROI Calculator =====
 (() => {
