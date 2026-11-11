@@ -217,7 +217,7 @@ form.addEventListener('submit', async (e) => {
       interests: `${cur.oid ? '[작업요청]' : '[주문]'} ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}`,
       message: [head, ...lines].join('\n').slice(0, 4900),
       attachment,
-      referrer: (document.referrer || '(direct)').slice(0, 200),
+      referrer: ((window.NOAH_SRC && window.NOAH_SRC.text()) || document.referrer || '(direct)').slice(0, 480),  // 광고·검색·AI 등 들어온 경로 (js/attrib.js)
       userAgent: (navigator.userAgent || '').slice(0, 200),
       clientIp: await fetchClientIp_(),
       origin: location.origin,

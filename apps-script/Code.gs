@@ -246,7 +246,7 @@ function handleInquiry_(data, cfg) {
     sanitizeCell_((data.message || '').slice(0, 5000)),
     sanitizeCell_(att ? att.info : ''),
     sanitizeCell_(att ? att.url : ''),
-    sanitizeCell_((data.referrer || '').slice(0,120)),
+    sanitizeCell_((data.referrer || '').slice(0,480)),
     sanitizeCell_((data.userAgent || '').slice(0,120)),
     sanitizeCell_((data.clientIp || '').slice(0,45)),
   ]);

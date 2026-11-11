@@ -1273,7 +1273,7 @@ inqForm?.addEventListener('submit', async (e) => {
     interests: interestList.join(', '),
     message: (data.get('message') || '').toString().trim(),
     attachment,
-    referrer: (document.referrer || '(direct)').slice(0, 200),
+    referrer: ((window.NOAH_SRC && window.NOAH_SRC.text()) || document.referrer || '(direct)').slice(0, 480),  // 광고·검색·AI 등 들어온 경로 (js/attrib.js)
     userAgent: (navigator.userAgent || '').slice(0, 200),
     clientIp,
     origin: location.origin,

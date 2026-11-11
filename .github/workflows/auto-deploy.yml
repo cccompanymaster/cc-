@@ -27,6 +27,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+      # js/track.js의 광고 ID와 CSP·개인정보처리방침이 어긋나면 배포 중단 (.claude/build/tags/sync_tags.py)
+      - name: Check tag IDs match CSP and privacy policy
+        run: python3 .claude/build/tags/sync_tags.py --check
+
       - name: Force push to gh-pages
         run: git push origin HEAD:gh-pages --force
 
