@@ -1,0 +1,1121 @@
+[
+ {
+  "id": "ad-platform-comparison#0",
+  "file": "articles/ad-platform-comparison.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "업종별 광고 플랫폼 ROAS 비교",
+  "caption": "고객단가 × 검색 의도 명확도가 ROAS의 두 결정 변수",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "580%",
+   "510%",
+   "320%",
+   "2B",
+   "420%",
+   "380%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "agency-selection-compliance#0",
+  "file": "articles/agency-selection-compliance.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "대행사 7체크 — 통과율과 1년 유지율",
+  "caption": "7체크 모두 통과한 조합의 유지율 81% — 가장 자주 깨지는 항목은 \"성과 검증\"과 \"가격 투명성\"",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "81%",
+   "62%",
+   "38%",
+   "17%",
+   "81%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "b2b-leadgen-marketing#0",
+  "file": "articles/b2b-leadgen-marketing.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "B2B 채널별 MQL 단가",
+  "caption": "단기 효과는 LinkedIn·SA, 장기 누적 효율은 SEO+이메일 — 혼합이 정답",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "2B",
+   "6M",
+   "2B"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "b2b-saas-marketing-korea#0",
+  "file": "articles/b2b-saas-marketing-korea.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "Korean B2B SaaS market 2022 to 2026",
+  "caption": "Korean B2B SaaS has roughly doubled in 4 years and remains in compounding-growth phase",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "2B",
+   "$0",
+   "$2.0",
+   "$3.0",
+   "$4.0",
+   "$5.0",
+   "$2.4",
+   "$2.9",
+   "$3.5",
+   "$4.1",
+   "$4.8",
+   "$5.7"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "b2b-saas-marketing-korea#1",
+  "file": "articles/b2b-saas-marketing-korea.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "B2B SaaS channel mix — US vs Korea",
+  "caption": "Foreign vendors that copy US channel mix into Korea generate 60–70% less pipeline",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "2B",
+   "32%",
+   "9%",
+   "12%",
+   "38%",
+   "3%",
+   "16%",
+   "2%",
+   "14%",
+   "14%",
+   "15%",
+   "37%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "b2b-saas-marketing-korea#2",
+  "file": "articles/b2b-saas-marketing-korea.html",
+  "idx": 2,
+  "lang": "en",
+  "title": "Korean B2B SaaS compliance checklist and timeline",
+  "caption": "ISMS-P + data residency are the two non-negotiables for Korean enterprise contracts",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "2B",
+   "₩80",
+   "200M",
+   "10K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "b2b-saas-marketing-korea#3",
+  "file": "articles/b2b-saas-marketing-korea.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "Korea B2B SaaS ACV vs US benchmark",
+  "caption": "Korea ACV averages 60–75% of US for the same product, with a sharp tech-native exception",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "100%",
+   "75%",
+   "65%",
+   "90%",
+   "55%",
+   "5%",
+   "12%",
+   "2025 K",
+   "75%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "blog-ad-cost-guide#0",
+  "file": "articles/blog-ad-cost-guide.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "키워드 난이도별 단가와 ROI",
+  "caption": "롱테일 → 중난도 → 고경쟁 단계적 진입이 ROI 누적 최적",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "10만",
+   "6.2×",
+   "20만",
+   "3.4×",
+   "60만",
+   "1.4×",
+   "4배"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "blog-outsourcing-vs-inhouse#0",
+  "file": "articles/blog-outsourcing-vs-inhouse.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "하이브리드 운영 비중과 비용",
+  "caption": "3가지 역할 분리가 핵심 — 인하우스 100%는 비싸고, 외주 100%는 품질 위험",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "30%",
+   "55%",
+   "15%",
+   "50만",
+   "12만",
+   "7만",
+   "100%",
+   "100%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "blog-top-ranking-2026#2",
+  "file": "articles/blog-top-ranking-2026.html",
+  "idx": 2,
+  "lang": "ko",
+  "title": "SMART BLOCK 4채널 교차 노출 구조",
+  "caption": "한 검색자의 여러 동선에서 반복 노출될 때 알고리즘이 신뢰도를 가산합니다",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "1.0×",
+   "1.8×",
+   "2.5×",
+   "3.2×"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "brand-blog-management#0",
+  "file": "articles/brand-blog-management.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "하이브리드 운영 6개월 결과",
+  "caption": "대행 70% 비중에 직접 30% 결합이 트래픽·전환·신뢰 모두 균형",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "30%",
+   "70%",
+   "284%",
+   "132%",
+   "8%",
+   "100%",
+   "100%",
+   "70%",
+   "30%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "cafe-top-ranking#1",
+  "file": "articles/cafe-top-ranking.html",
+  "idx": 1,
+  "lang": "ko",
+  "title": "맘카페 진입 4주차 신뢰 누적 곡선",
+  "caption": "3주차까지는 무조건 신뢰 누적 단계 — 1주차 직접 홍보는 차단·강퇴 위험",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "15점",
+   "42점",
+   "68점"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "china-brand-korea-entry#0",
+  "file": "articles/china-brand-korea-entry.html",
+  "idx": 0,
+  "lang": "zh-CN",
+  "title": "韩国 vs 中国市场结构对比",
+  "caption": "韩国数字基础设施与中国几乎完全不重叠 — 不能延用国内供应链与运营节奏",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "55%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "content-marketing-titles-thumbnails#0",
+  "file": "articles/content-marketing-titles-thumbnails.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "플랫폼별 CTR 양호·우수 기준",
+  "caption": "CTR 우수 임계점은 플랫폼별 다름 — 비교 기준 잘못 잡으면 성과 오판",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "2%",
+   "4%",
+   "6%",
+   "3%",
+   "5%",
+   "8%",
+   "2%",
+   "5%",
+   "7%",
+   "5만"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "cpa-viral-agency-guide#0",
+  "file": "articles/cpa-viral-agency-guide.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "CPA 대행사 식별 5대 체크포인트",
+  "caption": "5가지 모두 통과한 대행사가 1년 이상 유지되는 비율은 약 78% — 그 외는 평균 4.2개월에 이탈",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "78%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "cpa-viral-agency-guide#1",
+  "file": "articles/cpa-viral-agency-guide.html",
+  "idx": 1,
+  "lang": "ko",
+  "title": "에이전시 평가 5축 매트릭스",
+  "caption": "7축 중 5개 이상 우수면 1년 유지율 70% 이상 — 그 이하는 평균 4~6개월에 이탈",
+  "src": "internal",
+  "weightish": true,
+  "nums": [
+   "100%",
+   "81%",
+   "70%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "how-to-advertise-in-korea-2026#0",
+  "file": "articles/how-to-advertise-in-korea-2026.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "Korean ad market 2026 by channel",
+  "caption": "Naver alone is bigger than Google + YouTube + Kakao combined in Korean digital ad share",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "₩15.8",
+   "₩10.5",
+   "66%",
+   "₩2.0",
+   "₩4.8",
+   "46%",
+   "₩2.5",
+   "24%",
+   "₩1.3",
+   "13%",
+   "₩1.0",
+   "10%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "how-to-advertise-in-korea-2026#1",
+  "file": "articles/how-to-advertise-in-korea-2026.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "Korean ad platforms — strengths and primary buy",
+  "caption": "Skip any one of these five and you give up roughly 8–15 points of reach",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "5 K",
+   "95%",
+   "49M"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "how-to-advertise-in-korea-2026#3",
+  "file": "articles/how-to-advertise-in-korea-2026.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "Korean ad launch 90-day timeline",
+  "caption": "90 days from kickoff to scale-or-stop decision — anything shorter loses statistical significance",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "$15",
+   "25K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "how-to-advertise-in-korea-2026#4",
+  "file": "articles/how-to-advertise-in-korea-2026.html",
+  "idx": 4,
+  "lang": "en",
+  "title": "Budget allocation by industry for Korea",
+  "caption": "B2B leans Google-heavy; Beauty/Health lean Naver-heavy; Fashion goes Meta-led",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "35%",
+   "25%",
+   "25%",
+   "10%",
+   "5%",
+   "$30",
+   "25%",
+   "30%",
+   "35%",
+   "5%",
+   "5%",
+   "$25"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "industry-blog-marketing#0",
+  "file": "articles/industry-blog-marketing.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "5단계 지역 SEO 공식 적용률",
+  "caption": "5단계 누적이 핵심 — 1~2단계 단기 운영은 효과가 미미",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "12%",
+   "38%",
+   "58%",
+   "73%",
+   "87%",
+   "87%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "kakao-email-push-marketing#0",
+  "file": "articles/kakao-email-push-marketing.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "CRM 라이프사이클 4단계 채널 매핑",
+  "caption": "가입 직후 24시간이 골든 윈도우 — 첫 메시지 누락 시 LTV 35% 감소",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "38%",
+   "22%",
+   "14%",
+   "6%",
+   "35%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korea-market-entry-naver-seo#0",
+  "file": "articles/korea-market-entry-naver-seo.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "",
+  "caption": "Source: Internetlivestats & KISA, 2025",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "55%",
+   "35%",
+   "5%",
+   "5%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korea-market-entry-naver-seo#3",
+  "file": "articles/korea-market-entry-naver-seo.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "",
+  "caption": "Compressed 90-day plan — every block is non-negotiable",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "30 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-advertising-law-compliance#0",
+  "file": "articles/korean-advertising-law-compliance.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "",
+  "caption": "Five regulators · overlapping jurisdictions · zero defence in saying \"we didn't know\"",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "5 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-advertising-law-compliance#1",
+  "file": "articles/korean-advertising-law-compliance.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "",
+  "caption": "Each row is a hard gate before launch — bake the lead times into your media plan",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "₩200",
+   "₩50",
+   "₩300",
+   "1M",
+   "₩100"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-advertising-law-compliance#3",
+  "file": "articles/korean-advertising-law-compliance.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "",
+  "caption": "The pipeline that keeps Korean campaigns out of KFTC enforcement",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "4. K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-consumer-behavior-cultural#0",
+  "file": "articles/korean-consumer-behavior-cultural.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "Hofstede dimensions for Korea vs USA",
+  "caption": "The largest Hofstede gaps — collectivism, uncertainty avoidance, long-term orientation — drive most cultural marketing differences",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "68 M",
+   "62 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-consumer-behavior-cultural#1",
+  "file": "articles/korean-consumer-behavior-cultural.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "Korean trend cycle vs US trend cycle",
+  "caption": "Move fast or miss the window — Korean trend half-life is roughly 3 weeks vs 10 in the US",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "20 K",
+   "3×",
+   "2026 M"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-consumer-behavior-cultural#3",
+  "file": "articles/korean-consumer-behavior-cultural.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "Korean cultural calendar with retail impact",
+  "caption": "Chuseok and Seollal alone drive ~25% of annual Korean retail; planning around them is non-optional",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "1.5×",
+   "1.2×",
+   "2.2×",
+   "1.3×",
+   "1.6×",
+   "25%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-facebook-google-ads#0",
+  "file": "articles/korean-facebook-google-ads.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "",
+  "caption": "Source: Cheil Worldwide 2024 Korea Digital Ad Forecast",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "50%",
+   "25%",
+   "18%",
+   "7%",
+   "$3.3",
+   "2024 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-facebook-google-ads#1",
+  "file": "articles/korean-facebook-google-ads.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "",
+  "caption": "Korean Search CPC clusters tightly under ₩2,000 outside finance & B2B",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "₩600",
+   "₩800",
+   "₩1,500",
+   "₩400",
+   "₩300",
+   "95%",
+   "2026 K",
+   "₩2,000",
+   "2B"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-facebook-google-ads#2",
+  "file": "articles/korean-facebook-google-ads.html",
+  "idx": 2,
+  "lang": "en",
+  "title": "Korean creative lift factors vs US baseline",
+  "caption": "Korean voice-over and KakaoTalk CTA produce the largest single-variable lifts",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "1.0×",
+   "1.6×",
+   "1.4×",
+   "1.5×",
+   "1.3×",
+   "2.1×",
+   "1.25×",
+   "142 K",
+   "2026 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-facebook-google-ads#3",
+  "file": "articles/korean-facebook-google-ads.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "Recommended KR paid media budget split + ROAS benchmark",
+  "caption": "Naver Search delivers the highest ROAS but lowest scale; Google + Meta carry the volume",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "50%",
+   "30%",
+   "20%",
+   "₩60",
+   "500%",
+   "400%",
+   "250%",
+   "220%",
+   "700%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-influencer-kbeauty-marketing#1",
+  "file": "articles/korean-influencer-kbeauty-marketing.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "",
+  "caption": "Median rates for paid posts; agency packages reduce the per-asset cost 30–40%",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "1.5M",
+   "4M",
+   "3M",
+   "9M",
+   "$1",
+   "₩1,380",
+   "30M",
+   "40%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-influencer-kbeauty-marketing#2",
+  "file": "articles/korean-influencer-kbeauty-marketing.html",
+  "idx": 2,
+  "lang": "en",
+  "title": "",
+  "caption": "2024 KFTC tightening — both brand and creator are liable",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "2024 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "korean-influencer-kbeauty-marketing#3",
+  "file": "articles/korean-influencer-kbeauty-marketing.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "",
+  "caption": "Repeatable 90-day cycle — most US brands run 3–4 cycles in year one",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "13 M"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "low-quality-blog-recovery#0",
+  "file": "articles/low-quality-blog-recovery.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "저품질 블로그 8주 복구 단계와 회복률",
+  "caption": "1~2주 독성 제거가 가장 중요 — 안 하면 신규 발행 노력의 회수율이 절반 이하",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "100%",
+   "64%",
+   "64%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "marketing-education-2026#0",
+  "file": "articles/marketing-education-2026.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "마케팅 교육 비용 대비 효과 분석",
+  "caption": "사설 학원 장기 과정이 ROI 최저 — 실무 능력은 \"운영 경험\"이 핵심",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "100점"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "medical-tourism-korea-marketing#0",
+  "file": "articles/medical-tourism-korea-marketing.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "",
+  "caption": "Each origin demands a distinct channel: Xiaohongshu for CN, YouTube/Reddit for US, KakaoTalk for VN/TH",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "30.8%",
+   "29.8%",
+   "9.2%",
+   "8.6%",
+   "2.9%",
+   "18.7%",
+   "2.01M",
+   "$1.8"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "medical-tourism-korea-marketing#2",
+  "file": "articles/medical-tourism-korea-marketing.html",
+  "idx": 2,
+  "lang": "en",
+  "title": "",
+  "caption": "Three-tier pricing keeps decision simple — most international patients pick the middle tier",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "$5,000",
+   "$8,000",
+   "$10,000",
+   "$18,000",
+   "$20,000",
+   "$25,000"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "medical-tourism-korea-marketing#3",
+  "file": "articles/medical-tourism-korea-marketing.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "",
+  "caption": "Compressed 90-day plan — pre-screening fixed cost is the binding constraint",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "14 K"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-coupang-ecommerce-playbook#0",
+  "file": "articles/naver-coupang-ecommerce-playbook.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "",
+  "caption": "Source: Statista, Coupang Q4'24 disclosure, KOSTAT 2025",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "38%",
+   "26%",
+   "36%",
+   "99%",
+   "14M",
+   "1.7M",
+   "28M"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-coupang-ecommerce-playbook#1",
+  "file": "articles/naver-coupang-ecommerce-playbook.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "",
+  "caption": "Most US brands start in Marketplace, then graduate top SKUs to Vendor",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "13%",
+   "30%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-coupang-ecommerce-playbook#2",
+  "file": "articles/naver-coupang-ecommerce-playbook.html",
+  "idx": 2,
+  "lang": "en",
+  "title": "",
+  "caption": "Median rates from 200+ Korean campaigns we run on behalf of cross-border brands",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "₩300",
+   "₩750",
+   "₩1,500",
+   "₩200",
+   "₩600",
+   "₩1,200",
+   "200%",
+   "350%",
+   "600%",
+   "30%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-coupang-ecommerce-playbook#3",
+  "file": "articles/naver-coupang-ecommerce-playbook.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "",
+  "caption": "Linear compliance chain — every step must clear before scaling ad spend",
+  "src": "none",
+  "weightish": false,
+  "nums": [
+   "10%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-vs-google-korea-search#0",
+  "file": "articles/naver-vs-google-korea-search.html",
+  "idx": 0,
+  "lang": "en",
+  "title": "Korean search engine market share 2026",
+  "caption": "Naver leads at 55% but lost ~6 points to Google + AI search since 2022",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "55%",
+   "32%",
+   "5%",
+   "4%",
+   "4%",
+   "55%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-vs-google-korea-search#1",
+  "file": "articles/naver-vs-google-korea-search.html",
+  "idx": 1,
+  "lang": "en",
+  "title": "Google's share by query type in Korea",
+  "caption": "Google dominates technical, English, and video — Naver dominates Korean commerce and local",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "50%",
+   "95%",
+   "88%",
+   "98%",
+   "78%",
+   "2B",
+   "70%",
+   "18%",
+   "22%",
+   "2.4M"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-vs-google-korea-search#2",
+  "file": "articles/naver-vs-google-korea-search.html",
+  "idx": 2,
+  "lang": "en",
+  "title": "Naver vs Google ranking signal weights",
+  "caption": "The two engines reward fundamentally different things — one strategy will not cover both",
+  "src": "internal",
+  "weightish": true,
+  "nums": [
+   "5. K",
+   "6. B"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "naver-vs-google-korea-search#3",
+  "file": "articles/naver-vs-google-korea-search.html",
+  "idx": 3,
+  "lang": "en",
+  "title": "AI search adoption in Korea by demographic",
+  "caption": "AI search has grown 4–5× in Korea in 18 months — Gen Z leads adoption",
+  "src": "internal",
+  "weightish": false,
+  "nums": [
+   "42%",
+   "9%",
+   "31%",
+   "6%",
+   "15%",
+   "3%",
+   "5%",
+   "1%",
+   "5×"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "new-sns-platforms-2026#0",
+  "file": "articles/new-sns-platforms-2026.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "SNS 3채널 예산 배분과 펀넬 역할",
+  "caption": "10~20대 타깃은 인스타·틱톡 50:50, 30대+는 80:15:5 디폴트가 안정적",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "80%",
+   "15%",
+   "5%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "performance-measurement-ga4#0",
+  "file": "articles/performance-measurement-ga4.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "광고 채널별 측정 정확도와 GA4 매핑 손실",
+  "caption": "서버사이드 GTM과 CAPI 둘 다 적용해야 광고비 ROAS 왜곡을 막을 수 있음",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "96%",
+   "82%",
+   "75%",
+   "62%",
+   "52%",
+   "25%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "place-top-ranking-2026#0",
+  "file": "articles/place-top-ranking-2026.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "네이버 플레이스 3대 기둥 가중치",
+  "caption": "한 기둥에만 올인하면 노출이 막힘 — 세 기둥 균형이 핵심",
+  "src": "public",
+  "weightish": true,
+  "nums": [
+   "35%",
+   "35%",
+   "30%"
+  ],
+  "status": "converted",
+  "note": "가중치(35/35/30%) → 네이버 안내 순서 요소 4개(숫자 없음) 그림",
+  "date": "2026-11-11"
+ },
+ {
+  "id": "place-top-ranking-2026#1",
+  "file": "articles/place-top-ranking-2026.html",
+  "idx": 1,
+  "lang": "ko",
+  "title": "플레이스 외부 연계 채널 가중치",
+  "caption": "블로그+지도 위젯이 가장 강력 — 인스타·유튜브는 보조 채널",
+  "src": "internal",
+  "weightish": true,
+  "nums": [
+   "1.0×",
+   "0.85×",
+   "0.65×",
+   "0.42×",
+   "0.35×"
+  ],
+  "status": "removed",
+  "note": "채널 가중치 배수(자사 47개 매장) — 확인 불가, 차트 삭제·본문 수치 제거",
+  "date": "2026-11-11"
+ },
+ {
+  "id": "professional-marketing-2026#0",
+  "file": "articles/professional-marketing-2026.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "전문직 키워드 3단계 펀넬",
+  "caption": "결정 키워드 1건이 정보성 30~50건 가치 — 단 정보성 글이 신뢰를 쌓아야 결정 키워드 진입",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "0.4%",
+   "2.8%",
+   "12.6%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "restaurant-viral-marketing#0",
+  "file": "articles/restaurant-viral-marketing.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "요식업 3중 채널 펀넬 역할",
+  "caption": "플레이스가 절반 이상이지만 단독 운영은 한계 — 4채널 결합이 ROI 최대",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "52%",
+   "22%",
+   "17%",
+   "9%",
+   "50%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "review-experience-team-guide#0",
+  "file": "articles/review-experience-team-guide.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "체험단 40건 → 3개월 ROI 추이",
+  "caption": "3개월차에 ROAS가 가장 높음 — 체험단은 단발 효과보다 누적 효과가 큰 채널",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "42%",
+   "9.2×",
+   "5만",
+   "200만",
+   "1,400만"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "smartstore-top-ranking#0",
+  "file": "articles/smartstore-top-ranking.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "네이버쇼핑 랭킹 5요소 가중치",
+  "caption": "관련성·인기도가 6할 — 신규 입점일수록 이 두 항목에 집중",
+  "src": "public",
+  "weightish": true,
+  "nums": [
+   "35%",
+   "28%",
+   "18%",
+   "12%",
+   "7%",
+   "63%"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "sns-platform-marketing#0",
+  "file": "articles/sns-platform-marketing.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "동일 예산 SNS 플랫폼 전환 기여도",
+  "caption": "뷰티·F&B는 릴스 우위, 게임·앱은 틱톡 효율 — 업종별 분리 검증 필요",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "500만",
+   "45%",
+   "38%",
+   "17%",
+   "₩42",
+   "₩58",
+   "₩28"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "viral-success-cases-2026#0",
+  "file": "articles/viral-success-cases-2026.html",
+  "idx": 0,
+  "lang": "ko",
+  "title": "5개 업종 ROI 비교",
+  "caption": "스마트스토어가 ROI 1위 — 단가가 낮고 회전이 빨라 마케팅비 흡수력이 큽니다",
+  "src": "public",
+  "weightish": false,
+  "nums": [
+   "8.4×",
+   "6.1×",
+   "5.2×",
+   "4.6×",
+   "12.1×"
+  ],
+  "status": "todo"
+ },
+ {
+  "id": "viral-success-cases-2026#1",
+  "file": "articles/viral-success-cases-2026.html",
+  "idx": 1,
+  "lang": "ko",
+  "title": "바이럴 성공 4공식 매트릭스",
+  "caption": "4공식 모두 적용한 캠페인의 성공률 73% — 1~2개만 적용한 캠페인의 28% 대비 2.6배",
+  "src": "none",
+  "weightish": true,
+  "nums": [
+   "70%",
+   "100%",
+   "73%",
+   "28%",
+   "2.6배"
+  ],
+  "status": "todo"
+ }
+]
