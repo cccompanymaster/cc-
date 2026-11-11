@@ -1,0 +1,78 @@
+# 운영 사이트 SEO 측정 — 크롤러의 눈(자바스크립트 없이 받은 HTML) + Lighthouse 모바일 + AI 크롤러 응답
+#
+# 언제 도나: 매주 월요일 오전 9시(KST) · Actions 탭 → "SEO 측정" → Run workflow · 이 파일이나 스크립트를 고칠 때
+# 결과 보기: 실행 기록을 열면 Summary 에 표로 나옵니다. 원본 JSON 은 Artifacts(90일 보관).
+# 스크립트: .claude/seo/seo_measure.py (노아홈페이지 tools/seo_measure.py 와 같은 파일 — 사이트는 아래 env 로 지정)
+# 봐야 할 것: robots.txt 앞 Cloudflare 관리형 차단 목록, AI 크롤러 403, noindex, 구조화 데이터, 느린 페이지
+# Lighthouse 는 GA4·Clarity·광고 픽셀 요청을 막고 돌립니다 — 방문 통계·광고 전환이 측정 트래픽으로 오염되지 않게.
+name: SEO 측정
+
+on:
+  schedule:
+    - cron: '7 0 * * 1'   # 월 09:07 KST
+  workflow_dispatch:
+  push:
+    branches: [claude/fix-url-redirect-42f6N]
+    paths: ['.claude/seo/seo_measure.py', '.github/workflows/seo-measure.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-measure
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SITE: https://noahgroup.co.kr
+      SEO_HOST: noahgroup.co.kr
+      SEO_NAME: 노아그룹
+      SEO_INDEXNOW_KEY: 'db4892bcddb73d10b7e088975806de3b'
+      SEO_RSS: /feed.xml
+      SEO_REDIRECTS: /index.html
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Lighthouse (모바일)
+        continue-on-error: true
+        run: |
+          mkdir -p measure/lh
+          npm i -g lighthouse@13.4.1 >/dev/null 2>&1
+          for path in / /contact.html /shop.html /work.html; do
+            slug=$(echo "$path" | sed 's#^/##; s#/#_#g; s#\.html##'); slug=${slug:-home}
+            for n in 1 2 3; do   # 실행마다 수치가 흔들려 3번 돌려 중앙값을 씁니다
+            lighthouse "$SITE$path" --quiet --locale=ko \
+              --output=json --output-path="measure/lh/$slug-$n.json" \
+              --only-categories=performance,seo,accessibility,best-practices \
+              --chrome-flags="--headless=new --no-sandbox --disable-gpu" \
+              --blocked-url-patterns='*googletagmanager.com*' \
+              --blocked-url-patterns='*google-analytics.com*' \
+              --blocked-url-patterns='*analytics.google.com*' \
+              --blocked-url-patterns='*clarity.ms*' \
+              --blocked-url-patterns='*wcs.naver.net*' \
+              --blocked-url-patterns='*connect.facebook.net*' \
+              --blocked-url-patterns='*daumcdn.net*' \
+              --blocked-url-patterns='*daangn.com*' \
+              || echo "::warning::Lighthouse 실패: $path ($n회차)"
+            done
+          done
+
+      - name: 측정 태그 ID ↔ CSP·개인정보처리방침 일치 확인
+        run: python3 .claude/build/tags/sync_tags.py --check
+
+      - name: 크롤러 점검 + 요약
+        run: python3 .claude/seo/seo_measure.py --lighthouse measure/lh --json measure/result.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seo-measure-${{ github.run_number }}
+          path: measure/
+          retention-days: 90
