@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>학원 검색의 출발점은 학년과 과목입니다. 학부모는 지역명에 중등 수학이나 고1 영어를 붙여 검색하고, 들어온 화면에서 우리 아이가 들어갈 반이 있는지를 먼저 확인합니다. 반 편성표가 없으면 전화로 물어야 하는데, 상담 전화는 이미 결심이 선 학부모만 겁니다. 반 편성표 하나가 그 전화 앞의 문턱을 없앱니다.</p>
 <h2>학부모는 무엇을 먼저 보나요?</h2>
 <p>표의 순서를 뒤집는 홈페이지가 많습니다. 원장 인사말과 학원 연혁이 첫 화면을 차지하면 학부모는 3단계 정보를 찾으러 스크롤을 세 번 더 해야 하고, 모바일에서 그 세 번이 이탈 지점이 됩니다. 인사말은 5단계 뒤에 놓아도 늦지 않습니다. 순서를 6단계에 맞추면 상담 폼까지 걸리는 스크롤이 절반으로 줄어듭니다.</p>
-<div class="tbl"><table><caption>학부모 확인 순서와 홈페이지 배치</caption><thead><tr><th>확인 순서</th><th>학부모의 질문</th><th>배치 위치</th></tr></thead><tbody><tr><td>1단계</td><td>우리 아이 학년 반이 있는가</td><td>첫 화면</td></tr><tr><td>2단계</td><td>무엇을 어떤 순서로 배우는가</td><td>커리큘럼 페이지</td></tr><tr><td>3단계</td><td>누가 가르치는가</td><td>강사 소개</td></tr><tr><td>4단계</td><td>성적이 어떻게 관리되는가</td><td>관리 시스템 페이지</td></tr><tr><td>5단계</td><td>비용과 시간이 맞는가</td><td>시간표·교습비 안내</td></tr><tr><td>6단계</td><td>어떻게 상담하는가</td><td>상담 신청 폼</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>학부모 확인 순서와 홈페이지 배치</caption><thead><tr><th scope="col">확인 순서</th><th scope="col">학부모의 질문</th><th scope="col">배치 위치</th></tr></thead><tbody><tr><td>1단계</td><td>우리 아이 학년 반이 있는가</td><td>첫 화면</td></tr><tr><td>2단계</td><td>무엇을 어떤 순서로 배우는가</td><td>커리큘럼 페이지</td></tr><tr><td>3단계</td><td>누가 가르치는가</td><td>강사 소개</td></tr><tr><td>4단계</td><td>성적이 어떻게 관리되는가</td><td>관리 시스템 페이지</td></tr><tr><td>5단계</td><td>비용과 시간이 맞는가</td><td>시간표·교습비 안내</td></tr><tr><td>6단계</td><td>어떻게 상담하는가</td><td>상담 신청 폼</td></tr></tbody></table></div>
 <h2>상담 신청은 어떻게 설계하나요?</h2>
 <p>상담 신청이 적은 학원의 공통점은 폼이 하나뿐이고 위치가 맨 아래라는 점입니다. 학부모는 커리큘럼을 읽다가 결심하는데, 그 지점에 버튼이 없으면 결심이 스크롤에 흩어집니다. 문의폼과 자동메일 연동은 ₩50,000, 카카오 채널 연동은 ₩20,000 옵션으로 붙일 수 있습니다.</p>
 <ol class="steps"><li>상담 신청 폼을 학년·과목·연락처 3개 항목으로 줄입니다.</li><li>상담 가능 시간대를 요일별로 표기합니다.</li><li>레벨 테스트 절차와 소요 시간을 폼 옆에 적습니다.</li><li>커리큘럼 페이지 하단마다 상담 버튼을 한 번 더 넣습니다.</li><li>카카오톡 상담 버튼을 모바일 하단에 고정합니다.</li><li>신청 후 자동 회신으로 다음 절차와 준비물을 안내합니다.</li></ol>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -105,7 +107,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <h2>월 환산하면 홈페이지 원가는 얼마인가요?</h2>
 <p>제작비를 사용 기간으로 나누면 판단이 쉬워집니다. ₩199,000짜리를 3년 쓰면 월 ₩5,528, 하루 ₩182입니다. 도메인 연 ₩15,000~를 더해도 월 ₩7,000 안쪽입니다. 반면 같은 역할을 광고로만 채우면 클릭 몇 번에 같은 돈이 사라집니다.</p>
 <p>홈페이지는 꺼지지 않는 채널이라는 점이 광고와 다릅니다. 광고는 중단하면 유입이 0이 되지만, 홈페이지는 검색이 있는 한 계속 노출됩니다.</p>
-<div class="tbl"><table><caption>월매출 규모별 홈페이지 예산 가이드</caption><thead><tr><th>월매출</th><th>권장 첫 예산</th><th>권장 구성</th></tr></thead><tbody><tr><td>~₩500만</td><td>₩199,000~₩50만</td><td>소개형 + 문의·카카오 연결</td></tr><tr><td>₩500만~₩2,000만</td><td>₩50만~₩150만</td><td>소개형 + 페이지 확장·예약 폼</td></tr><tr><td>₩2,000만~</td><td>₩150만~</td><td>기능형 검토 (예약·결제·회원)</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>월매출 규모별 홈페이지 예산 가이드</caption><thead><tr><th scope="col">월매출</th><th scope="col" class="num">권장 첫 예산</th><th scope="col">권장 구성</th></tr></thead><tbody><tr><td>~₩500만</td><td class="num">₩199,000~₩50만</td><td>소개형 + 문의·카카오 연결</td></tr><tr><td>₩500만~₩2,000만</td><td class="num">₩50만~₩150만</td><td>소개형 + 페이지 확장·예약 폼</td></tr><tr><td>₩2,000만~</td><td class="num">₩150만~</td><td>기능형 검토 (예약·결제·회원)</td></tr></tbody></table></div>
 <h2>싸게 시작하면 나중에 후회하지 않나요?</h2>
 <p>후회는 가격이 아니라 두 가지에서 옵니다. 첫째, 확장 불가능한 구조 — 페이지 추가·기능 연결이 막히는 경우입니다. 계약 전에 확장 가능 여부를 문서로 확인하면 피할 수 있습니다.</p>
 <p>둘째, 소유권 미확보 — 도메인이 업체 명의면 업체를 바꿀 때 주소째 잃습니다. 시작 가격이 얼마든 도메인은 사장님 명의로 직접 구매하는 것이 원칙입니다.</p>

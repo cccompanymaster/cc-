@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>확장자는 주소의 국적 표시에 가깝습니다. .co.kr과 .kr은 KISA가 관리하는 국가 도메인이라 국내 사업자라는 신호를 주고, .com은 국제 범용이라 국경 없는 인상을 줍니다. 국내 손님이 매출의 대부분인 매장·병원·사무소가 .com을 고집할 이유도, 수출 기업이 .co.kr만 쓸 이유도 없습니다. 고객이 주소를 읽는 방식이 판단 기준입니다.</p>
 <h2>기준별로 무엇을 사야 하나요?</h2>
 <p>표의 갱신비는 등록대행업체별 시장 범위입니다. 첫해 ₩500~₩10,000짜리 할인가로 유인하고 갱신비를 높게 받는 구조가 흔하므로, 비교는 반드시 갱신 가격 기준으로 합니다. 방어용 도메인은 사 두기만 하고 주력 주소로 연결(포워딩)해 두면 관리 부담이 늘지 않습니다.</p>
-<div class="tbl"><table><caption>확장자 선택 의사결정표와 연 갱신비</caption><thead><tr><th>기준</th><th>권장 확장자</th><th>연 갱신비(시장 범위)</th><th>이유</th></tr></thead><tbody><tr><td>국내 고객 중심</td><td>.co.kr 또는 .kr</td><td>연 ₩15,000~₩22,000</td><td>국내 신뢰·국가 도메인 지역 신호</td></tr><tr><td>해외 고객 포함</td><td>.com</td><td>연 ₩13,000~₩25,000</td><td>국제 범용·해외 결제처 인지도</td></tr><tr><td>브랜드 보호</td><td>주력 1개+방어 1개</td><td>합계 연 ₩30,000~₩50,000</td><td>유사 주소 선점·사칭 방지</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>확장자 선택 의사결정표와 연 갱신비</caption><thead><tr><th scope="col">기준</th><th scope="col">권장 확장자</th><th scope="col">연 갱신비(시장 범위)</th><th scope="col">이유</th></tr></thead><tbody><tr><td>국내 고객 중심</td><td>.co.kr 또는 .kr</td><td>연 ₩15,000~₩22,000</td><td>국내 신뢰·국가 도메인 지역 신호</td></tr><tr><td>해외 고객 포함</td><td>.com</td><td>연 ₩13,000~₩25,000</td><td>국제 범용·해외 결제처 인지도</td></tr><tr><td>브랜드 보호</td><td>주력 1개+방어 1개</td><td>합계 연 ₩30,000~₩50,000</td><td>유사 주소 선점·사칭 방지</td></tr></tbody></table></div>
 <h2>확장자가 검색 순위에 영향을 주나요?</h2>
 <p>구글 공식 문서 기준으로 .com·.net 같은 일반 확장자 사이에 순위 우열은 없습니다. 다만 .kr·.co.kr 같은 국가 도메인은 해당 국가 사용자 대상 검색에서 지역 연관성 신호로 쓰입니다. 국내 고객 대상 사업이라면 국가 도메인이 불리할 이유가 없다는 뜻입니다.</p>
 <p>순위보다 실질적인 영향은 클릭입니다. 검색 결과에서 주소가 노출될 때 낯선 확장자보다 .co.kr·.com처럼 익숙한 확장자가 의심을 덜 삽니다. 특히 최근 급증한 사칭 사이트 탓에 낯선 확장자를 경계하는 사용자가 늘었으므로, 익숙함 자체가 전환 장치입니다. 낯선 주소로 잃은 클릭은 광고비로 되사야 하는 방문입니다.</p>

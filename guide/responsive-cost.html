@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -105,7 +107,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <h2>모바일 대응이 안 되면 무엇을 잃나요?</h2>
 <p>첫째, 방문자입니다. 검색 유입의 다수가 모바일이며, 화면이 깨지는 사이트의 이탈은 수 초 안에 일어납니다. 둘째, 검색 순위입니다. 구글은 모바일 페이지를 기준으로 색인하는 모바일 퍼스트 인덱싱을 적용하고 있어, 모바일 미대응은 노출 자체에 불리합니다.</p>
 <p>셋째, 광고 효율입니다. 광고 클릭의 다수가 모바일에서 일어나는데 착지 페이지가 PC 전용이면, 광고비가 이탈로 새어 나갑니다.</p>
-<div class="tbl"><table><caption>모바일 대응 방식 비교</caption><thead><tr><th>방식</th><th>구조</th><th>비용 특성</th><th>권장 여부</th></tr></thead><tbody><tr><td>반응형(표준)</td><td>한 페이지가 화면에 맞춰 변형</td><td>기본 포함이 표준</td><td>권장</td></tr><tr><td>모바일 별도 제작</td><td>PC용·모바일용 2벌</td><td>30~50% 할증 관행</td><td>비권장(관리 이중화)</td></tr><tr><td>PC 전용</td><td>모바일 미대응</td><td>싸 보이나 손실 최대</td><td>비권장</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>모바일 대응 방식 비교</caption><thead><tr><th scope="col">방식</th><th scope="col">구조</th><th scope="col">비용 특성</th><th scope="col">권장 여부</th></tr></thead><tbody><tr><td>반응형(표준)</td><td>한 페이지가 화면에 맞춰 변형</td><td>기본 포함이 표준</td><td>권장</td></tr><tr><td>모바일 별도 제작</td><td>PC용·모바일용 2벌</td><td>30~50% 할증 관행</td><td>비권장(관리 이중화)</td></tr><tr><td>PC 전용</td><td>모바일 미대응</td><td>싸 보이나 손실 최대</td><td>비권장</td></tr></tbody></table></div>
 <h2>계약 전에 무엇을 확인해야 하나요?</h2>
 <p>포트폴리오 이미지가 아니라 라이브 URL을 휴대폰으로 여는 것이 핵심입니다. 반응형 품질은 캡처로는 확인되지 않습니다.</p>
 <ol class="steps"><li>견적서에 &#x27;모바일·태블릿 반응형 포함&#x27; 문구가 있는지 확인한다</li><li>업체의 기존 작업물을 휴대폰으로 직접 열어본다</li><li>가로 스크롤·글자 크기·버튼 터치를 확인한다</li><li>시안 검수 단계에 모바일 화면 검수를 포함시킨다</li><li>오픈 전 점검 목록에 모바일 실기기 확인을 넣는다</li></ol>

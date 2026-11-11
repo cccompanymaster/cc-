@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -86,6 +88,7 @@ ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:2
 .src a{color:var(--gold-soft);text-decoration:underline}
 footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
 footer a{color:var(--gold-soft);text-decoration:underline}</style>
+<link rel="stylesheet" href="../css/viz.css">
 </head>
 <body>
 <div class="topbar">
@@ -104,7 +107,8 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>숙박 홈페이지의 목적은 플랫폼을 대체하는 것이 아니라 재방문 손님을 자사 채널로 옮기는 것입니다. 처음 방문은 플랫폼에서 발생해도, 두 번째 예약부터 홈페이지로 들어오면 같은 매출에서 수수료가 빠집니다. 체크인 안내문과 객실 안내판에 홈페이지 주소를 함께 넣는 이유입니다.</p>
 <h2>플랫폼 수수료는 얼마나 나가나요?</h2>
 <p>표의 자사 예약 원가는 홈페이지 제작 ₩199,000(부가세 별도)과 도메인 연 ₩15,000을 더한 금액입니다. 전체 예약의 10퍼센트만 자사 채널로 옮겨도 연 예약 ₩100,000,000 기준 ₩1,000,000이 남습니다. 다만 예약금 결제를 붙이려면 결제 수단 계약이 별도로 필요합니다.</p>
-<div class="tbl"><table><caption>연 예약 매출별 수수료와 자사 예약 원가 비교</caption><thead><tr><th>연 예약 매출</th><th>수수료 10퍼센트 가정</th><th>자사 예약 연 원가</th></tr></thead><tbody><tr><td>₩50,000,000</td><td>₩5,000,000</td><td>₩214,000(제작+도메인)</td></tr><tr><td>₩100,000,000</td><td>₩10,000,000</td><td>₩214,000(제작+도메인)</td></tr><tr><td>₩200,000,000</td><td>₩20,000,000</td><td>₩364,000(유지보수 연 ₩150,000 포함)</td></tr></tbody></table></div>
+<figure class="viz" aria-labelledby="viz-pension"><figcaption><strong class="viz-title" id="viz-pension">수수료는 자사 예약 원가의 약 23~55배</strong><span class="viz-sub">연 예약 매출 구간별 연간 금액 · 자사 예약 원가는 제작+도메인(₩2억 구간은 유지보수 연 ₩15만 포함)</span></figcaption><ul class="viz-legend"><li><i style="--c:var(--s1)"></i>예약 플랫폼 수수료 (10% 가정)</li><li><i style="--c:var(--s2)"></i>자사 예약 연 원가</li></ul><div class="viz-panels"><div class="viz-rows"><div class="viz-cat">연 매출 ₩5,000만</div><div class="viz-track pair" style="--t:4" role="img" tabindex="0" aria-label="연 매출 ₩5,000만: 수수료 ₩500만, 자사 예약 원가 ₩21.4만" data-tip-l="연 매출 ₩5,000만" data-tip-v="s1:수수료 ₩500만|s2:자사 예약 ₩21.4만"><span class="viz-bar" style="--w:25%"></span><span class="viz-val" style="--w:25%">₩500만</span><span class="viz-bar s2" style="--w:1.07%"></span><span class="viz-val" style="--w:1.07%">₩21.4만</span></div><div class="viz-cat">연 매출 ₩1억</div><div class="viz-track pair" style="--t:4" role="img" tabindex="0" aria-label="연 매출 ₩1억: 수수료 ₩1,000만, 자사 예약 원가 ₩21.4만" data-tip-l="연 매출 ₩1억" data-tip-v="s1:수수료 ₩1,000만|s2:자사 예약 ₩21.4만"><span class="viz-bar" style="--w:50%"></span><span class="viz-val" style="--w:50%">₩1,000만</span><span class="viz-bar s2" style="--w:1.07%"></span><span class="viz-val" style="--w:1.07%">₩21.4만</span></div><div class="viz-cat">연 매출 ₩2억</div><div class="viz-track pair" style="--t:4" role="img" tabindex="0" aria-label="연 매출 ₩2억: 수수료 ₩2,000만, 자사 예약 원가 ₩36.4만" data-tip-l="연 매출 ₩2억" data-tip-v="s1:수수료 ₩2,000만|s2:자사 예약 ₩36.4만"><span class="viz-bar" style="--w:100%"></span><span class="viz-val" style="--w:100%">₩2,000만</span><span class="viz-bar s2" style="--w:1.82%"></span><span class="viz-val" style="--w:1.82%">₩36.4만</span></div><div></div><div class="viz-axis" aria-hidden="true"><span style="left:0">0</span><span style="left:25%">₩500만</span><span style="left:50%">₩1,000만</span><span style="left:75%">₩1,500만</span><span style="left:100%">₩2,000만</span></div></div></div><p class="viz-note">같은 수치는 아래 표에 원 단위로 있습니다.</p></figure>
+<div class="tbl"><table><caption>연 예약 매출별 수수료와 자사 예약 원가 비교</caption><thead><tr><th scope="col">연 예약 매출</th><th scope="col" class="num">수수료 10퍼센트 가정</th><th scope="col">자사 예약 연 원가</th></tr></thead><tbody><tr><td>₩50,000,000</td><td class="num">₩5,000,000</td><td>₩214,000(제작+도메인)</td></tr><tr><td>₩100,000,000</td><td class="num">₩10,000,000</td><td>₩214,000(제작+도메인)</td></tr><tr><td>₩200,000,000</td><td class="num">₩20,000,000</td><td>₩364,000(유지보수 연 ₩150,000 포함)</td></tr></tbody></table></div>
 <h2>자사 예약은 어떻게 늘리나요?</h2>
 <p>일곱 항목 중 효과가 가장 빠른 것은 네 번째입니다. 자사 예약 전용 혜택은 금액 할인일 필요가 없고, 늦은 체크아웃 1시간이나 바비큐 그릴 무료처럼 원가가 낮은 조건이면 충분합니다. 예약 캘린더는 ₩50,000, 카카오 채널 연동은 ₩20,000 옵션으로 추가합니다.</p>
 <ol class="steps"><li>객실별 페이지에 평수·최대 인원·침구 수·전망을 표기합니다.</li><li>비수기·준성수기·성수기 요금을 요일별 표로 공개합니다.</li><li>예약 가능 일정을 달력으로 보여줘 문의 전화를 줄입니다.</li><li>자사 예약 전용 혜택을 하나 정해 첫 화면에 고정합니다.</li><li>체크인 안내문과 객실 안내판에 홈페이지 주소를 넣습니다.</li><li>퇴실 후 재방문 안내 메시지에 홈페이지 링크를 넣습니다.</li><li>카카오 채널을 연결해 문의를 메시지로 받습니다.</li></ol>
@@ -130,5 +134,6 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <script>(function(){if(!matchMedia('(max-width:768px)').matches)return;
 document.querySelectorAll('a.js-blog[data-mo]').forEach(function(a){a.href=a.getAttribute('data-mo');});})();</script>
 <script src="../js/track.js" defer></script>
+<script src="../js/viz.js" defer></script>
 </body>
 </html>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>두 방법의 차이는 관리 위치입니다. 네임서버 변경은 DNS 관리 권한 전체를 호스팅사 쪽으로 넘기는 방식이라 이후 설정을 호스팅사 화면에서 하게 되고, 레코드 직접 입력은 도메인 등록기관 화면에서 계속 관리하는 방식입니다. 홈페이지 하나만 연결한다면 어느 쪽이든 결과는 같으므로, 호스팅 업체 안내문이 권하는 방식을 따르는 것이 시행착오가 적습니다.</p>
 <h2>A레코드와 CNAME은 무엇을 입력하나요?</h2>
 <p>실무에서 쓰는 조합은 대부분 두 줄입니다. 호스트 @에 서버 IP를 넣는 A레코드 하나, 호스트 www를 본 주소로 보내는 CNAME 하나입니다. 이렇게 하면 www를 붙여도 안 붙여도 같은 홈페이지가 열립니다. 회사 이메일을 쓰고 있다면 MX 레코드는 건드리지 않아야 메일 수신이 끊기지 않습니다.</p>
-<div class="tbl"><table><caption>주요 DNS 레코드와 입력값</caption><thead><tr><th>레코드</th><th>역할</th><th>입력 예시</th></tr></thead><tbody><tr><td>A</td><td>도메인을 서버 IP 주소에 연결</td><td>호스트 @ → 123.45.67.89 형식의 IP</td></tr><tr><td>CNAME</td><td>별칭 주소를 다른 주소에 연결</td><td>호스트 www → 호스팅사가 준 주소</td></tr><tr><td>NS</td><td>도메인이 사용할 네임서버 지정</td><td>ns1.호스팅사.com 형식 2~4개</td></tr><tr><td>TXT</td><td>소유 확인용 텍스트 등록</td><td>서치콘솔 등 도구가 제공하는 값</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>주요 DNS 레코드와 입력값</caption><thead><tr><th scope="col">레코드</th><th scope="col">역할</th><th scope="col">입력 예시</th></tr></thead><tbody><tr><td>A</td><td>도메인을 서버 IP 주소에 연결</td><td>호스트 @ → 123.45.67.89 형식의 IP</td></tr><tr><td>CNAME</td><td>별칭 주소를 다른 주소에 연결</td><td>호스트 www → 호스팅사가 준 주소</td></tr><tr><td>NS</td><td>도메인이 사용할 네임서버 지정</td><td>ns1.호스팅사.com 형식 2~4개</td></tr><tr><td>TXT</td><td>소유 확인용 텍스트 등록</td><td>서치콘솔 등 도구가 제공하는 값</td></tr></tbody></table></div>
 <h2>연결 절차는 어떻게 진행하나요?</h2>
 <p>작업 자체는 관리 화면에서 10분이면 끝나고, 나머지는 기다리는 시간입니다. 이때 반영이 안 된다고 값을 반복해서 바꾸면 어느 설정이 유효한지 확인할 수 없게 됩니다. 저장 후에는 최소 반나절 단위로 확인하는 것이 원칙입니다. 반영 확인까지 포함해도 실제 작업은 하루를 넘지 않습니다.</p>
 <ol class="steps"><li>호스팅 업체 안내에서 서버 IP 또는 연결용 주소, 네임서버 값을 확인합니다</li><li>도메인 등록기관 관리 페이지에 로그인합니다</li><li>네임서버 변경 방식이면 네임서버 2~4개를 호스팅사 값으로 교체합니다</li><li>레코드 방식이면 DNS 관리에서 호스트 @에 A레코드로 서버 IP를 입력합니다</li><li>호스트 www에 CNAME을 추가해 본 주소로 연결합니다</li><li>기존 MX(메일) 레코드가 있다면 그대로 유지되는지 확인합니다</li><li>저장 후 반영을 기다렸다가 www 유무 양쪽 주소로 접속을 확인합니다</li></ol>

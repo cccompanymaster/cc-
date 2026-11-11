@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -105,7 +107,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <h2>섹션 순서는 무엇을 기준으로 정하나요?</h2>
 <p>방문자의 머릿속 질문 순서를 따릅니다. 첫 화면은 &#x27;여기가 뭐 하는 곳인가&#x27;에 답하고, 이어서 &#x27;나 같은 사람에게 맞는가&#x27;(대상·문제 공감), &#x27;믿어도 되는가&#x27;(실적·후기·자격), 마지막으로 &#x27;그래서 뭘 하면 되는가&#x27;(문의·예약 버튼)로 닫습니다.</p>
 <p>이 순서를 흔히 거꾸로 짭니다 — 회사 연혁이 먼저 나오고 연락처가 숨어 있는 구조. 읽는 사람의 순서로 뒤집는 것이 기획의 절반입니다.</p>
-<div class="tbl"><table><caption>1페이지 기획서 템플릿 (복사해 채우기)</caption><thead><tr><th>항목</th><th>작성 예시</th></tr></thead><tbody><tr><td>목적(행동 1개)</td><td>상담 신청 버튼 클릭</td></tr><tr><td>타깃</td><td>개원 3년 차 이내 원장님</td></tr><tr><td>핵심 메시지</td><td>진료에 집중하시도록, 나머지는 저희가</td></tr><tr><td>메뉴(5~7개)</td><td>홈·서비스·사례·비용·문의</td></tr><tr><td>첫 화면 섹션</td><td>메시지+신뢰 지표+상담 버튼</td></tr><tr><td>본문 섹션 순서</td><td>문제 공감→해결 방식→사례→비용→FAQ→문의</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>1페이지 기획서 템플릿 (복사해 채우기)</caption><thead><tr><th scope="col">항목</th><th scope="col">작성 예시</th></tr></thead><tbody><tr><td>목적(행동 1개)</td><td>상담 신청 버튼 클릭</td></tr><tr><td>타깃</td><td>개원 3년 차 이내 원장님</td></tr><tr><td>핵심 메시지</td><td>진료에 집중하시도록, 나머지는 저희가</td></tr><tr><td>메뉴(5~7개)</td><td>홈·서비스·사례·비용·문의</td></tr><tr><td>첫 화면 섹션</td><td>메시지+신뢰 지표+상담 버튼</td></tr><tr><td>본문 섹션 순서</td><td>문제 공감→해결 방식→사례→비용→FAQ→문의</td></tr></tbody></table></div>
 <h2>와이어프레임까지 그려야 하나요?</h2>
 <p>발주자는 그리지 않아도 됩니다. 박스 배치는 제작 쪽의 언어이고, 발주자의 언어는 순서와 우선순위입니다. &#x27;첫 화면에서 가장 먼저 보여야 할 것은 상담 버튼&#x27;이라는 문장이 어설픈 그림 열 장보다 정확합니다.</p>
 <p>대신 참고 사이트 2곳에 &#x27;이 부분이 좋았다&#x27;는 메모를 붙이면, 와이어프레임의 역할을 충분히 대신합니다.</p>

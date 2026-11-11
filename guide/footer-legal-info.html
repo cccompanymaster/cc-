@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>표기의 목적은 규제 대응만이 아닙니다. 처음 방문한 사람은 이 회사가 실재하는지부터 의심하는데, 푸터의 사업자 정보가 그 의심을 지우는 가장 싼 장치입니다. 견적 문의를 받는 사이트에서 사업자등록번호 하나 없는 푸터는, 문의 직전의 방문자를 돌려세우는 원인이 됩니다. 항목 7가지를 채우는 데 드는 시간은 10분입니다.</p>
 <h2>사이트 유형별 의무는 어떻게 다른가요?</h2>
 <p>경계선에 있는 사이트가 문제입니다. 소개형이라도 예약금·계약금을 온라인으로 받으면 판매형으로 판단될 수 있고, 문의 폼으로 이름·연락처를 받으면 개인정보처리방침 게시 의무가 별도로 붙습니다. 내 사이트가 어느 유형인지 애매하면 더 무거운 쪽 기준으로 표기하는 것이 안전합니다. 정확한 적용은 관할 기관·전문가 확인을 권장드립니다.</p>
-<div class="tbl"><table><caption>사이트 유형별 표기 의무 (2026년 8월 기준)</caption><thead><tr><th>유형</th><th>표기 수준</th><th>비고</th></tr></thead><tbody><tr><td>온라인 판매·결제형</td><td>필수 7항목 전부</td><td>전자상거래법상 신원정보 표시 의무</td></tr><tr><td>예약·상담 신청형</td><td>판매 성격이 있으면 판매형과 동일</td><td>예약금 수취 시 판매형으로 판단될 수 있음</td></tr><tr><td>회사 소개형</td><td>상호·연락처·사업자등록번호 권장</td><td>법적 부담은 낮지만 신뢰에 직결</td></tr><tr><td>개인정보 수집형(문의 폼)</td><td>위 항목+개인정보처리방침 링크</td><td>방침 미게시는 별도 과태료 대상</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>사이트 유형별 표기 의무 (2026년 8월 기준)</caption><thead><tr><th scope="col">유형</th><th scope="col">표기 수준</th><th scope="col">비고</th></tr></thead><tbody><tr><td>온라인 판매·결제형</td><td>필수 7항목 전부</td><td>전자상거래법상 신원정보 표시 의무</td></tr><tr><td>예약·상담 신청형</td><td>판매 성격이 있으면 판매형과 동일</td><td>예약금 수취 시 판매형으로 판단될 수 있음</td></tr><tr><td>회사 소개형</td><td>상호·연락처·사업자등록번호 권장</td><td>법적 부담은 낮지만 신뢰에 직결</td></tr><tr><td>개인정보 수집형(문의 폼)</td><td>위 항목+개인정보처리방침 링크</td><td>방침 미게시는 별도 과태료 대상</td></tr></tbody></table></div>
 <h2>푸터 템플릿은 어떻게 쓰나요?</h2>
 <p>아래 한 줄 형식을 복사해 값만 바꾸면 됩니다. 상호: OO컴퍼니 | 대표: 홍길동 | 사업자등록번호: 000-00-00000 | 통신판매업신고: 제2026-서울OO-0000호 | 주소: 서울시 OO구 OO로 00 | 전화: 02-000-0000 | 이메일: contact@example.com. 여기에 개인정보처리방침·이용약관 링크 2개를 나란히 둡니다.</p>
 <p>표기 위치는 모든 페이지에 공통으로 붙는 푸터 1곳이면 충분합니다. 글자 크기를 줄이더라도 흐린 회색으로 숨기듯 처리하지는 않습니다. 스크롤 최하단에서 3초 안에 읽히는 수준이면 되고, 사업자등록번호·신고번호는 국세청 사업자등록상태 조회와 공정위 통신판매사업자 조회에서 실제로 검증되는 값이므로 오타 없이 적습니다.</p>

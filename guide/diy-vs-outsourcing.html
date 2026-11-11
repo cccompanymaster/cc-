@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>기준을 시간으로 잡는 이유는 금액만 비교하면 항상 직접 만들기가 이기기 때문입니다. 도구 학습·템플릿 선택·사진 정리·문구 작성·수정 반복까지 더하면 실제 투입은 30~50시간에 이릅니다. 이 시간에 사장님이 본업에서 만들 수 있었던 매출이 실제 비용입니다. 시간은 되돌릴 수 없습니다.</p>
 <h2>세 방식은 어떻게 다른가요?</h2>
 <p>방식은 직접 제작·빌더 활용·외주 제작 세 가지로 나뉩니다. 각각 투입 시간과 비용 구조, 통제권의 위치가 다릅니다. 아래 표는 같은 기준으로 셋을 비교한 것이며, 사장님이 확보 가능한 주간 시간에 따라 답이 달라집니다. 주간 5시간 미만이면 세 번째 열이 현실적인 선택입니다.</p>
-<div class="tbl"><table><caption>직접·빌더·외주 3열 비교</caption><thead><tr><th>기준</th><th>직접 제작</th><th>빌더 활용</th><th>외주 제작</th></tr></thead><tbody><tr><td>투입 시간</td><td>30~50시간</td><td>15~30시간</td><td>상담·자료 정리 3~5시간</td></tr><tr><td>오픈까지</td><td>4~8주</td><td>2~4주</td><td>코딩 6~12주, 제작형은 7일</td></tr><tr><td>비용 구조</td><td>시간 기회비용 중심</td><td>월 구독형·무료 플랜 존재</td><td>견적 30만~1,000만원 폭</td></tr><tr><td>수정</td><td>즉시 반영</td><td>즉시 반영</td><td>건당 20만~50만원 발생 가능</td></tr><tr><td>통제권</td><td>사장님 전부 보유</td><td>사장님 대부분 보유</td><td>계약 조건에 따라 달라짐</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>직접·빌더·외주 3열 비교</caption><thead><tr><th scope="col">기준</th><th scope="col">직접 제작</th><th scope="col">빌더 활용</th><th scope="col">외주 제작</th></tr></thead><tbody><tr><td>투입 시간</td><td>30~50시간</td><td>15~30시간</td><td>상담·자료 정리 3~5시간</td></tr><tr><td>오픈까지</td><td>4~8주</td><td>2~4주</td><td>코딩 6~12주, 제작형은 7일</td></tr><tr><td>비용 구조</td><td>시간 기회비용 중심</td><td>월 구독형·무료 플랜 존재</td><td>견적 30만~1,000만원 폭</td></tr><tr><td>수정</td><td>즉시 반영</td><td>즉시 반영</td><td>건당 20만~50만원 발생 가능</td></tr><tr><td>통제권</td><td>사장님 전부 보유</td><td>사장님 대부분 보유</td><td>계약 조건에 따라 달라짐</td></tr></tbody></table></div>
 <h2>손익분기는 어떻게 계산하나요?</h2>
 <p>계산은 세 줄이면 끝납니다. 첫째, 예상 투입 시간을 적습니다. 둘째, 사장님 시급을 적습니다. 시급은 월 순이익을 월 근무시간으로 나눈 값이면 충분합니다. 셋째, 둘을 곱해 기회비용을 구하고 제작 견적과 비교합니다. 세 줄을 적는 데 걸리는 시간은 10분이면 충분합니다.</p>
 <p>예를 들어 40시간에 시급 2만원이면 기회비용은 80만원입니다. 여기에 수정 반복으로 늘어나는 시간이 더해집니다. 반면 제작형은 상담 30분과 자료 정리 2~3시간으로 끝나므로, 확보 가능한 주간 시간이 5시간 미만인 사장님에게는 차이가 더 벌어집니다. 시간이 없으면 답은 하나입니다.</p>

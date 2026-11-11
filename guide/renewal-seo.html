@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -110,7 +112,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <ol class="steps"><li>기존 홈페이지의 전체 URL 목록을 내려받습니다 — 사이트맵·서치콘솔 색인 목록을 활용합니다.</li><li>새 홈페이지의 URL과 1대1 매핑표를 엑셀로 만듭니다.</li><li>없어지는 페이지는 내용이 가장 가까운 상위 페이지로 연결 대상을 정합니다.</li><li>오픈 당일 서버·빌더 설정에서 301 리다이렉트를 적용합니다.</li><li>새 사이트맵을 네이버 서치어드바이저·구글 서치콘솔에 제출합니다.</li><li>오픈 후 4주간 색인 오류와 404 페이지를 주 1회 확인합니다.</li></ol>
 <h2>오픈 후 무엇을 모니터링하나요?</h2>
 <p>모니터링 기간을 4주로 잡는 이유는 검색엔진이 새 구조를 다시 수집하고 평가하는 데 시간이 걸리기 때문입니다. 첫 1~2주의 순위 출렁임은 정상 범위일 수 있으므로 조급해할 필요는 없습니다. 404 오류처럼 즉시 고칠 수 있는 문제부터 잡고, 방문자 수 추세는 일 단위가 아니라 주 단위로 비교합니다.</p>
-<div class="tbl"><table><caption>리뉴얼 오픈 후 4주 모니터링 항목</caption><thead><tr><th>시점</th><th>확인 항목</th><th>도구</th></tr></thead><tbody><tr><td>오픈 당일</td><td>주요 페이지 10개의 리다이렉트 작동</td><td>브라우저에서 옛 주소 직접 접속</td></tr><tr><td>1주 차</td><td>404 오류·크롤링 오류</td><td>서치콘솔 페이지 보고서</td></tr><tr><td>2주 차</td><td>상호명 검색 노출 여부</td><td>네이버·구글 직접 검색</td></tr><tr><td>4주 차</td><td>유입 키워드·방문자 수 회복 추세</td><td>서치어드바이저 리포트</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>리뉴얼 오픈 후 4주 모니터링 항목</caption><thead><tr><th scope="col">시점</th><th scope="col">확인 항목</th><th scope="col">도구</th></tr></thead><tbody><tr><td>오픈 당일</td><td>주요 페이지 10개의 리다이렉트 작동</td><td>브라우저에서 옛 주소 직접 접속</td></tr><tr><td>1주 차</td><td>404 오류·크롤링 오류</td><td>서치콘솔 페이지 보고서</td></tr><tr><td>2주 차</td><td>상호명 검색 노출 여부</td><td>네이버·구글 직접 검색</td></tr><tr><td>4주 차</td><td>유입 키워드·방문자 수 회복 추세</td><td>서치어드바이저 리포트</td></tr></tbody></table></div>
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>
 <div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>현재 홈페이지의 페이지 주소(URL) 목록을 내려받아 저장합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>기존 URL과 새 URL의 1대1 매핑표를 만듭니다.</li><li>서치어드바이저·서치콘솔 계정을 만들고 사이트 소유 확인을 마칩니다.</li></ul></div><div class="g"><b>맡길 것</b><ul><li>301 리다이렉트 설정과 사이트맵 제출은 제작사에 견적 항목으로 명시해 맡깁니다.</li></ul></div></div>
 <h2>자주 묻는 질문</h2>

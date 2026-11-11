@@ -256,17 +256,21 @@ body.articles-page { background: #fafbfd; }
   font-style: italic;
   background: #fafbfd;
 }
+/* 표 — 가로 실선만, 머리글은 잉크색, 숫자 열은 오른쪽 정렬·고정폭 숫자 (차트 스킬 기준) */
+.article-body .tbl { overflow-x: auto; margin: 20px 0; }
 .article-body table {
   width: 100%; border-collapse: collapse;
-  margin: 20px 0;
+  margin: 0; min-width: 480px;
   font-size: 14.5px;
 }
 .article-body th, .article-body td {
   padding: 10px 14px;
-  border: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   text-align: left; vertical-align: top;
 }
-.article-body th { background: #f3f5f9; font-weight: 700; }
+.article-body th { color: #17141A; font-weight: 700; border-bottom-color: rgba(23,20,26,.32); }
+.article-body .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.article-body tbody tr:hover td { background: rgba(23,20,26,.03); }
 .article-body .cta-box {
   margin: 48px 0 16px;
   padding: 32px;

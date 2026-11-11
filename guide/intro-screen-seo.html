@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -86,6 +88,7 @@ ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:2
 .src a{color:var(--gold-soft);text-decoration:underline}
 footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
 footer a{color:var(--gold-soft);text-decoration:underline}</style>
+<link rel="stylesheet" href="../css/viz.css">
 </head>
 <body>
 <div class="topbar">
@@ -107,7 +110,8 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 
 <h2>인트로가 로딩 지표(LCP)를 얼마나 늦추나요?</h2>
 <p>노아 메인(noahgroup.co.kr)에 2.6초짜리 로고 인트로를 넣은 뒤, 구글 PageSpeed Insights와 같은 측정 엔진인 Lighthouse 12의 모바일 설정으로 쟀습니다. 2026년 10월 9일에 같은 조건으로 세 가지 상태를 비교했습니다.</p>
-<div class="tbl"><table><caption>노아 메인 실측 — Lighthouse 12 모바일, 2026-10-09</caption><thead><tr><th>항목</th><th>인트로 + 본문 지연</th><th>인트로 + 본문 미리 그림</th><th>인트로 없음</th></tr></thead><tbody><tr><td>성능 점수</td><td>93</td><td>99</td><td>99</td></tr><tr><td>LCP (시뮬레이션)</td><td>2.0초</td><td>1.5초</td><td>2.0초</td></tr><tr><td>LCP (실측)</td><td>3.54초</td><td>0.17초</td><td>1.15초</td></tr><tr><td>Speed Index</td><td>5.4초</td><td>3.2초</td><td>2.3초</td></tr><tr><td>CLS (화면 밀림)</td><td>0</td><td>0.019</td><td>0</td></tr></tbody></table></div>
+<figure class="viz" aria-labelledby="viz-intro"><figcaption><strong class="viz-title" id="viz-intro">본문을 미리 그리면 인트로가 있어도 LCP 0.17초</strong><span class="viz-sub">노아 메인 실측 · Lighthouse 12 모바일 · 2026-10-09 · 파란 막대가 노아 메인에 적용한 방식</span></figcaption><div class="viz-panels two"><div><p class="viz-ptitle">LCP 실측(초) — 짧을수록 좋음</p><div class="viz-rows"><div class="viz-cat">인트로 + 본문 지연</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="인트로 + 본문 지연: LCP 실측 3.54초" data-tip-l="인트로 + 본문 지연 · LCP 실측" data-tip-v="3.54초"><span class="viz-bar de" style="--w:88.50%"></span><span class="viz-val" style="--w:88.50%">3.54초</span></div><div class="viz-cat">인트로 + 본문 미리 그림</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="인트로 + 본문 미리 그림: LCP 실측 0.17초" data-tip-l="인트로 + 본문 미리 그림 · LCP 실측" data-tip-v="0.17초"><span class="viz-bar" style="--w:4.25%"></span><span class="viz-val" style="--w:4.25%">0.17초</span></div><div class="viz-cat">인트로 없음</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="인트로 없음: LCP 실측 1.15초" data-tip-l="인트로 없음 · LCP 실측" data-tip-v="1.15초"><span class="viz-bar de" style="--w:28.75%"></span><span class="viz-val" style="--w:28.75%">1.15초</span></div><div></div><div class="viz-axis" aria-hidden="true"><span style="left:0">0</span><span style="left:25%">1초</span><span style="left:50%">2초</span><span style="left:75%">3초</span><span style="left:100%">4초</span></div></div></div><div><p class="viz-ptitle">성능 점수 — 높을수록 좋음</p><div class="viz-rows"><div class="viz-cat">인트로 + 본문 지연</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="인트로 + 본문 지연: 성능 점수 93" data-tip-l="인트로 + 본문 지연 · 성능 점수" data-tip-v="93"><span class="viz-bar de" style="--w:93%"></span><span class="viz-val" style="--w:93%">93</span></div><div class="viz-cat">인트로 + 본문 미리 그림</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="인트로 + 본문 미리 그림: 성능 점수 99" data-tip-l="인트로 + 본문 미리 그림 · 성능 점수" data-tip-v="99"><span class="viz-bar" style="--w:99%"></span><span class="viz-val" style="--w:99%">99</span></div><div class="viz-cat">인트로 없음</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="인트로 없음: 성능 점수 99" data-tip-l="인트로 없음 · 성능 점수" data-tip-v="99"><span class="viz-bar de" style="--w:99%"></span><span class="viz-val" style="--w:99%">99</span></div><div></div><div class="viz-axis" aria-hidden="true"><span style="left:0">0</span><span style="left:25%">25</span><span style="left:50%">50</span><span style="left:75%">75</span><span style="left:100%">100</span></div></div></div></div><p class="viz-note">같은 수치와 나머지 지표(LCP 시뮬레이션·Speed Index·화면 밀림)는 아래 표에 있습니다.</p></figure>
+<div class="tbl"><table><caption>노아 메인 실측 — Lighthouse 12 모바일, 2026-10-09</caption><thead><tr><th scope="col">항목</th><th scope="col" class="num">인트로 + 본문 지연</th><th scope="col" class="num">인트로 + 본문 미리 그림</th><th scope="col" class="num">인트로 없음</th></tr></thead><tbody><tr><td>성능 점수</td><td class="num">93</td><td class="num">99</td><td class="num">99</td></tr><tr><td>LCP (시뮬레이션)</td><td class="num">2.0초</td><td class="num">1.5초</td><td class="num">2.0초</td></tr><tr><td>LCP (실측)</td><td class="num">3.54초</td><td class="num">0.17초</td><td class="num">1.15초</td></tr><tr><td>Speed Index</td><td class="num">5.4초</td><td class="num">3.2초</td><td class="num">2.3초</td></tr><tr><td>CLS (화면 밀림)</td><td class="num">0</td><td class="num">0.019</td><td class="num">0</td></tr></tbody></table></div>
 <p>측정 조건은 로컬 서버에서 외부 폰트·분석 스크립트를 막은 실험실 환경입니다. ‘인트로 + 본문 미리 그림’과 ‘인트로 없음’ 열에는 첫 화면 표시를 막던 웹폰트 스타일 파일을 비동기로 바꾸고, 데스크톱 전용 스크롤 라이브러리를 모바일에서 받지 않게 한 개선이 함께 들어 있습니다. 실제 방문자 기준 수치는 서치콘솔 코어 웹 바이탈 보고서에서 28일 단위로 따로 확인해야 합니다.</p>
 <p>구글이 정한 LCP 기준은 2.5초 이하가 좋음, 4초 초과가 나쁨이며, 방문의 75% 이상이 기준을 넘어야 통과로 봅니다. 첫 구현의 실측 3.54초는 ‘개선 필요’ 구간이었습니다.</p>
 
@@ -123,7 +127,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 
 <h2>인트로를 넣는다면 어떤 조건을 지켜야 하나요?</h2>
 <p>아래 7가지는 노아 메인에 실제로 적용한 값입니다. 앞의 두 가지는 검색 순위, 다섯 번째는 속도 지표, 나머지는 방문자 경험과 사고 방지를 위한 조건입니다.</p>
-<div class="tbl"><table><caption>인트로를 넣어도 되는 7가지 조건 (노아 메인 적용값)</caption><thead><tr><th>조건</th><th>이유</th><th>노아 메인 적용값</th></tr></thead><tbody><tr><td>검색 결과 유입 제외</td><td>검색에서 넘어온 순간 본문 접근 (구글 인터스티셜 가이드)</td><td>구글·네이버·다음·빙·줌·야후 유입은 표시 안 함</td></tr><tr><td>사람과 로봇 동일 처리</td><td>클로킹 소지 제거</td><td>사용자 에이전트로 구분하지 않음</td></tr><tr><td>짧게, 언제든 건너뛰기</td><td>첫 화면 대기 최소화</td><td>2.6초 자동 종료, 클릭·탭·키·스크롤로 즉시 종료</td></tr><tr><td>반복 노출 제한</td><td>재방문자 피로</td><td>같은 기기에서 24시간에 1회</td></tr><tr><td>본문은 인트로 아래 미리 그리기</td><td>LCP 지연 방지</td><td>인트로가 걷힐 때 등장 연출 재생</td></tr><tr><td>모션 최소화 설정 존중</td><td>접근성</td><td>기기에서 동작 줄이기를 켜면 표시 안 함</td></tr><tr><td>스크립트 실패 대비</td><td>화면이 계속 가려지는 사고 방지</td><td>4.5초 뒤 스타일만으로 자동으로 사라짐</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>인트로를 넣어도 되는 7가지 조건 (노아 메인 적용값)</caption><thead><tr><th scope="col">조건</th><th scope="col">이유</th><th scope="col">노아 메인 적용값</th></tr></thead><tbody><tr><td>검색 결과 유입 제외</td><td>검색에서 넘어온 순간 본문 접근 (구글 인터스티셜 가이드)</td><td>구글·네이버·다음·빙·줌·야후 유입은 표시 안 함</td></tr><tr><td>사람과 로봇 동일 처리</td><td>클로킹 소지 제거</td><td>사용자 에이전트로 구분하지 않음</td></tr><tr><td>짧게, 언제든 건너뛰기</td><td>첫 화면 대기 최소화</td><td>2.6초 자동 종료, 클릭·탭·키·스크롤로 즉시 종료</td></tr><tr><td>반복 노출 제한</td><td>재방문자 피로</td><td>같은 기기에서 24시간에 1회</td></tr><tr><td>본문은 인트로 아래 미리 그리기</td><td>LCP 지연 방지</td><td>인트로가 걷힐 때 등장 연출 재생</td></tr><tr><td>모션 최소화 설정 존중</td><td>접근성</td><td>기기에서 동작 줄이기를 켜면 표시 안 함</td></tr><tr><td>스크립트 실패 대비</td><td>화면이 계속 가려지는 사고 방지</td><td>4.5초 뒤 스타일만으로 자동으로 사라짐</td></tr></tbody></table></div>
 
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>
 <div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>휴대폰으로 구글과 네이버에서 내 회사를 검색해 결과를 누르고, 인트로나 팝업이 본문을 가리는지 확인합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>PageSpeed Insights 모바일 탭에서 LCP를 기록하고, 인트로를 검색 유입 제외·24시간 1회로 바꾼 뒤 같은 조건으로 다시 잽니다.</li></ul></div></div>
@@ -145,5 +149,6 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <script>(function(){if(!matchMedia('(max-width:768px)').matches)return;
 document.querySelectorAll('a.js-blog[data-mo]').forEach(function(a){a.href=a.getAttribute('data-mo');});})();</script>
 <script src="../js/track.js" defer></script>
+<script src="../js/viz.js" defer></script>
 </body>
 </html>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>AEO가 필요해진 이유는 검색 화면의 구조 변화입니다. 예전에는 결과 목록에서 링크를 눌러야 답을 볼 수 있었지만, 지금은 검색 화면과 AI 답변이 요약을 먼저 보여 줍니다. 이 요약에 인용되지 않으면 순위가 높아도 방문자가 페이지에 도달하지 않는 구간이 생깁니다. 이 구간의 손실은 유입 수로 드러납니다.</p>
 <h2>SEO와 무엇이 다른가요?</h2>
 <p>둘은 대체 관계가 아닙니다. 색인되지 않은 페이지는 인용될 수도 없으므로 SEO가 선행 조건입니다. 등록·사이트맵·robots.txt 같은 기본 작업을 마친 뒤 문단 구조를 답변 형태로 바꾸는 순서가 맞습니다. 순서를 뒤집으면 잘 쓴 문단이 아무 곳에도 노출되지 않습니다.</p>
-<div class="tbl"><table><caption>SEO와 AEO 비교</caption><thead><tr><th>항목</th><th>SEO</th><th>AEO</th></tr></thead><tbody><tr><td>목표</td><td>검색 결과 순위 상승</td><td>답변에 직접 인용</td></tr><tr><td>최적화 단위</td><td>페이지 전체</td><td>질문 하나에 답하는 문단</td></tr><tr><td>제목 형태</td><td>키워드 중심 명사구</td><td>질문형 문장</td></tr><tr><td>도입부</td><td>배경 설명 후 본론</td><td>서론 없이 답부터</td></tr><tr><td>성과 확인</td><td>유입 수·순위</td><td>인용 여부·브랜드 언급</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>SEO와 AEO 비교</caption><thead><tr><th scope="col">항목</th><th scope="col">SEO</th><th scope="col">AEO</th></tr></thead><tbody><tr><td>목표</td><td>검색 결과 순위 상승</td><td>답변에 직접 인용</td></tr><tr><td>최적화 단위</td><td>페이지 전체</td><td>질문 하나에 답하는 문단</td></tr><tr><td>제목 형태</td><td>키워드 중심 명사구</td><td>질문형 문장</td></tr><tr><td>도입부</td><td>배경 설명 후 본론</td><td>서론 없이 답부터</td></tr><tr><td>성과 확인</td><td>유입 수·순위</td><td>인용 여부·브랜드 언급</td></tr></tbody></table></div>
 <h2>직답은 몇 글자로 쓰나요?</h2>
 <p>직답 문단은 100~150자가 실무 기준입니다. 이보다 짧으면 조건과 예외가 빠져 인용해도 정보가 되지 않고, 길어지면 앞부분만 잘려 의미가 끊깁니다. 첫 문장에 결론, 둘째 문장에 조건이나 수치, 셋째 문장에 예외를 넣는 구성이면 대체로 이 범위 안에 들어옵니다. 분량 확인은 글자수 세기로 30초면 됩니다.</p>
 <h2>본문은 어떻게 구성하나요?</h2>

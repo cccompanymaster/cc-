@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>NN/g의 스크롤 연구에 따르면 사용자 주목은 화면 아래로 갈수록 가파르게 줄어듭니다. 그래서 11단계의 배치 원칙은 &#x27;결정에 필요한 것부터 위로&#x27;입니다. 첫 화면에서 무엇을 주는 곳인지와 다음 행동을 즉시 보여 주고, 아래로 내려가며 증거와 불안 제거를 쌓아 마지막 CTA에서 결심을 받는 구조입니다.</p>
 <h2>11단계 순서는 어떻게 되나요?</h2>
 <p>표에서 눈여겨볼 것은 각 섹션의 이탈 방지 장치입니다. 방문자는 섹션을 읽는 중이 아니라 섹션과 섹션 사이에서 떠납니다. 다음 섹션의 첫 줄이 보이게 하는 시각 연결, 가격 직전의 후기 배치, FAQ 직후의 불안 제거 문구처럼 이음새마다 붙잡는 장치가 순서만큼 중요합니다.</p>
-<div class="tbl"><table><caption>랜딩페이지 섹션 11단계 — 목적과 이탈 방지 장치</caption><thead><tr><th>단계</th><th>섹션</th><th>목적·이탈 방지 장치</th></tr></thead><tbody><tr><td>1</td><td>첫 화면(헤드라인+CTA)</td><td>3초 판단 통과·업종·대상·버튼 1개</td></tr><tr><td>2</td><td>문제 공감</td><td>&#x27;내 얘기다&#x27; 반응·고객 언어로 서술</td></tr><tr><td>3</td><td>해결 제시</td><td>제공 서비스 한 문장 정의</td></tr><tr><td>4</td><td>이익 3가지</td><td>숫자로 쓴 이득·나열은 3개까지</td></tr><tr><td>5</td><td>사회적 증거</td><td>실명 후기·실적 숫자로 의심 차단</td></tr><tr><td>6</td><td>과정 안내</td><td>3~5단계 절차로 예측 가능성 제공</td></tr><tr><td>7</td><td>가격</td><td>범위라도 표기·직전에 후기 배치</td></tr><tr><td>8</td><td>비교 우위</td><td>업계 관행 대비 차이 2~3개</td></tr><tr><td>9</td><td>FAQ</td><td>반복 질문 5개로 잔여 의심 해소</td></tr><tr><td>10</td><td>불안 제거</td><td>환불·연락 정책으로 부담 제거</td></tr><tr><td>11</td><td>마지막 CTA</td><td>결심 지점·첫 화면과 같은 버튼</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>랜딩페이지 섹션 11단계 — 목적과 이탈 방지 장치</caption><thead><tr><th scope="col">단계</th><th scope="col">섹션</th><th scope="col">목적·이탈 방지 장치</th></tr></thead><tbody><tr><td>1</td><td>첫 화면(헤드라인+CTA)</td><td>3초 판단 통과·업종·대상·버튼 1개</td></tr><tr><td>2</td><td>문제 공감</td><td>&#x27;내 얘기다&#x27; 반응·고객 언어로 서술</td></tr><tr><td>3</td><td>해결 제시</td><td>제공 서비스 한 문장 정의</td></tr><tr><td>4</td><td>이익 3가지</td><td>숫자로 쓴 이득·나열은 3개까지</td></tr><tr><td>5</td><td>사회적 증거</td><td>실명 후기·실적 숫자로 의심 차단</td></tr><tr><td>6</td><td>과정 안내</td><td>3~5단계 절차로 예측 가능성 제공</td></tr><tr><td>7</td><td>가격</td><td>범위라도 표기·직전에 후기 배치</td></tr><tr><td>8</td><td>비교 우위</td><td>업계 관행 대비 차이 2~3개</td></tr><tr><td>9</td><td>FAQ</td><td>반복 질문 5개로 잔여 의심 해소</td></tr><tr><td>10</td><td>불안 제거</td><td>환불·연락 정책으로 부담 제거</td></tr><tr><td>11</td><td>마지막 CTA</td><td>결심 지점·첫 화면과 같은 버튼</td></tr></tbody></table></div>
 <h2>섹션 순서가 왜 전환을 바꾸나요?</h2>
 <p>같은 재료라도 순서가 다르면 결과가 다릅니다. 가격을 증거보다 먼저 보여 주면 방문자는 가치를 모른 채 숫자만 보고 비싸다고 판단합니다. 증거 없이 CTA만 반복하면 재촉으로 읽힙니다. 11단계는 &#x27;확신이 쌓인 뒤에 가격, 가격 뒤에 행동&#x27;이라는 심리 순서를 지면에 옮긴 것이고, 순서를 지키는 것만으로 같은 콘텐츠의 전환이 달라집니다.</p>
 <h2>완성 후 무엇을 점검하나요?</h2>

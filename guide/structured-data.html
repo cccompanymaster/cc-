@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>구조화 데이터의 핵심은 새 정보를 만드는 것이 아니라 이미 있는 정보를 항목화하는 일입니다. 페이지에 적힌 상호·주소·작성일·글 제목을 기계가 헷갈리지 않게 이름표를 붙여 다시 적는 작업입니다. 그래서 본문에 없는 내용을 구조화 데이터에만 적으면 안 되며, 표시 내용과 값이 일치해야 합니다.</p>
 <h2>어떤 스키마를 먼저 넣나요?</h2>
 <p>세 가지를 먼저 권하는 이유는 어느 업종에서나 값이 이미 존재하기 때문입니다. 상호와 주소는 사업자등록증에, 작성일은 글 자체에, 경로는 메뉴 구조에 있습니다. 값이 없는 스키마를 억지로 채우려다 실제와 다른 정보를 넣는 일이 오히려 더 큰 문제를 만듭니다. 적용 대상은 3가지면 충분합니다.</p>
-<div class="tbl"><table><caption>우선 적용 스키마 3종의 역할</caption><thead><tr><th>스키마</th><th>담는 정보</th><th>적용 위치</th></tr></thead><tbody><tr><td>Organization</td><td>상호·주소·전화·홈페이지 주소·로고</td><td>모든 페이지 공통 또는 메인</td></tr><tr><td>Article</td><td>글 제목·작성일·수정일·작성 주체</td><td>블로그·소식 등 글 페이지</td></tr><tr><td>BreadcrumbList</td><td>홈에서 현재 페이지까지의 경로</td><td>하위 페이지 전체</td></tr><tr><td>LocalBusiness</td><td>영업시간·지역 정보 확장</td><td>오프라인 매장이 있는 경우</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>우선 적용 스키마 3종의 역할</caption><thead><tr><th scope="col">스키마</th><th scope="col">담는 정보</th><th scope="col">적용 위치</th></tr></thead><tbody><tr><td>Organization</td><td>상호·주소·전화·홈페이지 주소·로고</td><td>모든 페이지 공통 또는 메인</td></tr><tr><td>Article</td><td>글 제목·작성일·수정일·작성 주체</td><td>블로그·소식 등 글 페이지</td></tr><tr><td>BreadcrumbList</td><td>홈에서 현재 페이지까지의 경로</td><td>하위 페이지 전체</td></tr><tr><td>LocalBusiness</td><td>영업시간·지역 정보 확장</td><td>오프라인 매장이 있는 경우</td></tr></tbody></table></div>
 <h2>적용은 어떤 순서로 하나요?</h2>
 <p>7단계 중 5번을 건너뛰면 나머지 작업이 무의미해집니다. 화면에는 없는 평점이나 후기 수를 구조화 데이터에만 적는 방식은 검색엔진 정책 위반으로 처리될 수 있습니다. 값이 없으면 항목 자체를 넣지 않는 편이 안전하며, 이 원칙만 지키면 적용 난이도는 크게 낮아집니다. 확인은 페이지당 1분입니다.</p>
 <ol class="steps"><li>페이지 유형을 글 페이지와 회사 정보 페이지로 나눕니다.</li><li>메인과 회사소개에 Organization을 넣습니다.</li><li>글 페이지에 Article을 넣고 작성일과 수정일을 채웁니다.</li><li>하위 페이지에 BreadcrumbList로 경로를 표시합니다.</li><li>구조화 데이터 값과 화면 표시 내용이 같은지 대조합니다.</li><li>구글 서치콘솔에서 오류와 경고를 확인합니다.</li><li>오류를 고친 뒤 해당 페이지에 색인을 요청합니다.</li></ol>

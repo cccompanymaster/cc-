@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -110,7 +112,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <ol class="steps"><li>호스팅 관리 콘솔에 로그인해 보안 또는 SSL 메뉴를 찾습니다</li><li>무료 인증서(Let&#x27;s Encrypt) 발급을 신청합니다</li><li>도메인 소유 확인 절차(대부분 자동 검증)를 완료합니다</li><li>발급된 인증서를 도메인에 적용합니다</li><li>http 접속을 https로 자동 이동시키는 리디렉션을 설정합니다</li><li>홈페이지 안의 http 이미지·스크립트 주소를 https로 교체합니다</li><li>90일 주기 자동 갱신이 켜져 있는지 확인합니다</li></ol>
 <h2>인증서 유형별 차이는 무엇인가요?</h2>
 <p>암호화 강도는 세 유형이 같습니다. 차이는 발급 시 무엇을 검증하느냐와 사고 시 보증 한도입니다. 회사 소개와 문의 접수가 목적인 홈페이지라면 무료 DV로 충분하고, 카드 결제를 직접 다루는 규모가 되면 상위 유형을 검토하는 순서가 합리적입니다. 무료로 시작해 필요할 때 올리면 됩니다.</p>
-<div class="tbl"><table><caption>SSL 인증서 유형별 비용과 용도</caption><thead><tr><th>유형</th><th>연간 비용</th><th>검증 범위</th><th>적합한 곳</th></tr></thead><tbody><tr><td>무료 DV(Let&#x27;s Encrypt)</td><td>₩0</td><td>도메인 소유 검증</td><td>일반 회사·매장 홈페이지</td></tr><tr><td>유료 DV</td><td>연 ₩10,000~₩100,000</td><td>도메인 소유 검증+보증·지원</td><td>호스팅 결합 상품 이용 시</td></tr><tr><td>OV·EV</td><td>연 ₩100,000~</td><td>기업 실재성까지 검증</td><td>금융·대형 쇼핑몰</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>SSL 인증서 유형별 비용과 용도</caption><thead><tr><th scope="col">유형</th><th scope="col">연간 비용</th><th scope="col">검증 범위</th><th scope="col">적합한 곳</th></tr></thead><tbody><tr><td>무료 DV(Let&#x27;s Encrypt)</td><td>₩0</td><td>도메인 소유 검증</td><td>일반 회사·매장 홈페이지</td></tr><tr><td>유료 DV</td><td>연 ₩10,000~₩100,000</td><td>도메인 소유 검증+보증·지원</td><td>호스팅 결합 상품 이용 시</td></tr><tr><td>OV·EV</td><td>연 ₩100,000~</td><td>기업 실재성까지 검증</td><td>금융·대형 쇼핑몰</td></tr></tbody></table></div>
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>
 <div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>내 홈페이지 주소를 http로 입력해 경고가 뜨는지, 자물쇠가 보이는지 확인합니다</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>호스팅 콘솔에서 무료 인증서 발급과 리디렉션·자동 갱신 설정을 완료합니다</li></ul></div><div class="g"><b>맡길 것</b><ul><li>혼합 콘텐츠(http 이미지·스크립트) 점검과 교체 작업을 관리 업체에 요청합니다</li></ul></div></div>
 <h2>자주 묻는 질문</h2>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>계약서 없이 시작한 제작은 문제가 생겼을 때 사장님이 모든 사실을 입증해야 합니다. 카카오톡 대화와 계좌이체 내역만으로는 납기일·수정 횟수·소유권 귀속을 증명하기 어렵습니다. 반대로 A4 두 장짜리 계약서가 있으면 협상은 문서 확인으로 끝납니다. 업계 견적이 ₩300,000에서 ₩10,000,000까지 벌어지는 이유도 계약 문서의 밀도 차이에서 나옵니다.</p>
 <h2>각 조항은 어떤 문구로 적나요?</h2>
 <p>표의 문구는 그대로 옮겨 쓰셔도 되고, 제작사 양식에 조항만 추가하셔도 됩니다. 실무에서는 계약서를 새로 만들기보다 제작사가 보낸 초안에 소유권·납기·해제 3개 조항을 추가 요청하는 방식이 빠릅니다. 이 요청을 거절하는 제작사라면 계약 전에 걸러진 것이므로 그 자체가 검증입니다.</p>
-<div class="tbl"><table><caption>홈페이지 제작 계약서 9개 필수 조항과 문구 예시</caption><thead><tr><th>조항</th><th>넣을 문구 예시</th><th>빠졌을 때 손실</th></tr></thead><tbody><tr><td>소유권</td><td>&#x27;납품 완료 및 잔금 지급 시 소스코드·디자인 원본의 저작재산권 일체는 발주자에게 양도한다&#x27;</td><td>이전 거절·재제작 비용 발생</td></tr><tr><td>도메인 명의</td><td>&#x27;도메인은 발주자 명의로 등록하며 관리 계정 정보를 납품 시 인계한다&#x27;</td><td>도메인 인질화</td></tr><tr><td>납기</td><td>&#x27;계약일로부터 영업일 기준 O일 이내 오픈한다. 자료 지연 시 도착일 기준 재산정한다&#x27;</td><td>무기한 지연</td></tr><tr><td>수정 횟수</td><td>&#x27;시안 2개 제공, 확정 후 수정 5회까지 무상, 초과분은 건당 ₩OO,OOO&#x27;</td><td>수정 건당 추가 청구</td></tr><tr><td>하자보수</td><td>&#x27;오픈일로부터 6개월간 기능 오류·표시 오류는 무상 수정한다&#x27;</td><td>유상 전환 분쟁</td></tr><tr><td>유지보수</td><td>&#x27;유지보수는 별도 계약이며 미체결 시 호스팅·수정 의무는 없다&#x27;</td><td>해석 충돌</td></tr><tr><td>지연 배상</td><td>&#x27;제작사 귀책 지연 1일당 계약금액의 O.O%를 배상한다&#x27;</td><td>지연 방치</td></tr><tr><td>해제 사유</td><td>&#x27;납기 30일 초과 또는 연락 두절 14일 시 발주자는 계약을 해제할 수 있다&#x27;</td><td>해제 근거 부재</td></tr><tr><td>비밀유지</td><td>&#x27;제작 과정에서 취득한 영업 정보를 제3자에게 제공하지 않는다&#x27;</td><td>자료 유출</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>홈페이지 제작 계약서 9개 필수 조항과 문구 예시</caption><thead><tr><th scope="col">조항</th><th scope="col">넣을 문구 예시</th><th scope="col">빠졌을 때 손실</th></tr></thead><tbody><tr><td>소유권</td><td>&#x27;납품 완료 및 잔금 지급 시 소스코드·디자인 원본의 저작재산권 일체는 발주자에게 양도한다&#x27;</td><td>이전 거절·재제작 비용 발생</td></tr><tr><td>도메인 명의</td><td>&#x27;도메인은 발주자 명의로 등록하며 관리 계정 정보를 납품 시 인계한다&#x27;</td><td>도메인 인질화</td></tr><tr><td>납기</td><td>&#x27;계약일로부터 영업일 기준 O일 이내 오픈한다. 자료 지연 시 도착일 기준 재산정한다&#x27;</td><td>무기한 지연</td></tr><tr><td>수정 횟수</td><td>&#x27;시안 2개 제공, 확정 후 수정 5회까지 무상, 초과분은 건당 ₩OO,OOO&#x27;</td><td>수정 건당 추가 청구</td></tr><tr><td>하자보수</td><td>&#x27;오픈일로부터 6개월간 기능 오류·표시 오류는 무상 수정한다&#x27;</td><td>유상 전환 분쟁</td></tr><tr><td>유지보수</td><td>&#x27;유지보수는 별도 계약이며 미체결 시 호스팅·수정 의무는 없다&#x27;</td><td>해석 충돌</td></tr><tr><td>지연 배상</td><td>&#x27;제작사 귀책 지연 1일당 계약금액의 O.O%를 배상한다&#x27;</td><td>지연 방치</td></tr><tr><td>해제 사유</td><td>&#x27;납기 30일 초과 또는 연락 두절 14일 시 발주자는 계약을 해제할 수 있다&#x27;</td><td>해제 근거 부재</td></tr><tr><td>비밀유지</td><td>&#x27;제작 과정에서 취득한 영업 정보를 제3자에게 제공하지 않는다&#x27;</td><td>자료 유출</td></tr></tbody></table></div>
 <h2>소유권 조항은 왜 1순위인가요?</h2>
 <p>소유권 조항은 분쟁이 터진 뒤에 되돌릴 수 없는 유일한 항목입니다. 납기가 늦으면 독촉으로 압박할 수 있고 수정 횟수는 추가 비용으로 해결되지만, 소스코드 저작재산권이 제작사에 남아 있으면 사장님은 같은 사이트를 다시 만드는 것 말고는 선택지가 없습니다. 이 차이 때문에 계약서를 검토하실 때 소유권 조항을 가장 먼저 찾아보시길 권합니다.</p>
 <p>재제작 비용은 콘텐츠 제작만 ₩500,000~₩3,000,000, 사이트 전체로는 처음 금액이 그대로 다시 듭니다. 조항 한 줄을 넣는 데 드는 시간은 10분, 빠뜨렸을 때 드는 시간은 두 달입니다. 계약 단계에서 가장 효율이 높은 10분입니다. 제작사 초안에 이 문구가 없다면 서명 전에 추가를 요청하시면 됩니다.</p>

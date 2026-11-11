@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>핵심은 백업 파일의 보관 위치입니다. 업체 서버 안에 만들어 둔 백업은 업체와 관계가 끝나는 순간 함께 사라지므로 백업이 아닙니다. 사장님이 직접 접근할 수 있는 외장하드나 클라우드 저장소에 사본을 두고, 촬영 원본·원고처럼 다시 만들기 어려운 자료일수록 2곳 이상에 나눠 보관하는 것이 원칙입니다.</p>
 <h2>무엇을 백업해야 하나요?</h2>
 <p>4종 중 하나라도 빠지면 복원이 절반짜리가 됩니다. 웹 파일만 있고 데이터베이스가 없으면 게시글·문의 기록이 사라지고, 반대면 빈 껍데기 디자인만 남습니다. 계정 정보 문서는 데이터는 아니지만 나머지 3종에 접근하는 열쇠라, 4종을 한 세트로 묶어야 백업이 완성됩니다.</p>
-<div class="tbl"><table><caption>홈페이지 백업 대상 4종</caption><thead><tr><th>대상</th><th>내용</th><th>확보 방법</th></tr></thead><tbody><tr><td>웹 파일</td><td>디자인·코드·업로드된 이미지</td><td>FTP 또는 호스팅 콘솔에서 전체 다운로드</td></tr><tr><td>데이터베이스</td><td>게시글·문의 내역·예약 기록</td><td>호스팅 콘솔의 DB 내보내기(백업) 기능</td></tr><tr><td>콘텐츠 원본</td><td>원고·사진 원본·로고 파일</td><td>제작 시 받은 원본을 클라우드에 보관</td></tr><tr><td>계정 정보</td><td>도메인·호스팅·관리자 접속 정보</td><td>문서 1장으로 정리해 별도 보관</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>홈페이지 백업 대상 4종</caption><thead><tr><th scope="col">대상</th><th scope="col">내용</th><th scope="col">확보 방법</th></tr></thead><tbody><tr><td>웹 파일</td><td>디자인·코드·업로드된 이미지</td><td>FTP 또는 호스팅 콘솔에서 전체 다운로드</td></tr><tr><td>데이터베이스</td><td>게시글·문의 내역·예약 기록</td><td>호스팅 콘솔의 DB 내보내기(백업) 기능</td></tr><tr><td>콘텐츠 원본</td><td>원고·사진 원본·로고 파일</td><td>제작 시 받은 원본을 클라우드에 보관</td></tr><tr><td>계정 정보</td><td>도메인·호스팅·관리자 접속 정보</td><td>문서 1장으로 정리해 별도 보관</td></tr></tbody></table></div>
 <h2>이전 전에 어떤 계정을 확보하나요?</h2>
 <p>순서가 중요합니다. 계약 종료를 통보한 뒤에는 협조 속도가 떨어지는 것이 업계 현실이라, 7가지 계정 확보는 이전 결정을 알리기 전에 끝내는 것이 안전합니다. 특히 7번 이메일 변경을 빼먹으면 계정을 받아도 비밀번호 재설정 메일이 이전 업체로 가는 구조가 남습니다. 확보한 계정 목록은 문서 1장으로 정리해 보관합니다.</p>
 <ol class="steps"><li>도메인 등록기관 계정(아이디·비밀번호·등록 이메일)을 확보합니다</li><li>호스팅 관리 콘솔 계정을 확보합니다</li><li>FTP 접속 정보(주소·아이디·비밀번호)를 확보합니다</li><li>데이터베이스 접속 정보와 내보내기 권한을 확보합니다</li><li>홈페이지 관리자 페이지 로그인 정보를 확보합니다</li><li>네이버 서치어드바이저·구글 서치콘솔 소유권을 사장님 계정으로 등록합니다</li><li>각 계정에 연결된 수신 이메일을 사장님 주소로 변경합니다</li></ol>

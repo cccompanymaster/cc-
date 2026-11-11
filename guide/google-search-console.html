@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>구글 서치콘솔은 검색 결과에 사장님 홈페이지가 어떻게 잡히는지 보여 주는 진단 도구입니다. 등록하지 않아도 구글이 사이트를 찾을 수는 있지만, 색인 여부와 제외 사유를 확인할 방법이 사라집니다. 오픈 첫날에 등록해 두면 문제가 생겼을 때 원인을 찾는 시간이 며칠 단위로 줄어듭니다.</p>
 <h2>도메인 속성과 URL 속성의 차이는?</h2>
 <p>도메인 관리 계정 로그인이 가능하다면 도메인 속성이 편합니다. 주소 형태별로 속성을 여러 개 만들 필요가 없기 때문입니다. 반대로 도메인은 제작사가 대신 사 둔 상태라면 URL 접두어 속성에 HTML 태그 방식을 쓰는 편이 빠릅니다. 두 속성을 모두 만들어 두어도 문제가 되지 않으므로, 판단이 어려우면 URL 접두어 속성부터 등록하시길 권장드립니다.</p>
-<div class="tbl"><table><caption>속성 유형 선택 기준</caption><thead><tr><th>구분</th><th>도메인 속성</th><th>URL 접두어 속성</th></tr></thead><tbody><tr><td>포함 범위</td><td>www 유무·http와 https·모든 하위 도메인 전부</td><td>입력한 주소 형태 하나만</td></tr><tr><td>확인 방식</td><td>DNS 레코드 추가만 가능</td><td>HTML 태그·HTML 파일·애널리틱스 등 선택 가능</td></tr><tr><td>적합한 경우</td><td>도메인 관리 계정에 접근 가능한 경우</td><td>도메인 관리 권한이 없고 페이지 수정만 가능한 경우</td></tr><tr><td>작업 난이도</td><td>DNS 설정 화면 진입 필요</td><td>코드 한 줄 삽입으로 완료</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>속성 유형 선택 기준</caption><thead><tr><th scope="col">구분</th><th scope="col">도메인 속성</th><th scope="col">URL 접두어 속성</th></tr></thead><tbody><tr><td>포함 범위</td><td>www 유무·http와 https·모든 하위 도메인 전부</td><td>입력한 주소 형태 하나만</td></tr><tr><td>확인 방식</td><td>DNS 레코드 추가만 가능</td><td>HTML 태그·HTML 파일·애널리틱스 등 선택 가능</td></tr><tr><td>적합한 경우</td><td>도메인 관리 계정에 접근 가능한 경우</td><td>도메인 관리 권한이 없고 페이지 수정만 가능한 경우</td></tr><tr><td>작업 난이도</td><td>DNS 설정 화면 진입 필요</td><td>코드 한 줄 삽입으로 완료</td></tr></tbody></table></div>
 <h2>소유권 확인은 왜 실패하나요?</h2>
 <p>실패 화면이 떠도 등록 정보가 사라지지는 않습니다. 원인을 고친 뒤 같은 화면에서 다시 확인을 누르면 됩니다. 확인이 반복 실패하는 사이트의 다수는 DNS 반영 대기 시간을 기다리지 않은 경우이므로, 값을 입력했다면 최소 30분은 두고 재시도하시길 권장드립니다. 재시도 횟수에는 제한이 없습니다.</p>
 <ol class="steps"><li>DNS 레코드를 추가한 뒤 반영 전에 확인을 눌렀는지 봅니다. 통상 수십 분에서 하루가 걸립니다.</li><li>레코드 값 앞뒤에 공백이나 줄바꿈이 들어갔는지 확인합니다.</li><li>HTML 태그가 head 영역 안에 있는지 확인합니다.</li><li>메인 페이지에만 태그가 들어갔는지, 전체 공통 영역에 들어갔는지 확인합니다.</li><li>입력한 주소가 실제 접속 주소와 www 유무까지 같은지 확인합니다.</li><li>다른 주소로 자동 이동되는 설정이 걸려 있는지 확인합니다.</li><li>위 항목을 고친 뒤 10분 간격으로 재시도합니다.</li></ol>

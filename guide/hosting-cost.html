@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>호스팅 비용의 본질은 서버라는 컴퓨터의 임대료입니다. 전기·회선·장비를 호스팅 업체가 부담하고 그 일부를 나눠 쓰는 구조라, 홈페이지가 존재하는 한 비용도 계속 발생합니다. 문제는 금액입니다. 같은 공유 호스팅이라도 업체 공식 가격은 연 ₩50,000 안팎인데 관리 업체를 거치면 연 ₩300,000 넘게 청구되는 사례가 있어, 구조가 아니라 내역을 봐야 합니다.</p>
 <h2>트래픽 규모별 적정 유형은 무엇인가요?</h2>
 <p>자기 위치는 통계 도구의 일 방문자 수로 확인합니다. 회사 소개형 홈페이지의 대부분은 첫 줄, 즉 연 ₩50,000~₩150,000 구간에 해당합니다. 방문자 수 근거 없이 상위 구간 요금을 내고 있다면 사양 하향 조정만으로 연 수십만 원이 줄어듭니다. 계약 변경 전에 최근 3개월 방문 추이만 확인하면 판단이 끝납니다.</p>
-<div class="tbl"><table><caption>트래픽 규모별 적정 호스팅 유형과 비용 구간</caption><thead><tr><th>일 방문자</th><th>적정 유형</th><th>비용 구간</th><th>비고</th></tr></thead><tbody><tr><td>300명 이하</td><td>공유 호스팅</td><td>연 ₩50,000~₩150,000</td><td>소규모 홈페이지 대부분 해당</td></tr><tr><td>300~1,000명</td><td>고급 공유·VPS</td><td>월 ₩20,000~₩50,000</td><td>이미지·게시판 많은 사이트</td></tr><tr><td>1,000명 이상</td><td>클라우드·단독 서버</td><td>월 ₩50,000~</td><td>쇼핑몰·예약 트래픽 처리</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>트래픽 규모별 적정 호스팅 유형과 비용 구간</caption><thead><tr><th scope="col">일 방문자</th><th scope="col">적정 유형</th><th scope="col">비용 구간</th><th scope="col">비고</th></tr></thead><tbody><tr><td>300명 이하</td><td>공유 호스팅</td><td>연 ₩50,000~₩150,000</td><td>소규모 홈페이지 대부분 해당</td></tr><tr><td>300~1,000명</td><td>고급 공유·VPS</td><td>월 ₩20,000~₩50,000</td><td>이미지·게시판 많은 사이트</td></tr><tr><td>1,000명 이상</td><td>클라우드·단독 서버</td><td>월 ₩50,000~</td><td>쇼핑몰·예약 트래픽 처리</td></tr></tbody></table></div>
 <h2>무료 호스팅이라는 말은 왜 위험한가요?</h2>
 <p>&#x27;제작비는 무료, 유지비만 부담&#x27;이라는 제안은 호스팅 원가와 유지비 청구액의 차이로 수익을 내는 구조입니다. 실제로 무료 제작을 내세운 뒤 유지비 3년 치 ₩1,080,000을 일시불로 받는 사기 패턴이 소비자 피해 사례로 보고되어 있습니다. 원가 연 ₩50,000 안팎의 호스팅이 연 ₩360,000짜리 유지 계약으로 바뀌는 셈입니다.</p>
 <p>반대로 정상적인 무료도 있습니다. 제작비에 첫 1년 호스팅을 포함해 주는 방식은 기간과 이후 비용이 명시되어 있다면 관행상 문제가 없습니다. 구분 기준은 하나입니다. &#x27;무료가 끝난 뒤 연간 얼마인가&#x27;에 대한 답이 견적서에 숫자로 적혀 있는지 확인하는 것입니다. 그 한 줄이 확인의 전부입니다.</p>

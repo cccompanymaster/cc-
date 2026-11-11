@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>업체 선택 실패의 비용은 제작비만이 아닙니다. 재제작 비용, 늦어진 오픈 기간, 분쟁에 쓰는 시간까지 더해집니다. 시장의 견적 격차가 30만~1,000만원까지 벌어지는 이유는 실력 차이만큼이나 포함 범위의 차이가 크기 때문이므로, 질문의 목적은 가격 깎기가 아니라 범위와 증거를 문서로 고정하는 데 있습니다.</p>
 <h2>계약 전에 던질 질문 10개는 무엇인가요?</h2>
 <p>10개 질문의 공통점은 전부 답을 검증할 수 있다는 것입니다. &#x27;잘합니다&#x27;라는 답은 확인할 수 없지만, URL·점수·계약서 문구는 확인할 수 있습니다. 질문을 불편해하는 업체보다 문서로 답하는 업체가 계약 후에도 기록을 남기며 일할 확률이 높습니다. 답변은 통화가 아니라 메일·메시지로 받아 근거를 남깁니다.</p>
-<div class="tbl"><table><caption>계약 전 질문 10개와 확인할 증거</caption><thead><tr><th>질문</th><th>확인할 증거</th></tr></thead><tbody><tr><td>1. 지금 접속되는 포트폴리오 URL 3개를 주실 수 있나요?</td><td>라이브 사이트 직접 접속</td></tr><tr><td>2. 그 사이트들의 모바일 화면을 봐도 되나요?</td><td>휴대폰으로 직접 확인</td></tr><tr><td>3. 속도 점수는 어느 정도로 관리하시나요?</td><td>PageSpeed 점수 직접 측정</td></tr><tr><td>4. 만드신 사이트가 검색에 노출되나요?</td><td>상호명 네이버·구글 검색</td></tr><tr><td>5. 소스·디자인 소유권은 누구에게 귀속되나요?</td><td>계약서 귀속 조항</td></tr><tr><td>6. 도메인은 누구 명의로 등록하나요?</td><td>사장님 명의 등록 확인</td></tr><tr><td>7. 하자보수 기간은 얼마인가요?</td><td>계약서 명시 — 통상 3~6개월</td></tr><tr><td>8. 오픈 후 수정은 건당 얼마인가요?</td><td>단가표 — 시장 3만~10만원/건</td></tr><tr><td>9. 제작 기간과 지연 시 기준은 어떻게 되나요?</td><td>일정표·지연 처리 조항</td></tr><tr><td>10. 폐업·연락 두절 시 대비책이 있나요?</td><td>백업·계정 전달 조건</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>계약 전 질문 10개와 확인할 증거</caption><thead><tr><th scope="col">질문</th><th scope="col">확인할 증거</th></tr></thead><tbody><tr><td>1. 지금 접속되는 포트폴리오 URL 3개를 주실 수 있나요?</td><td>라이브 사이트 직접 접속</td></tr><tr><td>2. 그 사이트들의 모바일 화면을 봐도 되나요?</td><td>휴대폰으로 직접 확인</td></tr><tr><td>3. 속도 점수는 어느 정도로 관리하시나요?</td><td>PageSpeed 점수 직접 측정</td></tr><tr><td>4. 만드신 사이트가 검색에 노출되나요?</td><td>상호명 네이버·구글 검색</td></tr><tr><td>5. 소스·디자인 소유권은 누구에게 귀속되나요?</td><td>계약서 귀속 조항</td></tr><tr><td>6. 도메인은 누구 명의로 등록하나요?</td><td>사장님 명의 등록 확인</td></tr><tr><td>7. 하자보수 기간은 얼마인가요?</td><td>계약서 명시 — 통상 3~6개월</td></tr><tr><td>8. 오픈 후 수정은 건당 얼마인가요?</td><td>단가표 — 시장 3만~10만원/건</td></tr><tr><td>9. 제작 기간과 지연 시 기준은 어떻게 되나요?</td><td>일정표·지연 처리 조항</td></tr><tr><td>10. 폐업·연락 두절 시 대비책이 있나요?</td><td>백업·계정 전달 조건</td></tr></tbody></table></div>
 <h2>포트폴리오는 어떻게 검증하나요?</h2>
 <p>포트폴리오 검증은 사이트당 3분이면 됩니다. 받은 URL에 접속해 지금도 운영 중인지 보고, 휴대폰으로 열어 모바일 화면을 확인하고, PageSpeed에 주소를 넣어 속도 점수를 봅니다. 모바일 점수가 낮은 사이트가 2~3개 반복되면 그 업체의 표준 품질이 그 수준이라는 신호로 읽을 수 있습니다.</p>
 <p>검색 노출도 같은 방식입니다. 포트폴리오 사이트의 상호명을 네이버·구글에 검색해 첫 페이지에 나오는지 확인합니다. 견적서에 SEO 항목을 넣는 업체가 자신이 만든 사이트조차 검색에 잡히지 않는다면, 항목 금액과 무관하게 실행 능력을 의심할 근거가 됩니다. 확인에는 사이트당 1분이면 충분합니다.</p>

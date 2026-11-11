@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>여기서 두 가지를 구분하셔야 합니다. 하나는 결과물 파일을 받을 권리이고, 다른 하나는 그 결과물을 복제·수정·재사용할 저작재산권입니다. 파일을 받았다고 해서 두 번째 권리까지 따라오지는 않습니다. 실제 분쟁의 상당수는 파일은 받았는데 다른 업체가 손대지 못하는 상황에서 터집니다.</p>
 <h2>저작권은 자동으로 넘어오나요?</h2>
 <p>표에서 눈여겨보실 항목은 구매 폰트와 이미지입니다. 제작사 계정으로 산 유료 폰트는 명의 이전이 되지 않으면 사장님 사이트에서 계속 쓰는 것이 라이선스 위반이 될 수 있습니다. 오픈 시점에 폰트·이미지 구매 내역을 함께 받아두시면 나중에 교체 비용이 생기지 않습니다. 유료 폰트 하나를 다시 사는 데도 수십만원이 드는 경우가 있습니다.</p>
-<div class="tbl"><table><caption>권리 유형별 기본 귀속과 필요한 계약 문구</caption><thead><tr><th>대상</th><th>약정 없을 때 귀속</th><th>필요한 문구</th></tr></thead><tbody><tr><td>소스코드</td><td>제작사</td><td>&#x27;저작재산권 일체를 발주자에게 양도한다&#x27;</td></tr><tr><td>디자인 원본 파일</td><td>제작사</td><td>&#x27;PSD·피그마 원본을 납품물에 포함한다&#x27;</td></tr><tr><td>작성 카피·콘텐츠</td><td>작성 주체</td><td>&#x27;발주자 제공 자료의 권리는 발주자에 유보한다&#x27;</td></tr><tr><td>구매 폰트·이미지</td><td>라이선스 보유자</td><td>&#x27;사용 라이선스 명의를 발주자로 이전한다&#x27;</td></tr><tr><td>도메인</td><td>등록 명의자</td><td>&#x27;발주자 명의로 등록한다&#x27;</td></tr><tr><td>템플릿·프레임워크</td><td>원저작자</td><td>&#x27;사용 범위와 재배포 제한을 고지한다&#x27;</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>권리 유형별 기본 귀속과 필요한 계약 문구</caption><thead><tr><th scope="col">대상</th><th scope="col">약정 없을 때 귀속</th><th scope="col">필요한 문구</th></tr></thead><tbody><tr><td>소스코드</td><td>제작사</td><td>&#x27;저작재산권 일체를 발주자에게 양도한다&#x27;</td></tr><tr><td>디자인 원본 파일</td><td>제작사</td><td>&#x27;PSD·피그마 원본을 납품물에 포함한다&#x27;</td></tr><tr><td>작성 카피·콘텐츠</td><td>작성 주체</td><td>&#x27;발주자 제공 자료의 권리는 발주자에 유보한다&#x27;</td></tr><tr><td>구매 폰트·이미지</td><td>라이선스 보유자</td><td>&#x27;사용 라이선스 명의를 발주자로 이전한다&#x27;</td></tr><tr><td>도메인</td><td>등록 명의자</td><td>&#x27;발주자 명의로 등록한다&#x27;</td></tr><tr><td>템플릿·프레임워크</td><td>원저작자</td><td>&#x27;사용 범위와 재배포 제한을 고지한다&#x27;</td></tr></tbody></table></div>
 <h2>소유권 이전은 어떻게 받나요?</h2>
 <p>여섯 단계의 핵심은 순서입니다. 잔금이 먼저 나가면 협상 카드가 사라지고, 인수 확인이 먼저면 요청이 대체로 통과됩니다. 이 순서 하나로 재제작 비용 ₩3,000,000급 위험을 없앨 수 있습니다. 인수 확인서는 A4 한 장이면 충분하며 납품물 항목과 서명란만 있으면 되고, 작성에 드는 시간은 10분입니다.</p>
 <ol class="steps"><li>계약서와 견적서에서 저작권·소유권·양도 세 단어를 검색합니다.</li><li>문구가 없으면 잔금 지급 전에 양도 합의서를 메일로 요청합니다.</li><li>납품물 목록을 소스코드·디자인 원본·폰트 내역·계정 정보로 나눠 적습니다.</li><li>전달은 압축 파일과 저장소 접근 권한 두 가지 방식으로 받습니다.</li><li>인수 확인서에 서명하고 사본을 클라우드에 보관합니다.</li><li>잔금은 인수 확인 이후 지급으로 순서를 맞춥니다.</li></ol>

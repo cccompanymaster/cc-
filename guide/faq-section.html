@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -109,7 +111,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>구글이 2023년 FAQ 리치 결과 노출을 대부분 중단했지만, FAQ의 검색 가치는 사라지지 않았습니다. 질문·직답 구조는 네이버 스마트블록과 AI 브리핑, 생성형 AI 검색이 답변을 인용할 때 선호하는 형식이기 때문입니다. 별표 장식이 아니라 인용 가능한 문서 구조가 목적이 된 것입니다. 문항 제목을 질문형 h 태그로, 답변 첫 문장을 결론으로 쓰는 규칙만 지키면 같은 문서가 검색과 AI 양쪽에 재료가 됩니다.</p>
 <h2>FAQ 답변은 어떻게 써야 하나요?</h2>
 <p>표의 예시처럼 첫 문장에서 숫자나 가부를 확정하는 것이 규칙입니다. &#x27;경우에 따라 다릅니다&#x27;로 시작하는 답변은 상담을 유도하려는 의도지만, 방문자에게는 회피로 읽혀 신뢰를 깎습니다. 범위라도 숫자를 먼저 주고 &#x27;정확한 금액은 상담에서&#x27;로 잇는 순서가 전환에 유리합니다.</p>
-<div class="tbl"><table><caption>FAQ 4유형별 문항·직답 예시</caption><thead><tr><th>유형</th><th>문항 예시</th><th>직답 첫 문장 예시</th></tr></thead><tbody><tr><td>비용</td><td>임플란트 비용은 얼마인가요?</td><td>1개 기준 ₩1,200,000~₩1,800,000입니다.</td></tr><tr><td>기간</td><td>제작 기간은 얼마나 걸리나요?</td><td>자료 도착 후 7일입니다.</td></tr><tr><td>절차</td><td>상담은 어떻게 진행되나요?</td><td>전화 또는 카카오톡으로 30분 진행합니다.</td></tr><tr><td>불안</td><td>상담하면 영업 전화가 오나요?</td><td>추가 연락은 드리지 않습니다.</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>FAQ 4유형별 문항·직답 예시</caption><thead><tr><th scope="col">유형</th><th scope="col">문항 예시</th><th scope="col">직답 첫 문장 예시</th></tr></thead><tbody><tr><td>비용</td><td>임플란트 비용은 얼마인가요?</td><td>1개 기준 ₩1,200,000~₩1,800,000입니다.</td></tr><tr><td>기간</td><td>제작 기간은 얼마나 걸리나요?</td><td>자료 도착 후 7일입니다.</td></tr><tr><td>절차</td><td>상담은 어떻게 진행되나요?</td><td>전화 또는 카카오톡으로 30분 진행합니다.</td></tr><tr><td>불안</td><td>상담하면 영업 전화가 오나요?</td><td>추가 연락은 드리지 않습니다.</td></tr></tbody></table></div>
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>
 <div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>오늘 걸려 온 전화·카카오톡 문의 질문을 그대로 메모장에 받아 적기 시작합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>2주 치 질문을 4유형으로 분류해 FAQ 초안 5~10문항을 만듭니다.</li><li>답변마다 첫 문장에 숫자·가부를 넣고 관련 페이지 링크를 1개씩 답니다.</li></ul></div><div class="g"><b>맡길 것</b><ul><li>FAQ 구조화(질문형 제목 태그·구조화 데이터 적용)는 제작사에 맡깁니다.</li></ul></div></div>
 <h2>자주 묻는 질문</h2>

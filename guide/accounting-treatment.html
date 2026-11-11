@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>같은 &#x27;홈페이지&#x27;라도 회계상 성격이 다릅니다. 회사 소개용 페이지는 광고물에 가깝고, 예약·결제 시스템이 있는 사이트는 소프트웨어 자산에 가깝습니다. 처리 방식이 갈리는 이유입니다.</p>
 <h2>비용과 자산은 무엇으로 구분하나요?</h2>
 <p>표는 경향이지 법정 공식이 아닙니다. 실무에서는 회사의 회계정책(중요성 기준)과 과세 관점이 함께 작동하므로, 경계선에 있는 금액이라면 처리 방침을 세무사와 정해 두는 것이 안전합니다.</p>
-<div class="tbl"><table><caption>홈페이지 제작비 처리 구분 기준 (2026년 8월 기준 일반 실무)</caption><thead><tr><th>구분</th><th>비용 처리 경향</th><th>자산 계상 경향</th></tr></thead><tbody><tr><td>금액</td><td>소액 (수십만원대)</td><td>고액 (수백만원 이상)</td></tr><tr><td>성격</td><td>홍보·소개 중심</td><td>기능·시스템 중심(예약·결제·회원)</td></tr><tr><td>효익 기간</td><td>단기·수시 개편</td><td>수년간 사용 전제</td></tr><tr><td>유지 지출</td><td>수선·업데이트 성격</td><td>기능 증설은 자본적 지출 검토</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>홈페이지 제작비 처리 구분 기준 (2026년 8월 기준 일반 실무)</caption><thead><tr><th scope="col">구분</th><th scope="col">비용 처리 경향</th><th scope="col">자산 계상 경향</th></tr></thead><tbody><tr><td>금액</td><td>소액 (수십만원대)</td><td>고액 (수백만원 이상)</td></tr><tr><td>성격</td><td>홍보·소개 중심</td><td>기능·시스템 중심(예약·결제·회원)</td></tr><tr><td>효익 기간</td><td>단기·수시 개편</td><td>수년간 사용 전제</td></tr><tr><td>유지 지출</td><td>수선·업데이트 성격</td><td>기능 증설은 자본적 지출 검토</td></tr></tbody></table></div>
 <h2>자산으로 잡으면 무엇이 달라지나요?</h2>
 <p>비용 처리는 지출 연도에 전액이 손금이 되고, 자산 계상은 내용연수(통상 수년)에 나눠 상각됩니다. 당기 이익을 줄이고 싶은 해에는 비용 처리가, 이익을 안정적으로 보이고 싶을 때는 상각이 유리해 보일 수 있으나 — 선택 기준은 절세 취향이 아니라 지출의 실질입니다.</p>
 <p>국세청 관점에서도 일관성이 중요합니다. 같은 성격의 지출을 해마다 다르게 처리하면 설명 부담이 생깁니다.</p>

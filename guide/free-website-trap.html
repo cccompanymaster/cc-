@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>문제는 금액만이 아닙니다. 커뮤니티 보고 사례에서는 결제 후 수개월 내 연락이 끊기거나, 업체 폐업으로 서버가 내려가 사이트 접속이 불가해진 경우가 이어집니다. 선결제 + 소유권 미확보의 조합이 피해를 키웁니다.</p>
 <h2>총 지불액으로 비교하면 어떻게 되나요?</h2>
 <p>같은 100만원대라도 무엇이 남는지가 다릅니다. 선결제형 무료 계약은 3년 뒤 남는 것이 없거나, 도메인조차 업체 명의라 이전이 막히는 경우가 보고됩니다.</p>
-<div class="tbl"><table><caption>3년 총 지불액 비교 (보고 사례 기준)</caption><thead><tr><th>구조</th><th>초기 결제</th><th>3년 총액</th><th>소유권</th></tr></thead><tbody><tr><td>&#x27;무료 제작&#x27; + 유지비 3년 일시불</td><td>₩1,080,000</td><td>₩1,080,000 + α</td><td>업체 명의 관행</td></tr><tr><td>정찰제 제작 ₩199,000 + 도메인 3년</td><td>₩199,000</td><td>약 ₩244,000~</td><td>사장님 명의 권장</td></tr><tr><td>일반 제작 ₩100만 + 유지 별도</td><td>₩1,000,000</td><td>₩1,000,000 + 유지</td><td>계약에 따름</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>3년 총 지불액 비교 (보고 사례 기준)</caption><thead><tr><th scope="col">구조</th><th scope="col" class="num">초기 결제</th><th scope="col">3년 총액</th><th scope="col">소유권</th></tr></thead><tbody><tr><td>&#x27;무료 제작&#x27; + 유지비 3년 일시불</td><td class="num">₩1,080,000</td><td>₩1,080,000 + α</td><td>업체 명의 관행</td></tr><tr><td>정찰제 제작 ₩199,000 + 도메인 3년</td><td class="num">₩199,000</td><td>약 ₩244,000~</td><td>사장님 명의 권장</td></tr><tr><td>일반 제작 ₩100만 + 유지 별도</td><td class="num">₩1,000,000</td><td>₩1,000,000 + 유지</td><td>계약에 따름</td></tr></tbody></table></div>
 <h2>영업 전화에서 무엇을 물어봐야 하나요?</h2>
 <p>다섯 질문에 즉답하지 못하거나 &#x27;일단 계약부터&#x27;로 돌리면 끊으셔도 됩니다. 정상 사업자는 총액·해지·명의 질문을 반깁니다 — 그것이 신뢰를 만드는 정보이기 때문입니다.</p>
 <ol class="steps"><li>약정 기간 전체의 총 지불액은 정확히 얼마입니까</li><li>중도 해지 시 환불 기준은 계약서 몇 조에 있습니까</li><li>도메인·소스코드·서버 계정은 누구 명의입니까</li><li>&#x27;무료&#x27;의 근거가 되는 공고문·협약서가 있습니까</li><li>회사의 사업자등록번호와 소재지는 어디입니까</li></ol>

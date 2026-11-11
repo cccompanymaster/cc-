@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -103,7 +105,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p class="direct">8가지입니다 — 업체 소개 문장(3줄), 연락처·주소·영업시간, 사진 10장 내외, 로고 파일(없으면 상호 표기 방침), 서비스·메뉴 목록과 설명, 가격 공개 여부, 도메인(또는 희망 주소), 참고하고 싶은 사이트 2곳. 이 목록이 착수일의 전부입니다.</p>
 <p>여덟 가지는 업체가 대신 만들 수 없는 것들입니다. 반대로 디자인·문장 다듬기·구조는 업체의 일입니다. 역할 경계를 알면 준비가 가벼워집니다.</p>
 <h2>항목별로 어느 수준이면 충분한가요?</h2>
-<div class="tbl"><table><caption>준비물 8가지와 &#x27;충분한&#x27; 수준</caption><thead><tr><th>항목</th><th>충분한 수준</th><th>흔한 오해</th></tr></thead><tbody><tr><td>소개 문장</td><td>무엇을·누구에게·왜, 3줄 초안</td><td>완성 문장이어야 한다(아님)</td></tr><tr><td>연락처 정보</td><td>전화·카카오·주소·영업시간 확정값</td><td>나중에 정해도 된다(지연 1순위)</td></tr><tr><td>사진</td><td>후보 10장, 스마트폰 촬영 가능</td><td>전문 촬영 필수(아님)</td></tr><tr><td>로고</td><td>원본 파일 또는 &#x27;텍스트 로고&#x27; 결정</td><td>로고 없으면 시작 불가(아님)</td></tr><tr><td>서비스 목록</td><td>이름·한줄설명·순서</td><td>상세 설명 완성(아님)</td></tr><tr><td>가격 방침</td><td>공개/비공개/상담 유도 중 택1</td><td>전 품목 가격표 필수(아님)</td></tr><tr><td>도메인</td><td>희망 주소 2~3개 후보</td><td>구매까지 완료(업체와 함께 가능)</td></tr><tr><td>참고 사이트</td><td>좋았던 곳 2곳+이유 한 줄</td><td>디자인 시안 제작(아님)</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>준비물 8가지와 &#x27;충분한&#x27; 수준</caption><thead><tr><th scope="col">항목</th><th scope="col">충분한 수준</th><th scope="col">흔한 오해</th></tr></thead><tbody><tr><td>소개 문장</td><td>무엇을·누구에게·왜, 3줄 초안</td><td>완성 문장이어야 한다(아님)</td></tr><tr><td>연락처 정보</td><td>전화·카카오·주소·영업시간 확정값</td><td>나중에 정해도 된다(지연 1순위)</td></tr><tr><td>사진</td><td>후보 10장, 스마트폰 촬영 가능</td><td>전문 촬영 필수(아님)</td></tr><tr><td>로고</td><td>원본 파일 또는 &#x27;텍스트 로고&#x27; 결정</td><td>로고 없으면 시작 불가(아님)</td></tr><tr><td>서비스 목록</td><td>이름·한줄설명·순서</td><td>상세 설명 완성(아님)</td></tr><tr><td>가격 방침</td><td>공개/비공개/상담 유도 중 택1</td><td>전 품목 가격표 필수(아님)</td></tr><tr><td>도메인</td><td>희망 주소 2~3개 후보</td><td>구매까지 완료(업체와 함께 가능)</td></tr><tr><td>참고 사이트</td><td>좋았던 곳 2곳+이유 한 줄</td><td>디자인 시안 제작(아님)</td></tr></tbody></table></div>
 <h2>자료가 늦으면 실제로 무엇이 밀리나요?</h2>
 <p>공정은 자료 위에서 돌아갑니다. 문장이 없으면 카피 검수가, 사진이 없으면 디자인 적용이, 연락처가 없으면 문의 동선 연결이 멈춥니다. 업계 보고에서 콘텐츠 미준비가 2~4주 지연의 최대 원인으로 꼽히는 이유입니다.</p>
 <p>지연은 기간만 밀지 않습니다. 오픈이 늦어지는 동안의 검색 노출·문의 기회가 함께 사라집니다. 준비물 정리는 반나절이면 끝나는 일이고, 그 반나절이 몇 주를 삽니다.</p>

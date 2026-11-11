@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>비율이 규칙인 이유는 시선 통제 때문입니다. 방문자의 시선은 색이 튀는 곳으로 이동하는데, 튀는 색이 화면의 10%뿐이면 시선이 버튼으로 모이고, 40%면 어디로도 모이지 않습니다. 색을 잘 고르는 일보다 색의 수를 3가지로 제한하는 일이 먼저입니다. 로고 색을 보조색으로 삼으면 별도 고민 없이 출발점이 만들어집니다.</p>
 <h2>업종별 조합 예시는 무엇인가요?</h2>
 <p>표의 조합이 검증됐다고 말하는 근거는 반복 사용입니다. 같은 업종 상위 노출 사이트 10곳을 열어 보면 배색이 비슷하게 수렴하는데, 방문자가 업종에 기대하는 색이 있기 때문입니다. 병원이 검정 바탕에 빨간 글자를 쓰면 정보가 같아도 신뢰가 깎입니다. 차별화는 색이 아니라 사진과 문장에서 만드는 것이 안전한 순서입니다.</p>
-<div class="tbl"><table><caption>업종별 검증된 배색 조합 (주색·보조색·강조색)</caption><thead><tr><th>업종</th><th>조합</th><th>의도</th></tr></thead><tbody><tr><td>병원·클리닉</td><td>흰색 · 블루 계열 · 청록</td><td>신뢰·청결의 인상</td></tr><tr><td>카페·베이커리</td><td>크림 · 브라운 · 오렌지</td><td>따뜻함·식욕 자극</td></tr><tr><td>법률·세무</td><td>흰색 · 네이비 · 골드</td><td>권위·격식</td></tr><tr><td>뷰티·에스테틱</td><td>화이트 · 블러시 핑크 · 딥로즈</td><td>부드러움·전문성</td></tr><tr><td>제조·기술</td><td>라이트 그레이 · 스틸 블루 · 옐로</td><td>정밀함·안정감</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>업종별 검증된 배색 조합 (주색·보조색·강조색)</caption><thead><tr><th scope="col">업종</th><th scope="col">조합</th><th scope="col">의도</th></tr></thead><tbody><tr><td>병원·클리닉</td><td>흰색 · 블루 계열 · 청록</td><td>신뢰·청결의 인상</td></tr><tr><td>카페·베이커리</td><td>크림 · 브라운 · 오렌지</td><td>따뜻함·식욕 자극</td></tr><tr><td>법률·세무</td><td>흰색 · 네이비 · 골드</td><td>권위·격식</td></tr><tr><td>뷰티·에스테틱</td><td>화이트 · 블러시 핑크 · 딥로즈</td><td>부드러움·전문성</td></tr><tr><td>제조·기술</td><td>라이트 그레이 · 스틸 블루 · 옐로</td><td>정밀함·안정감</td></tr></tbody></table></div>
 <h2>강조색은 어디에만 쓰나요?</h2>
 <p>강조색의 자리는 행동 요소 3가지, 즉 문의·예약 버튼, 링크, 진행 상태 표시입니다. 제목·아이콘·배경 장식에까지 강조색을 쓰면 버튼의 시각적 특권이 사라집니다. 화면 하나에 강조색 요소가 3개를 넘으면 줄이는 것을 검토할 때입니다. 문의 버튼 1개가 화면에서 가장 튀는 색이 되도록 아껴 쓰는 것이 이 규칙의 목적입니다.</p>
 <p>명도 대비도 강조색 선택의 조건입니다. 웹 접근성 지침(WCAG)은 본문 글자와 배경의 대비를 4.5 대 1 이상으로 권고합니다. 흰 바탕에 연한 노랑·연한 하늘색 글자는 대비 미달로 읽히지 않으므로, 강조색이 밝다면 글자가 아니라 배경으로 쓰고 글자는 흰색 또는 진회색으로 얹습니다.</p>

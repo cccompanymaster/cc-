@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>정상 제작사와 사기 업체를 가르는 지점은 문서화 의지입니다. 정상 업체는 견적서와 계약서를 먼저 보내고 검토 시간을 줍니다. 반대로 사기 패턴은 서명을 통화 중에 끝내려 합니다. 계약서를 메일로 먼저 보내 달라는 한 문장이 가장 값싼 검증 도구입니다. 검토 시간을 하루만 확보해도 판단은 훨씬 쉬워집니다.</p>
 <h2>사기 패턴은 어떻게 반복되나요?</h2>
 <p>다섯 패턴의 공통점은 지불 구조를 바꿔 총액을 가리는 것입니다. 월 ₩30,000이라는 표현은 작아 보이지만 36개월이면 ₩1,080,000입니다. 금액을 들으시면 항상 계약 기간을 곱해 총액으로 환산하십시오. 이 계산 하나로 다섯 패턴 중 셋이 걸러집니다. 총액이 나오면 같은 예산으로 무엇을 살 수 있는지 비교가 가능해집니다.</p>
-<div class="tbl"><table><caption>홈페이지 제작 사기 5가지 정형 패턴</caption><thead><tr><th>패턴</th><th>실제 영업 멘트</th><th>실제 구조</th></tr></thead><tbody><tr><td>무료 제작 미끼</td><td>&#x27;제작비는 안 받습니다&#x27;</td><td>유지비 3년 ₩1,080,000 일시불 선납</td></tr><tr><td>기관 사칭</td><td>&#x27;포털 본사에서 연락드렸습니다&#x27;</td><td>위탁 관계 없는 영업 대행</td></tr><tr><td>지원 사업 사칭</td><td>&#x27;정부 지원 대상으로 선정되셨습니다&#x27;</td><td>자부담 명목의 결제 유도</td></tr><tr><td>상위노출 보장</td><td>&#x27;첫 페이지 노출을 보장합니다&#x27;</td><td>보장 불가한 영역에 대한 약속</td></tr><tr><td>할부 계약 전환</td><td>&#x27;월 ₩30,000이면 됩니다&#x27;</td><td>해지 불가 장기 금융 계약</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>홈페이지 제작 사기 5가지 정형 패턴</caption><thead><tr><th scope="col">패턴</th><th scope="col">실제 영업 멘트</th><th scope="col">실제 구조</th></tr></thead><tbody><tr><td>무료 제작 미끼</td><td>&#x27;제작비는 안 받습니다&#x27;</td><td>유지비 3년 ₩1,080,000 일시불 선납</td></tr><tr><td>기관 사칭</td><td>&#x27;포털 본사에서 연락드렸습니다&#x27;</td><td>위탁 관계 없는 영업 대행</td></tr><tr><td>지원 사업 사칭</td><td>&#x27;정부 지원 대상으로 선정되셨습니다&#x27;</td><td>자부담 명목의 결제 유도</td></tr><tr><td>상위노출 보장</td><td>&#x27;첫 페이지 노출을 보장합니다&#x27;</td><td>보장 불가한 영역에 대한 약속</td></tr><tr><td>할부 계약 전환</td><td>&#x27;월 ₩30,000이면 됩니다&#x27;</td><td>해지 불가 장기 금융 계약</td></tr></tbody></table></div>
 <h2>계약 전 검증 질문은 무엇인가요?</h2>
 <p>여섯 질문의 소요 시간은 3분입니다. 1번과 2번에서 말을 돌리면 나머지는 물어볼 필요가 없습니다. 반대로 두 질문에 바로 답이 오면 나머지 네 개는 계약 조건을 다듬는 데 쓰시면 됩니다. 질문은 통화 중에 그대로 읽으셔도 무방합니다. 2026년 8월 기준으로도 이 두 질문이 가장 높은 판별력을 보입니다.</p>
 <ol class="steps"><li>사업자등록번호와 상호를 알려 주시겠습니까.</li><li>계약서와 견적서를 메일로 먼저 보내 주시겠습니까.</li><li>제작비와 유지비를 분리한 총액은 얼마입니까.</li><li>계약 기간과 중도 해지 조건은 어떻게 됩니까.</li><li>소스코드와 도메인 명의는 누구에게 귀속됩니까.</li><li>지금까지 만든 사이트 주소 세 곳을 알려 주시겠습니까.</li></ol>

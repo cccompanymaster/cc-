@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>순서를 아는 것의 실익은 통제력입니다. &#x27;지금 몇 단계인가&#x27;를 물을 수 있고, 다음 단계에 내가 준비할 것을 미리 알 수 있으며, 지연이 어디서 났는지 짚을 수 있습니다.</p>
 <h2>단계별로 무엇이 오가나요?</h2>
 <p>표의 소요 폭이 넓은 이유는 방식과 자료 속도 때문입니다. 특히 3단계는 발주자 손에 달린 구간이라, 이 구간의 속도가 전체 기간을 결정합니다.</p>
-<div class="tbl"><table><caption>제작 6단계 — 산출물과 발주자 결정 항목</caption><thead><tr><th>단계</th><th>업체 산출물</th><th>발주자 결정</th><th>표준 소요</th></tr></thead><tbody><tr><td>1. 상담·범위</td><td>견적·포함표·일정</td><td>범위·예산 확정</td><td>1일~1주</td></tr><tr><td>2. 기획</td><td>메뉴·섹션 구조안</td><td>구조 승인</td><td>2일~2주</td></tr><tr><td>3. 콘텐츠</td><td>카피 초안·이미지 배치안</td><td>자료 전달·문안 확정</td><td>2일~4주(자료 속도)</td></tr><tr><td>4. 디자인</td><td>시안·적용 화면</td><td>시안 선택·브랜드 컬러</td><td>3일~3주</td></tr><tr><td>5. 검수·수정</td><td>수정 반영본</td><td>최종 승인</td><td>2일~2주</td></tr><tr><td>6. 오픈</td><td>도메인 연결·배포</td><td>오픈일 확정</td><td>1~2일</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>제작 6단계 — 산출물과 발주자 결정 항목</caption><thead><tr><th scope="col">단계</th><th scope="col">업체 산출물</th><th scope="col">발주자 결정</th><th scope="col" class="num">표준 소요</th></tr></thead><tbody><tr><td>1. 상담·범위</td><td>견적·포함표·일정</td><td>범위·예산 확정</td><td class="num">1일~1주</td></tr><tr><td>2. 기획</td><td>메뉴·섹션 구조안</td><td>구조 승인</td><td class="num">2일~2주</td></tr><tr><td>3. 콘텐츠</td><td>카피 초안·이미지 배치안</td><td>자료 전달·문안 확정</td><td class="num">2일~4주(자료 속도)</td></tr><tr><td>4. 디자인</td><td>시안·적용 화면</td><td>시안 선택·브랜드 컬러</td><td class="num">3일~3주</td></tr><tr><td>5. 검수·수정</td><td>수정 반영본</td><td>최종 승인</td><td class="num">2일~2주</td></tr><tr><td>6. 오픈</td><td>도메인 연결·배포</td><td>오픈일 확정</td><td class="num">1~2일</td></tr></tbody></table></div>
 <h2>발주자가 미리 알아두면 좋은 결정 항목은?</h2>
 <p>단계마다 &#x27;그 자리에서 결정해야 진도가 나가는&#x27; 항목이 있습니다 — 1단계의 범위(무엇을 뺄 것인가), 2단계의 메뉴 확정, 4단계의 시안 선택, 5단계의 수정 마감선이 그것입니다.</p>
 <p>결정을 돕는 요령은 기준의 사전 합의입니다. 예컨대 시안 선택 기준을 &#x27;타깃 고객이 3초 안에 용건을 찾는가&#x27;로 미리 정해 두면, 취향 논쟁 없이 결정이 빨라집니다.</p>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -110,7 +112,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <ol class="steps"><li>카카오 비즈니스에 가입하고 무료로 채널을 개설합니다 — 채널명은 상호와 같게 합니다.</li><li>사업자등록증으로 비즈니스 인증을 신청해 인증 배지를 받습니다.</li><li>채널 관리자센터에서 검색 허용·채팅 받기를 켭니다. 기본값 확인이 핵심입니다.</li><li>채팅 URL을 발급받아 홈페이지 플로팅 버튼에 연결합니다.</li><li>자동 응답 인사말에 응대 가능 시간과 첫 안내(위치·가격표 링크)를 설정합니다.</li><li>휴대전화로 접속해 버튼 클릭부터 메시지 발신까지 실제 테스트를 합니다.</li></ol>
 <h2>버튼은 어디에 어떤 문구로 다나요?</h2>
 <p>표의 기준을 요약하면 위치는 우하단 고정, 크기는 엄지손가락, 문구는 채널명 그대로입니다. 플로팅 버튼이 화면을 가리는 것이 싫어 숨기는 사장님이 있는데, 문의 버튼은 방문자 전원이 스크롤 어디서나 볼 수 있어야 하는 요소입니다. 가리는 화면 면적보다 잃어버리는 문의가 큰 손해입니다.</p>
-<div class="tbl"><table><caption>카카오톡 상담 버튼 위치·문구 기준</caption><thead><tr><th>항목</th><th>기준</th><th>이유</th></tr></thead><tbody><tr><td>위치</td><td>우하단 플로팅 고정</td><td>스크롤 내내 노출·엄지 도달 거리</td></tr><tr><td>크기</td><td>한 변 48px 이상</td><td>모바일 터치 오차 방지</td></tr><tr><td>문구</td><td>카카오톡 문의·카톡 상담</td><td>아는 채널명이 심리 장벽을 낮춤</td></tr><tr><td>보조 문구</td><td>보통 10분 내 답장</td><td>응답 기대치를 숫자로 제시</td></tr><tr><td>개수</td><td>주 버튼 1개+전화 보조</td><td>선택 부담 방지·이원 구조</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>카카오톡 상담 버튼 위치·문구 기준</caption><thead><tr><th scope="col">항목</th><th scope="col">기준</th><th scope="col">이유</th></tr></thead><tbody><tr><td>위치</td><td>우하단 플로팅 고정</td><td>스크롤 내내 노출·엄지 도달 거리</td></tr><tr><td>크기</td><td>한 변 48px 이상</td><td>모바일 터치 오차 방지</td></tr><tr><td>문구</td><td>카카오톡 문의·카톡 상담</td><td>아는 채널명이 심리 장벽을 낮춤</td></tr><tr><td>보조 문구</td><td>보통 10분 내 답장</td><td>응답 기대치를 숫자로 제시</td></tr><tr><td>개수</td><td>주 버튼 1개+전화 보조</td><td>선택 부담 방지·이원 구조</td></tr></tbody></table></div>
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>
 <div class="chk2"><div class="g"><b>오늘 할 것</b><ul><li>카카오 채널 개설 여부와 검색 허용·채팅 받기 설정 상태를 확인합니다.</li></ul></div><div class="g"><b>이번 주 할 것</b><ul><li>비즈니스 인증을 신청하고 자동 응답에 응대 시간·가격표 링크를 설정합니다.</li><li>홈페이지 우하단에 플로팅 버튼을 달고 휴대전화로 발신 테스트를 합니다.</li></ul></div><div class="g"><b>맡길 것</b><ul><li>채팅 URL과 홈페이지 버튼 연동 작업은 제작사에 맡깁니다 — 소규모 작업입니다.</li></ul></div></div>
 <h2>자주 묻는 질문</h2>

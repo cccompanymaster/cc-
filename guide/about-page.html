@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>NN/g의 회사소개 페이지 연구는 방문자가 조직 정보 페이지에서 &#x27;이 조직이 무엇을 하는지&#x27;를 가장 먼저 찾는다고 보고합니다. 그런데 많은 회사소개가 첫 화면을 인사말 사진과 경영 철학으로 채웁니다. 방문자의 질문과 페이지의 답이 어긋나는 것이 안 읽히는 회사소개의 구조적 원인입니다.</p>
 <h2>신뢰 요소 6가지는 무엇인가요?</h2>
 <p>표의 순서는 방문자의 질문 순서를 따릅니다. 무엇을 하는 곳인지 확인한 뒤에야 실적이 궁금해지고, 실적을 본 뒤에야 사람과 과정이 궁금해집니다. 예시 문장은 업종 단어만 바꾸면 그대로 쓸 수 있습니다. 6가지를 다 채우기 어려우면 한 줄 정의와 숫자 실적 2가지부터 채웁니다.</p>
-<div class="tbl"><table><caption>회사소개 신뢰 요소 6가지와 배치 순서</caption><thead><tr><th>순서</th><th>요소</th><th>예시 문장</th></tr></thead><tbody><tr><td>1</td><td>한 줄 정의</td><td>성남 중소 제조사의 금형 시제품을 만드는 12년 차 공장입니다</td></tr><tr><td>2</td><td>숫자 실적</td><td>연간 320건 납품, 재주문율 68%</td></tr><tr><td>3</td><td>사람</td><td>대표 포함 기술자 4명이 직접 가공합니다</td></tr><tr><td>4</td><td>과정</td><td>견적 24시간 회신, 도면 검토 후 착수</td></tr><tr><td>5</td><td>고객 증거</td><td>거래처 담당자의 실명 후기 3건</td></tr><tr><td>6</td><td>연락 정보</td><td>주소·전화·사업자등록번호·오시는 길</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>회사소개 신뢰 요소 6가지와 배치 순서</caption><thead><tr><th scope="col">순서</th><th scope="col">요소</th><th scope="col">예시 문장</th></tr></thead><tbody><tr><td>1</td><td>한 줄 정의</td><td>성남 중소 제조사의 금형 시제품을 만드는 12년 차 공장입니다</td></tr><tr><td>2</td><td>숫자 실적</td><td>연간 320건 납품, 재주문율 68%</td></tr><tr><td>3</td><td>사람</td><td>대표 포함 기술자 4명이 직접 가공합니다</td></tr><tr><td>4</td><td>과정</td><td>견적 24시간 회신, 도면 검토 후 착수</td></tr><tr><td>5</td><td>고객 증거</td><td>거래처 담당자의 실명 후기 3건</td></tr><tr><td>6</td><td>연락 정보</td><td>주소·전화·사업자등록번호·오시는 길</td></tr></tbody></table></div>
 <h2>연혁과 인사말은 왜 안 읽히나요?</h2>
 <p>연혁은 회사의 시간순 기록이라 방문자의 질문에 답하지 않고, 인사말은 존경받고 싶은 문장이라 정보 밀도가 낮기 때문입니다. 2010년 설립·2015년 확장 같은 나열에서 방문자가 얻는 판단 재료는 업력 1개뿐입니다. 같은 지면에 &#x27;12년간 320개사와 거래&#x27;라고 쓰면 정보량이 2배가 됩니다.</p>
 <p>없애라는 뜻이 아니라 순서를 내리라는 뜻입니다. 신뢰 요소 6가지를 위에 배치하고 연혁·인사말은 하단 접힘 영역에 두면, 찾는 사람만 읽고 나머지는 방해받지 않습니다. 실제로 연혁이 필요한 방문자는 입찰·거래 심사 담당자 정도로 소수이므로, 지면의 윗자리는 다수가 찾는 신뢰 증거에 내주는 배치가 합리적입니다.</p>

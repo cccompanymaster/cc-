@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>기준은 감정이 아니라 문서입니다. 견적서·계약서에 적힌 범위가 출발점이고, &#x27;통상 이 정도는 포함&#x27;이라는 기대는 문서가 침묵할 때만 보조 기준이 됩니다. 그래서 같은 청구도 계약서에 따라 정당이 되기도, 부당이 되기도 합니다.</p>
 <h2>흔한 추가 청구 7가지는 어떻게 분류되나요?</h2>
 <p>다툼 여지 항목이 분쟁의 최다 구간입니다. 결론은 항상 같습니다 — 계약 전 한 줄이 계약 후 열 번의 통화보다 쌉니다.</p>
-<div class="tbl"><table><caption>추가 청구 7가지 정당·부당 분류</caption><thead><tr><th>청구 항목</th><th>분류</th><th>판단 기준</th></tr></thead><tbody><tr><td>새 페이지·기능 추가</td><td>정당</td><td>계약 범위 밖 신규 요구</td></tr><tr><td>시안 확정 후 디자인 변경</td><td>정당(단가 사전 고지 시)</td><td>건당 ₩20만~₩50만 관행 — 사전 고지 여부</td></tr><tr><td>모바일 반응형</td><td>다툼 여지</td><td>별도 고지 없었다면 부당 주장 가능</td></tr><tr><td>콘텐츠(원고·사진) 제작</td><td>정당(고지 시)</td><td>₩50만~₩300만 — 포함 오인 소지 큼</td></tr><tr><td>오탈자·버그 수정</td><td>부당</td><td>하자보수 범위</td></tr><tr><td>검색엔진 등록</td><td>다툼 여지</td><td>&#x27;SEO 포함&#x27; 표기 시 부당</td></tr><tr><td>긴급 대응 할증</td><td>정당(사전 합의 시)</td><td>1.5~2배 관행 — 합의 없으면 협상</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>추가 청구 7가지 정당·부당 분류</caption><thead><tr><th scope="col">청구 항목</th><th scope="col">분류</th><th scope="col">판단 기준</th></tr></thead><tbody><tr><td>새 페이지·기능 추가</td><td>정당</td><td>계약 범위 밖 신규 요구</td></tr><tr><td>시안 확정 후 디자인 변경</td><td>정당(단가 사전 고지 시)</td><td>건당 ₩20만~₩50만 관행 — 사전 고지 여부</td></tr><tr><td>모바일 반응형</td><td>다툼 여지</td><td>별도 고지 없었다면 부당 주장 가능</td></tr><tr><td>콘텐츠(원고·사진) 제작</td><td>정당(고지 시)</td><td>₩50만~₩300만 — 포함 오인 소지 큼</td></tr><tr><td>오탈자·버그 수정</td><td>부당</td><td>하자보수 범위</td></tr><tr><td>검색엔진 등록</td><td>다툼 여지</td><td>&#x27;SEO 포함&#x27; 표기 시 부당</td></tr><tr><td>긴급 대응 할증</td><td>정당(사전 합의 시)</td><td>1.5~2배 관행 — 합의 없으면 협상</td></tr></tbody></table></div>
 <h2>계약서에 어떤 문구를 넣어야 막을 수 있나요?</h2>
 <p>다섯 문장 모두 특별한 법률 지식 없이 넣을 수 있는 조항입니다. 업체가 이 문구 삽입을 거부한다면, 그 거부 자체가 중요한 판단 정보입니다.</p>
 <ol class="steps"><li>본 계약 금액에는 모바일·태블릿 반응형이 포함된다</li><li>무상 수정은 ○회이며, 초과 수정 단가는 건당 ₩○○로 한다</li><li>오류·오탈자 수정은 하자보수로 하며 납품 후 ○개월간 무상으로 한다</li><li>계약 범위 외 추가 요청은 착수 전 서면 견적 합의 후 진행한다</li><li>도메인·소스코드·서버 계정은 발주자 명의로 귀속한다</li></ol>

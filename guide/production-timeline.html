@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -105,7 +107,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <h2>어디에서 시간이 새나요?</h2>
 <p>업계 보고 기준 지연 원인 1위는 발주자 콘텐츠 미준비로, 이것만으로 2~4주가 밀립니다. 2위는 내부 의사결정 지연 — 결정권자가 회의에 없으면 시안마다 한 주씩 늘어집니다.</p>
 <p>3위는 애매한 피드백입니다. &#x27;좀 더 세련되게&#x27;는 작업 지시가 아니라 수수께끼라, 시안이 3~4회 반복됩니다. 4위는 착수 후 범위 변경 — 페이지 추가·기능 추가는 일정 재계약 사유입니다.</p>
-<div class="tbl"><table><caption>제작 방식별 표준 기간과 전제 조건</caption><thead><tr><th>방식</th><th>표준 기간</th><th>기간의 전제</th></tr></thead><tbody><tr><td>맞춤 코딩</td><td>6~12주</td><td>기획 확정·기능 정의서 존재</td></tr><tr><td>워드프레스</td><td>4~8주</td><td>테마 선정·콘텐츠 준비</td></tr><tr><td>웹빌더(셀프)</td><td>2~4주</td><td>본인 투입 시간 확보</td></tr><tr><td>검증 템플릿형</td><td>7일 내외</td><td>자료 사전 준비·당일 의사결정</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>제작 방식별 표준 기간과 전제 조건</caption><thead><tr><th scope="col">방식</th><th scope="col" class="num">표준 기간</th><th scope="col">기간의 전제</th></tr></thead><tbody><tr><td>맞춤 코딩</td><td class="num">6~12주</td><td>기획 확정·기능 정의서 존재</td></tr><tr><td>워드프레스</td><td class="num">4~8주</td><td>테마 선정·콘텐츠 준비</td></tr><tr><td>웹빌더(셀프)</td><td class="num">2~4주</td><td>본인 투입 시간 확보</td></tr><tr><td>검증 템플릿형</td><td class="num">7일 내외</td><td>자료 사전 준비·당일 의사결정</td></tr></tbody></table></div>
 <h2>7일 오픈은 어떻게 가능한가요?</h2>
 <p>공정을 줄인 것이 아니라 대기 시간을 줄인 구조입니다. 검증된 구조를 쓰면 기획·디자인 실험이 사라지고, 남는 변수는 콘텐츠 도착 속도뿐입니다. NOAH의 7일 일정은 DAY 1 상담·디자인 선택(30분), DAY 2~3 콘텐츠 정리·카피 검수, DAY 4~5 디자인 적용, DAY 6 검수·수정, DAY 7 도메인 연결 후 오픈으로 구성됩니다.</p>
 <p>전제도 명확합니다 — 자료 도착이 늦어지면 도착일 기준으로 7일이 다시 계산됩니다. 기간 약속은 마법이 아니라 준비의 함수입니다.</p>

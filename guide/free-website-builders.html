@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>무료 플랜을 쓰는 목적은 절약이 아니라 검증입니다. 첫 화면 문구가 통하는지, 문의가 실제로 들어오는지, 어떤 페이지가 필요한지 결제 전에 확인할 수 있습니다. 검증 목적이라면 무료 플랜은 좋은 선택이고, 3년 이상 운영할 대표 사이트라면 이야기가 달라집니다. 검증 기간은 2주면 충분합니다.</p>
 <h2>무료 플랜의 제약은 무엇인가요?</h2>
 <p>제약은 도구마다 다르지만 형태는 비슷합니다. 광고 노출·주소 형태·기능 상한 세 축에서 차이가 나며, 이 중 무엇이 사장님 사업에 치명적인지에 따라 판단이 달라집니다. 아래 표는 제약 유형과 사업에 미치는 영향을 정리한 것입니다. 다섯 줄 중 사업에 치명적인 항목만 골라 표시해 보시기 바랍니다.</p>
-<div class="tbl"><table><caption>무료 플랜 제약과 사업 영향</caption><thead><tr><th>제약</th><th>내용</th><th>사업 영향</th></tr></thead><tbody><tr><td>광고 노출</td><td>제공사 배너·워터마크 표시</td><td>브랜드 신뢰도 하락</td></tr><tr><td>주소</td><td>하위 도메인 주소 사용</td><td>명함·검색에서 인식률 하락</td></tr><tr><td>기능</td><td>폼·결제·통계 기능 상한</td><td>문의 데이터 축적 어려움</td></tr><tr><td>용량</td><td>이미지·페이지 수 제한</td><td>상품·사례 확장 시 막힘</td></tr><tr><td>이전</td><td>유료 전환 또는 이전 시 재작업</td><td>1~2주 추가 소요</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>무료 플랜 제약과 사업 영향</caption><thead><tr><th scope="col">제약</th><th scope="col">내용</th><th scope="col">사업 영향</th></tr></thead><tbody><tr><td>광고 노출</td><td>제공사 배너·워터마크 표시</td><td>브랜드 신뢰도 하락</td></tr><tr><td>주소</td><td>하위 도메인 주소 사용</td><td>명함·검색에서 인식률 하락</td></tr><tr><td>기능</td><td>폼·결제·통계 기능 상한</td><td>문의 데이터 축적 어려움</td></tr><tr><td>용량</td><td>이미지·페이지 수 제한</td><td>상품·사례 확장 시 막힘</td></tr><tr><td>이전</td><td>유료 전환 또는 이전 시 재작업</td><td>1~2주 추가 소요</td></tr></tbody></table></div>
 <h2>기회비용은 어떻게 계산하나요?</h2>
 <p>계산식은 단순합니다. 무료 도구 총투입 시간에 사장님 시급을 곱한 값이 기회비용이고, 여기에 유료 전환 시 3년 누적 구독료를 더한 값이 실제 총비용입니다. 이 값을 제작 1회 비용과 비교하면 결론이 나옵니다. 시급은 월 순이익을 월 근무시간으로 나눈 값이면 충분합니다.</p>
 <p>예를 들어 학습과 제작에 36시간이 들고 시급을 2만원으로 잡으면 기회비용은 72만원입니다. 여기에 유료 전환 구독료가 더해집니다. 반대로 제작형은 기본 ₩199,000(부가세 별도)에 사장님 투입 시간이 상담 30분과 자료 정리 2~3시간 수준입니다. 차이는 시간에서 갈립니다.</p>

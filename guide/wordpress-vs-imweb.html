@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>두 도구는 다른 문제를 풉니다. 워드프레스는 무엇이든 만들 수 있게 하고, 아임웹은 만든 뒤 신경 쓸 일을 줄입니다. 사장님이 매장 운영으로 하루 10시간을 쓰고 있다면 월 2~4시간의 점검 시간이 실제로 확보되는지부터 확인해야 합니다. 확보되지 않으면 자유도는 미완성 사이트로 남습니다.</p>
 <h2>숨은 비용은 얼마나 되나요?</h2>
 <p>워드프레스의 비용은 설치비가 아니라 유지 시간입니다. 코어·테마·플러그인 업데이트는 각각 주기가 다르고, 업데이트 후 화면이 깨지는 충돌은 예고 없이 발생합니다. 아래 표는 두 도구에서 사장님이 직접 부담하는 항목을 시간과 금액으로 나란히 적은 것입니다. 표의 시간 항목을 사장님 시급으로 곱하면 실제 금액이 나옵니다.</p>
-<div class="tbl"><table><caption>워드프레스·아임웹 숨은 비용 비교</caption><thead><tr><th>항목</th><th>워드프레스</th><th>아임웹</th></tr></thead><tbody><tr><td>업데이트</td><td>코어·테마·플러그인 각각 관리, 월 1~2시간</td><td>제공사가 처리, 사장님 부담 없음</td></tr><tr><td>충돌 대응</td><td>플러그인 충돌 시 원인 추적에 건당 1~3시간</td><td>표준 기능 범위에서 충돌 여지 적음</td></tr><tr><td>보안</td><td>보안 패치·백업 설정을 직접 관리</td><td>기본 제공 범위 안에서 관리</td></tr><tr><td>호스팅</td><td>별도 계약 필요, 사양에 따라 비용 변동</td><td>구독료에 포함, 무료 플랜 존재</td></tr><tr><td>확장</td><td>플러그인으로 기능 확장 폭이 큼</td><td>표준 기능 밖은 제약</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>워드프레스·아임웹 숨은 비용 비교</caption><thead><tr><th scope="col">항목</th><th scope="col">워드프레스</th><th scope="col">아임웹</th></tr></thead><tbody><tr><td>업데이트</td><td>코어·테마·플러그인 각각 관리, 월 1~2시간</td><td>제공사가 처리, 사장님 부담 없음</td></tr><tr><td>충돌 대응</td><td>플러그인 충돌 시 원인 추적에 건당 1~3시간</td><td>표준 기능 범위에서 충돌 여지 적음</td></tr><tr><td>보안</td><td>보안 패치·백업 설정을 직접 관리</td><td>기본 제공 범위 안에서 관리</td></tr><tr><td>호스팅</td><td>별도 계약 필요, 사양에 따라 비용 변동</td><td>구독료에 포함, 무료 플랜 존재</td></tr><tr><td>확장</td><td>플러그인으로 기능 확장 폭이 큼</td><td>표준 기능 밖은 제약</td></tr></tbody></table></div>
 <h2>자유도가 실제로 필요한 조건은?</h2>
 <p>자유도가 필요한 조건은 셋 중 둘 이상이 참일 때입니다. 첫째, 페이지가 100장 이상으로 늘어날 계획. 둘째, 회원 등급·다국어·예약 로직처럼 표준 기능 밖 요구가 확정된 경우. 셋째, 관리 담당자가 사장님 외에 한 명 이상 있는 경우입니다. 세 조건은 계획이 아니라 이미 확정된 사실로만 세어야 합니다.</p>
 <p>셋 중 하나만 참이라면 아임웹이나 제작형 서비스가 시간 손실이 적습니다. 워드프레스 표준 제작 기간이 4~8주인 데 비해 빌더는 2~4주이며, 차이 나는 2~4주는 오픈이 늦어지는 만큼 문의가 발생하지 않는 기간이기도 합니다. 오픈이 2주 늦어지면 그 기간의 문의 수는 0건으로 기록됩니다.</p>

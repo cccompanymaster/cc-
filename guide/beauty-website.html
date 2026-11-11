@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>구성의 출발점은 방문자의 검색어입니다. 에스테틱을 찾는 방문자는 시술명과 지역명을 함께 검색하고, 들어온 페이지에서 시간·금액·회복 기간을 확인합니다. 이 3가지가 한 화면에 없으면 다른 탭에 열어둔 매장으로 이동하고, 재방문은 거의 일어나지 않습니다. 시술군을 3~5개로 나누면 검색어와 페이지가 하나씩 맞물립니다.</p>
 <h2>시술 가격은 어떻게 표기하나요?</h2>
 <p>표에서 마지막 행이 특히 조심할 부분입니다. 할인 전 금액을 실제로 판매한 적이 없거나 상시 할인 상태를 기간 한정 특가로 표기하면 표시광고 규정 위반 소지가 생깁니다. 가격 갱신 주기를 월 1회로 정해두면 표기 금액과 실제 결제 금액이 어긋나는 일도 함께 줄어듭니다.</p>
-<div class="tbl"><table><caption>에스테틱 가격 표기 방식과 방문자 행동 비교</caption><thead><tr><th>표기 방식</th><th>방문자 행동</th><th>점검 사항</th></tr></thead><tbody><tr><td>전화 문의로만 안내</td><td>비교 불가·이탈</td><td>문의 대부분 금액만 확인</td></tr><tr><td>1회 정가만 표기</td><td>비교 기준 확보</td><td>패키지 문의 반복</td></tr><tr><td>1회·회차 패키지 병기</td><td>자체 비교 가능</td><td>금액 갱신 관리 필요</td></tr><tr><td>할인 전 금액 병기</td><td>할인 폭 인지</td><td>표시광고 규정 점검 필요</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>에스테틱 가격 표기 방식과 방문자 행동 비교</caption><thead><tr><th scope="col">표기 방식</th><th scope="col">방문자 행동</th><th scope="col">점검 사항</th></tr></thead><tbody><tr><td>전화 문의로만 안내</td><td>비교 불가·이탈</td><td>문의 대부분 금액만 확인</td></tr><tr><td>1회 정가만 표기</td><td>비교 기준 확보</td><td>패키지 문의 반복</td></tr><tr><td>1회·회차 패키지 병기</td><td>자체 비교 가능</td><td>금액 갱신 관리 필요</td></tr><tr><td>할인 전 금액 병기</td><td>할인 폭 인지</td><td>표시광고 규정 점검 필요</td></tr></tbody></table></div>
 <h2>표시광고에서 무엇을 조심하나요?</h2>
 <p>여섯 항목은 오픈 전 원고 단계에서 걸러내는 편이 저렴합니다. 원고 단계의 문구 수정은 카피 검수 범위 안에서 처리됩니다. 오픈 후 문구를 고치면 텍스트 수정 외주가 건당 ₩30,000~₩100,000, 이미지 교체가 ₩50,000~₩150,000씩 듭니다. 정확한 적용은 관할 기관·전문가 확인을 권장드립니다.</p>
 <ol class="steps"><li>완치·영구·부작용 없음 같은 결과 보장 표현을 뺍니다.</li><li>전후사진은 촬영 조건과 개인차 안내를 함께 표기합니다.</li><li>보정과 연출이 들어간 사진은 결과 사진으로 쓰지 않습니다.</li><li>의료행위에 해당하는 시술명 사용 여부를 먼저 확인합니다.</li><li>체험 후기는 대가성 여부를 표기하고 결과 단정 표현을 뺍니다.</li><li>할인 표기는 할인 전 판매 사실과 기간을 근거로 남깁니다.</li></ol>

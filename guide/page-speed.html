@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -107,7 +109,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>측정은 반드시 모바일 탭 기준으로 봅니다. 데스크톱 점수는 대체로 20~30점 높게 나와 착시를 만들고, 실제 방문의 다수는 모바일에서 일어나기 때문입니다. 측정 결과 아래의 개선 기회 목록에는 항목별 예상 단축 시간이 초 단위로 표시되므로, 그 숫자가 큰 항목부터 처리하면 됩니다.</p>
 <h2>무엇부터 고쳐야 효과가 큰가요?</h2>
 <p>표의 순위는 효과 대비 난이도 기준입니다. 1~4번은 코드 지식 없이도 가능하지만, 5번 서버 교체는 비용이 들고 효과가 상황에 따라 다릅니다. PageSpeed 결과에서 서버 응답 시간이 0.6초를 넘는 경우에만 검토하고, 그 전에는 이미지와 스크립트부터 처리하는 것이 순서입니다.</p>
-<div class="tbl"><table><caption>속도 개선 항목 우선순위 (효과 순)</caption><thead><tr><th>순위</th><th>개선 항목</th><th>난이도</th><th>기대 효과</th></tr></thead><tbody><tr><td>1</td><td>이미지 압축·WebP 변환</td><td>낮음</td><td>가장 큼 — 체감 개선의 절반 이상</td></tr><tr><td>2</td><td>미사용 플러그인·스크립트 제거</td><td>중간</td><td>스크립트 처리 시간 단축</td></tr><tr><td>3</td><td>브라우저 캐시 설정</td><td>중간</td><td>재방문 로딩 대폭 단축</td></tr><tr><td>4</td><td>웹폰트 굵기 2~3종으로 축소</td><td>낮음</td><td>첫 글자 표시 시간 단축</td></tr><tr><td>5</td><td>호스팅·서버 응답 개선</td><td>높음</td><td>응답 지연이 0.6초 이상일 때만 검토</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>속도 개선 항목 우선순위 (효과 순)</caption><thead><tr><th scope="col">순위</th><th scope="col">개선 항목</th><th scope="col">난이도</th><th scope="col">기대 효과</th></tr></thead><tbody><tr><td>1</td><td>이미지 압축·WebP 변환</td><td>낮음</td><td>가장 큼 — 체감 개선의 절반 이상</td></tr><tr><td>2</td><td>미사용 플러그인·스크립트 제거</td><td>중간</td><td>스크립트 처리 시간 단축</td></tr><tr><td>3</td><td>브라우저 캐시 설정</td><td>중간</td><td>재방문 로딩 대폭 단축</td></tr><tr><td>4</td><td>웹폰트 굵기 2~3종으로 축소</td><td>낮음</td><td>첫 글자 표시 시간 단축</td></tr><tr><td>5</td><td>호스팅·서버 응답 개선</td><td>높음</td><td>응답 지연이 0.6초 이상일 때만 검토</td></tr></tbody></table></div>
 <h2>개선 작업 순서는 어떻게 되나요?</h2>
 <p>측정 기록을 앞뒤로 남기는 이유는 효과 검증 때문입니다. 어느 작업이 몇 초를 줄였는지 기록해 두면, 다음 리뉴얼이나 외주 발주 때 어디에 비용을 쓸지 판단할 근거가 됩니다. 6단계 중 1~2번만 처리해도 LCP가 1초 이상 줄어드는 사이트가 흔하므로, 하루에 전부 하려 하지 말고 이미지부터 시작하면 됩니다.</p>
 <ol class="steps"><li>PageSpeed Insights 모바일 탭에서 현재 점수와 LCP를 기록합니다.</li><li>용량 상위 이미지 10장을 골라 WebP로 변환해 교체합니다.</li><li>6개월 이상 쓰지 않은 플러그인·외부 스크립트를 제거합니다.</li><li>브라우저 캐시 설정을 켜거나 호스팅 캐시 옵션을 활성화합니다.</li><li>웹폰트를 실제 쓰는 굵기 2~3종만 로드하도록 정리합니다.</li><li>PageSpeed를 재측정해 LCP 변화를 기록으로 남깁니다.</li></ol>

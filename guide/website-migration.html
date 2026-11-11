@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>순서가 거꾸로 되면 비용이 커집니다. 새 업체와 먼저 계약하면 기존 업체에서 자료를 못 받았을 때 콘텐츠를 다시 만들어야 하고, 시장 시세로 50만~300만원이 추가됩니다. 확보가 먼저, 계약이 다음입니다. 확보해야 할 대상은 아래 표의 5가지 항목으로 압축되며, 하나씩 회수 여부를 표시하며 진행하면 됩니다.</p>
 <h2>이전 전 확보 목록은 무엇인가요?</h2>
 <p>다섯 항목 중 도메인이 첫 번째인 이유는 대체가 불가능하기 때문입니다. 디자인과 데이터는 다시 만들 수 있어도, 명함·간판·검색 결과에 퍼진 주소는 바꾸는 순간 그동안의 검색 자산과 방문자를 함께 잃습니다. 도메인 소유자 정보가 제작사 명의로 되어 있다면, 이전 절차보다 명의 이전 요구가 먼저입니다.</p>
-<div class="tbl"><table><caption>업체 변경 전 확보 목록 5가지</caption><thead><tr><th>항목</th><th>확인 내용</th><th>확보하지 못하면</th></tr></thead><tbody><tr><td>도메인</td><td>소유자 명의·기관 이전 인증코드</td><td>주소를 두고 이사하는 셈</td></tr><tr><td>데이터</td><td>글·이미지·게시판 DB 내보내기</td><td>콘텐츠 재제작 50만~300만원</td></tr><tr><td>계정</td><td>호스팅·관리자·통계 로그인 정보</td><td>설정·방문 이력 유실</td></tr><tr><td>소스 파일</td><td>디자인·코드 파일과 계약서 귀속 조항</td><td>같은 디자인 재사용 불가</td></tr><tr><td>연동 서비스</td><td>문의 메일·결제·예약 연동 목록</td><td>오픈 후 기능 중단</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>업체 변경 전 확보 목록 5가지</caption><thead><tr><th scope="col">항목</th><th scope="col">확인 내용</th><th scope="col">확보하지 못하면</th></tr></thead><tbody><tr><td>도메인</td><td>소유자 명의·기관 이전 인증코드</td><td>주소를 두고 이사하는 셈</td></tr><tr><td>데이터</td><td>글·이미지·게시판 DB 내보내기</td><td>콘텐츠 재제작 50만~300만원</td></tr><tr><td>계정</td><td>호스팅·관리자·통계 로그인 정보</td><td>설정·방문 이력 유실</td></tr><tr><td>소스 파일</td><td>디자인·코드 파일과 계약서 귀속 조항</td><td>같은 디자인 재사용 불가</td></tr><tr><td>연동 서비스</td><td>문의 메일·결제·예약 연동 목록</td><td>오픈 후 기능 중단</td></tr></tbody></table></div>
 <h2>중단 없이 옮기는 순서는 어떻게 되나요?</h2>
 <p>핵심은 3단계와 5단계의 분리입니다. 새 홈페이지를 임시 주소에서 완성해 두면 실제 전환은 도메인 연결(DNS) 변경 순간뿐이므로, 방문자가 겪는 공백이 수 분에서 수 시간 수준으로 줄어듭니다. 반대로 기존 사이트를 먼저 내리고 제작을 시작하면 제작 기간인 2~8주 내내 홈페이지가 비어 있게 됩니다.</p>
 <ol class="steps"><li>기존 업체와의 계약 조건·해지 통보 기한을 확인합니다.</li><li>확보 목록 5가지(도메인·데이터·계정·소스·연동)를 회수합니다.</li><li>새 홈페이지를 임시 주소에서 완성하고 검수합니다.</li><li>URL이 바뀌는 페이지는 301 리다이렉트를 준비합니다.</li><li>도메인 연결(DNS)을 새 서버로 변경합니다 — 반영까지 통상 수 시간.</li><li>문의폼·메일 등 연동 기능을 변경 후 24시간 안에 점검합니다.</li></ol>

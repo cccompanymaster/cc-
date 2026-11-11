@@ -6,11 +6,16 @@ ROOT = D.split('/.claude/')[0] + '/' if '/.claude/' in D else '/home/user/cc-/'
 CAT = {'ad': '광고 플랫폼', 'expo': '상위노출', 'blog': '블로그 운영', 'industry': '업종별 마케팅', 'pro': '전문직 마케팅',
        'medical': '병원·의료', 'job': '블로그 부업', 'viral': '바이럴·에이전시', 'exp': '체험단'}
 EXTRA_CSS = ('.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}'
-             'th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}'
-             'th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}td{color:var(--sub)}'
+             'th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}'
+             'th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}td{color:var(--sub)}'
+             '.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}tbody tr:hover td{background:rgba(23,20,26,.03)}'
              'caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}'
              '.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}'
              'article b,article strong{color:var(--gold-soft)}')
+# 표의 숫자 열(첫 열 제외, 값의 2/3 이상이 금액·수치) → 오른쪽 정렬·고정폭 숫자
+NUM = re.compile(r'^[~약\s]*[-+]?[₩$]?\d[\d,.]*\s*(?:%|퍼센트|점|원|만|억|배|초|분|시간|일|주|개월|년|건|개|명|회|ms|MB|KB)?'
+                 r'(?:\s*[~–-]\s*[₩$]?\d[\d,.]*\s*(?:%|퍼센트|점|원|만|억|배|초|분|시간|일|주|개월|년|건|개|명|회|ms|MB|KB)?)?\s*$')
+numcols = lambda rows: {j for j in range(1, max(map(len, rows))) if 3 * sum(1 for r in rows if j < len(r) and NUM.match(r[j])) >= 2 * len(rows)}
 tpl = open(D + 'template.html', encoding='utf-8').read()  # 2026-10-22 시점 칼럼 틀 (상단바·스타일·CTA·허브·푸터)
 esc = lambda s: html.escape(s, quote=False)
 att = lambda s: html.escape(s, quote=True)
@@ -59,9 +64,10 @@ def build(sp, links, pub, mod=None):
     title, desc = sp['title'], sp['description']
     # ── 본문 ──
     t = sp['table']
+    nc = numcols(t['rows']); cl = lambda j: ' class="num"' if j in nc else ''
     tbl = ('<div class="tbl"><table><caption>' + esc(t['caption']) + '</caption><thead><tr>' +
-           ''.join(f'<th>{esc(c)}</th>' for c in t['head']) + '</tr></thead><tbody>' +
-           ''.join('<tr>' + ''.join(f'<td>{esc(c)}</td>' for c in r) + '</tr>' for r in t['rows']) + '</tbody></table></div>')
+           ''.join(f'<th scope="col"{cl(j)}>{esc(c)}</th>' for j, c in enumerate(t['head'])) + '</tr></thead><tbody>' +
+           ''.join('<tr>' + ''.join(f'<td{cl(j)}>{esc(c)}</td>' for j, c in enumerate(r)) + '</tr>' for r in t['rows']) + '</tbody></table></div>')
     secs = []
     for i, s in enumerate(sp['sections']):
         secs.append(f'<h2>{esc(s["h2"])}</h2>\n{clean(s["html"], links)}')

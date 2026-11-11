@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>4단계 중 사장님이 가장 자주 멈추는 지점은 첫 단계인 소유확인입니다. 소유확인은 사장님이 그 도메인의 주인임을 네이버에 증명하는 절차이고, 증명이 끝나야 나머지 3단계 메뉴가 열립니다. 제작사에 맡긴 홈페이지라면 파일 업로드 권한이 사장님에게 없는 경우가 많으므로, 메타태그 코드 한 줄을 받아 넣는 방식이 현실적입니다.</p>
 <h2>소유확인은 왜 실패하나요?</h2>
 <p>소유확인 실패는 대부분 원인이 3가지 안에 있습니다. 파일을 넣은 위치가 최상위 폴더가 아니거나, 메타태그를 head 영역 밖에 넣었거나, 주소 앞부분이 등록한 주소와 다른 경우입니다. 특히 www가 붙은 주소와 붙지 않은 주소는 네이버 서치어드바이저에서 서로 다른 사이트로 취급됩니다.</p>
-<div class="tbl"><table><caption>소유확인 실패 원인과 조치</caption><thead><tr><th>증상</th><th>원인</th><th>조치</th></tr></thead><tbody><tr><td>파일을 찾을 수 없음</td><td>최상위 폴더가 아닌 하위 경로에 업로드</td><td>루트 폴더로 옮기고 브라우저 주소창에서 직접 열어 확인</td></tr><tr><td>태그를 찾을 수 없음</td><td>메타태그가 head 영역 밖 또는 본문에 삽입</td><td>head 시작 태그 바로 아래로 이동 후 재시도</td></tr><tr><td>주소 불일치</td><td>www 유무·http와 https 혼용</td><td>실제 접속되는 주소 형태 그대로 다시 등록</td></tr><tr><td>캐시 지연</td><td>배포 후 반영 전 검증 실행</td><td>5~10분 뒤 재검증</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>소유확인 실패 원인과 조치</caption><thead><tr><th scope="col">증상</th><th scope="col">원인</th><th scope="col">조치</th></tr></thead><tbody><tr><td>파일을 찾을 수 없음</td><td>최상위 폴더가 아닌 하위 경로에 업로드</td><td>루트 폴더로 옮기고 브라우저 주소창에서 직접 열어 확인</td></tr><tr><td>태그를 찾을 수 없음</td><td>메타태그가 head 영역 밖 또는 본문에 삽입</td><td>head 시작 태그 바로 아래로 이동 후 재시도</td></tr><tr><td>주소 불일치</td><td>www 유무·http와 https 혼용</td><td>실제 접속되는 주소 형태 그대로 다시 등록</td></tr><tr><td>캐시 지연</td><td>배포 후 반영 전 검증 실행</td><td>5~10분 뒤 재검증</td></tr></tbody></table></div>
 <h2>수집 요청은 언제 하나요?</h2>
 <p>수집 요청은 많이 누른다고 빨라지지 않습니다. 같은 주소를 매일 반복 요청해도 순서가 앞당겨지지 않으므로, 내용이 바뀐 페이지에만 요청하는 편이 관리하기 쉽습니다. 페이지 수가 10개 안팎인 소규모 홈페이지라면 오픈 직후 1회, 이후에는 내용 변경 시점에만 요청하면 충분합니다.</p>
 <ol class="steps"><li>사이트 등록과 소유확인을 먼저 끝냅니다.</li><li>사이트맵 주소를 제출합니다. 보통 도메인 뒤에 sitemap.xml 형태입니다.</li><li>블로그형 페이지가 있으면 RSS 주소를 함께 제출합니다.</li><li>메인 페이지 주소로 웹페이지 수집을 1회 요청합니다.</li><li>회사소개·서비스·문의 등 핵심 페이지 3~5개를 개별로 추가 요청합니다.</li><li>새 글이나 새 페이지를 올린 날에만 추가로 요청합니다.</li><li>요청 후 3~7일 간격으로 수집 상태를 확인합니다.</li></ol>

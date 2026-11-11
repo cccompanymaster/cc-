@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -103,7 +105,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <h2>카카오톡 링크 미리보기는 왜 바로 안 바뀌나요?</h2>
 <p class="direct">카카오가 링크를 읽을 때 가져간 정보를 서버에 저장해 두고 다시 쓰기 때문입니다. 미리보기 이미지는 페이지에 보이는 사진이 아니라 og:image 태그에 적힌 이미지이므로, 이 태그를 바꾼 뒤 카카오에 저장된 정보까지 지워야 새 이미지가 나옵니다.</p>
 <p>카카오디벨로퍼스 문서를 보면 카카오톡 미리보기(스크랩)는 공유된 주소의 오픈 그래프(og) 태그로 만들어집니다. og:image는 대표 이미지 자리에, og:title과 og:description은 제목과 설명 자리에 각각 최대 2줄까지 들어갑니다. 저장되는 정보는 아래 두 가지입니다. 카카오 데브톡 답변에 따르면 캐시 초기화로 지워지는 것은 메타정보뿐이고, 카카오톡 서버에 저장된 이미지 썸네일은 남습니다.</p>
-<div class="tbl"><table><caption>카카오톡 미리보기에 저장되는 정보 두 가지 (카카오디벨로퍼스·카카오 데브톡, 2026-10-21 확인)</caption><thead><tr><th>저장되는 것</th><th>저장 기준</th><th>[캐시 초기화]로</th><th>새로 바꾸는 방법</th></tr></thead><tbody><tr><td>제목·설명·이미지 주소(og 메타정보)</td><td>공유한 페이지 주소</td><td>지워짐</td><td>초기화한 뒤 다시 조회</td></tr><tr><td>이미지 썸네일</td><td>이미지 주소(og:image)</td><td>지워지지 않음</td><td>파일명 변경 또는 주소 뒤 ?v=2</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>카카오톡 미리보기에 저장되는 정보 두 가지 (카카오디벨로퍼스·카카오 데브톡, 2026-10-21 확인)</caption><thead><tr><th scope="col">저장되는 것</th><th scope="col">저장 기준</th><th scope="col">[캐시 초기화]로</th><th scope="col">새로 바꾸는 방법</th></tr></thead><tbody><tr><td>제목·설명·이미지 주소(og 메타정보)</td><td>공유한 페이지 주소</td><td>지워짐</td><td>초기화한 뒤 다시 조회</td></tr><tr><td>이미지 썸네일</td><td>이미지 주소(og:image)</td><td>지워지지 않음</td><td>파일명 변경 또는 주소 뒤 ?v=2</td></tr></tbody></table></div>
 
 <h2>카카오 캐시는 어디서 초기화하나요?</h2>
 <p class="direct">카카오디벨로퍼스(developers.kakao.com)에 카카오계정으로 로그인한 뒤 [도구] &gt; [카카오톡 URL 메타정보 관리]에서 초기화합니다. 주소를 넣고 [메타 정보 조회]로 저장된 값을 확인한 다음 [캐시 초기화]를 누릅니다.</p>
@@ -114,18 +116,18 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <h2>캐시를 지웠는데도 옛 이미지가 보이면 어떻게 하나요?</h2>
 <p class="direct">이미지 파일을 같은 이름으로 덮어썼는지부터 확인합니다. 그렇다면 og:image 주소 자체를 바꿔야 합니다. 파일명을 바꿔 올리거나 기존 주소 뒤에 ?v=2를 붙이고, 페이지 주소를 다시 초기화합니다.</p>
 <p>카카오 데브톡 답변도 이 경우 og:image 주소를 바꿔 썸네일을 새로 만들라고 안내합니다. 노아 사이트는 10월에 공유 이미지를 세 차례 손봤는데, 주소를 바꾼 경우와 같은 주소에 덮어쓴 경우가 모두 있어 바꾼 뒤 확인할 것이 다릅니다.</p>
-<div class="tbl"><table><caption>노아 사이트 공유 이미지 변경 기록 (git 커밋 기준, 2026-10-21 확인)</caption><thead><tr><th>날짜</th><th>바꾼 것</th><th>파일 처리</th><th>확인할 것</th></tr></thead><tbody><tr><td>10월 3일</td><td>메인 공유 이미지 교체</td><td>새 파일명(og-noah-glass.png)으로 올리고 186개 페이지·RSS·사이트맵의 경로 수정, 옛 파일 보존</td><td>자주 보내는 페이지 주소 초기화</td></tr><tr><td>10월 9일</td><td>메인 이미지를 사이트 글꼴로 다시 렌더링</td><td>같은 파일명에 덮어씀</td><td>같은 주소라 그사이 카카오에 저장된 썸네일이 남아 있을 수 있음 — 메타 정보 조회로 확인</td></tr><tr><td>10월 9일</td><td>칼럼·카테고리 공유 이미지 47장 재제작</td><td>.png에서 .jpg로 바뀌어 주소 변경, 참조 91곳 수정, 옛 PNG 삭제</td><td>페이지 주소 초기화</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>노아 사이트 공유 이미지 변경 기록 (git 커밋 기준, 2026-10-21 확인)</caption><thead><tr><th scope="col">날짜</th><th scope="col">바꾼 것</th><th scope="col">파일 처리</th><th scope="col">확인할 것</th></tr></thead><tbody><tr><td>10월 3일</td><td>메인 공유 이미지 교체</td><td>새 파일명(og-noah-glass.png)으로 올리고 186개 페이지·RSS·사이트맵의 경로 수정, 옛 파일 보존</td><td>자주 보내는 페이지 주소 초기화</td></tr><tr><td>10월 9일</td><td>메인 이미지를 사이트 글꼴로 다시 렌더링</td><td>같은 파일명에 덮어씀</td><td>같은 주소라 그사이 카카오에 저장된 썸네일이 남아 있을 수 있음 — 메타 정보 조회로 확인</td></tr><tr><td>10월 9일</td><td>칼럼·카테고리 공유 이미지 47장 재제작</td><td>.png에서 .jpg로 바뀌어 주소 변경, 참조 91곳 수정, 옛 PNG 삭제</td><td>페이지 주소 초기화</td></tr></tbody></table></div>
 <p>10월 3일 커밋에는 ‘파일명을 바꿔 카카오·페이스북 캐시 갱신 유도’라는 이유가 적혀 있습니다. 반면 10월 9일 재렌더링은 같은 이름에 덮어썼습니다. 노아의 공유 이미지 생성 스크립트가 메인 이미지를 늘 같은 파일명으로 저장하기 때문입니다.</p>
 <p>메타 문서는 이미 올라간 게시물이 옛 파일을 쓸 수 있으니 옛 이미지를 지우지 말라고 안내합니다. 10월 3일처럼 옛 파일을 남겨 두는 쪽이 이 기준에 맞습니다.</p>
 
 <h2>주소 뒤에 ?v=2를 붙이면 되나요?</h2>
 <p class="direct">이미지 주소(og:image) 뒤에 붙이는 것은 효과가 있습니다. 카카오와 페이스북은 이미지를 주소 기준으로 저장하므로, 태그를 고치고 페이지 주소를 초기화하면 ?v=2가 붙은 주소를 새 이미지로 받아 갑니다. 카카오톡으로 보내는 페이지 주소 뒤에 붙이는 것은 그 링크 하나만 바뀌는 임시방편입니다.</p>
-<div class="tbl"><table><caption>미리보기 갱신 방법 비교 (카카오디벨로퍼스·카카오 데브톡·메타 문서 기준, 2026-10-21 확인)</caption><thead><tr><th>방법</th><th>장점</th><th>단점</th></tr></thead><tbody><tr><td>[캐시 초기화]만 누르기</td><td>홈페이지를 고치지 않아도 됨</td><td>주소 하나씩 처리. 같은 이름에 덮어쓴 이미지는 남을 수 있음</td></tr><tr><td>이미지 파일명 바꾸기</td><td>페이지 주소를 초기화하면 카카오·페이스북 모두 새 이미지를 받아 감. 옛 파일을 남겨 두면 이미 올라간 게시물도 안전</td><td>그 이미지를 쓰는 모든 페이지의 og:image를 고쳐야 함</td></tr><tr><td>이미지 주소 뒤 ?v=2</td><td>파일은 그대로 두고 태그만 고침</td><td>모든 페이지의 og:image를 고쳐야 하고, 다음에 바꿀 때 숫자를 올려야 함</td></tr><tr><td>보내는 페이지 주소 뒤 ?v=2</td><td>홈페이지를 고치지 않고 그 링크만 새로 읽힘</td><td>원래 주소로 보내는 사람에게는 옛 미리보기 그대로. og:url이 원래 주소를 가리키면 카카오가 그 주소 기준으로 읽어 안 바뀔 수 있음</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>미리보기 갱신 방법 비교 (카카오디벨로퍼스·카카오 데브톡·메타 문서 기준, 2026-10-21 확인)</caption><thead><tr><th scope="col">방법</th><th scope="col">장점</th><th scope="col">단점</th></tr></thead><tbody><tr><td>[캐시 초기화]만 누르기</td><td>홈페이지를 고치지 않아도 됨</td><td>주소 하나씩 처리. 같은 이름에 덮어쓴 이미지는 남을 수 있음</td></tr><tr><td>이미지 파일명 바꾸기</td><td>페이지 주소를 초기화하면 카카오·페이스북 모두 새 이미지를 받아 감. 옛 파일을 남겨 두면 이미 올라간 게시물도 안전</td><td>그 이미지를 쓰는 모든 페이지의 og:image를 고쳐야 함</td></tr><tr><td>이미지 주소 뒤 ?v=2</td><td>파일은 그대로 두고 태그만 고침</td><td>모든 페이지의 og:image를 고쳐야 하고, 다음에 바꿀 때 숫자를 올려야 함</td></tr><tr><td>보내는 페이지 주소 뒤 ?v=2</td><td>홈페이지를 고치지 않고 그 링크만 새로 읽힘</td><td>원래 주소로 보내는 사람에게는 옛 미리보기 그대로. og:url이 원래 주소를 가리키면 카카오가 그 주소 기준으로 읽어 안 바뀔 수 있음</td></tr></tbody></table></div>
 <p>노아 사이트는 지금 메인 공유 이미지 1장을 186개 페이지가 함께 씁니다. 10월 3일 교체 때도 HTML 186개 파일의 경로를 한 번에 고쳤습니다. 이미지 하나를 여러 페이지가 쓰는 구조라면 주소를 바꿀 때 빠진 페이지가 없는지 확인합니다.</p>
 
 <h2>미리보기용 대표 이미지는 어떤 규격으로 만드나요?</h2>
 <p class="direct">가로 1200×세로 630픽셀 이상의 JPG나 PNG로 만들고 용량은 8MB를 넘기지 않습니다. 크기와 용량은 메타가 공개한 링크 공유 기준이고, 형식은 카카오 데브톡 체크 리스트의 항목입니다.</p>
-<div class="tbl"><table><caption>미리보기 이미지·태그 기준과 노아 사이트 현재값 (2026-10-21 확인)</caption><thead><tr><th>항목</th><th>기준</th><th>근거</th><th>노아 사이트</th></tr></thead><tbody><tr><td>크기</td><td>1200×630 이상 권장, 최소 600×315</td><td>메타</td><td>공유 이미지 48장 모두 1200×630</td></tr><tr><td>용량</td><td>8MB 이하</td><td>메타</td><td>JPG 최대 84,286바이트, 메인 PNG 368,177바이트</td></tr><tr><td>형식</td><td>JPG·JPEG·PNG</td><td>카카오 데브톡</td><td>8월 22일 SVG→PNG, 10월 9일 칼럼 47장 PNG→JPG</td></tr><tr><td>og:image 주소</td><td>브라우저에서 열리는 전체 주소</td><td>카카오 데브톡</td><td>235개 페이지 모두 https://noahgroup.co.kr/로 시작, 가리키는 파일 모두 있음</td></tr><tr><td>og:url</td><td>실제 페이지 주소와 같게</td><td>카카오 데브톡</td><td>235개 페이지 모두 대표 주소(canonical)와 같음</td></tr><tr><td>og:image:width·height</td><td>크롤러가 이미지를 내려받기 전에 바로 그릴 수 있게 함</td><td>메타</td><td>메인·소개·문의 등 15개 페이지에 표기</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>미리보기 이미지·태그 기준과 노아 사이트 현재값 (2026-10-21 확인)</caption><thead><tr><th scope="col">항목</th><th scope="col">기준</th><th scope="col">근거</th><th scope="col">노아 사이트</th></tr></thead><tbody><tr><td>크기</td><td>1200×630 이상 권장, 최소 600×315</td><td>메타</td><td>공유 이미지 48장 모두 1200×630</td></tr><tr><td>용량</td><td>8MB 이하</td><td>메타</td><td>JPG 최대 84,286바이트, 메인 PNG 368,177바이트</td></tr><tr><td>형식</td><td>JPG·JPEG·PNG</td><td>카카오 데브톡</td><td>8월 22일 SVG→PNG, 10월 9일 칼럼 47장 PNG→JPG</td></tr><tr><td>og:image 주소</td><td>브라우저에서 열리는 전체 주소</td><td>카카오 데브톡</td><td>235개 페이지 모두 https://noahgroup.co.kr/로 시작, 가리키는 파일 모두 있음</td></tr><tr><td>og:url</td><td>실제 페이지 주소와 같게</td><td>카카오 데브톡</td><td>235개 페이지 모두 대표 주소(canonical)와 같음</td></tr><tr><td>og:image:width·height</td><td>크롤러가 이미지를 내려받기 전에 바로 그릴 수 있게 함</td><td>메타</td><td>메인·소개·문의 등 15개 페이지에 표기</td></tr></tbody></table></div>
 <p>10월 9일 칼럼·카테고리 이미지 47장을 PNG에서 JPG(품질 90)로 바꾸면서 og 폴더의 이미지 용량 합계는 4,194,020바이트에서 3,462,938바이트로 줄었습니다. SVG는 쓰지 않습니다. 노아 사이트도 8월 22일 칼럼 공유 이미지를 SVG에서 PNG로 바꿨습니다.</p>
 
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>

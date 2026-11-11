@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>글자수를 기준으로 삼는 이유는 계산이 쉽기 때문이지 규칙이 딱 떨어져서가 아닙니다. 실제로는 화면 폭과 기기에 따라 잘리는 지점이 달라집니다. 그래서 실무에서는 상한을 지키는 일보다 앞부분에 무엇을 두는지가 중요합니다. 뒷부분이 잘려도 페이지의 정체가 드러나면 클릭은 유지됩니다.</p>
 <h2>구글과 네이버 기준이 다른가요?</h2>
 <p>두 검색엔진 모두 설명문을 그대로 쓰지 않고 본문에서 다시 뽑아 보여 주는 경우가 있습니다. 그래서 설명문만 다듬고 본문이 비어 있으면 의도한 문장이 나오지 않습니다. 설명문에 쓴 핵심 문장을 본문 첫 문단에도 비슷한 형태로 넣어 두면 표시 문구가 흔들릴 확률이 줄어듭니다.</p>
-<div class="tbl"><table><caption>검색 결과 표기 기준 비교</caption><thead><tr><th>항목</th><th>구글</th><th>네이버</th></tr></thead><tbody><tr><td>title 권장</td><td>한글 30자 안팎</td><td>한글 25~30자 안팎</td></tr><tr><td>설명문 권장</td><td>한글 80자 안팎</td><td>한글 70~80자 안팎</td></tr><tr><td>설명문 사용</td><td>본문에서 다시 뽑아 쓰는 경우 있음</td><td>본문 발췌가 함께 쓰이는 경우 있음</td></tr><tr><td>회사명 위치</td><td>제목 뒷부분 권장</td><td>제목 뒷부분 권장</td></tr><tr><td>중복 제목</td><td>페이지별 구분 필요</td><td>페이지별 구분 필요</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>검색 결과 표기 기준 비교</caption><thead><tr><th scope="col">항목</th><th scope="col">구글</th><th scope="col">네이버</th></tr></thead><tbody><tr><td>title 권장</td><td>한글 30자 안팎</td><td>한글 25~30자 안팎</td></tr><tr><td>설명문 권장</td><td>한글 80자 안팎</td><td>한글 70~80자 안팎</td></tr><tr><td>설명문 사용</td><td>본문에서 다시 뽑아 쓰는 경우 있음</td><td>본문 발췌가 함께 쓰이는 경우 있음</td></tr><tr><td>회사명 위치</td><td>제목 뒷부분 권장</td><td>제목 뒷부분 권장</td></tr><tr><td>중복 제목</td><td>페이지별 구분 필요</td><td>페이지별 구분 필요</td></tr></tbody></table></div>
 <h2>title은 어떤 공식으로 쓰나요?</h2>
 <p>6단계를 페이지별로 적용하면 제목이 자연스럽게 구분됩니다. 회사소개는 상호와 업종을 앞에, 서비스 페이지는 서비스명과 지역을 앞에, 문의 페이지는 문의 방법을 앞에 두는 식입니다. 제목이 페이지마다 달라야 검색 결과에서 어느 페이지로 들어갈지 방문자가 판단할 수 있습니다.</p>
 <ol class="steps"><li>페이지가 답하는 질문 한 개를 정합니다.</li><li>그 질문의 핵심 키워드를 앞 15자 안에 넣습니다.</li><li>지역이나 업종이 필요한 페이지면 키워드 뒤에 붙입니다.</li><li>회사명은 제목 뒷부분에 둡니다.</li><li>전체 길이를 30자 안팎으로 맞춥니다.</li><li>같은 사이트 안에서 중복되는 제목이 없는지 확인합니다.</li></ol>

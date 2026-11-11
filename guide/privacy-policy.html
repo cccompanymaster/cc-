@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>사장님들이 자주 놓치는 지점은 수집의 정의입니다. 데이터베이스에 저장하지 않고 이메일로 문의를 받기만 해도, 이름·연락처가 담긴 메일이 쌓이면 수집입니다. 카카오 채널·네이버 예약 같은 외부 도구로 받는 경우에도 홈페이지에서 개인정보 입력이 일어나면 방침에 그 흐름을 적어야 합니다. 기준은 도구가 아니라 정보의 이동입니다.</p>
 <h2>방침에는 무엇을 적어야 하나요?</h2>
 <p>표에서 실수가 가장 잦은 항목은 수집 항목과 보유기간입니다. 방침에는 이름·이메일만 적어 놓고 실제 폼에서는 주소·생년월일까지 받는 불일치가 대표 사례입니다. 방침은 베낀 문서가 아니라 실제 폼의 거울이어야 하므로, 폼을 바꾸면 방침도 같은 날 바꾸는 것이 원칙입니다.</p>
-<div class="tbl"><table><caption>개인정보처리방침 필수 기재 항목</caption><thead><tr><th>항목</th><th>적을 내용</th><th>작성 예시 방향</th></tr></thead><tbody><tr><td>수집 항목</td><td>실제 폼의 입력칸 그대로</td><td>이름·연락처·이메일·문의 내용</td></tr><tr><td>수집·이용 목적</td><td>목적을 좁고 구체적으로</td><td>상담 신청 접수와 회신</td></tr><tr><td>보유·이용 기간</td><td>기간과 기산점을 숫자로</td><td>상담 완료 후 1년, 이후 파기</td></tr><tr><td>파기 절차·방법</td><td>전자 파일 삭제 방식 명시</td><td>복구 불가능한 방법으로 삭제</td></tr><tr><td>처리 위탁</td><td>호스팅·폼 도구 등 외부 업체</td><td>수탁사명과 위탁 업무 기재</td></tr><tr><td>정보주체 권리</td><td>열람·정정·삭제 요구 방법</td><td>요청 창구와 처리 기한</td></tr><tr><td>보호책임자</td><td>이름·직책·연락처</td><td>대표자 겸직 가능</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>개인정보처리방침 필수 기재 항목</caption><thead><tr><th scope="col">항목</th><th scope="col">적을 내용</th><th scope="col">작성 예시 방향</th></tr></thead><tbody><tr><td>수집 항목</td><td>실제 폼의 입력칸 그대로</td><td>이름·연락처·이메일·문의 내용</td></tr><tr><td>수집·이용 목적</td><td>목적을 좁고 구체적으로</td><td>상담 신청 접수와 회신</td></tr><tr><td>보유·이용 기간</td><td>기간과 기산점을 숫자로</td><td>상담 완료 후 1년, 이후 파기</td></tr><tr><td>파기 절차·방법</td><td>전자 파일 삭제 방식 명시</td><td>복구 불가능한 방법으로 삭제</td></tr><tr><td>처리 위탁</td><td>호스팅·폼 도구 등 외부 업체</td><td>수탁사명과 위탁 업무 기재</td></tr><tr><td>정보주체 권리</td><td>열람·정정·삭제 요구 방법</td><td>요청 창구와 처리 기한</td></tr><tr><td>보호책임자</td><td>이름·직책·연락처</td><td>대표자 겸직 가능</td></tr></tbody></table></div>
 <h2>동의 절차는 어떻게 만드나요?</h2>
 <p>요건은 3가지입니다. 첫째, 폼 제출 전에 수집 항목·목적·보유기간을 보여주고 동의 체크박스를 받습니다. 둘째, 체크박스를 미리 체크된 상태로 두지 않습니다. 셋째, 서비스에 필요한 필수 항목과 마케팅 수신 같은 선택 항목을 분리해 각각 동의받습니다. 이 3가지가 갖춰져야 유효한 동의로 인정됩니다.</p>
 <p>선택 항목 미동의를 이유로 문의 자체를 막는 구성은 위법 소지가 있습니다. 문의에 마케팅 동의가 필수일 이유가 없기 때문입니다. 체크박스 옆에는 개인정보처리방침 전문 링크를 두어, 요약 고지와 전문 열람이 모두 가능하게 만듭니다. 폼 도구 대부분이 이 구성을 기본 기능으로 지원하므로 개발 없이 설정만으로 가능합니다.</p>

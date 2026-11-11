@@ -1,0 +1,42 @@
+/* 노아 차트 — 차트 스킬(dataviz) 기준
+   · 색: 검증된 기본 팔레트 slot1 파랑 #2a78d6 · slot2 주황 #eb6834 (사이트 바탕 #FBFAF7 대비 3:1 이상, 색약 구분 통과).
+     브랜드 골드(#B08D4E)는 채도 기준 미달로 막대 색에서 제외. 강조형은 파랑 1색 + 보조 회색 #c3c2b7
+   · 막대 16px(겹막대 12px)·끝 4px 둥글게·기준선에서 출발 / 격자·축은 1px 실선 / 글자는 잉크색만(데이터 색으로 칠하지 않음)
+   · 값은 막대 끝에 직접 표기, 마우스·키보드로 같은 값 툴팁(js/viz.js), 차트 바로 아래 표가 '표로 보기' */
+.viz{--s1:#2a78d6;--s2:#eb6834;--de:#c3c2b7;--grid:#e1e0d9;--base:#c3c2b7;--ink:#17141A;--ink2:#52514e;--muted:#898781;--surf:#fcfcfb;
+  margin:24px 0 6px;padding:18px 16px 14px;background:var(--surf);border:1px solid rgba(23,20,26,.10);border-radius:12px}
+.viz-title{display:block;font-size:15px;font-weight:700;color:var(--ink);line-height:1.5}
+.viz-sub{display:block;margin-top:3px;font-size:12.5px;font-weight:400;color:var(--ink2);line-height:1.6}
+.viz-legend{display:flex;flex-wrap:wrap;gap:4px 16px;margin:12px 0 0;padding:0;list-style:none;font-size:12.5px;color:var(--ink2)}
+.viz-legend li{display:flex;align-items:center;gap:6px}
+.viz-legend i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+.viz-panels{display:grid;gap:22px;margin-top:14px}
+@media(min-width:720px){.viz-panels.two{grid-template-columns:1fr 1fr}}
+.viz-ptitle{margin:0 0 8px;font-size:13px;font-weight:700;color:var(--ink)}
+.viz-rows{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:4px;align-items:center}
+.viz-cat{max-width:9.5em;font-size:12.5px;color:var(--ink2);line-height:1.35}
+.viz-track{position:relative;height:30px;margin-right:64px;border-left:1px solid var(--base);outline-offset:2px;
+  background:linear-gradient(to right,var(--grid) 1px,transparent 1px) 0 0/calc(100% / var(--t,4)) 100% repeat-x;box-shadow:inset -1px 0 0 var(--grid)}
+.viz-track:focus-visible{outline:2px solid var(--ink)}
+.viz-bar{position:absolute;left:0;top:50%;width:var(--w);height:16px;transform:translateY(-50%);background:var(--c,var(--s1));border-radius:0 4px 4px 0;transition:filter .15s}
+.viz-bar.de{--c:var(--de)}
+.viz-bar.s2{--c:var(--s2)}
+.viz-track.pair{height:34px}
+.viz-track.pair .viz-bar{height:12px;top:calc(50% - 7px)}
+.viz-track.pair .viz-bar+.viz-val+.viz-bar{top:calc(50% + 7px)}
+.viz-val{position:absolute;top:50%;left:calc(var(--w) + 6px);transform:translateY(-50%);font-size:12.5px;font-weight:700;color:var(--ink);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.viz-track.pair .viz-val{top:calc(50% - 7px);font-size:11.5px}
+.viz-track.pair .viz-val~.viz-val{top:calc(50% + 7px)}
+.viz-range{position:absolute;top:50%;left:var(--a);width:calc(var(--b) - var(--a));height:6px;transform:translateY(-50%);background:var(--s1);border-radius:3px}
+.viz-dot{position:absolute;top:50%;left:var(--x);width:10px;height:10px;margin-left:-5px;transform:translateY(-50%);border-radius:50%;background:var(--s1);box-shadow:0 0 0 2px var(--surf)}
+.viz-track:hover>*,.viz-track:focus-visible>*{filter:brightness(1.12)}
+.viz-axis{position:relative;height:18px;margin-right:64px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.viz-axis span{position:absolute;top:2px;transform:translateX(-50%);white-space:nowrap}
+.viz-axis span:first-child{transform:none}
+.viz-axis span:last-child{transform:translateX(-100%)}
+.viz-note{margin:10px 0 0;font-size:12px;color:var(--muted);line-height:1.6}
+.viz-tip{position:fixed;z-index:9999;display:none;max-width:260px;padding:8px 10px;border-radius:8px;background:#17141A;color:#fff;font-size:12px;line-height:1.5;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.viz-tip b{display:block;font-size:14px;font-variant-numeric:tabular-nums}
+.viz-tip span{display:block;color:rgba(255,255,255,.75)}
+@media(max-width:480px){.viz{padding:14px 12px 12px}.viz-cat{max-width:7em;font-size:12px}.viz-track,.viz-axis{margin-right:58px}.viz-axis span:nth-child(2n){display:none}}
+@media print{.viz{break-inside:avoid}}

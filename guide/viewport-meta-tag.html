@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>표준 문법은 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt; 한 줄입니다. width=device-width는 화면 폭을 기기 실제 폭으로 계산하라는 뜻이고, initial-scale=1은 처음 열 때 확대·축소 없이 100분의 100 크기로 보여주라는 뜻입니다. 이 두 속성이면 충분하며, 그 이상의 속성은 대부분 부작용을 만듭니다.</p>
 <h2>흔한 오작성 3가지는 무엇인가요?</h2>
 <p>3가지 중 가장 자주 보이는 실수는 철자 오류입니다. 브라우저는 틀린 철자를 추측해 주지 않고 태그를 조용히 무시하므로, 오류 메시지 없이 증상만 남습니다. 두 번째로 흔한 사례는 오래된 사이트에서 복사해 온 폭 고정값입니다. 특정 폭 숫자를 적는 순간 기기 폭 대응이 사라지므로, 항상 device-width로 적어야 합니다.</p>
-<div class="tbl"><table><caption>viewport 오작성 3가지 비교</caption><thead><tr><th>오작성 유형</th><th>증상</th><th>교정 방법</th></tr></thead><tbody><tr><td>name 철자 오류(viewpoint·view-port 등)</td><td>태그가 통째로 무시되어 화면 축소</td><td>name 값을 viewport로 정정</td></tr><tr><td>content에 width=980 등 숫자 고정</td><td>모든 기기가 특정 폭으로 고정·축소</td><td>width=device-width로 교체</td></tr><tr><td>user-scalable=no·maximum-scale=1 추가</td><td>사용자 확대가 막혀 저시력 접근성 저하</td><td>확대 제한 속성 삭제</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>viewport 오작성 3가지 비교</caption><thead><tr><th scope="col">오작성 유형</th><th scope="col">증상</th><th scope="col">교정 방법</th></tr></thead><tbody><tr><td>name 철자 오류(viewpoint·view-port 등)</td><td>태그가 통째로 무시되어 화면 축소</td><td>name 값을 viewport로 정정</td></tr><tr><td>content에 width=980 등 숫자 고정</td><td>모든 기기가 특정 폭으로 고정·축소</td><td>width=device-width로 교체</td></tr><tr><td>user-scalable=no·maximum-scale=1 추가</td><td>사용자 확대가 막혀 저시력 접근성 저하</td><td>확대 제한 속성 삭제</td></tr></tbody></table></div>
 <h2>넣었는데도 축소되면 왜 그런가요?</h2>
 <p>원인은 보통 3가지입니다. 첫째, 태그가 head 밖(body 안)에 들어가 브라우저가 무시하는 경우입니다. 둘째, 빌더가 자동 삽입한 태그와 직접 넣은 태그가 중복되어 뒤의 값이 앞의 값을 덮는 경우입니다. 셋째, 수정이 반영됐지만 폰 브라우저가 캐시된 옛 화면을 보여주는 경우입니다.</p>
 <p>확인 방법은 단순합니다. 폰 브라우저에서 캐시를 지우고 새로고침한 뒤에도 증상이 남으면, PC 크롬에서 페이지 소스 보기로 viewport를 검색합니다. 검색 결과가 0개면 삽입 위치가 틀린 것이고, 2개 이상이면 중복입니다. 하나만 남기고 head 상단에 두면 해결됩니다.</p>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -106,7 +108,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>문서 수가 0이면 아직 수집 단계에서 막혀 있다는 뜻입니다. 이 경우 원인은 대부분 등록 누락·robots.txt 차단·주소 불일치 3가지 안에 있습니다. 반대로 문서 수가 1 이상인데 검색이 안 되면 수집은 통과한 것이므로, 다음 진단 대상은 색인 제외 사유와 페이지 내용입니다.</p>
 <ol class="steps"><li>네이버 서치어드바이저에 사이트가 등록되어 있는지 확인합니다.</li><li>소유확인이 완료 상태인지 확인합니다.</li><li>도메인 뒤 robots.txt를 열어 전체 차단 규칙이 있는지 확인합니다.</li><li>사이트맵 제출 상태에 오류가 남아 있는지 확인합니다.</li><li>수집 현황에서 문서 수가 0인지 1 이상인지 확인합니다.</li><li>메인 페이지에 웹페이지 수집을 1회 요청합니다.</li><li>요청 후 7일 뒤 문서 수 변화를 다시 확인합니다.</li><li>4주가 지나도 0이면 소유확인 주소와 실제 접속 주소가 같은지 재대조합니다.</li></ol>
 <h2>색인 제외는 왜 생기나요?</h2>
-<div class="tbl"><table><caption>단계별 원인과 조치</caption><thead><tr><th>단계</th><th>증상</th><th>조치</th></tr></thead><tbody><tr><td>수집</td><td>문서 수 0·robots.txt 차단</td><td>차단 규칙 제거 후 수집 요청</td></tr><tr><td>수집</td><td>사이트맵 오류 지속</td><td>사이트맵 주소·형식 재확인 후 재제출</td></tr><tr><td>색인</td><td>내용이 거의 없는 페이지</td><td>페이지별 본문 분량과 제목 태그 보완</td></tr><tr><td>색인</td><td>여러 주소에서 같은 내용 노출</td><td>대표 주소 하나로 통일</td></tr><tr><td>노출</td><td>상호 검색에도 미노출</td><td>브랜드 엔티티 정보 정비 후 재확인</td></tr><tr><td>노출</td><td>일반 키워드에서 미노출</td><td>검색어 경쟁도 확인 후 세부 키워드로 조정</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>단계별 원인과 조치</caption><thead><tr><th scope="col">단계</th><th scope="col">증상</th><th scope="col">조치</th></tr></thead><tbody><tr><td>수집</td><td>문서 수 0·robots.txt 차단</td><td>차단 규칙 제거 후 수집 요청</td></tr><tr><td>수집</td><td>사이트맵 오류 지속</td><td>사이트맵 주소·형식 재확인 후 재제출</td></tr><tr><td>색인</td><td>내용이 거의 없는 페이지</td><td>페이지별 본문 분량과 제목 태그 보완</td></tr><tr><td>색인</td><td>여러 주소에서 같은 내용 노출</td><td>대표 주소 하나로 통일</td></tr><tr><td>노출</td><td>상호 검색에도 미노출</td><td>브랜드 엔티티 정보 정비 후 재확인</td></tr><tr><td>노출</td><td>일반 키워드에서 미노출</td><td>검색어 경쟁도 확인 후 세부 키워드로 조정</td></tr></tbody></table></div>
 <h2>노출까지 얼마나 걸리나요?</h2>
 <p>신규 사이트는 등록 후 수집·색인까지 통상 1~4주가 걸립니다. 오픈 2주차에 검색되지 않는 상태는 고장이 아니라 대기 구간인 경우가 많습니다. 다만 4주가 지나도 수집 문서 수가 0이면 대기가 아니라 차단이므로, 그 시점부터는 robots.txt와 소유확인 주소를 다시 확인해야 합니다.</p>
 <h2>그래서 지금 무엇부터 하면 되나요?</h2>

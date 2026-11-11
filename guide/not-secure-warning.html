@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>경고의 원리는 단순합니다. 브라우저는 방문자와 서버 사이 통신이 암호화되어 있는지 검사하고, 어느 한 구간이라도 암호화가 깨져 있으면 주소창에 경고를 띄웁니다. 그래서 인증서를 설치했더라도 이미지 한 장이 http로 불려 오면 경고가 유지됩니다. 원인이 5가지로 정리되는 이유도 검사 항목이 정해져 있기 때문이라, 순서대로 짚으면 10분 안에 특정됩니다.</p>
 <h2>원인별 해결 방법은 무엇인가요?</h2>
 <p>다섯 가지 중 빈도가 가장 높은 것은 인증서 만료입니다. 무료 인증서의 유효기간이 90일이라, 관리 업체와 계약이 끝났거나 자동 갱신이 꺼진 사이트에서 어느 날 갑자기 경고가 되살아납니다. &#x27;어제까지 멀쩡했다&#x27;는 증상이라면 만료부터 확인하는 것이 지름길입니다. 만료일 확인은 1분이면 끝납니다.</p>
-<div class="tbl"><table><caption>주의 요함 원인 5가지와 해결 절차</caption><thead><tr><th>원인</th><th>확인 방법</th><th>해결 절차</th></tr></thead><tbody><tr><td>SSL 미설치</td><td>https:// 접속 자체가 안 됨</td><td>호스팅 콘솔에서 무료 인증서 발급·적용</td></tr><tr><td>인증서 만료</td><td>자물쇠 클릭 시 만료일 경과 표시</td><td>재발급 후 90일 자동 갱신 설정</td></tr><tr><td>혼합 콘텐츠</td><td>개발자 도구 콘솔에 http 리소스 경고</td><td>http 주소를 https로 일괄 교체</td></tr><tr><td>도메인 불일치</td><td>www 붙일 때만 경고 발생</td><td>www 포함 인증서로 재발급</td></tr><tr><td>리디렉션 누락</td><td>http 주소로 들어가면 경고</td><td>https 자동 이동(리디렉션) 설정</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>주의 요함 원인 5가지와 해결 절차</caption><thead><tr><th scope="col">원인</th><th scope="col">확인 방법</th><th scope="col">해결 절차</th></tr></thead><tbody><tr><td>SSL 미설치</td><td>https:// 접속 자체가 안 됨</td><td>호스팅 콘솔에서 무료 인증서 발급·적용</td></tr><tr><td>인증서 만료</td><td>자물쇠 클릭 시 만료일 경과 표시</td><td>재발급 후 90일 자동 갱신 설정</td></tr><tr><td>혼합 콘텐츠</td><td>개발자 도구 콘솔에 http 리소스 경고</td><td>http 주소를 https로 일괄 교체</td></tr><tr><td>도메인 불일치</td><td>www 붙일 때만 경고 발생</td><td>www 포함 인증서로 재발급</td></tr><tr><td>리디렉션 누락</td><td>http 주소로 들어가면 경고</td><td>https 자동 이동(리디렉션) 설정</td></tr></tbody></table></div>
 <h2>어떤 순서로 진단하나요?</h2>
 <p>일곱 단계 중 1~4단계는 확인만 하는 작업이라 10분이면 끝나고, 여기서 원인이 특정됩니다. 수정 권한이 있는 호스팅 콘솔 계정만 있으면 5~7단계까지 30분 안쪽입니다. 계정이 관리 업체에만 있다면 진단 결과를 정리해 전달하는 것만으로도 처리 속도가 달라집니다. 진단서 한 장이 수리 기간을 줄입니다.</p>
 <ol class="steps"><li>주소창에 https://를 붙여 접속되는지 확인합니다</li><li>자물쇠(또는 설정) 아이콘을 눌러 인증서 유효기간을 확인합니다</li><li>www를 붙인 주소와 뺀 주소 양쪽에서 경고 여부를 비교합니다</li><li>개발자 도구(F12) 콘솔에서 혼합 콘텐츠 경고 메시지를 확인합니다</li><li>발견된 http 이미지·스크립트 주소를 https로 교체합니다</li><li>http 접속이 https로 자동 이동되도록 리디렉션을 설정합니다</li><li>브라우저 캐시를 지우고 다른 기기에서 경고 소멸을 재확인합니다</li></ol>

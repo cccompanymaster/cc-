@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>기준이 검색어 수인 이유는 검색엔진의 단위가 페이지이기 때문입니다. 한 페이지는 하나의 주제 묶음으로 평가받으므로, &#x27;지역+업종&#x27;, &#x27;서비스명&#x27;, &#x27;비용&#x27; 등 성격이 다른 검색어를 전부 한 장으로 잡기는 어렵습니다.</p>
 <h2>업종별로 보면 어느 쪽이 맞나요?</h2>
 <p>가장 흔한 오판은 &#x27;작은 가게니까 원페이지&#x27;입니다. 규모가 아니라 검색어 수가 기준입니다 — 동네 미용실도 &#x27;커트·펌·염색·클리닉&#x27;을 각각 검색어로 잡으려면 페이지가 나뉘는 편이 유리합니다.</p>
-<div class="tbl"><table><caption>원페이지 vs 다페이지 업종 적합표</caption><thead><tr><th>구조</th><th>적합 업종·상황</th><th>이유</th></tr></thead><tbody><tr><td>원페이지 적합</td><td>단일 서비스 스튜디오·팝업/행사·개인 브랜딩·출시 전 티저</td><td>용건 1개·행동 1개·기간 한정</td></tr><tr><td>다페이지 적합</td><td>병원(진료과 복수)·시공(사례 다수)·학원(과정 복수)·제조(제품군)</td><td>검색어·서비스가 복수</td></tr><tr><td>단계 전략</td><td>신규 소상공인 전반</td><td>원페이지 오픈 후 수요 확인된 주제부터 증설</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>원페이지 vs 다페이지 업종 적합표</caption><thead><tr><th scope="col">구조</th><th scope="col">적합 업종·상황</th><th scope="col">이유</th></tr></thead><tbody><tr><td>원페이지 적합</td><td>단일 서비스 스튜디오·팝업/행사·개인 브랜딩·출시 전 티저</td><td>용건 1개·행동 1개·기간 한정</td></tr><tr><td>다페이지 적합</td><td>병원(진료과 복수)·시공(사례 다수)·학원(과정 복수)·제조(제품군)</td><td>검색어·서비스가 복수</td></tr><tr><td>단계 전략</td><td>신규 소상공인 전반</td><td>원페이지 오픈 후 수요 확인된 주제부터 증설</td></tr></tbody></table></div>
 <h2>원페이지의 한계는 어떻게 보완하나요?</h2>
 <p>구조로 보완합니다. 섹션마다 고유 앵커(#비용·#후기)를 부여해 링크 공유가 가능하게 하고, 핵심 질문(FAQ)을 페이지 안에 구조화해 검색 적합도를 올립니다. 그래도 남는 한계는 &#x27;검색어 확장&#x27;이며, 이것은 서브페이지 증설로만 풀립니다.</p>
 <p>그래서 실무 정답은 이분법이 아니라 로드맵입니다 — 원페이지로 빠르게 열고, 문의가 나오는 주제·검색이 확인된 키워드부터 페이지를 붙이는 것입니다.</p>

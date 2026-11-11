@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -86,6 +88,7 @@ ol.steps li::before{content:counter(st);position:absolute;left:0;top:7px;width:2
 .src a{color:var(--gold-soft);text-decoration:underline}
 footer{margin-top:46px;padding:34px clamp(20px,4vw,32px);border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--dim);line-height:2}
 footer a{color:var(--gold-soft);text-decoration:underline}</style>
+<link rel="stylesheet" href="../css/viz.css">
 </head>
 <body>
 <div class="topbar">
@@ -104,7 +107,8 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>같은 사이트라도 담당자가 직접 고칠 수 있으면 변동비가 0에 수렴하고, 모든 수정이 외주면 텍스트 한 줄에도 인건비 단가가 붙습니다. 업계 보고 기준 텍스트 수정 ₩3만~₩10만/건, 이미지 교체 ₩5만~₩15만/건입니다.</p>
 <h2>연간 총비용을 시뮬레이션하면 어떻게 되나요?</h2>
 <p>표가 보여주는 결론은 하나입니다. 유지비 절감은 단가 협상이 아니라 구조 선택에서 나옵니다. 계약 단계에서 이미 연간 ₩100만 이상의 격차가 정해집니다.</p>
-<div class="tbl"><table><caption>운영 방식별 연간 유지 총비용 시뮬레이션 (수정 월 2건 가정)</caption><thead><tr><th>방식</th><th>고정비/년</th><th>변동비/년</th><th>합계/년</th></tr></thead><tbody><tr><td>전부 외주 (건당 ₩5만)</td><td>₩30만</td><td>₩120만</td><td>₩150만</td></tr><tr><td>월정액 유지 계약 (₩10만/월)</td><td>포함</td><td>₩120만</td><td>₩120만</td></tr><tr><td>수정 포함 상품 (텍스트 무상)</td><td>₩2만~₩30만</td><td>₩0</td><td>₩2만~₩30만</td></tr><tr><td>직접 수정 가능한 구조</td><td>₩2만~₩50만</td><td>₩0</td><td>₩2만~₩50만</td></tr></tbody></table></div>
+<figure class="viz" aria-labelledby="viz-maint"><figcaption><strong class="viz-title" id="viz-maint">수정이 월 2건이면 연 유지비 격차는 ₩100만 이상</strong><span class="viz-sub">운영 방식별 연간 합계 · 수정 월 2건 가정 시뮬레이션 · 선은 최소~최대 범위</span></figcaption><div class="viz-panels"><div class="viz-rows"><div class="viz-cat">전부 외주 (건당 ₩5만)</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="전부 외주 (건당 ₩5만): 연 유지비 ₩150만" data-tip-l="전부 외주 (건당 ₩5만) · 연 유지비" data-tip-v="₩150만"><span class="viz-dot" style="--x:93.75%"></span><span class="viz-val" style="--w:calc(93.75% + 6px)">₩150만</span></div><div class="viz-cat">월정액 유지 계약 (₩10만/월)</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="월정액 유지 계약 (₩10만/월): 연 유지비 ₩120만" data-tip-l="월정액 유지 계약 (₩10만/월) · 연 유지비" data-tip-v="₩120만"><span class="viz-dot" style="--x:75%"></span><span class="viz-val" style="--w:calc(75% + 6px)">₩120만</span></div><div class="viz-cat">수정 포함 상품 (텍스트 무상)</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="수정 포함 상품 (텍스트 무상): 연 유지비 ₩2만~₩30만" data-tip-l="수정 포함 상품 (텍스트 무상) · 연 유지비" data-tip-v="₩2만~₩30만"><span class="viz-range" style="--a:1.25%;--b:18.75%"></span><span class="viz-dot" style="--x:1.25%"></span><span class="viz-dot" style="--x:18.75%"></span><span class="viz-val" style="--w:calc(18.75% + 6px)">₩2만~₩30만</span></div><div class="viz-cat">직접 수정 가능한 구조</div><div class="viz-track" style="--t:4" role="img" tabindex="0" aria-label="직접 수정 가능한 구조: 연 유지비 ₩2만~₩50만" data-tip-l="직접 수정 가능한 구조 · 연 유지비" data-tip-v="₩2만~₩50만"><span class="viz-range" style="--a:1.25%;--b:31.25%"></span><span class="viz-dot" style="--x:1.25%"></span><span class="viz-dot" style="--x:31.25%"></span><span class="viz-val" style="--w:calc(31.25% + 6px)">₩2만~₩50만</span></div><div></div><div class="viz-axis" aria-hidden="true"><span style="left:0">0</span><span style="left:25%">₩40만</span><span style="left:50%">₩80만</span><span style="left:75%">₩120만</span><span style="left:100%">₩160만</span></div></div></div><p class="viz-note">고정비·변동비로 나눈 같은 수치는 아래 표에 있습니다.</p></figure>
+<div class="tbl"><table><caption>운영 방식별 연간 유지 총비용 시뮬레이션 (수정 월 2건 가정)</caption><thead><tr><th scope="col">방식</th><th scope="col" class="num">고정비/년</th><th scope="col" class="num">변동비/년</th><th scope="col" class="num">합계/년</th></tr></thead><tbody><tr><td>전부 외주 (건당 ₩5만)</td><td class="num">₩30만</td><td class="num">₩120만</td><td class="num">₩150만</td></tr><tr><td>월정액 유지 계약 (₩10만/월)</td><td class="num">포함</td><td class="num">₩120만</td><td class="num">₩120만</td></tr><tr><td>수정 포함 상품 (텍스트 무상)</td><td class="num">₩2만~₩30만</td><td class="num">₩0</td><td class="num">₩2만~₩30만</td></tr><tr><td>직접 수정 가능한 구조</td><td class="num">₩2만~₩50만</td><td class="num">₩0</td><td class="num">₩2만~₩50만</td></tr></tbody></table></div>
 <h2>왜 글자 한 줄에 5만원이 청구되나요?</h2>
 <p>부당해 보이지만 원가 논리가 있습니다. 외주 수정 1건에는 접수·확인·수정·검수·배포의 인건 시간이 들고, 최소 출동비 개념의 하한 단가가 붙습니다. 문제는 단가가 아니라, 그 구조를 계약 전에 몰랐다는 데 있습니다.</p>
 <p>그래서 확인 질문은 세 가지면 충분합니다. 텍스트 수정 단가는 얼마인가, 평균 반영 속도는 며칠인가, 무상 포함 건수는 몇 건인가. 이 세 답이 유지 계약서의 전부라고 해도 과언이 아닙니다.</p>
@@ -130,5 +134,6 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <script>(function(){if(!matchMedia('(max-width:768px)').matches)return;
 document.querySelectorAll('a.js-blog[data-mo]').forEach(function(a){a.href=a.getAttribute('data-mo');});})();</script>
 <script src="../js/track.js" defer></script>
+<script src="../js/viz.js" defer></script>
 </body>
 </html>

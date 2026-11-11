@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>기준을 문장 하나로 정리하면 이렇습니다. 원래 되기로 한 것이 안 되면 하자, 원래 없던 것을 새로 하면 추가 요청입니다. 이 문장을 계약서 하자보수 조항 바로 아래에 넣어 두시면 오픈 후 대화가 훨씬 짧아집니다. 다투는 시간 자체가 사장님의 손실이기 때문입니다. 기준이 없으면 같은 대화를 요청 건마다 반복하게 됩니다.</p>
 <h2>하자와 추가 요청은 어떻게 나뉘나요?</h2>
 <p>표에서 다툼이 가장 잦은 줄은 네 번째 경계 항목입니다. 텍스트 수정이 무상인지 유상인지는 계약서에만 달려 있습니다. 오픈 후 1년간 텍스트 수정 포함처럼 기간과 범위를 함께 적으면 이 줄이 표에서 사라집니다. 반영 기한까지 함께 적으면 요청 후 대기 시간이 줄고, 무상 건수의 소진 여부도 서로 확인하기 쉬워집니다.</p>
-<div class="tbl"><table><caption>실제 사례로 본 하자와 추가 요청 구분</caption><thead><tr><th>요청 내용</th><th>구분</th><th>근거</th></tr></thead><tbody><tr><td>문의 폼을 눌러도 메일이 오지 않음</td><td>하자</td><td>약속한 기능 미작동</td></tr><tr><td>아이폰에서 메뉴가 겹쳐 보임</td><td>하자</td><td>반응형 납품 범위</td></tr><tr><td>대표 이미지를 새 사진으로 교체</td><td>추가 요청</td><td>신규 자료 반영</td></tr><tr><td>가격표 금액 숫자 변경</td><td>경계 · 계약 문구에 따름</td><td>텍스트 수정 포함 여부</td></tr><tr><td>서브페이지 1개 신규 제작</td><td>추가 요청</td><td>범위 밖 신규 작업</td></tr><tr><td>오픈 3일 뒤 발견된 오탈자</td><td>하자</td><td>납품물 품질</td></tr><tr><td>예약 기능 추가</td><td>추가 요청</td><td>옵션 개발</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>실제 사례로 본 하자와 추가 요청 구분</caption><thead><tr><th scope="col">요청 내용</th><th scope="col">구분</th><th scope="col">근거</th></tr></thead><tbody><tr><td>문의 폼을 눌러도 메일이 오지 않음</td><td>하자</td><td>약속한 기능 미작동</td></tr><tr><td>아이폰에서 메뉴가 겹쳐 보임</td><td>하자</td><td>반응형 납품 범위</td></tr><tr><td>대표 이미지를 새 사진으로 교체</td><td>추가 요청</td><td>신규 자료 반영</td></tr><tr><td>가격표 금액 숫자 변경</td><td>경계 · 계약 문구에 따름</td><td>텍스트 수정 포함 여부</td></tr><tr><td>서브페이지 1개 신규 제작</td><td>추가 요청</td><td>범위 밖 신규 작업</td></tr><tr><td>오픈 3일 뒤 발견된 오탈자</td><td>하자</td><td>납품물 품질</td></tr><tr><td>예약 기능 추가</td><td>추가 요청</td><td>옵션 개발</td></tr></tbody></table></div>
 <h2>무상 범위는 계약서에 어떻게 적나요?</h2>
 <p>세 줄이면 충분합니다. 첫째, 하자보수 기간을 오픈일로부터 6개월로 특정합니다. 둘째, 하자의 정의를 계약 명세대로 작동하지 않는 상태로 적습니다. 셋째, 텍스트 수정과 이미지 교체의 무상 건수를 숫자로 적습니다. 세 줄의 작성 시간은 5분입니다. 작성 시점은 계약 전이 가장 좋고, 이미 진행 중이라면 메일 합의로도 같은 효과를 얻습니다.</p>
 <p>숫자가 없으면 협상은 감정 싸움이 됩니다. 무상 5건이라고 적혀 있으면 6번째 요청부터는 견적을 받는 것이 자연스러워지고, 제작사도 응대 부담이 줄어 관계가 오래 갑니다. 기준은 사장님을 보호하는 동시에 제작사의 예측 가능성도 함께 높입니다. 결국 기준은 양쪽의 시간을 아끼는 장치입니다.</p>

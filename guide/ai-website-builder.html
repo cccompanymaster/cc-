@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>AI 생성물의 문제는 품질이 낮다는 것이 아니라 평균에 수렴한다는 것입니다. 같은 업종 사장님 열 명이 같은 도구를 쓰면 첫 화면 문구가 비슷해집니다. 방문자가 세 곳을 비교하는 상황에서 문구가 겹치면 선택 근거가 사라지고, 결국 가격만 비교 대상으로 남습니다. 차별점은 사장님만 아는 사실에서 나옵니다.</p>
 <h2>어디를 검증해야 하나요?</h2>
 <p>검증은 구조·카피·SEO 세 관점이면 충분합니다. 각 관점에서 AI가 잘하는 부분과 사람이 확인해야 하는 부분이 명확히 갈립니다. 아래 표를 체크리스트로 삼아 공개 전에 한 번씩 확인하시면 대부분의 사고를 막을 수 있습니다. 다섯 줄을 공개 전 점검표로 그대로 쓰시면 됩니다.</p>
-<div class="tbl"><table><caption>AI 생성물 검증 관점표</caption><thead><tr><th>관점</th><th>AI가 잘하는 부분</th><th>사람이 확인할 부분</th></tr></thead><tbody><tr><td>구조</td><td>메뉴·섹션 순서 초안 제시</td><td>업종 특성에 맞는 순서 조정</td></tr><tr><td>카피</td><td>문장 다듬기와 분량 조절</td><td>가격·실적·자격 등 사실 확인</td></tr><tr><td>SEO</td><td>제목·설명 초안 작성</td><td>중복 제목·키워드 실제 검색량 확인</td></tr><tr><td>이미지</td><td>배치 제안</td><td>저작권과 실제 매장 사진 여부</td></tr><tr><td>법적 표기</td><td>일반 문구 초안</td><td>사업자 정보·개인정보 안내 정확성</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>AI 생성물 검증 관점표</caption><thead><tr><th scope="col">관점</th><th scope="col">AI가 잘하는 부분</th><th scope="col">사람이 확인할 부분</th></tr></thead><tbody><tr><td>구조</td><td>메뉴·섹션 순서 초안 제시</td><td>업종 특성에 맞는 순서 조정</td></tr><tr><td>카피</td><td>문장 다듬기와 분량 조절</td><td>가격·실적·자격 등 사실 확인</td></tr><tr><td>SEO</td><td>제목·설명 초안 작성</td><td>중복 제목·키워드 실제 검색량 확인</td></tr><tr><td>이미지</td><td>배치 제안</td><td>저작권과 실제 매장 사진 여부</td></tr><tr><td>법적 표기</td><td>일반 문구 초안</td><td>사업자 정보·개인정보 안내 정확성</td></tr></tbody></table></div>
 <h2>보완하면 무엇이 달라지나요?</h2>
 <p>보완 후 달라지는 지점은 첫 화면입니다. AI 초안의 첫 문장은 업종 일반론이고, 보완된 첫 문장은 사장님 매장에만 해당하는 사실입니다. 지역·경력 연차·처리 건수·영업시간처럼 확인 가능한 숫자가 들어가면 방문자가 비교를 멈춥니다. 확인 가능한 숫자 두 개만 넣어도 첫 문장이 달라집니다.</p>
 <p>속도 관점의 보완도 필요합니다. AI가 넣은 이미지가 원본 크기 그대로면 모바일 점수가 떨어집니다. PageSpeed Insights로 측정해 이미지 용량부터 줄이시면 5분 작업으로 체감 속도가 달라집니다. 이미지 용량 정리는 오픈 전 마지막 점검 항목으로 두시기 바랍니다.</p>

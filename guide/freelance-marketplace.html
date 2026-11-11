@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>재능마켓을 쓰는 사장님이 많은 데는 이유가 있습니다. 견적 비교가 빠르고, 30만원 이하 소액 상품이 많고, 구매 확정 전까지 대금을 플랫폼이 보관하는 결제 보호 구조도 있습니다. 문제는 플랫폼 자체가 아니라 편차입니다 — 같은 검색 결과 안에 실력이 다른 판매자가 섞여 있고, 상품 화면만으로는 구분이 어렵습니다.</p>
 <h2>장점과 리스크는 무엇인가요?</h2>
 <p>표의 장점 세 줄은 플랫폼 구조가 보장하고, 리스크 세 줄은 사장님의 확인이 막습니다. 후기를 볼 때는 개수보다 최근 6개월의 내용을 봅니다 — 수정 요청에 대한 대응과 작업 기간 준수에 대한 언급이 품질 편차를 가늠하는 실마리가 됩니다. 오래된 후기 수백 개보다 최근의 구체적 후기 10개가 판단에 유용합니다.</p>
-<div class="tbl"><table><caption>재능마켓 홈페이지 외주의 장점과 리스크</caption><thead><tr><th>구분</th><th>내용</th><th>대응 방법</th></tr></thead><tbody><tr><td>장점 — 가격</td><td>30만원 이하 소액 상품 구간이 넓음</td><td>포함 범위를 상세 페이지에서 확인</td></tr><tr><td>장점 — 선택 폭</td><td>후기·평점으로 다수 판매자 비교</td><td>최근 6개월 후기 위주로 확인</td></tr><tr><td>장점 — 결제 보호</td><td>구매 확정 전 대금을 플랫폼이 보관</td><td>환불 규정 사전 확인</td></tr><tr><td>리스크 — 품질 편차</td><td>같은 가격대에서 결과물 차이가 큼</td><td>라이브 URL 3개 요구</td></tr><tr><td>리스크 — 사후 지원</td><td>판매 중단·탈퇴 시 연락 곤란</td><td>지원 기간을 기록으로 명시</td></tr><tr><td>리스크 — 범위 분쟁</td><td>&#x27;수정 1회&#x27;의 기준이 서로 다름</td><td>수정의 범위·횟수를 정의</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>재능마켓 홈페이지 외주의 장점과 리스크</caption><thead><tr><th scope="col">구분</th><th scope="col">내용</th><th scope="col">대응 방법</th></tr></thead><tbody><tr><td>장점 — 가격</td><td>30만원 이하 소액 상품 구간이 넓음</td><td>포함 범위를 상세 페이지에서 확인</td></tr><tr><td>장점 — 선택 폭</td><td>후기·평점으로 다수 판매자 비교</td><td>최근 6개월 후기 위주로 확인</td></tr><tr><td>장점 — 결제 보호</td><td>구매 확정 전 대금을 플랫폼이 보관</td><td>환불 규정 사전 확인</td></tr><tr><td>리스크 — 품질 편차</td><td>같은 가격대에서 결과물 차이가 큼</td><td>라이브 URL 3개 요구</td></tr><tr><td>리스크 — 사후 지원</td><td>판매 중단·탈퇴 시 연락 곤란</td><td>지원 기간을 기록으로 명시</td></tr><tr><td>리스크 — 범위 분쟁</td><td>&#x27;수정 1회&#x27;의 기준이 서로 다름</td><td>수정의 범위·횟수를 정의</td></tr></tbody></table></div>
 <h2>결제 전 확인 항목 7가지는 무엇인가요?</h2>
 <p>일곱 항목의 공통점은 전부 채팅 기록으로 남긴다는 것입니다. 재능마켓 분쟁의 상당수는 &#x27;어디까지가 포함이냐&#x27;는 기준 차이에서 생기므로, 페이지 수·수정 횟수·지원 기간을 결제 전 메시지로 확정해 두면 분쟁 시 플랫폼 중재의 근거가 됩니다. 구매 확정 버튼은 대금 지급 확정이므로 검수가 끝난 뒤에 누릅니다.</p>
 <ol class="steps"><li>라이브 포트폴리오 URL 3개를 받아 직접 접속합니다.</li><li>상품 가격에 포함된 페이지 수·수정 횟수를 확인합니다.</li><li>도메인·호스팅 비용이 별도인지, 누구 명의인지 확인합니다.</li><li>소스·디자인 파일 전달 여부를 메시지로 남깁니다.</li><li>사후 지원 기간과 범위를 채팅 기록으로 확정합니다.</li><li>작업 기간과 지연 시 처리 기준을 정합니다.</li><li>구매 확정은 검수를 마친 뒤에 누릅니다.</li></ol>

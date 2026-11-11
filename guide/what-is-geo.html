@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>생성 엔진은 여러 문서를 읽고 하나의 답을 조립합니다. 이때 선택되는 문장은 대체로 구체적이고 검증 가능한 문장입니다. 빠르고 저렴하다는 표현은 조립 재료가 되지 못하지만, 기간이 며칠이고 비용이 얼마이며 어떤 조건이 붙는지 적힌 문장은 그대로 인용될 수 있습니다. 이 차이가 인용 여부를 가릅니다.</p>
 <h2>AEO와 GEO는 어떻게 다른가요?</h2>
 <p>두 작업은 같은 문서에서 동시에 적용됩니다. 헤딩과 직답으로 형식을 맞추고, 그 직답 안에 수치와 조건을 넣어 재료를 채우는 방식입니다. 형식만 맞추면 인용돼도 정보가 없고, 재료만 넣으면 찾아지지 않으므로 순서상 함께 진행하는 편이 효율적입니다. 두 작업의 편집 시간은 페이지당 15분 안팎입니다.</p>
-<div class="tbl"><table><caption>AEO와 GEO의 작업 초점 비교</caption><thead><tr><th>항목</th><th>AEO</th><th>GEO</th></tr></thead><tbody><tr><td>초점</td><td>답의 형식과 위치</td><td>답의 재료와 신뢰도</td></tr><tr><td>대표 작업</td><td>질문형 헤딩·직답 배치</td><td>수치·출처·전문가 근거 삽입</td></tr><tr><td>성과 형태</td><td>요약 영역 인용</td><td>AI 답변 내 브랜드 언급</td></tr><tr><td>문서 단위</td><td>문단</td><td>문장</td></tr><tr><td>선행 조건</td><td>색인 완료</td><td>색인 완료 및 표기 일관성</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>AEO와 GEO의 작업 초점 비교</caption><thead><tr><th scope="col">항목</th><th scope="col">AEO</th><th scope="col">GEO</th></tr></thead><tbody><tr><td>초점</td><td>답의 형식과 위치</td><td>답의 재료와 신뢰도</td></tr><tr><td>대표 작업</td><td>질문형 헤딩·직답 배치</td><td>수치·출처·전문가 근거 삽입</td></tr><tr><td>성과 형태</td><td>요약 영역 인용</td><td>AI 답변 내 브랜드 언급</td></tr><tr><td>문서 단위</td><td>문단</td><td>문장</td></tr><tr><td>선행 조건</td><td>색인 완료</td><td>색인 완료 및 표기 일관성</td></tr></tbody></table></div>
 <h2>무엇을 문장에 넣나요?</h2>
 <p>넣을 대상은 3가지입니다. 첫째는 수치입니다. 기간·비용·개수처럼 숫자로 표현되는 정보를 넣습니다. 둘째는 출처입니다. 인용한 자료가 어디에서 왔는지 기관명과 링크를 함께 적습니다. 셋째는 조건입니다. 어떤 경우에는 해당하지 않는지 예외를 밝히면 문장의 신뢰도가 올라가고 그대로 인용될 확률도 함께 올라갑니다.</p>
 <h2>적용 체크리스트는 무엇인가요?</h2>

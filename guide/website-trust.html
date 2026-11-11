@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>NN/g의 신뢰성 연구는 웹 신뢰가 디자인 품질·정보의 정직성·외부 검증 같은 요인의 조합으로 만들어진다고 정리합니다. 순서가 중요합니다 — 방문자는 시각 신호로 가판단을 내린 뒤에야 정보를 읽고, 정보가 그럴듯해야 사회적 증거를 확인합니다. 시각에서 탈락하면 나머지 8개 요소는 보여 줄 기회조차 없습니다.</p>
 <h2>신뢰 신호 3범주는 무엇인가요?</h2>
 <p>표는 12요소를 범주·배치 위치와 함께 정리한 지도입니다. 자주 놓치는 것이 보안 연결과 법적 표기입니다 — 주소창의 &#x27;주의 요함&#x27; 경고는 시각 신호 전체를 무너뜨리고, 사업자 정보 없는 푸터는 정보 신호의 구멍이 됩니다. 둘 다 비용이 거의 들지 않는 항목이라 점검 1순위입니다.</p>
-<div class="tbl"><table><caption>신뢰 신호 3범주 12요소와 배치 위치</caption><thead><tr><th>범주</th><th>요소 4가지</th><th>주 배치 위치</th></tr></thead><tbody><tr><td>시각 신호</td><td>정돈된 레이아웃·실사진·모바일 대응·SSL 보안</td><td>첫 화면·전체</td></tr><tr><td>정보 신호</td><td>가격 단서·진행 과정·연락처·사업자 표기</td><td>가격 섹션·푸터</td></tr><tr><td>사회적 증거</td><td>실명 후기·숫자 실적·인증·언론 보도</td><td>첫 화면 아래·문의 직전</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>신뢰 신호 3범주 12요소와 배치 위치</caption><thead><tr><th scope="col">범주</th><th scope="col">요소 4가지</th><th scope="col">주 배치 위치</th></tr></thead><tbody><tr><td>시각 신호</td><td>정돈된 레이아웃·실사진·모바일 대응·SSL 보안</td><td>첫 화면·전체</td></tr><tr><td>정보 신호</td><td>가격 단서·진행 과정·연락처·사업자 표기</td><td>가격 섹션·푸터</td></tr><tr><td>사회적 증거</td><td>실명 후기·숫자 실적·인증·언론 보도</td><td>첫 화면 아래·문의 직전</td></tr></tbody></table></div>
 <h2>첫인상은 몇 초에 결정되나요?</h2>
 <p>웹 첫인상 연구들은 사용자가 수십 밀리초에서 수 초 사이에 시각적 판단을 내린다고 보고합니다. 판단 재료는 내용이 아니라 레이아웃 정돈·색 사용·사진 품질입니다. 그래서 스톡 사진 대신 실제 매장·작업 사진 1장이 문장 열 줄보다 강합니다. 10년 전 디자인, 깨진 모바일 화면, 흐릿한 사진 3가지는 읽기 전에 신뢰를 끝내는 대표 신호입니다.</p>
 <h2>신뢰 요소는 어떻게 점검하나요?</h2>

@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>개수 제한의 목적은 미학이 아니라 속도입니다. 방문자가 3초 안에 갈 곳을 정하지 못하면 이탈 확률이 급격히 올라갑니다. 메뉴 축소는 정보 삭제가 아니라 통합입니다 — 연혁·인사말·비전은 &#x27;소개&#x27; 하나로 묶입니다.</p>
 <h2>업종별 표준 구성은 어떻게 되나요?</h2>
 <p>표의 공통 패턴이 보이실 겁니다 — 서비스(용건)가 앞, 회사 이야기가 중간, 행동(문의·예약)이 마지막 고정석입니다. 이 뼈대 위에서 업종 언어만 바뀝니다.</p>
-<div class="tbl"><table><caption>업종별 표준 메뉴 구성 (5~6개 기준)</caption><thead><tr><th>업종</th><th>표준 메뉴</th><th>비고</th></tr></thead><tbody><tr><td>음식점·카페</td><td>홈·메뉴·매장안내·예약·오시는길</td><td>&#x27;메뉴&#x27;가 최우선 용건</td></tr><tr><td>병원·클리닉</td><td>홈·진료안내·의료진·비용·예약/문의</td><td>비용 메뉴가 신뢰 장치</td></tr><tr><td>전문직(법률·세무)</td><td>홈·업무분야·전문가소개·사례·상담</td><td>분야별 서브로 확장</td></tr><tr><td>시공·인테리어</td><td>홈·시공사례·프로세스·비용안내·문의</td><td>사례가 첫 번째</td></tr><tr><td>학원</td><td>홈·커리큘럼·강사·시간표/비용·상담</td><td>학부모 용건 순서</td></tr><tr><td>B2B·제조</td><td>홈·제품/기술·회사소개·인증·견적문의</td><td>견적 동선이 목적</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>업종별 표준 메뉴 구성 (5~6개 기준)</caption><thead><tr><th scope="col">업종</th><th scope="col">표준 메뉴</th><th scope="col">비고</th></tr></thead><tbody><tr><td>음식점·카페</td><td>홈·메뉴·매장안내·예약·오시는길</td><td>&#x27;메뉴&#x27;가 최우선 용건</td></tr><tr><td>병원·클리닉</td><td>홈·진료안내·의료진·비용·예약/문의</td><td>비용 메뉴가 신뢰 장치</td></tr><tr><td>전문직(법률·세무)</td><td>홈·업무분야·전문가소개·사례·상담</td><td>분야별 서브로 확장</td></tr><tr><td>시공·인테리어</td><td>홈·시공사례·프로세스·비용안내·문의</td><td>사례가 첫 번째</td></tr><tr><td>학원</td><td>홈·커리큘럼·강사·시간표/비용·상담</td><td>학부모 용건 순서</td></tr><tr><td>B2B·제조</td><td>홈·제품/기술·회사소개·인증·견적문의</td><td>견적 동선이 목적</td></tr></tbody></table></div>
 <h2>메뉴 이름은 어떻게 짓나요?</h2>
 <p>방문자가 검색창에 칠 법한 말로 짓습니다. &#x27;솔루션&#x27;보다 &#x27;서비스&#x27;, &#x27;CONTACT&#x27;보다 &#x27;문의·상담&#x27;, &#x27;포트폴리오&#x27;보다 &#x27;시공사례&#x27;가 클릭됩니다. 영문 메뉴는 브랜드 무드는 만들지만, 타깃이 시니어·일반 소비자라면 이해 비용이 됩니다.</p>
 <p>금지 목록도 간단합니다 — 내부 조직 언어(사업1부·R&amp;D센터), 중의적 표현(스토리·플레이), 빈 메뉴(준비 중)는 넣지 않습니다. 빈 메뉴 하나가 사이트 전체의 신뢰를 깎습니다.</p>

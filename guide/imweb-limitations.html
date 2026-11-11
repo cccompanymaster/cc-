@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>제약은 결함이 아니라 설계 선택입니다. 아임웹은 사장님이 코드를 몰라도 2~4주 안에 사이트를 여는 것을 목표로 삼았고, 그 목표를 위해 손댈 수 있는 범위를 좁혔습니다. 범위 안에서 일할 때는 외주 견적 30만~1,000만원 구간을 건너뛸 수 있고, 범위 밖으로 나가는 순간 우회 작업이 시작됩니다.</p>
 <h2>제약은 어디서 먼저 드러나나요?</h2>
 <p>증상은 대체로 오픈 두 달 뒤에 나타납니다. 사이트는 떠 있는데 검색 유입이 늘지 않고, 모바일 속도 점수가 낮게 나오고, 원하는 배치가 템플릿에서 지원되지 않는 순서입니다. 아래 표는 아임웹 사용 중 자주 보고되는 제약을 증상 단위로 묶은 것입니다. 표를 먼저 훑고 사장님 사이트에 해당하는 줄만 표시해 보시기 바랍니다.</p>
-<div class="tbl"><table><caption>아임웹에서 자주 보고되는 제약과 증상</caption><thead><tr><th>구분</th><th>실제 증상</th><th>대응 방향</th></tr></thead><tbody><tr><td>SEO 확장</td><td>페이지별 메타·구조화 데이터를 원하는 형태로 넣기 어려움</td><td>표준 SEO 설정 안에서 제목·설명부터 정리</td></tr><tr><td>캐시·리소스</td><td>이미지·스크립트 로딩 순서를 직접 조정하기 어려움</td><td>이미지 용량 축소와 미사용 위젯 제거로 우회</td></tr><tr><td>레이아웃</td><td>템플릿이 지원하지 않는 배치는 재현 난이도가 높음</td><td>템플릿 선택 단계에서 필요한 배치를 먼저 확인</td></tr><tr><td>외부 연동</td><td>일부 외부 스크립트·API 연동에 제약</td><td>연동이 필요한 기능을 오픈 전에 목록화</td></tr><tr><td>이전</td><td>다른 도구로 옮길 때 콘텐츠 재작업 발생</td><td>글·이미지 원본을 별도 폴더에 상시 보관</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>아임웹에서 자주 보고되는 제약과 증상</caption><thead><tr><th scope="col">구분</th><th scope="col">실제 증상</th><th scope="col">대응 방향</th></tr></thead><tbody><tr><td>SEO 확장</td><td>페이지별 메타·구조화 데이터를 원하는 형태로 넣기 어려움</td><td>표준 SEO 설정 안에서 제목·설명부터 정리</td></tr><tr><td>캐시·리소스</td><td>이미지·스크립트 로딩 순서를 직접 조정하기 어려움</td><td>이미지 용량 축소와 미사용 위젯 제거로 우회</td></tr><tr><td>레이아웃</td><td>템플릿이 지원하지 않는 배치는 재현 난이도가 높음</td><td>템플릿 선택 단계에서 필요한 배치를 먼저 확인</td></tr><tr><td>외부 연동</td><td>일부 외부 스크립트·API 연동에 제약</td><td>연동이 필요한 기능을 오픈 전에 목록화</td></tr><tr><td>이전</td><td>다른 도구로 옮길 때 콘텐츠 재작업 발생</td><td>글·이미지 원본을 별도 폴더에 상시 보관</td></tr></tbody></table></div>
 <h2>아임웹이 잘 맞는 경우는 언제인가요?</h2>
 <p>아임웹이 잘 맞는 조건은 세 가지입니다. 첫째, 필요한 기능이 결제·예약·회원처럼 표준 기능 안에 있는 경우. 둘째, 페이지 수가 10장 이내이고 구조 변경이 잦지 않은 경우. 셋째, 사장님이 직접 텍스트를 고치며 운영할 계획인 경우입니다. 세 조건이 모두 참이면 도구를 바꿀 이유가 거의 없습니다.</p>
 <p>요금은 월 구독형이고 무료 플랜도 존재합니다. 다만 요금제는 수시로 바뀌므로 2026년 8월 기준으로 이 글에서는 금액을 적지 않으며, 최신 요금은 아임웹 공식 사이트에서 확인하시기를 권장드립니다. 구독형은 초기 부담이 낮은 대신 3년 누적 금액을 함께 계산해야 판단이 정확해집니다.</p>

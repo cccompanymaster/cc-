@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>작성 전에 준비하실 것은 세 가지입니다. 계약서 또는 견적서, 이체 내역, 지금까지의 요청 기록입니다. 이 세 가지에서 날짜와 금액을 뽑아 시간순으로 적으면 본문의 절반이 완성됩니다. 문장을 잘 쓰는 것보다 날짜를 정확히 적는 것이 훨씬 중요합니다. 자료를 모으고 정리하는 데 드는 시간은 30분 정도입니다.</p>
 <h2>내용증명에 무엇을 적나요?</h2>
 <p>표에서 실무상 가장 자주 빠지는 줄은 네 번째입니다. 조속히 처리해 달라는 표현은 기한이 아닙니다. 수령일로부터 14일 이내처럼 계산 가능한 문장으로 적어야 이후 단계에서 미이행을 주장할 수 있습니다. 이 한 줄이 문서 전체의 효력을 좌우합니다. 기한 계산의 기준일을 함께 적어 두시면 다툼이 더 줄어듭니다.</p>
-<div class="tbl"><table><caption>내용증명 필수 기재사항 6가지</caption><thead><tr><th>항목</th><th>적을 내용</th><th>흔한 누락</th></tr></thead><tbody><tr><td>당사자</td><td>상호·대표자·주소를 계약서와 동일하게</td><td>담당자 이름만 적음</td></tr><tr><td>계약 내용</td><td>계약일·금액·납기·결제일</td><td>금액만 적고 날짜 누락</td></tr><tr><td>요구 사항</td><td>납품·반환·명의 이전 중 무엇인지 특정</td><td>여러 요구를 뭉뚱그림</td></tr><tr><td>이행 기한</td><td>수령일로부터 7일 또는 14일</td><td>기한 없이 조속히로 표현</td></tr><tr><td>미이행 시 조치</td><td>계약 해제·지급명령 신청 예고</td><td>조치 언급 자체 누락</td></tr><tr><td>발송일과 서명</td><td>작성일·발송인 성명</td><td>날짜 미기재</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>내용증명 필수 기재사항 6가지</caption><thead><tr><th scope="col">항목</th><th scope="col">적을 내용</th><th scope="col">흔한 누락</th></tr></thead><tbody><tr><td>당사자</td><td>상호·대표자·주소를 계약서와 동일하게</td><td>담당자 이름만 적음</td></tr><tr><td>계약 내용</td><td>계약일·금액·납기·결제일</td><td>금액만 적고 날짜 누락</td></tr><tr><td>요구 사항</td><td>납품·반환·명의 이전 중 무엇인지 특정</td><td>여러 요구를 뭉뚱그림</td></tr><tr><td>이행 기한</td><td>수령일로부터 7일 또는 14일</td><td>기한 없이 조속히로 표현</td></tr><tr><td>미이행 시 조치</td><td>계약 해제·지급명령 신청 예고</td><td>조치 언급 자체 누락</td></tr><tr><td>발송일과 서명</td><td>작성일·발송인 성명</td><td>날짜 미기재</td></tr></tbody></table></div>
 <h2>문구 템플릿은 어떻게 되나요?</h2>
 <p>본문은 네 문단이면 충분합니다. 첫 문단은 &#x27;본인은 귀사와 2026년 O월 O일 홈페이지 제작 계약을 체결하고 계약금 ₩O,OOO,OOO을 지급하였습니다&#x27;로 사실을 적습니다. 둘째 문단은 &#x27;계약상 납기인 O월 O일이 경과하였으나 현재까지 납품이 이루어지지 않았습니다&#x27;로 미이행을 적습니다.</p>
 <p>셋째 문단은 요구입니다. &#x27;본 서면 수령일로부터 14일 이내에 납품을 완료하여 주시기 바랍니다&#x27;로 기한을 특정합니다. 넷째 문단은 예고입니다. &#x27;기한 내 이행이 없을 경우 계약을 해제하고 기지급금 반환을 청구할 예정입니다&#x27;로 마무리하시면 됩니다. 네 문단 전체 분량은 A4 한 장을 넘지 않습니다.</p>

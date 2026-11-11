@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>판단이 어려운 이유는 감정이 섞이기 때문입니다. 이미 300만원을 썼다는 사실은 아깝지만, 어느 쪽을 선택해도 돌아오지 않는 돈입니다. 그래서 기준은 과거가 아니라 미래에 둡니다 — 앞으로 3년간 홈페이지가 벌어 올 문의와, 유지·수정에 나갈 비용을 비교하면 감정 없이 계산이 됩니다. 아래 6가지 기준은 그 계산을 점수표로 바꾼 것입니다.</p>
 <h2>6가지 기준은 무엇인가요?</h2>
 <p>채점은 간단합니다. 6개 기준마다 어느 쪽 신호에 가까운지 표시해, 리뉴얼 신호가 4개 이상이면 고쳐 쓰는 쪽이 경제적입니다. 재제작 신호가 3개 이상이면 수리비가 신축비를 넘어서는 구간이므로 새로 만드는 판단이 합리적입니다. 특히 관리자 페이지와 데이터 확보 두 항목이 모두 막혀 있다면, 다른 항목과 무관하게 재제작 쪽으로 기울게 됩니다.</p>
-<div class="tbl"><table><caption>리뉴얼·재제작 판단 점수표 (기준당 1점)</caption><thead><tr><th>판단 기준</th><th>리뉴얼 신호</th><th>재제작 신호</th></tr></thead><tbody><tr><td>관리자 페이지</td><td>사장님이 직접 로그인·수정 가능</td><td>제작사만 접근 가능</td></tr><tr><td>모바일 화면</td><td>반응형으로 정상 표시</td><td>PC 화면이 축소되어 표시</td></tr><tr><td>데이터 확보</td><td>글·이미지 백업·내보내기 가능</td><td>내보내기 불가·백업 없음</td></tr><tr><td>기술 기반</td><td>최신 빌더·CMS 기반</td><td>플래시·오래된 구버전 솔루션</td></tr><tr><td>검색 노출</td><td>상호 검색 시 첫 페이지 노출</td><td>검색 결과에 없음</td></tr><tr><td>구조 적합성</td><td>메뉴 골격을 그대로 쓸 수 있음</td><td>업종·핵심 서비스가 바뀜</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>리뉴얼·재제작 판단 점수표 (기준당 1점)</caption><thead><tr><th scope="col">판단 기준</th><th scope="col">리뉴얼 신호</th><th scope="col">재제작 신호</th></tr></thead><tbody><tr><td>관리자 페이지</td><td>사장님이 직접 로그인·수정 가능</td><td>제작사만 접근 가능</td></tr><tr><td>모바일 화면</td><td>반응형으로 정상 표시</td><td>PC 화면이 축소되어 표시</td></tr><tr><td>데이터 확보</td><td>글·이미지 백업·내보내기 가능</td><td>내보내기 불가·백업 없음</td></tr><tr><td>기술 기반</td><td>최신 빌더·CMS 기반</td><td>플래시·오래된 구버전 솔루션</td></tr><tr><td>검색 노출</td><td>상호 검색 시 첫 페이지 노출</td><td>검색 결과에 없음</td></tr><tr><td>구조 적합성</td><td>메뉴 골격을 그대로 쓸 수 있음</td><td>업종·핵심 서비스가 바뀜</td></tr></tbody></table></div>
 <h2>선택지별 비용은 얼마나 다른가요?</h2>
 <p>비용의 층은 세 개입니다. 첫째, 부분 수정 — 외주 시세는 텍스트 건당 3만~10만원, 이미지 건당 5만~15만원 수준입니다. 둘째, 구조를 유지한 리뉴얼 — 업체와 범위에 따라 견적 격차가 30만~1,000만원까지 벌어지는 시장이므로 같은 요구서로 3곳 이상 비교가 전제입니다. 셋째, 재제작 — 신규 제작과 같은 예산에 데이터 이전 비용이 추가될 수 있습니다.</p>
 <p>숨은 변수는 콘텐츠입니다. 사진·소개글을 새로 만들면 시장 시세로 50만~300만원이 추가되고, 콘텐츠 준비가 늦으면 일정이 2~4주 밀립니다. 기존 홈페이지의 글과 이미지를 재사용할 수 있는지가 리뉴얼과 재제작 어느 쪽에서든 예산을 가르는 항목이므로, 견적 전에 백업 가능 여부부터 확인합니다.</p>

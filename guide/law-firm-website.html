@@ -56,8 +56,10 @@ article b,article strong{color:var(--gold-soft)}
 .tbl{overflow-x:auto;margin:18px 0}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
 caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}
-th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
-th{background:rgba(154,125,74,.08);color:var(--gold-soft);font-weight:800;white-space:nowrap}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}
 ol.steps li{list-style:none;counter-increment:st;position:relative;padding:8px 0 8px 40px;font-size:14.5px;color:var(--sub);line-height:1.7}
@@ -104,7 +106,7 @@ footer a{color:var(--gold-soft);text-decoration:underline}</style>
 <p>순서의 근거는 의뢰인의 의사결정 과정입니다. 의뢰인은 사건 유형을 검색해 들어와, 이 사무소가 같은 사건을 다뤄봤는지·절차가 얼마나 걸리는지·비용이 얼마나 드는지를 확인한 뒤에야 상담을 신청합니다. 사무소 연혁과 조직도는 이미 신뢰가 만들어진 다음에 읽히는 정보이므로 뒤로 내려갑니다.</p>
 <h2>어떤 요소가 신뢰를 만드나요?</h2>
 <p>표의 배치는 광고 문구가 아니라 확인 순서를 따릅니다. 2026년 8월 기준 변호사 광고 규정은 승소율 보장이나 사건 결과를 단정하는 표현을 제한하므로, 신뢰는 결과 주장이 아니라 절차 설명으로 만듭니다. 정확한 적용은 관할 기관·전문가 확인을 권장드립니다. 문구 점검은 원고 단계에서 끝내는 편이 수정 비용을 줄입니다.</p>
-<div class="tbl"><table><caption>법무법인 홈페이지 신뢰 요소와 배치 위치</caption><thead><tr><th>신뢰 요소</th><th>의뢰인이 확인하는 것</th><th>배치 위치</th></tr></thead><tbody><tr><td>담당 변호사 프로필</td><td>사건을 맡을 사람이 누구인가</td><td>첫 화면 바로 아래</td></tr><tr><td>업무분야별 사건 설명</td><td>내 사건을 다뤄본 적이 있는가</td><td>메뉴 두 번째</td></tr><tr><td>절차와 예상 기간</td><td>언제 끝나는가</td><td>업무분야 페이지 안</td></tr><tr><td>비용 기준 안내</td><td>얼마가 드는가</td><td>상담 신청 직전</td></tr><tr><td>상담 신청 경로</td><td>지금 무엇을 하면 되는가</td><td>모든 페이지 하단 고정</td></tr></tbody></table></div>
+<div class="tbl"><table><caption>법무법인 홈페이지 신뢰 요소와 배치 위치</caption><thead><tr><th scope="col">신뢰 요소</th><th scope="col">의뢰인이 확인하는 것</th><th scope="col">배치 위치</th></tr></thead><tbody><tr><td>담당 변호사 프로필</td><td>사건을 맡을 사람이 누구인가</td><td>첫 화면 바로 아래</td></tr><tr><td>업무분야별 사건 설명</td><td>내 사건을 다뤄본 적이 있는가</td><td>메뉴 두 번째</td></tr><tr><td>절차와 예상 기간</td><td>언제 끝나는가</td><td>업무분야 페이지 안</td></tr><tr><td>비용 기준 안내</td><td>얼마가 드는가</td><td>상담 신청 직전</td></tr><tr><td>상담 신청 경로</td><td>지금 무엇을 하면 되는가</td><td>모든 페이지 하단 고정</td></tr></tbody></table></div>
 <h2>상담 신청은 어떻게 늘리나요?</h2>
 <p>상담 신청이 적은 사무소의 공통점은 경로가 전화 하나뿐이라는 점입니다. 사건 상담은 통화 자체가 부담인 경우가 많아, 문자 기반 경로가 없으면 문의가 그대로 사라집니다. 카카오 채널 연동은 ₩20,000, 문의폼과 자동메일 연동은 ₩50,000에 추가할 수 있고, 경로 3개를 모두 열어두면 같은 방문자 수에서도 접수 건수가 달라집니다.</p>
 <ol class="steps"><li>업무분야 페이지마다 상담 신청 버튼을 본문 중간과 하단 2곳에 넣습니다.</li><li>상담 신청 폼 항목을 이름·연락처·사건 유형 3개로 줄입니다.</li><li>전화·카카오톡·폼 3개 경로를 모바일 하단에 고정합니다.</li><li>상담 가능 시간과 회신 소요 시간을 폼 옆에 명시합니다.</li><li>비밀 유지 안내 문구를 폼 상단에 한 줄로 배치합니다.</li><li>상담 접수 후 자동 회신 메일로 다음 절차를 안내합니다.</li></ol>
