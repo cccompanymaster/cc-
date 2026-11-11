@@ -239,3 +239,8 @@
   .aa-row { grid-template-columns: 1fr; gap: 6px; }
   .aa-row time { justify-self: start; }
 }
+
+/* 폰: 작은 라벨 12px */
+@media (max-width: 640px) {
+  .aa-tag, .auth-tags li { font-size: 12px; }
+}

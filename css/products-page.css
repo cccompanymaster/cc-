@@ -216,3 +216,8 @@ body.products-page { background: #fafbfd; }
   .page-cta-actions .btn { width: 100%; justify-content: center; }
   .page-cta-inner .h2 { font-size: clamp(24px, 7vw, 34px); padding: 0 12px; }
 }
+
+/* 폰: 작은 라벨 12px (반응형 보정 2026-11) */
+@media (max-width: 640px) {
+  .cat-filter .cnt, .pc-tag { font-size: 12px; }
+}
