@@ -423,6 +423,15 @@ footer .f-links a{display:inline-block;padding:6px 2px}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
+<style>/* 반응형 보정 2026-11 — 누르는 영역 24px 이상(글자 크기는 그대로) · 폰 작은 글자 12px · PC 긴 문단 72자 */
+.f-links a{min-width:24px;text-align:center}
+.f-info a,.f-sns a,.ops-note a,.back,.tc-cta,.privacy-check a{position:relative}
+.f-info a::after,.f-sns a::after,.ops-note a::after,.back::after,.tc-cta::after,.privacy-check a::after{content:"";position:absolute;inset:-6px -3px}
+.privacy-check input{width:20px;height:20px;margin-top:1px}
+.ai-cap{font-size:12px}
+.faq-item>div>p{max-width:72ch}
+@media(max-width:640px){.st-tier-info span,.st-vat{font-size:12.5px}.st-cover-cat,.st-badge{font-size:12px}}
+</style>
 </head>
 <body>
 

@@ -11,7 +11,8 @@ EXTRA_CSS = ('.tbl{overflow-x:auto;margin:18px 0}table{width:100%;border-collaps
              '.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}tbody tr:hover td{background:rgba(23,20,26,.03)}'
              'caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft);font-weight:700;padding-bottom:8px}'
              '.src{margin:26px 0 0;font-size:12px;color:var(--dim);line-height:1.9}.src a{color:var(--gold-soft);text-decoration:underline}'
-             'article b,article strong{color:var(--gold-soft)}')
+             'article b,article strong{color:var(--gold-soft)}'
+             '.crumb a,footer a{position:relative}.crumb a::after,footer a::after{content:"";position:absolute;inset:-5px -3px}')
 # 표의 숫자 열(첫 열 제외, 값의 2/3 이상이 금액·수치) → 오른쪽 정렬·고정폭 숫자
 NUM = re.compile(r'^[~약\s]*[-+]?[₩$]?\d[\d,.]*\s*(?:%|퍼센트|점|원|만|억|배|초|분|시간|일|주|개월|년|건|개|명|회|ms|MB|KB)?'
                  r'(?:\s*[~–-]\s*[₩$]?\d[\d,.]*\s*(?:%|퍼센트|점|원|만|억|배|초|분|시간|일|주|개월|년|건|개|명|회|ms|MB|KB)?)?\s*$')

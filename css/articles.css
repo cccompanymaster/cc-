@@ -558,3 +558,7 @@ body.articles-page { background: #fafbfd; }
 .article-faq summary::after { content: '+'; color: #B08D4E; font-size: 18px; flex-shrink: 0; }
 .article-faq details[open] summary::after { content: '\2212'; }
 .article-faq details p { margin: 0 0 16px; padding: 0 2px; font-size: 15px; line-height: 1.8; color: rgba(23,20,26,.72); }
+
+/* 저자 상자: 좁은 폰에서 이름 줄(이름·한글 이름·확인 표시)이 줄바꿈되게 — 360px 중문 아티클에서 넘치던 문제 */
+.article-author .aa-body { min-width: 0; }
+.article-author .aa-name { flex-wrap: wrap; }

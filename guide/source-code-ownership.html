@@ -59,6 +59,8 @@ caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--gold-soft)
 th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
 th{color:var(--white);font-weight:700;white-space:nowrap;border-bottom-color:rgba(23,20,26,.32)}
 .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.crumb a,footer a{position:relative}
+.crumb a::after,footer a::after{content:"";position:absolute;inset:-5px -3px}
 tbody tr:hover td{background:rgba(23,20,26,.03)}
 td{color:var(--sub)}
 ol.steps{margin:16px 0 18px;padding-left:0;counter-reset:st}

@@ -1,6 +1,8 @@
 // css/style.css(아티클·저자 56쪽)와 css/style-home.css(영문·중문 메인·상품 4쪽)를 style.full.css에서 다시 만든다.
 // 실행: cd .claude/build/css && npm i purgecss@8.0.0 csso@5.0.5 && node purge.mjs
 // 새 클래스를 쓰려면 style.full.css에 규칙을 넣고 이 스크립트를 다시 돌린다 (css/style*.css를 직접 고치지 않는다).
+// ⚠ 2026-11-11 확인: css/style*.css에 style.full.css에 없는 직접 수정이 있다(11/09 접근성 작업 — :root --muted 대비, .foot-h,
+//   h4→h3 제목, .btn-primary 등). 이 스크립트로 다시 만들기 전에 그 수정을 style.full.css로 옮길 것. 반응형 보정(11/11)은 양쪽에 다 있다.
 import { PurgeCSS } from 'purgecss';
 import { minify } from 'csso';
 import fs from 'fs';
@@ -25,11 +27,11 @@ async function build(out, pages, js) {
     keyframes: true, fontFace: false, variables: false, dynamicAttributes: attrs,
   });
   let min = minify(res.css, { restructure: false, comments: false }).css;
-  // PurgeCSS는 의사 클래스만으로 된 :lang(en)을 지운다 → 원래 자리(html 규칙 바로 뒤)에 되살림
+  // PurgeCSS는 의사 클래스만으로 된 :lang(en)·:lang(zh)을 지운다 → 원래 자리(html 규칙 바로 뒤)에 되살림
   const anchor = 'max-width:100vw}body{';
   if (!min.includes(':lang(en)')) {
     if (!min.includes(anchor)) throw new Error('anchor not found');
-    min = min.replace(anchor, 'max-width:100vw}:lang(en),.en-txt{word-break:normal}body{');
+    min = min.replace(anchor, 'max-width:100vw}:lang(en),:lang(zh),.en-txt{word-break:normal}body{');
   }
   fs.writeFileSync(R + 'css/' + out, min);
   console.log(out, pages.length, 'pages', min.length, 'bytes');
