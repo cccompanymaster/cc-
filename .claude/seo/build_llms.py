@@ -66,7 +66,7 @@ hubs = f"""
 
 - [마케팅 칼럼 {len(C)}편](https://noahgroup.co.kr/column/): 상위노출·광고 플랫폼·블로그 운영·업종별·전문직·병원 의료광고·체험단
 - [홈페이지 제작 가이드 {len(G)}편](https://noahgroup.co.kr/guide/): 비용·견적, 제작 프로세스, 도메인·호스팅, 계약·소유권, SEO·AI검색, 업종별 제작
-- [아티클 {len(A)}편](https://noahgroup.co.kr/articles/): 블로그·플레이스 상위노출 분석, 의료광고 심의, 한국 시장 진입(EN/ZH)
+- [아티클 {len(A)}편](https://noahgroup.co.kr/articles/): 블로그·플레이스 상위노출 분석, 병원 마케팅, 한국 시장 진입(EN/ZH)
 - 전체 글 목록: https://noahgroup.co.kr/llms-full.txt
 - RSS: https://noahgroup.co.kr/feed.xml · 사이트맵: https://noahgroup.co.kr/sitemap.xml
 

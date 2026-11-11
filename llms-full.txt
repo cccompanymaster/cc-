@@ -39,7 +39,7 @@
 
 - [마케팅 칼럼 110편](https://noahgroup.co.kr/column/): 상위노출·광고 플랫폼·블로그 운영·업종별·전문직·병원 의료광고·체험단
 - [홈페이지 제작 가이드 103편](https://noahgroup.co.kr/guide/): 비용·견적, 제작 프로세스, 도메인·호스팅, 계약·소유권, SEO·AI검색, 업종별 제작
-- [아티클 42편](https://noahgroup.co.kr/articles/): 블로그·플레이스 상위노출 분석, 의료광고 심의, 한국 시장 진입(EN/ZH)
+- [아티클 41편](https://noahgroup.co.kr/articles/): 블로그·플레이스 상위노출 분석, 병원 마케팅, 한국 시장 진입(EN/ZH)
 - 전체 글 목록: https://noahgroup.co.kr/llms-full.txt
 - RSS: https://noahgroup.co.kr/feed.xml · 사이트맵: https://noahgroup.co.kr/sitemap.xml
 
@@ -270,7 +270,7 @@
 - [윅스 단점과 국내 검색 환경 궁합](https://noahgroup.co.kr/guide/wix-limitations.html): 윅스의 단점을 국내 검색 환경과의 궁합 중심으로 정리했습니다. 디자인 자유도라는 강점과 네이버 노출에서 겪는 제약을 나눠 정리하고 순서도 담았습니다.
 - [워드프레스 아임웹 비교와 관리 부담](https://noahgroup.co.kr/guide/wordpress-vs-imweb.html): 워드프레스와 아임웹의 차이를 관리 부담·플러그인 충돌·보안 업데이트라는 숨은 비용으로 환산했습니다. 자유도가 실제로 필요한 경우를 구분했습니다.
 
-## 아티클 (42편)
+## 아티클 (41편)
 
 - [플랫폼별 광고 수수료·CPC 비교 2026 — 파워링크·당근·페이스북·네이버공식대행사](https://noahgroup.co.kr/articles/ad-platform-comparison.html): 파워링크·당근마켓광고·페이스북광고·네이버공식대행사 2026 단가·CPC·수수료 비교. 업종별 예산 배분 실전 가이드.
 - [마케팅 대행사 선택·부정클릭·광고 컴플라이언스 가이드 2026](https://noahgroup.co.kr/articles/agency-selection-compliance.html): 마케팅 대행사 비교 2026. 대행사 선택 7체크·부정클릭 방지·개인정보·광고 컴플라이언스(공정위·의료법) 종합.
@@ -299,7 +299,6 @@
 - [Korean Influencer & K-Beauty Marketing 2026](https://noahgroup.co.kr/articles/korean-influencer-kbeauty-marketing.html): Korean influencer marketing and K-beauty marketing for US brands. Tiers, rates, Olive Young, FTC compliance and a 90-day agency playbook.
 - [블로그 저품질 해제 — 원인 진단·복구 로드맵·재발 방지 가이드 2026](https://noahgroup.co.kr/articles/low-quality-blog-recovery.html): 네이버 블로그 저품질 해제 2026. 저품질 원인·진단·복구 로드맵·재발 방지까지 C-Rank 기반 실전 데이터 공개.
 - [마케팅 강의·교육 가이드 2026 — 실무·커리어·자격증 완전 정리](https://noahgroup.co.kr/articles/marketing-education-2026.html): 마케팅 강의·교육 2026. 실무 과정·온라인 강의·자격증·커리어 전환 커리큘럼을 9년차 현직 디렉터 관점에서 비교.
-- [의료광고 심의 2026 — 병원 마케팅 실무자가 꼭 알아야 할 5가지](https://noahgroup.co.kr/articles/medical-ad-review-2026.html): 의료법 시행령상 의료광고 심의 대상은 일일 평균 이용자 10만명 이상 SNS까지 포함됩니다. 병원·피부과·성형외과·치과·한의원 마케팅 실무에 바로 적용 가능한 핵심 5가지 정리.
 - [Korea Medical Tourism & Clinic Marketing 2026](https://noahgroup.co.kr/articles/medical-tourism-korea-marketing.html): Marketing a Korean clinic to medical tourists in 2026: medical advertising law, the patient funnel, GangnamUnni and BabiTalk, packages, and a 90-day plan.
 - [Naver Smartstore & Coupang 2026: US Brand Playbook](https://noahgroup.co.kr/articles/naver-coupang-ecommerce-playbook.html): Naver Smartstore for foreigners and Coupang marketing 2026. Marketplace vs Vendor, listing optimization, ads ROAS, KC certification, customs and 3PL.
 - [韩国Naver SEO中文卖家实操指南 2026 — Smart Block·Cafe·Knowledge iN](https://noahgroup.co.kr/articles/naver-seo-chinese-sellers.html): 中国卖家进入韩国市场的Naver SEO实操指南。Smart Block模块、Naver Blog/Cafe/Knowledge iN占位、韩文关键词策略、4周渗透法则,基于Noah SEO团队为中国品牌运营的真实案例。

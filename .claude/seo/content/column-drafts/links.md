@@ -180,7 +180,6 @@
 - ../articles/kakao-email-push-marketing.html — 카카오 비즈니스·이메일·푸시 마케팅 2026 — CRM 채널 통합 가이드
 - ../articles/low-quality-blog-recovery.html — 블로그 저품질 해제 — 원인 진단·복구 로드맵·재발 방지 가이드 2026
 - ../articles/marketing-education-2026.html — 마케팅 강의·교육 가이드 2026 — 실무·커리어·자격증 완전 정리
-- ../articles/medical-ad-review-2026.html — 의료광고 심의 2026 — 병원 마케팅 실무자가 꼭 알아야 할 5가지
 - ../articles/new-sns-platforms-2026.html — 인스타·틱톡·쓰레드 신규 SNS 마케팅 2026 — 알고리즘·예산·콘텐츠 비교
 - ../articles/performance-measurement-ga4.html — 퍼포먼스 측정 2026 — GA4·UTM·ROAS·구글 AI 개요 대응 종합 가이드
 - ../articles/place-top-ranking-2026.html — 네이버 플레이스 1위 전략 2026 — 지역 비즈니스 상위노출 완전 가이드

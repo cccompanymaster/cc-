@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://noahgroup.co.kr/articles/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
@@ -100,12 +100,6 @@
   </url>
   <url>
     <loc>https://noahgroup.co.kr/articles/blog-top-ranking-2026.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://noahgroup.co.kr/articles/medical-ad-review-2026.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
