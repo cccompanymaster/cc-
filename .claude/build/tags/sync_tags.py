@@ -36,8 +36,10 @@ TOOLS = {
         'row': ('Microsoft Clarity (Microsoft Corporation)', '화면 이용 분석(클릭·스크롤 위치). 입력한 글자는 가려서 수집'), 'ad': False,
     },
 }
+# Cloudflare가 모든 페이지에 자동으로 넣는 Web Analytics 비콘 (쿠키 없음) — 항상 허용
+ALWAYS = {'script-src': ['https://static.cloudflareinsights.com'], 'connect-src': ['https://cloudflareinsights.com'], 'img-src': []}
 DIRECTIVES = ('script-src', 'connect-src', 'img-src')
-MANAGED = {origin for tool in TOOLS.values() for d in DIRECTIVES for origin in tool[d]}
+MANAGED = {origin for tool in TOOLS.values() for d in DIRECTIVES for origin in tool[d]} | {o for v in ALWAYS.values() for o in v}
 START, END = '<!-- tags:start -->', '<!-- tags:end -->'
 
 
@@ -59,6 +61,7 @@ def fix_csp(csp, on):
         name, *values = part.split()
         if name in DIRECTIVES:
             values = [v for v in values if v not in MANAGED]
+            values += ALWAYS[name]
             for key in on:
                 values += [o for o in TOOLS[key][name] if o not in values]
         parts.append(' '.join([name, *values]))
@@ -66,7 +69,8 @@ def fix_csp(csp, on):
 
 
 def privacy_block(on):
-    rows = ['        <tr><td>Google 애널리틱스 (Google LLC)</td><td>방문·유입 경로 통계, 문의·주문 전환 측정</td></tr>']
+    rows = ['        <tr><td>Google 애널리틱스 (Google LLC)</td><td>방문·유입 경로 통계, 문의·주문 전환 측정</td></tr>',
+            '        <tr><td>Cloudflare Web Analytics (Cloudflare, Inc.)</td><td>쿠키 없이 방문 수·페이지 속도 집계</td></tr>']
     rows += [f'        <tr><td>{TOOLS[k]["row"][0]}</td><td>{TOOLS[k]["row"][1]}</td></tr>' for k in on]
     ads = any(TOOLS[k]['ad'] for k in on)
     ad_note = ('\n    <p>광고 도구는 광고를 보고 들어온 방문자가 문의·주문을 했는지 확인하고, 관심 있을 만한 광고를 보여 주는 데(맞춤형 광고) 쓰입니다. '
