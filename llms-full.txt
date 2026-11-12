@@ -285,7 +285,7 @@
 - [中国品牌进入韩国市场指南 2026 — Naver·KakaoTalk·韩国消费者全攻略](https://noahgroup.co.kr/articles/china-brand-korea-entry.html): 中国品牌进入韩国市场的完整指南。覆盖韩国搜索引擎(Naver)主导地位、KakaoTalk生态、韩国消费者行为差异、跨境电商渠道与合规要点,基于NOAH服务中国品牌4年的实操数据。
 - [콘텐츠 마케팅 2026 — 블로그 제목·썸네일·롱테일 키워드·상세페이지](https://noahgroup.co.kr/articles/content-marketing-titles-thumbnails.html): 콘텐츠 마케팅 전략 2026. 블로그 제목 잘 짓는 법·유튜브 썸네일·롱테일 키워드 찾기·상세페이지 디자인 실전 가이드.
 - [韩国Coupang·SmartStore跨境电商指南 2026 — 物流·结算·税务实操](https://noahgroup.co.kr/articles/coupang-smartstore-china-cross-border.html): 中国卖家进入韩国电商市场必读。Coupang Global / SmartStore / 11번가 / Olive Young Global 4大平台对比,韩国跨境物流、结算汇率、海关与税务实操,基于真实卖家案例。
-- [CPA 광고회사 선택 가이드 + 바이럴 마케팅 사례집 2026](https://noahgroup.co.kr/articles/cpa-viral-agency-guide.html): CPA 광고·바이럴 마케팅 대행사 선택 5대 기준과 실제 업종별 온라인 바이럴 성공 사례. 블로그 저품질 회피 + 마케팅 에이전시 평가법까지.
+- [CPA 광고회사 선택 가이드 + 바이럴 대행사 점검법 2026](https://noahgroup.co.kr/articles/cpa-viral-agency-guide.html): CPA 광고회사를 고를 때 확인할 5가지(DB 품질·전환 정의·업종 경험·매체 분산·리스크 공유), DB 단가 계산법, 바이럴 사례 검증법, 계약·인계 때 챙길 7가지 조항.
 - [진료과별 마케팅 전략 2026 — 피부과·성형외과·치과·한의원·동물병원 D-90 로드맵](https://noahgroup.co.kr/articles/hospital-specialty-marketing.html): 피부과·성형외과·치과·한의원·동물병원 마케팅 D-90 로드맵. 진료과별 키워드·심의·전환 구조 차이와 실전 실행 플랜.
 - [How to Advertise in Korea 2026: Platforms & Rules](https://noahgroup.co.kr/articles/how-to-advertise-in-korea-2026.html): A guide for foreign brands advertising in Korea in 2026: Naver, Kakao, Meta, Google and CTV, KFTC/MFDS/KMCC compliance, and a 90-day launch playbook.
 - [업종별 블로그 마케팅 — 헬스장·학원·음식점·인테리어·맛집 완전 가이드 2026](https://noahgroup.co.kr/articles/industry-blog-marketing.html): 헬스장·학원·음식점·인테리어·맛집 블로그 마케팅 2026. 업종별 키워드 설계·콘텐츠 유형·지역 SEO 차이를 실제 사례와 함께 공개.
@@ -309,7 +309,7 @@
 - [변호사·세무사·법무사 블로그 마케팅 2026 — 전문직 SEO 완전 가이드](https://noahgroup.co.kr/articles/professional-marketing-2026.html): 변호사·세무사·법무사·회계사 등 전문직 블로그 마케팅 SEO 전략 2026. 규제·광고 제한 속에서 신뢰·키워드·전환까지 설계하는 법.
 - [요식업·맛집 바이럴 마케팅 심화 2026 — 오픈·안정기·위기 3단계 전략](https://noahgroup.co.kr/articles/restaurant-viral-marketing.html): 요식업·맛집 바이럴 마케팅 2026. 오픈·안정기·위기 3단계 전략과 플레이스·블로그·인스타 3중 운영 실전 데이터.
 - [블로그 체험단 마케팅 실전 — 모집·원고 검수·대가성 표기 완전 가이드 2026](https://noahgroup.co.kr/articles/review-experience-team-guide.html): 블로그 체험단 마케팅 2026. 모집부터 원고 검수·대가성 표기·플랫폼 연계·ROI 측정까지 실전 운영 데이터 공개.
-- [네이버 스마트스토어 상위노출 2026 — 쇼핑 검색 랭킹 실전 가이드](https://noahgroup.co.kr/articles/smartstore-top-ranking.html): 스마트스토어 상위노출·네이버쇼핑 랭킹 2026 로직. 태그·리뷰·판매량·키워드 5대 요소와 신규 입점 90일 로드맵.
+- [네이버 스마트스토어 상위노출 2026 — 쇼핑 검색 랭킹 실전 가이드](https://noahgroup.co.kr/articles/smartstore-top-ranking.html): 네이버쇼핑이 판매자에게 설명해 온 적합도·인기도·신뢰도 기준으로 상품명·카테고리·리뷰를 정비하는 신규 스토어 90일 순서.
 - [SNS 플랫폼별 마케팅 가이드 2026 — 인스타그램·릴스·유튜브 PPL·체험단](https://noahgroup.co.kr/articles/sns-platform-marketing.html): 인스타그램·릴스·유튜브 PPL·협찬·체험단 2026 실전 가이드. 플랫폼별 알고리즘, 광고 표기 규정, ROI 측정 구조까지.
 - [창업·오픈 마케팅 D-90 종합 가이드 2026 — 신규 매장·런칭 90일 플랜](https://noahgroup.co.kr/articles/startup-launch-marketing-d90.html): 창업 마케팅·오픈 마케팅·런칭 마케팅 2026. 카페·매장·서비스 신규 오픈 90일 D-90 로드맵과 예산 배분 실전.
-- [바이럴 마케팅 성공 사례집 2026 — 업종별 ROI·KPI 공개](https://noahgroup.co.kr/articles/viral-success-cases-2026.html): 바이럴 마케팅 성공 사례 2026. 맛집·뷰티·교육·의료·스마트스토어 5개 업종의 실제 ROI·KPI·운영 데이터 공개.
+- [업종별 바이럴 마케팅 가이드 2026 — 맛집·뷰티·교육·의료·스마트스토어](https://noahgroup.co.kr/articles/viral-success-cases-2026.html): 맛집·뷰티·교육·의료·스마트스토어 5개 업종의 바이럴 채널 구성과 업종마다 지켜야 할 규칙(대가 표시·의료광고·리뷰 조작 금지), 실패하는 함정 5가지를 정리했습니다.
