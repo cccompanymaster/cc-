@@ -12,6 +12,30 @@
     karrot: '', // 당근 전환 추적 코드 ID
     clarity: '' // Microsoft Clarity 프로젝트 ID
   };
+  // A public ID enables the choice, never consent. Reload after a choice so
+  // third-party scripts from the previous page cannot continue after withdrawal.
+  var adConsentKey = 'cc_ad_measure_v1', adChoice = '', adNames = ['naver', 'meta', 'kakao', 'karrot'];
+  try { adChoice = localStorage.getItem(adConsentKey) || ''; } catch (_) {}
+  var hasAdProvider = adNames.some(function(k) { return Boolean(TAG_IDS[k]); });
+  if (adChoice !== 'yes') adNames.forEach(function(k) { TAG_IDS[k] = ''; });
+  function showAdChoice() {
+    var privacy = /\/privacy(?:\.html|\/)?$/.test(location.pathname);
+    if ((!hasAdProvider || adChoice) && !privacy) return;
+    if (document.getElementById('cc-ad-choice')) return;
+    var panel = document.createElement('section'); panel.id = 'cc-ad-choice';
+    panel.setAttribute('aria-label', '선택 광고 측정');
+    var p = document.createElement('p');
+    p.textContent = !hasAdProvider ? '현재 연결된 선택 광고 픽셀이 없습니다.' : '선택 광고 측정: '+(adChoice === 'yes' ? '허용 중' : '허용 안 함')+'. 거절해도 서비스를 이용할 수 있습니다. 개인정보처리방침에서 언제든 변경할 수 있습니다.';
+    panel.appendChild(p);
+    if (hasAdProvider) [['yes','광고 측정 허용'],['no','광고 측정 거절']].forEach(function(item) {
+      var b = document.createElement('button'); b.type='button'; b.textContent=item[1]; b.disabled=adChoice===item[0];
+      b.onclick=function(){ try {localStorage.setItem(adConsentKey,item[0]); location.reload();} catch (_) {p.textContent='선택을 저장하지 못했습니다. 광고 측정은 기본적으로 꺼져 있습니다.';} };
+      panel.appendChild(b);
+    });
+    (document.querySelector('main') || document.body).appendChild(panel);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',showAdChoice,{once:true}); else showAdChoice();
+
   var CONTACT = { naver: 'custom001', meta: 'Contact' };
   var MAP = {
     generate_lead: { naver: 'lead', meta: 'Lead', kakao: 'participation', karrot: 'Lead' },

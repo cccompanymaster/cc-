@@ -80,13 +80,14 @@ function doPost(e) {
     }
 
     const raw = (e && e.postData && e.postData.contents) || '{}';
-    if (raw.length > 45e6) return jsonResponse_({ ok: false, error: 'payload too large' });   // 첨부 30MB → base64 약 40MB
+    if (raw.length > 4 * 1024 * 1024 / 3 + 50000) return jsonResponse_({ ok: false, error: 'payload too large' });   // 첨부 1MiB와 폼 필드
     const data = JSON.parse(raw);
+    if (raw.length > 50000 && (data.type !== 'inquiry' || !data.attachment || typeof data.attachment.dataBase64 !== 'string' || raw.length - data.attachment.dataBase64.length > 50000)) return jsonResponse_({ ok: false, error: 'payload too large' });
 
     // 허니팟 — 값이 차 있으면 봇, 조용히 성공 가장
     if (data.website || data.honey) {
       logEvent_('honeypot', data);
-      return jsonResponse_({ ok: true });
+      return jsonResponse_({ ok: false, error: 'invalid submission' });
     }
 
     // 시간 체크 — 3초 미만 제출은 봇
@@ -95,14 +96,14 @@ function doPost(e) {
       const now = Date.now();
       if (Number.isFinite(opened) && (now - opened) < MIN_SUBMIT_MS) {
         logEvent_('too-fast', data);
-        return jsonResponse_({ ok: true });
+        return jsonResponse_({ ok: false, error: 'invalid submission' });
       }
     }
 
     // Origin 화이트리스트 (클라이언트 자진 보고, 최소 방어선)
     const cfg = CFG_();
     if (data.origin && cfg.ALLOWED_ORIGINS.length > 0) {
-      const ok = cfg.ALLOWED_ORIGINS.some(o => data.origin.startsWith(o));
+      const ok = cfg.ALLOWED_ORIGINS.some(o => String(data.origin).replace(/\/$/, '') === o.replace(/\/$/, ''));
       if (!ok) { logEvent_('bad-origin', data); return jsonResponse_({ ok: false, error: 'origin' }); }
     }
 
@@ -217,10 +218,9 @@ function logEvent_(event, data) {
       sanitizeCell_(event),
       sanitizeCell_(data.type || 'inquiry'),
       fingerprint_(data),
-      sanitizeCell_((data.clientIp || '').slice(0,45)),
-      sanitizeCell_((data.userAgent || '').slice(0,120)),
+      '', '',
       sanitizeCell_((data.origin || '').slice(0,80)),
-      sanitizeCell_(JSON.stringify({ paymentId: data.paymentId, amount: data.expectedAmount }).slice(0,200)),
+      '',
     ]);
   } catch(_) {}
 }
@@ -233,10 +233,12 @@ function handleInquiry_(data, cfg) {
   if (errors.length) return jsonResponse_({ ok: false, error: 'invalid input' });
 
   // 첨부 파일 처리 — Drive 저장 + 메일 첨부용 Blob 동시 생성
-  const att = saveAttachmentSafe_(data);  // { url, blob, info } | null
-
   const sheet = getOrCreateInquirySheet_();
-  sheet.appendRow([
+  const previous = lookupReceipt_(sheet, data.requestId);
+  if (previous) return jsonResponse_(previous);
+  const att = saveAttachmentSafe_(data);
+  if (data.attachment && !att) return jsonResponse_({ ok: false, error: 'attachment rejected' });
+  const saved = appendReceipt_(sheet, [
     new Date(),
     sanitizeCell_(data.name),
     sanitizeCell_(data.company),
@@ -247,11 +249,13 @@ function handleInquiry_(data, cfg) {
     sanitizeCell_(att ? att.info : ''),
     sanitizeCell_(att ? att.url : ''),
     sanitizeCell_((data.referrer || '').slice(0,480)),
-    sanitizeCell_((data.userAgent || '').slice(0,120)),
-    sanitizeCell_((data.clientIp || '').slice(0,45)),
-  ]);
-  if (cfg.NOTIFY_EMAIL) sendInquiryMail_(data, cfg, att);
-  return jsonResponse_({ ok: true });
+    '', '',
+  ], data.requestId);
+  if (saved.duplicate) return jsonResponse_(saved);
+  if (cfg.NOTIFY_EMAIL) {
+    try { sendInquiryMail_(data, cfg, att); } catch (_) { Logger.log('inquiry_notification_failed'); }
+  }
+  return jsonResponse_(saved);
 }
 
 // 첨부 저장: Drive 폴더에 업로드 + 메일 첨부용 Blob 반환
@@ -260,9 +264,9 @@ function saveAttachmentSafe_(data) {
   try {
     const a = data.attachment;
     if (!a || !a.dataBase64 || !a.name) return null;
-    const MAX_BYTES = 30 * 1024 * 1024;          // 30MB upload limit
+    const MAX_BYTES = 1024 * 1024;          // 30MB upload limit
     const GMAIL_ATTACH_LIMIT = 25 * 1024 * 1024; // Gmail 첨부 한도
-    if (a.size > MAX_BYTES) return null;
+    if (!Number.isInteger(a.size) || a.size < 1 || a.size > MAX_BYTES || a.dataBase64.length !== 4 * Math.ceil(a.size / 3)) return null;
 
     const allowedExt = ['pdf','doc','docx','ppt','pptx','xls','xlsx','zip','hwp','hwpx','txt'];
     const ext = (a.name.split('.').pop() || '').toLowerCase();
@@ -418,4 +422,39 @@ function jsonResponse_(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// doPost holds the script lock. Keep the request key on the same row as the
+// submission, so a retry after a lost response cannot append a second row.
+function lookupReceipt_(sheet, requestId) {
+  if (!requestId) return null;
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(requestId)) throw new Error('invalid request ID');
+  const width = sheet.getLastColumn(), last = sheet.getLastRow();
+  if (!width || last < 2) return null;
+  const column = sheet.getRange(1, 1, 1, width).getDisplayValues()[0].indexOf('접수번호') + 1;
+  if (column && sheet.getRange(2, column, last - 1, 1).createTextFinder(requestId).matchEntireCell(true).findNext()) {
+    return { ok: true, receiptId: requestId, duplicate: true };
+  }
+  return null;
+}
+function appendReceipt_(sheet, values, requestId) {
+  if (!requestId) {
+    sheet.appendRow(values);
+    return { ok: true };
+  }
+  const existing = lookupReceipt_(sheet, requestId);
+  if (existing) return existing;
+  const width = sheet.getLastColumn();
+  const header = sheet.getRange(1, 1, 1, width).getDisplayValues()[0];
+  let column = header.indexOf('접수번호') + 1;
+  if (!column) {
+    column = Math.max(width, values.length) + 1;
+    if (column > sheet.getMaxColumns()) sheet.insertColumnsAfter(sheet.getMaxColumns(), column - sheet.getMaxColumns());
+    sheet.getRange(1, column).setValue('접수번호');
+  }
+  while (values.length < column - 1) values.push('');
+  values[column - 1] = requestId;
+  sheet.appendRow(values);
+  SpreadsheetApp.flush();
+  return { ok: true, receiptId: requestId };
 }

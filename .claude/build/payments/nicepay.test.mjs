@@ -283,11 +283,20 @@ test('return: 승인 응답을 못 받으면 망취소', () => {
 test('return: 승인 응답 금액이 다르면 자동 취소', () => {
   let prep;
   const env = makeEnv({ props: SANDBOX_PROPS, fetch: (url) => (url.endsWith('/cancel')
-    ? { code: 200, body: { resultCode: '0000' } } : approveOk({}, prep.orderId, 1000)) });
+    ? { code: 200, body: { resultCode: '0000', status: 'cancelled', balanceAmt: 0, orderId: prep.orderId, tid: 'UT0000113m01012111051714341073' } } : approveOk({}, prep.orderId, 1000)) });
   prep = json(post(env, prepareBody()));
   ret(env, authParams(prep));
   assert.match(env.fetches[1].url, /\/v1\/payments\/UT0000113m01012111051714341073\/cancel$/);
   assert.equal(orderRow(env, prep.orderId)[1], 'CANCELLED_VERIFY');
+});
+
+test('return: 승인 서명 누락 및 미확정 취소는 PAID나 취소 완료로 기록하지 않음', () => {
+  let prep;
+  const env = makeEnv({ props: SANDBOX_PROPS, fetch: url => url.endsWith('/cancel')
+    ? { code: 503, body: {} } : approveOk({ signature: '' }, prep.orderId, prep.amount) });
+  prep = json(post(env, prepareBody()));
+  ret(env, authParams(prep));
+  assert.equal(orderRow(env, prep.orderId)[1], 'CANCEL_PENDING');
 });
 
 test('return: 모르는 주문번호', () => {

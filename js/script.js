@@ -1070,7 +1070,7 @@ const inqFile = document.getElementById('inq-file');
 const inqFileLabel = document.querySelector('.file-drop');
 const inqFileText = document.getElementById('inq-file-text');
 const inqFileClear = document.getElementById('inq-file-clear');
-const MAX_ATTACHMENT_BYTES = 30 * 1024 * 1024; // 30MB
+const MAX_ATTACHMENT_BYTES = 1024 * 1024; // 1MB
 
 const updateFileDisplay = (file) => {
   if (!file) {
@@ -1080,7 +1080,7 @@ const updateFileDisplay = (file) => {
     return;
   }
   if (file.size > MAX_ATTACHMENT_BYTES) {
-    alert(`파일 크기가 너무 큽니다 (${(file.size/1024/1024).toFixed(1)}MB). 최대 30MB까지 업로드 가능합니다.`);
+    alert(`파일 크기가 너무 큽니다 (${(file.size/1024/1024).toFixed(1)}MB). 최대 1MB까지 업로드 가능합니다.`);
     inqFile.value = '';
     return;
   }
@@ -1155,16 +1155,6 @@ const INQUIRY_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz-048UbQ15
 document.querySelectorAll('input.form-opened-at').forEach(el => {
   el.value = new Date().toISOString();
 });
-let _cachedClientIp = null;
-async function fetchClientIp_() {
-  if (_cachedClientIp !== null) return _cachedClientIp;
-  try {
-    const r = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
-    if (r.ok) { const j = await r.json(); _cachedClientIp = String(j.ip || '').slice(0, 45); return _cachedClientIp; }
-  } catch(_) {}
-  _cachedClientIp = '';
-  return '';
-}
 function makeUUID_() {
   if (window.crypto?.randomUUID) return window.crypto.randomUUID();
   // fallback (RFC4122 v4)
@@ -1180,9 +1170,12 @@ function readFormOpenedAt_(form) {
   return form?.querySelector('input.form-opened-at')?.value || '';
 }
 
+let inquiryRequestId = '';
+inqForm?.addEventListener('input', () => { inquiryRequestId = ''; });
 inqForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const submitBtn = inqForm.querySelector('button[type="submit"]');
+  if (submitBtn?.disabled) return;
   const originalHTML = submitBtn?.innerHTML;
 
   // Manual validation (form has novalidate)
@@ -1233,7 +1226,7 @@ inqForm?.addEventListener('submit', async (e) => {
   // 허니팟 — 값 있으면 봇으로 간주(조용히 차단)
   if (readHoneypot_(inqForm)) { return; }
 
-  const clientIp = await fetchClientIp_();
+
   const data = new FormData(inqForm);
 
   // 관심 영역 — '기타' 선택 시 직접 입력값 합치기
@@ -1251,19 +1244,22 @@ inqForm?.addEventListener('submit', async (e) => {
   const file = inqFile?.files?.[0];
   if (file) {
     if (file.size > MAX_ATTACHMENT_BYTES) {
-      alert('파일 크기는 30MB 이하만 가능합니다.');
+      alert('파일 크기는 1MB 이하만 가능합니다.');
       return;
     }
     try {
+      if (submitBtn) submitBtn.disabled = true;
       const b64 = await fileToBase64_(file);
       attachment = { name: file.name, type: file.type || 'application/octet-stream', size: file.size, dataBase64: b64 };
     } catch (err) {
-      console.error('[Inquiry] 파일 인코딩 실패:', err);
+      if (submitBtn) submitBtn.disabled = false;
       alert('첨부 파일 처리 중 오류가 발생했습니다. 파일을 다시 선택해주세요.');
       return;
     }
   }
 
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '전송 중…'; }
+  try {
   const payload = {
     type: 'inquiry',
     name: (data.get('name') || '').toString().trim(),
@@ -1274,22 +1270,15 @@ inqForm?.addEventListener('submit', async (e) => {
     message: (data.get('message') || '').toString().trim(),
     attachment,
     referrer: ((window.NOAH_SRC && window.NOAH_SRC.text()) || document.referrer || '(direct)').slice(0, 480),  // 광고·검색·AI 등 들어온 경로 (js/attrib.js)
-    userAgent: (navigator.userAgent || '').slice(0, 200),
-    clientIp,
     origin: location.origin,
     recaptchaToken: await getRecaptchaToken_(),
+    requestId: inquiryRequestId || (inquiryRequestId = makeUUID_()),
     formOpenedAt: readFormOpenedAt_(inqForm),
     submittedAt: new Date().toISOString(),
   };
 
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '전송 중…';
-  }
-
-  try {
     if (!INQUIRY_WEBHOOK_URL) {
-      console.warn('[Inquiry] Webhook URL이 설정되지 않았습니다. js/script.js의 INQUIRY_WEBHOOK_URL을 설정하세요.', payload);
+      console.warn('[Inquiry] Webhook URL이 설정되지 않았습니다. js/script.js의 INQUIRY_WEBHOOK_URL을 설정하세요.');
       throw new Error('Webhook URL not configured');
     }
     const res = await fetch(INQUIRY_WEBHOOK_URL, {
@@ -1298,13 +1287,18 @@ inqForm?.addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload),
       redirect: 'follow',
+      signal: AbortSignal.timeout(30000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    if ((await res.json().catch(() => ({}))).ok === false) throw new Error('rejected');   // 서버 거절도 HTTP 200 — 본문으로 판단
+    const receipt = await res.json();
+    if (receipt.ok !== true || receipt.receiptId !== payload.requestId) throw new Error('unconfirmed');   // 서버 거절도 HTTP 200 — 본문으로 판단
 
     inqForm.style.display = 'none';
     inqSuccess.hidden = false;
-    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'inquiry_form' });
+    let label = inqSuccess.querySelector('[data-receipt]');
+    if (!label) { label = document.createElement('p'); label.dataset.receipt = ''; inqSuccess.appendChild(label); }
+    label.textContent = '접수번호: ' + receipt.receiptId;
+    if (!receipt.duplicate && typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'inquiry_form' });
     if (!inqModal) {
       // 인라인 폼(문의 페이지): 성공 메시지 유지 — 자동 리셋하지 않음
       inqSuccess.scrollIntoView({ block: 'center', behavior: 'smooth' });
@@ -1313,6 +1307,7 @@ inqForm?.addEventListener('submit', async (e) => {
     setTimeout(() => {
       closeInquiry();
       setTimeout(() => {
+        inquiryRequestId = '';
         inqForm.reset();
         inqForm.style.display = '';
         inqSuccess.hidden = true;
@@ -1323,9 +1318,9 @@ inqForm?.addEventListener('submit', async (e) => {
       }, 400);
     }, 2400);
   } catch (err) {
-    console.error('[Inquiry] 전송 실패:', err);
+    console.warn('[Inquiry] 접수 응답 확인 실패');
     if (typeof gtag === 'function') gtag('event', 'form_error', { form: 'inquiry' });
-    alert('문의 전송 중 오류가 발생했습니다.\n잠시 후 다시 시도해주시거나 010-6658-6482로 연락 부탁드립니다.');
+    alert('접수 여부를 확인하지 못했습니다.\n중복 접수를 피하려면 010-6658-6482로 확인해 주세요.');
     if (submitBtn) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalHTML;

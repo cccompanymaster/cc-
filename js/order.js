@@ -1,16 +1,16 @@
 /* 노아 스토어 주문서 — 상품별 입력 항목을 띄우고 문의 접수 경로(Apps Script)로 보낸다.
-   script.js의 INQUIRY_WEBHOOK_URL · getRecaptchaToken_ · fetchClientIp_ · readHoneypot_ · fileToBase64_ 를 그대로 쓴다.
-   첨부는 서버가 문서·ZIP만 받으므로, 고른 파일을 모두 ZIP 하나로 묶어 보낸다(30MB 이하). */
+   script.js의 INQUIRY_WEBHOOK_URL · getRecaptchaToken_ · readHoneypot_ · fileToBase64_ 를 그대로 쓴다.
+   첨부는 서버가 문서·ZIP만 받으므로, 고른 파일을 모두 ZIP 하나로 묶어 보낸다(1MB 이하). */
 (() => {
 'use strict';
 const modal = document.getElementById('orderModal');
 const form = document.getElementById('orderForm');
 if (!modal || !form) return;
 
-const MAX_BYTES = 30 * 1024 * 1024;
+const MAX_BYTES = 1024 * 1024;
 const KW = { t: 'text', n: 'keyword', l: '키워드', req: 1, max: 200, ph: '예: 송도 맛집, 송도 카페 (여러 개면 쉼표로)' };
 const QTY = { t: 'number', n: 'qty', l: '수량', req: 1 };
-const FILES = { t: 'file', n: 'files', l: '원고 · 사진 파일', help: '여러 파일을 한 번에 고르면 ZIP 하나로 묶어 보냅니다 · 합계 30MB까지 · 지금 없으면 주문 확인 때 보내셔도 됩니다' };
+const FILES = { t: 'file', n: 'files', l: '원고 · 사진 파일', help: '여러 파일을 한 번에 고르면 ZIP 하나로 묶어 보냅니다 · 합계 1MB까지 · 지금 없으면 주문 확인 때 보내셔도 됩니다' };
 const REQ = { t: 'textarea', n: 'request', l: '요청사항', max: 1000 };
 const BIZ = [
   { t: 'text', n: 'biz', l: '업체(서비스)명', req: 1, max: 100 },
@@ -106,7 +106,7 @@ function openSvc(key, opt, price, oid, from) {
   opener = from || document.activeElement;
   title.textContent = svc.title + (cur.oid ? ' 작업 요청서' : ' 주문서');
   sub.textContent = cur.oid
-    ? `주문번호 ${cur.oid}${cur.opt ? ' · ' + cur.opt : ''} — 작업에 필요한 내용을 보내 주시면 바로 착수합니다.`
+    ? `주문번호 ${cur.oid}${cur.opt ? ' · ' + cur.opt : ''} — 결제 상태와 보내 주신 내용을 확인한 후 일정을 안내합니다.`
     : [cur.opt, cur.price].filter(Boolean).join(' · ') + ' — 작성해 주시면 담당자가 확인 후 견적·결제 방법을 안내합니다.';
   box.innerHTML = svc.f.map(fieldHTML).join('');
   form.reset();
@@ -176,9 +176,12 @@ function collect() {
   return { rows };
 }
 
+let orderRequestId = '';
+form.addEventListener('input', () => { orderRequestId = ''; });
+form.addEventListener('reset', () => { orderRequestId = ''; });
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  if (!cur) return;
+  if (!cur || btn.disabled) return;
   const got = collect();
   if (got.bad) { got.bad.focus(); alert(got.msg); return; }
   const name = form.elements.name.value.trim();
@@ -191,7 +194,7 @@ form.addEventListener('submit', async (e) => {
   if (readHoneypot_(form)) return;
 
   const files = [...(form.querySelector('input[type=file]')?.files || [])];
-  if (files.reduce((s, f) => s + f.size, 0) > MAX_BYTES) { alert('첨부 파일은 합계 30MB까지 보낼 수 있습니다.'); return; }
+  if (files.reduce((s, f) => s + f.size, 0) > MAX_BYTES) { alert('첨부 파일은 합계 1MB까지 보낼 수 있습니다.'); return; }
 
   btn.disabled = true;
   const label = btn.innerHTML;
@@ -207,7 +210,7 @@ form.addEventListener('submit', async (e) => {
       attachment = { name: `주문자료_${cur.key}.zip`, type: 'application/zip', size: blob.size, dataBase64: await fileToBase64_(blob) };
       btn.innerHTML = '보내는 중…';
     }
-    const head = `${cur.oid ? '[작업 요청서 · 결제완료 ' + cur.oid + ']' : '[주문서]'} ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}${cur.price ? ' (' + cur.price + ')' : ''}`;
+    const head = `${cur.oid ? '[작업 요청서 · 주문번호 ' + cur.oid + ']' : '[주문서]'} ${cur.svc.title}${cur.opt ? ' · ' + cur.opt : ''}${cur.price ? ' (' + cur.price + ')' : ''}`;
     const lines = got.rows.map(([k, v]) => `${k}: ${v}`);
     if (files.length) lines.push(`첨부: ${files.map((f) => f.name).join(', ')} (ZIP 1개로 묶음)`);
     const payload = {
@@ -218,8 +221,7 @@ form.addEventListener('submit', async (e) => {
       message: [head, ...lines].join('\n').slice(0, 4900),
       attachment,
       referrer: ((window.NOAH_SRC && window.NOAH_SRC.text()) || document.referrer || '(direct)').slice(0, 480),  // 광고·검색·AI 등 들어온 경로 (js/attrib.js)
-      userAgent: (navigator.userAgent || '').slice(0, 200),
-      clientIp: await fetchClientIp_(),
+      requestId: orderRequestId || (orderRequestId = makeUUID_()),
       origin: location.origin,
       recaptchaToken: await getRecaptchaToken_(),
       formOpenedAt: readFormOpenedAt_(form),
@@ -229,19 +231,21 @@ form.addEventListener('submit', async (e) => {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload),
-      redirect: 'follow',
+      redirect: 'follow', signal: AbortSignal.timeout(30000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    if ((await res.json().catch(() => ({}))).ok === false) throw new Error('rejected');   // 서버 거절도 HTTP 200 — 본문으로 판단
+    const receipt = await res.json();
+    if (receipt.ok !== true || receipt.receiptId !== payload.requestId) throw new Error('unconfirmed');   // 서버 거절도 HTTP 200 — 본문으로 판단
     form.hidden = true;
     ok.textContent = cur.oid ? '✓ 작업 요청서가 접수됐습니다. 담당자가 확인 후 착수 일정을 안내드립니다.' : okDefault;
+    ok.textContent += ' 접수번호: ' + receipt.receiptId;
     ok.hidden = false;
-    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'order_form', item_name: cur.svc.title, item_variant: cur.opt });
+    if (!receipt.duplicate && typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'order_form', item_name: cur.svc.title, item_variant: cur.opt });
   } catch (err) {
     console.error('[Order] 전송 실패:', err);
     if (typeof gtag === 'function') gtag('event', 'form_error', { form: 'order' });
     alert(err.message === 'too big'
-      ? '파일을 묶은 크기가 30MB를 넘습니다. 사진 수를 줄여 다시 보내주세요.'
+      ? '파일을 묶은 크기가 1MB를 넘습니다. 사진 수를 줄여 다시 보내주세요.'
       : '주문서 전송 중 오류가 발생했습니다.\n잠시 후 다시 시도해주시거나 010-6658-6482로 연락 부탁드립니다.');
     btn.disabled = false;
   }

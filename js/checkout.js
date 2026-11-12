@@ -5,7 +5,7 @@
    - 구매 링크: shop.html?buy=상품키-옵션키 (예: ?buy=brand-run-premium, ?buy=homepage, &qty=3)
    - 작업 요청서 링크(결제 후 메일·완료 화면): shop.html?order=상품키:옵션키&oid=주문번호
    - 테스트 결제(sandbox): shop.html?paytest=시험암호 로 연 탭에서만 결제창이 열립니다.
-   script.js의 INQUIRY_WEBHOOK_URL · fetchClientIp_ · getRecaptchaToken_ · readHoneypot_ · readFormOpenedAt_ 를 씁니다. */
+   script.js의 INQUIRY_WEBHOOK_URL · getRecaptchaToken_ · readHoneypot_ · readFormOpenedAt_ 를 씁니다. */
 (() => {
 'use strict';
 const CAT = window.NOAH_CATALOG;
@@ -248,8 +248,6 @@ form.addEventListener('submit', async (e) => {
         agree: { privacy: true, refund: true, order: true },
         testToken: mode === 'sandbox' ? testToken() : '',
         origin: location.origin,
-        userAgent: (navigator.userAgent || '').slice(0, 200),
-        clientIp: typeof fetchClientIp_ === 'function' ? await fetchClientIp_() : '',
         recaptchaToken: typeof getRecaptchaToken_ === 'function' ? await getRecaptchaToken_() : '',
         formOpenedAt: typeof readFormOpenedAt_ === 'function' ? readFormOpenedAt_(form) : '',
         submittedAt: new Date().toISOString(),

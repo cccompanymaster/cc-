@@ -81,13 +81,12 @@
     var q = new URLSearchParams(location.search);
     var ok = q.get('r') === 'ok';
     var oid = /^NOAH-\d{14}-[0-9a-f]{8}$/.test(q.get('o') || '') ? q.get('o') : '';
-    var amount = /^\d{1,9}$/.test(q.get('a') || '') ? Number(q.get('a')) : 0;
     var code = (q.get('c') || '').replace(/[^a-z]/g, '').slice(0, 20);
     var cat = window.NOAH_CATALOG || { products: {} };
     var pk = '', opt = null, prod = null;
     (function () {
       var parts = (q.get('p') || '').split(':');
-      if (cat.products[parts[0]]) {
+      if (Object.prototype.hasOwnProperty.call(cat.products, parts[0])) {
         prod = cat.products[parts[0]]; pk = parts[0];
         opt = prod.options.filter(function (o) { return o.key === parts[1]; })[0] || null;
       }
@@ -108,35 +107,50 @@
       amount: '결제창의 금액이 주문 금액과 달라 결제를 진행하지 않았습니다. 청구되지 않았습니다.',
       sign: '결제 정보 확인에 실패해 결제를 진행하지 않았습니다. 청구되지 않았습니다.',
       approve: '결제 승인이 완료되지 않았습니다. 카드사 문자로 청구 여부를 확인해 주시고, 청구됐다면 연락 주세요.',
-      verify: '결제 확인 중 문제가 있어 자동으로 취소했습니다. 승인 문자를 받으셨다면 취소 문자도 곧 도착합니다.',
+      verify: '승인 응답을 확인할 수 없어 취소를 요청했습니다. 취소 확인 전에는 다시 결제하지 마세요.',
       done: '이미 처리된 주문입니다. 결제를 마치셨다면 영수증 메일을 확인해 주세요.',
-      unknown: '주문 정보를 찾지 못했습니다. 다시 결제해 주세요.',
+      unknown: '주문 정보를 찾지 못했습니다. 청구 내역을 확인한 뒤 문의해 주세요.',
       error: '결제 처리 중 문제가 생겼습니다. 청구 여부를 확인해 연락드리겠습니다.'
     };
     if (oid) row('주문번호', oid);
-    if (prod) row('상품', prod.name + (opt ? ' · ' + opt.label : ''));
-    if (amount) row('결제금액', won(amount) + ' (VAT 포함)');
-    $('info').hidden = !$('info').children.length;
-
-    if (ok) {
-      $('badge').textContent = 'PAYMENT COMPLETE';
-      $('title').textContent = '결제가 완료됐습니다';
-      $('lede').textContent = '영수증을 입력하신 이메일로 보냈습니다. 작업에 필요한 키워드·자료를 작업 요청서로 보내 주시면 다음 영업일부터 착수합니다.';
-      if (prod && opt && oid) btn('main', 'shop.html?order=' + encodeURIComponent(pk + ':' + opt.key) + '&oid=' + encodeURIComponent(oid), '작업 요청서 작성하기 →');
-      // 구매 이벤트는 주소창 값이 아니라 서버 주문 기록(PAID)과 서버 금액으로만 보낸다
-      var API = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';   // js/script.js INQUIRY_WEBHOOK_URL과 같은 값
-      try {
-        if (oid && typeof gtag === 'function' && !sessionStorage.getItem('noahPaid_' + oid)) {
-          fetch(API + '?action=order-status&o=' + encodeURIComponent(oid), { cache: 'no-store' })
-            .then(function (r) { return r.json(); })
-            .then(function (s) {
-              if (!s || !s.paid) return;
-              gtag('event', 'purchase', { transaction_id: oid, currency: 'KRW', value: s.amount,
-                items: prod ? [{ item_id: pk + ':' + (opt ? opt.key : ''), item_name: prod.name, item_variant: opt ? opt.label : '' }] : [] });
+    $('info').hidden = !oid;
+    function awaitingConfirmation() {
+      $('badge').textContent = 'PAYMENT STATUS';
+      $('title').textContent = '결제 상태를 확인할 수 없습니다';
+      $('lede').textContent = '중복 결제를 피하려면 카드 승인 내역이나 영수증을 확인하고, 필요하면 아래 연락처로 문의해 주세요.';
+    }
+    if (ok && oid) {
+      var API = 'https://script.google.com/macros/s/AKfycbz-048UbQ15LMY3j847AqQmZ7Zu4hNDyqAQEVjD60BKsqQmZDvS1YBbmyab8jjscEz-/exec';
+      fetch(API + '?action=order-status&o=' + encodeURIComponent(oid), {cache: 'no-store', signal: AbortSignal.timeout(15000)})
+        .then(function (response) { if (!response.ok) throw new Error('status'); return response.json(); })
+        .then(function (status) {
+          if (status.ok !== true || status.paid !== true || !Number.isSafeInteger(status.amount) || status.amount <= 0) {
+            awaitingConfirmation();
+            return;
+          }
+          $('badge').textContent = 'PAYMENT COMPLETE';
+          $('title').textContent = '결제가 완료됐습니다';
+          $('lede').textContent = '주문번호와 승인 금액을 확인해 주세요.';
+          row('승인 금액', won(status.amount) + ' (VAT 포함)');
+          var product = cat.products[status.product];
+          var option = product && Array.isArray(product.options) && product.options.find(function (x) { return x.key === status.option; });
+          var items = [];
+          if (option) {
+            row('상품', product.name + ' · ' + option.label);
+            var itemId = status.product + ':' + option.key;
+            items.push({item_id: itemId, item_name: product.name, item_variant: option.label, quantity: 1, price: status.amount});
+            btn('main', 'shop.html?order=' + encodeURIComponent(itemId) + '&oid=' + encodeURIComponent(oid), '작업 요청서 작성하기 →');
+          }
+          try {
+            if (typeof gtag === 'function' && !sessionStorage.getItem('noahPaid_' + oid)) {
+              gtag('event', 'purchase', {transaction_id: oid, currency: 'KRW', value: status.amount, items: items});
               sessionStorage.setItem('noahPaid_' + oid, '1');
-            }).catch(function () {});
-        }
-      } catch (e) {}
+            }
+          } catch (_) {}
+        }).catch(awaitingConfirmation);
+    } else if (ok || ['done','verify','error','approve','unknown'].includes(code) || !code) {
+      awaitingConfirmation();
+      if (code === 'verify') $('lede').textContent = FAIL.verify;
     } else {
       $('box').classList.add('fail');
       $('badge').textContent = 'PAYMENT NOT COMPLETED';

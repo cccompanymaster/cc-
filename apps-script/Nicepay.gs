@@ -485,7 +485,10 @@ function safeNetCancel_(mode, orderId, keys) {
 function safeCancel_(mode, tid, orderId, keys, reason) {
   try {
     const r = nicepayPost_(mode, '/v1/payments/' + encodeURIComponent(tid) + '/cancel', { reason: reason, orderId: orderId }, keys);
-    return 'cancel ' + r.code + ' ' + ((r.json && r.json.resultCode) || '');
+    const j = r.json || {};
+    const confirmed = r.code === 200 && j.resultCode === '0000' && j.tid === tid &&
+      j.orderId === orderId && j.status === 'cancelled' && Number(j.balanceAmt) === 0 && j.balanceAmt != null;
+    return confirmed ? 'confirmed' : 'unconfirmed';
   } catch (e) { return 'cancel error'; }
 }
 
@@ -504,7 +507,7 @@ function handleNicepayReturn_(p, cfg) {
   try {
     return nicepayReturnInner_(p, cfg);
   } catch (err) {
-    try { Logger.log('nicepay return error: ' + (err && err.stack || err)); } catch (_) {}
+    try { Logger.log('nicepay_return_error'); } catch (_) {}
     return nicepayResultPage_('fail', { code: 'error', orderId: NP_ORDER_ID_RE.test(String(p.orderId || '')) ? p.orderId : '' });
   }
 }
@@ -571,13 +574,13 @@ function nicepayReturnInner_(p, cfg) {
     return nicepayResultPage_('fail', Object.assign({ code: 'approve', msg: String(j.resultMsg || '').slice(0, 100) }, back));
   }
   // ⑤ 승인 응답 재확인 — 상태·금액·주문번호·signature(tid + amount + ediDate + secretKey)
-  const respSigOk = !j.signature || safeEqual_(
+  const respSigOk = typeof j.signature === 'string' && !!j.ediDate && safeEqual_(
     sha256Hex_(String(j.tid) + String(j.amount) + String(j.ediDate) + keys.secret), String(j.signature).toLowerCase());
-  if (j.status !== 'paid' || Number(j.amount) !== it.amount || j.orderId !== orderId || !respSigOk) {
-    const c = safeCancel_(it.mode, j.tid || tid, orderId, keys, '결제 검증 실패 자동 취소');
-    updateNicepayOrder_(o, { status: 'CANCELLED_VERIFY', tid: j.tid || tid,
+  if (j.tid !== tid || j.status !== 'paid' || Number(j.amount) !== it.amount || j.orderId !== orderId || !respSigOk) {
+    const c = safeCancel_(it.mode, tid, orderId, keys, '결제 검증 실패 자동 취소');
+    updateNicepayOrder_(o, { status: c === 'confirmed' ? 'CANCELLED_VERIFY' : 'CANCEL_PENDING', tid: tid,
       note: '승인 응답 불일치(status ' + j.status + ', amount ' + j.amount + ') → ' + c });
-    notifyAdminAlert_(cfg, '승인 응답 불일치 — 자동 취소', { orderId: orderId, status: j.status, amount: j.amount, cancel: c, mode: it.mode });
+    notifyAdminAlert_(cfg, '승인 응답 불일치 — 취소 결과 확인', { orderId: orderId, status: j.status, amount: j.amount, cancel: c, mode: it.mode });
     return nicepayResultPage_('fail', Object.assign({ code: 'verify' }, back));
   }
 
@@ -589,8 +592,8 @@ function nicepayReturnInner_(p, cfg) {
   try { cached = JSON.parse(CacheService.getScriptCache().get('np_' + orderId) || 'null'); } catch (_) {}
   const clean = v => (v == null || v === 'null') ? '' : String(v);
   const buyer = (cached && cached.buyer) || { name: clean(j.buyerName), tel: clean(j.buyerTel), email: clean(j.buyerEmail), memo: '' };
-  try { sendNicepayOrderMail_(cfg, orderId, it, j, buyer, methodLabel); } catch (e) { Logger.log('order mail: ' + e); }
-  try { if (EMAIL_RE.test(buyer.email || '')) sendNicepayReceiptMail_(orderId, it, j, buyer, methodLabel); } catch (e) { Logger.log('receipt mail: ' + e); }
+  try { sendNicepayOrderMail_(cfg, orderId, it, j, buyer, methodLabel); } catch (e) { Logger.log('order_notification_failed'); }
+  try { if (EMAIL_RE.test(buyer.email || '')) sendNicepayReceiptMail_(orderId, it, j, buyer, methodLabel); } catch (e) { Logger.log('receipt_notification_failed'); }
   return nicepayResultPage_('ok', back);
 }
 
@@ -598,7 +601,7 @@ function nicepayReturnInner_(p, cfg) {
 function npOrderStatus_(orderId) {
   const o = NP_ORDER_ID_RE.test(String(orderId || '')) ? findNicepayOrder_(String(orderId)) : null;
   const paid = !!(o && o.status === 'PAID' && o.intent);
-  return jsonResponse_({ ok: true, paid: paid, amount: paid ? o.intent.amount : 0 });
+  return jsonResponse_({ ok: true, paid: paid, amount: paid ? o.intent.amount : 0, product: paid ? o.intent.product : null, option: paid ? o.intent.option : null });
 }
 
 function npEscapeHtml_(s) {   // Code.gs의 escapeHtml_와 이름이 겹치지 않게 따로 둠

@@ -19,7 +19,7 @@
   } catch (_) {}
 
   const AI = [
-    [/(^|\.)(chatgpt\.com|openai\.com)$/, 'ChatGPT'], [/(^|\.)perplexity\.ai$/, 'Perplexity'],
+    [/(^|\.)(chatgpt\.com|chat\.openai\.com)$/, 'ChatGPT'], [/(^|\.)perplexity\.ai$/, 'Perplexity'],
     [/(^|\.)claude\.ai$/, 'Claude'], [/^(gemini|bard)\.google\.com$/, 'Gemini'],
     [/(^|\.)copilot\.microsoft\.com$|(^|\.)copilot\.cloud\.microsoft$/, 'Copilot'],
     [/(^|\.)wrtn\.ai$/, '뤼튼'], [/^clova-x\.naver\.com$/, 'CLOVA X'], [/(^|\.)liner\.com$/, 'Liner'],
@@ -40,7 +40,7 @@
   } else if (q.has('gclid') || q.has('gbraid') || q.has('wbraid')) {
     now = { s: 'google', m: 'cpc' };
   } else if (q.has('fbclid')) {
-    now = { s: 'meta', m: ref && /facebook|instagram/.test(ref) ? 'social' : 'paid?' };
+    now = { s: 'meta', m: 'social' };
   } else if (ref) {
     const ai = aiOf(ref);
     now = ai ? { s: ai, m: 'ai' } : { s: ref, m: SEARCH.test(ref) ? 'organic' : SOCIAL.test(ref) ? 'social' : 'referral' };
