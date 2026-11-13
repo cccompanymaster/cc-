@@ -272,12 +272,12 @@
 
 ## 아티클 (41편)
 
-- [플랫폼별 광고 수수료·CPC 비교 2026 — 파워링크·당근·페이스북·네이버공식대행사](https://noahgroup.co.kr/articles/ad-platform-comparison.html): 파워링크·당근마켓광고·페이스북광고·네이버공식대행사 2026 단가·CPC·수수료 비교. 업종별 예산 배분 실전 가이드.
+- [플랫폼별 광고 과금·수수료 비교 2026 — 파워링크·당근·페이스북·네이버 공식대행사](https://noahgroup.co.kr/articles/ad-platform-comparison.html): 파워링크·당근마켓·페이스북(메타) 광고가 비용을 매기는 방식, 네이버 공식대행사와 일반 대행사의 수수료 구조와 확인법, 업종별로 먼저 검토할 광고 플랫폼을 정리했습니다.
 - [마케팅 대행사 선택·부정클릭·광고 컴플라이언스 가이드 2026](https://noahgroup.co.kr/articles/agency-selection-compliance.html): 마케팅 대행사 비교 2026. 대행사 선택 7체크·부정클릭 방지·개인정보·광고 컴플라이언스(공정위·의료법) 종합.
 - [AI 검색 SEO 2026 — GEO·AEO·LLM 최적화 완전 가이드](https://noahgroup.co.kr/articles/ai-search-geo-2026.html): AI 검색 SEO 2026. ChatGPT·Perplexity·네이버 AI 브리핑에 노출되는 GEO·AEO·LLM 최적화 실전 가이드.
 - [B2B 마케팅·리드젠 가이드 2026 — 기업 대상 콘텐츠·세일즈 퍼널](https://noahgroup.co.kr/articles/b2b-leadgen-marketing.html): B2B 마케팅·리드젠 2026. 기업 고객 대상 콘텐츠·웨비나·이메일·세일즈 퍼널 설계와 SQL/MQL 측정 실전.
-- [B2B SaaS Marketing in Korea 2026: GTM Playbook](https://noahgroup.co.kr/articles/b2b-saas-marketing-korea.html): How US SaaS vendors sell to Korean enterprises in 2026: buyer behavior, KakaoWork, Naver and LinkedIn channels, pricing, ISMS-P, and ACV benchmarks.
-- [블로그 광고 비용 2026 — 단가 공개 + 대행사 선택 체크리스트](https://noahgroup.co.kr/articles/blog-ad-cost-guide.html): 블로그 광고 비용·단가 2026 시세 공개. 상위노출 건당 단가, 월 패키지 구조, 대행사 선택 5가지 체크리스트까지.
+- [B2B SaaS Marketing in Korea 2026: GTM Playbook](https://noahgroup.co.kr/articles/b2b-saas-marketing-korea.html): How foreign B2B SaaS vendors sell to Korean enterprises in 2026: buying committees, partner and Naver channels, localization, PIPA, ISMS and CSAP compliance, and KRW pricing.
+- [블로그 광고 비용 2026 — 단가 공개 + 대행사 선택 체크리스트](https://noahgroup.co.kr/articles/blog-ad-cost-guide.html): 블로그 광고 비용 2026. 원고 작성·배포·체험단·운영 대행·노출 관리의 과금 단위와 가격을 움직이는 요소, 노아 공개 가격, 대행사 선택 5가지 체크리스트.
 - [블로그 원고 외주 vs 인하우스 — 비용·품질·리스크 비교 가이드 2026](https://noahgroup.co.kr/articles/blog-outsourcing-vs-inhouse.html): 블로그 원고 외주 vs 인하우스 운영 비교 2026. 건당 단가·품질 편차·C-Rank 리스크·확장성까지 실전 데이터로 비교.
 - [블로그 상위노출 2026 — 네이버 SMART BLOCK 로직 완전 분석](https://noahgroup.co.kr/articles/blog-top-ranking-2026.html): 블로그 상위노출 로직이 바뀌었습니다. 키워드 매칭→의도 매칭, 60초 체류, AI 콘텐츠 패널티, 카페·지식인 연계까지 — 2026년 네이버 SMART BLOCK 로직 완전 분석.
 - [브랜드 블로그 관리대행 — 직접운영 vs 대행 비교](https://noahgroup.co.kr/articles/brand-blog-management.html): 브랜드 블로그 관리대행 결정 기준, 홈페이지형 블로그 제작·운영 시세, 직접운영 vs 대행 ROI 비교 분석.
