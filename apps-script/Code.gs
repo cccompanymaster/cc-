@@ -70,6 +70,7 @@ const EMAIL_RE        = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 //  엔트리 포인트
 // ═══════════════════════════════════════════════════════════════════════
 function doPost(e) {
+  if (e && e.parameter && e.parameter.action === 'jik-quote-wake') return jikQuoteWake_(e);
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(10000)) return jsonResponse_({ ok: false, error: 'busy' });
 

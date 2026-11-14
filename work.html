@@ -40,7 +40,7 @@
 <link rel="manifest" href="site.webmanifest">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 
 <script type="application/ld+json">
 {
@@ -118,6 +118,7 @@ img{max-width:100%;display:block}
 }
 .ph-sub{margin:22px auto 0;max-width:620px;color:var(--sub);font-size:clamp(15px,1.6vw,18px);line-height:1.75}
 .rv-word{display:inline-block;opacity:0;transform:translateY(26px);transition:opacity .5s ease,transform .5s ease;margin:0 .1em}
+.page-hero .rv-word{opacity:1;transform:none;transition:none}
 .rv-word.show{opacity:1;transform:translateY(0)}
 
 /* trust counter */
@@ -425,7 +426,7 @@ footer .f-links a{display:inline-block;padding:6px 2px}
     <h2 class="sr-only">성과 사례</h2>
     <div class="cases-grid">
 
-      <article class="case fade-up">
+      <article class="case">
         <div class="c-photo"><img src="assets/photos/07-review-dermatology-640.webp" srcset="assets/photos/07-review-dermatology-640.webp 640w, assets/photos/07-review-dermatology-1200.webp 1200w" sizes="(max-width:760px) 92vw, 45vw" width="1448" height="1086" alt="피부과 리셉션 공간을 표현한 AI 연출 이미지" loading="eager" fetchpriority="high" decoding="async" onerror="this.closest('.c-photo').classList.add('noimg')"><span class="c-photo-fb">이미지 준비 중</span></div>
         <p class="ai-cap">AI 연출 이미지</p>
         <span class="c-tag">의료 · 피부과 신규 개원</span>
