@@ -16,10 +16,10 @@ def apply(f, body, faq, refs, chart_status, today=None, desc=None, ogdesc=None, 
     fs = t.index('<section class="article-faq"', s); e = t.index('</section>', fs) + len('</section>')
     t = t[:s] + body.rstrip() + '\n\n        ' + faq_html(faq, faq_heading, faq_label) + t[e:]
     ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}, ensure_ascii=False)
-    t, k = re.subn(r'<script type="application/ld\+json">\{"@context": "https://schema.org", "@type": "FAQPage".*?</script>', lambda m: '<script type="application/ld+json">' + ld + '</script>', t, count=1, flags=re.S)
+    t, k = re.subn(r'<script type="application/ld\+json">\{"@context":\s*"https://schema.org",\s*"@type":\s*"FAQPage".*?</script>', lambda m: '<script type="application/ld+json">' + ld + '</script>', t, count=1, flags=re.S)
     assert k == 1, 'FAQPage LD not found'
     if howto is not None:
-        t, k = re.subn(r'\s*<script type="application/ld\+json">\{"@context": "https://schema.org", "@type": "HowTo".*?</script>', ('' if howto == 'drop' else lambda m: '\n  <script type="application/ld+json">' + json.dumps(howto, ensure_ascii=False) + '</script>'), t, count=1, flags=re.S)
+        t, k = re.subn(r'\s*<script type="application/ld\+json">\{"@context":\s*"https://schema.org",\s*"@type":\s*"HowTo".*?</script>', ('' if howto == 'drop' else lambda m: '\n  <script type="application/ld+json">' + json.dumps(howto, ensure_ascii=False) + '</script>'), t, count=1, flags=re.S)
     m = re.search(r'(<section class="article-refs"[^>]*>\s*<h2>[^<]*</h2>\s*<ul>).*?(</ul>)', t, re.S)
     assert m, 'refs not found'
     t = t[:m.start()] + m.group(1) + '\n' + ''.join(f'          <li>{r}</li>\n' for r in refs) + '          ' + m.group(2) + t[m.end():]

@@ -278,10 +278,10 @@
 - [B2B 마케팅·리드젠 가이드 2026 — 기업 대상 콘텐츠·세일즈 퍼널](https://noahgroup.co.kr/articles/b2b-leadgen-marketing.html): B2B 마케팅·리드젠 2026. 기업 고객 대상 콘텐츠·웨비나·이메일·세일즈 퍼널 설계와 SQL/MQL 측정 실전.
 - [B2B SaaS Marketing in Korea 2026: GTM Playbook](https://noahgroup.co.kr/articles/b2b-saas-marketing-korea.html): How foreign B2B SaaS vendors sell to Korean enterprises in 2026: buying committees, partner and Naver channels, localization, PIPA, ISMS and CSAP compliance, and KRW pricing.
 - [블로그 광고 비용 2026 — 단가 공개 + 대행사 선택 체크리스트](https://noahgroup.co.kr/articles/blog-ad-cost-guide.html): 블로그 광고 비용 2026. 원고 작성·배포·체험단·운영 대행·노출 관리의 과금 단위와 가격을 움직이는 요소, 노아 공개 가격, 대행사 선택 5가지 체크리스트.
-- [블로그 원고 외주 vs 인하우스 — 비용·품질·리스크 비교 가이드 2026](https://noahgroup.co.kr/articles/blog-outsourcing-vs-inhouse.html): 블로그 원고 외주 vs 인하우스 운영 비교 2026. 건당 단가·품질 편차·C-Rank 리스크·확장성까지 실전 데이터로 비교.
-- [블로그 상위노출 2026 — 네이버 SMART BLOCK 로직 완전 분석](https://noahgroup.co.kr/articles/blog-top-ranking-2026.html): 블로그 상위노출 로직이 바뀌었습니다. 키워드 매칭→의도 매칭, 60초 체류, AI 콘텐츠 패널티, 카페·지식인 연계까지 — 2026년 네이버 SMART BLOCK 로직 완전 분석.
-- [브랜드 블로그 관리대행 — 직접운영 vs 대행 비교](https://noahgroup.co.kr/articles/brand-blog-management.html): 브랜드 블로그 관리대행 결정 기준, 홈페이지형 블로그 제작·운영 시세, 직접운영 vs 대행 ROI 비교 분석.
-- [네이버 카페 상위노출 완전 가이드 2026 — 인기글·검색 상위 로직](https://noahgroup.co.kr/articles/cafe-top-ranking.html): 네이버 카페 상위노출 2026 로직 분석. 인기글·키워드 검색·지역 카페·맘카페 바이럴 5대 전략과 운영 실전 가이드.
+- [블로그 원고 외주 vs 인하우스 — 비용·품질·리스크 비교 가이드 2026](https://noahgroup.co.kr/articles/blog-outsourcing-vs-inhouse.html): 블로그 원고 외주 vs 인하우스 운영 비교 2026. 실제 비용 계산법·품질 관리·검색 리스크·확장성과 혼합 운영 역할 분담.
+- [블로그 상위노출 2026 — 네이버 SMART BLOCK 로직 완전 분석](https://noahgroup.co.kr/articles/blog-top-ranking-2026.html): 블로그 상위노출 2026. 인기글 스마트블록 전환 이후 의도에 맞춘 글 기획, C-Rank·D.I.A.로 본 운영 원칙, AI 초안 검수, 카페·지식iN 역할 분담과 피해야 할 조작까지 정리했습니다.
+- [브랜드 블로그 관리대행 — 직접운영 vs 대행 비교](https://noahgroup.co.kr/articles/brand-blog-management.html): 브랜드 블로그 직접운영·대행·혼합 운영의 비용 항목과 판단 기준, 홈페이지형 블로그를 만들 때의 비용 요소와 한계, 역할 분담과 성과 측정법.
+- [네이버 카페 상위노출 완전 가이드 2026 — 인기글·검색 상위 로직](https://noahgroup.co.kr/articles/cafe-top-ranking.html): 네이버 카페 상위노출 2026. 카페 글이 보이는 곳, 검색에 공개되는 게시판, 카페별 홍보 규칙과 운영진 제휴, 대가 표시, 금지되는 어뷰징까지 정리했습니다.
 - [中国品牌进入韩国市场指南 2026 — Naver·KakaoTalk·韩国消费者全攻略](https://noahgroup.co.kr/articles/china-brand-korea-entry.html): 中国品牌进入韩国市场的完整指南。覆盖韩国搜索引擎(Naver)主导地位、KakaoTalk生态、韩国消费者行为差异、跨境电商渠道与合规要点,基于NOAH服务中国品牌4年的实操数据。
 - [콘텐츠 마케팅 2026 — 블로그 제목·썸네일·롱테일 키워드·상세페이지](https://noahgroup.co.kr/articles/content-marketing-titles-thumbnails.html): 콘텐츠 마케팅 전략 2026. 블로그 제목 잘 짓는 법·유튜브 썸네일·롱테일 키워드 찾기·상세페이지 디자인 실전 가이드.
 - [韩国Coupang·SmartStore跨境电商指南 2026 — 物流·结算·税务实操](https://noahgroup.co.kr/articles/coupang-smartstore-china-cross-border.html): 中国卖家进入韩国电商市场必读。Coupang Global / SmartStore / 11번가 / Olive Young Global 4大平台对比,韩国跨境物流、结算汇率、海关与税务实操,基于真实卖家案例。
