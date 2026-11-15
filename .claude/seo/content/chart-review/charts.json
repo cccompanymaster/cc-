@@ -273,7 +273,9 @@
   "nums": [
    "55%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "中韩市场结构对比(Naver 55%,NOAH内部数据)→ 去掉数字的中韩数字生态对比图;搜索份额数字留待\"검색 점유율 표기\"决定",
+  "date": "2026-11-15"
  },
  {
   "id": "content-marketing-titles-thumbnails#0",
@@ -296,7 +298,9 @@
    "7%",
    "5만"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "플랫폼별 CTR 기준 2/4/6%·3/5/8%(바이럴 콘텐츠팀 5만건, 원자료 없음) → 숫자 없는 플랫폼별 지표 그림. 유튜브 2~10% 범위는 공식 페이지에서 직접 확인하지 못해 쓰지 않음",
+  "date": "2026-11-15"
  },
  {
   "id": "cpa-viral-agency-guide#0",
@@ -355,7 +359,9 @@
    "₩1.0",
    "10%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Ad market ₩15.8T·digital 66%·Naver 46% (KOBACO/Cheil attribution unverifiable) → verified KOBACO 2025 figures (₩17.27T total, online ~60%, broadcast −13%) as a figure; platform shares removed",
+  "date": "2026-11-15"
  },
  {
   "id": "how-to-advertise-in-korea-2026#1",
@@ -371,7 +377,9 @@
    "95%",
    "49M"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Platform figure: YouTube 95% reach removed; KakaoTalk 48.93M domestic MAU (Kakao Q2 2024 release) kept",
+  "date": "2026-11-15"
  },
  {
   "id": "how-to-advertise-in-korea-2026#3",
@@ -386,7 +394,9 @@
    "$15",
    "25K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "90-day timeline: $15–25K test budget (internal) removed → timeline figure without amounts",
+  "date": "2026-11-15"
  },
  {
   "id": "how-to-advertise-in-korea-2026#4",
@@ -411,7 +421,9 @@
    "5%",
    "$25"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Budget split by industry % and minimums (internal) → channel-emphasis figure without numbers",
+  "date": "2026-11-15"
  },
  {
   "id": "industry-blog-marketing#0",
@@ -430,7 +442,9 @@
    "87%",
    "87%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "지역 SEO 5단계 TOP3 진입 확률 12~87%(바이럴 콘텐츠팀 92건, 원자료 없음) → 숫자 없는 5단계 그림",
+  "date": "2026-11-15"
  },
  {
   "id": "kakao-email-push-marketing#0",
