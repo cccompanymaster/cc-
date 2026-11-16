@@ -462,7 +462,9 @@
    "6%",
    "35%"
   ],
-  "status": "todo"
+  "status": "removed",
+  "note": "CRM 4단계 CTR 38/22/14/6%(데이터 퍼포먼스팀 n=143, 원자료 없음) → 그림 삭제, 같은 단계 표 유지(정보성·광고성 구분과 동의 기준 추가)",
+  "date": "2026-11-16"
  },
  {
   "id": "korea-market-entry-naver-seo#0",
@@ -507,7 +509,9 @@
   "nums": [
    "5 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "5 regulators figure → accurate roles (KFTC, MFDS, medical review committees, KMCC, KIAF) without the unverified taglines",
+  "date": "2026-11-16"
  },
  {
   "id": "korean-advertising-law-compliance#1",
@@ -525,7 +529,9 @@
    "1M",
    "₩100"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Pre-review lead times and fees (₩200k–600k, 4–12 weeks etc., unverifiable) → category rules figure without fees/lead times; wrong \"MFDS pre-approval for cosmetics ads\" corrected",
+  "date": "2026-11-16"
  },
  {
   "id": "korean-advertising-law-compliance#3",
@@ -539,7 +545,9 @@
   "nums": [
    "4. K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "8-step pipeline: \"5-year retention\" and insurer claims (unverified) removed. Disclosure-placement figure (#2, 5s/3s rules) replaced with the verified Dec 2024 KFTC placement rules",
+  "date": "2026-11-16"
  },
  {
   "id": "korean-consumer-behavior-cultural#0",
@@ -554,7 +562,9 @@
    "68 M",
    "62 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Hofstede scores (collectivism 82 vs 9 etc.) could not be confirmed against the current Culture Factor tool → direction-of-gap figure; only indulgence 29 vs 68 (verified Oct 23) kept",
+  "date": "2026-11-16"
  },
  {
   "id": "korean-consumer-behavior-cultural#1",
@@ -570,7 +580,9 @@
    "3×",
    "2026 M"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Trend curve \"half-life ~3 wk vs ~10 wk\" (Noah trend index, unverifiable) → fast/slow layer figure without numbers",
+  "date": "2026-11-16"
  },
  {
   "id": "korean-consumer-behavior-cultural#3",
@@ -589,7 +601,9 @@
    "1.6×",
    "25%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Calendar multipliers (+1.5×, +2.2×, ~25% of retail, internal index) → retail-window figure with dates only. Generations figure (#2) source line (survey + Noah panel n=2,400, unverifiable) removed",
+  "date": "2026-11-16"
  },
  {
   "id": "korean-facebook-google-ads#0",
@@ -739,7 +753,9 @@
    "64%",
    "64%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "8주 복구 회복 곡선·회복률 64%(자사 300건, 원자료 없음) → 숫자 없는 복구 4단계 그림",
+  "date": "2026-11-16"
  },
  {
   "id": "marketing-education-2026#0",
