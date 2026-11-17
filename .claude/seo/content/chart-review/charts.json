@@ -622,7 +622,9 @@
    "$3.3",
    "2024 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Digital ad share Naver 50 / Google 25 / Meta 18 and $3.3B (attributed to Cheil, unverifiable) → key-figure figure with verified ₩10.1T online spend 2024 (KMCC/KOBACO) and iOS ~34–36% (StatCounter)",
+  "date": "2026-11-17"
  },
  {
   "id": "korean-facebook-google-ads#1",
@@ -644,7 +646,9 @@
    "₩2,000",
    "2B"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Search CPC by category and YouTube 95% reach (internal + unverifiable) → Google surfaces figure without numbers",
+  "date": "2026-11-17"
  },
  {
   "id": "korean-facebook-google-ads#2",
@@ -666,7 +670,9 @@
    "142 K",
    "2026 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Creative lift multipliers 1.25–2.1× (NOAH A/B pool, 142 campaigns, unverifiable) → creative checklist figure without numbers",
+  "date": "2026-11-17"
  },
  {
   "id": "korean-facebook-google-ads#3",
@@ -688,7 +694,9 @@
    "220%",
    "700%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Budget split 50/30/20 and ROAS 140–700% (NOAH portfolio n=68, unverifiable) → first-split guidance figure without numbers",
+  "date": "2026-11-17"
  },
  {
   "id": "korean-influencer-kbeauty-marketing#1",
@@ -709,7 +717,9 @@
    "30M",
    "40%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Per-post rate benchmarks ₩50k–30M+ (unverifiable) → rate-driver figure without numbers",
+  "date": "2026-11-17"
  },
  {
   "id": "korean-influencer-kbeauty-marketing#2",
@@ -723,7 +733,9 @@
   "nums": [
    "2024 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "KFTC compliant/non-compliant figure corrected: removed \"audio + subtitle required\" and \"brand and creator both liable\"; replaced with the Dec 2024 placement rules",
+  "date": "2026-11-17"
  },
  {
   "id": "korean-influencer-kbeauty-marketing#3",
@@ -737,7 +749,9 @@
   "nums": [
    "13 M"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "90-day cycle: \"most US brands run 3–4 cycles\" claim removed; tiers figure (#0) kept as working definitions without the \"best ROI\" claim",
+  "date": "2026-11-17"
  },
  {
   "id": "low-quality-blog-recovery#0",
@@ -769,7 +783,9 @@
   "nums": [
    "100점"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "교육 과정별 비용 대비 효과 점수 90/85/75/65(자사 채용 인터뷰 n=86, 원자료 없음) → 숫자 없는 학습 순서 그림. 내일배움카드는 고용노동부 안내(5년 300만~500만 원, 자부담 0~55%)로 교체, K-디지털 장려금 수치 삭제",
+  "date": "2026-11-17"
  },
  {
   "id": "medical-tourism-korea-marketing#0",
@@ -990,7 +1006,9 @@
    "15%",
    "5%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "SNS 예산 80:15:5(바이럴 콘텐츠팀 76건 ROAS, 원자료 없음) → 숫자 없는 채널 역할 그림. CPM·도달률·클릭률 배수·연령 증가율 등 삭제, 인스타·틱톡·메타 공식 안내로 교체",
+  "date": "2026-11-17"
  },
  {
   "id": "performance-measurement-ga4#0",
