@@ -806,7 +806,9 @@
    "2.01M",
    "$1.8"
   ],
-  "status": "todo"
+  "status": "redrawn",
+  "note": "Origin-country shares redrawn as a viz.css bar chart with the MOHW 2025 source (China 30.8, Japan 29.8, Taiwan 9.2, US 8.6, Thailand 2.9, others 18.7; China+Japan 60.6%, Taiwan, US confirmed again 11/18); $1.8B revenue (KOFIH, no source found) removed",
+  "date": "2026-11-18"
  },
  {
   "id": "medical-tourism-korea-marketing#2",
@@ -825,7 +827,9 @@
    "$20,000",
    "$25,000"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Package tiers with USD prices ($5k–25k+, internal) → package-inclusion figure without prices; \"Recovery tier ~60% of revenue\" removed",
+  "date": "2026-11-18"
  },
  {
   "id": "medical-tourism-korea-marketing#3",
@@ -839,7 +843,9 @@
   "nums": [
    "14 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "90-day launch: \"KMA hospital designation\" corrected to foreign-patient registration; fee/turnaround numbers removed; funnel figure (#1) durations removed",
+  "date": "2026-11-18"
  },
  {
   "id": "naver-coupang-ecommerce-playbook#0",
@@ -859,7 +865,9 @@
    "1.7M",
    "28M"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "GMV share Coupang 38 / Naver 26 / others 36%, Rocket 99% next-day, WOW 14M+, 1.7M sellers, Naver Pay 28M (no official source; caption cited Statista / Coupang Q4'24 without figures) → numberless two-platform figure; text now uses MODS 2025 online shopping ₩272.0T (+4.9%), mobile 77.6%, and Coupang Q4 2025 Product Commerce active customers 24.6M (+8%)",
+  "date": "2026-11-18"
  },
  {
   "id": "naver-coupang-ecommerce-playbook#1",
@@ -874,7 +882,9 @@
    "13%",
    "30%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "3P vs 1P: commission 8–13%, Vendor margin 30%+, onboarding 1–2 / 6–10 weeks (unverified) → numberless Marketplace / Rocket Growth / Vendor figure (Rocket Growth: Coupang Q1 2023 release)",
+  "date": "2026-11-18"
  },
  {
   "id": "naver-coupang-ecommerce-playbook#2",
@@ -897,7 +907,9 @@
    "600%",
    "30%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "CPC / ROAS benchmarks \"from 200+ campaigns\" and off-peak −30% (internal, no raw data) → numberless figure on the two ad systems and how to compare them",
+  "date": "2026-11-18"
  },
  {
   "id": "naver-coupang-ecommerce-playbook#3",
@@ -911,7 +923,9 @@
   "nums": [
    "10%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Inline SVG compliance flow → fx-grid; VAT 10% (VAT Act Art. 30) and 7-day withdrawal (E-Commerce Act Art. 17) confirmed; KORUS origin note added",
+  "date": "2026-11-18"
  },
  {
   "id": "naver-vs-google-korea-search#0",
@@ -1027,7 +1041,9 @@
    "52%",
    "25%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "채널별 GA4 매핑 정확도 96~52%·서버사이드 +18~25%p(데이터 퍼포먼스팀 n=58, 원자료 없음) → 숫자 없는 채널별 전환 측정 방법 그림, 별점 표 삭제",
+  "date": "2026-11-18"
  },
  {
   "id": "place-top-ranking-2026#0",
@@ -1081,7 +1097,9 @@
    "2.8%",
    "12.6%"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "전문직 키워드 3단계 CVR 0.4/2.8/12.6%(전문직 광고팀 22개 고객사, 원자료 없음) → 숫자 없는 3단계 그림. 법 조항은 칼럼 검증 기준으로 정정(법무사법 제23조→제24조, 세무사법 조항 번호 삭제)",
+  "date": "2026-11-18"
  },
  {
   "id": "restaurant-viral-marketing#0",
