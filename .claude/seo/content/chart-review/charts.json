@@ -481,7 +481,9 @@
    "5%",
    "5%"
   ],
-  "status": "todo"
+  "status": "redrawn",
+  "note": "\"Naver 55 / Google 35 / Daum 5 / Other 5% (2025, Internetlivestats & KISA)\" → viz paired bars from two named trackers: InternetTrend H1 2026 Naver 64.28 / Google 28.37, StatCounter Jul 2026 Google 49.54 / Naver 40.9. Option A approved 11/20",
+  "date": "2026-11-20"
  },
  {
   "id": "korea-market-entry-naver-seo#3",
@@ -495,7 +497,9 @@
   "nums": [
    "30 K"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "90-day timeline SVG → fx-grid of three planning blocks (days are a plan, not data). Body: KakaoTalk 98%, page-speed −40%, wallet 70% / conversion −20~30%, 1,500 chars / 15 images, 4–6 weeks indexing, 2.4–5× lift, 9–14 reviews, 10k–80k followers, 12+ launches removed; Smart Block label \"VIEW\" → \"Blog · Cafe\" (2024-02 change)",
+  "date": "2026-11-20"
  },
  {
   "id": "korean-advertising-law-compliance#0",
@@ -944,7 +948,9 @@
    "4%",
    "55%"
   ],
-  "status": "todo"
+  "status": "redrawn",
+  "note": "Blended \"Q1 2026\" share Naver 55/Google 32/Daum 5/Bing 4/AI 4% (no method) and 2022→2026 trend (61→55, 27→32) → viz paired bars from two named trackers: InternetTrend H1 2026 Naver 64.28 / Google 28.37 (Digital Daily 2026-07-12), StatCounter Jul 2026 Google 49.54 / Naver 40.9 (Bing 5.44 in text). Option A approved by the user on 11/20",
+  "date": "2026-11-20"
  },
  {
   "id": "naver-vs-google-korea-search#1",
@@ -967,7 +973,9 @@
    "22%",
    "2.4M"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Google share by query type 50/95/88/98/78/70/18/22%, \"2.4M queries\" (Noah log analysis, no raw data) → numberless where-each-engine-wins figure",
+  "date": "2026-11-20"
  },
  {
   "id": "naver-vs-google-korea-search#2",
@@ -982,7 +990,9 @@
    "5. K",
    "6. B"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "Ranking signal weights (internal) → numberless signal comparison (C-Rank / D.I.A. per Digital Daily, Smart Block per etnews 2024-02)",
+  "date": "2026-11-20"
  },
  {
   "id": "naver-vs-google-korea-search#3",
@@ -1004,7 +1014,9 @@
    "1%",
    "5×"
   ],
-  "status": "todo"
+  "status": "converted",
+  "note": "AI search adoption by age 42/9/31/6/15/3/5/1%, 4–5× (internal) → AI-surface figure with verified dates (AI Briefing for all users 2025-03 citing Naver blog/Cafe/Clip, Cue+Clova X closure announced 2026-03, Google AI Mode Korean 2025-09-09); usage figure in text = KMCC·KISDI 2025 panel survey 38.9%",
+  "date": "2026-11-20"
  },
  {
   "id": "new-sns-platforms-2026#0",
