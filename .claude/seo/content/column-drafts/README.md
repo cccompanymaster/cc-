@@ -14,3 +14,7 @@
 ## 발행 현황
 - 1차(2026-10-22): naver-keyword-volume, blog-index, place-review, naver-searchad-cost, hair-salon-marketing, realtor-marketing, ai-blog-writing, experience-cost, marketing-agency-scam, blog-income-tax
 - 10/23~10/30 하루 5편씩 나머지 40편 발행 완료 (schedule.json). 의료 5편은 10/30 법령 대조 후 발행 — 약국 글은 2026-08 약사법 개정(약국 명칭 제한 법률화)을 반영해 고침
+
+## 하루 3편 신규 발행 (2026-11-26~, 대표님 지시)
+- 절차: `COLUMN_DAILY.md` · 주제 대기열: `queue.json`(30개, 위에서부터 3개씩) · 점검: `check_site.py <slug…>`, `overflow.js column/<slug>.html…`
+- 예약 작업이 매일 오전 10:47(KST)에 이 절차를 실행한다
