@@ -28,7 +28,9 @@
 ## 5. 발행
 1. `schedule.json`의 batches에 `{"date": "오늘", "slugs": [3개]}` 추가
 2. `python3 gate.py` — 오늘 slug 줄이 하나도 없어야 통과('키워드 없음' 줄만 예외). 고쳐서 다시.
-3. `python3 publish_day.py --date 오늘` — 빌드·목록 카드·sitemap·feed·인벤토리·역링크·다시 빌드·llms까지 한 번에
+3. `python3 publish_day.py --date 오늘` — 빌드·목록 카드·sitemap·feed·인벤토리·다시 빌드·llms까지 한 번에
+   - 역링크는 직접 넣는다: 기존 칼럼은 모두 원고(specs/·rewrite/ JSON)에서 다시 빌드되므로 HTML에 넣은 링크는 사라진다. 새 글마다 주제가 가까운 기존 칼럼 2곳의 JSON `related`에 새 글을 추가하고 `python3 build_columns.py <그 두 slug…>`로 다시 빌드한다.
+   - 다시 빌드한 기존 칼럼의 diff가 링크·목록 말고 다른 곳(스크립트·head)을 바꾸면 template.html이 낡은 것이다 — 고치고 다시 빌드한다(11/26: attrib.js 누락을 template에 반영함).
 4. 점검: `python3 check_site.py <오늘 slug 3개>` (끊긴 링크 0·LD 오류 0·FAQ 화면=LD) 통과,
    저장소 루트에서 `python3 -m http.server 8796 --bind 127.0.0.1`(백그라운드) 띄우고 `node overflow.js column/<slug>.html …` — 360px 넘침 0. 서버는 끝나면 끈다.
 5. `queue.json` 해당 항목 status를 `발행 YYYY-MM-DD`로.

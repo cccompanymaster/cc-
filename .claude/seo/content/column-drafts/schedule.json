@@ -80,6 +80,14 @@
     "pharmacy-marketing"
    ],
    "before": "의료법 제56·57조, 약사법 광고 조항 현행본을 국가법령정보센터 기준으로 대조하고, 다른 내용이면 원고를 고친 뒤 발행"
+  },
+  {
+   "date": "2026-11-26",
+   "slugs": [
+    "kakao-channel-marketing",
+    "fake-review-penalty",
+    "google-business-profile"
+   ]
   }
  ],
  "published": {
@@ -132,7 +140,10 @@
   "ophthalmology-marketing": "2026-10-30",
   "internal-medicine-marketing": "2026-10-30",
   "nursing-hospital-marketing": "2026-10-30",
-  "pharmacy-marketing": "2026-10-30"
+  "pharmacy-marketing": "2026-10-30",
+  "kakao-channel-marketing": "2026-11-26",
+  "fake-review-penalty": "2026-11-26",
+  "google-business-profile": "2026-11-26"
  },
  "rewrite_batches": [
   {
