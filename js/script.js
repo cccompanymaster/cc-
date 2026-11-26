@@ -1052,6 +1052,29 @@ const inqClose = inqModal?.querySelector('.inquiry-modal-close');
 const inqForm = document.getElementById('inquiryForm');
 const inqSuccess = document.getElementById('inquirySuccess');
 
+// 문의 폼 안내 문구 — 페이지 언어(ko·en·zh)에 맞춰 표시
+const INQ_MSG_ALL = {
+  ko: { required: (l) => `${l}을(를) 입력해주세요.`, labels: { name: '이름', phone: '연락처', email: '이메일', message: '문의 내용' },
+        phone: '연락처를 확인해 주세요.\n휴대폰·유선·해외 번호 모두 가능합니다. 예: 010-1234-5678, 02-123-4567',
+        email: '이메일 형식이 올바르지 않습니다.\n예: you@example.com', interest: '관심 영역을 1개 이상 선택해주세요.',
+        privacy: '개인정보 수집 및 이용에 동의해주세요.', other: '"기타" 선택 시 직접 입력해주세요.',
+        fileSize: '파일 크기는 1MB 이하만 가능합니다.', fileErr: '첨부 파일 처리 중 오류가 발생했습니다. 파일을 다시 선택해주세요.',
+        fail: '접수 여부를 확인하지 못했습니다.\n중복 접수를 피하려면 010-6658-6482로 확인해 주세요.', receipt: '접수번호: ' },
+  en: { required: (l) => `Please enter your ${l}.`, labels: { name: 'name', phone: 'phone number', email: 'email', message: 'message' },
+        phone: 'Please check your phone number.\nAny country is fine, e.g. +1 415 555 0100 or +82 10-1234-5678',
+        email: 'Please enter a valid email address.\nExample: you@example.com', interest: 'Please select at least one area of interest.',
+        privacy: 'Please agree to the collection and use of personal information.', other: 'Please describe "Other".',
+        fileSize: 'Files must be 1MB or smaller.', fileErr: 'We could not read the attachment. Please choose the file again.',
+        fail: 'We could not confirm that your inquiry was received.\nTo avoid a duplicate, please check with us at +82 10-6658-6482.', receipt: 'Reference: ' },
+  zh: { required: (l) => `请填写${l}。`, labels: { name: '姓名', phone: '联系电话', email: '邮箱', message: '咨询内容' },
+        phone: '请检查联系电话。\n可填写任何国家的号码,例:+86 138 0013 8000、+82 10-1234-5678',
+        email: '邮箱格式不正确。\n例:you@example.com', interest: '请至少选择一个关注领域。',
+        privacy: '请同意收集和使用个人信息。', other: '选择"其他"时请填写具体内容。',
+        fileSize: '文件大小须在 1MB 以内。', fileErr: '附件处理出错,请重新选择文件。',
+        fail: '未能确认是否已提交成功。\n为避免重复提交,请致电 +82 10-6658-6482 确认。', receipt: '受理编号: ' },
+};
+const INQ_MSG = INQ_MSG_ALL[(document.documentElement.lang || 'ko').slice(0, 2)] || INQ_MSG_ALL.ko;
+
 // "기타" 체크박스 → 직접 입력칸 토글
 const inqInterestOther = document.getElementById('inq-interest-other');
 const inqInterestOtherText = document.getElementById('inq-interest-other-text');
@@ -1080,7 +1103,7 @@ const updateFileDisplay = (file) => {
     return;
   }
   if (file.size > MAX_ATTACHMENT_BYTES) {
-    alert(`파일 크기가 너무 큽니다 (${(file.size/1024/1024).toFixed(1)}MB). 최대 1MB까지 업로드 가능합니다.`);
+    alert(INQ_MSG.fileSize);
     inqFile.value = '';
     return;
   }
@@ -1179,26 +1202,22 @@ inqForm?.addEventListener('submit', async (e) => {
   const originalHTML = submitBtn?.innerHTML;
 
   // Manual validation (form has novalidate)
-  const required = [
-    { id: 'inq-name', label: '이름' },
-    { id: 'inq-phone', label: '연락처' },
-    { id: 'inq-email', label: '이메일' },
-    { id: 'inq-message', label: '문의 내용' },
-  ];
-  for (const { id, label } of required) {
-    const el = document.getElementById(id);
+  const M = INQ_MSG;
+  for (const key of ['name', 'phone', 'email', 'message']) {
+    const el = document.getElementById('inq-' + key);
     if (!el?.value.trim()) {
       el?.focus();
-      alert(`${label}을(를) 입력해주세요.`);
+      alert(M.required(M.labels[key]));
       return;
     }
   }
-  // 연락처 형식 검증 (01X-XXXX-XXXX, 공백/하이픈/점 허용, 숫자만 있어도 OK)
+  // 연락처 — 휴대폰·유선·해외 번호 모두 허용 (서버 PHONE_RE와 같은 문자·길이, 숫자 8~15자리)
   const phoneEl = document.getElementById('inq-phone');
-  const phoneDigits = (phoneEl?.value || '').replace(/[^\d]/g, '');
-  if (!/^01[016789]\d{7,8}$/.test(phoneDigits)) {
+  const phoneNorm = (phoneEl?.value || '').trim().replace(/\./g, '-').replace(/\s+/g, ' ');
+  const phoneDigits = phoneNorm.replace(/\D/g, '');
+  if (!/^[\d\-+() ]{9,20}$/.test(phoneNorm) || phoneDigits.length < 8 || phoneDigits.length > 15) {
     phoneEl?.focus();
-    alert('연락처를 형식에 맞게 입력해주세요.\n예: 010-1234-5678');
+    alert(M.phone);
     return;
   }
   // 이메일 형식 검증
@@ -1206,20 +1225,20 @@ inqForm?.addEventListener('submit', async (e) => {
   const emailVal = (emailEl?.value || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal)) {
     emailEl?.focus();
-    alert('이메일 형식이 올바르지 않습니다.\n예: you@example.com');
+    alert(M.email);
     return;
   }
   // 관심 영역 1개 이상 선택 필수
   const interestChecked = inqForm.querySelectorAll('input[name="interest"]:checked');
   if (interestChecked.length === 0) {
     inqForm.querySelector('input[name="interest"]')?.focus();
-    alert('관심 영역을 1개 이상 선택해주세요.');
+    alert(M.interest);
     return;
   }
   const privacy = document.getElementById('inq-privacy');
   if (!privacy?.checked) {
     privacy?.focus();
-    alert('개인정보 수집 및 이용에 동의해주세요.');
+    alert(M.privacy);
     return;
   }
 
@@ -1235,7 +1254,7 @@ inqForm?.addEventListener('submit', async (e) => {
   const interestList = interestArr.map(v => v === '기타' && interestOtherVal ? `기타: ${interestOtherVal}` : v);
   if (interestArr.includes('기타') && !interestOtherVal) {
     inqInterestOtherText?.focus();
-    alert('"기타" 선택 시 직접 입력해주세요.');
+    alert(M.other);
     return;
   }
 
@@ -1244,7 +1263,7 @@ inqForm?.addEventListener('submit', async (e) => {
   const file = inqFile?.files?.[0];
   if (file) {
     if (file.size > MAX_ATTACHMENT_BYTES) {
-      alert('파일 크기는 1MB 이하만 가능합니다.');
+      alert(M.fileSize);
       return;
     }
     try {
@@ -1253,7 +1272,7 @@ inqForm?.addEventListener('submit', async (e) => {
       attachment = { name: file.name, type: file.type || 'application/octet-stream', size: file.size, dataBase64: b64 };
     } catch (err) {
       if (submitBtn) submitBtn.disabled = false;
-      alert('첨부 파일 처리 중 오류가 발생했습니다. 파일을 다시 선택해주세요.');
+      alert(M.fileErr);
       return;
     }
   }
@@ -1264,7 +1283,7 @@ inqForm?.addEventListener('submit', async (e) => {
     type: 'inquiry',
     name: (data.get('name') || '').toString().trim(),
     company: (data.get('company') || '').toString().trim(),
-    phone: (data.get('phone') || '').toString().trim(),
+    phone: phoneNorm,
     email: (data.get('email') || '').toString().trim(),
     interests: interestList.join(', '),
     message: (data.get('message') || '').toString().trim(),
@@ -1297,7 +1316,7 @@ inqForm?.addEventListener('submit', async (e) => {
     inqSuccess.hidden = false;
     let label = inqSuccess.querySelector('[data-receipt]');
     if (!label) { label = document.createElement('p'); label.dataset.receipt = ''; inqSuccess.appendChild(label); }
-    label.textContent = '접수번호: ' + receipt.receiptId;
+    label.textContent = M.receipt + receipt.receiptId;
     if (!receipt.duplicate && typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'inquiry_form' });
     if (!inqModal) {
       // 인라인 폼(문의 페이지): 성공 메시지 유지 — 자동 리셋하지 않음
@@ -1320,7 +1339,7 @@ inqForm?.addEventListener('submit', async (e) => {
   } catch (err) {
     console.warn('[Inquiry] 접수 응답 확인 실패');
     if (typeof gtag === 'function') gtag('event', 'form_error', { form: 'inquiry' });
-    alert('접수 여부를 확인하지 못했습니다.\n중복 접수를 피하려면 010-6658-6482로 확인해 주세요.');
+    alert(M.fail);
     if (submitBtn) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalHTML;
