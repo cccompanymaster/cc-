@@ -88,6 +88,14 @@
     "fake-review-penalty",
     "google-business-profile"
    ]
+  },
+  {
+   "date": "2026-11-27",
+   "slugs": [
+    "blog-image-copyright",
+    "customs-broker-marketing",
+    "instagram-ad-start"
+   ]
   }
  ],
  "published": {
@@ -143,7 +151,10 @@
   "pharmacy-marketing": "2026-10-30",
   "kakao-channel-marketing": "2026-11-26",
   "fake-review-penalty": "2026-11-26",
-  "google-business-profile": "2026-11-26"
+  "google-business-profile": "2026-11-26",
+  "blog-image-copyright": "2026-11-27",
+  "customs-broker-marketing": "2026-11-27",
+  "instagram-ad-start": "2026-11-27"
  },
  "rewrite_batches": [
   {
