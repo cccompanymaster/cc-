@@ -96,6 +96,14 @@
     "customs-broker-marketing",
     "instagram-ad-start"
    ]
+  },
+  {
+   "date": "2026-11-28",
+   "slugs": [
+    "flower-shop-marketing",
+    "naver-gfa-ad",
+    "pediatric-clinic-marketing"
+   ]
   }
  ],
  "published": {
@@ -154,7 +162,10 @@
   "google-business-profile": "2026-11-26",
   "blog-image-copyright": "2026-11-27",
   "customs-broker-marketing": "2026-11-27",
-  "instagram-ad-start": "2026-11-27"
+  "instagram-ad-start": "2026-11-27",
+  "flower-shop-marketing": "2026-11-28",
+  "naver-gfa-ad": "2026-11-28",
+  "pediatric-clinic-marketing": "2026-11-28"
  },
  "rewrite_batches": [
   {
